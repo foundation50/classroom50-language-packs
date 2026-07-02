@@ -1,46 +1,43 @@
-# Language-packs repo — Pages publisher (staging copy)
+# classroom50-language-packs
 
-These files belong in the **language-packs repo**
-(`foundation50/classroom50-language-packs`), not in `classroom50`. They are
-staged here for convenience because that repo isn't checked out in this
-workspace.
+Community and machine-generated **language packs** for
+[Classroom 50](https://github.com/foundation50/classroom50) — a self-hosted
+GitHub Classroom. Each `<code>.json` is a translation of the app's base locale
+(`en.json`), installable at runtime with no rebuild.
 
-## What it does
+## How packs are produced
 
-[`.github/workflows/publish-pages.yaml`](.github/workflows/publish-pages.yaml)
-publishes the merged `<code>.json` packs on `main` to GitHub Pages, plus an
-`index.json` manifest listing the published language codes. This makes the packs
-reachable at a public URL while the repo itself stays private (Pages sites are
-public regardless of repo visibility).
+A CI pipeline in the `classroom50` repo regenerates each target language from
+`en.json` with AWS Bedrock and opens a **pull request per language** here. The
+translations reuse the app's translation prompt and are structurally validated
+(key/placeholder parity) before the PR is opened. A human reviews the diff and
+merges to publish — so every published string has been eyeballed at least once.
 
-After deploy, packs are served at:
+Because packs are regenerated from the current `en.json` on each run and read
+the published file back as their baseline, **hand edits are safe**: correct a
+string in a merged pack and the next run preserves it, only re-touching values
+whose English changed.
 
-```
-https://foundation50.github.io/classroom50-language-packs/<code>.json
-https://foundation50.github.io/classroom50-language-packs/index.json
-```
+## Installing
 
-(If a custom domain or user/org Pages site is configured, the base URL differs
-accordingly.)
+Packs are served publicly via GitHub Pages:
 
-## One-time setup on the language repo
+- `https://foundation50.github.io/classroom50-language-packs/<code>.json` — a pack
+- `https://foundation50.github.io/classroom50-language-packs/index.json` — the manifest of published codes
 
-1. Copy this tree into the repo root:
+In the app: account menu (avatar) → **Language** → paste a pack URL, or upload
+the downloaded `.json`. See the
+[language pack guide](https://github.com/foundation50/classroom50/blob/main/web/src/locales/README.md)
+for the full contract (validation rules, partial-pack fallback, placeholders).
 
-   ```
-   .github/workflows/publish-pages.yaml
-   ```
+## Contributing a correction
 
-2. In the language repo: **Settings → Pages → Build and deployment → Source =
-   GitHub Actions**.
+Open a PR editing the relevant `<code>.json` (keep every key and every
+`{{placeholder}}` intact — translate only the values). On merge, GitHub Pages
+redeploys and the CI pipeline preserves your correction going forward.
 
-3. Merge a language PR (or run the workflow manually via **Actions → Publish
-   Pages → Run workflow**). The first push to `main` touching a `*.json` file
-   triggers a deploy.
+## Publishing (maintainers)
 
-## Notes
-
-- Allow-list publishing: only `<code>.json` packs and the generated
-  `index.json` are deployed; anything else in the repo stays unpublished.
-- The `index.json` manifest is what the client localization UI should read to
-  discover available languages, instead of hardcoding the target list.
+`.github/workflows/publish-pages.yaml` deploys the merged packs on `main` to
+GitHub Pages on every push touching a `*.json` file. One-time setup:
+**Settings → Pages → Source = GitHub Actions**.
