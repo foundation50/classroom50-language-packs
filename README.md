@@ -34,7 +34,8 @@ for the full contract (validation rules, partial-pack fallback, placeholders).
 
 Open a PR editing the relevant `<code>.json` (keep every key and every
 `{{placeholder}}` intact — translate only the values). On merge, GitHub Pages
-redeploys and the CI pipeline preserves your correction going forward.
+redeploys and the CI pipeline preserves your correction going forward. See
+[CONTRIBUTING.md](CONTRIBUTING.md) for the full contract and workflow.
 
 ## Publishing (maintainers)
 
