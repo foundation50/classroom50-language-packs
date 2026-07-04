@@ -46,9 +46,11 @@ jobs:
           # Publish each <code>.json language pack at the site root, and build
           # an index.json manifest the client uses to list only the languages
           # that are actually published (a coverage/availability signal), rather
-          # than hardcoding the full target list.
+          # than hardcoding the full target list. Each manifest entry carries a
+          # per-pack content hash so the client can detect an updated pack (and
+          # skip re-downloading unchanged ones) — see #103 in classroom50.
           python3 - <<'PY'
-          import json, glob, os
+          import hashlib, json, glob, os
 
           os.makedirs("_site", exist_ok=True)
           langs = []
@@ -65,7 +67,17 @@ jobs:
               # Copy the pack verbatim to the site root.
               with open(os.path.join("_site", f"{code}.json"), "w", encoding="utf-8") as out:
                   json.dump(bundle, out, ensure_ascii=False)
-              langs.append({"code": code})
+              # Per-pack content hash: the client compares this against the hash
+              # it stored at install time to decide whether to re-download a pack
+              # (see refreshInstalledPacks / registryPackChanged in classroom50).
+              # Canonical serialization (sorted keys, no whitespace) so the hash
+              # is stable regardless of key order or formatting and changes iff
+              # the translated content changes.
+              canonical = json.dumps(
+                  bundle, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+              ).encode("utf-8")
+              digest = hashlib.sha256(canonical).hexdigest()
+              langs.append({"code": code, "hash": digest})
 
           with open("_site/index.json", "w", encoding="utf-8") as fh:
               json.dump({"languages": langs}, fh, ensure_ascii=False)
