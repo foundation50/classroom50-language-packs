@@ -1,4 +1,20 @@
 {
+  "actionsBanner": {
+    "totalActions_one": "{{count}} action",
+    "totalActions_other": "{{count}} actions",
+    "failedActions_one": "{{count}} action failed",
+    "failedActions_other": "{{count}} actions failed",
+    "viewRun": "View run",
+    "retry": "Retry",
+    "retryFailed": "Couldn't re-run the action: {{detail}}",
+    "dismiss": "Dismiss",
+    "workflow": {
+      "publishPages": "Publishing to student site",
+      "collectScores": "Collecting scores",
+      "regrade": "Regrading",
+      "generic": "GitHub Actions workflow"
+    }
+  },
   "common": {
     "goToDashboard": "Go to dashboard",
     "close": "Close",
@@ -67,6 +83,7 @@
     "languageDialogDescription": "Switch languages or install a translated language pack.",
     "signOut": "Sign Out",
     "about": "About",
+    "docs": "Docs",
     "aboutDialogTitle": "Classroom 50",
     "aboutDialogDescription": "Build and version information for this app.",
     "aboutVersion": "Version",
@@ -337,10 +354,11 @@
     "groupSizeRange": "Group size must be a whole number between {{min}} and {{max}}."
   },
   "toasts": {
-    "classroomSettingsSaved": "Classroom settings saved.",
+    "classroomSettingsSaved": "Classroom settings saved. Publishing to the student site now — the banner above tracks progress.",
     "classroomSaveConflict": "Couldn't save — another change landed first. Please try again.",
-    "assignmentCreated": "Assignment created. It may take a moment to appear.",
-    "classroomCreated": "Classroom created. It may take a moment to appear.",
+    "assignmentCreated": "Assignment created. It's publishing to the student site and will appear shortly — the banner above tracks progress.",
+    "publishingAssignment": "Publishing \"{{name}}\" to student site",
+    "classroomCreated": "Classroom created. It's publishing to the student site and will appear shortly — the banner above tracks progress.",
     "invited": "Invited {{who}} to the {{org}} organization.",
     "staffAdded": "Added @{{username}} as {{role}}.",
     "classroomCreateFailed": "Couldn't create classroom: {{message}}",
@@ -680,7 +698,7 @@
   },
   "assignmentSettings": {
     "heading": "Assignment Settings",
-    "editSuccess": "Your assignment has been edited successfully!",
+    "editSuccess": "Your changes were saved and are publishing to the student site — the banner above tracks progress.",
     "loading": "Loading assignment",
     "archivedNotice_prefix": "This classroom is archived — its assignments are read-only. Unarchive it in",
     "archivedNotice_link": "Classroom Settings",
@@ -911,6 +929,13 @@
         "remediation": "Open the org rulesets page to review them, or re-run setup to re-apply. Rulesets may require GitHub Team or Enterprise."
       }
     }
+  },
+  "skeletonDrift": {
+    "title": "Classroom workflow files are out of date",
+    "body": "The GitHub Actions workflows in this org's classroom50 config repo are out of date. Re-run onboarding to update them and keep grading, score collection, and Pages publishing working.",
+    "overwriteWarning_label": "Heads up:",
+    "overwriteWarning": "Updating overwrites the scaffolded workflow files (collect-scores, regrade, publish-pages, autograde-runner) with the defaults, replacing any manual edits — you'll confirm each one first.",
+    "action": "Update workflows"
   },
   "classes": {
     "createTitle": "Create Classroom",
