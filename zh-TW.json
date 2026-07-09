@@ -33,8 +33,8 @@
     "primary": "主要",
     "expandSidebar": "展開側邊欄",
     "collapseSidebar": "收合側邊欄",
-    "allClasses": "所有班級",
-    "allClassesArrow": "‹ 所有班級",
+    "allClasses": "所有課堂",
+    "allClassesArrow": "‹ 所有課堂",
     "allAssignments": "所有作業",
     "allAssignmentsArrow": "‹ 所有作業",
     "accountMenu": "帳號選單",
@@ -46,7 +46,7 @@
     "mySubmission": "我的繳交",
     "manageGroup": "管理群組",
     "acceptAssignment": "接受作業",
-    "myClasses": "我的班級",
+    "myClasses": "我的課堂",
     "myAssignments": "我的作業",
     "published": "已發佈",
     "members": "成員",
@@ -81,7 +81,13 @@
     "aboutReportIssueHint": "發現錯誤或有功能建議嗎？",
     "aboutSupportTitle": "意見回饋與支援",
     "aboutVersion": "版本",
-    "docs": "文件"
+    "docs": "文件",
+    "aboutDiagnosticsCopied": "已複製",
+    "aboutDiagnosticsCopy": "複製診斷資訊",
+    "aboutDiagnosticsHint": "複製技術細節以附在錯誤回報或支援討論串中。不會傳送任何資料到任何地方，只會填入您的剪貼簿。",
+    "aboutDiagnosticsShow": "顯示診斷資訊",
+    "aboutDiagnosticsTitle": "診斷資訊",
+    "activity": "動態"
   },
   "auth": {
     "signInTitle": "登入",
@@ -114,7 +120,30 @@
     "reauthorize": "重新授權",
     "reauthorizeHint": "若重新授權仍無法解決此問題，可能需要組織擁有者在組織的 OAuth 政策設定中核准此應用程式。",
     "signedInConfirmed": "已登入 - 你的工作階段有效中",
-    "verifyingSession": "正在驗證你的工作階段…"
+    "verifyingSession": "正在驗證你的工作階段…",
+    "errorClientIdMissing": "尚未設定 GitHub OAuth client ID（VITE_GITHUB_CLIENT_ID）。",
+    "errorDeviceDeclined": "您已拒絕此授權要求。",
+    "errorDeviceExpired": "裝置代碼已過期。請再試一次。",
+    "errorDeviceNoToken": "Token 端點未回傳 access_token，也沒有回傳錯誤。",
+    "errorMissingPkce": "缺少 PKCE 驗證器或 client ID。請重新登入。",
+    "errorNetwork": "連線至 {{target}} 時發生網路錯誤，可能已停止服務或無法連線。",
+    "errorNetworkProxyTarget": "Cloudflare Worker 代理伺服器",
+    "errorOffline": "您似乎已離線。請檢查連線後再試一次——登入需要網路連線。",
+    "errorPatFineGrained": "這看起來是 fine-grained token，無法驗證。請改用具備上列權限範圍的 classic token。",
+    "errorPatMissingScopes": "此 token 缺少必要的權限範圍：{{scopes}}。請新增後再試一次。",
+    "errorPatRejected401": "此 token 被 GitHub 拒絕（401）。請確認它有效且未過期。",
+    "errorStateMismatch": "狀態不符——可能為 CSRF。請重新登入。",
+    "offlineHold": "您目前離線。正在等待連線以還原您的工作階段……",
+    "otherSignInMethods": "其他登入方式",
+    "patCancel": "取消",
+    "patCreateTokenLink": "建立已預先選取這些權限範圍的 token",
+    "patFineGrainedNote": "不支援 fine-grained token——請使用 classic token。",
+    "patInstructions": "貼上 GitHub 個人存取權杖（classic）即可直接登入，無需經過 OAuth 代理。此 token 必須勾選以下權限範圍：",
+    "patStorageNote": "此 token 儲存在本瀏覽器的 local storage 中，與其他登入方式取得的 token 相同。",
+    "patSubmit": "使用 token 登入",
+    "patTitle": "使用個人存取權杖登入",
+    "patTokenLabel": "個人存取權杖",
+    "usePersonalAccessToken": "改用個人存取權杖"
   },
   "documentTitle": {
     "assignments": "作業",
@@ -133,7 +162,8 @@
     "newClassroom": "新增課堂",
     "classes": "課堂",
     "mySubmission": "我的繳交",
-    "submissions": "繳交內容"
+    "submissions": "繳交內容",
+    "activity": "動態"
   },
   "students": {
     "addTitle": "新增學生",
@@ -390,10 +420,7 @@
     "shareCopy": "複製",
     "shareCopied": "已複製",
     "installedTitle": "已安裝的語言包",
-    "browseTitle": "新增語言",
-    "browseHint": "安裝現成的翻譯。這些翻譯是根據基礎語言產生，並在發佈前經過審閱。",
     "browseLoading": "正在載入可用的語言…",
-    "browseEmpty": "目前沒有其他可用的語言。",
     "installTitle": "從檔案或網址安裝",
     "installHint": "安裝語言包：翻譯基礎的 en.json 並在此載入。語言代碼會從檔案名稱偵測；只有在偵測失敗時，才需在下方輸入。",
     "codePlaceholder": "語言代碼（例如 de）",
@@ -413,7 +440,11 @@
     "errorRegistry": "無法載入可用的語言，請再試一次。",
     "errorGeneric": "無法安裝語言包。",
     "updatedToast_one": "已將 {{list}} 語言套件更新至最新翻譯。",
-    "updatedToast_other": "已將 {{count}} 個語言套件（{{list}}）更新至最新翻譯。"
+    "updatedToast_other": "已將 {{count}} 個語言套件（{{list}}）更新至最新翻譯。",
+    "activeHint": "選擇已安裝的語言，或選取標示 ⬇ 的語言以下載並安裝。",
+    "optionDownload": "⬇ {{language}}",
+    "sourceRegistry": "登錄檔",
+    "sourceUser": "由您載入"
   },
   "validation": {
     "githubOrEmailRequired": "請輸入 GitHub 使用者名稱或電子郵件。",
@@ -437,12 +468,10 @@
   },
   "orgs": {
     "headingCl50": "Classroom 50 組織",
-    "headingSetUp": "設定新的 Classroom 50 組織",
     "loadingTitle": "正在載入您的組織…",
     "loadingSubtitle": "這可能需要一點時間。",
     "emptyTitle": "尚無 Classroom 50 組織",
     "emptyBody": "您所屬且使用 Classroom 50 的組織會顯示在這裡。如果您預期會有一個，請請授課教師確認已將您加入，然後重新整理。",
-    "showUnsupported": "顯示不支援的組織",
     "missingNotice": {
       "title": "沒看到您的組織嗎？",
       "body": "Classroom 50 只能顯示您在登入時明確授予存取權的 GitHub 組織。如果缺少某個組織，您可能需要更新您的 OAuth 權限。",
@@ -458,8 +487,42 @@
       "viewOnGitHub": "在 GitHub 上檢視",
       "openOnGitHub": "在 GitHub 上開啟 {{org}}",
       "open": "開啟",
+      "updatedAgo": "更新於 {{when}}"
+    },
+    "newOrg": {
+      "allSetUp": "您所有的組織皆已完成設定。",
+      "button": "設定新組織",
+      "createOnGitHub": "在 GitHub 上建立組織",
+      "description": "選擇您其中一個 GitHub 組織來設定 Classroom 50。找不到想要的組織嗎？請先在 GitHub 上建立。",
+      "freePlanDisabled": "免費方案——Classroom 50 需要 Team 或 Enterprise 組織",
+      "pickPrompt": "可供設定的組織",
       "setUp": "設定",
-      "askTeacher": "向教師索取存取權"
+      "title": "設定新的 Classroom 50 組織"
+    },
+    "noResults": {
+      "body": "沒有組織符合「{{query}}」。",
+      "clear": "清除搜尋",
+      "title": "沒有組織符合您的搜尋"
+    },
+    "setUpFirst": {
+      "body": "您擁有尚未設定的組織。設定 Classroom 50 即可開始建立課堂與作業。",
+      "cta": "設定組織",
+      "title": "設定您的第一個 Classroom 50 組織"
+    },
+    "toolbar": {
+      "searchLabel": "搜尋組織",
+      "searchPlaceholder": "搜尋組織……",
+      "sort": {
+        "label": "排序",
+        "lastModified": "最後修改",
+        "nameAsc": "名稱（A–Z）",
+        "status": "狀態"
+      },
+      "view": {
+        "gridLabel": "格狀檢視",
+        "label": "檢視",
+        "listLabel": "清單檢視"
+      }
     }
   },
   "assignments": {
@@ -879,7 +942,6 @@
       "changeThemOn_other": "——請在",
       "gitHub": "GitHub",
       "orUseFixIt": " 上變更（或使用「修正」）",
-      "managedByEnterprise": "由企業管理——請手動設定",
       "readError": "無法讀取組織以稽核鎖定狀態。請檢查你的存取權限並重試。",
       "driftCanFix": "對偏離的設定使用「修正」，或在下方重新執行設定以一次重新套用所有項目。",
       "driftCannotFix": "請組織擁有者修復這些偏離——這些變更需要擁有者權限。",
@@ -887,7 +949,11 @@
       "confirmByHandBody": "GitHub 沒有提供讀取這些設定的 API，因此我們無法自動驗證——請在成員權限頁面上逐一確認。",
       "confirmManually": "手動確認",
       "memberPermsToggle": "我們設定的成員權限",
-      "memberPermsHint": "Classroom 50 所設定的組織成員權限完整清單，包含已就緒的項目。偏離的項目會在上方標示。"
+      "memberPermsHint": "Classroom 50 所設定的組織成員權限完整清單，包含已就緒的項目。偏離的項目會在上方標示。",
+      "couldntAutoConfigure": "我們無法自動設定此項。當設定由企業或組織政策管理，或帳號缺少權限時，可能會發生這種情形。請在連結頁面上手動設定。",
+      "fixTransient": "未能完成——這可能是暫時的頻率限制，或儲存庫仍在初始化中。請稍後再試一次。",
+      "needsManualSetup": "需要手動設定",
+      "requiresManualFix": "手動設定"
     },
     "rerun": {
       "title": "重新執行設定",
@@ -1055,12 +1121,12 @@
     "noStudents": "沒有學生",
     "viewAssignments": "檢視作業",
     "editClassAria": "編輯 {{name}}",
-    "editClassTitle": "編輯作業",
+    "editClassTitle": "編輯課堂",
     "githubOrganization": "GitHub 組織",
-    "myClasses": "我的課程",
+    "myClasses": "我的課堂",
     "myAssignments": "我的作業",
     "manageSubtitle": "管理你的課程與作業。",
-    "newClass": "+ 新增課程",
+    "newClass": "新增課堂",
     "empty": {
       "title": "尚無課程",
       "body": "建立你的第一個課程，即可開始新增作業、匯入學生及管理繳交內容。",
@@ -1077,7 +1143,8 @@
     "filter": {
       "active": "使用中",
       "archived": "已封存",
-      "all": "全部"
+      "all": "全部",
+      "label": "依狀態篩選"
     },
     "repo": {
       "manageGroupAria": "管理 {{assignment}} 的群組",
@@ -1132,6 +1199,51 @@
       "removedToast": "已將 @{{login}} 從{{role}}移除。",
       "removeFailed": "無法移除 @{{login}}：{{error}}",
       "removeRole": "移除{{role}}"
+    },
+    "card": {
+      "actionsAria": "{{name}} 的操作",
+      "assignmentCount_one": "{{count}} 項作業",
+      "assignmentCount_other": "{{count}} 項作業",
+      "countsUnavailable": "無法取得數量",
+      "delete": "刪除課堂",
+      "edit": "編輯課堂",
+      "loadingAssignments": "正在載入作業數量……",
+      "loadingStudents": "正在載入學生人數……",
+      "noAssignments": "尚無作業",
+      "viewOnGitHub": "在 GitHub 上檢視"
+    },
+    "deleteFailed": "無法刪除 {{classroom}}：{{error}}",
+    "deleteNoop": "{{classroom}} 已被刪除。",
+    "deleteTeamWarning": "已刪除 {{classroom}}，但部分 GitHub 團隊無法移除。請在組織的團隊設定中手動刪除。",
+    "deletedToast": "已刪除 {{classroom}}。",
+    "emptyFilter": {
+      "active": "沒有進行中的課堂。",
+      "all": "尚無課堂。",
+      "archived": "沒有已封存的課堂。"
+    },
+    "noResults": {
+      "body": "沒有課堂符合「{{query}}」。",
+      "clear": "清除搜尋",
+      "title": "沒有課堂符合您的搜尋"
+    },
+    "toolbar": {
+      "allTerms": "所有學期",
+      "searchLabel": "搜尋課堂",
+      "searchPlaceholder": "搜尋課堂……",
+      "sort": {
+        "label": "排序",
+        "nameAsc": "名稱（A–Z）",
+        "studentCount": "學生人數",
+        "term": "學期"
+      },
+      "sortPrefix": "排序",
+      "termLabel": "依學期篩選",
+      "termPrefix": "學期",
+      "view": {
+        "gridLabel": "格狀檢視",
+        "label": "檢視",
+        "listLabel": "清單檢視"
+      }
     }
   },
   "accept": {
@@ -1280,8 +1392,7 @@
       "searchAria": "搜尋繳交內容",
       "sectionAria": "依分組篩選",
       "allSections": "所有分組",
-      "submissionAria": "依繳交狀態篩選",
-      "allSubmissions": "所有繳交內容",
+      "submissionAria": "依繳交或接受狀態篩選",
       "submitted": "已繳交",
       "onTime": "準時",
       "late": "逾期",
@@ -1290,8 +1401,6 @@
       "allGrades": "所有成績",
       "passing": "及格",
       "failing": "不及格",
-      "acceptedAria": "依接受狀態篩選",
-      "allAcceptance": "所有接受狀態",
       "accepted": "已接受",
       "notAccepted": "未接受",
       "clear": "清除",
@@ -1299,7 +1408,12 @@
       "sortRecent": "最新優先",
       "sortOldest": "最舊優先",
       "sortNameAsc": "名稱 A–Z",
-      "sortNameDesc": "名稱 Z–A"
+      "sortNameDesc": "名稱 Z–A",
+      "allStatuses": "所有狀態",
+      "passingLabel": "成績",
+      "sectionLabel": "分組",
+      "sortLabel": "排序",
+      "submissionLabel": "狀態"
     },
     "table": {
       "captionGroup": "組別繳交內容",
@@ -1310,7 +1424,6 @@
       "colScore": "分數",
       "colLastSubmitted": "上次繳交",
       "colActions": "操作",
-      "emptyState": "沒有符合目前篩選條件的繳交內容。",
       "openGroupRepo": "開啟共用的組別儲存庫",
       "hideSubmissions": "隱藏繳交內容",
       "showSubmissions": "顯示所有繳交內容",
@@ -1338,7 +1451,16 @@
       "reviewAria": "開啟回饋合併請求",
       "fullHistory_prefix": "開啟",
       "fullHistory_link": "儲存庫",
-      "fullHistory_suffix": "以檢視完整的提交歷程。"
+      "fullHistory_suffix": "以檢視完整的提交歷程。",
+      "acceptedAwaiting": "已接受 · 等待繳交",
+      "emptyClearFilters": "清除篩選條件",
+      "emptyFilteredBody": "請嘗試其他搜尋，或清除篩選條件以查看所有人。",
+      "emptyFilteredTitle": "沒有繳交符合您的篩選條件",
+      "emptyNoDataBody": "當學生接受作業並推送後，其繳交內容會顯示於此。使用「立即收集」以取得最新內容。",
+      "emptyNoDataTitle": "尚未收集到任何繳交",
+      "noGroup": "未列入任何計分小組",
+      "noGroupTitle": "此學生未列入任何有繳交的小組儲存庫。小組成員資格是在收集時從各儲存庫的協作者讀取的，因此從未加入小組的學生——或上次收集時無法讀取小組成員資格的學生——會顯示於此。評分前請開啟小組儲存庫確認。",
+      "notAccepted": "未接受"
     },
     "reviewModal": {
       "errorTitle": "無法檢查是否有回饋 PR",
@@ -1377,7 +1499,16 @@
       "fallbackTitle": "繳交",
       "missingParams": "缺少課程或作業資訊。"
     },
-    "viewSourceRepo": "檢視來源儲存庫"
+    "viewSourceRepo": "檢視來源儲存庫",
+    "justNow": "剛剛",
+    "menu": {
+      "actions": "操作",
+      "invite": "邀請連結",
+      "metrics": "統計數據"
+    },
+    "metrics": {
+      "title": "繳交統計數據"
+    }
   },
   "orgMembers": {
     "heading": "成員",
@@ -1498,7 +1629,7 @@
     },
     "breadcrumb": {
       "label": "導覽路徑",
-      "classes": "課程",
+      "classes": "課堂",
       "assignments": "作業"
     },
     "planBadge": {
@@ -1676,6 +1807,73 @@
       "instructionsUrlless": "請從你學校的學習管理系統（LMS）內開啟此連結，先透過單一登入登入，或重新以 GitHub 驗證，然後重新載入此頁面。",
       "instructionsWithUrl": "請使用下方按鈕為此組織授權單一登入，然後重新載入此頁面。",
       "title": "授權單一登入"
+    }
+  },
+  "appUpdate": {
+    "action": "立即重新載入",
+    "body": "重新載入頁面以取得最新版本。",
+    "title": "Classroom 50 有新版本可用"
+  },
+  "offline": {
+    "body": "Classroom 50 使用來自 GitHub 的即時資料，因此需要網路連線。恢復連線後，此橫幅會自動消失。",
+    "title": "您目前離線"
+  },
+  "orgActivity": {
+    "clear": "清除",
+    "clearFilters": "清除",
+    "detail": {
+      "source": "於 {{location}}",
+      "status": "HTTP {{code}}"
+    },
+    "diagnostics": {
+      "copied": "已複製",
+      "copy": "複製到剪貼簿",
+      "description": "可貼入錯誤回報或支援討論串的技術細節。不會傳送任何資料到任何地方——只會填入您的剪貼簿。",
+      "title": "診斷資訊"
+    },
+    "empty": {
+      "body": "設定變更、工作流程執行以及本工作階段的錯誤將顯示於此。",
+      "title": "尚無動態"
+    },
+    "exportCsv": "匯出 CSV",
+    "filters": {
+      "allSources": "所有來源",
+      "allTypes": "所有類型",
+      "source": "來源：",
+      "type": "類型："
+    },
+    "heading": "動態",
+    "loadOlder": "載入更早的",
+    "loading": "正在載入動態……",
+    "noMatch": {
+      "body": "請嘗試其他搜尋或清除篩選條件。",
+      "title": "沒有符合的動態"
+    },
+    "partialError": "部分動態無法載入。僅顯示可取得的內容。",
+    "searchLabel": "搜尋動態",
+    "searchPlaceholder": "搜尋動態……",
+    "showDiagnostics": "顯示診斷資訊",
+    "source": {
+      "commit": "設定變更",
+      "run": "工作流程執行",
+      "session": "本工作階段"
+    },
+    "status": {
+      "error": "失敗",
+      "info": "",
+      "ok": "已完成",
+      "running": "執行中"
+    },
+    "subtitle": "此組織的設定變更、工作流程執行以及本工作階段的錯誤，最新的優先顯示。",
+    "type": {
+      "action": "動作",
+      "assignment": "作業",
+      "classroom": "課堂",
+      "config": "設定",
+      "error": "錯誤",
+      "run": "工作流程執行",
+      "scores": "分數",
+      "student": "學生"
     }
   }
 }

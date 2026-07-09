@@ -81,7 +81,13 @@
     "aboutReportIssueHint": "버그를 발견했거나 기능 요청이 있으신가요?",
     "aboutSupportTitle": "피드백 및 지원",
     "aboutVersion": "버전",
-    "docs": "문서"
+    "docs": "문서",
+    "aboutDiagnosticsCopied": "복사됨",
+    "aboutDiagnosticsCopy": "진단 정보 복사",
+    "aboutDiagnosticsHint": "버그 리포트나 지원 스레드에 포함할 기술 세부 정보를 복사합니다. 어디에도 데이터가 전송되지 않으며, 클립보드에만 저장됩니다.",
+    "aboutDiagnosticsShow": "진단 정보 표시",
+    "aboutDiagnosticsTitle": "진단",
+    "activity": "활동"
   },
   "auth": {
     "signInTitle": "로그인",
@@ -114,7 +120,30 @@
     "reauthorize": "다시 승인",
     "reauthorizeHint": "다시 승인해도 이 문제가 해결되지 않으면, 조직 소유자가 조직의 OAuth 정책 설정에서 앱을 승인해야 할 수 있습니다.",
     "signedInConfirmed": "로그인됨 - 세션이 활성 상태입니다",
-    "verifyingSession": "세션 확인 중..."
+    "verifyingSession": "세션 확인 중...",
+    "errorClientIdMissing": "GitHub OAuth 클라이언트 ID가 구성되지 않았습니다(VITE_GITHUB_CLIENT_ID).",
+    "errorDeviceDeclined": "인증 요청을 거부했습니다.",
+    "errorDeviceExpired": "장치 코드가 만료되었습니다. 다시 시도하세요.",
+    "errorDeviceNoToken": "토큰 엔드포인트가 access_token도 오류도 반환하지 않았습니다.",
+    "errorMissingPkce": "PKCE 검증자 또는 클라이언트 ID가 없습니다. 다시 로그인해 보세요.",
+    "errorNetwork": "{{target}}에 연결하는 중 네트워크 오류가 발생했습니다. 다운되었거나 연결할 수 없을 수 있습니다.",
+    "errorNetworkProxyTarget": "Cloudflare Worker 프록시",
+    "errorOffline": "오프라인 상태인 것 같습니다. 연결을 확인하고 다시 시도하세요. 로그인하려면 네트워크 연결이 필요합니다.",
+    "errorPatFineGrained": "이는 fine-grained 토큰으로 보이며, 확인할 수 없습니다. 위에 나열된 범위를 가진 classic 토큰을 사용하세요.",
+    "errorPatMissingScopes": "이 토큰에는 필수 범위가 없습니다: {{scopes}}. 추가한 후 다시 시도하세요.",
+    "errorPatRejected401": "이 토큰이 GitHub에서 거부되었습니다(401). 유효하며 만료되지 않았는지 확인하세요.",
+    "errorStateMismatch": "State 불일치 -- CSRF일 수 있습니다. 다시 로그인해 보세요.",
+    "offlineHold": "오프라인 상태입니다. 세션을 복구하기 위해 연결을 기다리는 중…",
+    "otherSignInMethods": "다른 로그인 방법",
+    "patCancel": "취소",
+    "patCreateTokenLink": "이 범위가 미리 선택된 토큰 만들기",
+    "patFineGrainedNote": "Fine-grained 토큰은 지원되지 않습니다 — classic 토큰을 사용하세요.",
+    "patInstructions": "OAuth 프록시 없이 바로 로그인하려면 GitHub 개인용 액세스 토큰(classic)을 붙여넣으세요. 토큰에는 다음 범위가 선택되어 있어야 합니다:",
+    "patStorageNote": "토큰은 다른 로그인 방법의 토큰과 마찬가지로 이 브라우저의 로컬 저장소에 저장됩니다.",
+    "patSubmit": "토큰으로 로그인",
+    "patTitle": "개인용 액세스 토큰으로 로그인",
+    "patTokenLabel": "개인용 액세스 토큰",
+    "usePersonalAccessToken": "개인용 액세스 토큰 사용"
   },
   "documentTitle": {
     "assignments": "과제",
@@ -133,7 +162,8 @@
     "newClassroom": "새 클래스룸",
     "classes": "클래스",
     "mySubmission": "내 제출물",
-    "submissions": "제출물"
+    "submissions": "제출물",
+    "activity": "활동"
   },
   "students": {
     "addTitle": "학생 추가",
@@ -390,10 +420,7 @@
     "shareCopy": "복사",
     "shareCopied": "복사됨",
     "installedTitle": "설치된 팩",
-    "browseTitle": "언어 추가",
-    "browseHint": "이미 만들어진 번역을 설치하세요. 기본 언어를 바탕으로 생성되며 게시 전에 검토됩니다.",
     "browseLoading": "사용 가능한 언어를 불러오는 중…",
-    "browseEmpty": "현재 추가로 사용할 수 있는 언어가 없습니다.",
     "installTitle": "파일 또는 URL에서 설치",
     "installHint": "언어 팩을 설치하세요: 기본 en.json을 번역한 뒤 여기에서 불러오면 됩니다. 언어 코드는 파일 이름에서 자동으로 감지되며, 감지되지 않을 때만 아래에 입력하세요.",
     "codePlaceholder": "언어 코드 (예: de)",
@@ -413,7 +440,11 @@
     "errorRegistry": "사용 가능한 언어를 불러올 수 없습니다. 다시 시도하세요.",
     "errorGeneric": "언어 팩을 설치할 수 없습니다.",
     "updatedToast_one": "{{list}} 언어 팩을 최신 번역으로 업데이트했습니다.",
-    "updatedToast_other": "언어 팩 {{count}}개({{list}})를 최신 번역으로 업데이트했습니다."
+    "updatedToast_other": "언어 팩 {{count}}개({{list}})를 최신 번역으로 업데이트했습니다.",
+    "activeHint": "설치된 언어를 선택하거나, ⬇ 표시된 언어를 골라 다운로드하여 설치하세요.",
+    "optionDownload": "⬇ {{language}}",
+    "sourceRegistry": "레지스트리",
+    "sourceUser": "직접 불러옴"
   },
   "validation": {
     "githubOrEmailRequired": "GitHub 사용자 이름 또는 이메일을 입력하세요.",
@@ -437,12 +468,10 @@
   },
   "orgs": {
     "headingCl50": "Classroom 50 조직",
-    "headingSetUp": "새 Classroom 50 조직 설정",
     "loadingTitle": "조직을 불러오는 중…",
     "loadingSubtitle": "잠시 시간이 걸릴 수 있습니다.",
     "emptyTitle": "아직 Classroom 50 조직이 없습니다",
     "emptyBody": "회원으로 소속되어 있으면서 Classroom 50을 사용하는 조직이 여기에 표시됩니다. 표시될 것으로 예상된다면 담당 교사에게 본인이 추가되었는지 확인을 요청한 뒤 새로 고침하세요.",
-    "showUnsupported": "지원되지 않는 조직 표시",
     "missingNotice": {
       "title": "조직이 보이지 않나요?",
       "body": "Classroom 50은 로그인 시 명시적으로 접근 권한을 부여한 GitHub 조직만 표시할 수 있습니다. 조직이 보이지 않는다면 OAuth 권한을 업데이트해야 할 수 있습니다.",
@@ -458,8 +487,42 @@
       "viewOnGitHub": "GitHub에서 보기",
       "openOnGitHub": "GitHub에서 {{org}} 열기",
       "open": "열기",
+      "updatedAgo": "{{when}} 업데이트됨"
+    },
+    "newOrg": {
+      "allSetUp": "모든 조직이 이미 설정되었습니다.",
+      "button": "새 조직 설정",
+      "createOnGitHub": "GitHub에서 조직 만들기",
+      "description": "Classroom 50을 구성할 GitHub 조직을 선택하세요. 원하는 조직이 보이지 않나요? 먼저 GitHub에서 만드세요.",
+      "freePlanDisabled": "무료 플랜 — Classroom 50에는 Team 또는 Enterprise 조직이 필요합니다",
+      "pickPrompt": "설정 준비가 된 조직",
       "setUp": "설정",
-      "askTeacher": "교사에게 접근 권한 요청"
+      "title": "새 Classroom 50 조직 설정"
+    },
+    "noResults": {
+      "body": "“{{query}}”과(와) 일치하는 조직이 없습니다.",
+      "clear": "검색 지우기",
+      "title": "검색과 일치하는 조직이 없습니다"
+    },
+    "setUpFirst": {
+      "body": "아직 설정되지 않은 조직을 소유하고 있습니다. Classroom 50을 구성하여 클래스와 과제를 만들기 시작하세요.",
+      "cta": "조직 설정",
+      "title": "첫 Classroom 50 조직 설정"
+    },
+    "toolbar": {
+      "searchLabel": "조직 검색",
+      "searchPlaceholder": "조직 검색…",
+      "sort": {
+        "label": "정렬",
+        "lastModified": "마지막 수정",
+        "nameAsc": "이름 (가나다순)",
+        "status": "상태"
+      },
+      "view": {
+        "gridLabel": "그리드 보기",
+        "label": "보기",
+        "listLabel": "목록 보기"
+      }
     }
   },
   "assignments": {
@@ -879,7 +942,6 @@
       "changeThemOn_other": "— 다음에서 변경하세요:",
       "gitHub": "GitHub",
       "orUseFixIt": " (또는 \"수정하기\"를 사용하세요)",
-      "managedByEnterprise": "엔터프라이즈에서 관리 — 수동으로 설정",
       "readError": "잠금 상태를 감사하기 위해 조직을 읽을 수 없습니다. 접근 권한을 확인하고 다시 시도하세요.",
       "driftCanFix": "벗어난 설정에서 “수정하기”를 사용하거나, 아래에서 설정을 다시 실행하여 모든 항목을 한 번에 다시 적용하세요.",
       "driftCannotFix": "조직 소유자에게 이 불일치를 복구해 달라고 요청하세요. 이러한 변경에는 소유자 권한이 필요합니다.",
@@ -887,7 +949,11 @@
       "confirmByHandBody": "GitHub는 이러한 설정을 읽을 수 있는 API를 제공하지 않으므로 자동으로 검증할 수 없습니다. 멤버 권한 페이지에서 각 항목을 직접 확인하세요.",
       "confirmManually": "수동으로 확인",
       "memberPermsToggle": "우리가 구성하는 멤버 권한",
-      "memberPermsHint": "이미 적용된 항목을 포함하여 Classroom 50이 설정하는 조직 멤버 권한의 전체 목록입니다. 벗어난 항목은 위에 표시됩니다."
+      "memberPermsHint": "이미 적용된 항목을 포함하여 Classroom 50이 설정하는 조직 멤버 권한의 전체 목록입니다. 벗어난 항목은 위에 표시됩니다.",
+      "couldntAutoConfigure": "이 설정을 자동으로 지정할 수 없었습니다. 엔터프라이즈 또는 조직 정책이 해당 설정을 관리하거나 계정에 권한이 없을 때 발생할 수 있습니다. 연결된 페이지에서 수동으로 설정하세요.",
+      "fixTransient": "적용되지 않았습니다 — 일시적인 속도 제한이거나 저장소가 아직 초기화 중일 수 있습니다. 잠시 후 다시 시도하세요.",
+      "needsManualSetup": "수동 설정 필요",
+      "requiresManualFix": "수동으로 설정"
     },
     "rerun": {
       "title": "설정 다시 실행",
@@ -1055,12 +1121,12 @@
     "noStudents": "학생 없음",
     "viewAssignments": "과제 보기",
     "editClassAria": "{{name}} 편집",
-    "editClassTitle": "과제 편집",
+    "editClassTitle": "클래스 편집",
     "githubOrganization": "GitHub 조직",
     "myClasses": "내 클래스",
     "myAssignments": "내 과제",
     "manageSubtitle": "강좌와 과제를 관리하세요.",
-    "newClass": "+ 새 클래스",
+    "newClass": "새 클래스",
     "empty": {
       "title": "아직 클래스가 없습니다",
       "body": "첫 클래스를 만들어 과제를 추가하고 학생을 가져오며 제출물을 관리하세요.",
@@ -1077,7 +1143,8 @@
     "filter": {
       "active": "활성",
       "archived": "보관됨",
-      "all": "전체"
+      "all": "전체",
+      "label": "상태로 필터링"
     },
     "repo": {
       "manageGroupAria": "{{assignment}}의 그룹 관리",
@@ -1132,6 +1199,51 @@
       "removedToast": "@{{login}}을(를) {{role}}에서 제거했습니다.",
       "removeFailed": "@{{login}}을(를) 제거하지 못했습니다: {{error}}",
       "removeRole": "{{role}} 제거"
+    },
+    "card": {
+      "actionsAria": "{{name}} 작업",
+      "assignmentCount_one": "과제 {{count}}개",
+      "assignmentCount_other": "과제 {{count}}개",
+      "countsUnavailable": "개수를 확인할 수 없음",
+      "delete": "클래스 삭제",
+      "edit": "클래스 편집",
+      "loadingAssignments": "과제 수 불러오는 중…",
+      "loadingStudents": "학생 수 불러오는 중…",
+      "noAssignments": "과제 없음",
+      "viewOnGitHub": "GitHub에서 보기"
+    },
+    "deleteFailed": "{{classroom}}을(를) 삭제할 수 없습니다: {{error}}",
+    "deleteNoop": "{{classroom}}은(는) 이미 삭제되었습니다.",
+    "deleteTeamWarning": "{{classroom}}을(를) 삭제했지만 일부 GitHub 팀을 제거할 수 없었습니다. 조직의 팀 설정에서 수동으로 삭제하세요.",
+    "deletedToast": "{{classroom}}을(를) 삭제했습니다.",
+    "emptyFilter": {
+      "active": "활성 클래스가 없습니다.",
+      "all": "아직 클래스가 없습니다.",
+      "archived": "보관된 클래스가 없습니다."
+    },
+    "noResults": {
+      "body": "“{{query}}”과(와) 일치하는 클래스가 없습니다.",
+      "clear": "검색 지우기",
+      "title": "검색과 일치하는 클래스가 없습니다"
+    },
+    "toolbar": {
+      "allTerms": "모든 학기",
+      "searchLabel": "클래스 검색",
+      "searchPlaceholder": "클래스 검색…",
+      "sort": {
+        "label": "정렬",
+        "nameAsc": "이름 (가나다순)",
+        "studentCount": "학생 수",
+        "term": "학기"
+      },
+      "sortPrefix": "정렬",
+      "termLabel": "학기로 필터링",
+      "termPrefix": "학기",
+      "view": {
+        "gridLabel": "그리드 보기",
+        "label": "보기",
+        "listLabel": "목록 보기"
+      }
     }
   },
   "accept": {
@@ -1280,8 +1392,7 @@
       "searchAria": "제출물 검색",
       "sectionAria": "분반으로 필터링",
       "allSections": "모든 분반",
-      "submissionAria": "제출 상태로 필터링",
-      "allSubmissions": "모든 제출물",
+      "submissionAria": "제출 또는 수락 상태로 필터링",
       "submitted": "제출됨",
       "onTime": "정시",
       "late": "지각",
@@ -1290,8 +1401,6 @@
       "allGrades": "모든 성적",
       "passing": "통과",
       "failing": "미통과",
-      "acceptedAria": "수락 상태로 필터링",
-      "allAcceptance": "모든 수락 상태",
       "accepted": "수락됨",
       "notAccepted": "미수락",
       "clear": "지우기",
@@ -1299,7 +1408,12 @@
       "sortRecent": "최신순",
       "sortOldest": "오래된순",
       "sortNameAsc": "이름 오름차순(가–하)",
-      "sortNameDesc": "이름 내림차순(하–가)"
+      "sortNameDesc": "이름 내림차순(하–가)",
+      "allStatuses": "모든 상태",
+      "passingLabel": "등급",
+      "sectionLabel": "분반",
+      "sortLabel": "정렬",
+      "submissionLabel": "상태"
     },
     "table": {
       "captionGroup": "그룹 제출물",
@@ -1310,7 +1424,6 @@
       "colScore": "점수",
       "colLastSubmitted": "마지막 제출",
       "colActions": "작업",
-      "emptyState": "현재 필터와 일치하는 제출물이 없습니다.",
       "openGroupRepo": "공유 그룹 저장소 열기",
       "hideSubmissions": "제출물 숨기기",
       "showSubmissions": "모든 제출물 보기",
@@ -1338,7 +1451,16 @@
       "reviewAria": "피드백 풀 리퀘스트 열기",
       "fullHistory_prefix": "전체 커밋 기록을 보려면",
       "fullHistory_link": "저장소",
-      "fullHistory_suffix": "을(를) 여세요."
+      "fullHistory_suffix": "을(를) 여세요.",
+      "acceptedAwaiting": "수락함 · 제출 대기 중",
+      "emptyClearFilters": "필터 지우기",
+      "emptyFilteredBody": "다른 검색어를 시도하거나 필터를 지워 모두 표시하세요.",
+      "emptyFilteredTitle": "필터와 일치하는 제출물이 없습니다",
+      "emptyNoDataBody": "학생이 과제를 수락하고 푸시하면 제출물이 여기에 표시됩니다. 최신 항목을 가져오려면 지금 수집을 사용하세요.",
+      "emptyNoDataTitle": "아직 수집된 제출물이 없습니다",
+      "noGroup": "인정된 그룹에 속하지 않음",
+      "noGroupTitle": "이 학생은 제출한 어떤 그룹의 저장소에도 인정되어 있지 않습니다. 그룹 구성원은 수집 시점에 각 저장소의 협업자에서 읽으므로, 그룹에 참여한 적이 없거나 마지막 수집에서 그룹 구성원을 읽을 수 없었던 학생이 여기에 표시됩니다. 채점하기 전에 그룹 저장소를 열어 확인하세요.",
+      "notAccepted": "수락하지 않음"
     },
     "reviewModal": {
       "errorTitle": "피드백 PR을 확인할 수 없습니다",
@@ -1377,7 +1499,16 @@
       "fallbackTitle": "제출물",
       "missingParams": "과정 또는 과제 정보가 없습니다."
     },
-    "viewSourceRepo": "소스 저장소 보기"
+    "viewSourceRepo": "소스 저장소 보기",
+    "justNow": "방금",
+    "menu": {
+      "actions": "작업",
+      "invite": "초대 링크",
+      "metrics": "지표"
+    },
+    "metrics": {
+      "title": "제출 지표"
+    }
   },
   "orgMembers": {
     "heading": "구성원",
@@ -1498,7 +1629,7 @@
     },
     "breadcrumb": {
       "label": "탐색 경로",
-      "classes": "수업",
+      "classes": "클래스",
       "assignments": "과제"
     },
     "planBadge": {
@@ -1676,6 +1807,73 @@
       "instructionsUrlless": "먼저 싱글 사인온으로 로그인되도록 학교의 학습 관리 시스템(LMS) 내부에서 이 링크를 열거나, GitHub로 다시 인증한 다음 이 페이지를 새로 고치세요.",
       "instructionsWithUrl": "아래 버튼을 사용하여 이 조직에 대한 싱글 사인온을 승인한 다음 이 페이지를 새로 고치세요.",
       "title": "싱글 사인온 승인"
+    }
+  },
+  "appUpdate": {
+    "action": "지금 새로고침",
+    "body": "최신 버전을 받으려면 페이지를 새로고침하세요.",
+    "title": "Classroom 50의 새 버전이 있습니다"
+  },
+  "offline": {
+    "body": "Classroom 50은 GitHub의 실시간 데이터로 동작하므로 연결이 필요합니다. 다시 온라인 상태가 되면 이 배너는 자동으로 사라집니다.",
+    "title": "오프라인 상태입니다"
+  },
+  "orgActivity": {
+    "clear": "지우기",
+    "clearFilters": "지우기",
+    "detail": {
+      "source": "{{location}}에서",
+      "status": "HTTP {{code}}"
+    },
+    "diagnostics": {
+      "copied": "복사됨",
+      "copy": "클립보드에 복사",
+      "description": "버그 리포트나 지원 스레드에 붙여넣을 수 있는 기술 세부 정보입니다. 어디에도 전송되지 않으며, 클립보드에만 저장됩니다.",
+      "title": "진단"
+    },
+    "empty": {
+      "body": "구성 변경, 워크플로 실행, 이 세션의 오류가 여기에 표시됩니다.",
+      "title": "아직 활동이 없습니다"
+    },
+    "exportCsv": "CSV 내보내기",
+    "filters": {
+      "allSources": "모든 소스",
+      "allTypes": "모든 유형",
+      "source": "소스:",
+      "type": "유형:"
+    },
+    "heading": "활동",
+    "loadOlder": "이전 항목 불러오기",
+    "loading": "활동 불러오는 중...",
+    "noMatch": {
+      "body": "다른 검색어를 시도하거나 필터를 지우세요.",
+      "title": "일치하는 활동이 없습니다"
+    },
+    "partialError": "일부 활동을 불러올 수 없었습니다. 사용 가능한 항목을 표시합니다.",
+    "searchLabel": "활동 검색",
+    "searchPlaceholder": "활동 검색...",
+    "showDiagnostics": "진단 정보 표시",
+    "source": {
+      "commit": "구성 변경",
+      "run": "워크플로 실행",
+      "session": "이 세션"
+    },
+    "status": {
+      "error": "실패",
+      "info": "",
+      "ok": "완료됨",
+      "running": "실행 중"
+    },
+    "subtitle": "조직의 구성 변경, 워크플로 실행, 이 세션의 오류를 최신순으로 표시합니다.",
+    "type": {
+      "action": "작업",
+      "assignment": "과제",
+      "classroom": "클래스",
+      "config": "구성",
+      "error": "오류",
+      "run": "워크플로 실행",
+      "scores": "점수",
+      "student": "학생"
     }
   }
 }

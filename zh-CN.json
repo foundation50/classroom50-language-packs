@@ -33,8 +33,8 @@
     "primary": "主要",
     "expandSidebar": "展开侧边栏",
     "collapseSidebar": "收起侧边栏",
-    "allClasses": "所有班级",
-    "allClassesArrow": "‹ 所有班级",
+    "allClasses": "所有课堂",
+    "allClassesArrow": "‹ 所有课堂",
     "allAssignments": "所有作业",
     "allAssignmentsArrow": "‹ 所有作业",
     "accountMenu": "账户菜单",
@@ -46,7 +46,7 @@
     "mySubmission": "我的提交",
     "manageGroup": "管理小组",
     "acceptAssignment": "接受作业",
-    "myClasses": "我的班级",
+    "myClasses": "我的课堂",
     "myAssignments": "我的作业",
     "published": "已发布",
     "members": "成员",
@@ -81,7 +81,13 @@
     "aboutReportIssueHint": "发现了漏洞或有功能建议？",
     "aboutSupportTitle": "反馈与支持",
     "aboutVersion": "版本",
-    "docs": "文档"
+    "docs": "文档",
+    "aboutDiagnosticsCopied": "已复制",
+    "aboutDiagnosticsCopy": "复制诊断信息",
+    "aboutDiagnosticsHint": "复制技术细节以附加到错误报告或支持帖子中。不会向任何地方发送数据；仅填入你的剪贴板。",
+    "aboutDiagnosticsShow": "显示诊断信息",
+    "aboutDiagnosticsTitle": "诊断信息",
+    "activity": "活动"
   },
   "auth": {
     "signInTitle": "登录",
@@ -114,7 +120,30 @@
     "reauthorize": "重新授权",
     "reauthorizeHint": "如果重新授权仍无法解决此问题，可能需要组织所有者在组织的 OAuth 策略设置中批准该应用。",
     "signedInConfirmed": "已登录 —— 你的会话处于活动状态",
-    "verifyingSession": "正在验证你的会话……"
+    "verifyingSession": "正在验证你的会话……",
+    "errorClientIdMissing": "尚未配置 GitHub OAuth 客户端 ID（VITE_GITHUB_CLIENT_ID）。",
+    "errorDeviceDeclined": "你拒绝了授权请求。",
+    "errorDeviceExpired": "设备代码已过期。请重试。",
+    "errorDeviceNoToken": "令牌端点未返回 access_token，也未返回错误。",
+    "errorMissingPkce": "缺少 PKCE 验证器或客户端 ID。请重新登录。",
+    "errorNetwork": "连接 {{target}} 时发生网络错误；它可能已停止服务或无法访问。",
+    "errorNetworkProxyTarget": "Cloudflare Worker 代理",
+    "errorOffline": "你似乎已离线。请检查网络连接后重试——登录需要网络连接。",
+    "errorPatFineGrained": "这看起来是细粒度令牌，无法验证。请使用具有上方所列范围的经典令牌。",
+    "errorPatMissingScopes": "该令牌缺少必需的范围：{{scopes}}。请添加后重试。",
+    "errorPatRejected401": "该令牌被 GitHub 拒绝（401）。请确认它有效且未过期。",
+    "errorStateMismatch": "状态不匹配——可能存在 CSRF。请重新登录。",
+    "offlineHold": "你已离线。正在等待网络连接以恢复你的会话……",
+    "otherSignInMethods": "其他登录方式",
+    "patCancel": "取消",
+    "patCreateTokenLink": "创建已预选这些范围的令牌",
+    "patFineGrainedNote": "不支持细粒度令牌——请使用经典令牌。",
+    "patInstructions": "粘贴 GitHub 个人访问令牌（经典）即可直接登录，无需 OAuth 代理。该令牌必须勾选以下范围：",
+    "patStorageNote": "该令牌存储在此浏览器的本地存储中，与其他登录方式获得的令牌相同。",
+    "patSubmit": "使用令牌登录",
+    "patTitle": "使用个人访问令牌登录",
+    "patTokenLabel": "个人访问令牌",
+    "usePersonalAccessToken": "使用个人访问令牌"
   },
   "documentTitle": {
     "assignments": "作业",
@@ -131,9 +160,10 @@
     "acceptAssignment": "接受作业",
     "members": "成员",
     "newClassroom": "新建班级",
-    "classes": "班级",
+    "classes": "课堂",
     "mySubmission": "我的提交",
-    "submissions": "提交"
+    "submissions": "提交",
+    "activity": "活动"
   },
   "students": {
     "addTitle": "添加学生",
@@ -390,10 +420,7 @@
     "shareCopy": "复制",
     "shareCopied": "已复制",
     "installedTitle": "已安装的语言包",
-    "browseTitle": "添加语言",
-    "browseHint": "安装现成的翻译。这些翻译由基础语言生成，并在发布前经过审核。",
     "browseLoading": "正在加载可用语言……",
-    "browseEmpty": "目前没有其他可用的语言。",
     "installTitle": "从文件或 URL 安装",
     "installHint": "安装语言包：翻译基础文件 en.json，然后在此加载。语言代码会从文件名中自动识别；仅当识别失败时才需在下方手动输入。",
     "codePlaceholder": "语言代码（例如 de）",
@@ -413,7 +440,11 @@
     "errorRegistry": "无法加载可用语言。请重试。",
     "errorGeneric": "无法安装该语言包。",
     "updatedToast_one": "已将 {{list}} 语言包更新至最新译文。",
-    "updatedToast_other": "已将 {{count}} 个语言包（{{list}}）更新至最新译文。"
+    "updatedToast_other": "已将 {{count}} 个语言包（{{list}}）更新至最新译文。",
+    "activeHint": "选择一种已安装的语言，或选择标有 ⬇ 的语言以下载并安装它。",
+    "optionDownload": "⬇ {{language}}",
+    "sourceRegistry": "注册表",
+    "sourceUser": "由你加载"
   },
   "validation": {
     "githubOrEmailRequired": "请输入 GitHub 用户名或电子邮箱。",
@@ -437,12 +468,10 @@
   },
   "orgs": {
     "headingCl50": "Classroom 50 组织",
-    "headingSetUp": "设置新的 Classroom 50 组织",
     "loadingTitle": "正在加载你的组织……",
     "loadingSubtitle": "这可能需要一点时间。",
     "emptyTitle": "还没有 Classroom 50 组织",
     "emptyBody": "你所属的、使用 Classroom 50 的组织会显示在这里。如果你觉得应该有，请让你的教师确认你已被添加，然后刷新页面。",
-    "showUnsupported": "显示不受支持的组织",
     "missingNotice": {
       "title": "没有看到你的组织？",
       "body": "Classroom 50 只能显示你在登录时明确授予访问权限的 GitHub 组织。如果某个组织没有显示，你可能需要更新你的 OAuth 权限。",
@@ -458,8 +487,42 @@
       "viewOnGitHub": "在 GitHub 上查看",
       "openOnGitHub": "在 GitHub 上打开 {{org}}",
       "open": "打开",
+      "updatedAgo": "更新于 {{when}}"
+    },
+    "newOrg": {
+      "allSetUp": "你的所有组织都已完成设置。",
+      "button": "设置新组织",
+      "createOnGitHub": "在 GitHub 上创建组织",
+      "description": "选择你的一个 GitHub 组织来配置 Classroom 50。没看到想要的组织？请先在 GitHub 上创建它。",
+      "freePlanDisabled": "免费方案——Classroom 50 需要 Team 或 Enterprise 组织",
+      "pickPrompt": "可设置的组织",
       "setUp": "设置",
-      "askTeacher": "向教师申请访问权限"
+      "title": "设置新的 Classroom 50 组织"
+    },
+    "noResults": {
+      "body": "没有组织与“{{query}}”匹配。",
+      "clear": "清除搜索",
+      "title": "没有组织与你的搜索匹配"
+    },
+    "setUpFirst": {
+      "body": "你拥有尚未设置的组织。配置 Classroom 50 即可开始创建课堂和作业。",
+      "cta": "设置组织",
+      "title": "设置你的第一个 Classroom 50 组织"
+    },
+    "toolbar": {
+      "searchLabel": "搜索组织",
+      "searchPlaceholder": "搜索组织……",
+      "sort": {
+        "label": "排序",
+        "lastModified": "最后修改",
+        "nameAsc": "名称（A–Z）",
+        "status": "状态"
+      },
+      "view": {
+        "gridLabel": "网格视图",
+        "label": "视图",
+        "listLabel": "列表视图"
+      }
     }
   },
   "assignments": {
@@ -879,7 +942,6 @@
       "changeThemOn_other": "—— 在",
       "gitHub": "GitHub",
       "orUseFixIt": " 上更改（或使用“修复”）",
-      "managedByEnterprise": "由企业管理 —— 需手动设置",
       "readError": "无法读取该组织以审计锁定状态。请检查你的访问权限后重试。",
       "driftCanFix": "对偏离的设置使用“修复”，或在下方重新运行设置以一次性重新应用全部内容。",
       "driftCannotFix": "请让组织所有者修复偏离 —— 这些更改需要所有者权限。",
@@ -887,7 +949,11 @@
       "confirmByHandBody": "GitHub 没有提供读取这些设置的 API，因此我们无法自动验证 —— 请在成员权限页面上逐一确认。",
       "confirmManually": "手动确认",
       "memberPermsToggle": "我们配置的成员权限",
-      "memberPermsHint": "Classroom 50 设置的组织成员权限完整列表，包括已就位的那些。偏离的项已在上方标注。"
+      "memberPermsHint": "Classroom 50 设置的组织成员权限完整列表，包括已就位的那些。偏离的项已在上方标注。",
+      "couldntAutoConfigure": "我们无法自动设置此项。当企业或组织策略管理该设置，或账户缺少权限时可能会发生这种情况。请在链接的页面上手动设置。",
+      "fixTransient": "未能生效——这可能是暂时的速率限制，或者仓库可能仍在初始化。请稍后重试。",
+      "needsManualSetup": "需要手动设置",
+      "requiresManualFix": "手动设置"
     },
     "rerun": {
       "title": "重新运行设置",
@@ -1055,12 +1121,12 @@
     "noStudents": "暂无学生",
     "viewAssignments": "查看作业",
     "editClassAria": "编辑 {{name}}",
-    "editClassTitle": "编辑作业",
+    "editClassTitle": "编辑课堂",
     "githubOrganization": "GitHub 组织",
-    "myClasses": "我的班级",
+    "myClasses": "我的课堂",
     "myAssignments": "我的作业",
     "manageSubtitle": "管理你的课程和作业。",
-    "newClass": "+ 新建班级",
+    "newClass": "新建课堂",
     "empty": {
       "title": "暂无班级",
       "body": "创建你的第一个班级，即可开始添加作业、导入学生和管理提交内容。",
@@ -1077,7 +1143,8 @@
     "filter": {
       "active": "活动",
       "archived": "已归档",
-      "all": "全部"
+      "all": "全部",
+      "label": "按状态筛选"
     },
     "repo": {
       "manageGroupAria": "管理 {{assignment}} 的小组",
@@ -1132,6 +1199,51 @@
       "removedToast": "已将 @{{login}} 从{{role}}中移除。",
       "removeFailed": "无法移除 @{{login}}：{{error}}",
       "removeRole": "移除{{role}}"
+    },
+    "card": {
+      "actionsAria": "{{name}} 的操作",
+      "assignmentCount_one": "{{count}} 个作业",
+      "assignmentCount_other": "{{count}} 个作业",
+      "countsUnavailable": "计数不可用",
+      "delete": "删除课堂",
+      "edit": "编辑课堂",
+      "loadingAssignments": "正在加载作业数量……",
+      "loadingStudents": "正在加载学生数量……",
+      "noAssignments": "暂无作业",
+      "viewOnGitHub": "在 GitHub 上查看"
+    },
+    "deleteFailed": "无法删除 {{classroom}}：{{error}}",
+    "deleteNoop": "{{classroom}} 已被删除。",
+    "deleteTeamWarning": "已删除 {{classroom}}，但部分 GitHub 团队无法移除。请在组织的团队设置中手动删除它们。",
+    "deletedToast": "已删除 {{classroom}}。",
+    "emptyFilter": {
+      "active": "没有活跃的课堂。",
+      "all": "还没有任何课堂。",
+      "archived": "没有已归档的课堂。"
+    },
+    "noResults": {
+      "body": "没有课堂与“{{query}}”匹配。",
+      "clear": "清除搜索",
+      "title": "没有课堂与你的搜索匹配"
+    },
+    "toolbar": {
+      "allTerms": "所有学期",
+      "searchLabel": "搜索课堂",
+      "searchPlaceholder": "搜索课堂……",
+      "sort": {
+        "label": "排序",
+        "nameAsc": "名称（A–Z）",
+        "studentCount": "学生数量",
+        "term": "学期"
+      },
+      "sortPrefix": "排序",
+      "termLabel": "按学期筛选",
+      "termPrefix": "学期",
+      "view": {
+        "gridLabel": "网格视图",
+        "label": "视图",
+        "listLabel": "列表视图"
+      }
     }
   },
   "accept": {
@@ -1280,8 +1392,7 @@
       "searchAria": "搜索提交",
       "sectionAria": "按分组筛选",
       "allSections": "所有分组",
-      "submissionAria": "按提交状态筛选",
-      "allSubmissions": "所有提交",
+      "submissionAria": "按提交或接受状态筛选",
       "submitted": "已提交",
       "onTime": "按时",
       "late": "逾期",
@@ -1290,8 +1401,6 @@
       "allGrades": "所有成绩",
       "passing": "通过",
       "failing": "未通过",
-      "acceptedAria": "按接受状态筛选",
-      "allAcceptance": "所有接受状态",
       "accepted": "已接受",
       "notAccepted": "未接受",
       "clear": "清除",
@@ -1299,7 +1408,12 @@
       "sortRecent": "最新在前",
       "sortOldest": "最早在前",
       "sortNameAsc": "姓名 A–Z",
-      "sortNameDesc": "姓名 Z–A"
+      "sortNameDesc": "姓名 Z–A",
+      "allStatuses": "所有状态",
+      "passingLabel": "成绩",
+      "sectionLabel": "班级",
+      "sortLabel": "排序",
+      "submissionLabel": "状态"
     },
     "table": {
       "captionGroup": "小组提交",
@@ -1310,7 +1424,6 @@
       "colScore": "分数",
       "colLastSubmitted": "最后提交时间",
       "colActions": "操作",
-      "emptyState": "没有符合当前筛选条件的提交。",
       "openGroupRepo": "打开共享的小组仓库",
       "hideSubmissions": "隐藏提交",
       "showSubmissions": "显示所有提交",
@@ -1338,7 +1451,16 @@
       "reviewAria": "打开反馈拉取请求",
       "fullHistory_prefix": "打开",
       "fullHistory_link": "仓库",
-      "fullHistory_suffix": "以查看完整的提交历史。"
+      "fullHistory_suffix": "以查看完整的提交历史。",
+      "acceptedAwaiting": "已接受 · 等待提交",
+      "emptyClearFilters": "清除筛选条件",
+      "emptyFilteredBody": "尝试其他搜索或清除筛选条件以查看所有人。",
+      "emptyFilteredTitle": "没有提交与你的筛选条件匹配",
+      "emptyNoDataBody": "学生接受并推送后，他们的提交将显示在此处。使用“立即收集”获取最新内容。",
+      "emptyNoDataTitle": "尚未收集到任何提交",
+      "noGroup": "不在任何计分小组中",
+      "noGroupTitle": "此学生未被记入任何提交小组的仓库。小组成员在收集时读取自各仓库的协作者，因此从未加入小组的学生——或上次收集时无法读取其小组成员的学生——会显示在此处。评分前请打开小组仓库确认。",
+      "notAccepted": "未接受"
     },
     "reviewModal": {
       "errorTitle": "无法检查反馈拉取请求",
@@ -1377,7 +1499,16 @@
       "fallbackTitle": "提交",
       "missingParams": "缺少课程或作业信息。"
     },
-    "viewSourceRepo": "查看源仓库"
+    "viewSourceRepo": "查看源仓库",
+    "justNow": "刚刚",
+    "menu": {
+      "actions": "操作",
+      "invite": "邀请链接",
+      "metrics": "指标"
+    },
+    "metrics": {
+      "title": "提交指标"
+    }
   },
   "orgMembers": {
     "heading": "成员",
@@ -1498,7 +1629,7 @@
     },
     "breadcrumb": {
       "label": "面包屑导航",
-      "classes": "班级",
+      "classes": "课堂",
       "assignments": "作业"
     },
     "planBadge": {
@@ -1676,6 +1807,73 @@
       "instructionsUrlless": "请在你学校的学习管理系统（LMS）内打开此链接，以便先通过单点登录登录，或重新通过 GitHub 进行身份验证，然后重新加载此页面。",
       "instructionsWithUrl": "使用下方按钮为此组织授权单点登录，然后重新加载此页面。",
       "title": "授权单点登录"
+    }
+  },
+  "appUpdate": {
+    "action": "立即重新加载",
+    "body": "重新加载页面以获取最新版本。",
+    "title": "Classroom 50 有新版本可用"
+  },
+  "offline": {
+    "body": "Classroom 50 使用来自 GitHub 的实时数据，因此需要网络连接。恢复联网后此横幅会自动消失。",
+    "title": "你已离线"
+  },
+  "orgActivity": {
+    "clear": "清除",
+    "clearFilters": "清除",
+    "detail": {
+      "source": "位于 {{location}}",
+      "status": "HTTP {{code}}"
+    },
+    "diagnostics": {
+      "copied": "已复制",
+      "copy": "复制到剪贴板",
+      "description": "可粘贴到错误报告或支持帖子中的技术细节。不会向任何地方发送——仅填入你的剪贴板。",
+      "title": "诊断信息"
+    },
+    "empty": {
+      "body": "配置更改、工作流运行以及本次会话的错误将显示在此处。",
+      "title": "还没有任何活动"
+    },
+    "exportCsv": "导出 CSV",
+    "filters": {
+      "allSources": "所有来源",
+      "allTypes": "所有类型",
+      "source": "来源：",
+      "type": "类型："
+    },
+    "heading": "活动",
+    "loadOlder": "加载更早的",
+    "loading": "正在加载活动……",
+    "noMatch": {
+      "body": "尝试其他搜索或清除筛选条件。",
+      "title": "没有匹配的活动"
+    },
+    "partialError": "部分活动无法加载。正在显示可用的内容。",
+    "searchLabel": "搜索活动",
+    "searchPlaceholder": "搜索活动……",
+    "showDiagnostics": "显示诊断信息",
+    "source": {
+      "commit": "配置更改",
+      "run": "工作流运行",
+      "session": "本次会话"
+    },
+    "status": {
+      "error": "失败",
+      "info": "",
+      "ok": "已完成",
+      "running": "运行中"
+    },
+    "subtitle": "该组织的配置更改、工作流运行以及本次会话的错误，最新的排在最前。",
+    "type": {
+      "action": "操作",
+      "assignment": "作业",
+      "classroom": "课堂",
+      "config": "配置",
+      "error": "错误",
+      "run": "工作流运行",
+      "scores": "成绩",
+      "student": "学生"
     }
   }
 }
