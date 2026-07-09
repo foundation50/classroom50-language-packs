@@ -33,8 +33,8 @@
     "primary": "メイン",
     "expandSidebar": "サイドバーを展開",
     "collapseSidebar": "サイドバーを折りたたむ",
-    "allClasses": "すべてのクラス",
-    "allClassesArrow": "‹ すべてのクラス",
+    "allClasses": "すべてのクラスルーム",
+    "allClassesArrow": "‹ すべてのクラスルーム",
     "allAssignments": "すべての課題",
     "allAssignmentsArrow": "‹ すべての課題",
     "accountMenu": "アカウントメニュー",
@@ -46,7 +46,7 @@
     "mySubmission": "自分の提出物",
     "manageGroup": "グループの管理",
     "acceptAssignment": "課題を受け取る",
-    "myClasses": "自分のクラス",
+    "myClasses": "マイクラスルーム",
     "myAssignments": "自分の課題",
     "published": "公開",
     "members": "メンバー",
@@ -81,7 +81,13 @@
     "aboutReportIssueHint": "バグを見つけたり、機能のご要望はありますか？",
     "aboutSupportTitle": "フィードバックとサポート",
     "aboutVersion": "バージョン",
-    "docs": "ドキュメント"
+    "docs": "ドキュメント",
+    "aboutDiagnosticsCopied": "コピーしました",
+    "aboutDiagnosticsCopy": "診断情報をコピー",
+    "aboutDiagnosticsHint": "バグ報告やサポートスレッドに含める技術的な詳細をコピーします。データはどこにも送信されず、クリップボードに入るだけです。",
+    "aboutDiagnosticsShow": "診断情報を表示",
+    "aboutDiagnosticsTitle": "診断情報",
+    "activity": "アクティビティ"
   },
   "auth": {
     "signInTitle": "サインイン",
@@ -114,7 +120,30 @@
     "reauthorize": "再承認",
     "reauthorizeHint": "再承認してもこれが解消しない場合は、組織のオーナーが組織の OAuth ポリシー設定でこのアプリを承認する必要があるかもしれません。",
     "signedInConfirmed": "サインイン済み - セッションは有効です",
-    "verifyingSession": "セッションを確認中..."
+    "verifyingSession": "セッションを確認中...",
+    "errorClientIdMissing": "GitHub OAuth のクライアント ID が設定されていません（VITE_GITHUB_CLIENT_ID）。",
+    "errorDeviceDeclined": "承認リクエストを拒否しました。",
+    "errorDeviceExpired": "デバイスコードの有効期限が切れました。もう一度お試しください。",
+    "errorDeviceNoToken": "トークンエンドポイントが access_token もエラーも返しませんでした。",
+    "errorMissingPkce": "PKCE 検証子またはクライアント ID がありません。もう一度サインインをお試しください。",
+    "errorNetwork": "{{target}} への接続でネットワークエラーが発生しました。停止しているか到達できない可能性があります。",
+    "errorNetworkProxyTarget": "Cloudflare Worker プロキシ",
+    "errorOffline": "オフラインのようです。接続を確認してからもう一度お試しください。サインインにはネットワーク接続が必要です。",
+    "errorPatFineGrained": "これはファイングレインドトークンのようで、検証できません。上記のスコープを持つクラシックトークンを使用してください。",
+    "errorPatMissingScopes": "このトークンには必要なスコープがありません: {{scopes}}。追加してもう一度お試しください。",
+    "errorPatRejected401": "このトークンは GitHub に拒否されました（401）。有効で期限切れでないか確認してください。",
+    "errorStateMismatch": "状態が一致しません -- CSRF の可能性があります。もう一度サインインをお試しください。",
+    "offlineHold": "オフラインです。セッションを復元するために接続を待っています…",
+    "otherSignInMethods": "その他のサインイン方法",
+    "patCancel": "キャンセル",
+    "patCreateTokenLink": "これらのスコープを事前選択したトークンを作成",
+    "patFineGrainedNote": "ファイングレインドトークンはサポートされていません。クラシックトークンを使用してください。",
+    "patInstructions": "GitHub のパーソナルアクセストークン（クラシック）を貼り付けると、OAuth プロキシを使わずに直接サインインできます。トークンには次のスコープがチェックされている必要があります:",
+    "patStorageNote": "トークンは、他のサインイン方法のトークンと同様に、このブラウザーのローカルストレージに保存されます。",
+    "patSubmit": "トークンでサインイン",
+    "patTitle": "パーソナルアクセストークンでサインイン",
+    "patTokenLabel": "パーソナルアクセストークン",
+    "usePersonalAccessToken": "パーソナルアクセストークンを使用する"
   },
   "documentTitle": {
     "assignments": "課題",
@@ -131,9 +160,10 @@
     "acceptAssignment": "課題を受け入れる",
     "members": "メンバー",
     "newClassroom": "新しいクラスルーム",
-    "classes": "クラス",
+    "classes": "クラスルーム",
     "mySubmission": "自分の提出",
-    "submissions": "提出物"
+    "submissions": "提出物",
+    "activity": "アクティビティ"
   },
   "students": {
     "addTitle": "受講者を追加",
@@ -390,10 +420,7 @@
     "shareCopy": "コピー",
     "shareCopied": "コピーしました",
     "installedTitle": "インストール済みのパック",
-    "browseTitle": "言語を追加",
-    "browseHint": "作成済みの翻訳をインストールします。これらはベース言語から生成され、公開前にレビューされています。",
     "browseLoading": "利用可能な言語を読み込み中…",
-    "browseEmpty": "現在、追加できる言語はありません。",
     "installTitle": "ファイルまたは URL からインストール",
     "installHint": "言語パックのインストール方法：ベースの en.json を翻訳し、ここで読み込みます。言語コードはファイル名から自動検出されます。検出に失敗した場合のみ、下に入力してください。",
     "codePlaceholder": "言語コード（例：de）",
@@ -413,7 +440,11 @@
     "errorRegistry": "利用可能な言語を読み込めませんでした。もう一度お試しください。",
     "errorGeneric": "言語パックをインストールできませんでした。",
     "updatedToast_one": "{{list}} 言語パックを最新の翻訳に更新しました。",
-    "updatedToast_other": "{{count}} 個の言語パック（{{list}}）を最新の翻訳に更新しました。"
+    "updatedToast_other": "{{count}} 個の言語パック（{{list}}）を最新の翻訳に更新しました。",
+    "activeHint": "インストール済みの言語を選ぶか、⬇ が付いた言語を選んでダウンロード・インストールしてください。",
+    "optionDownload": "⬇ {{language}}",
+    "sourceRegistry": "レジストリ",
+    "sourceUser": "あなたが読み込み"
   },
   "validation": {
     "githubOrEmailRequired": "GitHub のユーザー名またはメールアドレスを入力してください。",
@@ -437,12 +468,10 @@
   },
   "orgs": {
     "headingCl50": "Classroom 50 の Organization",
-    "headingSetUp": "新しい Classroom 50 Organization をセットアップ",
     "loadingTitle": "Organization を読み込んでいます…",
     "loadingSubtitle": "少々お待ちください。",
     "emptyTitle": "Classroom 50 の Organization はまだありません",
     "emptyBody": "Classroom 50 を利用している、あなたが所属する Organization がここに表示されます。表示されるはずの Organization がない場合は、担当の先生に追加されているか確認を依頼してから、再読み込みしてください。",
-    "showUnsupported": "非対応の Organization を表示",
     "missingNotice": {
       "title": "Organization が表示されませんか？",
       "body": "Classroom 50 は、サインイン時に明示的にアクセスを許可した GitHub Organization のみを表示できます。Organization が表示されない場合は、OAuth の権限を更新する必要があるかもしれません。",
@@ -458,8 +487,42 @@
       "viewOnGitHub": "GitHub で表示",
       "openOnGitHub": "{{org}} を GitHub で開く",
       "open": "開く",
+      "updatedAgo": "{{when}}に更新"
+    },
+    "newOrg": {
+      "allSetUp": "お持ちの組織はすべてセットアップ済みです。",
+      "button": "新しい組織をセットアップ",
+      "createOnGitHub": "GitHub で組織を作成",
+      "description": "Classroom 50 を設定する GitHub 組織を 1 つ選択してください。目的の組織が見つかりませんか？ まず GitHub で作成してください。",
+      "freePlanDisabled": "Free プラン — Classroom 50 には Team または Enterprise の組織が必要です",
+      "pickPrompt": "セットアップ可能な組織",
       "setUp": "セットアップ",
-      "askTeacher": "先生にアクセスを依頼してください"
+      "title": "新しい Classroom 50 組織をセットアップ"
+    },
+    "noResults": {
+      "body": "「{{query}}」に一致する組織はありません。",
+      "clear": "検索をクリア",
+      "title": "検索に一致する組織はありません"
+    },
+    "setUpFirst": {
+      "body": "まだセットアップされていない組織を所有しています。Classroom 50 を設定して、クラスルームや課題の作成を始めましょう。",
+      "cta": "組織をセットアップ",
+      "title": "最初の Classroom 50 組織をセットアップ"
+    },
+    "toolbar": {
+      "searchLabel": "組織を検索",
+      "searchPlaceholder": "組織を検索…",
+      "sort": {
+        "label": "並べ替え",
+        "lastModified": "最終更新",
+        "nameAsc": "名前（A→Z）",
+        "status": "ステータス"
+      },
+      "view": {
+        "gridLabel": "グリッド表示",
+        "label": "表示",
+        "listLabel": "リスト表示"
+      }
     }
   },
   "assignments": {
@@ -879,7 +942,6 @@
       "changeThemOn_other": "— 次で変更してください:",
       "gitHub": "GitHub",
       "orUseFixIt": "（または「修正する」を使用）",
-      "managedByEnterprise": "エンタープライズによる管理 — 手動で設定してください",
       "readError": "ロックダウンを監査するために組織を読み取れませんでした。アクセス権を確認して再試行してください。",
       "driftCanFix": "逸脱している設定で「修正する」を使うか、下でセットアップを再実行してすべてを一度に再適用してください。",
       "driftCannotFix": "組織のオーナーに逸脱の修復を依頼してください — これらの変更にはオーナー権限が必要です。",
@@ -887,7 +949,11 @@
       "confirmByHandBody": "GitHub はこれらの設定を読み取る API を公開していないため、自動で検証できません — メンバー権限のページでそれぞれを確認してください。",
       "confirmManually": "手動で確認",
       "memberPermsToggle": "構成するメンバー権限",
-      "memberPermsHint": "Classroom 50 が設定する組織メンバー権限の完全なリスト（すでに適用済みのものを含む）。逸脱しているものは上で指摘されています。"
+      "memberPermsHint": "Classroom 50 が設定する組織メンバー権限の完全なリスト（すでに適用済みのものを含む）。逸脱しているものは上で指摘されています。",
+      "couldntAutoConfigure": "これを自動的に設定できませんでした。エンタープライズや組織のポリシーがこの設定を管理している場合、またはアカウントに権限がない場合に発生することがあります。リンク先のページで手動で設定してください。",
+      "fixTransient": "処理が完了しませんでした。一時的なレート制限か、リポジトリがまだ初期化中の可能性があります。しばらくしてからもう一度お試しください。",
+      "needsManualSetup": "手動設定が必要",
+      "requiresManualFix": "手動で設定"
     },
     "rerun": {
       "title": "セットアップを再実行",
@@ -1055,12 +1121,12 @@
     "noStudents": "受講生なし",
     "viewAssignments": "課題を表示",
     "editClassAria": "{{name}} を編集",
-    "editClassTitle": "課題を編集",
+    "editClassTitle": "クラスルームを編集",
     "githubOrganization": "GitHub 組織",
-    "myClasses": "マイクラス",
+    "myClasses": "マイクラスルーム",
     "myAssignments": "マイ課題",
     "manageSubtitle": "コースと課題を管理します。",
-    "newClass": "+ 新しいクラス",
+    "newClass": "新しいクラスルーム",
     "empty": {
       "title": "クラスがまだありません",
       "body": "最初のクラスを作成すると、課題の追加、受講生のインポート、提出物の管理を始められます。",
@@ -1077,7 +1143,8 @@
     "filter": {
       "active": "アクティブ",
       "archived": "アーカイブ済み",
-      "all": "すべて"
+      "all": "すべて",
+      "label": "ステータスで絞り込む"
     },
     "repo": {
       "manageGroupAria": "{{assignment}} のグループを管理",
@@ -1132,6 +1199,51 @@
       "removedToast": "@{{login}} を {{role}} から削除しました。",
       "removeFailed": "@{{login}} を削除できませんでした：{{error}}",
       "removeRole": "{{role}} を削除"
+    },
+    "card": {
+      "actionsAria": "{{name}} の操作",
+      "assignmentCount_one": "課題 {{count}} 件",
+      "assignmentCount_other": "課題 {{count}} 件",
+      "countsUnavailable": "件数を取得できません",
+      "delete": "クラスルームを削除",
+      "edit": "クラスルームを編集",
+      "loadingAssignments": "課題数を読み込み中…",
+      "loadingStudents": "受講者数を読み込み中…",
+      "noAssignments": "課題なし",
+      "viewOnGitHub": "GitHub で表示"
+    },
+    "deleteFailed": "{{classroom}} を削除できませんでした: {{error}}",
+    "deleteNoop": "{{classroom}} はすでに削除されています。",
+    "deleteTeamWarning": "{{classroom}} を削除しましたが、一部の GitHub チームを削除できませんでした。組織のチーム設定で手動で削除してください。",
+    "deletedToast": "{{classroom}} を削除しました。",
+    "emptyFilter": {
+      "active": "アクティブなクラスルームはありません。",
+      "all": "クラスルームはまだありません。",
+      "archived": "アーカイブされたクラスルームはありません。"
+    },
+    "noResults": {
+      "body": "「{{query}}」に一致するクラスルームはありません。",
+      "clear": "検索をクリア",
+      "title": "検索に一致するクラスルームはありません"
+    },
+    "toolbar": {
+      "allTerms": "すべての学期",
+      "searchLabel": "クラスルームを検索",
+      "searchPlaceholder": "クラスルームを検索…",
+      "sort": {
+        "label": "並べ替え",
+        "nameAsc": "名前（A→Z）",
+        "studentCount": "受講者数",
+        "term": "学期"
+      },
+      "sortPrefix": "並べ替え",
+      "termLabel": "学期で絞り込む",
+      "termPrefix": "学期",
+      "view": {
+        "gridLabel": "グリッド表示",
+        "label": "表示",
+        "listLabel": "リスト表示"
+      }
     }
   },
   "accept": {
@@ -1280,8 +1392,7 @@
       "searchAria": "提出物を検索",
       "sectionAria": "セクションで絞り込み",
       "allSections": "すべてのセクション",
-      "submissionAria": "提出状況で絞り込み",
-      "allSubmissions": "すべての提出物",
+      "submissionAria": "提出または承諾のステータスで絞り込む",
       "submitted": "提出済み",
       "onTime": "期限内",
       "late": "遅延",
@@ -1290,8 +1401,6 @@
       "allGrades": "すべての成績",
       "passing": "合格",
       "failing": "不合格",
-      "acceptedAria": "受諾状況で絞り込み",
-      "allAcceptance": "すべての受諾状況",
       "accepted": "受諾済み",
       "notAccepted": "未受諾",
       "clear": "クリア",
@@ -1299,7 +1408,12 @@
       "sortRecent": "新しい順",
       "sortOldest": "古い順",
       "sortNameAsc": "名前 A→Z",
-      "sortNameDesc": "名前 Z→A"
+      "sortNameDesc": "名前 Z→A",
+      "allStatuses": "すべてのステータス",
+      "passingLabel": "成績",
+      "sectionLabel": "セクション",
+      "sortLabel": "並べ替え",
+      "submissionLabel": "ステータス"
     },
     "table": {
       "captionGroup": "グループの提出物",
@@ -1310,7 +1424,6 @@
       "colScore": "スコア",
       "colLastSubmitted": "最終提出",
       "colActions": "操作",
-      "emptyState": "現在の絞り込み条件に一致する提出物はありません。",
       "openGroupRepo": "共有グループリポジトリを開く",
       "hideSubmissions": "提出物を非表示",
       "showSubmissions": "すべての提出物を表示",
@@ -1338,7 +1451,16 @@
       "reviewAria": "フィードバックのプルリクエストを開く",
       "fullHistory_prefix": "完全なコミット履歴については",
       "fullHistory_link": "リポジトリ",
-      "fullHistory_suffix": "を開いてください。"
+      "fullHistory_suffix": "を開いてください。",
+      "acceptedAwaiting": "承諾済み · 提出待ち",
+      "emptyClearFilters": "フィルターをクリア",
+      "emptyFilteredBody": "別のキーワードで検索するか、フィルターをクリアして全員を表示してください。",
+      "emptyFilteredTitle": "フィルターに一致する提出はありません",
+      "emptyNoDataBody": "受講者が課題を承諾してプッシュすると、提出物がここに表示されます。「今すぐ収集」を使って最新のものを取得してください。",
+      "emptyNoDataTitle": "まだ提出物が収集されていません",
+      "noGroup": "評価対象グループに未所属",
+      "noGroupTitle": "この受講者は、提出しているどのグループのリポジトリにも登録されていません。グループの所属は収集時に各リポジトリのコラボレーターから読み取られるため、グループに参加したことがない受講者、または前回の収集でグループの所属を読み取れなかった受講者がここに表示されます。採点前にグループのリポジトリを開いて確認してください。",
+      "notAccepted": "未承諾"
     },
     "reviewModal": {
       "errorTitle": "フィードバック PR を確認できませんでした",
@@ -1377,7 +1499,16 @@
       "fallbackTitle": "提出物",
       "missingParams": "コースまたは課題の情報がありません。"
     },
-    "viewSourceRepo": "ソースリポジトリを表示"
+    "viewSourceRepo": "ソースリポジトリを表示",
+    "justNow": "たった今",
+    "menu": {
+      "actions": "操作",
+      "invite": "招待リンク",
+      "metrics": "指標"
+    },
+    "metrics": {
+      "title": "提出の指標"
+    }
   },
   "orgMembers": {
     "heading": "メンバー",
@@ -1498,7 +1629,7 @@
     },
     "breadcrumb": {
       "label": "パンくずリスト",
-      "classes": "クラス",
+      "classes": "クラスルーム",
       "assignments": "課題"
     },
     "planBadge": {
@@ -1676,6 +1807,73 @@
       "instructionsUrlless": "このリンクを学校の学習管理システム（LMS）内から開き、シングルサインオンでまずサインインするか、GitHub で再認証してから、このページを再読み込みしてください。",
       "instructionsWithUrl": "下のボタンを使ってこの組織のシングルサインオンを認可し、このページを再読み込みしてください。",
       "title": "シングルサインオンを認可"
+    }
+  },
+  "appUpdate": {
+    "action": "今すぐ再読み込み",
+    "body": "ページを再読み込みして最新バージョンを取得してください。",
+    "title": "Classroom 50 の新しいバージョンが利用できます"
+  },
+  "offline": {
+    "body": "Classroom 50 は GitHub のライブデータを使用するため、接続が必要です。オンラインに戻ると、このバナーは自動的に消えます。",
+    "title": "オフラインです"
+  },
+  "orgActivity": {
+    "clear": "クリア",
+    "clearFilters": "クリア",
+    "detail": {
+      "source": "{{location}} にて",
+      "status": "HTTP {{code}}"
+    },
+    "diagnostics": {
+      "copied": "コピーしました",
+      "copy": "クリップボードにコピー",
+      "description": "バグ報告やサポートスレッドに貼り付けられる技術的な詳細です。どこにも送信されず、クリップボードに入るだけです。",
+      "title": "診断情報"
+    },
+    "empty": {
+      "body": "設定の変更、ワークフローの実行、このセッションのエラーがここに表示されます。",
+      "title": "アクティビティはまだありません"
+    },
+    "exportCsv": "CSV をエクスポート",
+    "filters": {
+      "allSources": "すべてのソース",
+      "allTypes": "すべての種類",
+      "source": "ソース:",
+      "type": "種類:"
+    },
+    "heading": "アクティビティ",
+    "loadOlder": "過去のものを読み込む",
+    "loading": "アクティビティを読み込み中...",
+    "noMatch": {
+      "body": "別のキーワードで検索するか、フィルターをクリアしてください。",
+      "title": "一致するアクティビティはありません"
+    },
+    "partialError": "一部のアクティビティを読み込めませんでした。利用可能なものを表示しています。",
+    "searchLabel": "アクティビティを検索",
+    "searchPlaceholder": "アクティビティを検索...",
+    "showDiagnostics": "診断情報を表示",
+    "source": {
+      "commit": "設定の変更",
+      "run": "ワークフローの実行",
+      "session": "このセッション"
+    },
+    "status": {
+      "error": "失敗",
+      "info": "",
+      "ok": "完了",
+      "running": "実行中"
+    },
+    "subtitle": "組織の設定変更、ワークフローの実行、このセッションのエラーを新しい順に表示します。",
+    "type": {
+      "action": "アクション",
+      "assignment": "課題",
+      "classroom": "クラスルーム",
+      "config": "設定",
+      "error": "エラー",
+      "run": "ワークフロー実行",
+      "scores": "スコア",
+      "student": "受講者"
     }
   }
 }

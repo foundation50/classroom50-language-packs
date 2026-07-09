@@ -33,8 +33,8 @@
     "primary": "Elsődleges",
     "expandSidebar": "Oldalsáv kibontása",
     "collapseSidebar": "Oldalsáv összecsukása",
-    "allClasses": "Összes osztály",
-    "allClassesArrow": "‹ Összes osztály",
+    "allClasses": "Minden kurzus",
+    "allClassesArrow": "‹ Minden kurzus",
     "allAssignments": "Összes feladat",
     "allAssignmentsArrow": "‹ Összes feladat",
     "accountMenu": "Fiókmenü",
@@ -46,7 +46,7 @@
     "mySubmission": "Saját beadványom",
     "manageGroup": "Csoport kezelése",
     "acceptAssignment": "Feladat elfogadása",
-    "myClasses": "Osztályaim",
+    "myClasses": "Kurzusaim",
     "myAssignments": "Feladataim",
     "published": "Közzétéve",
     "members": "Tagok",
@@ -81,7 +81,13 @@
     "aboutReportIssueHint": "Hibát találtál, vagy van egy funkcióötleted?",
     "aboutSupportTitle": "Visszajelzés és támogatás",
     "aboutVersion": "Verzió",
-    "docs": "Dokumentáció"
+    "docs": "Dokumentáció",
+    "aboutDiagnosticsCopied": "Másolva",
+    "aboutDiagnosticsCopy": "Diagnosztika másolása",
+    "aboutDiagnosticsHint": "Másold ki a technikai részleteket, hogy hibajelentéshez vagy támogatási beszélgetéshez mellékeld. Semmilyen adat nem kerül elküldésre; csak a vágólapodat tölti ki.",
+    "aboutDiagnosticsShow": "Diagnosztika megjelenítése",
+    "aboutDiagnosticsTitle": "Diagnosztika",
+    "activity": "Tevékenység"
   },
   "auth": {
     "signInTitle": "Bejelentkezés",
@@ -114,7 +120,30 @@
     "reauthorize": "Újbóli engedélyezés",
     "reauthorizeHint": "Ha az újbóli engedélyezés nem oldja meg ezt, egy szervezeti tulajdonosnak jóvá kell hagynia az alkalmazást a szervezet OAuth-házirendjének beállításai között.",
     "signedInConfirmed": "Bejelentkezve – a munkameneted aktív",
-    "verifyingSession": "Munkamenet ellenőrzése..."
+    "verifyingSession": "Munkamenet ellenőrzése...",
+    "errorClientIdMissing": "A GitHub OAuth kliensazonosító nincs beállítva (VITE_GITHUB_CLIENT_ID).",
+    "errorDeviceDeclined": "Elutasítottad az engedélyezési kérést.",
+    "errorDeviceExpired": "Az eszközkód lejárt. Kérjük, próbáld újra.",
+    "errorDeviceNoToken": "A token-végpont nem adott vissza access_token értéket és hibát sem.",
+    "errorMissingPkce": "Hiányzó PKCE-ellenőrző vagy kliensazonosító. Kérjük, próbálj újra bejelentkezni.",
+    "errorNetwork": "Hálózati hiba a(z) {{target}} elérésekor; lehet, hogy nem működik vagy nem elérhető.",
+    "errorNetworkProxyTarget": "a Cloudflare Worker proxy",
+    "errorOffline": "Úgy tűnik, offline vagy. Ellenőrizd a kapcsolatot, és próbáld újra — a bejelentkezéshez hálózati kapcsolat szükséges.",
+    "errorPatFineGrained": "Ez finomhangolt (fine-grained) tokennek tűnik, amelyet nem lehet ellenőrizni. Használj klasszikus tokent a fent felsorolt jogosultságokkal.",
+    "errorPatMissingScopes": "Ebből a tokenből hiányoznak a szükséges jogosultságok: {{scopes}}. Add hozzá őket, és próbáld újra.",
+    "errorPatRejected401": "A GitHub elutasította ezt a tokent (401). Ellenőrizd, hogy érvényes-e és nem járt-e le.",
+    "errorStateMismatch": "Állapoteltérés – lehetséges CSRF. Kérjük, próbálj újra bejelentkezni.",
+    "offlineHold": "Offline vagy. Várakozás a kapcsolatra a munkameneted helyreállításához…",
+    "otherSignInMethods": "Egyéb bejelentkezési módok",
+    "patCancel": "Mégse",
+    "patCreateTokenLink": "Token létrehozása ezekkel a jogosultságokkal előre kiválasztva",
+    "patFineGrainedNote": "A finomhangolt tokenek nem támogatottak — használj klasszikus tokent.",
+    "patInstructions": "Illessz be egy GitHub személyes hozzáférési tokent (klasszikus), hogy közvetlenül, az OAuth proxy nélkül jelentkezz be. A tokennek az alábbi jogosultságokkal kell rendelkeznie:",
+    "patStorageNote": "A token ennek a böngészőnek a helyi tárolójában marad, ugyanúgy, mint a többi bejelentkezési mód tokenjei.",
+    "patSubmit": "Bejelentkezés tokennel",
+    "patTitle": "Bejelentkezés személyes hozzáférési tokennel",
+    "patTokenLabel": "Személyes hozzáférési token",
+    "usePersonalAccessToken": "Személyes hozzáférési token használata"
   },
   "documentTitle": {
     "assignments": "Feladatok",
@@ -131,9 +160,10 @@
     "acceptAssignment": "Feladat elfogadása",
     "members": "Tagok",
     "newClassroom": "Új osztályterem",
-    "classes": "Osztályok",
+    "classes": "Kurzusok",
     "mySubmission": "A beadványom",
-    "submissions": "Beadványok"
+    "submissions": "Beadványok",
+    "activity": "Tevékenység"
   },
   "students": {
     "addTitle": "Diák hozzáadása",
@@ -390,10 +420,7 @@
     "shareCopy": "Másolás",
     "shareCopied": "Másolva",
     "installedTitle": "Telepített csomagok",
-    "browseTitle": "Nyelv hozzáadása",
-    "browseHint": "Telepíts egy elkészített fordítást. Ezeket az alap nyelvből generáljuk, és közzététel előtt ellenőrizzük.",
     "browseLoading": "Elérhető nyelvek betöltése…",
-    "browseEmpty": "Jelenleg nincs elérhető további nyelv.",
     "installTitle": "Telepítés fájlból vagy URL-ből",
     "installHint": "Nyelvi csomag telepítése: fordítsd le az alap en.json fájlt, és töltsd be itt. A nyelvi kódot a rendszer a fájlnévből ismeri fel; csak akkor add meg alább, ha ez nem sikerül.",
     "codePlaceholder": "Nyelvi kód (pl. de)",
@@ -413,7 +440,11 @@
     "errorRegistry": "Nem sikerült betölteni az elérhető nyelveket. Próbáld újra.",
     "errorGeneric": "Nem sikerült telepíteni a nyelvi csomagot.",
     "updatedToast_one": "A(z) {{list}} nyelvi csomag frissítve a legújabb fordításokra.",
-    "updatedToast_other": "{{count}} nyelvi csomag ({{list}}) frissítve a legújabb fordításokra."
+    "updatedToast_other": "{{count}} nyelvi csomag ({{list}}) frissítve a legújabb fordításokra.",
+    "activeHint": "Válassz egy telepített nyelvet, vagy jelölj ki egy ⬇ jellel megjelölt nyelvet a letöltéshez és telepítéshez.",
+    "optionDownload": "⬇ {{language}}",
+    "sourceRegistry": "Regiszter",
+    "sourceUser": "Általad betöltve"
   },
   "validation": {
     "githubOrEmailRequired": "Adjon meg egy GitHub-felhasználónevet vagy egy e-mail-címet.",
@@ -437,12 +468,10 @@
   },
   "orgs": {
     "headingCl50": "Classroom 50 szervezetek",
-    "headingSetUp": "Új Classroom 50 szervezet beállítása",
     "loadingTitle": "Szervezeteid betöltése…",
     "loadingSubtitle": "Ez eltarthat egy pillanatig.",
     "emptyTitle": "Még nincs Classroom 50 szervezet",
     "emptyBody": "Az általad tagolt, Classroom 50-et használó szervezetek itt jelennek meg. Ha egyet vársz, kérd meg az oktatódat, hogy erősítse meg, hogy hozzáadott, majd frissíts.",
-    "showUnsupported": "Nem támogatott szervezetek megjelenítése",
     "missingNotice": {
       "title": "Nem látod a szervezetedet?",
       "body": "A Classroom 50 csak azokat a GitHub-szervezeteket tudja megjeleníteni, amelyekhez a bejelentkezés során kifejezetten hozzáférést adtál. Ha egy szervezet hiányzik, előfordulhat, hogy frissítened kell az OAuth-engedélyeidet.",
@@ -458,8 +487,42 @@
       "viewOnGitHub": "Megtekintés a GitHubon",
       "openOnGitHub": "A(z) {{org}} megnyitása a GitHubon",
       "open": "Megnyitás",
+      "updatedAgo": "Frissítve {{when}}"
+    },
+    "newOrg": {
+      "allSetUp": "Az összes szervezeted már be van állítva.",
+      "button": "Új szervezet beállítása",
+      "createOnGitHub": "Szervezet létrehozása a GitHubon",
+      "description": "Válaszd ki az egyik GitHub-szervezetedet, amelyben be szeretnéd állítani a Classroom 50-et. Nem látod a kívántat? Előbb hozd létre a GitHubon.",
+      "freePlanDisabled": "Ingyenes csomag — a Classroom 50-hez Team vagy Enterprise szervezet szükséges",
+      "pickPrompt": "Beállításra kész szervezetek",
       "setUp": "Beállítás",
-      "askTeacher": "Kérj hozzáférést egy tanártól"
+      "title": "Új Classroom 50 szervezet beállítása"
+    },
+    "noResults": {
+      "body": "Nincs a(z) „{{query}}” keresésnek megfelelő szervezet.",
+      "clear": "Keresés törlése",
+      "title": "Nincs a keresésnek megfelelő szervezet"
+    },
+    "setUpFirst": {
+      "body": "Vannak szervezeteid, amelyek még nincsenek beállítva. Állítsd be a Classroom 50-et, hogy kurzusokat és feladatokat kezdhess létrehozni.",
+      "cta": "Szervezet beállítása",
+      "title": "Állítsd be az első Classroom 50 szervezetedet"
+    },
+    "toolbar": {
+      "searchLabel": "Szervezetek keresése",
+      "searchPlaceholder": "Szervezetek keresése…",
+      "sort": {
+        "label": "Rendezés",
+        "lastModified": "Utoljára módosítva",
+        "nameAsc": "Név (A–Z)",
+        "status": "Állapot"
+      },
+      "view": {
+        "gridLabel": "Rácsnézet",
+        "label": "Nézet",
+        "listLabel": "Listanézet"
+      }
     }
   },
   "assignments": {
@@ -879,7 +942,6 @@
       "changeThemOn_other": "— módosítsd itt:",
       "gitHub": "GitHub",
       "orUseFixIt": " (vagy használd a „Javítás” lehetőséget)",
-      "managedByEnterprise": "Vállalati szinten kezelt — állítsd be kézzel",
       "readError": "Nem sikerült beolvasni a szervezetet a lezárás ellenőrzéséhez. Ellenőrizd a hozzáférésedet, és próbáld újra.",
       "driftCanFix": "Használd a „Javítás” lehetőséget egy eltért beállításon, vagy futtasd újra alább a beállítást, hogy egyszerre újra alkalmazz mindent.",
       "driftCannotFix": "Kérd meg a szervezet egy tulajdonosát, hogy javítsa ki az eltérést — ezekhez a módosításokhoz tulajdonosi jogosultság szükséges.",
@@ -887,7 +949,11 @@
       "confirmByHandBody": "A GitHub nem tesz elérhetővé API-t ezeknek a beállításoknak az olvasásához, így nem tudjuk automatikusan ellenőrizni őket — erősítsd meg mindegyiket a tagsági jogosultságok oldalán.",
       "confirmManually": "Megerősítés kézzel",
       "memberPermsToggle": "Az általunk beállított tagsági jogosultságok",
-      "memberPermsHint": "A Classroom 50 által beállított szervezeti tagsági jogosultságok teljes listája, beleértve a már érvényben lévőket is. Az eltértek fent vannak kiemelve."
+      "memberPermsHint": "A Classroom 50 által beállított szervezeti tagsági jogosultságok teljes listája, beleértve a már érvényben lévőket is. Az eltértek fent vannak kiemelve.",
+      "couldntAutoConfigure": "Ezt nem sikerült automatikusan beállítani. Ez akkor fordulhat elő, ha egy vállalati vagy szervezeti szabályzat kezeli a beállítást, vagy ha a fióknak nincs jogosultsága. Állítsd be kézzel a hivatkozott oldalon.",
+      "fixTransient": "Ez nem ment át — ez lehet ideiglenes sebességkorlát, vagy a tároló még inicializálódhat. Próbáld újra egy pillanat múlva.",
+      "needsManualSetup": "Kézi beállítás szükséges",
+      "requiresManualFix": "Állítsd be kézzel"
     },
     "rerun": {
       "title": "Beállítás újrafuttatása",
@@ -1055,12 +1121,12 @@
     "noStudents": "Nincsenek tanulók",
     "viewAssignments": "Feladatok megtekintése",
     "editClassAria": "{{name}} szerkesztése",
-    "editClassTitle": "Feladat szerkesztése",
+    "editClassTitle": "Kurzus szerkesztése",
     "githubOrganization": "GitHub-szervezet",
     "myClasses": "Kurzusaim",
     "myAssignments": "Feladataim",
     "manageSubtitle": "Kezeld a kurzusaidat és feladataidat.",
-    "newClass": "+ Új kurzus",
+    "newClass": "Új kurzus",
     "empty": {
       "title": "Még nincsenek kurzusok",
       "body": "Hozd létre az első kurzusodat, hogy elkezdhess feladatokat hozzáadni, tanulókat importálni és beadásokat kezelni.",
@@ -1077,7 +1143,8 @@
     "filter": {
       "active": "Aktív",
       "archived": "Archivált",
-      "all": "Összes"
+      "all": "Összes",
+      "label": "Szűrés állapot szerint"
     },
     "repo": {
       "manageGroupAria": "Csoport kezelése a(z) {{assignment}} feladathoz",
@@ -1132,6 +1199,51 @@
       "removedToast": "@{{login}} eltávolítva a következő szerepkörből: {{role}}.",
       "removeFailed": "Nem sikerült eltávolítani @{{login}}-t: {{error}}",
       "removeRole": "{{role}} eltávolítása"
+    },
+    "card": {
+      "actionsAria": "Műveletek: {{name}}",
+      "assignmentCount_one": "{{count}} feladat",
+      "assignmentCount_other": "{{count}} feladat",
+      "countsUnavailable": "A számadatok nem érhetők el",
+      "delete": "Kurzus törlése",
+      "edit": "Kurzus szerkesztése",
+      "loadingAssignments": "Feladatok számának betöltése…",
+      "loadingStudents": "Diákok számának betöltése…",
+      "noAssignments": "Nincs feladat",
+      "viewOnGitHub": "Megtekintés a GitHubon"
+    },
+    "deleteFailed": "A(z) {{classroom}} kurzust nem sikerült törölni: {{error}}",
+    "deleteNoop": "A(z) {{classroom}} kurzus már törölve lett.",
+    "deleteTeamWarning": "A(z) {{classroom}} kurzus törölve, de néhány GitHub-csapatot nem sikerült eltávolítani. Töröld őket kézzel a szervezet csapatbeállításaiban.",
+    "deletedToast": "A(z) {{classroom}} kurzus törölve.",
+    "emptyFilter": {
+      "active": "Nincs aktív kurzus.",
+      "all": "Még nincs kurzus.",
+      "archived": "Nincs archivált kurzus."
+    },
+    "noResults": {
+      "body": "Nincs a(z) „{{query}}” keresésnek megfelelő kurzus.",
+      "clear": "Keresés törlése",
+      "title": "Nincs a keresésnek megfelelő kurzus"
+    },
+    "toolbar": {
+      "allTerms": "Minden félév",
+      "searchLabel": "Kurzusok keresése",
+      "searchPlaceholder": "Kurzusok keresése…",
+      "sort": {
+        "label": "Rendezés",
+        "nameAsc": "Név (A–Z)",
+        "studentCount": "Diákok száma",
+        "term": "Félév"
+      },
+      "sortPrefix": "Rendezés",
+      "termLabel": "Szűrés félév szerint",
+      "termPrefix": "Félév",
+      "view": {
+        "gridLabel": "Rácsnézet",
+        "label": "Nézet",
+        "listLabel": "Listanézet"
+      }
     }
   },
   "accept": {
@@ -1280,8 +1392,7 @@
       "searchAria": "Beadványok keresése",
       "sectionAria": "Szűrés csoport szerint",
       "allSections": "Minden csoport",
-      "submissionAria": "Szűrés beadási állapot szerint",
-      "allSubmissions": "Minden beadvány",
+      "submissionAria": "Szűrés beadási vagy elfogadási állapot szerint",
       "submitted": "Beadva",
       "onTime": "Időben",
       "late": "Késett",
@@ -1290,8 +1401,6 @@
       "allGrades": "Minden osztályzat",
       "passing": "Megfelelt",
       "failing": "Nem megfelelt",
-      "acceptedAria": "Szűrés elfogadási állapot szerint",
-      "allAcceptance": "Minden elfogadás",
       "accepted": "Elfogadva",
       "notAccepted": "Nincs elfogadva",
       "clear": "Törlés",
@@ -1299,7 +1408,12 @@
       "sortRecent": "Legújabb elöl",
       "sortOldest": "Legrégebbi elöl",
       "sortNameAsc": "Név A–Z",
-      "sortNameDesc": "Név Z–A"
+      "sortNameDesc": "Név Z–A",
+      "allStatuses": "Minden állapot",
+      "passingLabel": "Osztályzat",
+      "sectionLabel": "Csoport",
+      "sortLabel": "Rendezés",
+      "submissionLabel": "Állapot"
     },
     "table": {
       "captionGroup": "Csoportos beadványok",
@@ -1310,7 +1424,6 @@
       "colScore": "Pontszám",
       "colLastSubmitted": "Utolsó beadás",
       "colActions": "Műveletek",
-      "emptyState": "Egyetlen beadvány sem felel meg a jelenlegi szűrőknek.",
       "openGroupRepo": "A közös csoportrepó megnyitása",
       "hideSubmissions": "Beadványok elrejtése",
       "showSubmissions": "Minden beadvány megjelenítése",
@@ -1338,7 +1451,16 @@
       "reviewAria": "Visszajelzési pull request megnyitása",
       "fullHistory_prefix": "Nyisd meg a",
       "fullHistory_link": "repót",
-      "fullHistory_suffix": "a teljes committörténethez."
+      "fullHistory_suffix": "a teljes committörténethez.",
+      "acceptedAwaiting": "Elfogadva · beadásra vár",
+      "emptyClearFilters": "Szűrők törlése",
+      "emptyFilteredBody": "Próbálj másik keresést, vagy töröld a szűrőket, hogy mindenkit láss.",
+      "emptyFilteredTitle": "Nincs a szűrőknek megfelelő beadás",
+      "emptyNoDataBody": "Amint a diákok elfogadják a feladatot és feltöltik a munkájukat, a beadásaik itt jelennek meg. A legfrissebbek lekéréséhez használd a Begyűjtés most gombot.",
+      "emptyNoDataTitle": "Még nem gyűjtöttünk be beadásokat",
+      "noGroup": "Nincs beszámított csoportban",
+      "noGroupTitle": "Ez a diák egyetlen beadó csoport tárolójában sincs beszámítva. A csoporttagság minden tároló közreműködőiből olvasódik ki a begyűjtéskor, így az a diák jelenik meg itt, aki soha nem csatlakozott csoporthoz — vagy akinek a csoporttagságát nem sikerült kiolvasni a legutóbbi begyűjtéskor. Az osztályozás előtt nyisd meg a csoportok tárolóit az ellenőrzéshez.",
+      "notAccepted": "Nincs elfogadva"
     },
     "reviewModal": {
       "errorTitle": "Nem sikerült ellenőrizni a visszajelzési PR-t",
@@ -1377,7 +1499,16 @@
       "fallbackTitle": "Beadvány",
       "missingParams": "Hiányzik a kurzus vagy a feladat információja."
     },
-    "viewSourceRepo": "Forrástároló megtekintése"
+    "viewSourceRepo": "Forrástároló megtekintése",
+    "justNow": "épp most",
+    "menu": {
+      "actions": "Műveletek",
+      "invite": "Meghívó link",
+      "metrics": "Mutatók"
+    },
+    "metrics": {
+      "title": "Beadási mutatók"
+    }
   },
   "orgMembers": {
     "heading": "Tagok",
@@ -1676,6 +1807,73 @@
       "instructionsUrlless": "Nyisd meg ezt a hivatkozást az iskolád tanulásmenedzsment-rendszeréből (LMS), hogy előbb egyszeri bejelentkezéssel legyél bejelentkezve, vagy hitelesítsd magad újra a GitHubbal, majd töltsd újra ezt az oldalt.",
       "instructionsWithUrl": "Használd az alábbi gombot az egyszeri bejelentkezés engedélyezéséhez ehhez a szervezethez, majd töltsd újra ezt az oldalt.",
       "title": "Egyszeri bejelentkezés engedélyezése"
+    }
+  },
+  "appUpdate": {
+    "action": "Újratöltés most",
+    "body": "Töltsd újra az oldalt a legfrissebb verzióért.",
+    "title": "Elérhető a Classroom 50 új verziója"
+  },
+  "offline": {
+    "body": "A Classroom 50 a GitHub élő adataival dolgozik, ezért kapcsolatra van szüksége. Ez a sáv automatikusan eltűnik, amint ismét online vagy.",
+    "title": "Offline vagy"
+  },
+  "orgActivity": {
+    "clear": "Törlés",
+    "clearFilters": "Törlés",
+    "detail": {
+      "source": "itt: {{location}}",
+      "status": "HTTP {{code}}"
+    },
+    "diagnostics": {
+      "copied": "Másolva",
+      "copy": "Másolás a vágólapra",
+      "description": "Technikai részletek, amelyeket beilleszthetsz egy hibajelentésbe vagy támogatási beszélgetésbe. Semmi nem kerül elküldésre — ez csak a vágólapodat tölti ki.",
+      "title": "Diagnosztika"
+    },
+    "empty": {
+      "body": "A konfigurációs változtatások, workflow-futtatások és ennek a munkamenetnek a hibái itt jelennek meg.",
+      "title": "Még nincs tevékenység"
+    },
+    "exportCsv": "CSV exportálása",
+    "filters": {
+      "allSources": "Minden forrás",
+      "allTypes": "Minden típus",
+      "source": "Forrás:",
+      "type": "Típus:"
+    },
+    "heading": "Tevékenység",
+    "loadOlder": "Régebbiek betöltése",
+    "loading": "Tevékenység betöltése...",
+    "noMatch": {
+      "body": "Próbálj másik keresést, vagy töröld a szűrőket.",
+      "title": "Nincs megfelelő tevékenység"
+    },
+    "partialError": "Néhány tevékenységet nem sikerült betölteni. Az elérhetők megjelenítése.",
+    "searchLabel": "Tevékenység keresése",
+    "searchPlaceholder": "Tevékenység keresése...",
+    "showDiagnostics": "Diagnosztika megjelenítése",
+    "source": {
+      "commit": "Konfigurációs változtatások",
+      "run": "Workflow-futtatások",
+      "session": "Ez a munkamenet"
+    },
+    "status": {
+      "error": "Sikertelen",
+      "info": "",
+      "ok": "Befejezve",
+      "running": "Fut"
+    },
+    "subtitle": "A szervezet konfigurációs változtatásai, workflow-futtatásai és ennek a munkamenetnek a hibái, a legújabbtól kezdve.",
+    "type": {
+      "action": "Művelet",
+      "assignment": "Feladat",
+      "classroom": "Kurzus",
+      "config": "Konfiguráció",
+      "error": "Hiba",
+      "run": "Workflow-futtatás",
+      "scores": "Pontszámok",
+      "student": "Diák"
     }
   }
 }

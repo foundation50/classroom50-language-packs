@@ -33,8 +33,8 @@
     "primary": "Hlavní",
     "expandSidebar": "Rozbalit postranní panel",
     "collapseSidebar": "Sbalit postranní panel",
-    "allClasses": "Všechny třídy",
-    "allClassesArrow": "‹ Všechny třídy",
+    "allClasses": "Všechny kurzy",
+    "allClassesArrow": "‹ Všechny kurzy",
     "allAssignments": "Všechny úlohy",
     "allAssignmentsArrow": "‹ Všechny úlohy",
     "accountMenu": "Nabídka účtu",
@@ -46,7 +46,7 @@
     "mySubmission": "Moje odevzdání",
     "manageGroup": "Spravovat skupinu",
     "acceptAssignment": "Přijmout úlohu",
-    "myClasses": "Moje třídy",
+    "myClasses": "Moje kurzy",
     "myAssignments": "Moje úlohy",
     "published": "Publikováno",
     "members": "Členové",
@@ -81,7 +81,13 @@
     "aboutReportIssueHint": "Našli jste chybu nebo máte návrh na novou funkci?",
     "aboutSupportTitle": "Zpětná vazba a podpora",
     "aboutVersion": "Verze",
-    "docs": "Dokumentace"
+    "docs": "Dokumentace",
+    "aboutDiagnosticsCopied": "Zkopírováno",
+    "aboutDiagnosticsCopy": "Kopírovat diagnostiku",
+    "aboutDiagnosticsHint": "Zkopírujte technické podrobnosti pro zahrnutí do hlášení chyby nebo dotazu na podporu. Žádná data se nikam neodesílají; pouze se vyplní vaše schránka.",
+    "aboutDiagnosticsShow": "Zobrazit diagnostiku",
+    "aboutDiagnosticsTitle": "Diagnostika",
+    "activity": "Aktivita"
   },
   "auth": {
     "signInTitle": "Přihlášení",
@@ -114,7 +120,30 @@
     "reauthorize": "Znovu autorizovat",
     "reauthorizeHint": "Pokud opětovná autorizace tento problém neodstraní, může být nutné, aby vlastník organizace aplikaci schválil v nastavení zásad OAuth dané organizace.",
     "signedInConfirmed": "Přihlášeno – vaše relace je aktivní",
-    "verifyingSession": "Ověřování vaší relace..."
+    "verifyingSession": "Ověřování vaší relace...",
+    "errorClientIdMissing": "ID klienta GitHub OAuth není nakonfigurováno (VITE_GITHUB_CLIENT_ID).",
+    "errorDeviceDeclined": "Žádost o autorizaci jste zamítli.",
+    "errorDeviceExpired": "Kód zařízení vypršel. Zkuste to prosím znovu.",
+    "errorDeviceNoToken": "Koncový bod tokenu nevrátil žádný access_token ani chybu.",
+    "errorMissingPkce": "Chybí ověřovatel PKCE nebo ID klienta. Zkuste se prosím přihlásit znovu.",
+    "errorNetwork": "Chyba sítě při připojování k {{target}}; služba může být mimo provoz nebo nedostupná.",
+    "errorNetworkProxyTarget": "proxy Cloudflare Worker",
+    "errorOffline": "Zdá se, že jste offline. Zkontrolujte připojení a zkuste to znovu — přihlášení vyžaduje síťové připojení.",
+    "errorPatFineGrained": "Vypadá to jako jemně odstupňovaný token, který nelze ověřit. Použijte klasický token s výše uvedenými oprávněními (scopes).",
+    "errorPatMissingScopes": "Tomuto tokenu chybí požadovaná oprávnění (scopes): {{scopes}}. Přidejte je a zkuste to znovu.",
+    "errorPatRejected401": "Tento token byl zamítnut GitHubem (401). Zkontrolujte, zda je platný a nevypršel.",
+    "errorStateMismatch": "Neshoda stavu -- možný CSRF. Zkuste se prosím přihlásit znovu.",
+    "offlineHold": "Jste offline. Čekáme na připojení pro obnovení vaší relace…",
+    "otherSignInMethods": "Jiné způsoby přihlášení",
+    "patCancel": "Zrušit",
+    "patCreateTokenLink": "Vytvořit token s předvybranými těmito oprávněními (scopes)",
+    "patFineGrainedNote": "Jemně odstupňované tokeny nejsou podporovány — použijte klasický token.",
+    "patInstructions": "Vložte osobní přístupový token GitHub (klasický) pro přímé přihlášení bez OAuth proxy. Token musí mít zaškrtnutá tato oprávnění (scopes):",
+    "patStorageNote": "Token je uložen v místním úložišti tohoto prohlížeče, stejně jako tokeny z ostatních způsobů přihlášení.",
+    "patSubmit": "Přihlásit se tokenem",
+    "patTitle": "Přihlášení pomocí osobního přístupového tokenu",
+    "patTokenLabel": "Osobní přístupový token",
+    "usePersonalAccessToken": "Použít osobní přístupový token"
   },
   "documentTitle": {
     "assignments": "Úlohy",
@@ -131,9 +160,10 @@
     "acceptAssignment": "Přijmout úlohu",
     "members": "Členové",
     "newClassroom": "Nová učebna",
-    "classes": "Učebny",
+    "classes": "Kurzy",
     "mySubmission": "Moje odevzdání",
-    "submissions": "Odevzdání"
+    "submissions": "Odevzdání",
+    "activity": "Aktivita"
   },
   "students": {
     "addTitle": "Přidat studenta",
@@ -404,10 +434,7 @@
     "shareCopy": "Kopírovat",
     "shareCopied": "Zkopírováno",
     "installedTitle": "Nainstalované balíčky",
-    "browseTitle": "Přidat jazyk",
-    "browseHint": "Nainstalujte hotový překlad. Tyto překlady vycházejí ze základního jazyka a před zveřejněním jsou zkontrolovány.",
     "browseLoading": "Načítání dostupných jazyků…",
-    "browseEmpty": "Momentálně nejsou k dispozici žádné další jazyky.",
     "installTitle": "Instalace ze souboru nebo z URL",
     "installHint": "Nainstalujte jazykový balíček: přeložte základní soubor en.json a načtěte jej zde. Kód jazyka se rozpozná z názvu souboru; zadejte jej níže pouze v případě, že se to nezdaří.",
     "codePlaceholder": "Kód jazyka (např. de)",
@@ -427,7 +454,11 @@
     "errorRegistry": "Dostupné jazyky se nepodařilo načíst. Zkuste to znovu.",
     "errorGeneric": "Jazykový balíček se nepodařilo nainstalovat.",
     "updatedToast_one": "Jazykový balíček {{list}} byl aktualizován na nejnovější překlady.",
-    "updatedToast_other": "Bylo aktualizováno {{count}} jazykových balíčků ({{list}}) na nejnovější překlady."
+    "updatedToast_other": "Bylo aktualizováno {{count}} jazykových balíčků ({{list}}) na nejnovější překlady.",
+    "activeHint": "Vyberte nainstalovaný jazyk nebo zvolte některý označený ⬇ pro jeho stažení a instalaci.",
+    "optionDownload": "⬇ {{language}}",
+    "sourceRegistry": "Registr",
+    "sourceUser": "Načteno vámi"
   },
   "validation": {
     "githubOrEmailRequired": "Zadejte uživatelské jméno GitHubu nebo e-mail.",
@@ -451,12 +482,10 @@
   },
   "orgs": {
     "headingCl50": "Organizace Classroom 50",
-    "headingSetUp": "Nastavit novou organizaci Classroom 50",
     "loadingTitle": "Načítání vašich organizací…",
     "loadingSubtitle": "Může to chvíli trvat.",
     "emptyTitle": "Zatím žádné organizace Classroom 50",
     "emptyBody": "Organizace, do kterých patříte a které používají Classroom 50, se zobrazí zde. Pokud nějakou očekáváte, požádejte svého vyučujícího o potvrzení, že jste byli přidáni, a poté obnovte stránku.",
-    "showUnsupported": "Zobrazit nepodporované organizace",
     "missingNotice": {
       "title": "Nevidíte svou organizaci?",
       "body": "Classroom 50 může zobrazit pouze ty organizace GitHub, ke kterým jste během přihlášení výslovně udělili přístup. Pokud některá organizace chybí, možná budete muset aktualizovat svá oprávnění OAuth.",
@@ -472,8 +501,42 @@
       "viewOnGitHub": "Zobrazit na GitHubu",
       "openOnGitHub": "Otevřít {{org}} na GitHubu",
       "open": "Otevřít",
+      "updatedAgo": "Aktualizováno {{when}}"
+    },
+    "newOrg": {
+      "allSetUp": "Všechny vaše organizace jsou již nastaveny.",
+      "button": "Nastavit novou organizaci",
+      "createOnGitHub": "Vytvořit organizaci na GitHubu",
+      "description": "Vyberte jednu ze svých organizací GitHub, ve které chcete nakonfigurovat Classroom 50. Nevidíte tu, kterou chcete? Nejprve ji vytvořte na GitHubu.",
+      "freePlanDisabled": "Bezplatný plán — Classroom 50 vyžaduje organizaci s plánem Team nebo Enterprise",
+      "pickPrompt": "Organizace připravené k nastavení",
       "setUp": "Nastavit",
-      "askTeacher": "Požádejte vyučujícího o přístup"
+      "title": "Nastavit novou organizaci Classroom 50"
+    },
+    "noResults": {
+      "body": "Žádné organizace neodpovídají dotazu „{{query}}“.",
+      "clear": "Vymazat hledání",
+      "title": "Vašemu hledání neodpovídají žádné organizace"
+    },
+    "setUpFirst": {
+      "body": "Vlastníte organizace, které ještě nejsou nastaveny. Nakonfigurujte Classroom 50 a začněte vytvářet kurzy a úlohy.",
+      "cta": "Nastavit organizaci",
+      "title": "Nastavte svou první organizaci Classroom 50"
+    },
+    "toolbar": {
+      "searchLabel": "Hledat organizace",
+      "searchPlaceholder": "Hledat organizace…",
+      "sort": {
+        "label": "Řadit",
+        "lastModified": "Naposledy změněno",
+        "nameAsc": "Název (A–Z)",
+        "status": "Stav"
+      },
+      "view": {
+        "gridLabel": "Zobrazení v mřížce",
+        "label": "Zobrazení",
+        "listLabel": "Zobrazení v seznamu"
+      }
     }
   },
   "assignments": {
@@ -893,7 +956,6 @@
       "changeThemOn_other": "— změňte je na",
       "gitHub": "GitHubu",
       "orUseFixIt": " (nebo použijte „Opravit“)",
-      "managedByEnterprise": "Spravováno enterprise — nastavte ručně",
       "readError": "Organizaci se nepodařilo načíst pro audit zabezpečení. Zkontrolujte svůj přístup a zkuste to znovu.",
       "driftCanFix": "Použijte „Opravit“ u odchýleného nastavení nebo znovu spusťte nastavení níže, abyste vše použili najednou.",
       "driftCannotFix": "Požádejte vlastníka organizace o opravu odchylky — tyto změny vyžadují oprávnění vlastníka.",
@@ -901,7 +963,11 @@
       "confirmByHandBody": "GitHub neposkytuje žádné API ke čtení těchto nastavení, takže je nemůžeme ověřit automaticky — potvrďte každé z nich na stránce oprávnění členů.",
       "confirmManually": "Potvrdit ručně",
       "memberPermsToggle": "Oprávnění členů, která nastavujeme",
-      "memberPermsHint": "Úplný seznam oprávnění členů organizace, která Classroom 50 nastavuje, včetně těch, jež jsou již v platnosti. Odchýlená jsou uvedena výše."
+      "memberPermsHint": "Úplný seznam oprávnění členů organizace, která Classroom 50 nastavuje, včetně těch, jež jsou již v platnosti. Odchýlená jsou uvedena výše.",
+      "couldntAutoConfigure": "Toto nelze nastavit automaticky. Může se to stát, když nastavení spravuje enterprise nebo organizační zásada, nebo když účet nemá oprávnění. Nastavte to ručně na propojené stránce.",
+      "fixTransient": "Nepovedlo se to — může jít o dočasné omezení rychlosti (rate limit) nebo se repozitář stále inicializuje. Zkuste to za chvíli znovu.",
+      "needsManualSetup": "Vyžaduje ruční nastavení",
+      "requiresManualFix": "Nastavit ručně"
     },
     "rerun": {
       "title": "Znovu spustit nastavení",
@@ -1070,12 +1136,12 @@
     "noStudents": "Žádní studující",
     "viewAssignments": "Zobrazit úlohy",
     "editClassAria": "Upravit {{name}}",
-    "editClassTitle": "Upravit úlohu",
+    "editClassTitle": "Upravit kurz",
     "githubOrganization": "Organizace na GitHubu",
-    "myClasses": "Moje třídy",
+    "myClasses": "Moje kurzy",
     "myAssignments": "Moje úlohy",
     "manageSubtitle": "Spravujte své kurzy a úlohy.",
-    "newClass": "+ Nová třída",
+    "newClass": "Nový kurz",
     "empty": {
       "title": "Zatím žádné učebny",
       "body": "Vytvořte svou první učebnu a začněte přidávat úlohy, importovat studující a spravovat odevzdání.",
@@ -1092,7 +1158,8 @@
     "filter": {
       "active": "Aktivní",
       "archived": "Archivované",
-      "all": "Vše"
+      "all": "Vše",
+      "label": "Filtrovat podle stavu"
     },
     "repo": {
       "manageGroupAria": "Spravovat skupinu pro úlohu {{assignment}}",
@@ -1147,6 +1214,51 @@
       "removedToast": "@{{login}} byl odebrán z role {{role}}.",
       "removeFailed": "Nepodařilo se odebrat @{{login}}: {{error}}",
       "removeRole": "Odebrat roli {{role}}"
+    },
+    "card": {
+      "actionsAria": "Akce pro {{name}}",
+      "assignmentCount_one": "{{count}} úloha",
+      "assignmentCount_other": "{{count}} úloh",
+      "countsUnavailable": "Počty nejsou dostupné",
+      "delete": "Smazat kurz",
+      "edit": "Upravit kurz",
+      "loadingAssignments": "Načítání počtu úloh…",
+      "loadingStudents": "Načítání počtu studentů…",
+      "noAssignments": "Žádné úlohy",
+      "viewOnGitHub": "Zobrazit na GitHubu"
+    },
+    "deleteFailed": "Kurz {{classroom}} nelze smazat: {{error}}",
+    "deleteNoop": "Kurz {{classroom}} byl již smazán.",
+    "deleteTeamWarning": "Kurz {{classroom}} byl smazán, ale některé týmy GitHub nebylo možné odstranit. Smažte je ručně v nastavení týmů organizace.",
+    "deletedToast": "Kurz {{classroom}} byl smazán.",
+    "emptyFilter": {
+      "active": "Žádné aktivní kurzy.",
+      "all": "Zatím žádné kurzy.",
+      "archived": "Žádné archivované kurzy."
+    },
+    "noResults": {
+      "body": "Žádné kurzy neodpovídají dotazu „{{query}}“.",
+      "clear": "Vymazat hledání",
+      "title": "Vašemu hledání neodpovídají žádné kurzy"
+    },
+    "toolbar": {
+      "allTerms": "Všechna období",
+      "searchLabel": "Hledat kurzy",
+      "searchPlaceholder": "Hledat kurzy…",
+      "sort": {
+        "label": "Řadit",
+        "nameAsc": "Název (A–Z)",
+        "studentCount": "Počet studentů",
+        "term": "Období"
+      },
+      "sortPrefix": "Řadit",
+      "termLabel": "Filtrovat podle období",
+      "termPrefix": "Období",
+      "view": {
+        "gridLabel": "Zobrazení v mřížce",
+        "label": "Zobrazení",
+        "listLabel": "Zobrazení v seznamu"
+      }
     }
   },
   "accept": {
@@ -1295,8 +1407,7 @@
       "searchAria": "Hledat v odevzdáních",
       "sectionAria": "Filtrovat podle sekce",
       "allSections": "Všechny sekce",
-      "submissionAria": "Filtrovat podle stavu odevzdání",
-      "allSubmissions": "Všechna odevzdání",
+      "submissionAria": "Filtrovat podle stavu odevzdání nebo přijetí",
       "submitted": "Odevzdáno",
       "onTime": "Včas",
       "late": "Po termínu",
@@ -1305,8 +1416,6 @@
       "allGrades": "Všechna hodnocení",
       "passing": "Prošlo",
       "failing": "Neprošlo",
-      "acceptedAria": "Filtrovat podle stavu přijetí",
-      "allAcceptance": "Všechna přijetí",
       "accepted": "Přijato",
       "notAccepted": "Nepřijato",
       "clear": "Vymazat",
@@ -1314,7 +1423,12 @@
       "sortRecent": "Nejnovější první",
       "sortOldest": "Nejstarší první",
       "sortNameAsc": "Jméno A–Z",
-      "sortNameDesc": "Jméno Z–A"
+      "sortNameDesc": "Jméno Z–A",
+      "allStatuses": "Všechny stavy",
+      "passingLabel": "Hodnocení",
+      "sectionLabel": "Sekce",
+      "sortLabel": "Řadit",
+      "submissionLabel": "Stav"
     },
     "table": {
       "captionGroup": "Odevzdání skupin",
@@ -1325,7 +1439,6 @@
       "colScore": "Skóre",
       "colLastSubmitted": "Naposledy odevzdáno",
       "colActions": "Akce",
-      "emptyState": "Žádná odevzdání neodpovídají aktuálním filtrům.",
       "openGroupRepo": "Otevřít sdílený repozitář skupiny",
       "hideSubmissions": "Skrýt odevzdání",
       "showSubmissions": "Zobrazit všechna odevzdání",
@@ -1353,7 +1466,16 @@
       "reviewAria": "Otevřít pull request se zpětnou vazbou",
       "fullHistory_prefix": "Otevřete",
       "fullHistory_link": "repozitář",
-      "fullHistory_suffix": "pro úplnou historii commitů."
+      "fullHistory_suffix": "pro úplnou historii commitů.",
+      "acceptedAwaiting": "Přijato · čeká na odevzdání",
+      "emptyClearFilters": "Vymazat filtry",
+      "emptyFilteredBody": "Zkuste jiné hledání nebo vymažte filtry, abyste viděli všechny.",
+      "emptyFilteredTitle": "Vašim filtrům neodpovídají žádná odevzdání",
+      "emptyNoDataBody": "Jakmile studenti přijmou úlohu a odešlou svou práci, objeví se jejich odevzdání zde. Použijte Sesbírat nyní pro načtení nejnovějších.",
+      "emptyNoDataTitle": "Zatím nebyla sesbírána žádná odevzdání",
+      "noGroup": "Není v započítané skupině",
+      "noGroupTitle": "Tento student není započítán v repozitáři žádné odevzdávající skupiny. Členství ve skupině se čte ze spolupracovníků každého repozitáře v době sběru, takže student, který se nikdy nepřipojil ke skupině — nebo jehož členství ve skupině nebylo možné při posledním sběru přečíst — se objeví zde. Před hodnocením otevřete repozitáře skupin pro ověření.",
+      "notAccepted": "Nepřijato"
     },
     "reviewModal": {
       "errorTitle": "Nepodařilo se zkontrolovat pull request se zpětnou vazbou",
@@ -1392,7 +1514,16 @@
       "fallbackTitle": "Odevzdání",
       "missingParams": "Chybí informace o kurzu nebo úloze."
     },
-    "viewSourceRepo": "Zobrazit zdrojový repozitář"
+    "viewSourceRepo": "Zobrazit zdrojový repozitář",
+    "justNow": "právě teď",
+    "menu": {
+      "actions": "Akce",
+      "invite": "Odkaz pro pozvání",
+      "metrics": "Metriky"
+    },
+    "metrics": {
+      "title": "Metriky odevzdání"
+    }
   },
   "orgMembers": {
     "heading": "Členové",
@@ -1513,7 +1644,7 @@
     },
     "breadcrumb": {
       "label": "Drobečková navigace",
-      "classes": "Třídy",
+      "classes": "Kurzy",
       "assignments": "Úkoly"
     },
     "planBadge": {
@@ -1691,6 +1822,73 @@
       "instructionsUrlless": "Otevřete tento odkaz z prostředí školního systému pro řízení výuky (LMS), abyste byli nejprve přihlášeni přes jednotné přihlášení, nebo se znovu ověřte u GitHubu, poté tuto stránku znovu načtěte.",
       "instructionsWithUrl": "Pomocí tlačítka níže autorizujte jednotné přihlášení pro tuto organizaci a poté tuto stránku znovu načtěte.",
       "title": "Autorizovat jednotné přihlášení"
+    }
+  },
+  "appUpdate": {
+    "action": "Načíst znovu",
+    "body": "Načtěte stránku znovu pro získání nejnovější verze.",
+    "title": "Je dostupná nová verze Classroom 50"
+  },
+  "offline": {
+    "body": "Classroom 50 pracuje s živými daty z GitHubu, takže potřebuje připojení. Tento banner zmizí automaticky, jakmile budete opět online.",
+    "title": "Jste offline"
+  },
+  "orgActivity": {
+    "clear": "Vymazat",
+    "clearFilters": "Vymazat",
+    "detail": {
+      "source": "v {{location}}",
+      "status": "HTTP {{code}}"
+    },
+    "diagnostics": {
+      "copied": "Zkopírováno",
+      "copy": "Kopírovat do schránky",
+      "description": "Technické podrobnosti, které můžete vložit do hlášení chyby nebo dotazu na podporu. Nic se nikam neodesílá — pouze se vyplní vaše schránka.",
+      "title": "Diagnostika"
+    },
+    "empty": {
+      "body": "Zde se objeví změny konfigurace, běhy workflow a chyby této relace.",
+      "title": "Zatím žádná aktivita"
+    },
+    "exportCsv": "Exportovat CSV",
+    "filters": {
+      "allSources": "Všechny zdroje",
+      "allTypes": "Všechny typy",
+      "source": "Zdroj:",
+      "type": "Typ:"
+    },
+    "heading": "Aktivita",
+    "loadOlder": "Načíst starší",
+    "loading": "Načítání aktivity...",
+    "noMatch": {
+      "body": "Zkuste jiné hledání nebo vymažte filtry.",
+      "title": "Žádná odpovídající aktivita"
+    },
+    "partialError": "Některou aktivitu nebylo možné načíst. Zobrazuje se to, co je k dispozici.",
+    "searchLabel": "Hledat aktivitu",
+    "searchPlaceholder": "Hledat aktivitu...",
+    "showDiagnostics": "Zobrazit diagnostiku",
+    "source": {
+      "commit": "Změny konfigurace",
+      "run": "Běhy workflow",
+      "session": "Tato relace"
+    },
+    "status": {
+      "error": "Selhalo",
+      "info": "",
+      "ok": "Dokončeno",
+      "running": "Probíhá"
+    },
+    "subtitle": "Změny konfigurace, běhy workflow a chyby této relace pro organizaci, nejnovější první.",
+    "type": {
+      "action": "Akce",
+      "assignment": "Úloha",
+      "classroom": "Kurz",
+      "config": "Konfigurace",
+      "error": "Chyba",
+      "run": "Běh workflow",
+      "scores": "Skóre",
+      "student": "Student"
     }
   }
 }

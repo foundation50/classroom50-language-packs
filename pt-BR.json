@@ -81,7 +81,13 @@
     "aboutReportIssueHint": "Encontrou um bug ou tem uma sugestão de recurso?",
     "aboutSupportTitle": "Feedback e suporte",
     "aboutVersion": "Versão",
-    "docs": "Documentação"
+    "docs": "Documentação",
+    "aboutDiagnosticsCopied": "Copiado",
+    "aboutDiagnosticsCopy": "Copiar diagnóstico",
+    "aboutDiagnosticsHint": "Copie os detalhes técnicos para incluir em um relatório de bug ou tópico de suporte. Nenhum dado é enviado a lugar nenhum; apenas preenche a área de transferência.",
+    "aboutDiagnosticsShow": "Mostrar diagnóstico",
+    "aboutDiagnosticsTitle": "Diagnóstico",
+    "activity": "Atividade"
   },
   "auth": {
     "signInTitle": "Entrar",
@@ -114,7 +120,30 @@
     "reauthorize": "Reautorizar",
     "reauthorizeHint": "Se reautorizar não resolver isso, talvez um proprietário da organização precise aprovar o aplicativo nas configurações de política OAuth da organização.",
     "signedInConfirmed": "Conectado — sua sessão está ativa",
-    "verifyingSession": "Verificando sua sessão..."
+    "verifyingSession": "Verificando sua sessão...",
+    "errorClientIdMissing": "O client ID do OAuth do GitHub não está configurado (VITE_GITHUB_CLIENT_ID).",
+    "errorDeviceDeclined": "Você recusou a solicitação de autorização.",
+    "errorDeviceExpired": "O código do dispositivo expirou. Tente novamente.",
+    "errorDeviceNoToken": "O endpoint de token não retornou access_token nem erro.",
+    "errorMissingPkce": "Verificador PKCE ou client ID ausente. Tente entrar novamente.",
+    "errorNetwork": "Erro de rede ao acessar {{target}}; pode estar fora do ar ou inacessível.",
+    "errorNetworkProxyTarget": "o proxy do Cloudflare Worker",
+    "errorOffline": "Você parece estar offline. Verifique sua conexão e tente novamente — entrar requer uma conexão de rede.",
+    "errorPatFineGrained": "Isso parece ser um token de granularidade fina, que não pode ser verificado. Use um token clássico com os escopos listados acima.",
+    "errorPatMissingScopes": "Esse token não tem os escopos necessários: {{scopes}}. Adicione-os e tente novamente.",
+    "errorPatRejected401": "Esse token foi rejeitado pelo GitHub (401). Verifique se é válido e se não expirou.",
+    "errorStateMismatch": "Divergência de state -- possível CSRF. Tente entrar novamente.",
+    "offlineHold": "Você está offline. Aguardando uma conexão para restaurar sua sessão…",
+    "otherSignInMethods": "Outros métodos de entrada",
+    "patCancel": "Cancelar",
+    "patCreateTokenLink": "Criar um token com esses escopos pré-selecionados",
+    "patFineGrainedNote": "Tokens de granularidade fina não são suportados — use um token clássico.",
+    "patInstructions": "Cole um token de acesso pessoal do GitHub (clássico) para entrar diretamente, sem o proxy OAuth. O token precisa ter estes escopos marcados:",
+    "patStorageNote": "O token é armazenado no armazenamento local deste navegador, assim como os tokens dos outros métodos de entrada.",
+    "patSubmit": "Entrar com o token",
+    "patTitle": "Entrar com um token de acesso pessoal",
+    "patTokenLabel": "Token de acesso pessoal",
+    "usePersonalAccessToken": "Usar um token de acesso pessoal"
   },
   "documentTitle": {
     "assignments": "Atividades",
@@ -133,7 +162,8 @@
     "newClassroom": "Nova turma",
     "classes": "Turmas",
     "mySubmission": "Minha submissão",
-    "submissions": "Submissões"
+    "submissions": "Submissões",
+    "activity": "Atividade"
   },
   "students": {
     "addTitle": "Adicionar estudante",
@@ -390,10 +420,7 @@
     "shareCopy": "Copiar",
     "shareCopied": "Copiado",
     "installedTitle": "Pacotes instalados",
-    "browseTitle": "Adicionar um idioma",
-    "browseHint": "Instale uma tradução pronta. Elas são geradas a partir do idioma base e revisadas antes da publicação.",
     "browseLoading": "Carregando idiomas disponíveis…",
-    "browseEmpty": "Nenhum idioma adicional está disponível no momento.",
     "installTitle": "Instalar a partir de um arquivo ou URL",
     "installHint": "Instale um pacote de idioma: traduza o en.json base e carregue-o aqui. O código do idioma é detectado a partir do nome do arquivo; informe-o abaixo apenas se a detecção falhar.",
     "codePlaceholder": "Código do idioma (ex.: de)",
@@ -413,7 +440,11 @@
     "errorRegistry": "Não foi possível carregar os idiomas disponíveis. Tente novamente.",
     "errorGeneric": "Não foi possível instalar o pacote de idioma.",
     "updatedToast_one": "O pacote de idioma {{list}} foi atualizado com as traduções mais recentes.",
-    "updatedToast_other": "{{count}} pacotes de idioma ({{list}}) foram atualizados com as traduções mais recentes."
+    "updatedToast_other": "{{count}} pacotes de idioma ({{list}}) foram atualizados com as traduções mais recentes.",
+    "activeHint": "Escolha um idioma instalado ou selecione um marcado com ⬇ para baixá-lo e instalá-lo.",
+    "optionDownload": "⬇ {{language}}",
+    "sourceRegistry": "Registro",
+    "sourceUser": "Carregado por você"
   },
   "validation": {
     "githubOrEmailRequired": "Informe um nome de usuário do GitHub ou um e-mail.",
@@ -437,12 +468,10 @@
   },
   "orgs": {
     "headingCl50": "Organizações do Classroom 50",
-    "headingSetUp": "Configurar nova organização do Classroom 50",
     "loadingTitle": "Carregando suas organizações…",
     "loadingSubtitle": "Isso pode levar um instante.",
     "emptyTitle": "Nenhuma organização do Classroom 50 ainda",
     "emptyBody": "As organizações às quais você pertence que usam o Classroom 50 aparecerão aqui. Se você espera ver uma, peça ao seu professor para confirmar que você foi adicionado e depois atualize a página.",
-    "showUnsupported": "Mostrar organizações não compatíveis",
     "missingNotice": {
       "title": "Não está vendo sua organização?",
       "body": "O Classroom 50 só pode mostrar organizações do GitHub às quais você concedeu acesso explicitamente durante o login. Se uma organização estiver faltando, talvez seja necessário atualizar suas permissões de OAuth.",
@@ -458,8 +487,42 @@
       "viewOnGitHub": "Ver no GitHub",
       "openOnGitHub": "Abrir {{org}} no GitHub",
       "open": "Abrir",
+      "updatedAgo": "Atualizado {{when}}"
+    },
+    "newOrg": {
+      "allSetUp": "Todas as suas organizações já estão configuradas.",
+      "button": "Configurar nova organização",
+      "createOnGitHub": "Criar uma organização no GitHub",
+      "description": "Escolha uma de suas organizações do GitHub para configurar o Classroom 50. Não vê a que deseja? Crie-a primeiro no GitHub.",
+      "freePlanDisabled": "Plano gratuito — o Classroom 50 precisa de uma organização Team ou Enterprise",
+      "pickPrompt": "Organizações prontas para configurar",
       "setUp": "Configurar",
-      "askTeacher": "Peça acesso a um professor"
+      "title": "Configurar uma nova organização do Classroom 50"
+    },
+    "noResults": {
+      "body": "Nenhuma organização corresponde a “{{query}}”.",
+      "clear": "Limpar busca",
+      "title": "Nenhuma organização corresponde à sua busca"
+    },
+    "setUpFirst": {
+      "body": "Você é proprietário de organizações que ainda não foram configuradas. Configure o Classroom 50 para começar a criar turmas e atividades.",
+      "cta": "Configurar uma organização",
+      "title": "Configure sua primeira organização do Classroom 50"
+    },
+    "toolbar": {
+      "searchLabel": "Buscar organizações",
+      "searchPlaceholder": "Buscar organizações…",
+      "sort": {
+        "label": "Ordenar",
+        "lastModified": "Última modificação",
+        "nameAsc": "Nome (A–Z)",
+        "status": "Status"
+      },
+      "view": {
+        "gridLabel": "Visualização em grade",
+        "label": "Visualização",
+        "listLabel": "Visualização em lista"
+      }
     }
   },
   "assignments": {
@@ -879,7 +942,6 @@
       "changeThemOn_other": "— altere-as no",
       "gitHub": "GitHub",
       "orUseFixIt": " (ou use \"Corrigir\")",
-      "managedByEnterprise": "Gerenciado pelo enterprise — defina manualmente",
       "readError": "Não foi possível ler a organização para auditar o bloqueio. Verifique seu acesso e tente novamente.",
       "driftCanFix": "Use “Corrigir” em uma configuração divergente ou execute a configuração novamente abaixo para reaplicar tudo de uma vez.",
       "driftCannotFix": "Peça a um proprietário da organização para reparar a divergência — essas alterações exigem permissões de proprietário.",
@@ -887,7 +949,11 @@
       "confirmByHandBody": "O GitHub não expõe nenhuma API para ler essas configurações, então não podemos verificá-las automaticamente — confirme cada uma na página de privilégios de membros.",
       "confirmManually": "Confirmar manualmente",
       "memberPermsToggle": "Permissões de membros que configuramos",
-      "memberPermsHint": "A lista completa de privilégios de membros da organização que o Classroom 50 define, incluindo os que já estão em vigor. Os divergentes são destacados acima."
+      "memberPermsHint": "A lista completa de privilégios de membros da organização que o Classroom 50 define, incluindo os que já estão em vigor. Os divergentes são destacados acima.",
+      "couldntAutoConfigure": "Não foi possível definir isso automaticamente. Isso pode acontecer quando uma política de organização ou empresa gerencia a configuração, ou quando a conta não tem permissão. Defina manualmente na página vinculada.",
+      "fixTransient": "Isso não foi aplicado — pode ser um limite de taxa temporário, ou o repositório ainda pode estar inicializando. Tente novamente em instantes.",
+      "needsManualSetup": "Precisa de configuração manual",
+      "requiresManualFix": "Definir manualmente"
     },
     "rerun": {
       "title": "Executar a configuração novamente",
@@ -1055,12 +1121,12 @@
     "noStudents": "Nenhum estudante",
     "viewAssignments": "Ver atividades",
     "editClassAria": "Editar {{name}}",
-    "editClassTitle": "Editar atividade",
+    "editClassTitle": "Editar turma",
     "githubOrganization": "Organização do GitHub",
     "myClasses": "Minhas turmas",
     "myAssignments": "Minhas atividades",
     "manageSubtitle": "Gerencie seus cursos e atividades.",
-    "newClass": "+ Nova turma",
+    "newClass": "Nova turma",
     "empty": {
       "title": "Nenhuma turma ainda",
       "body": "Crie sua primeira turma para começar a adicionar atividades, importar estudantes e gerenciar entregas.",
@@ -1077,7 +1143,8 @@
     "filter": {
       "active": "Ativas",
       "archived": "Arquivadas",
-      "all": "Todas"
+      "all": "Todas",
+      "label": "Filtrar por status"
     },
     "repo": {
       "manageGroupAria": "Gerenciar grupo de {{assignment}}",
@@ -1132,6 +1199,51 @@
       "removedToast": "@{{login}} removido de {{role}}.",
       "removeFailed": "Não foi possível remover @{{login}}: {{error}}",
       "removeRole": "Remover {{role}}"
+    },
+    "card": {
+      "actionsAria": "Ações de {{name}}",
+      "assignmentCount_one": "{{count}} atividade",
+      "assignmentCount_other": "{{count}} atividades",
+      "countsUnavailable": "Contagens indisponíveis",
+      "delete": "Excluir turma",
+      "edit": "Editar turma",
+      "loadingAssignments": "Carregando contagem de atividades…",
+      "loadingStudents": "Carregando contagem de estudantes…",
+      "noAssignments": "Nenhuma atividade",
+      "viewOnGitHub": "Ver no GitHub"
+    },
+    "deleteFailed": "Não foi possível excluir {{classroom}}: {{error}}",
+    "deleteNoop": "{{classroom}} já havia sido excluída.",
+    "deleteTeamWarning": "Excluímos {{classroom}}, mas algumas equipes do GitHub não puderam ser removidas. Remova-as manualmente nas configurações de equipes da organização.",
+    "deletedToast": "{{classroom}} excluída.",
+    "emptyFilter": {
+      "active": "Nenhuma turma ativa.",
+      "all": "Ainda não há turmas.",
+      "archived": "Nenhuma turma arquivada."
+    },
+    "noResults": {
+      "body": "Nenhuma turma corresponde a “{{query}}”.",
+      "clear": "Limpar busca",
+      "title": "Nenhuma turma corresponde à sua busca"
+    },
+    "toolbar": {
+      "allTerms": "Todos os períodos",
+      "searchLabel": "Buscar turmas",
+      "searchPlaceholder": "Buscar turmas…",
+      "sort": {
+        "label": "Ordenar",
+        "nameAsc": "Nome (A–Z)",
+        "studentCount": "Número de estudantes",
+        "term": "Período"
+      },
+      "sortPrefix": "Ordenar",
+      "termLabel": "Filtrar por período",
+      "termPrefix": "Período",
+      "view": {
+        "gridLabel": "Visualização em grade",
+        "label": "Visualização",
+        "listLabel": "Visualização em lista"
+      }
     }
   },
   "accept": {
@@ -1280,8 +1392,7 @@
       "searchAria": "Buscar entregas",
       "sectionAria": "Filtrar por turma/seção",
       "allSections": "Todas as seções",
-      "submissionAria": "Filtrar por status de entrega",
-      "allSubmissions": "Todas as entregas",
+      "submissionAria": "Filtrar por status de envio ou aceitação",
       "submitted": "Entregues",
       "onTime": "No prazo",
       "late": "Atrasadas",
@@ -1290,8 +1401,6 @@
       "allGrades": "Todas as notas",
       "passing": "Aprovados",
       "failing": "Reprovados",
-      "acceptedAria": "Filtrar por status de aceitação",
-      "allAcceptance": "Toda a aceitação",
       "accepted": "Aceitaram",
       "notAccepted": "Não aceitaram",
       "clear": "Limpar",
@@ -1299,7 +1408,12 @@
       "sortRecent": "Mais recentes primeiro",
       "sortOldest": "Mais antigas primeiro",
       "sortNameAsc": "Nome A–Z",
-      "sortNameDesc": "Nome Z–A"
+      "sortNameDesc": "Nome Z–A",
+      "allStatuses": "Todos os status",
+      "passingLabel": "Nota",
+      "sectionLabel": "Turma/seção",
+      "sortLabel": "Ordenar",
+      "submissionLabel": "Status"
     },
     "table": {
       "captionGroup": "Entregas em grupo",
@@ -1310,7 +1424,6 @@
       "colScore": "Nota",
       "colLastSubmitted": "Última entrega",
       "colActions": "Ações",
-      "emptyState": "Nenhuma entrega corresponde aos filtros atuais.",
       "openGroupRepo": "Abrir o repositório compartilhado do grupo",
       "hideSubmissions": "Ocultar entregas",
       "showSubmissions": "Mostrar todas as entregas",
@@ -1338,7 +1451,16 @@
       "reviewAria": "Abrir pull request de feedback",
       "fullHistory_prefix": "Abra o",
       "fullHistory_link": "repositório",
-      "fullHistory_suffix": "para ver o histórico completo de commits."
+      "fullHistory_suffix": "para ver o histórico completo de commits.",
+      "acceptedAwaiting": "Aceita · aguardando envio",
+      "emptyClearFilters": "Limpar filtros",
+      "emptyFilteredBody": "Tente uma busca diferente ou limpe os filtros para ver todos.",
+      "emptyFilteredTitle": "Nenhum envio corresponde aos seus filtros",
+      "emptyNoDataBody": "Assim que os estudantes aceitarem e fizerem push, os envios deles aparecerão aqui. Use Coletar agora para obter os mais recentes.",
+      "emptyNoDataTitle": "Nenhum envio coletado ainda",
+      "noGroup": "Não está em um grupo creditado",
+      "noGroupTitle": "Este estudante não está creditado no repositório de nenhum grupo que enviou. A participação no grupo é lida a partir dos colaboradores de cada repositório no momento da coleta, então um estudante que nunca entrou em um grupo — ou cujo grupo não pôde ter a participação lida na última coleta — aparece aqui. Abra os repositórios dos grupos para confirmar antes de dar nota.",
+      "notAccepted": "Não aceita"
     },
     "reviewModal": {
       "errorTitle": "Não foi possível verificar um PR de feedback",
@@ -1377,7 +1499,16 @@
       "fallbackTitle": "Entrega",
       "missingParams": "Faltam informações do curso ou da atividade."
     },
-    "viewSourceRepo": "Ver repositório de origem"
+    "viewSourceRepo": "Ver repositório de origem",
+    "justNow": "agora mesmo",
+    "menu": {
+      "actions": "Ações",
+      "invite": "Link de convite",
+      "metrics": "Métricas"
+    },
+    "metrics": {
+      "title": "Métricas de envios"
+    }
   },
   "orgMembers": {
     "heading": "Membros",
@@ -1676,6 +1807,73 @@
       "instructionsUrlless": "Abra este link de dentro do sistema de gestão de aprendizagem (LMS) da sua escola para ficar conectado por login único primeiro, ou reautentique-se com o GitHub, e então recarregue esta página.",
       "instructionsWithUrl": "Use o botão abaixo para autorizar o login único desta organização e depois recarregue esta página.",
       "title": "Autorizar login único"
+    }
+  },
+  "appUpdate": {
+    "action": "Recarregar agora",
+    "body": "Recarregue a página para obter a versão mais recente.",
+    "title": "Uma nova versão do Classroom 50 está disponível"
+  },
+  "offline": {
+    "body": "O Classroom 50 funciona com dados em tempo real do GitHub, portanto precisa de conexão. Este aviso desaparece automaticamente quando você voltar a ficar on-line.",
+    "title": "Você está offline"
+  },
+  "orgActivity": {
+    "clear": "Limpar",
+    "clearFilters": "Limpar",
+    "detail": {
+      "source": "em {{location}}",
+      "status": "HTTP {{code}}"
+    },
+    "diagnostics": {
+      "copied": "Copiado",
+      "copy": "Copiar para a área de transferência",
+      "description": "Detalhes técnicos que você pode colar em um relatório de bug ou tópico de suporte. Nada é enviado a lugar nenhum — apenas preenche sua área de transferência.",
+      "title": "Diagnóstico"
+    },
+    "empty": {
+      "body": "Alterações de configuração, execuções de workflow e os erros desta sessão aparecerão aqui.",
+      "title": "Ainda não há atividade"
+    },
+    "exportCsv": "Exportar CSV",
+    "filters": {
+      "allSources": "Todas as origens",
+      "allTypes": "Todos os tipos",
+      "source": "Origem:",
+      "type": "Tipo:"
+    },
+    "heading": "Atividade",
+    "loadOlder": "Carregar mais antigos",
+    "loading": "Carregando atividade...",
+    "noMatch": {
+      "body": "Tente uma busca diferente ou limpe os filtros.",
+      "title": "Nenhuma atividade correspondente"
+    },
+    "partialError": "Algumas atividades não puderam ser carregadas. Mostrando o que está disponível.",
+    "searchLabel": "Buscar atividade",
+    "searchPlaceholder": "Buscar atividade...",
+    "showDiagnostics": "Mostrar diagnóstico",
+    "source": {
+      "commit": "Alterações de configuração",
+      "run": "Execuções de workflow",
+      "session": "Esta sessão"
+    },
+    "status": {
+      "error": "Falhou",
+      "info": "",
+      "ok": "Concluída",
+      "running": "Em execução"
+    },
+    "subtitle": "Alterações de configuração, execuções de workflow e os erros desta sessão para a organização, mais recentes primeiro.",
+    "type": {
+      "action": "Ação",
+      "assignment": "Atividade",
+      "classroom": "Turma",
+      "config": "Configuração",
+      "error": "Erro",
+      "run": "Execução de workflow",
+      "scores": "Notas",
+      "student": "Estudante"
     }
   }
 }

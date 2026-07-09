@@ -49,8 +49,8 @@
     "primary": "Primary",
     "expandSidebar": "Expand sidebar",
     "collapseSidebar": "Collapse sidebar",
-    "allClasses": "All Classes",
-    "allClassesArrow": "‹ All Classes",
+    "allClasses": "All Classrooms",
+    "allClassesArrow": "‹ All Classrooms",
     "allAssignments": "All Assignments",
     "allAssignmentsArrow": "‹ All Assignments",
     "accountMenu": "Account menu",
@@ -62,10 +62,11 @@
     "mySubmission": "My Submission",
     "manageGroup": "Manage Group",
     "acceptAssignment": "Accept Assignment",
-    "myClasses": "My Classes",
+    "myClasses": "My Classrooms",
     "myAssignments": "My Assignments",
     "published": "Published",
     "members": "Members",
+    "activity": "Activity",
     "organizations": "Organizations",
     "untitledCourse": "Untitled Course",
     "userFallback": "User",
@@ -97,14 +98,21 @@
     "aboutReportIssue": "Report an issue",
     "aboutReportIssueHint": "Found a bug or have a feature request?",
     "aboutAskQuestion": "Ask a question",
-    "aboutAskQuestionHint": "Get help from the community."
+    "aboutAskQuestionHint": "Get help from the community.",
+    "aboutDiagnosticsTitle": "Diagnostics",
+    "aboutDiagnosticsHint": "Copy technical details to include in a bug report or support thread. No data is sent anywhere; it only fills your clipboard.",
+    "aboutDiagnosticsShow": "Show diagnostics",
+    "aboutDiagnosticsCopy": "Copy diagnostics",
+    "aboutDiagnosticsCopied": "Copied"
   },
   "auth": {
     "signInTitle": "Sign in",
     "signInSubtitle": "Sign in with your GitHub account to continue.",
     "exchangingCode": "Exchanging code for access token...",
     "signInWithGitHub": "Sign in with GitHub",
+    "otherSignInMethods": "Other sign-in methods",
     "useDeviceCode": "Use a device code instead",
+    "usePersonalAccessToken": "Use a personal access token",
     "footerTagline": "Manage assignments and submissions via GitHub.",
     "visitDocs": "Visit Classroom 50's docs",
     "signedInConfirmed": "Signed in - your session is active",
@@ -130,7 +138,28 @@
     "missingScopesBody_suffix_one": ". Some actions may fail until it is granted.",
     "missingScopesBody_suffix_other": ". Some actions may fail until they are granted.",
     "reauthorize": "Re-authorize",
-    "reauthorizeHint": "If re-authorizing doesn't clear this, an organization owner may need to approve the app in the org's OAuth policy settings."
+    "reauthorizeHint": "If re-authorizing doesn't clear this, an organization owner may need to approve the app in the org's OAuth policy settings.",
+    "patTitle": "Sign in with a personal access token",
+    "patInstructions": "Paste a GitHub personal access token (classic) to sign in directly, without the OAuth proxy. The token must have these scopes checked:",
+    "patCreateTokenLink": "Create a token with these scopes pre-selected",
+    "patFineGrainedNote": "Fine-grained tokens aren't supported — use a classic token.",
+    "patTokenLabel": "Personal access token",
+    "patStorageNote": "The token is stored in this browser's local storage, the same as tokens from the other sign-in methods.",
+    "patSubmit": "Sign in with token",
+    "patCancel": "Cancel",
+    "errorNetwork": "Network error reaching {{target}}; it may be down or unreachable.",
+    "errorNetworkProxyTarget": "the Cloudflare Worker proxy",
+    "errorOffline": "You appear to be offline. Check your connection and try again — signing in needs a network connection.",
+    "offlineHold": "You're offline. Waiting for a connection to restore your session…",
+    "errorStateMismatch": "State mismatch -- possible CSRF. Please try signing in again.",
+    "errorMissingPkce": "Missing PKCE verifier or client ID. Please try signing in again.",
+    "errorClientIdMissing": "GitHub OAuth client ID is not configured (VITE_GITHUB_CLIENT_ID).",
+    "errorDeviceExpired": "Device code expired. Please try again.",
+    "errorDeviceDeclined": "You declined the authorization request.",
+    "errorDeviceNoToken": "Token endpoint returned no access_token and no error.",
+    "errorPatFineGrained": "That looks like a fine-grained token, which can't be verified. Use a classic token with the scopes listed above.",
+    "errorPatMissingScopes": "That token is missing required scopes: {{scopes}}. Add them and try again.",
+    "errorPatRejected401": "That token was rejected by GitHub (401). Check it's valid and not expired."
   },
   "documentTitle": {
     "assignments": "Assignments",
@@ -147,9 +176,10 @@
     "acceptAssignment": "Accept Assignment",
     "members": "Members",
     "newClassroom": "New Classroom",
-    "classes": "Classes",
+    "classes": "Classrooms",
     "mySubmission": "My Submission",
-    "submissions": "Submissions"
+    "submissions": "Submissions",
+    "activity": "Activity"
   },
   "students": {
     "addTitle": "Add Student",
@@ -396,6 +426,8 @@
     "label": "Language",
     "baseName": "English (base)",
     "activeLabel": "Active language",
+    "activeHint": "Choose an installed language, or pick one marked ⬇ to download and install it.",
+    "optionDownload": "⬇ {{language}}",
     "switcherLabel": "Change language",
     "switcherInstalled": "Available now",
     "switcherMore": "More languages",
@@ -406,10 +438,9 @@
     "shareCopy": "Copy",
     "shareCopied": "Copied",
     "installedTitle": "Installed packs",
-    "browseTitle": "Add a language",
-    "browseHint": "Install a ready-made translation. These are generated from the base language and reviewed before publishing.",
+    "sourceRegistry": "Registry",
+    "sourceUser": "Loaded by you",
     "browseLoading": "Loading available languages…",
-    "browseEmpty": "No additional languages are available right now.",
     "installTitle": "Install from a file or URL",
     "installHint": "Install a language pack: translate the base en.json and load it here. The language code is detected from the file name; enter it below only if that fails.",
     "codePlaceholder": "Language code (e.g. de)",
@@ -453,12 +484,45 @@
   },
   "orgs": {
     "headingCl50": "Classroom 50 Organizations",
-    "headingSetUp": "Set Up New Classroom 50 Organization",
     "loadingTitle": "Loading your organizations…",
     "loadingSubtitle": "This may take a moment.",
     "emptyTitle": "No Classroom 50 organizations yet",
     "emptyBody": "Organizations you belong to that use Classroom 50 will appear here. If you expect one, ask your instructor to confirm you've been added, then refresh.",
-    "showUnsupported": "Show unsupported organizations",
+    "toolbar": {
+      "searchPlaceholder": "Search organizations…",
+      "searchLabel": "Search organizations",
+      "view": {
+        "label": "View",
+        "gridLabel": "Grid view",
+        "listLabel": "List view"
+      },
+      "sort": {
+        "label": "Sort",
+        "nameAsc": "Name (A–Z)",
+        "lastModified": "Last modified",
+        "status": "Status"
+      }
+    },
+    "noResults": {
+      "title": "No organizations match your search",
+      "body": "No organizations match \u201c{{query}}\u201d.",
+      "clear": "Clear search"
+    },
+    "setUpFirst": {
+      "title": "Set up your first Classroom 50 organization",
+      "body": "You own organizations that aren't set up yet. Configure Classroom 50 to start creating classrooms and assignments.",
+      "cta": "Set up an organization"
+    },
+    "newOrg": {
+      "button": "Set up new organization",
+      "title": "Set up a new Classroom 50 organization",
+      "description": "Pick one of your GitHub organizations to configure Classroom 50 in. Don't see the one you want? Create it on GitHub first.",
+      "pickPrompt": "Organizations ready to set up",
+      "createOnGitHub": "Create an organization on GitHub",
+      "allSetUp": "All of your organizations are already set up.",
+      "setUp": "Set up",
+      "freePlanDisabled": "Free plan — Classroom 50 needs a Team or Enterprise organization"
+    },
     "missingNotice": {
       "title": "Not seeing your organization?",
       "body": "Classroom 50 can only show GitHub organizations that you have explicitly granted access to during sign-in. If an organization is missing, you may need to update your OAuth permissions.",
@@ -474,8 +538,7 @@
       "viewOnGitHub": "View on GitHub",
       "openOnGitHub": "Open {{org}} on GitHub",
       "open": "Open",
-      "setUp": "Set Up",
-      "askTeacher": "Ask a teacher for access"
+      "updatedAgo": "Updated {{when}}"
     }
   },
   "assignments": {
@@ -917,6 +980,9 @@
       "auditing": "Auditing organization policy…",
       "auditError": "Couldn't run the policy audit. Try re-checking.",
       "fixError": "Couldn't apply the fix. You may lack owner permissions, or an enterprise policy blocks this change.",
+      "fixTransient": "That didn't go through — this can be a temporary rate limit, or the repository may still be initializing. Try again in a moment.",
+      "needsManualSetup": "Needs manual setup",
+      "couldntAutoConfigure": "We couldn't set this automatically. This can happen when an enterprise or organization policy manages the setting, or when the account lacks permission. Set it manually on the linked page.",
       "verdictOk": "Org policy verified",
       "verdictFail": "Org policy incomplete",
       "stateEnforced": "OK",
@@ -930,7 +996,7 @@
       "changeThemOn_other": "— change them on",
       "gitHub": "GitHub",
       "orUseFixIt": " (or use \"Fix it\")",
-      "managedByEnterprise": "Managed by enterprise — set manually",
+      "requiresManualFix": "Set manually",
       "readError": "Couldn't read the organization to audit the lockdown. Check your access and retry.",
       "driftCanFix": "Use “Fix it” on a drifted setting, or re-run setup below to re-apply everything at once.",
       "driftCannotFix": "Ask an organization owner to repair the drift — these changes require owner permissions.",
@@ -1065,6 +1131,15 @@
       }
     }
   },
+  "appUpdate": {
+    "title": "A new version of Classroom 50 is available",
+    "body": "Reload the page to get the latest version.",
+    "action": "Reload now"
+  },
+  "offline": {
+    "title": "You're offline",
+    "body": "Classroom 50 works with live data from GitHub, so it needs a connection. This banner clears automatically when you're back online."
+  },
   "skeletonDrift": {
     "title": "Classroom workflow files are out of date",
     "body": "The GitHub Actions workflows in this org's classroom50 config repo are out of date. Update them here to keep grading, score collection, and Pages publishing working.",
@@ -1119,12 +1194,12 @@
     "noStudents": "No Students",
     "viewAssignments": "View Assignments",
     "editClassAria": "Edit {{name}}",
-    "editClassTitle": "Edit assignment",
+    "editClassTitle": "Edit classroom",
     "githubOrganization": "GitHub Organization",
-    "myClasses": "My Classes",
+    "myClasses": "My Classrooms",
     "myAssignments": "My Assignments",
     "manageSubtitle": "Manage your courses and assignments.",
-    "newClass": "+ New Class",
+    "newClass": "New classroom",
     "empty": {
       "title": "No classrooms yet",
       "body": "Create your first classroom to start adding assignments, importing students, and managing submissions.",
@@ -1139,10 +1214,56 @@
       "joinButton": "Join organization"
     },
     "filter": {
+      "label": "Filter by status",
       "active": "Active",
       "archived": "Archived",
       "all": "All"
     },
+    "card": {
+      "assignmentCount_one": "{{count}} Assignment",
+      "assignmentCount_other": "{{count}} Assignments",
+      "noAssignments": "No Assignments",
+      "countsUnavailable": "Counts unavailable",
+      "loadingStudents": "Loading student count…",
+      "loadingAssignments": "Loading assignment count…",
+      "actionsAria": "Actions for {{name}}",
+      "edit": "Edit classroom",
+      "delete": "Delete classroom",
+      "viewOnGitHub": "View on GitHub"
+    },
+    "toolbar": {
+      "searchPlaceholder": "Search classrooms…",
+      "searchLabel": "Search classrooms",
+      "termLabel": "Filter by term",
+      "termPrefix": "Term",
+      "sortPrefix": "Sort",
+      "allTerms": "All terms",
+      "sort": {
+        "label": "Sort",
+        "nameAsc": "Name (A–Z)",
+        "term": "Term",
+        "studentCount": "Student count"
+      },
+      "view": {
+        "label": "View",
+        "gridLabel": "Grid view",
+        "listLabel": "List view"
+      }
+    },
+    "noResults": {
+      "title": "No classrooms match your search",
+      "body": "No classrooms match \u201c{{query}}\u201d.",
+      "clear": "Clear search"
+    },
+    "emptyFilter": {
+      "active": "No active classrooms.",
+      "archived": "No archived classrooms.",
+      "all": "No classrooms yet."
+    },
+    "deleteTeamWarning": "Deleted {{classroom}}, but some GitHub teams could not be removed. Delete them manually in the organization's team settings.",
+    "deletedToast": "Deleted {{classroom}}.",
+    "deleteNoop": "{{classroom}} was already deleted.",
+    "deleteFailed": "Couldn't delete {{classroom}}: {{error}}",
     "repo": {
       "manageGroupAria": "Manage group for {{assignment}}",
       "manageGroupTitle": "Manage group",
@@ -1263,7 +1384,16 @@
     "collectionNote": "Submissions are collected automatically, but new ones can take up to 24 hours to appear.",
     "lastCollected": "Last collected (org-wide) {{when}}.",
     "updated": "Updated {{when}}",
+    "justNow": "just now",
     "refresh": "Refresh submissions",
+    "menu": {
+      "actions": "Actions",
+      "metrics": "Metrics",
+      "invite": "Invite link"
+    },
+    "metrics": {
+      "title": "Submission metrics"
+    },
     "dashboard": {
       "never": "never"
     },
@@ -1343,23 +1473,25 @@
       "searchGroupPlaceholder": "Search group or member…",
       "searchStudentPlaceholder": "Search student…",
       "searchAria": "Search submissions",
+      "sectionLabel": "Section",
       "sectionAria": "Filter by section",
       "allSections": "All sections",
-      "submissionAria": "Filter by submission status",
-      "allSubmissions": "All submissions",
+      "submissionLabel": "Status",
+      "submissionAria": "Filter by submission or acceptance status",
+      "allStatuses": "All statuses",
       "submitted": "Submitted",
       "onTime": "On time",
       "late": "Late",
       "notSubmitted": "Not submitted",
+      "passingLabel": "Grade",
       "passingAria": "Filter by passing status",
       "allGrades": "All grades",
       "passing": "Passing",
       "failing": "Failing",
-      "acceptedAria": "Filter by acceptance status",
-      "allAcceptance": "All acceptance",
       "accepted": "Accepted",
       "notAccepted": "Not accepted",
       "clear": "Clear",
+      "sortLabel": "Sort",
       "sortAria": "Sort submissions",
       "sortRecent": "Newest first",
       "sortOldest": "Oldest first",
@@ -1375,7 +1507,11 @@
       "colScore": "Score",
       "colLastSubmitted": "Last Submitted",
       "colActions": "Actions",
-      "emptyState": "No submissions match the current filters.",
+      "emptyNoDataTitle": "No submissions collected yet",
+      "emptyNoDataBody": "Once students accept and push, their submissions appear here. Use Collect now to pull the latest.",
+      "emptyFilteredTitle": "No submissions match your filters",
+      "emptyFilteredBody": "Try a different search or clear the filters to see everyone.",
+      "emptyClearFilters": "Clear filters",
       "openGroupRepo": "Open the shared group repository",
       "hideSubmissions": "Hide submissions",
       "showSubmissions": "Show all submissions",
@@ -1398,6 +1534,10 @@
       "noDetailsLabel": "No autograder details yet",
       "noDetails": "No details yet",
       "notSubmitted": "Not submitted",
+      "acceptedAwaiting": "Accepted · awaiting submission",
+      "notAccepted": "Not accepted",
+      "noGroup": "Not in a credited group",
+      "noGroupTitle": "This student isn't credited on any submitting group's repo. Group membership is read from each repo's collaborators at collection time, so a student who never joined a group — or whose group's membership couldn't be read on the last collection — appears here. Open the group repos to confirm before grading.",
       "submittedBy": "by {{name}}",
       "review": "Review",
       "reviewAria": "Open feedback pull request",
@@ -1441,6 +1581,64 @@
       "releasesIntro": "Each submission opens its graded release on GitHub, with your score and per-test results.",
       "fallbackTitle": "Submission",
       "missingParams": "Missing course or assignment information."
+    }
+  },
+  "orgActivity": {
+    "heading": "Activity",
+    "subtitle": "Config changes, workflow runs, and this session's errors for the organization, newest first.",
+    "showDiagnostics": "Show diagnostics",
+    "diagnostics": {
+      "title": "Diagnostics",
+      "description": "Technical details you can paste into a bug report or support thread. Nothing is sent anywhere — this only fills your clipboard.",
+      "copy": "Copy to clipboard",
+      "copied": "Copied"
+    },
+    "clear": "Clear",
+    "exportCsv": "Export CSV",
+    "searchPlaceholder": "Search activity...",
+    "searchLabel": "Search activity",
+    "loading": "Loading activity...",
+    "loadOlder": "Load older",
+    "partialError": "Some activity couldn't be loaded. Showing what's available.",
+    "filters": {
+      "source": "Source:",
+      "type": "Type:",
+      "allSources": "All sources",
+      "allTypes": "All types"
+    },
+    "clearFilters": "Clear",
+    "source": {
+      "commit": "Config changes",
+      "run": "Workflow runs",
+      "session": "This session"
+    },
+    "type": {
+      "assignment": "Assignment",
+      "classroom": "Classroom",
+      "student": "Student",
+      "scores": "Scores",
+      "config": "Config",
+      "run": "Workflow run",
+      "error": "Error",
+      "action": "Action"
+    },
+    "status": {
+      "ok": "Completed",
+      "error": "Failed",
+      "running": "Running",
+      "info": ""
+    },
+    "detail": {
+      "source": "at {{location}}",
+      "status": "HTTP {{code}}"
+    },
+    "empty": {
+      "title": "No activity yet",
+      "body": "Config changes, workflow runs, and this session's errors will appear here."
+    },
+    "noMatch": {
+      "title": "No matching activity",
+      "body": "Try a different search or clear the filters."
     }
   },
   "orgMembers": {
@@ -1562,7 +1760,7 @@
     },
     "breadcrumb": {
       "label": "Breadcrumb",
-      "classes": "Classes",
+      "classes": "Classrooms",
       "assignments": "Assignments"
     },
     "planBadge": {

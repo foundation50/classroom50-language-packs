@@ -81,7 +81,13 @@
     "aboutReportIssueHint": "Bir hata mı buldunuz ya da özellik isteğiniz mi var?",
     "aboutSupportTitle": "Geri bildirim ve destek",
     "aboutVersion": "Sürüm",
-    "docs": "Belgeler"
+    "docs": "Belgeler",
+    "aboutDiagnosticsCopied": "Kopyalandı",
+    "aboutDiagnosticsCopy": "Tanılama bilgilerini kopyala",
+    "aboutDiagnosticsHint": "Bir hata raporuna veya destek konusuna eklemek için teknik ayrıntıları kopyalayın. Hiçbir yere veri gönderilmez; yalnızca panonuzu doldurur.",
+    "aboutDiagnosticsShow": "Tanılama bilgilerini göster",
+    "aboutDiagnosticsTitle": "Tanılama",
+    "activity": "Etkinlik"
   },
   "auth": {
     "signInTitle": "Oturum aç",
@@ -114,7 +120,30 @@
     "reauthorize": "Yeniden yetkilendir",
     "reauthorizeHint": "Yeniden yetkilendirmek bunu gidermezse, bir kuruluş sahibinin kuruluşun OAuth politikası ayarlarında uygulamayı onaylaması gerekebilir.",
     "signedInConfirmed": "Oturum açıldı - oturumunuz etkin",
-    "verifyingSession": "Oturumunuz doğrulanıyor..."
+    "verifyingSession": "Oturumunuz doğrulanıyor...",
+    "errorClientIdMissing": "GitHub OAuth istemci kimliği yapılandırılmamış (VITE_GITHUB_CLIENT_ID).",
+    "errorDeviceDeclined": "Yetkilendirme isteğini reddettiniz.",
+    "errorDeviceExpired": "Cihaz kodunun süresi doldu. Lütfen tekrar deneyin.",
+    "errorDeviceNoToken": "Token uç noktası access_token ve hata döndürmedi.",
+    "errorMissingPkce": "PKCE doğrulayıcısı veya istemci kimliği eksik. Lütfen tekrar oturum açmayı deneyin.",
+    "errorNetwork": "{{target}} adresine ulaşılırken ağ hatası oluştu; kapalı veya erişilemez olabilir.",
+    "errorNetworkProxyTarget": "Cloudflare Worker proxy'si",
+    "errorOffline": "Çevrimdışı görünüyorsunuz. Bağlantınızı kontrol edip tekrar deneyin — oturum açmak için ağ bağlantısı gerekir.",
+    "errorPatFineGrained": "Bu, doğrulanamayan bir ince ayarlı (fine-grained) token gibi görünüyor. Yukarıda listelenen kapsamlara sahip klasik bir token kullanın.",
+    "errorPatMissingScopes": "Bu token'da gerekli kapsamlar eksik: {{scopes}}. Bunları ekleyip tekrar deneyin.",
+    "errorPatRejected401": "Bu token GitHub tarafından reddedildi (401). Geçerli ve süresi dolmamış olduğundan emin olun.",
+    "errorStateMismatch": "State uyuşmazlığı -- olası CSRF. Lütfen tekrar oturum açmayı deneyin.",
+    "offlineHold": "Çevrimdışısınız. Oturumunuzu geri yüklemek için bağlantı bekleniyor…",
+    "otherSignInMethods": "Diğer oturum açma yöntemleri",
+    "patCancel": "İptal",
+    "patCreateTokenLink": "Bu kapsamlar önceden seçilmiş bir token oluştur",
+    "patFineGrainedNote": "İnce ayarlı token'lar desteklenmez — klasik bir token kullanın.",
+    "patInstructions": "OAuth proxy'si olmadan doğrudan oturum açmak için bir GitHub kişisel erişim token'ı (klasik) yapıştırın. Token'da şu kapsamlar işaretli olmalıdır:",
+    "patStorageNote": "Token, diğer oturum açma yöntemlerindeki token'larla aynı şekilde bu tarayıcının yerel depolamasında saklanır.",
+    "patSubmit": "Token ile oturum aç",
+    "patTitle": "Kişisel erişim token'ı ile oturum aç",
+    "patTokenLabel": "Kişisel erişim token'ı",
+    "usePersonalAccessToken": "Kişisel erişim token'ı kullan"
   },
   "documentTitle": {
     "assignments": "Ödevler",
@@ -133,7 +162,8 @@
     "newClassroom": "Yeni Sınıf",
     "classes": "Sınıflar",
     "mySubmission": "Gönderimim",
-    "submissions": "Gönderimler"
+    "submissions": "Gönderimler",
+    "activity": "Etkinlik"
   },
   "students": {
     "addTitle": "Öğrenci Ekle",
@@ -390,10 +420,7 @@
     "shareCopy": "Kopyala",
     "shareCopied": "Kopyalandı",
     "installedTitle": "Yüklü paketler",
-    "browseTitle": "Dil ekle",
-    "browseHint": "Hazır bir çeviri yükleyin. Bunlar temel dilden oluşturulur ve yayımlanmadan önce gözden geçirilir.",
     "browseLoading": "Kullanılabilir diller yükleniyor…",
-    "browseEmpty": "Şu anda ek dil bulunmuyor.",
     "installTitle": "Dosyadan veya URL'den yükle",
     "installHint": "Bir dil paketi yükleyin: temel en.json dosyasını çevirin ve buraya yükleyin. Dil kodu dosya adından algılanır; yalnızca algılama başarısız olursa aşağıya girin.",
     "codePlaceholder": "Dil kodu (örneğin de)",
@@ -413,7 +440,11 @@
     "errorRegistry": "Kullanılabilir diller yüklenemedi. Tekrar deneyin.",
     "errorGeneric": "Dil paketi yüklenemedi.",
     "updatedToast_one": "{{list}} dil paketi en yeni çevirilere güncellendi.",
-    "updatedToast_other": "{{count}} dil paketi ({{list}}) en yeni çevirilere güncellendi."
+    "updatedToast_other": "{{count}} dil paketi ({{list}}) en yeni çevirilere güncellendi.",
+    "activeHint": "Yüklü bir dil seçin veya indirip yüklemek için ⬇ işaretli bir dili seçin.",
+    "optionDownload": "⬇ {{language}}",
+    "sourceRegistry": "Kayıt defteri",
+    "sourceUser": "Sizin tarafınızdan yüklendi"
   },
   "validation": {
     "githubOrEmailRequired": "Bir GitHub kullanıcı adı veya e-posta girin.",
@@ -437,12 +468,10 @@
   },
   "orgs": {
     "headingCl50": "Classroom 50 Organizasyonları",
-    "headingSetUp": "Yeni Classroom 50 Organizasyonu Kur",
     "loadingTitle": "Organizasyonlarınız yükleniyor…",
     "loadingSubtitle": "Bu biraz zaman alabilir.",
     "emptyTitle": "Henüz Classroom 50 organizasyonu yok",
     "emptyBody": "Classroom 50 kullanan ve üyesi olduğunuz organizasyonlar burada görünür. Bir tane bekliyorsanız, eğitmeninizden eklendiğinizi onaylamasını isteyin, ardından sayfayı yenileyin.",
-    "showUnsupported": "Desteklenmeyen organizasyonları göster",
     "missingNotice": {
       "title": "Organizasyonunuzu göremiyor musunuz?",
       "body": "Classroom 50 yalnızca oturum açarken açıkça erişim izni verdiğiniz GitHub organizasyonlarını gösterebilir. Bir organizasyon eksikse, OAuth izinlerinizi güncellemeniz gerekebilir.",
@@ -458,8 +487,42 @@
       "viewOnGitHub": "GitHub'da görüntüle",
       "openOnGitHub": "{{org}} organizasyonunu GitHub'da aç",
       "open": "Aç",
+      "updatedAgo": "{{when}} güncellendi"
+    },
+    "newOrg": {
+      "allSetUp": "Tüm organizasyonlarınız zaten kurulmuş.",
+      "button": "Yeni organizasyon kur",
+      "createOnGitHub": "GitHub'da bir organizasyon oluştur",
+      "description": "Classroom 50'yi yapılandırmak için GitHub organizasyonlarınızdan birini seçin. İstediğinizi görmüyor musunuz? Önce GitHub'da oluşturun.",
+      "freePlanDisabled": "Ücretsiz plan — Classroom 50, Team veya Enterprise organizasyon gerektirir",
+      "pickPrompt": "Kurulmaya hazır organizasyonlar",
       "setUp": "Kur",
-      "askTeacher": "Bir öğretmenden erişim isteyin"
+      "title": "Yeni bir Classroom 50 organizasyonu kur"
+    },
+    "noResults": {
+      "body": "“{{query}}” ile eşleşen organizasyon yok.",
+      "clear": "Aramayı temizle",
+      "title": "Aramanızla eşleşen organizasyon yok"
+    },
+    "setUpFirst": {
+      "body": "Henüz kurulmamış organizasyonlara sahipsiniz. Sınıflar ve ödevler oluşturmaya başlamak için Classroom 50'yi yapılandırın.",
+      "cta": "Bir organizasyon kur",
+      "title": "İlk Classroom 50 organizasyonunuzu kurun"
+    },
+    "toolbar": {
+      "searchLabel": "Organizasyonlarda ara",
+      "searchPlaceholder": "Organizasyonlarda ara…",
+      "sort": {
+        "label": "Sırala",
+        "lastModified": "Son değişiklik",
+        "nameAsc": "Ad (A–Z)",
+        "status": "Durum"
+      },
+      "view": {
+        "gridLabel": "Izgara görünümü",
+        "label": "Görünüm",
+        "listLabel": "Liste görünümü"
+      }
     }
   },
   "assignments": {
@@ -879,7 +942,6 @@
       "changeThemOn_other": "— şurada değiştirin:",
       "gitHub": "GitHub",
       "orUseFixIt": " (ya da \"Düzelt\"i kullanın)",
-      "managedByEnterprise": "Enterprise tarafından yönetiliyor — elle ayarlayın",
       "readError": "Kilitlemeyi denetlemek için organizasyon okunamadı. Erişiminizi kontrol edip tekrar deneyin.",
       "driftCanFix": "Sapan bir ayarda “Düzelt”i kullanın veya her şeyi bir kerede yeniden uygulamak için aşağıdan kurulumu yeniden çalıştırın.",
       "driftCannotFix": "Sapmayı düzeltmesi için bir organizasyon sahibinden isteyin — bu değişiklikler sahip izinleri gerektirir.",
@@ -887,7 +949,11 @@
       "confirmByHandBody": "GitHub bu ayarları okumak için bir API sunmadığından, bunları otomatik olarak doğrulayamıyoruz — her birini üye ayrıcalıkları sayfasında onaylayın.",
       "confirmManually": "Elle onayla",
       "memberPermsToggle": "Yapılandırdığımız üye izinleri",
-      "memberPermsHint": "Classroom 50'nin ayarladığı, halihazırda uygulanmış olanlar da dahil, organizasyon üye ayrıcalıklarının tam listesi. Sapanlar yukarıda belirtilmiştir."
+      "memberPermsHint": "Classroom 50'nin ayarladığı, halihazırda uygulanmış olanlar da dahil, organizasyon üye ayrıcalıklarının tam listesi. Sapanlar yukarıda belirtilmiştir.",
+      "couldntAutoConfigure": "Bunu otomatik olarak ayarlayamadık. Bu, bir kurumsal veya organizasyon politikasının ayarı yönettiği ya da hesabın yetkisinin olmadığı durumlarda olabilir. Bağlantılı sayfada elle ayarlayın.",
+      "fixTransient": "Bu gerçekleşmedi — geçici bir hız sınırı olabilir ya da depo hâlâ başlatılıyor olabilir. Birazdan tekrar deneyin.",
+      "needsManualSetup": "Elle kurulum gerekiyor",
+      "requiresManualFix": "Elle ayarla"
     },
     "rerun": {
       "title": "Kurulumu yeniden çalıştır",
@@ -1055,12 +1121,12 @@
     "noStudents": "Öğrenci Yok",
     "viewAssignments": "Ödevleri Görüntüle",
     "editClassAria": "{{name}} sınıfını düzenle",
-    "editClassTitle": "Ödevi düzenle",
+    "editClassTitle": "Sınıfı düzenle",
     "githubOrganization": "GitHub Kuruluşu",
     "myClasses": "Sınıflarım",
     "myAssignments": "Ödevlerim",
     "manageSubtitle": "Derslerinizi ve ödevlerinizi yönetin.",
-    "newClass": "+ Yeni Sınıf",
+    "newClass": "Yeni sınıf",
     "empty": {
       "title": "Henüz sınıf yok",
       "body": "Ödev eklemeye, öğrenci içe aktarmaya ve gönderimleri yönetmeye başlamak için ilk sınıfınızı oluşturun.",
@@ -1077,7 +1143,8 @@
     "filter": {
       "active": "Etkin",
       "archived": "Arşivlenmiş",
-      "all": "Tümü"
+      "all": "Tümü",
+      "label": "Duruma göre filtrele"
     },
     "repo": {
       "manageGroupAria": "{{assignment}} için grubu yönet",
@@ -1132,6 +1199,51 @@
       "removedToast": "@{{login}}, {{role}} rolünden kaldırıldı.",
       "removeFailed": "@{{login}} kaldırılamadı: {{error}}",
       "removeRole": "{{role}} kaldır"
+    },
+    "card": {
+      "actionsAria": "{{name}} için işlemler",
+      "assignmentCount_one": "{{count}} Ödev",
+      "assignmentCount_other": "{{count}} Ödev",
+      "countsUnavailable": "Sayılar mevcut değil",
+      "delete": "Sınıfı sil",
+      "edit": "Sınıfı düzenle",
+      "loadingAssignments": "Ödev sayısı yükleniyor…",
+      "loadingStudents": "Öğrenci sayısı yükleniyor…",
+      "noAssignments": "Ödev Yok",
+      "viewOnGitHub": "GitHub'da görüntüle"
+    },
+    "deleteFailed": "{{classroom}} silinemedi: {{error}}",
+    "deleteNoop": "{{classroom}} zaten silinmişti.",
+    "deleteTeamWarning": "{{classroom}} silindi, ancak bazı GitHub ekipleri kaldırılamadı. Bunları organizasyonun ekip ayarlarından elle silin.",
+    "deletedToast": "{{classroom}} silindi.",
+    "emptyFilter": {
+      "active": "Aktif sınıf yok.",
+      "all": "Henüz sınıf yok.",
+      "archived": "Arşivlenmiş sınıf yok."
+    },
+    "noResults": {
+      "body": "“{{query}}” ile eşleşen sınıf yok.",
+      "clear": "Aramayı temizle",
+      "title": "Aramanızla eşleşen sınıf yok"
+    },
+    "toolbar": {
+      "allTerms": "Tüm dönemler",
+      "searchLabel": "Sınıflarda ara",
+      "searchPlaceholder": "Sınıflarda ara…",
+      "sort": {
+        "label": "Sırala",
+        "nameAsc": "Ad (A–Z)",
+        "studentCount": "Öğrenci sayısı",
+        "term": "Dönem"
+      },
+      "sortPrefix": "Sırala",
+      "termLabel": "Döneme göre filtrele",
+      "termPrefix": "Dönem",
+      "view": {
+        "gridLabel": "Izgara görünümü",
+        "label": "Görünüm",
+        "listLabel": "Liste görünümü"
+      }
     }
   },
   "accept": {
@@ -1280,8 +1392,7 @@
       "searchAria": "Teslimlerde ara",
       "sectionAria": "Şubeye göre filtrele",
       "allSections": "Tüm şubeler",
-      "submissionAria": "Teslim durumuna göre filtrele",
-      "allSubmissions": "Tüm teslimler",
+      "submissionAria": "Teslim veya kabul durumuna göre filtrele",
       "submitted": "Teslim edildi",
       "onTime": "Zamanında",
       "late": "Geç",
@@ -1290,8 +1401,6 @@
       "allGrades": "Tüm notlar",
       "passing": "Geçen",
       "failing": "Kalan",
-      "acceptedAria": "Kabul durumuna göre filtrele",
-      "allAcceptance": "Tüm kabul durumları",
       "accepted": "Kabul edildi",
       "notAccepted": "Kabul edilmedi",
       "clear": "Temizle",
@@ -1299,7 +1408,12 @@
       "sortRecent": "En yeni önce",
       "sortOldest": "En eski önce",
       "sortNameAsc": "Ada göre A–Z",
-      "sortNameDesc": "Ada göre Z–A"
+      "sortNameDesc": "Ada göre Z–A",
+      "allStatuses": "Tüm durumlar",
+      "passingLabel": "Not",
+      "sectionLabel": "Şube",
+      "sortLabel": "Sırala",
+      "submissionLabel": "Durum"
     },
     "table": {
       "captionGroup": "Grup teslimleri",
@@ -1310,7 +1424,6 @@
       "colScore": "Puan",
       "colLastSubmitted": "Son Teslim",
       "colActions": "İşlemler",
-      "emptyState": "Geçerli filtrelerle eşleşen teslim yok.",
       "openGroupRepo": "Paylaşılan grup reposunu aç",
       "hideSubmissions": "Teslimleri gizle",
       "showSubmissions": "Tüm teslimleri göster",
@@ -1338,7 +1451,16 @@
       "reviewAria": "Geri bildirim pull request'ini aç",
       "fullHistory_prefix": "Tam commit geçmişi için",
       "fullHistory_link": "repoyu",
-      "fullHistory_suffix": "açın."
+      "fullHistory_suffix": "açın.",
+      "acceptedAwaiting": "Kabul edildi · teslim bekleniyor",
+      "emptyClearFilters": "Filtreleri temizle",
+      "emptyFilteredBody": "Herkesi görmek için farklı bir arama deneyin veya filtreleri temizleyin.",
+      "emptyFilteredTitle": "Filtrelerinizle eşleşen teslim yok",
+      "emptyNoDataBody": "Öğrenciler ödevi kabul edip gönderdiğinde teslimleri burada görünür. En sonuncuları çekmek için Şimdi topla'yı kullanın.",
+      "emptyNoDataTitle": "Henüz teslim toplanmadı",
+      "noGroup": "Kredilendirilmiş bir grupta değil",
+      "noGroupTitle": "Bu öğrenci, teslim yapan herhangi bir grubun deposunda kredilendirilmemiş. Grup üyeliği, toplama sırasında her deponun katkı sağlayanlarından okunur; bu nedenle hiçbir gruba katılmamış — ya da grubunun üyeliği son toplamada okunamamış — bir öğrenci burada görünür. Notlandırmadan önce onaylamak için grup depolarını açın.",
+      "notAccepted": "Kabul edilmedi"
     },
     "reviewModal": {
       "errorTitle": "Geri bildirim PR'ı kontrol edilemedi",
@@ -1377,7 +1499,16 @@
       "fallbackTitle": "Teslim",
       "missingParams": "Ders veya ödev bilgisi eksik."
     },
-    "viewSourceRepo": "Kaynak depoyu görüntüle"
+    "viewSourceRepo": "Kaynak depoyu görüntüle",
+    "justNow": "az önce",
+    "menu": {
+      "actions": "İşlemler",
+      "invite": "Davet bağlantısı",
+      "metrics": "Metrikler"
+    },
+    "metrics": {
+      "title": "Teslim metrikleri"
+    }
   },
   "orgMembers": {
     "heading": "Üyeler",
@@ -1676,6 +1807,73 @@
       "instructionsUrlless": "Önce tek oturum açma ile giriş yapmış olmak için bu bağlantıyı okulunuzun öğrenme yönetim sistemi (LMS) içinden açın ya da GitHub ile yeniden kimlik doğrulaması yapın, sonra bu sayfayı yeniden yükleyin.",
       "instructionsWithUrl": "Bu kuruluş için tek oturum açmayı yetkilendirmek üzere aşağıdaki düğmeyi kullanın, ardından bu sayfayı yeniden yükleyin.",
       "title": "Tek oturum açmayı yetkilendir"
+    }
+  },
+  "appUpdate": {
+    "action": "Şimdi yeniden yükle",
+    "body": "En son sürümü almak için sayfayı yeniden yükleyin.",
+    "title": "Classroom 50'nin yeni bir sürümü mevcut"
+  },
+  "offline": {
+    "body": "Classroom 50, GitHub'dan gelen canlı verilerle çalışır, bu nedenle bir bağlantıya ihtiyaç duyar. Tekrar çevrimiçi olduğunuzda bu banner otomatik olarak kaybolur.",
+    "title": "Çevrimdışısınız"
+  },
+  "orgActivity": {
+    "clear": "Temizle",
+    "clearFilters": "Temizle",
+    "detail": {
+      "source": "{{location}} konumunda",
+      "status": "HTTP {{code}}"
+    },
+    "diagnostics": {
+      "copied": "Kopyalandı",
+      "copy": "Panoya kopyala",
+      "description": "Bir hata raporuna veya destek konusuna yapıştırabileceğiniz teknik ayrıntılar. Hiçbir yere gönderilmez — yalnızca panonuzu doldurur.",
+      "title": "Tanılama"
+    },
+    "empty": {
+      "body": "Yapılandırma değişiklikleri, iş akışı çalışmaları ve bu oturumun hataları burada görünecek.",
+      "title": "Henüz etkinlik yok"
+    },
+    "exportCsv": "CSV'yi dışa aktar",
+    "filters": {
+      "allSources": "Tüm kaynaklar",
+      "allTypes": "Tüm türler",
+      "source": "Kaynak:",
+      "type": "Tür:"
+    },
+    "heading": "Etkinlik",
+    "loadOlder": "Daha eskileri yükle",
+    "loading": "Etkinlik yükleniyor...",
+    "noMatch": {
+      "body": "Farklı bir arama deneyin veya filtreleri temizleyin.",
+      "title": "Eşleşen etkinlik yok"
+    },
+    "partialError": "Bazı etkinlikler yüklenemedi. Mevcut olanlar gösteriliyor.",
+    "searchLabel": "Etkinlikte ara",
+    "searchPlaceholder": "Etkinlikte ara...",
+    "showDiagnostics": "Tanılama bilgilerini göster",
+    "source": {
+      "commit": "Yapılandırma değişiklikleri",
+      "run": "İş akışı çalışmaları",
+      "session": "Bu oturum"
+    },
+    "status": {
+      "error": "Başarısız",
+      "info": "",
+      "ok": "Tamamlandı",
+      "running": "Çalışıyor"
+    },
+    "subtitle": "Organizasyon için yapılandırma değişiklikleri, iş akışı çalışmaları ve bu oturumun hataları, en yeniden en eskiye.",
+    "type": {
+      "action": "İşlem",
+      "assignment": "Ödev",
+      "classroom": "Sınıf",
+      "config": "Yapılandırma",
+      "error": "Hata",
+      "run": "İş akışı çalışması",
+      "scores": "Puanlar",
+      "student": "Öğrenci"
     }
   }
 }
