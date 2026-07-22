@@ -13,7 +13,16 @@
     "no": "否",
     "openOrgOnGitHub": "在 GitHub 上打开 {{org}}",
     "yes": "是",
-    "dismissNotification": "关闭通知"
+    "dismissNotification": "关闭通知",
+    "pagination": {
+      "entries": "条",
+      "navAria": "分页",
+      "next": "下一页",
+      "previous": "上一页",
+      "range": "第 {{from}} 至 {{to}} 条，共 {{total}} 条",
+      "show": "显示",
+      "showAria": "每页行数"
+    }
   },
   "notFound": {
     "title": "找不到页面",
@@ -36,9 +45,7 @@
     "expandSidebar": "展开侧边栏",
     "collapseSidebar": "收起侧边栏",
     "allClasses": "所有课堂",
-    "allClassesArrow": "‹ 所有课堂",
     "allAssignments": "所有作业",
-    "allAssignmentsArrow": "‹ 所有作业",
     "accountMenu": "账户菜单",
     "assignment": "作业",
     "assignments": "作业",
@@ -89,7 +96,11 @@
     "aboutDiagnosticsTitle": "诊断信息",
     "activity": "活动",
     "roster": "名册",
-    "roleTeacher": "教师"
+    "roleTeacher": "教师",
+    "allAssignmentsLink": "所有作业",
+    "allClassesLink": "所有课堂",
+    "roleHeadTa": "首席助教",
+    "viewAsHeadTa": "首席助教"
   },
   "auth": {
     "signInTitle": "登录",
@@ -111,10 +122,8 @@
     "deviceStep3Hint": "你在 github.com 上完成授权后，此页面应会在几秒内检测到。",
     "deviceStatus": "第 {{attempts}} 次尝试 · {{seconds}} 秒后重试 · {{expires}} 后过期",
     "missingScopesTitle": "缺少部分 GitHub 权限",
-    "missingScopesBody_one": "该应用需要以下权限范围",
-    "missingScopesBody_other": "该应用需要以下权限范围",
-    "missingScopesBody_suffix_one": "。在授予该权限之前，部分操作可能会失败。",
-    "missingScopesBody_suffix_other": "。在授予这些权限之前，部分操作可能会失败。",
+    "missingScopesBody_one": "此应用需要 <scopes>{{scopes}}</scopes> 权限范围。在授予之前，某些操作可能会失败。",
+    "missingScopesBody_other": "此应用需要 <scopes>{{scopes}}</scopes> 权限范围。在授予之前，某些操作可能会失败。",
     "reauthorize": "重新授权",
     "reauthorizeHint": "如果重新授权仍无法解决此问题，可能需要组织所有者在组织的 OAuth 策略设置中批准该应用。",
     "signedInConfirmed": "已登录 —— 你的会话处于活动状态",
@@ -175,9 +184,6 @@
     "unenrollStudent": "取消该学生的报名",
     "added": "已添加 {{label}}。",
     "somethingWentWrong": "出了点问题。",
-    "unenrollBodyPrefix": "此操作将移除学生",
-    "unenrollBodyFrom": "，将其移出",
-    "unenrollBodySuffix": "{{classroom}} 课堂。学生的作业仓库不会被删除。",
     "nativeInviteHint": "高级选项：分享此链接，学生可直接在 GitHub 上接受组织邀请。大多数学生改用上方的引导链接。",
     "studentInviteLinkAria": "学生邀请链接",
     "copyInviteLinkAria": "复制邀请链接",
@@ -205,8 +211,6 @@
     "emailLabel": "邮箱",
     "editSectionPlaceholder": "班次（例如第 3 节）",
     "sectionLabel": "班次",
-    "githubLabel": "GitHub：",
-    "githubIdSuffix": "（id {{id}}）",
     "saving": "正在保存……",
     "saveChanges": "保存更改",
     "couldNotReadFile": "无法读取文件",
@@ -283,7 +287,7 @@
       "confirmCancelTitle_other": "取消 {{count}} 个邀请吗？",
       "memberCount_one": "{{count}} 名成员",
       "memberCount_other": "{{count}} 名成员",
-      "noneSelectable": "这里没有可选项——批量操作（取消注册、邀请）仅适用于学生。教师和 TA 在课堂设置中管理。"
+      "noneSelectable": "这里没有可选择的对象——批量操作（退出、邀请）仅适用于学生。教职人员（教师、首席助教和助教）在课堂设置中管理。"
     },
     "classroomTeamLabel": "班级团队",
     "confirmResendBody": "重新向 {{label}} 发送待处理的组织邀请？他们当前的邀请将被取消，并为 {{org}} 发送一个新邀请。",
@@ -434,13 +438,27 @@
     "uploadKindUsernameList": "GitHub 用户名（每行一个）",
     "uploadTitle": "上传",
     "addRoleLabel": "角色",
-    "addStaffHint": "教师和 TA 通过 GitHub 用户名添加，并会获得课堂配置仓库的访问权限。教师会被授予组织所有者权限。",
+    "addStaffHint": "教师、首席助教和助教通过 GitHub 用户名添加。教师和首席助教对课堂配置仓库拥有写入权限；助教拥有只读权限。教师会被授予组织所有者身份。",
     "failedInviteNotSent": "未向 {{who}} 发送邀请——请重试。",
     "failedInviteRateLimited": "GitHub 限制了对 {{who}} 的重新邀请频率——请重试。",
     "roleTeacher": "教师",
     "teacherCount_one": "{{count}} 名教师",
     "teacherCount_other": "{{count}} 名教师",
-    "uploadTeacherOwnerNotice": "标记为教师的行将以组织所有者身份被邀请，授予对组织的完全控制权。请仅将教师角色分配给你信任其拥有所有者权限的人。"
+    "uploadTeacherOwnerNotice": "标记为教师的行将以组织所有者身份被邀请，授予对组织的完全控制权。请仅将教师角色分配给你信任其拥有所有者权限的人。",
+    "csvRoster": {
+      "caption": "来自 roster.csv 的 CSV 花名册",
+      "colName": "姓名",
+      "colRole": "角色",
+      "colSection": "分组",
+      "empty": "roster.csv 中尚未列出任何人。",
+      "notice": "来自 roster.csv 的 CSV 花名册（由教师维护）。权威的、基于团队的花名册和邀请管理仅供教师使用。"
+    },
+    "githubIdentity": "GitHub：<username>@{{username}}</username>（id {{id}}）",
+    "githubIdentityNoId": "GitHub：<username>@{{username}}</username>",
+    "headTaCount_one": "{{count}} 名首席助教",
+    "headTaCount_other": "{{count}} 名首席助教",
+    "roleHeadTa": "首席助教",
+    "unenrollBody": "这将把学生 <label>{{label}}</label> 从 <org>{{org}}</org> 的 {{classroom}} 课堂中移除。学生的作业仓库不会被删除。"
   },
   "language": {
     "baseName": "英语（基础）",
@@ -514,24 +532,32 @@
       "refresh": "刷新列表"
     },
     "card": {
-      "noAccessBadge_prefix": "无",
-      "noAccessBadge_suffix": "访问权限",
-      "planTitleFree": "Free 套餐 —— Classroom 50 需要 Team 或 Enterprise 组织",
       "planTitlePaid": "GitHub 套餐 —— Classroom 50 可在 Team 和 Enterprise 套餐上设置",
       "viewOnGitHub": "在 GitHub 上查看",
       "openOnGitHub": "在 GitHub 上打开 {{org}}",
       "open": "打开",
-      "updatedAgo": "更新于 {{when}}"
+      "updatedAgo": "更新于 {{when}}",
+      "noAccessBadge": "无 <code>classroom50</code> 访问权限"
     },
     "newOrg": {
-      "allSetUp": "你的所有组织都已完成设置。",
+      "allSetUp": "我们能看到的所有组织都已设置完毕。",
       "button": "设置新组织",
       "createOnGitHub": "在 GitHub 上创建组织",
       "description": "选择你的一个 GitHub 组织来配置 Classroom 50。没看到想要的组织？请先在 GitHub 上创建它。",
-      "freePlanDisabled": "免费方案——Classroom 50 需要 Team 或 Enterprise 组织",
-      "pickPrompt": "可设置的组织",
       "setUp": "设置",
-      "title": "设置新的 Classroom 50 组织"
+      "title": "设置新的 Classroom 50 组织",
+      "details": "详情",
+      "freePlanInfo": {
+        "body": "Classroom 50 仅适用于使用 GitHub Team 或 Enterprise 套餐的组织。",
+        "dismiss": "知道了",
+        "educationBody": "作为已认证的教师，你可以通过 GitHub Education 免费将你拥有的任何组织升级到 GitHub Team。",
+        "educationCta": "在 GitHub Education 了解更多",
+        "educationTitle": "免费获取 GitHub Team",
+        "title": "此组织使用的是免费套餐"
+      },
+      "notSupportedBadge": "不支持",
+      "pickPrompt_one": "可供设置的组织（{{count}}）",
+      "pickPrompt_other": "可供设置的组织（{{count}}）"
     },
     "noResults": {
       "body": "没有组织与“{{query}}”匹配。",
@@ -578,12 +604,7 @@
     "studentCount_one": "{{count}} 名学生",
     "studentCount_other": "{{count}} 名学生",
     "archived": "已归档",
-    "archivedNotice_prefix": "此课堂已归档——已停用新建作业和学生接受作业的功能。请在",
-    "archivedNotice_link": "课堂设置",
-    "archivedNotice_suffix": "中取消归档以进行更改。",
     "studentHeading": "作业",
-    "studentViewAll_prefix": "查看",
-    "studentViewAll_suffix": "课堂的全部作业。",
     "newButton": {
       "assignment": "作业",
       "moreOptions": "更多作业选项",
@@ -610,7 +631,7 @@
       "feedbackPr": "反馈拉取请求",
       "feedbackPrHelp": "为每个仓库开启一个拉取请求，用于对每份提交进行行内评审。",
       "advanced": "高级设置",
-      "advancedHelp": "可选的运行时覆盖设置。留空则使用默认值（ubuntu-latest + Python 3.12）。",
+      "advancedHelp": "可选的评分和运行时设置。留空的字段将使用其文档中记录的默认值。",
       "dockerImage": "Docker 镜像",
       "dockerImagePlaceholder": "例如 gcc:13",
       "containerUser": "容器用户",
@@ -621,17 +642,12 @@
       "patternCount_one": "{{count}} 个模式",
       "patternCount_other": "{{count}} 个模式",
       "passThresholdToggle": "设置及格线",
-      "passThresholdSuffix": "% 的满分为及格线",
       "back": "返回",
       "saveChanges": "保存更改",
       "createButton": "创建作业",
       "runner": {
         "label": "GitHub 运行器",
-        "selfHostedHint_prefix": "用逗号分隔的标签组合来指定自托管运行器（例如",
-        "selfHostedHint_suffix": "）。",
         "checking": "检查中……",
-        "emptyHint_prefix": "留空则使用",
-        "emptyHint_suffix": "。",
         "hosted": "GitHub 托管运行器",
         "selfHostedMatch_one": "匹配到自托管运行器（{{names}}）",
         "selfHostedMatch_other": "匹配到自托管运行器（{{names}}）",
@@ -640,13 +656,21 @@
         "noRunnerMatch": "没有运行器匹配 {{labels}}——请检查拼写。",
         "tooMany": "标签过多（{{count}} 个）——最多 10 个。",
         "cannotVerify": "无法验证——将按输入内容使用。",
-        "tip": "为此作业评分的 GitHub Actions 运行器标签。留空则使用 ubuntu-latest。使用逗号分隔的多个标签来指定自托管运行器（例如 self-hosted、linux、x64）。"
+        "tip": "为此作业评分的 GitHub Actions 运行器标签。留空则使用 ubuntu-latest。使用逗号分隔的多个标签来指定自托管运行器（例如 self-hosted、linux、x64）。",
+        "emptyHint": "留空则使用 <code>ubuntu-latest</code>。",
+        "selfHostedHint": "用逗号分隔多个标签组合成自托管运行器（例如 <code>self-hosted, linux, x64</code>）。"
       },
       "validation": {
         "nameRequired": "作业名称为必填项。",
         "slugRequired": "作业标识 (slug) 为必填项。",
         "maxGroupSizeInvalid": "小组最大人数必须是有效的数字。",
-        "passThresholdRange": "及格线必须是介于 {{min}} 和 {{max}} 之间的整数。"
+        "passThresholdRange": "及格线必须是介于 {{min}} 和 {{max}} 之间的整数。",
+        "releaseAssetsDuplicateBasename": "{{basename}} 会被上传多次；发布文件名必须唯一。",
+        "releaseAssetsDuplicatePath": "{{path}} 列出了多次；每个发布文件路径必须唯一。",
+        "releaseAssetsInvalidBasename": "{{basename}} 不是安全的发布文件名，或是保留名称。",
+        "releaseAssetsInvalidPath": "{{path}} 不是精确的相对于工作区的文件路径。",
+        "releaseAssetsTooLarge": "提交发布文件路径总计最多为 {{max}} 个 UTF-8 字节（8 KiB）；当前为 {{bytes}}。",
+        "releaseAssetsTooMany": "最多选择 {{max}} 个提交发布文件（当前为 {{count}} 个）。"
       },
       "allowedFilesTip": "按顺序排列的 {{gitignore}} 风格模式，每行一个，用于定义哪些文件属于一份提交（后匹配者优先，{{bang}} 表示重新包含）。例如 {{star}} 后接 {{example}} 仅允许 {{result}}。留空则允许所有文件。",
       "containerUserTip": "容器运行时使用的用户。如果检出因权限错误失败，请设为 root。GitHub Actions 以宿主运行器的用户身份运行容器步骤，因此非 root 镜像通常无法写入工作区。",
@@ -681,7 +705,13 @@
       "emptyRepo": "空仓库",
       "emptyRepoHelp": "为每位学生创建完全空白的仓库：没有初始文件、没有自动评分、没有反馈拉取请求。适用于学生需要从零开始搭建全部内容（包括自己的 GitHub Actions）的作业。此选项对该作业是永久性的。",
       "emptyRepoLocked": "创建后无法更改。",
-      "feedbackPrEmptyRepoHelp": "空仓库不可用——没有初始提交可供对比差异。"
+      "feedbackPrEmptyRepoHelp": "空仓库不可用——没有初始提交可供对比差异。",
+      "passThresholdUnit": "通过所需占最高分的百分比",
+      "releaseAssetCount_one": "{{count}} 个发布文件",
+      "releaseAssetCount_other": "{{count}} 个发布文件",
+      "releaseAssets": "提交发布文件",
+      "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
+      "releaseAssetsTip": "每行一个精确的相对于工作区的文件路径；路径是精确的，不是通配符模式，总大小最多为 8 KiB 的 UTF-8 文本。文件在评分后收集，无论通过或不通过均会附加；缺失的文件将被跳过。发布文件名只能使用 ASCII 字母、数字、点、下划线和连字符，且不能以点开头或结尾，也不能包含连续的点。"
     },
     "autograder": {
       "heading": "自动评分测试",
@@ -711,8 +741,6 @@
       "comparisonRegex": "正则——Python re.search，多行模式",
       "exitCode": "所需退出码",
       "exitCodeHint": "留空则要求成功退出（0）。",
-      "pythonNote_prefix": "运行命令应调用 pytest（例如",
-      "pythonNote_suffix": "）来运行作业模板中的测试文件。系统会自动安装 pytest 和 pytest-json-report。分值会分摊到 pytest 发现的各个用例上。",
       "timeout": "超时（秒）",
       "timeoutHint": "0 = 默认（10 秒）",
       "points": "分数",
@@ -730,7 +758,8 @@
           "label": "Python (pytest)",
           "hint": "运行一个 pytest 命令；分数会在评分时按发现的测试用例平均分配。"
         }
-      }
+      },
+      "pythonNote": "运行命令应调用 pytest（例如 <code>python3 -m pytest -q</code>）来运行作业模板中的测试文件。系统会自动安装 pytest 和 pytest-json-report。分数会在 pytest 发现的各个用例之间分配。"
     },
     "table": {
       "caption": "作业",
@@ -749,13 +778,11 @@
       "viewAssignment": "查看作业",
       "deleteAria": "删除 {{name}}",
       "deleteTitle": "删除作业？",
-      "deleteDescription_1": "此操作将从",
-      "deleteDescription_2": "课堂中移除",
-      "deleteDescription_3": "作业。学生的作业代码仓库不会被删除。",
       "deleteConfirm": "删除作业",
       "deleteCancel": "保留作业",
       "reuseTitle": "在其他课堂中复用",
-      "reuseAria": "在其他课堂中复用作业"
+      "reuseAria": "在其他课堂中复用作业",
+      "deleteDescription": "这将从 <classroom>{{classroom}}</classroom> 课堂中移除 <assignment>{{assignment}}</assignment> 作业。学生的作业仓库不会被删除。"
     },
     "template": {
       "label": "模板仓库",
@@ -763,35 +790,15 @@
       "help": "可选。学生将获得此仓库的副本。留空则得到一个仅包含自动评分器的空仓库。",
       "checking": "正在检查模板访问权限……",
       "fallbackOrg": "你的组织",
-      "privateHasAccess_1": "{{owner}} 中的私有模板（分支",
-      "privateHasAccess_2": "）。课堂团队已拥有读取权限——学生可以复制它。",
-      "privateWillGrant_1": "{{owner}} 中的私有模板（分支",
-      "privateWillGrant_2": "）。课堂团队目前尚无访问权限；创建作业时会自动添加，因此学生可以复制它。",
-      "okPrefixPublic": "{{owner}} 中的公开模板，分支",
-      "okPrefixPrivate": "{{owner}} 中的私有模板，分支",
-      "okPrefixPublicInOrg": "公开模板，分支",
-      "okPrefixPrivateInOrg": "私有模板，分支",
-      "okSuffix": "。学生可以访问它。",
-      "okVerify_1": "在 {{owner}} 中可访问（分支",
-      "okVerify_2": "）。如果 {{owner}} 限制了第三方应用，则在所有者批准 Classroom 50 之前，学生无法复制它。",
       "notVisible": "你无法看到 {{owner}}/{{repo}}。请将其设为公开，或将其复制到 {{org}} 中。",
       "notTemplate": "{{owner}}/{{repo}} 不是模板仓库。请在该仓库的 Settings 中启用它。",
       "restricted": "{{owner}} 阻止了对 {{repo}} 的访问（HTTP 403）。这通常是第三方应用限制所致 —— 组织所有者可能需要为该组织批准 Classroom 50，或为 {{owner}} 授权你的 OAuth 授予（组织设置 → 第三方访问）。也可能是其他导致 403 的原因；请参阅下方 GitHub 的提示。",
       "unknown": "目前无法验证 {{owner}}/{{repo}}。将在学生接受作业时重新检查。",
       "privateOutOfOrg": "{{owner}}/{{repo}} 是私有的且位于 {{org}} 之外。请将其设为公开，或将其复制到 {{org}} 中。",
-      "noBranch_1": "{{owner}}/{{repo}} 没有默认分支。请推送一次提交，或添加",
-      "noBranch_2": "。",
       "rateLimited": "触发了 GitHub 速率限制。请稍后重试。",
       "policyLink": "查看 {{owner}} 的 OAuth 应用策略",
       "githubSaid": "GitHub 提示（HTTP {{status}}）：",
-      "privateForkCrossOrg_1": "{{owner}}/{{repo}} 是另一个组织中 {{parent}} 的私有派生（分支",
-      "privateForkCrossOrg_2": "）。私有的跨组织派生作为模板并不可靠 —— 当 Classroom 50 无法访问私有上游时，复制会失败。请改用一个全新的（非派生）模板仓库：新建一个仓库并将派生的内容复制进去。",
-      "privateForkInOrg_1": "{{owner}}/{{repo}} 是 {{parent}} 的私有派生（分支",
-      "privateForkInOrg_2": "）。上游位于此组织中，因此复制应该可行 —— 但如果接受操作失败，全新的（非派生）模板仓库会更可靠。",
-      "privateForkNoParent_1": "{{owner}}/{{repo}} 是一个私有派生（分支",
       "restrictedScope": "{{owner}} 阻止了对 {{repo}} 的访问（HTTP 403）。GitHub 提示你的令牌缺少所需的作用域 —— 请退出并重新登录以刷新你的 GitHub 授权，然后重试。",
-      "nonMainBranch_1": "此模板的默认分支是",
-      "nonMainBranch_2": "，而不是“main”。作业将使用该分支，且学生的自动评分会依据该分支。",
       "accessModal": {
         "branchLabel": "分支",
         "close": "关闭",
@@ -816,7 +823,19 @@
         "failed": "无法授予模板访问权限：",
         "pending": "正在授予…",
         "success": "已确认课堂团队对模板的读取权限。"
-      }
+      },
+      "noBranch": "{{owner}}/{{repo}} 没有默认分支。请推送一次提交，或添加 <hint/>。",
+      "nonMainBranch": "此模板的默认分支是 <branch>{{branch}}</branch>，而非“main”。作业将使用它，学生的自动评分也以该分支为准。",
+      "okPrivate": "{{owner}} 中的私有模板，分支 <branch>{{branch}}</branch>。学生可以访问它。",
+      "okPrivateInOrg": "私有模板，分支 <branch>{{branch}}</branch>。学生可以访问它。",
+      "okPublic": "{{owner}} 中的公开模板，分支 <branch>{{branch}}</branch>。学生可以访问它。",
+      "okPublicInOrg": "公开模板，分支 <branch>{{branch}}</branch>。学生可以访问它。",
+      "okVerify": "在 {{owner}} 中可访问（分支 <branch>{{branch}}</branch>）。如果 {{owner}} 限制第三方应用，学生在所有者批准 Classroom 50 之前无法复制它。",
+      "privateForkCrossOrg": "{{owner}}/{{repo}} 是另一个组织中 {{parent}} 的私有派生（分支 <branch>{{branch}}</branch>）。跨组织的私有派生作为模板并不可靠——当 Classroom 50 无法访问私有上游时，复制会失败。请改用一个全新的（非派生）模板仓库：新建一个仓库并将派生的内容复制进去。",
+      "privateForkInOrg": "{{owner}}/{{repo}} 是 {{parent}} 的私有派生（分支 <branch>{{branch}}</branch>）。上游在本组织中，因此复制应该可行——但如果接受作业失败，使用全新的（非派生）模板仓库会更可靠。",
+      "privateForkNoParent": "{{owner}}/{{repo}} 是一个私有派生（分支 <branch>{{branch}}</branch>）。跨组织的私有派生作为模板并不可靠——当 Classroom 50 无法访问私有上游时，复制会失败。请改用一个全新的（非派生）模板仓库：新建一个仓库并将派生的内容复制进去。",
+      "privateHasAccess": "{{owner}} 中的私有模板（分支 <branch>{{branch}}</branch>）。课堂团队已拥有读取权限——学生可以复制它。",
+      "privateWillGrant": "{{owner}} 中的私有模板（分支 <branch>{{branch}}</branch>）。课堂团队尚无访问权限；在你创建作业时会自动添加，以便学生可以复制它。"
     },
     "toolbar": {
       "clear": "清除",
@@ -888,12 +907,12 @@
         }
       },
       "viewSubmission": "查看我的提交"
-    }
+    },
+    "archivedNotice": "此课堂已归档——已禁用新建作业和学生接受作业。请在<settingsLink>课堂设置</settingsLink>中取消归档，以进行更改。",
+    "studentViewAll": "查看 <classroom>{{classroom}}</classroom> 课堂的所有作业。"
   },
   "published": {
     "pageHeading": "已发布资源",
-    "pageSubheadingPrefix": "以下所有内容均公开来自",
-    "pageSubheadingSuffix": "的 GitHub Pages 站点。",
     "copyUrl": "复制网址",
     "openUrl": "打开网址",
     "optional": "可选",
@@ -901,14 +920,12 @@
     "publicPath": "公开路径",
     "resourceCount_one": "{{count}} 项已发布资源",
     "resourceCount_other": "{{count}} 项已发布资源",
-    "servedUnlistedSuffix": " · 以非公开链接提供",
     "unlistedWarning": "此班级使用非公开链接：其资源以无法猜测的路径提供，而非可以猜测的路径。这属于隐蔽性措施，而非访问控制——链接是保护数据的唯一屏障，任何拥有链接的人都能读取该文件，且链接可能泄露（浏览器历史记录、引荐来源、搜索引擎爬虫）。请从每个作业页面分享包含密钥的作业接受链接或 CLI 命令。",
     "banner": {
       "title": "以下所有内容均通过互联网公开提供",
       "body": "你的 classroom50 配置仓库是私有的，但其 GitHub Pages 站点按设计是公开的——学生和自动评分器无需认证即可获取这些文件。只有下方列入白名单的文件会被发布；仓库中的其他内容（你的名册、内部班级字段、服务令牌）仍保持私有。班级可以使用非公开链接使其文件更难被找到，但这属于隐蔽性措施，而非访问控制——对任何拥有链接的人而言，这些文件仍是公开的。"
     },
     "orgLevel": "组织级别",
-    "orgLevelServedPrefix": "提供于以下根路径：",
     "perClassroom": "按班级",
     "perClassroomDescription": "每个班级的作业清单和自动评分器。",
     "noClassrooms": "尚无班级。一旦你创建了班级并发布，其资源将显示在此处。",
@@ -953,18 +970,19 @@
         "label": "自动评分工作流垫片 — {{name}}",
         "description": "当学生接受一项覆盖默认运行器的作业时获取的非默认自动评分工作流垫片。"
       }
-    }
+    },
+    "orgLevelServed": "从 <path>{{base}}/</path> 的根目录提供。",
+    "pageSubheading": "从 <orgLink>{{org}}</orgLink> 的 GitHub Pages 站点公开提供的所有内容。",
+    "servedUnlistedNote": " · 在一个未公开的网址上提供"
   },
   "getStarted": {
     "badge": "入学引导",
     "continueToAssignment": "继续前往你的作业",
     "notInvited": {
       "title": "暂时无需操作",
-      "body_prefix": "我们没有找到你的账号加入",
-      "body_suffix": "组织的邀请。",
       "waitingTitle": "等待邀请中",
-      "waitingBody_prefix": "如果你的老师已邀请你加入",
-      "waitingBody_suffix": "，请查看你的邮箱中的 GitHub 邀请并接受，然后返回本页面刷新。否则，你目前在这里无需进行任何操作。"
+      "body": "我们找不到向你的账户发出的加入 <org>{{org}}</org> 组织的邀请。",
+      "waitingBody": "如果你的老师已邀请你加入 <classroom>{{classroom}}</classroom>，请在你的邮箱中查看 GitHub 邀请并接受，然后返回此页面并刷新。否则，你现在无需在此进行任何操作。"
     },
     "active": {
       "goToClassroom": "前往你的班级",
@@ -1000,34 +1018,23 @@
     "heading": "作业设置",
     "editSuccess": "您的更改已保存，正在发布到学生站点——上方横幅会显示进度。",
     "loading": "正在加载作业",
-    "archivedNotice_prefix": "该班级已归档——其作业为只读状态。请在",
-    "archivedNotice_link": "课堂设置",
-    "archivedNotice_suffix": "中取消归档，以编辑作业。",
-    "notAccepted_prefix": "你还没有这份作业！你是否需要先",
-    "notAccepted_link": "接受它",
-    "notAccepted_suffix": "？",
-    "individual_prefix": "这是一份个人作业——没有可管理的小组设置。查看你的",
-    "individual_link": "提交和自动评分结果",
-    "individual_suffix": "。",
     "groupMembers": "小组成员",
     "viewRepository": "查看仓库",
-    "collaboratorsHint_prefix": "为该作业仓库添加或移除协作者。除小组组长外，这份作业最多允许",
-    "collaboratorsHint_suffix_one": "名学生。",
-    "collaboratorsHint_suffix_other": "名学生。",
-    "manageCollaborators": "管理协作者"
+    "manageCollaborators": "管理协作者",
+    "archivedNotice": "此课堂已归档——其作业为只读。请在<settingsLink>课堂设置</settingsLink>中取消归档，以编辑作业。",
+    "collaboratorsHint_one": "为此作业仓库添加或移除协作者。除组长外，此作业最多允许 <count>{{count}}</count> 名学生。",
+    "collaboratorsHint_other": "为此作业仓库添加或移除协作者。除组长外，此作业最多允许 <count>{{count}}</count> 名学生。",
+    "individual": "这是一项个人作业——没有小组设置可管理。查看你的<submissionLink>提交和自动评分结果</submissionLink>。",
+    "notAccepted": "你还没有这项作业！是否需要先<acceptLink>接受它</acceptLink>？"
   },
   "orgSettings": {
     "page": {
       "heading": "设置",
-      "subheading_prefix": "组织级配置：",
-      "subheading_suffix": "。"
+      "subheading": "<orgLink>{{org}}</orgLink> 的组织级配置。"
     },
     "serviceToken": {
       "title": "服务令牌",
       "infoAria": "什么是服务令牌？",
-      "info_1": "Classroom 50 需要一个服务令牌，即一个对课程 GitHub 组织中的仓库具有读写权限的细粒度个人访问令牌（PAT）。它会作为",
-      "info_2": "密钥存储在你的",
-      "info_3": "配置仓库中，成绩收集工作流用它来读取学生提交，重新评分工作流用它来重新运行学生的自动评分工作流。",
       "statusPresent": "已设置服务令牌",
       "statusMissing": "尚未设置服务令牌",
       "statusUnknown": "无法检查服务令牌",
@@ -1041,41 +1048,23 @@
       "validRange": "有效范围为 {{min}}–{{max}} 天（GitHub 的上限）。",
       "patDescription": "用于 Classroom 50 分数收集和重新评分的服务令牌。对 {{org}} 组织需要：Contents：Read and write + Actions：Read and write + Administration：Read and write + Members：Read",
       "generateOnGitHub": "在 GitHub 上生成令牌",
-      "generateHint_prefix": "打开 GitHub 的令牌表单，并预填名称、资源所有者、有效期以及",
-      "generateHint_permissions": "Contents：Read and write + Actions：Read and write + Administration：Read and write + Members：Read",
-      "generateHint_suffix": "权限。",
       "beforeGenerating": "在 GitHub 页面上，生成令牌之前：",
-      "repoAccess_prefix": "将",
-      "repoAccess_field": "Repository access",
-      "repoAccess_mid": "设置为",
-      "repoAccess_value": "All repositories",
-      "repoAccess_period": "。",
-      "repoAccess_warning": "选择“Only select repositories”会遗漏之后创建的学生仓库，导致成绩收集失败。",
-      "permissions_prefix": "在",
-      "permissions_field": "Permissions",
-      "permissions_confirm": "下，确认",
-      "permissions_contents": "Contents: Read and write",
-      "permissions_and": "和",
-      "permissions_actions": "Actions: Read and write",
-      "permissions_metadata": "（Metadata：读取会自动包含。）",
-      "permissions_warning": "读取权限用于收集分数；写入权限让重新评分工作流可以重新运行学生的自动评分工作流；Members：读取让收集操作可以列出班级团队。",
       "rotateNote": "令牌会在你上面设置的有效期后到期。到期后，成绩收集和重新评分工作流将失败，直到你生成新令牌并再次在此处保存，因此请设置提醒以便在此之前轮换令牌。",
       "pasteBelow": "在 GitHub 上生成令牌后，复制它并粘贴到下方。",
       "enterNewLabel": "输入新的服务令牌",
       "enterLabel": "输入服务令牌",
       "placeholder": "输入令牌（例如 github_pat_123...）",
-      "validateHint_prefix": "我们会在保存前检查令牌是否有效。请再次确认你选择了",
-      "validateHint_allRepos": "All repositories",
-      "validateHint_suffix": "来创建它。",
       "saveError": "无法验证或保存令牌。",
       "savedUpdated": "服务令牌已检查并更新。",
       "savedNew": "服务令牌已检查并保存。",
       "validating": "正在验证……",
       "updateButton": "更新服务令牌",
       "saveButton": "保存服务令牌",
-      "permissions_members": "Members：读取",
-      "permissions_members_note": "Members：读取是一项 Organization 权限，在组织成为资源所有者后会显示在单独的部分中。",
-      "permissions_administration": "Administration：Read and write"
+      "generateHint": "打开 GitHub 的令牌表单，其中已预填名称、资源所有者、有效期以及 <permissions>Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read</permissions> 权限。",
+      "info": "Classroom 50 需要一个服务令牌，即对你课堂 GitHub 组织中的仓库拥有读写访问权限的细粒度个人访问令牌（PAT）。它作为 <secret>CLASSROOM50_SERVICE_TOKEN</secret> 密钥存储在你的 <repo>classroom50</repo> 配置仓库中，分数收集工作流用它来读取学生提交，重新评分工作流用它来重新运行学生的自动评分工作流。",
+      "permissions": "在 <field>Permissions</field> 下，确认 <perm>Contents: Read and write</perm>、<perm>Actions: Read and write</perm>、<perm>Administration: Read and write</perm> 和 <perm>Members: Read</perm>（Metadata: Read 会自动包含。）<note>Members: Read 是一项组织权限，是当组织为资源所有者时显示的单独区块。</note> <note>Read 用于收集分数；write 让重新评分工作流可以重新运行学生的自动评分工作流；Members: Read 让收集过程能列出课堂团队。</note>",
+      "repoAccess": "将 <field>Repository access</field> 设置为 <value>All repositories</value>。<note>“Only select repositories”会漏掉之后创建的学生仓库，从而破坏分数收集。</note>",
+      "validateHint": "我们会在保存前检查令牌是否有效。请再次确认你在创建时选择了 <value>All repositories</value>。"
     },
     "audit": {
       "title": "组织策略",
@@ -1116,7 +1105,8 @@
       "renameModalBody": "此操作会将 classroom50 配置仓库的默认分支重命名为“main”。如果已有学生接受了作业，他们的自动评分工作流会锁定当前分支名称，重命名后将停止评分，直到他们重新接受作业或你重新指向他们的 shim。最好只在学生接受作业之前执行此操作，或做好重新运行其设置的准备。",
       "renameModalTitle": "将配置仓库的默认分支重命名为 main 吗？",
       "renameToMain": "重命名为 main",
-      "renameError": "无法重命名配置仓库的默认分支。你可能缺少所有者权限，或重命名未成功——请重试。"
+      "renameError": "无法重命名配置仓库的默认分支。你可能缺少所有者权限，或重命名未成功——请重试。",
+      "stateWarn": "建议"
     },
     "rerun": {
       "title": "重新运行设置",
@@ -1130,27 +1120,21 @@
     },
     "teardown": {
       "title": "危险区域",
-      "description_prefix": "拆除此组织，将删除其中",
-      "description_every": "每一个",
-      "description_mid": "仓库，包括",
-      "description_suffix": "配置仓库，并移除每个课程的 GitHub 团队。此操作不可逆。",
       "prepareError": "无法准备拆除方案。",
       "preparing": "正在准备……",
       "button": "拆除组织",
       "confirmText": "delete {{org}}",
       "confirmLabel": "删除所有资源",
       "confirmTitle": "删除此组织中的每一个仓库？",
-      "confirmBody_prefix": "这将永久删除",
-      "confirmBody_reposIn": "个仓库，位于",
-      "confirmBody_including": "，包括",
-      "confirmBody_deletedLast": "配置仓库（最后删除）",
-      "confirmBody_andRemove": "，并移除",
-      "confirmBody_teams_one": "个课程团队",
-      "confirmBody_teams_other": "个课程团队",
-      "confirmBody_cannotUndo": "。此操作无法撤销。",
       "repositoriesHeading": "仓库",
       "classroomTeamsHeading": "课程团队",
-      "executeError": "拆除失败。部分仓库可能未被删除。"
+      "executeError": "拆除失败。部分仓库可能未被删除。",
+      "confirmBodyCannotUndo": "此操作无法撤销。",
+      "confirmBodyTeams_one": "它还会移除 <count>{{count}}</count> 个课堂团队。",
+      "confirmBodyTeams_other": "它还会移除 <count>{{count}}</count> 个课堂团队。",
+      "confirmBody_one": "这将永久删除 <org>{{org}}</org> 中的 <count>{{count}}</count> 个仓库，包括 <repo>classroom50</repo> 配置仓库（最后删除）。",
+      "confirmBody_other": "这将永久删除 <org>{{org}}</org> 中的 <count>{{count}}</count> 个仓库，包括 <repo>classroom50</repo> 配置仓库（最后删除）。",
+      "description": "拆除此组织，删除其中<strong>每一个</strong>仓库，包括 <repo>classroom50</repo> 配置仓库，并移除每个课堂的 GitHub 团队。此操作不可逆。"
     },
     "preflight": {
       "categoryServiceToken": "服务令牌",
@@ -1158,9 +1142,7 @@
       "title": "组织预检失败",
       "body_one": "在此组织的 {{categories}} 中发现了一个问题。",
       "body_other": "在此组织的 {{categories}} 中发现了若干问题。",
-      "reviewFixOn": "请在",
-      "settingsPageLink": "组织设置页面",
-      "reviewFixSuffix": "上查看并修复。"
+      "reviewFix": "请在<settingsLink>组织设置页面</settingsLink>上查看并修复。"
     },
     "overwrite": {
       "title": "更新工作流文件以保持评分正常运行？",
@@ -1168,9 +1150,7 @@
       "cancelLabel": "暂不",
       "body_one": "你配置仓库中有 1 个 Classroom 50 工作流/脚本文件已过时，将被刷新：",
       "body_other": "你配置仓库中有 {{count}} 个 Classroom 50 工作流/脚本文件已过时，将被刷新：",
-      "warning_prefix": "Classroom 50 会管理这些文件，因此更新是安全的。让它们保持过时可能会导致自动评分等功能停止运行。如果你自定义过某个文件，请选择",
-      "keepMine": "暂不",
-      "warning_suffix": "以暂时保持原样。"
+      "warning": "Classroom 50 管理这些文件，因此更新是安全的。让它们保持过期状态可能会导致自动评分器等功能停止运行。如果你自定义了某个文件，选择<keepMine>暂不</keepMine>以暂时保持原样。"
     },
     "steps": {
       "whyLabel": "原因：",
@@ -1236,7 +1216,41 @@
         "what": "创建保护课程和作业仓库的组织规则集。",
         "why": "规则集会在组织创建的每个仓库上强制执行课程护栏（受保护分支、限制删除）。",
         "remediation": "打开组织的规则集页面进行查看，或重新运行设置以重新应用。规则集可能需要 GitHub Team 或 Enterprise。"
+      },
+      "orgBudget": {
+        "remediation": "打开组织的账单预算设置，并设置一个启用了“阻止进一步使用”的 $0 GitHub Actions 预算（需要 Organization Administration 访问权限）。",
+        "title": "Actions 支出上限",
+        "what": "创建一个 $0 的 GitHub Actions 支出上限（仅在不存在时）。",
+        "why": "$0 硬性停止预算会阻止付费的 Actions 分钟数，因此失控的自动评分工作流不会产生费用。你已设置的现有预算不会被改动。"
       }
+    },
+    "actions": {
+      "applying": "正在更新……",
+      "budgetAmount": "支出预算：${{amount}}。",
+      "budgetHardStop": "已设置 $0 硬性停止预算——已阻止付费分钟数。",
+      "budgetManage": "管理预算",
+      "budgetNone": "未设置支出预算。",
+      "confirmBody": "在你恢复之前，学生提交将不会被评分。classroom50 配置仓库仍可正常工作。可随时撤销。",
+      "confirmButton": "暂停自动评分",
+      "confirmTitle": "对整个组织暂停自动评分？",
+      "description": "在整个组织范围内暂停自动评分，以停止 Actions 支出。课程管理仍可正常使用。",
+      "disabledNotice": "整个组织的 Actions 已关闭，因此不会运行任何内容。请重新运行组织设置，或在 GitHub 上启用 Actions。",
+      "loading": "正在检查状态……",
+      "openSettings": "打开 Actions 设置",
+      "pausedNotice": "已暂停——学生的推送不会被评分。在你关闭此选项之前，重新运行组织设置也不会恢复。",
+      "statusActive": "自动评分已开启",
+      "statusDisabled": "Actions 已关闭",
+      "statusPaused": "自动评分已暂停",
+      "title": "GitHub Actions",
+      "toggleFailed": "无法更新 Actions 权限：{{message}}",
+      "toggleHint": "开启此项会停止对学生推送进行评分（不消耗 Actions 分钟数）。classroom50 配置仓库仍可正常工作。关闭即可恢复。",
+      "toggleLabel": "为所有学生仓库暂停自动评分",
+      "unknownNotice": "无法读取此组织的 Actions 权限——你可能没有所有者权限，或者由企业策略控制。",
+      "usageCost": "本月已计费 ${{amount}}。",
+      "usageMinutes": "已使用 {{minutes}} 分钟",
+      "usageOfIncluded": "已使用 {{used}} 分钟 / 包含 {{included}} 分钟",
+      "usageOverQuota": "超出包含配额 {{over}} 分钟。",
+      "usageTitle": "本月 Actions 分钟数"
     }
   },
   "classes": {
@@ -1247,15 +1261,10 @@
     "loadingClassroom": "正在加载班级",
     "configRepo": "配置仓库",
     "configRepoTitle": "在 GitHub 上打开 classroom50 配置仓库中此班级的文件夹",
-    "settingsSubtitle_prefix": "以下是",
-    "settingsSubtitle_suffix": "班级的配置。",
     "somethingWentWrong": "出了点问题",
     "archivedReadOnlyNotice": "此班级已归档——设置为只读。请使用上方的“取消归档”进行更改。",
     "deleteClassroomAria": "删除班级",
     "deleteClassroomTitle": "删除班级？",
-    "deleteClassroomBody_1": "此操作会从",
-    "deleteClassroomBody_2": "组织中移除",
-    "deleteClassroomBody_3": "班级。学生的作业仓库不会被删除。",
     "deleteClassroomConfirm": "删除班级",
     "deleteClassroomCancel": "保留班级",
     "archive": "归档",
@@ -1264,10 +1273,6 @@
     "unarchiveTitle": "取消归档班级",
     "archiveConfirmTitle": "归档班级？",
     "unarchiveConfirmTitle": "取消归档班级？",
-    "archiveBody_prefix": "归档",
-    "archiveBody_suffix": "：它将从默认课堂列表中移除，并停止接受新作业和新学生。其名单和作业会保留，你之后可以取消归档。",
-    "unarchiveBody_prefix": "将",
-    "unarchiveBody_suffix": "为活动状态：它会返回默认课堂列表，并可再次接受新作业和新学生。",
     "archivedToast": "“{{classroom}}”已归档。",
     "unarchivedToast": "“{{classroom}}”已取消归档。",
     "archiveFailed": "无法归档“{{classroom}}”：{{error}}",
@@ -1291,11 +1296,10 @@
     },
     "join": {
       "title": "加入此班级",
-      "body_prefix": "你有一个待处理的邀请，可加入",
-      "body_suffix": "。接受邀请即可访问你的班级作业。",
       "error": "无法加入组织。请重试。",
       "joining": "正在加入……",
-      "joinButton": "加入组织"
+      "joinButton": "加入组织",
+      "body": "你有一个加入 <org>{{org}}</org> 的待处理邀请。接受邀请以访问你的课堂作业。"
     },
     "filter": {
       "active": "活动",
@@ -1340,8 +1344,7 @@
       "heading": "教职人员与角色",
       "githubTeams": "GitHub 团队",
       "githubTeamsTitle": "在 GitHub 上打开此组织的团队",
-      "description": "教师和 TA 会获得此组织 Classroom 50 配置的写入权限。TA 看到的课堂内容与教师相同，但组织和课堂设置仅限教师访问。",
-      "roleTa": "助教",
+      "description": "教师和首席助教对本组织的 Classroom 50 配置拥有写入权限；助教拥有只读权限。助教和首席助教看到的课堂内容与教师相同，但组织和课堂设置仅限教师访问。",
       "roleTaPlural": "助教",
       "enterUsername": "请输入 GitHub 用户名。",
       "noSuchUser": "没有这个 GitHub 用户。",
@@ -1364,8 +1367,16 @@
       "resendEmailOnly": "此邀请没有 GitHub 用户名，因此无法重新发送。请取消它并重新添加此人。",
       "resendFailed": "无法向 {{who}} 重新发送邀请：{{error}}",
       "resentToast": "已向 {{who}} 重新发送邀请。",
-      "roleTeacher": "教师",
-      "roleTeacherPlural": "教师"
+      "roleTeacherPlural": "教师",
+      "accessHeadTa": "组织成员。对配置仓库拥有写入权限。",
+      "accessTa": "组织成员。对配置仓库拥有只读权限。",
+      "accessTeacher": "组织所有者。对配置仓库拥有写入权限。",
+      "pendingCount_one": "{{count}} 个待处理",
+      "pendingCount_other": "{{count}} 个待处理",
+      "removeSelfTeacherBlocked": "你不能将自己从教师团队中移除——这会撤销你对此课堂的所有者级访问权限。请让另一位组织所有者将你移除。",
+      "roleHeadTaPlural": "首席助教",
+      "viewTeamTitle": "在 GitHub 上打开 {{role}} 团队",
+      "you": "你"
     },
     "card": {
       "actionsAria": "{{name}} 的操作",
@@ -1403,14 +1414,13 @@
         "studentCount": "学生数量",
         "term": "学期"
       },
-      "sortPrefix": "排序",
       "termLabel": "按学期筛选",
-      "termPrefix": "学期",
       "view": {
         "gridLabel": "网格视图",
         "label": "视图",
         "listLabel": "列表视图"
-      }
+      },
+      "term": "学期"
     },
     "claimTeacher": {
       "action": "将自己添加为教师",
@@ -1436,7 +1446,11 @@
           "nameAsc": "名称（A–Z）"
         }
       }
-    }
+    },
+    "archiveBody": "归档 <classroom>{{classroom}}</classroom>：它将从默认课堂列表中移除，并停止接受新作业和新学生。其花名册和作业会被保留，你之后可以取消归档。",
+    "deleteClassroomBody": "这将从 <org>{{org}}</org> 组织中移除 <classroom>{{classroom}}</classroom> 课堂。学生的作业仓库不会被删除。",
+    "settingsSubtitle": "<classroom>{{classroom}}</classroom> 课堂的配置。",
+    "unarchiveBody": "将 <classroom>{{classroom}}</classroom> 恢复为活动状态：它将回到默认课堂列表，并可再次接受新作业和新学生。"
   },
   "accept": {
     "githubUser": "GitHub 用户",
@@ -1461,12 +1475,10 @@
     "notFound": {
       "badge": "作业不可用",
       "title": "未找到作业",
-      "body_prefix": "我们在此课堂中找不到与",
-      "body_suffix": "匹配的作业。链接可能有误，或该作业尚未发布。",
       "unableToLoad": "无法加载作业",
       "expectedSlug": "预期找到的作业标识：",
-      "checkUrl_prefix": "请检查网址是否正确，或请你的老师确认该作业已添加到",
-      "checkUrl_suffix": "。"
+      "body": "在此课堂中未找到与 <assignment>{{assignment}}</assignment> 匹配的作业。链接可能不正确，或该作业尚未发布。",
+      "checkUrl": "请检查网址是否正确，或请你的老师确认该作业是否已添加到 <file>assignments.json</file> 中。"
     },
     "steps": {
       "account": "正在检查你的 GitHub 账户",
@@ -1505,13 +1517,6 @@
     "lateBadge_one": "{{count}} 份逾期",
     "lateBadge_other": "{{count}} 份逾期",
     "downloadCsv": "下载分数（CSV）",
-    "collectionNote": "提交内容会自动收集，但新提交最多可能需要 24 小时才会显示。",
-    "lastCollected": "上次收集（全组织范围）：{{when}}。",
-    "updated": "更新于 {{when}}",
-    "refresh": "刷新提交",
-    "dashboard": {
-      "never": "从未"
-    },
     "errors": {
       "gradebookLoad": "无法加载成绩册。",
       "gradebookLoadWithReason": "无法加载成绩册：{{reason}}",
@@ -1549,16 +1554,14 @@
       "titleRegrading": "已有重新评分正在进行",
       "statusDispatching": "正在开始重新评分……",
       "statusRunning": "重新评分进行中。正在对每个已提交的仓库重新运行自动评分器；在此期间收集将暂停。",
-      "statusCompleted_prefix": "重新评分已开始——每个仓库正在后台重新评分。几分钟后点击",
-      "statusCompleted_suffix": "以获取新的成绩。",
       "statusFailed": "本次重新评分运行未能成功开始。",
       "statusFailedWithReason": "无法开始重新评分：{{reason}}",
       "statusFailedHint": "请在 GitHub 上检查该工作流，然后重试。",
       "statusTimeout": "重新评分需要一段时间才能登记。请在 GitHub 上查看其进度。",
       "confirmTitle": "重新评分“{{name}}”的全部提交？",
       "confirmBody1": "这会对每个已提交仓库的最新提交重新运行自动评分器——在修复测试或更新自动评分器后很有用。提交时间不会改变。",
-      "confirmBody2_prefix": "评分在后台运行，可能需要几分钟；之后请使用",
-      "confirmBody2_suffix": "以获取新的成绩。"
+      "confirmBody2": "评分在后台运行，可能需要几分钟；之后请使用<collectLabel>{{collectLabel}}</collectLabel>来拉取新分数。",
+      "statusCompleted": "重新评分已开始——每个仓库正在后台重新评分。几分钟后点击<collectLabel>{{collectLabel}}</collectLabel>来拉取新分数。"
     },
     "accept": {
       "heading": "学生如何接受",
@@ -1578,11 +1581,11 @@
       "showFailing": "显示未通过的学生",
       "failingCount_one": "{{count}} 人未通过",
       "failingCount_other": "{{count}} 人未通过",
-      "ungradedSuffix_one": "，{{count}} 份未评分",
-      "ungradedSuffix_other": "，{{count}} 份未评分",
       "showAcceptedNotSubmitted": "显示已接受但尚未提交的学生",
       "notYetSubmitted_one": "{{count}} 人尚未提交",
-      "notYetSubmitted_other": "{{count}} 人尚未提交"
+      "notYetSubmitted_other": "{{count}} 人尚未提交",
+      "ungradedNote_one": "，{{count}} 项未评分",
+      "ungradedNote_other": "，{{count}} 项未评分"
     },
     "filters": {
       "searchGroupPlaceholder": "搜索小组或成员……",
@@ -1647,9 +1650,6 @@
       "submittedBy": "由 {{name}} 提交",
       "review": "评审",
       "reviewAria": "打开反馈拉取请求",
-      "fullHistory_prefix": "打开",
-      "fullHistory_link": "仓库",
-      "fullHistory_suffix": "以查看完整的提交历史。",
       "acceptedAwaiting": "已接受 · 等待提交",
       "emptyClearFilters": "清除筛选条件",
       "emptyFilteredBody": "尝试其他搜索或清除筛选条件以查看所有人。",
@@ -1659,14 +1659,22 @@
       "noGroup": "不在任何计分小组中",
       "noGroupTitle": "此学生未被记入任何提交小组的仓库。小组成员在收集时读取自各仓库的协作者，因此从未加入小组的学生——或上次收集时无法读取其小组成员的学生——会显示在此处。评分前请打开小组仓库确认。",
       "notAccepted": "未接受",
-      "noGradingTitle": "此作业已禁用自动评分"
+      "noGradingTitle": "此作业已禁用自动评分",
+      "fullHistory": "打开<repoLink>仓库</repoLink>以查看完整的提交历史。",
+      "liveLatest": "最新推送于 {{date}} · 尚未评分",
+      "liveLatestTitle": "有一次较新的提交在上次收集之后被推送，因此尚未评分。运行“立即同步提交”以对其评分并计分。",
+      "loading": "正在加载提交……",
+      "pendingGrade": "待处理",
+      "pendingGradeTitle": "已提交——分数尚未收集。运行“立即同步提交”或等待夜间收集。",
+      "resolvingNonSubmitters": "正在检查谁还没有提交……",
+      "staleCount": "新",
+      "staleCountTitle": "此学生推送的提交次数多于已评分的次数。运行“立即同步提交”以对最新提交进行评分和计分。"
     },
     "reviewModal": {
       "errorTitle": "无法检查反馈拉取请求",
       "emptyTitle": "尚无反馈拉取请求",
-      "emptyBody_prefix": "尚未为",
-      "emptyBody_suffix": "打开反馈拉取请求。它由作业的自动评分工作流在评分提交后创建——如果学生尚未提交（或该作业已禁用反馈拉取请求），则暂时没有可评审的内容。",
-      "openRepoPrs": "打开仓库的拉取请求"
+      "openRepoPrs": "打开仓库的拉取请求",
+      "emptyBody": "尚未为 <repo>{{repo}}</repo> 打开反馈 PR。它由作业的自动评分工作流在提交被评分后创建——如果学生尚未提交（或该作业已禁用反馈 PR），则暂无内容可供审阅。"
     },
     "rowRegrade": {
       "title": "重新评分此提交",
@@ -1676,11 +1684,10 @@
       "titleFailed": "重新评分未能开始——请重试",
       "aria": "重新评分 {{owner}} 的提交",
       "confirmTitle": "重新评分 {{name}} 的提交？",
-      "confirmBody1_prefix": "这会对",
-      "confirmBody1_suffix": "在此作业中的最新提交重新运行自动评分器。其提交时间不会改变。",
-      "confirmBody2_prefix": "评分在后台运行，可能需要几分钟；之后请使用",
-      "confirmBody2_suffix": "以获取新的成绩。",
-      "confirmLabel": "重新评分"
+      "confirmLabel": "重新评分",
+      "confirmBody1": "这将对 <name>{{name}}</name> 在此作业的最新提交重新运行自动评分器。他们的提交时间不会改变。",
+      "confirmBody1WithLogin": "这将对 <name>{{name}}</name>（<owner>{{owner}}</owner>）在此作业的最新提交重新运行自动评分器。他们的提交时间不会改变。",
+      "confirmBody2": "评分在后台运行，可能需要几分钟；之后请使用<collectLabel>{{collectLabel}}</collectLabel>来拉取新分数。"
     },
     "student": {
       "submittedAt": "提交于 {{date}}",
@@ -1689,10 +1696,7 @@
       "modeGroup": "小组",
       "modeIndividual": "个人",
       "loadError": "无法加载你的提交。",
-      "notAccepted_prefix": "你还没有接受此作业。",
-      "notAccepted_link": "接受它",
-      "notAccepted_suffix": "以获取你的仓库，然后推送你的作业以进行评分。",
-      "noGradedYet": "尚无已评分的提交。向你的作业仓库推送一次提交，自动评分器就会在这里发布你的结果。",
+      "noGradedYet": "尚无已评分的提交。请在上方上传你的文件，或从命令行推送到你的作业仓库——自动评分器会在此处发布你的结果。",
       "openMyRepo": "打开我的仓库",
       "releasesIntro": "每次提交都会在 GitHub 上打开其已评分的发布版本，其中包含你的分数和每项测试的结果。",
       "fallbackTitle": "提交",
@@ -1703,7 +1707,8 @@
         "copySubmit": "复制提交命令",
         "step1": "克隆你的作业仓库（仅需一次）：",
         "step2": "在仓库内提交你的作业以进行评分：",
-        "title": "如何提交"
+        "title": "更喜欢用命令行？",
+        "intro": "你也可以从终端提交，而不是在上方上传。"
       },
       "upload": {
         "addFiles": "添加文件",
@@ -1728,24 +1733,35 @@
         "success": "已上传。评分在后台运行；你的结果将很快显示在这里。",
         "title": "上传提交",
         "unsafePath": "已跳过“{{name}}”——其路径不被允许。"
-      }
+      },
+      "notAccepted": "你尚未接受此作业。<acceptLink>接受它</acceptLink>以获取你的仓库，然后推送你的成果以进行评分。"
     },
-    "viewSourceRepo": "查看源仓库",
-    "justNow": "刚刚",
+    "viewSourceRepo": "查看模板",
     "menu": {
       "actions": "操作",
-      "invite": "邀请链接",
-      "metrics": "指标"
+      "metrics": "指标",
+      "share": "分享"
     },
     "metrics": {
       "title": "提交指标"
     },
-    "emptyRepoNote": "此作业使用空仓库——自动评分、分数和反馈拉取请求均已禁用。学生自行创建并推送作业；下表显示谁已接受。"
+    "emptyRepoNote": "此作业使用空仓库——自动评分、分数和反馈拉取请求均已禁用。学生自行创建并推送作业；下表显示谁已接受。",
+    "freshness": {
+      "collected": "提交数据已于 {{when}} 同步",
+      "neverCollected": "提交数据尚未同步",
+      "refresh": "刷新提交",
+      "refreshHelp": "运行“收集分数”以根据最新推送重建 scores.json",
+      "refreshing": "正在收集……",
+      "sync": "立即同步",
+      "syncHelp": "自上次收集以来对作业仓库的新推送。运行“收集分数”以重建 scores.json 并为最新的成果评分。"
+    },
+    "live": {
+      "incomplete_one": "有 {{count}} 个仓库无法读取，因此实时提交状态可能不完整。请重试，或运行“立即同步提交”。",
+      "incomplete_other": "有 {{count}} 个仓库无法读取，因此实时提交状态可能不完整。请重试，或运行“立即同步提交”。"
+    }
   },
   "orgMembers": {
     "heading": "成员",
-    "subtitlePrefix": "所有属于",
-    "subtitleSuffix": "GitHub 组织的成员，以及他们所在的班级。",
     "manageMembersOnGitHub": "在 GitHub 上管理组织成员",
     "discrepancy_one": "有 {{count}} 名学生在花名册上，但不是组织成员。",
     "discrepancy_other": "有 {{count}} 名学生在花名册上，但不是组织成员。",
@@ -1761,26 +1777,15 @@
     "badgeNoClassroom": "无班级",
     "badgeMember": "成员",
     "noGitHubUsername": "无 GitHub 用户名",
-    "idSuffix": "· id {{id}}",
     "detailTitle": "成员详情",
     "manageOnGitHub": "在 GitHub 上管理",
     "classroomAccess": "班级访问权限",
     "noRoster": "不在任何班级的花名册中。",
     "archived": "已归档",
     "selfNotice": "这是你当前登录的账户，因此无法在此处将其从组织中移除。",
-    "notMemberPrefix": "{{label}} 在某个班级的花名册上，但",
-    "notMemberEmphasis": "不是组织成员",
-    "notMemberSuffix": "。邀请他们以恢复访问权限。邀请是按 id 发送到他们的 GitHub 账户的，因此即使用户名更改也仍然有效。",
     "inviting": "正在邀请……",
     "inviteToOrg": "邀请加入组织",
     "notMemberNoId": "该学生在花名册上，但不是组织成员。系统尚未记录他们的 GitHub id，因此请从其所在班级的“学生”页面邀请他们。",
-    "confirmUnenrollPrefix": "{{label}} 将首先从",
-    "confirmClassroomCount_one": "{{count}} 个班级",
-    "confirmClassroomCount_other": "{{count}} 个班级",
-    "confirmUnenrollMid": "（{{classrooms}}）中退课，然后从",
-    "confirmUnenrollSuffix": "组织中移除。他们的作业仓库不会被删除。",
-    "confirmRemovePrefix": "{{label}} 将被从",
-    "confirmRemoveSuffix": "组织中移除。",
     "removing": "正在移除……",
     "removeFromOrg": "从组织中移除",
     "inviteFailed": "无法邀请 {{label}}：{{reason}}",
@@ -1850,7 +1855,14 @@
     "unprovisionedAccessBadge": "不在团队中",
     "unprovisionedAccessTitle": "在此班级花名册中，但不在其 GitHub 团队中 —— 成绩收集会遗漏他们。请重新将其添加到班级以修复。",
     "unprovisionedBadge": "未注册",
-    "unprovisionedTitle": "在花名册中，但不在班级团队中：{{classrooms}}。成绩收集以团队为准，因此会遗漏他们。请重新将其添加到班级以修复。"
+    "unprovisionedTitle": "在花名册中，但不在班级团队中：{{classrooms}}。成绩收集以团队为准，因此会遗漏他们。请重新将其添加到班级以修复。",
+    "confirmRemove": "{{label}} 将从 <org>{{org}}</org> 组织中被移除。",
+    "confirmUnenroll_one": "{{label}} 将首先从 <count>{{count}} 个课堂</count>（{{classrooms}}）中退出，然后从 <org>{{org}}</org> 组织中被移除。他们的作业仓库不会被删除。",
+    "confirmUnenroll_other": "{{label}} 将首先从 <count>{{count}} 个课堂</count>（{{classrooms}}）中退出，然后从 <org>{{org}}</org> 组织中被移除。他们的作业仓库不会被删除。",
+    "noUsernameWithId": "<missing>无 GitHub 用户名</missing> <meta>· id {{id}}</meta>",
+    "notMember": "{{label}} 在某个课堂花名册中，但<emphasis>不是组织成员</emphasis>。邀请他们以恢复其访问权限。邀请会按 id 发送到他们的 GitHub 账户，因此即使用户名已更改也能生效。",
+    "subtitle": "<orgLink>{{org}}</orgLink> GitHub 组织中的所有成员及其所属课堂。",
+    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>"
   },
   "components": {
     "avatar": {
@@ -1869,12 +1881,10 @@
     },
     "notices": {
       "emptyRoster": {
-        "hasRows_prefix": "还没有学生加入",
-        "hasRows_suffix": "组织。作业的接受链接仅对已是组织成员的学生有效，因此受邀学生必须先接受邀请。",
-        "empty_prefix": "此班级还没有学生。作业的接受链接仅对属于",
-        "empty_suffix": "组织的学生有效，因此在分享之前请先添加并注册学生。",
         "manageRoster": "管理名单",
-        "addStudents": "添加学生"
+        "addStudents": "添加学生",
+        "empty": "此课堂尚无学生。作业的接受链接仅对 <org>{{org}}</org> 组织的成员有效，因此请先添加并注册学生，再分享链接。",
+        "hasRows": "尚无学生加入 <org>{{org}}</org> 组织。作业的接受链接仅对组织成员有效，因此受邀学生必须先接受他们的邀请。"
       }
     },
     "confirmModal": {
@@ -1883,9 +1893,8 @@
       "yesContinue": "是，继续",
       "dangerousPrompt": "确定要继续吗？此操作可能难以撤销或无法撤销。",
       "genericError": "出错了。",
-      "typeToConfirm_prefix": "要确认，请在下方输入",
-      "typeToConfirm_suffix": "。",
-      "typeAriaLabel": "输入 {{text}} 以确认"
+      "typeAriaLabel": "输入 {{text}} 以确认",
+      "typeToConfirm": "如需确认，请在下方输入 <text>{{text}}</text>。"
     },
     "modals": {
       "studentProfile": {
@@ -1900,8 +1909,6 @@
         "viewRepository": "查看仓库",
         "loading": "正在加载协作者",
         "saved": "协作者已保存！",
-        "onlyOwner_prefix": "只有小组所有者",
-        "onlyOwner_suffix": "才能管理此仓库的协作者。",
         "groupMembers": "小组成员",
         "personCount_one": "{{count}} 人",
         "personCount_other": "{{count}} 人",
@@ -1932,7 +1939,9 @@
           "addAndRemove": "部分协作者无法添加或移除。{{removedNote}}请检查高亮显示的用户名并再次保存以重试。{{suffix}}",
           "add": "部分协作者无法添加。{{removedNote}}请检查高亮显示的用户名并再次保存以重试。{{suffix}}",
           "remove": "部分协作者无法移除。{{removedNote}}请检查高亮显示的用户名并再次保存以重试。{{suffix}}"
-        }
+        },
+        "onlyOwner": "只有组长才能管理此仓库的协作者。",
+        "onlyOwnerNamed": "只有组长（<owner>{{owner}}</owner>）才能管理此仓库的协作者。"
       },
       "reuseShell": {
         "copying": "正在复制…",
@@ -1946,20 +1955,17 @@
       },
       "reuseAssignment": {
         "title": "复用作业",
-        "description_prefix": "将",
-        "description_suffix": "到 {{org}} 中的某个班级。名称、模板、测试、运行时、截止日期及其他设置会被复制；学生仓库和分数不会被复制。",
         "noTargets": "{{org}} 中没有可复用此作业的班级。请先创建一个班级。",
         "targetClassroom": "目标班级",
         "chooseClassroom": "选择一个班级…",
         "slugLabel": "新班级中的 slug",
         "chooseClassroomFirst": "请先选择一个班级。",
         "uniqueHint": "在目标班级中必须唯一。",
-        "thisClassroomOption": "{{classroom}}（当前班级）"
+        "thisClassroomOption": "{{classroom}}（当前班级）",
+        "description": "将 <assignment>{{assignment}}</assignment> 复制到 {{org}} 中的某个课堂。名称、模板、测试、运行时、截止日期和其他设置会被复制；学生仓库和分数不会被复制。"
       },
       "reuseFromClassroom": {
         "title": "复用已有作业",
-        "description_prefix": "将 {{org}} 中已有的作业复制到",
-        "description_suffix": "。名称、模板、测试、运行环境、截止日期及其他设置都会被复制；学生仓库和成绩不会被复制。",
         "noSources": "{{org}} 中没有可从中复用作业的班级。",
         "sourceClassroom": "来源班级",
         "chooseClassroom": "选择一个班级…",
@@ -1970,7 +1976,8 @@
         "loadError": "无法加载 {{classroom}} 的作业。",
         "slugLabel": "{{classroom}} 中的 slug",
         "uniqueHint": "在此班级中必须唯一。",
-        "thisClassroomOption": "{{classroom}}（当前班级）"
+        "thisClassroomOption": "{{classroom}}（当前班级）",
+        "description": "将 {{org}} 中一项现有作业复制到 <classroom>{{classroom}}</classroom>。名称、模板、测试、运行时、截止日期和其他设置会被复制；学生仓库和分数不会被复制。"
       }
     }
   },
@@ -2034,19 +2041,17 @@
       "title": "出了点问题"
     },
     "notAMember": {
-      "body_prefix": "我们无法确认你在",
-      "body_suffix": "组织中的成员身份。",
       "instructions": "请让你的老师确认已邀请你，然后重新加载此页面。如果你刚接受了邮件邀请，请稍等片刻后再试。",
-      "title": "尚未成为成员"
+      "title": "尚未成为成员",
+      "body": "我们无法确认你在 <org>{{org}}</org> 组织中的成员身份。"
     },
     "showDetails": "显示详情供老师参考",
     "ssoRequired": {
       "authorizeButton": "授权单点登录",
-      "body_prefix": "",
-      "body_suffix": "组织要求 SAML 单点登录（SSO），而你当前的会话尚未获得授权。你可能已经是成员 —— 只需在继续前授权 SSO 即可。",
       "instructionsUrlless": "请在你学校的学习管理系统（LMS）内打开此链接，以便先通过单点登录登录，或重新通过 GitHub 进行身份验证，然后重新加载此页面。",
       "instructionsWithUrl": "使用下方按钮为此组织授权单点登录，然后重新加载此页面。",
-      "title": "授权单点登录"
+      "title": "授权单点登录",
+      "body": "<org>{{org}}</org> 组织要求使用 SAML 单点登录（SSO），而你当前的会话尚未获得授权。你可能已经是成员——只需在继续之前授权 SSO 即可。"
     }
   },
   "appUpdate": {
@@ -2125,5 +2130,11 @@
     "bodyGeneric": "Classroom 50 连接 GitHub 时遇到问题。这通常是 GitHub 的临时故障，但 VPN、代理或屏蔽 api.github.com 的浏览器扩展也可能导致此问题。",
     "checkStatusLink": "查看 GitHub 状态",
     "title": "GitHub 可能出现问题"
+  },
+  "budgetCreated": {
+    "body": "Classroom 50 已为此组织创建了 $0 的 GitHub Actions 支出预算，这样失控的自动评分工作流就不会产生费用。你可以随时在 GitHub 上提高或移除它。",
+    "dismiss": "知道了",
+    "manage": "在 GitHub 上管理预算",
+    "title": "Actions 支出上限已设为 $0"
   }
 }

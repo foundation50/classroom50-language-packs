@@ -13,7 +13,16 @@
     "no": "Nem",
     "openOrgOnGitHub": "A(z) {{org}} megnyitása a GitHubon",
     "yes": "Igen",
-    "dismissNotification": "Értesítés elvetése"
+    "dismissNotification": "Értesítés elvetése",
+    "pagination": {
+      "entries": "bejegyzés",
+      "navAria": "Lapozás",
+      "next": "Következő oldal",
+      "previous": "Előző oldal",
+      "range": "{{from}}–{{to}} / {{total}}",
+      "show": "Megjelenítés",
+      "showAria": "Sorok oldalanként"
+    }
   },
   "notFound": {
     "title": "Az oldal nem található",
@@ -36,9 +45,7 @@
     "expandSidebar": "Oldalsáv kibontása",
     "collapseSidebar": "Oldalsáv összecsukása",
     "allClasses": "Minden tanterem",
-    "allClassesArrow": "‹ Minden tanterem",
     "allAssignments": "Minden feladat",
-    "allAssignmentsArrow": "‹ Minden feladat",
     "accountMenu": "Fiókmenü",
     "assignment": "Feladat",
     "assignments": "Feladatok",
@@ -89,7 +96,11 @@
     "aboutDiagnosticsTitle": "Diagnosztika",
     "activity": "Tevékenység",
     "roster": "Névsor",
-    "roleTeacher": "Tanár"
+    "roleTeacher": "Tanár",
+    "allAssignmentsLink": "Összes feladat",
+    "allClassesLink": "Összes osztály",
+    "roleHeadTa": "Vezető gyakorlatvezető",
+    "viewAsHeadTa": "Vezető gyakorlatvezető"
   },
   "auth": {
     "signInTitle": "Bejelentkezés",
@@ -111,10 +122,8 @@
     "deviceStep3Hint": "Amint engedélyezed a github.com oldalon, ennek az oldalnak néhány másodpercen belül észlelnie kell azt.",
     "deviceStatus": "{{attempts}}. próbálkozás · következő {{seconds}} mp múlva · lejár {{expires}} múlva",
     "missingScopesTitle": "Néhány GitHub-jogosultság hiányzik",
-    "missingScopesBody_one": "Ehhez az alkalmazáshoz a következő jogosultság szükséges:",
-    "missingScopesBody_other": "Ehhez az alkalmazáshoz a következő jogosultságok szükségesek:",
-    "missingScopesBody_suffix_one": ". Egyes műveletek hibázhatnak, amíg meg nem adod.",
-    "missingScopesBody_suffix_other": ". Egyes műveletek hibázhatnak, amíg meg nem adod őket.",
+    "missingScopesBody_one": "Ehhez az alkalmazáshoz szükség van a(z) <scopes>{{scopes}}</scopes> hatókörre. Egyes műveletek sikertelenek lehetnek, amíg meg nem adják.",
+    "missingScopesBody_other": "Ehhez az alkalmazáshoz szükség van a(z) <scopes>{{scopes}}</scopes> hatókörökre. Egyes műveletek sikertelenek lehetnek, amíg meg nem adják őket.",
     "reauthorize": "Újbóli engedélyezés",
     "reauthorizeHint": "Ha az újbóli engedélyezés nem oldja meg ezt, egy szervezeti tulajdonosnak jóvá kell hagynia az alkalmazást a szervezet OAuth-házirendjének beállításai között.",
     "signedInConfirmed": "Bejelentkezve – a munkameneted aktív",
@@ -175,9 +184,6 @@
     "unenrollStudent": "Diák kiiratkoztatása",
     "added": "{{label}} hozzáadva.",
     "somethingWentWrong": "Valami hiba történt.",
-    "unenrollBodyPrefix": "Ez eltávolítja a diákot",
-    "unenrollBodyFrom": "innen:",
-    "unenrollBodySuffix": "{{classroom}} kurzus. A diák feladat-repositoryjai nem törlődnek.",
     "nativeInviteHint": "Haladó: ossza meg ezt, hogy a diákok közvetlenül a GitHubon fogadhassák el a szervezeti meghívót. A legtöbb diák inkább a fenti bevezető linket használja.",
     "studentInviteLinkAria": "Diákmeghívó link",
     "copyInviteLinkAria": "Meghívó link másolása",
@@ -205,8 +211,6 @@
     "emailLabel": "E-mail",
     "editSectionPlaceholder": "Csoport (pl. 3. óra)",
     "sectionLabel": "Csoport",
-    "githubLabel": "GitHub:",
-    "githubIdSuffix": " (azonosító: {{id}})",
     "saving": "Mentés...",
     "saveChanges": "Módosítások mentése",
     "couldNotReadFile": "Nem sikerült beolvasni a fájlt",
@@ -283,7 +287,7 @@
       "confirmCancelTitle_other": "Visszavonsz {{count}} meghívást?",
       "memberCount_one": "{{count}} tag",
       "memberCount_other": "{{count}} tag",
-      "noneSelectable": "Itt nincs mit kijelölni — a tömeges műveletek (kiiratkoztatás, meghívás) csak diákokra vonatkoznak. A tanárok és TA-k a tanterem beállításaiban kezelhetők."
+      "noneSelectable": "Itt nincs mit kiválasztani — a tömeges műveletek (kiiratkoztatás, meghívás) csak a tanulókra vonatkoznak. A munkatársakat (tanárok, vezető gyakorlatvezetők és gyakorlatvezetők) az osztálybeállításokban kezeljük."
     },
     "classroomTeamLabel": "Osztályterem csapata",
     "confirmResendBody": "Újraküldöd a(z) {{label}} számára a függőben lévő szervezeti meghívást? A jelenlegi meghívásuk törlődik, és új meghívás megy ki a(z) {{org}} szervezethez.",
@@ -434,13 +438,27 @@
     "uploadKindUsernameList": "GitHub-felhasználónevek (soronként egy)",
     "uploadTitle": "Feltöltés",
     "addRoleLabel": "Szerepkör",
-    "addStaffHint": "A tanárokat és TA-kat GitHub-felhasználónévvel adhatod hozzá, és hozzáférést kapnak a tanterem konfigurációs tárolójához. A tanár szervezettulajdonosi jogot kap.",
+    "addStaffHint": "A tanárok, vezető gyakorlatvezetők és gyakorlatvezetők GitHub felhasználónév alapján adhatók hozzá. A tanárok és vezető gyakorlatvezetők írási hozzáférést kapnak az osztály konfigurációs adattárához; a gyakorlatvezetők csak olvasásit. A tanár szervezeti tulajdonosi jogot kap.",
     "failedInviteNotSent": "Nem lett meghívó küldve neki: {{who}} — próbáld újra.",
     "failedInviteRateLimited": "A GitHub korlátozta az újbóli meghívást neki: {{who}} — próbáld újra.",
     "roleTeacher": "Tanár",
     "teacherCount_one": "{{count}} tanár",
     "teacherCount_other": "{{count}} tanár",
-    "uploadTeacherOwnerNotice": "A Tanárként megjelölt sorok szervezeti TULAJDONOSKÉNT lesznek meghívva, ami a szervezet teljes irányítását adja. Csak olyanoknak add a tanár szerepkört, akikben megbízol a tulajdonosi hozzáférést illetően."
+    "uploadTeacherOwnerNotice": "A Tanárként megjelölt sorok szervezeti TULAJDONOSKÉNT lesznek meghívva, ami a szervezet teljes irányítását adja. Csak olyanoknak add a tanár szerepkört, akikben megbízol a tulajdonosi hozzáférést illetően.",
+    "csvRoster": {
+      "caption": "CSV névsor a roster.csv fájlból",
+      "colName": "Név",
+      "colRole": "Szerep",
+      "colSection": "Csoport",
+      "empty": "Még senki sincs felsorolva a roster.csv fájlban.",
+      "notice": "CSV névsor a roster.csv fájlból (tanár által karbantartott). A hiteles, csapatvezérelt névsor és a meghívókezelés a tanárok számára érhető el."
+    },
+    "githubIdentity": "GitHub: <username>@{{username}}</username> (id {{id}})",
+    "githubIdentityNoId": "GitHub: <username>@{{username}}</username>",
+    "headTaCount_one": "{{count}} vezető gyakorlatvezető",
+    "headTaCount_other": "{{count}} vezető gyakorlatvezető",
+    "roleHeadTa": "Vezető gyakorlatvezető",
+    "unenrollBody": "Ezzel eltávolítja a(z) <label>{{label}}</label> tanulót a(z) <org>{{org}}</org> {{classroom}} osztályból. A tanulói feladat-adattárak nem törlődnek."
   },
   "language": {
     "baseName": "Angol (alap)",
@@ -514,24 +532,32 @@
       "refresh": "Lista frissítése"
     },
     "card": {
-      "noAccessBadge_prefix": "Nincs",
-      "noAccessBadge_suffix": "hozzáférés",
-      "planTitleFree": "Ingyenes csomag – a Classroom 50-hez Team vagy Enterprise szervezet szükséges",
       "planTitlePaid": "GitHub-csomag – a Classroom 50 Team és Enterprise csomagokon állítható be",
       "viewOnGitHub": "Megtekintés a GitHubon",
       "openOnGitHub": "A(z) {{org}} megnyitása a GitHubon",
       "open": "Megnyitás",
-      "updatedAgo": "Frissítve {{when}}"
+      "updatedAgo": "Frissítve {{when}}",
+      "noAccessBadge": "Nincs <code>classroom50</code> hozzáférés"
     },
     "newOrg": {
-      "allSetUp": "Az összes szervezeted már be van állítva.",
+      "allSetUp": "Minden látható szervezet már be van állítva.",
       "button": "Új szervezet beállítása",
       "createOnGitHub": "Szervezet létrehozása a GitHubon",
       "description": "Válaszd ki az egyik GitHub-szervezetedet, amelyben be szeretnéd állítani a Classroom 50-et. Nem látod a kívántat? Előbb hozd létre a GitHubon.",
-      "freePlanDisabled": "Ingyenes csomag — a Classroom 50-hez Team vagy Enterprise szervezet szükséges",
-      "pickPrompt": "Beállításra kész szervezetek",
       "setUp": "Beállítás",
-      "title": "Új Classroom 50 szervezet beállítása"
+      "title": "Új Classroom 50 szervezet beállítása",
+      "details": "Részletek",
+      "freePlanInfo": {
+        "body": "A Classroom 50 csak GitHub Team vagy Enterprise csomaggal rendelkező szervezetekkel működik.",
+        "dismiss": "Értem",
+        "educationBody": "Igazolt tanárként bármely általad birtokolt szervezetet ingyenesen frissíthetsz GitHub Team csomagra a GitHub Education segítségével.",
+        "educationCta": "Tudj meg többet a GitHub Education oldalán",
+        "educationTitle": "Szerezz GitHub Team-et ingyen",
+        "title": "Ez a szervezet Ingyenes csomagon van"
+      },
+      "notSupportedBadge": "Nem támogatott",
+      "pickPrompt_one": "Beállításra kész szervezet ({{count}})",
+      "pickPrompt_other": "Beállításra kész szervezetek ({{count}})"
     },
     "noResults": {
       "body": "Nincs a(z) „{{query}}” keresésnek megfelelő szervezet.",
@@ -578,12 +604,7 @@
     "studentCount_one": "{{count}} diák",
     "studentCount_other": "{{count}} diák",
     "archived": "Archivált",
-    "archivedNotice_prefix": "Ez az osztály archiválva van – az új feladatok és a tanulói elfogadások le vannak tiltva. Az archiválás visszavonásához nyisd meg:",
-    "archivedNotice_link": "Tanterem beállításai",
-    "archivedNotice_suffix": "a módosításokhoz.",
     "studentHeading": "Feladatok",
-    "studentViewAll_prefix": "A(z)",
-    "studentViewAll_suffix": "osztály összes feladatának megtekintése.",
     "newButton": {
       "assignment": "Feladat",
       "moreOptions": "További feladatlehetőségek",
@@ -610,7 +631,7 @@
       "feedbackPr": "Visszajelzési pull request",
       "feedbackPrHelp": "Repository-nként nyit egy pull requestet az egyes beadások soronkénti áttekintéséhez.",
       "advanced": "Speciális beállítások",
-      "advancedHelp": "Opcionális futásidejű felülbírálások. Üresen hagyva az alapértelmezéseket használja (ubuntu-latest + Python 3.12).",
+      "advancedHelp": "Opcionális értékelési és futtatási beállítások. Az üres mezők a dokumentált alapértelmezéseket használják.",
       "dockerImage": "Docker-image",
       "dockerImagePlaceholder": "pl. gcc:13",
       "containerUser": "Konténerfelhasználó",
@@ -621,17 +642,12 @@
       "patternCount_one": "{{count}} minta",
       "patternCount_other": "{{count}} minta",
       "passThresholdToggle": "Ponthatár beállítása",
-      "passThresholdSuffix": "% a megfeleléshez a maximális pontszámból",
       "back": "Vissza",
       "saveChanges": "Módosítások mentése",
       "createButton": "Feladat létrehozása",
       "runner": {
         "label": "GitHub runner",
-        "selfHostedHint_prefix": "Kombinálj vesszővel elválasztott címkéket saját üzemeltetésű runnerhez (pl.",
-        "selfHostedHint_suffix": ").",
         "checking": "Ellenőrzés…",
-        "emptyHint_prefix": "Hagyd üresen ehhez:",
-        "emptyHint_suffix": ".",
         "hosted": "GitHub által üzemeltetett runner",
         "selfHostedMatch_one": "Saját üzemeltetésű runner egyezik ({{names}})",
         "selfHostedMatch_other": "Saját üzemeltetésű runnerek egyeznek ({{names}})",
@@ -640,13 +656,21 @@
         "noRunnerMatch": "Egyetlen runner sem egyezik ezzel: {{labels}} – ellenőrizd a helyesírást.",
         "tooMany": "Túl sok címke ({{count}}) – legfeljebb 10 lehet.",
         "cannotVerify": "Nem ellenőrizhető – a megadott formában használva.",
-        "tip": "A GitHub Actions futtató címkéje(i), amely(ek) ezt a feladatot értékeli(k). Üresen hagyva az ubuntu-latest-et használja. Saját üzemeltetésű futtatóhoz vesszővel elválasztott címkéket kombinálj (pl. self-hosted, linux, x64)."
+        "tip": "A GitHub Actions futtató címkéje(i), amely(ek) ezt a feladatot értékeli(k). Üresen hagyva az ubuntu-latest-et használja. Saját üzemeltetésű futtatóhoz vesszővel elválasztott címkéket kombinálj (pl. self-hosted, linux, x64).",
+        "emptyHint": "Hagyd üresen a(z) <code>ubuntu-latest</code> értékhez.",
+        "selfHostedHint": "Vesszővel elválasztott címkéket kombinálj saját üzemeltetésű futtatóhoz (pl. <code>self-hosted, linux, x64</code>)."
       },
       "validation": {
         "nameRequired": "A feladat neve kötelező.",
         "slugRequired": "A feladat slugja kötelező.",
         "maxGroupSizeInvalid": "A maximális csoportméretnek érvényes számnak kell lennie.",
-        "passThresholdRange": "A ponthatárnak egész számnak kell lennie {{min}} és {{max}} között."
+        "passThresholdRange": "A ponthatárnak egész számnak kell lennie {{min}} és {{max}} között.",
+        "releaseAssetsDuplicateBasename": "A(z) {{basename}} egynél többször töltődne fel; a kiadási fájlneveknek egyedieknek kell lenniük.",
+        "releaseAssetsDuplicatePath": "A(z) {{path}} egynél többször szerepel; minden kiadási fájlelérési útnak egyedinek kell lennie.",
+        "releaseAssetsInvalidBasename": "A(z) {{basename}} nem biztonságos kiadási fájlnév, vagy fenntartott.",
+        "releaseAssetsInvalidPath": "A(z) {{path}} nem pontos, munkaterülethez viszonyított fájlelérési út.",
+        "releaseAssetsTooLarge": "A beadási kiadási fájlok elérési útjai összesen legfeljebb {{max}} UTF-8 bájtot (8 KiB) tehetnek ki; jelenleg {{bytes}}.",
+        "releaseAssetsTooMany": "Legfeljebb {{max}} beadási kiadási fájlt válassz (jelenleg {{count}})."
       },
       "allowedFilesTip": "Sorrendbe rendezett, {{gitignore}} stílusú minták, soronként egy, amelyek meghatározzák, mely fájlok tartoznak egy beadáshoz (az utolsó egyezés érvényesül, a {{bang}} újra hozzáadja). Pl. {{star}}, majd {{example}} csak a {{result}} fájlt engedélyezi. Üresen hagyva minden fájlt engedélyez.",
       "containerUserTip": "A felhasználó, amelynek nevében a konténer fut. Állítsd root-ra, ha a checkout jogosultsági hibával hiúsul meg. A GitHub Actions a konténer lépéseit a gazdafuttató felhasználójaként futtatja, így egy nem root image gyakran nem tud írni a munkaterületre.",
@@ -681,7 +705,13 @@
       "emptyRepo": "Üres tároló",
       "emptyRepoHelp": "Minden diák tárolóját teljesen üresen hozza létre: nincsenek kiinduló fájlok, automatikus értékelés vagy visszajelzési pull request. Olyan feladatokhoz, ahol a diákok mindent a nulláról építenek fel, beleértve a saját GitHub Actions-üket is. Ez a választás a feladatnál végleges.",
       "emptyRepoLocked": "Létrehozás után nem módosítható.",
-      "feedbackPrEmptyRepoHelp": "Üres tárolóknál nem elérhető — nincs kiinduló commit, amihez viszonyítani lehetne."
+      "feedbackPrEmptyRepoHelp": "Üres tárolóknál nem elérhető — nincs kiinduló commit, amihez viszonyítani lehetne.",
+      "passThresholdUnit": "a maximális pontszám %-a az átmenéshez",
+      "releaseAssetCount_one": "{{count}} kiadási fájl",
+      "releaseAssetCount_other": "{{count}} kiadási fájl",
+      "releaseAssets": "Beadási kiadási fájlok",
+      "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
+      "releaseAssetsTip": "Soronként egy pontos, munkaterülethez viszonyított fájlelérési út; az elérési utak pontosak, nem glob minták, és összesen legfeljebb 8 KiB UTF-8 szöveget tartalmazhatnak. A fájlok az értékelés után kerülnek összegyűjtésre, és sikeres és sikertelen értékeléseknél is csatolásra kerülnek; a hiányzó fájlok kihagyásra kerülnek. A kiadási fájlnevek csak ASCII betűket, számokat, pontokat, aláhúzásokat és kötőjeleket tartalmazhatnak, nem kezdődhetnek és nem végződhetnek ponttal, és nem tartalmazhatnak egymást követő pontokat."
     },
     "autograder": {
       "heading": "Automatikus értékelési tesztek",
@@ -711,8 +741,6 @@
       "comparisonRegex": "Regex – Python re.search, többsoros",
       "exitCode": "Szükséges kilépési kód",
       "exitCodeHint": "Hagyd üresen a sikeres kilépés (0) megköveteléséhez.",
-      "pythonNote_prefix": "A futtatási parancsnak a pytestet kell meghívnia (pl.",
-      "pythonNote_suffix": ") a feladatsablonban lévő tesztfájlokon. A pytest és a pytest-json-report automatikusan települ. A pontok a pytest által felismert esetek között oszlanak el.",
       "timeout": "Időkorlát (másodperc)",
       "timeoutHint": "0 = alapértelmezett (10 mp)",
       "points": "Pontok",
@@ -730,7 +758,8 @@
           "label": "Python (pytest)",
           "hint": "Futtat egy pytest-parancsot; a pontok az értékeléskor felfedezett tesztesetek között oszlanak el."
         }
-      }
+      },
+      "pythonNote": "A futtatási parancsnak a pytestet kell meghívnia (pl. <code>python3 -m pytest -q</code>) a feladatsablonban lévő tesztfájlokon. A pytest és a pytest-json-report automatikusan telepítésre kerül. A pontok a pytest által felfedezett esetek között oszlanak meg."
     },
     "table": {
       "caption": "Feladatok",
@@ -749,13 +778,11 @@
       "viewAssignment": "Feladat megtekintése",
       "deleteAria": "{{name}} törlése",
       "deleteTitle": "Törlöd a feladatot?",
-      "deleteDescription_1": "Ezzel eltávolítod a(z)",
-      "deleteDescription_2": "feladatot a(z)",
-      "deleteDescription_3": "osztályból. A tanulói feladat-repository-k nem törlődnek.",
       "deleteConfirm": "Feladat törlése",
       "deleteCancel": "Feladat megtartása",
       "reuseTitle": "Újrafelhasználás másik osztályban",
-      "reuseAria": "Feladat újrafelhasználása másik osztályban"
+      "reuseAria": "Feladat újrafelhasználása másik osztályban",
+      "deleteDescription": "Ezzel eltávolítja a(z) <assignment>{{assignment}}</assignment> feladatot a(z) <classroom>{{classroom}}</classroom> osztályból. A tanulói feladat-adattárak nem törlődnek."
     },
     "template": {
       "label": "Sablontároló",
@@ -763,35 +790,15 @@
       "help": "Opcionális. A tanulók másolatot kapnak erről a repository-ról. Hagyd üresen egy üres, csak az automatikus értékelőt tartalmazó repóhoz.",
       "checking": "Sablon-hozzáférés ellenőrzése…",
       "fallbackOrg": "a szervezeted",
-      "privateHasAccess_1": "Privát sablon itt: {{owner}} (branch:",
-      "privateHasAccess_2": "). Az osztály csapata már rendelkezik olvasási hozzáféréssel – a tanulók másolhatják.",
-      "privateWillGrant_1": "Privát sablon itt: {{owner}} (branch:",
-      "privateWillGrant_2": "). Az osztály csapatának még nincs hozzáférése; ez automatikusan hozzáadódik a feladat létrehozásakor, így a tanulók másolhatják.",
-      "okPrefixPublic": "Nyilvános sablon itt: {{owner}}, branch:",
-      "okPrefixPrivate": "Privát sablon itt: {{owner}}, branch:",
-      "okPrefixPublicInOrg": "Nyilvános sablon, branch:",
-      "okPrefixPrivateInOrg": "Privát sablon, branch:",
-      "okSuffix": ". A tanulók hozzáférhetnek.",
-      "okVerify_1": "Elérhető itt: {{owner}} (branch:",
-      "okVerify_2": "). Ha a(z) {{owner}} korlátozza a harmadik féltől származó alkalmazásokat, a tanulók addig nem másolhatják, amíg egy tulajdonos nem hagyja jóvá a Classroom 50-et.",
       "notVisible": "A(z) {{owner}}/{{repo}} nem látható számodra. Tedd nyilvánossá, vagy másold be ide: {{org}}.",
       "notTemplate": "A(z) {{owner}}/{{repo}} nem sablon-repository. Engedélyezd a repo Settings menüjében.",
       "restricted": "A(z) {{owner}} blokkolta a(z) {{repo}} elérését (HTTP 403). Ez gyakran harmadik féltől származó alkalmazás korlátozása — egy tulajdonosnak jóvá kell hagynia a Classroom 50-et a szervezetben, vagy engedélyeznie kell az OAuth-hozzáférésedet a(z) {{owner}} számára (Szervezeti beállítások → Harmadik féltől származó hozzáférés). Más 403-as ok is állhat mögötte; lásd a GitHub alábbi üzenetét.",
       "unknown": "A(z) {{owner}}/{{repo}} most nem volt ellenőrizhető. Az ellenőrzés újra megtörténik, amikor a tanulók elfogadják.",
       "privateOutOfOrg": "A(z) {{owner}}/{{repo}} privát, és a(z) {{org}} szervezeten kívül van. Tedd nyilvánossá, vagy másold be ide: {{org}}.",
-      "noBranch_1": "A(z) {{owner}}/{{repo}}-nak nincs alapértelmezett branche. Küldj be egy commitot, vagy add hozzá:",
-      "noBranch_2": ".",
       "rateLimited": "Elérted a GitHub sebességkorlátját. Próbáld újra hamarosan.",
       "policyLink": "A(z) {{owner}} OAuth-alkalmazási irányelvének ellenőrzése",
       "githubSaid": "A GitHub üzenete (HTTP {{status}}):",
-      "privateForkCrossOrg_1": "A(z) {{owner}}/{{repo}} a(z) {{parent}} privát forkja egy másik szervezetben (ág:",
-      "privateForkCrossOrg_2": "). A privát, szervezetek közötti forkok megbízhatatlanok sablonként — a másolás meghiúsul, ha a privát upstream nem érhető el a Classroom 50 számára. Helyette használj friss (nem fork) sablontárolót: hozz létre új tárolót, és másold bele a fork tartalmát.",
-      "privateForkInOrg_1": "A(z) {{owner}}/{{repo}} a(z) {{parent}} privát forkja (ág:",
-      "privateForkInOrg_2": "). Az upstream ebben a szervezetben van, így a másolásnak működnie kell — de egy friss (nem fork) sablontároló kiszámíthatóbb, ha az elfogadás meghiúsul.",
-      "privateForkNoParent_1": "A(z) {{owner}}/{{repo}} egy privát fork (ág:",
       "restrictedScope": "A(z) {{owner}} blokkolta a(z) {{repo}} elérését (HTTP 403). A GitHub szerint a tokenedből hiányzik egy szükséges hatókör — jelentkezz ki, majd újra be a GitHub-engedélyezésed frissítéséhez, azután próbáld újra.",
-      "nonMainBranch_1": "Ennek a sablonnak az alapértelmezett ága a(z)",
-      "nonMainBranch_2": ", nem a „main”. A feladat ezt fogja használni, és a hallgatói automatikus értékelés ehhez az ághoz igazodik.",
       "accessModal": {
         "branchLabel": "ág",
         "close": "Bezárás",
@@ -816,7 +823,19 @@
         "failed": "Nem sikerült megadni a sablonhozzáférést:",
         "pending": "Megadás…",
         "success": "A tanterem csapatának olvasási joga a sablonhoz megerősítve."
-      }
+      },
+      "noBranch": "A(z) {{owner}}/{{repo}} adattárnak nincs alapértelmezett ága. Push-olj egy commitot, vagy add hozzá a(z) <hint/> elemet.",
+      "nonMainBranch": "Ennek a sablonnak az alapértelmezett ága a(z) <branch>{{branch}}</branch>, nem pedig „main”. A feladat ezt fogja használni, és a tanulói automatikus értékelés ehhez az ághoz igazodik.",
+      "okPrivate": "Privát sablon itt: {{owner}}, ág: <branch>{{branch}}</branch>. A tanulók hozzáférhetnek.",
+      "okPrivateInOrg": "Privát sablon, ág: <branch>{{branch}}</branch>. A tanulók hozzáférhetnek.",
+      "okPublic": "Nyilvános sablon itt: {{owner}}, ág: <branch>{{branch}}</branch>. A tanulók hozzáférhetnek.",
+      "okPublicInOrg": "Nyilvános sablon, ág: <branch>{{branch}}</branch>. A tanulók hozzáférhetnek.",
+      "okVerify": "Elérhető itt: {{owner}} (ág: <branch>{{branch}}</branch>). Ha a(z) {{owner}} korlátozza a harmadik féltől származó alkalmazásokat, a tanulók nem tudják lemásolni, amíg egy tulajdonos nem hagyja jóvá a Classroom 50-et.",
+      "privateForkCrossOrg": "A(z) {{owner}}/{{repo}} a(z) {{parent}} privát forkja egy másik szervezetben (ág: <branch>{{branch}}</branch>). A privát, szervezetek közötti forkok megbízhatatlanok sablonként — a másolás meghiúsul, ha a privát upstream nem érhető el a Classroom 50 számára. Használj helyette egy friss (nem forkolt) sablon-adattárat: hozz létre egy új adattárat, és másold bele a fork tartalmát.",
+      "privateForkInOrg": "A(z) {{owner}}/{{repo}} a(z) {{parent}} privát forkja (ág: <branch>{{branch}}</branch>). Az upstream ebben a szervezetben van, így a másolásnak működnie kellene — de egy friss (nem forkolt) sablon-adattár kiszámíthatóbb, ha az elfogadás meghiúsul.",
+      "privateForkNoParent": "A(z) {{owner}}/{{repo}} egy privát fork (ág: <branch>{{branch}}</branch>). A privát, szervezetek közötti forkok megbízhatatlanok sablonként — a másolás meghiúsul, ha a privát upstream nem érhető el a Classroom 50 számára. Használj helyette egy friss (nem forkolt) sablon-adattárat: hozz létre egy új adattárat, és másold bele a fork tartalmát.",
+      "privateHasAccess": "Privát sablon itt: {{owner}} (ág: <branch>{{branch}}</branch>). Az osztálycsapatnak már van olvasási hozzáférése — a tanulók lemásolhatják.",
+      "privateWillGrant": "Privát sablon itt: {{owner}} (ág: <branch>{{branch}}</branch>). Az osztálycsapatnak még nincs hozzáférése; automatikusan hozzáadódik, amikor létrehozod a feladatot, így a tanulók lemásolhatják."
     },
     "toolbar": {
       "clear": "Törlés",
@@ -888,12 +907,12 @@
         }
       },
       "viewSubmission": "Beadásom megtekintése"
-    }
+    },
+    "archivedNotice": "Ez az osztály archiválva van — az új feladatok és a tanulói elfogadások le vannak tiltva. A módosításokhoz oldd fel az archiválást az <settingsLink>Osztálybeállításokból</settingsLink>.",
+    "studentViewAll": "A(z) <classroom>{{classroom}}</classroom> osztály összes feladatának megtekintése."
   },
   "published": {
     "pageHeading": "Közzétett erőforrások",
-    "pageSubheadingPrefix": "Minden, amit nyilvánosan kiszolgál a(z)",
-    "pageSubheadingSuffix": " GitHub Pages webhelye.",
     "copyUrl": "URL másolása",
     "openUrl": "URL megnyitása",
     "optional": "Nem kötelező",
@@ -901,14 +920,12 @@
     "publicPath": "Nyilvános elérési út",
     "resourceCount_one": "{{count}} közzétett erőforrás",
     "resourceCount_other": "{{count}} közzétett erőforrás",
-    "servedUnlistedSuffix": " · nem listázott URL-en kiszolgálva",
     "unlistedWarning": "Ez az osztály nem listázott URL-t használ: erőforrásait kitalálhatatlan elérési úton szolgálja ki egy könnyen kitalálható helyett. Ez homályosítás, nem hozzáférés-vezérlés — az adatokat egyedül a hivatkozás védi, bárki, akinek megvan, elolvashatja a fájlt, a hivatkozások pedig kiszivároghatnak (böngészőelőzmények, hivatkozók, keresőrobotok). Oszd meg az egyes feladatokhoz tartozó elfogadási hivatkozást vagy CLI-parancsot (amely tartalmazza a kulcsot) az egyes feladatok oldaláról.",
     "banner": {
       "title": "Az alábbi minden az interneten keresztül nyilvánosan van kiszolgálva",
       "body": "A classroom50 konfigurációs adattárad privát, de a GitHub Pages webhelye tervezetten nyilvános — a tanulók és az automatikus értékelő hitelesítés nélkül tölti le ezeket a fájlokat. Csak az alábbi, engedélyezőlistán szereplő fájlok kerülnek közzétételre; az adattár minden más tartalma (a névsor, a belső osztálymezők, a szolgáltatási token) privát marad. Egy osztály használhat nem listázott URL-t, hogy nehezebben megtalálhatóvá tegye fájljait, de ez homályosítás, nem hozzáférés-vezérlés — a fájlok továbbra is nyilvánosak bárki számára, akinek megvan a hivatkozás."
     },
     "orgLevel": "Szervezeti szintű",
-    "orgLevelServedPrefix": "Kiszolgálva innen:",
     "perClassroom": "Osztályonkénti",
     "perClassroomDescription": "Feladatmanifesztek és automatikus értékelők minden osztályhoz.",
     "noClassrooms": "Még nincsenek osztályok. Miután létrehozol egyet, és az közzé lesz téve, az erőforrásai itt jelennek meg.",
@@ -953,18 +970,19 @@
         "label": "Automatikus értékelő munkafolyamat-shim — {{name}}",
         "description": "Nem alapértelmezett automatikus értékelő munkafolyamat-shim, amelyet akkor tölt le, amikor egy tanuló olyan feladatot fogad el, amely felülírja az alapértelmezett futtatómotort."
       }
-    }
+    },
+    "orgLevelServed": "A(z) <path>{{base}}/</path> gyökerében szolgálva.",
+    "pageSubheading": "Minden, ami nyilvánosan a(z) <orgLink>{{org}}</orgLink> GitHub Pages webhelyéről szolgáltatva van.",
+    "servedUnlistedNote": " · nem listázott URL-en szolgálva"
   },
   "getStarted": {
     "badge": "Beléptetés",
     "continueToAssignment": "Tovább a feladatodhoz",
     "notInvited": {
       "title": "Itt még nincs teendőd",
-      "body_prefix": "Nem találtunk meghívást a fiókodhoz a következő szervezetbe:",
-      "body_suffix": "szervezet.",
       "waitingTitle": "Meghívásra várunk",
-      "waitingBody_prefix": "Ha a tanárod meghívott ide:",
-      "waitingBody_suffix": ", ellenőrizd az e-mail-fiókodban a GitHub-meghívást, fogadd el, majd térj vissza erre az oldalra és frissítsd. Egyébként jelenleg nincs semmi tennivalód itt."
+      "body": "Nem találtunk meghívót a fiókodhoz a(z) <org>{{org}}</org> szervezethez.",
+      "waitingBody": "Ha a tanárod meghívott a(z) <classroom>{{classroom}}</classroom> osztályba, ellenőrizd az e-mailedet a GitHub meghívóért, fogadd el, majd térj vissza erre az oldalra és frissítsd. Egyébként jelenleg nincs itt semmi teendőd."
     },
     "active": {
       "goToClassroom": "Ugrás az osztálytermedhez",
@@ -1000,34 +1018,23 @@
     "heading": "Feladat beállításai",
     "editSuccess": "A módosításokat elmentettük, és most közzétesszük a diákoldalon – a fenti sáv követi a folyamatot.",
     "loading": "Feladat betöltése",
-    "archivedNotice_prefix": "Ez a kurzus archiválva van – a feladatai csak olvashatók. Az archiválás visszavonásához nyisd meg a következőt:",
-    "archivedNotice_link": "Tanterem beállításai",
-    "archivedNotice_suffix": "a feladatok szerkesztéséhez.",
-    "notAccepted_prefix": "Ez a feladat még nincs nálad! Lehet, hogy előbb",
-    "notAccepted_link": "el kell fogadnod",
-    "notAccepted_suffix": "?",
-    "individual_prefix": "Ez egyéni feladat – nincsenek kezelhető csoportbeállítások. Tekintsd meg a",
-    "individual_link": "beadásod és az automatikus értékelés eredményeit",
-    "individual_suffix": ".",
     "groupMembers": "Csoporttagok",
     "viewRepository": "Repository megtekintése",
-    "collaboratorsHint_prefix": "Adj hozzá vagy távolíts el közreműködőket ehhez a feladat-repositoryhoz. Ez a feladat legfeljebb",
-    "collaboratorsHint_suffix_one": "diákot enged meg a csoport tulajdonosán felül.",
-    "collaboratorsHint_suffix_other": "diákot enged meg a csoport tulajdonosán felül.",
-    "manageCollaborators": "Közreműködők kezelése"
+    "manageCollaborators": "Közreműködők kezelése",
+    "archivedNotice": "Ez az osztály archiválva van — a feladatai csak olvashatók. A feladatok szerkesztéséhez oldd fel az archiválást az <settingsLink>Osztálybeállításokban</settingsLink>.",
+    "collaboratorsHint_one": "Ehhez a feladat-adattárhoz közreműködők adhatók hozzá vagy távolíthatók el. Ez a feladat a csoport tulajdonosán felül legfeljebb <count>{{count}}</count> tanulót engedélyez.",
+    "collaboratorsHint_other": "Ehhez a feladat-adattárhoz közreműködők adhatók hozzá vagy távolíthatók el. Ez a feladat a csoport tulajdonosán felül legfeljebb <count>{{count}}</count> tanulót engedélyez.",
+    "individual": "Ez egyéni feladat — nincsenek kezelendő csoportbeállítások. Tekintsd meg a <submissionLink>beadásodat és az automatikus értékelés eredményeit</submissionLink>.",
+    "notAccepted": "Ez a feladat még nincs nálad! Lehet, hogy előbb <acceptLink>el kell fogadnod</acceptLink>?"
   },
   "orgSettings": {
     "page": {
       "heading": "Beállítások",
-      "subheading_prefix": "Szervezetszintű konfiguráció ehhez:",
-      "subheading_suffix": "."
+      "subheading": "Szervezeti szintű konfiguráció a(z) <orgLink>{{org}}</orgLink> számára."
     },
     "serviceToken": {
       "title": "Szolgáltatási token",
       "infoAria": "Mi az a szolgáltatási token?",
-      "info_1": "A Classroom 50-nek szüksége van egy szolgáltatási tokenre: egy finoman szabályozott személyes hozzáférési tokenre (PAT), amely olvasási és írási hozzáféréssel rendelkezik az osztályod GitHub-szervezetében lévő adattárakhoz. Ezt a következő néven tárolja:",
-      "info_2": "titok itt:",
-      "info_3": "konfigurációs adattár, ahol a pontszámgyűjtő munkafolyamat a diákok beadványainak beolvasásához, az újraértékelő munkafolyamat pedig a diákok automatikus értékelő munkafolyamatainak újrafuttatásához használja.",
       "statusPresent": "Már be van állítva egy szolgáltatási token",
       "statusMissing": "Még nincs beállítva szolgáltatási token",
       "statusUnknown": "Nem sikerült ellenőrizni a szolgáltatási tokent",
@@ -1041,41 +1048,23 @@
       "validRange": "Az érvényes tartomány {{min}}–{{max}} nap (a GitHub maximuma).",
       "patDescription": "Szolgáltatási token a Classroom 50 pontgyűjtéséhez és újraértékeléséhez. Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read a(z) {{org}} szervezetnél",
       "generateOnGitHub": "Token generálása a GitHubon",
-      "generateHint_prefix": "Megnyitja a GitHub token-űrlapját, amelyen a név, az erőforrás tulajdonosa, a lejárat és a",
-      "generateHint_permissions": "Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read",
-      "generateHint_suffix": "jogosultságok előre ki vannak töltve.",
       "beforeGenerating": "A GitHub oldalán, a token generálása előtt:",
-      "repoAccess_prefix": "Állítsd a",
-      "repoAccess_field": "Repository access",
-      "repoAccess_mid": "beállítást",
-      "repoAccess_value": "All repositories",
-      "repoAccess_period": " értékre.",
-      "repoAccess_warning": "Az „Only select repositories” kihagyja a később létrehozott diákadattárakat, és megszakítja a pontszámgyűjtést.",
-      "permissions_prefix": "A",
-      "permissions_field": "Permissions",
-      "permissions_confirm": "alatt erősítsd meg a",
-      "permissions_contents": "Contents: Read and write",
-      "permissions_and": "és",
-      "permissions_actions": "Actions: Read and write",
-      "permissions_metadata": "(A Metadata: Read automatikusan tartalmazva van.)",
-      "permissions_warning": "A Read gyűjti a pontszámokat; a write lehetővé teszi, hogy az újraértékelési workflow újrafuttassa a tanulói autograde workflow-kat; a Members: Read lehetővé teszi, hogy a gyűjtés listázza az osztályterem csapatát.",
       "rotateNote": "A token a fent beállított időszak után lejár. Amikor lejár, a pontszámgyűjtő és újraértékelő munkafolyamatok hibát adnak, amíg nem generálsz egy új tokent, és itt újra el nem mented, ezért állíts be egy emlékeztetőt a token addigi cseréjéhez.",
       "pasteBelow": "A token GitHubon való generálása után másold ki, és illeszd be alább.",
       "enterNewLabel": "Add meg az új szolgáltatási tokent",
       "enterLabel": "Add meg a szolgáltatási tokent",
       "placeholder": "Add meg a tokent (pl. github_pat_123...)",
-      "validateHint_prefix": "Mentés előtt ellenőrizzük, hogy a token érvényes-e. Győződj meg róla, hogy a",
-      "validateHint_allRepos": "All repositories",
-      "validateHint_suffix": "lehetőséget választottad a létrehozásakor.",
       "saveError": "Nem sikerült érvényesíteni vagy elmenteni a tokent.",
       "savedUpdated": "A szolgáltatási token ellenőrizve és frissítve.",
       "savedNew": "A szolgáltatási token ellenőrizve és elmentve.",
       "validating": "Érvényesítés…",
       "updateButton": "Szolgáltatási token frissítése",
       "saveButton": "Szolgáltatási token mentése",
-      "permissions_members": "Members: Read",
-      "permissions_members_note": "A Members: Read egy szervezeti jogosultság, külön szakasz, amely akkor jelenik meg, amint a szervezet az erőforrás tulajdonosa.",
-      "permissions_administration": "Administration: Read and write"
+      "generateHint": "Megnyitja a GitHub tokenűrlapját, amelyen a név, az erőforrás tulajdonosa, a lejárat és a <permissions>Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read</permissions> engedélyek előre ki vannak töltve.",
+      "info": "A Classroom 50-hez szükség van egy szolgáltatási tokenre, egy finomhangolt személyes hozzáférési tokenre (PAT), amely olvasási és írási hozzáféréssel rendelkezik az osztályod GitHub-szervezetének adattáraihoz. Ez a <secret>CLASSROOM50_SERVICE_TOKEN</secret> titkos értékként tárolódik a <repo>classroom50</repo> konfigurációs adattáradban, ahol a pontszámgyűjtő munkafolyamat a tanulói beadások olvasására, az újraértékelő munkafolyamat pedig a tanulói automatikus értékelési munkafolyamatok újrafuttatására használja.",
+      "permissions": "A <field>Permissions</field> alatt erősítsd meg a <perm>Contents: Read and write</perm>, <perm>Actions: Read and write</perm>, <perm>Administration: Read and write</perm> és <perm>Members: Read</perm> engedélyeket (a Metadata: Read automatikusan hozzáadódik). <note>A Members: Read egy Organization engedély, egy külön szakasz, amely akkor jelenik meg, ha a szervezet az erőforrás tulajdonosa.</note> <note>Az olvasás pontszámokat gyűjt; az írás lehetővé teszi az újraértékelő munkafolyamat számára a tanulói automatikus értékelési munkafolyamatok újrafuttatását; a Members: Read lehetővé teszi, hogy a gyűjtés listázza az osztálycsapatot.</note>",
+      "repoAccess": "Állítsd a <field>Repository access</field> értékét <value>All repositories</value>-ra. <note>A „Only select repositories” kihagyja a később létrehozott tanulói adattárakat, és elrontja a pontszámgyűjtést.</note>",
+      "validateHint": "A mentés előtt ellenőrizzük, hogy a token érvényes-e. Ellenőrizd kétszer, hogy az <value>All repositories</value> lehetőséget választottad a létrehozásakor."
     },
     "audit": {
       "title": "Szervezeti szabályzat",
@@ -1116,7 +1105,8 @@
       "renameModalBody": "Ez átnevezi a classroom50 config-tároló alapértelmezett ágát „main”-re. Ha valamely hallgatók már elfogadták a feladatokat, az automatikus értékelési munkafolyamatuk rögzíti a jelenlegi ágnevet, és leáll az értékelés, amíg újra el nem fogadják, vagy át nem irányítod a shimjüket. Ezt lehetőleg csak a hallgatók elfogadása előtt tedd meg, vagy készülj fel a beállításuk újrafuttatására.",
       "renameModalTitle": "Átnevezed a config-tároló alapértelmezett ágát „main”-re?",
       "renameToMain": "Átnevezés main-re",
-      "renameError": "Nem sikerült átnevezni a konfigurációs tároló alapértelmezett ágát. Lehet, hogy nincs tulajdonosi jogosultságod, vagy az átnevezés nem ment végbe — próbáld újra."
+      "renameError": "Nem sikerült átnevezni a konfigurációs tároló alapértelmezett ágát. Lehet, hogy nincs tulajdonosi jogosultságod, vagy az átnevezés nem ment végbe — próbáld újra.",
+      "stateWarn": "Ajánlott"
     },
     "rerun": {
       "title": "Beállítás újrafuttatása",
@@ -1130,27 +1120,21 @@
     },
     "teardown": {
       "title": "Veszélyzóna",
-      "description_prefix": "Bontsd le ezt a szervezetet, törölve",
-      "description_every": "minden",
-      "description_mid": "benne lévő adattárat, beleértve a",
-      "description_suffix": "konfigurációs adattárat, és eltávolítva minden osztály GitHub-csapatát. Ez visszafordíthatatlan.",
       "prepareError": "Nem sikerült előkészíteni a lebontási tervet.",
       "preparing": "Előkészítés…",
       "button": "Szervezet lebontása",
       "confirmText": "delete {{org}}",
       "confirmLabel": "Minden erőforrás törlése",
       "confirmTitle": "Törlöd az összes adattárat ebben a szervezetben?",
-      "confirmBody_prefix": "Ez véglegesen törli a következőt:",
-      "confirmBody_reposIn": "adattár itt:",
-      "confirmBody_including": ", beleértve a",
-      "confirmBody_deletedLast": "konfigurációs adattárat (utoljára törölve)",
-      "confirmBody_andRemove": ", és eltávolítja a következőt:",
-      "confirmBody_teams_one": "osztálycsapat",
-      "confirmBody_teams_other": "osztálycsapat",
-      "confirmBody_cannotUndo": ". Ez nem vonható vissza.",
       "repositoriesHeading": "Adattárak",
       "classroomTeamsHeading": "Osztálycsapatok",
-      "executeError": "A lebontás meghiúsult. Előfordulhat, hogy néhány adattár nem lett törölve."
+      "executeError": "A lebontás meghiúsult. Előfordulhat, hogy néhány adattár nem lett törölve.",
+      "confirmBodyCannotUndo": "Ez nem vonható vissza.",
+      "confirmBodyTeams_one": "Emellett eltávolít <count>{{count}}</count> osztálycsapatot is.",
+      "confirmBodyTeams_other": "Emellett eltávolít <count>{{count}}</count> osztálycsapatot is.",
+      "confirmBody_one": "Ezzel véglegesen törlődik <count>{{count}}</count> adattár a(z) <org>{{org}}</org> szervezetben, beleértve a <repo>classroom50</repo> konfigurációs adattárat (ez törlődik utoljára).",
+      "confirmBody_other": "Ezzel véglegesen törlődik <count>{{count}}</count> adattár a(z) <org>{{org}}</org> szervezetben, beleértve a <repo>classroom50</repo> konfigurációs adattárat (ez törlődik utoljára).",
+      "description": "Bontsd le ezt a szervezetet <strong>minden</strong> adattár törlésével, beleértve a <repo>classroom50</repo> konfigurációs adattárat, és minden osztály GitHub-csapatának eltávolításával. Ez visszafordíthatatlan."
     },
     "preflight": {
       "categoryServiceToken": "szolgáltatási token",
@@ -1158,9 +1142,7 @@
       "title": "A szervezet indítás előtti ellenőrzése meghiúsult",
       "body_one": "Probléma merült fel ezzel: a szervezet {{categories}}eleménél.",
       "body_other": "Problémák merültek fel ezzel: a szervezet {{categories}}eleménél.",
-      "reviewFixOn": "Nézd át és javítsd itt:",
-      "settingsPageLink": "szervezeti beállítások oldala",
-      "reviewFixSuffix": "."
+      "reviewFix": "Tekintsd át és javítsd a <settingsLink>szervezeti beállítások oldalán</settingsLink>."
     },
     "overwrite": {
       "title": "Frissíted a workflow-fájlokat, hogy az értékelés működjön?",
@@ -1168,9 +1150,7 @@
       "cancelLabel": "Most nem",
       "body_one": "1 Classroom 50 workflow-/szkriptfájl elavult a konfigurációs tárolódban, és frissítve lesz:",
       "body_other": "{{count}} Classroom 50 workflow-/szkriptfájl elavult a konfigurációs tárolódban, és frissítve lesz:",
-      "warning_prefix": "A Classroom 50 kezeli ezeket a fájlokat, így a frissítés biztonságos. Ha elavultan hagyod őket, olyan funkciók, mint az autograder, leállhatnak. Ha testreszabtál egy fájlt, válaszd a",
-      "keepMine": "Most nem",
-      "warning_suffix": "lehetőséget, hogy egyelőre változatlanul hagyd."
+      "warning": "A Classroom 50 kezeli ezeket a fájlokat, így a frissítés biztonságos. Ha elavultan hagyod őket, az leállíthat olyan funkciókat, mint az automatikus értékelő. Ha testreszabtál egy fájlt, válaszd a <keepMine>Most nem</keepMine> lehetőséget, hogy egyelőre változatlanul hagyd."
     },
     "steps": {
       "whyLabel": "Miért:",
@@ -1236,7 +1216,41 @@
         "what": "Szervezeti szabálykészleteket hoz létre, amelyek védik az osztály- és feladat-adattárakat.",
         "why": "A szabálykészletek érvényesítik az osztály védőkorlátait (védett ágak, korlátozott törlések) a szervezet által létrehozott minden adattárban.",
         "remediation": "Nyisd meg a szervezet szabálykészletek oldalát az áttekintéshez, vagy futtasd újra a beállítást az újbóli alkalmazáshoz. A szabálykészletekhez GitHub Team vagy Enterprise szükséges lehet."
+      },
+      "orgBudget": {
+        "remediation": "Nyisd meg a szervezet számlázási költségkeret-beállításait, és állíts be egy 0 dolláros GitHub Actions költségkeretet engedélyezett „prevent further usage” beállítással (Organization Administration hozzáférés szükséges).",
+        "title": "Actions költségkeret",
+        "what": "Létrehoz egy 0 dolláros GitHub Actions költségkeretet (csak ha még nincs).",
+        "why": "Egy 0 dolláros kemény leállítási költségkeret letiltja a fizetős Actions-perceket, így egy elszabadult automatikus értékelési munkafolyamat nem okozhat költséget. Az általad beállított meglévő költségkeret érintetlen marad."
       }
+    },
+    "actions": {
+      "applying": "Frissítés…",
+      "budgetAmount": "Költségkeret: {{amount}} $.",
+      "budgetHardStop": "0 dolláros kemény leállítási költségkeret beállítva — a fizetős percek le vannak tiltva.",
+      "budgetManage": "Költségkeretek kezelése",
+      "budgetNone": "Nincs beállítva költségkeret.",
+      "confirmBody": "A tanulói beadások nem lesznek értékelve, amíg nem folytatod. A classroom50 konfigurációs adattár továbbra is működik. Bármikor visszavonható.",
+      "confirmButton": "Automatikus értékelés szüneteltetése",
+      "confirmTitle": "Szünetelteted az automatikus értékelést az egész szervezetre?",
+      "description": "Az automatikus értékelés szüneteltetése az egész szervezetben az Actions költségek leállításához. A kurzuskezelés továbbra is működik.",
+      "disabledNotice": "Az Actions ki van kapcsolva az egész szervezetben, így semmi sem fut. Futtasd újra a szervezet beállítását, vagy engedélyezd az Actions-t a GitHubon.",
+      "loading": "Állapot ellenőrzése…",
+      "openSettings": "Actions beállítások megnyitása",
+      "pausedNotice": "Szüneteltetve — a tanulói push-ok nem kerülnek értékelésre. A szervezet beállításának újrafuttatása nem folytatja, amíg ezt ki nem kapcsolod.",
+      "statusActive": "Automatikus értékelés bekapcsolva",
+      "statusDisabled": "Actions kikapcsolva",
+      "statusPaused": "Automatikus értékelés szüneteltetve",
+      "title": "GitHub Actions",
+      "toggleFailed": "Nem sikerült frissíteni az Actions engedélyeket: {{message}}",
+      "toggleHint": "Ennek bekapcsolása megállítja a tanulói push-ok értékelését (nincs Actions-perc). A classroom50 konfigurációs adattár továbbra is működik. A folytatáshoz kapcsold ki.",
+      "toggleLabel": "Automatikus értékelés szüneteltetése az összes tanulói adattárra",
+      "unknownNotice": "Nem sikerült beolvasni ennek a szervezetnek az Actions engedélyeit — lehet, hogy nincsenek tulajdonosi jogaid, vagy egy vállalati szabályzat vezérli őket.",
+      "usageCost": "{{amount}} $ számlázva ebben a hónapban.",
+      "usageMinutes": "{{minutes}} perc felhasználva",
+      "usageOfIncluded": "{{used}} perc felhasználva / {{included}} perc beleértve",
+      "usageOverQuota": "{{over}} perccel a beleértett kvóta felett.",
+      "usageTitle": "Actions-percek ebben a hónapban"
     }
   },
   "classes": {
@@ -1247,15 +1261,10 @@
     "loadingClassroom": "Kurzus betöltése",
     "configRepo": "Konfigurációs tároló",
     "configRepoTitle": "A kurzus mappájának megnyitása a classroom50 konfigurációs tárolóban a GitHubon",
-    "settingsSubtitle_prefix": "A(z)",
-    "settingsSubtitle_suffix": "kurzus beállításai.",
     "somethingWentWrong": "hiba történt",
     "archivedReadOnlyNotice": "Ez a kurzus archiválva van – a beállítások csak olvashatók. A módosításokhoz használd a fenti Visszaállítás gombot.",
     "deleteClassroomAria": "Kurzus törlése",
     "deleteClassroomTitle": "Törlöd a kurzust?",
-    "deleteClassroomBody_1": "Ezzel eltávolítod a(z)",
-    "deleteClassroomBody_2": "kurzust a(z)",
-    "deleteClassroomBody_3": "szervezetből. A tanulói feladattárolók nem törlődnek.",
     "deleteClassroomConfirm": "Kurzus törlése",
     "deleteClassroomCancel": "Kurzus megtartása",
     "archive": "Archiválás",
@@ -1264,10 +1273,6 @@
     "unarchiveTitle": "Kurzus visszaállítása",
     "archiveConfirmTitle": "Archiválod a kurzust?",
     "unarchiveConfirmTitle": "Visszaállítod a kurzust?",
-    "archiveBody_prefix": "A(z)",
-    "archiveBody_suffix": ": kikerül az alapértelmezett tanteremlistából, és nem fogad el új feladatokat és diákokat. A névsora és feladatai megmaradnak, és később visszaállíthatod az archívumból.",
-    "unarchiveBody_prefix": "A(z)",
-    "unarchiveBody_suffix": "aktívvá: visszakerül az alapértelmezett tanteremlistába, és ismét fogadhat új feladatokat és diákokat.",
     "archivedToast": "A(z) „{{classroom}}” archiválva lett.",
     "unarchivedToast": "A(z) „{{classroom}}” visszaállítva lett.",
     "archiveFailed": "Nem sikerült archiválni a(z) „{{classroom}}” kurzust: {{error}}",
@@ -1291,11 +1296,10 @@
     },
     "join": {
       "title": "Csatlakozás a kurzushoz",
-      "body_prefix": "Függőben lévő meghívód van a következő csatlakozásához:",
-      "body_suffix": ". Fogadd el a meghívót, hogy hozzáférj a kurzus feladataihoz.",
       "error": "Nem sikerült csatlakozni a szervezethez. Kérjük, próbáld újra.",
       "joining": "Csatlakozás...",
-      "joinButton": "Csatlakozás a szervezethez"
+      "joinButton": "Csatlakozás a szervezethez",
+      "body": "Van egy függőben lévő meghívód a(z) <org>{{org}}</org> szervezethez való csatlakozásra. Fogadd el a meghívót, hogy hozzáférj az osztályod feladataihoz."
     },
     "filter": {
       "active": "Aktív",
@@ -1340,8 +1344,7 @@
       "heading": "Munkatársak és szerepkörök",
       "githubTeams": "GitHub-csapatok",
       "githubTeamsTitle": "A szervezet csapatainak megnyitása a GitHubon",
-      "description": "A tanárok és TA-k írási hozzáférést kapnak ennek a szervezetnek a Classroom 50 konfigurációjához. A TA-k ugyanazt a tantermi tartalmat látják, mint a tanárok, de a szervezeti és tantermi beállítások csak tanároknak érhetők el.",
-      "roleTa": "Demonstrátor",
+      "description": "A tanárok és a vezető gyakorlatvezetők írási hozzáférést kapnak a szervezet Classroom 50 konfigurációjához; a gyakorlatvezetők csak olvasásit. A gyakorlatvezetők és a vezető gyakorlatvezetők ugyanazt az osztálytartalmat látják, mint a tanárok, de a szervezeti és osztálybeállítások csak a tanárok számára maradnak elérhetők.",
       "roleTaPlural": "Demonstrátorok",
       "enterUsername": "Adj meg egy GitHub-felhasználónevet.",
       "noSuchUser": "Nincs ilyen GitHub-felhasználó.",
@@ -1364,8 +1367,16 @@
       "resendEmailOnly": "Ehhez a meghíváshoz nem tartozik GitHub-felhasználónév, ezért nem küldhető újra. Vond vissza, és add hozzá újra az illetőt.",
       "resendFailed": "Nem sikerült újraküldeni a meghívást a következőnek: {{who}}: {{error}}",
       "resentToast": "A meghívás újraküldve a következőnek: {{who}}.",
-      "roleTeacher": "Tanár",
-      "roleTeacherPlural": "Tanárok"
+      "roleTeacherPlural": "Tanárok",
+      "accessHeadTa": "Szervezeti tag. Írási hozzáférés a konfigurációs adattárhoz.",
+      "accessTa": "Szervezeti tag. Csak olvasási hozzáférés a konfigurációs adattárhoz.",
+      "accessTeacher": "Szervezeti tulajdonos. Írási hozzáférés a konfigurációs adattárhoz.",
+      "pendingCount_one": "{{count}} függőben",
+      "pendingCount_other": "{{count}} függőben",
+      "removeSelfTeacherBlocked": "Nem távolíthatod el magad a tanári csapatból — ezzel visszavonnád a saját tulajdonosi szintű hozzáférésedet ehhez az osztályhoz. Kérj meg egy másik szervezeti tulajdonost, hogy távolítson el.",
+      "roleHeadTaPlural": "Vezető gyakorlatvezetők",
+      "viewTeamTitle": "A(z) {{role}} csapat megnyitása a GitHubon",
+      "you": "Te"
     },
     "card": {
       "actionsAria": "Műveletek: {{name}}",
@@ -1403,14 +1414,13 @@
         "studentCount": "Diákok száma",
         "term": "Félév"
       },
-      "sortPrefix": "Rendezés",
       "termLabel": "Szűrés félév szerint",
-      "termPrefix": "Félév",
       "view": {
         "gridLabel": "Rácsnézet",
         "label": "Nézet",
         "listLabel": "Listanézet"
-      }
+      },
+      "term": "Időszak"
     },
     "claimTeacher": {
       "action": "Add hozzá magad tanárként",
@@ -1436,7 +1446,11 @@
           "nameAsc": "Név (A–Z)"
         }
       }
-    }
+    },
+    "archiveBody": "A(z) <classroom>{{classroom}}</classroom> archiválása: kikerül az alapértelmezett osztálylistából, és nem fogad új feladatokat és tanulókat. A névsora és feladatai megmaradnak, és később feloldhatod az archiválást.",
+    "deleteClassroomBody": "Ezzel eltávolítja a(z) <classroom>{{classroom}}</classroom> osztályt a(z) <org>{{org}}</org> szervezetből. A tanulói feladat-adattárak nem törlődnek.",
+    "settingsSubtitle": "A(z) <classroom>{{classroom}}</classroom> osztály konfigurációja.",
+    "unarchiveBody": "A(z) <classroom>{{classroom}}</classroom> visszaállítása aktív állapotba: visszatér az alapértelmezett osztálylistába, és ismét fogadhat új feladatokat és tanulókat."
   },
   "accept": {
     "githubUser": "GitHub-felhasználó",
@@ -1461,12 +1475,10 @@
     "notFound": {
       "badge": "A feladat nem érhető el",
       "title": "A feladat nem található",
-      "body_prefix": "Nem találtunk ehhez illeszkedő feladatot:",
-      "body_suffix": "ebben az osztályban. Lehet, hogy a hivatkozás hibás, vagy a feladatot még nem tették közzé.",
       "unableToLoad": "A feladatot nem sikerült betölteni",
       "expectedSlug": "A várt feladatazonosító (slug):",
-      "checkUrl_prefix": "Ellenőrizd, hogy a webcím helyes-e, vagy kérd meg a tanárodat, hogy erősítse meg, hogy ez a feladat hozzá lett-e adva ide:",
-      "checkUrl_suffix": "."
+      "body": "Nem találtunk a(z) <assignment>{{assignment}}</assignment> feladatnak megfelelő feladatot ebben az osztályban. Lehet, hogy a hivatkozás hibás, vagy a feladatot még nem tették közzé.",
+      "checkUrl": "Ellenőrizd, hogy az URL helyes-e, vagy kérd meg a tanárodat, hogy erősítse meg, hogy ez a feladat hozzá lett adva az <file>assignments.json</file> fájlhoz."
     },
     "steps": {
       "account": "GitHub-fiók ellenőrzése",
@@ -1505,13 +1517,6 @@
     "lateBadge_one": "{{count}} késett",
     "lateBadge_other": "{{count}} késett",
     "downloadCsv": "Pontszámok letöltése (CSV)",
-    "collectionNote": "A beadványok gyűjtése automatikusan történik, de az újak megjelenése akár 24 órát is igénybe vehet.",
-    "lastCollected": "Utolsó gyűjtés (szervezetszinten): {{when}}.",
-    "updated": "Frissítve: {{when}}",
-    "refresh": "Beadványok frissítése",
-    "dashboard": {
-      "never": "soha"
-    },
     "errors": {
       "gradebookLoad": "Nem sikerült betölteni az osztályzókönyvet.",
       "gradebookLoadWithReason": "Nem sikerült betölteni az osztályzókönyvet: {{reason}}",
@@ -1549,16 +1554,14 @@
       "titleRegrading": "Már folyamatban van egy újraértékelés",
       "statusDispatching": "Újraértékelés indítása…",
       "statusRunning": "Újraértékelés folyamatban. Az automatikus értékelő újrafut minden beadott repón; a gyűjtés szünetel, amíg be nem fejeződik.",
-      "statusCompleted_prefix": "Az újraértékelés elindult – minden repó a háttérben újraértékelődik. Kattints a",
-      "statusCompleted_suffix": "gombra néhány perc múlva az új pontszámok lekéréséhez.",
       "statusFailed": "Az újraértékelési futtatás nem indult el sikeresen.",
       "statusFailedWithReason": "Nem sikerült elindítani az újraértékelést: {{reason}}",
       "statusFailedHint": "Ellenőrizd a munkafolyamatot a GitHubon, majd próbáld újra.",
       "statusTimeout": "Az újraértékelés regisztrálása tovább tart. Ellenőrizd az állapotát a GitHubon.",
       "confirmTitle": "Újraértékeled a(z) „{{name}}” összes beadványát?",
       "confirmBody1": "Ez újrafuttatja az automatikus értékelőt minden beadott repó legutóbbi commitján – hasznos egy teszt javítása vagy az automatikus értékelő frissítése után. A beadási idők nem változnak.",
-      "confirmBody2_prefix": "Az értékelés a háttérben fut, és több percig is eltarthat; utána használd a",
-      "confirmBody2_suffix": "gombot az új pontszámok lekéréséhez."
+      "confirmBody2": "Az értékelés a háttérben fut, és több percig is eltarthat; utána a(z) <collectLabel>{{collectLabel}}</collectLabel> gombbal töltheted le az új pontszámokat.",
+      "statusCompleted": "Az újraértékelés elindult — minden adattár a háttérben újraértékelés alatt van. Kattints a(z) <collectLabel>{{collectLabel}}</collectLabel> gombra néhány perc múlva az új pontszámok letöltéséhez."
     },
     "accept": {
       "heading": "Hogyan fogadják el a tanulók",
@@ -1578,11 +1581,11 @@
       "showFailing": "Nem megfelelt tanulók megjelenítése",
       "failingCount_one": "{{count}} nem megfelelt",
       "failingCount_other": "{{count}} nem megfelelt",
-      "ungradedSuffix_one": ", {{count}} nincs értékelve",
-      "ungradedSuffix_other": ", {{count}} nincs értékelve",
       "showAcceptedNotSubmitted": "Azon tanulók megjelenítése, akik elfogadták, de nem adtak be",
       "notYetSubmitted_one": "{{count}} még nem adott be",
-      "notYetSubmitted_other": "{{count}} még nem adott be"
+      "notYetSubmitted_other": "{{count}} még nem adott be",
+      "ungradedNote_one": ", {{count}} nincs értékelve",
+      "ungradedNote_other": ", {{count}} nincs értékelve"
     },
     "filters": {
       "searchGroupPlaceholder": "Csoport vagy tag keresése…",
@@ -1647,9 +1650,6 @@
       "submittedBy": "beküldte: {{name}}",
       "review": "Áttekintés",
       "reviewAria": "Visszajelzési pull request megnyitása",
-      "fullHistory_prefix": "Nyisd meg a",
-      "fullHistory_link": "repót",
-      "fullHistory_suffix": "a teljes committörténethez.",
       "acceptedAwaiting": "Elfogadva · beadásra vár",
       "emptyClearFilters": "Szűrők törlése",
       "emptyFilteredBody": "Próbálj másik keresést, vagy töröld a szűrőket, hogy mindenkit láss.",
@@ -1659,14 +1659,22 @@
       "noGroup": "Nincs beszámított csoportban",
       "noGroupTitle": "Ez a diák egyetlen beadó csoport tárolójában sincs beszámítva. A csoporttagság minden tároló közreműködőiből olvasódik ki a begyűjtéskor, így az a diák jelenik meg itt, aki soha nem csatlakozott csoporthoz — vagy akinek a csoporttagságát nem sikerült kiolvasni a legutóbbi begyűjtéskor. Az osztályozás előtt nyisd meg a csoportok tárolóit az ellenőrzéshez.",
       "notAccepted": "Nincs elfogadva",
-      "noGradingTitle": "Az automatikus értékelés le van tiltva ennél a feladatnál"
+      "noGradingTitle": "Az automatikus értékelés le van tiltva ennél a feladatnál",
+      "fullHistory": "Nyisd meg az <repoLink>adattárat</repoLink> a teljes commit-előzményekhez.",
+      "liveLatest": "Legutóbbi push: {{date}} · még nincs értékelve",
+      "liveLatestTitle": "Egy újabb beadás lett push-olva a legutóbbi gyűjtés után, így az még nincs értékelve. Futtasd a „Beadások szinkronizálása most” műveletet az értékeléséhez és pontozásához.",
+      "loading": "Beadások betöltése…",
+      "pendingGrade": "Függőben",
+      "pendingGradeTitle": "Beadva — az értékelés még nincs begyűjtve. Futtasd a „Beadások szinkronizálása most” műveletet, vagy várj az éjszakai gyűjtésre.",
+      "resolvingNonSubmitters": "Annak ellenőrzése, hogy ki nem adott még be…",
+      "staleCount": "Új",
+      "staleCountTitle": "Ez a tanuló több beadást push-olt, mint amennyit értékeltek. Futtasd a „Beadások szinkronizálása most” műveletet a legújabbak értékeléséhez és pontozásához."
     },
     "reviewModal": {
       "errorTitle": "Nem sikerült ellenőrizni a visszajelzési PR-t",
       "emptyTitle": "Még nincs visszajelzési pull request",
-      "emptyBody_prefix": "Még nem nyílt visszajelzési PR ehhez:",
-      "emptyBody_suffix": ". A feladat automatikus értékelési munkafolyamata hozza létre egy értékelt beadvány után – ha a tanuló még nem adott be (vagy a feladatnál ki van kapcsolva a visszajelzési PR), akkor még nincs mit áttekinteni.",
-      "openRepoPrs": "Repó PR-jeinek megnyitása"
+      "openRepoPrs": "Repó PR-jeinek megnyitása",
+      "emptyBody": "Még nem nyílt Visszajelzés PR a(z) <repo>{{repo}}</repo> adattárhoz. Ezt a feladat automatikus értékelési munkafolyamata hozza létre egy értékelt beadás után — ha a tanuló még nem adott be (vagy a feladatnál a Visszajelzés PR le van tiltva), akkor még nincs mit áttekinteni."
     },
     "rowRegrade": {
       "title": "Ennek a beadványnak az újraértékelése",
@@ -1676,11 +1684,10 @@
       "titleFailed": "Az újraértékelés nem indult el – próbáld újra",
       "aria": "{{owner}} beadványának újraértékelése",
       "confirmTitle": "Újraértékeled {{name}} beadványát?",
-      "confirmBody1_prefix": "Ez újrafuttatja az automatikus értékelőt ezen:",
-      "confirmBody1_suffix": " legutóbbi commitján ehhez a feladathoz. A beadási ideje nem változik.",
-      "confirmBody2_prefix": "Az értékelés a háttérben fut, és néhány percig eltarthat; utána használd a",
-      "confirmBody2_suffix": "gombot az új pontszám lekéréséhez.",
-      "confirmLabel": "Újraértékelés"
+      "confirmLabel": "Újraértékelés",
+      "confirmBody1": "Ez újrafuttatja az automatikus értékelőt a(z) <name>{{name}}</name> legutóbbi commitján ehhez a feladathoz. A beadási idejük nem változik.",
+      "confirmBody1WithLogin": "Ez újrafuttatja az automatikus értékelőt a(z) <name>{{name}}</name> (<owner>{{owner}}</owner>) legutóbbi commitján ehhez a feladathoz. A beadási idejük nem változik.",
+      "confirmBody2": "Az értékelés a háttérben fut, és néhány percig is eltarthat; utána a(z) <collectLabel>{{collectLabel}}</collectLabel> gombbal töltheted le az új pontszámot."
     },
     "student": {
       "submittedAt": "Beadva: {{date}}",
@@ -1689,10 +1696,7 @@
       "modeGroup": "Csoportos",
       "modeIndividual": "Egyéni",
       "loadError": "Nem sikerült betölteni a beadványaidat.",
-      "notAccepted_prefix": "Még nem fogadtad el ezt a feladatot.",
-      "notAccepted_link": "Fogadd el",
-      "notAccepted_suffix": "a repód megszerzéséhez, majd töltsd fel a munkádat értékelésre.",
-      "noGradedYet": "Még nincs értékelt beadvány. Küldj egy commitot a feladat repódba, és az automatikus értékelő itt közzéteszi az eredményedet.",
+      "noGradedYet": "Még nincs értékelt beadás. Töltsd fel a fájljaidat fent, vagy push-old a feladat-adattáradba a parancssorból — az automatikus értékelő itt teszi közzé az eredményedet.",
       "openMyRepo": "A repóm megnyitása",
       "releasesIntro": "Minden beadvány megnyitja az értékelt kiadását a GitHubon, a pontszámoddal és a tesztenkénti eredményekkel.",
       "fallbackTitle": "Beadvány",
@@ -1703,7 +1707,8 @@
         "copySubmit": "Beadási parancs másolása",
         "step1": "Klónozd a feladat tárolóját (egyszer):",
         "step2": "A tárolón belülről add be a munkádat értékelésre:",
-        "title": "Hogyan add be"
+        "title": "Jobban szereted a parancssort?",
+        "intro": "A fenti feltöltés helyett terminálból is beadhatsz."
       },
       "upload": {
         "addFiles": "Fájlok hozzáadása",
@@ -1728,24 +1733,35 @@
         "success": "Feltöltve. Az értékelés a háttérben fut; az eredményed hamarosan itt jelenik meg.",
         "title": "Beadás feltöltése",
         "unsafePath": "Kihagyva: „{{name}}” — az útvonala nem engedélyezett."
-      }
+      },
+      "notAccepted": "Ezt a feladatot még nem fogadtad el. <acceptLink>Fogadd el</acceptLink>, hogy megkapd az adattáradat, majd push-old a munkádat az értékeléshez."
     },
-    "viewSourceRepo": "Forrástároló megtekintése",
-    "justNow": "épp most",
+    "viewSourceRepo": "Sablon megtekintése",
     "menu": {
       "actions": "Műveletek",
-      "invite": "Meghívó link",
-      "metrics": "Mutatók"
+      "metrics": "Mutatók",
+      "share": "Megosztás"
     },
     "metrics": {
       "title": "Beadási mutatók"
     },
-    "emptyRepoNote": "Ez a feladat üres tárolókat használ — az automatikus értékelés, a pontszámok és a visszajelzési pull request le van tiltva. A diákok maguk hozzák létre és töltik fel a munkájukat; az alábbi táblázat mutatja, ki fogadta el."
+    "emptyRepoNote": "Ez a feladat üres tárolókat használ — az automatikus értékelés, a pontszámok és a visszajelzési pull request le van tiltva. A diákok maguk hozzák létre és töltik fel a munkájukat; az alábbi táblázat mutatja, ki fogadta el.",
+    "freshness": {
+      "collected": "Beadási adatok szinkronizálva: {{when}}",
+      "neverCollected": "A beadási adatok még nincsenek szinkronizálva",
+      "refresh": "Beadások frissítése",
+      "refreshHelp": "Futtasd a Pontszámok gyűjtését, hogy újraépítsd a scores.json fájlt a legutóbbi push-okból",
+      "refreshing": "Gyűjtés…",
+      "sync": "Szinkronizálás most",
+      "syncHelp": "Új push-ok a feladat-adattárakba a legutóbbi gyűjtés óta. Futtasd a Pontszámok gyűjtését, hogy újraépítsd a scores.json fájlt és értékeld a legújabb munkákat."
+    },
+    "live": {
+      "incomplete_one": "{{count}} adattárat nem sikerült beolvasni, így az élő beadási állapot hiányos lehet. Próbáld újra, vagy futtasd a „Beadások szinkronizálása most” műveletet.",
+      "incomplete_other": "{{count}} adattárat nem sikerült beolvasni, így az élő beadási állapot hiányos lehet. Próbáld újra, vagy futtasd a „Beadások szinkronizálása most” műveletet."
+    }
   },
   "orgMembers": {
     "heading": "Tagok",
-    "subtitlePrefix": "Mindenki a",
-    "subtitleSuffix": "GitHub-szervezetben, valamint az osztályok, amelyekhez tartoznak.",
     "manageMembersOnGitHub": "Szervezeti tagok kezelése a GitHubon",
     "discrepancy_one": "{{count}} tanuló szerepel egy névsorban, de nem tagja a szervezetnek.",
     "discrepancy_other": "{{count}} tanuló szerepel egy névsorban, de nem tagja a szervezetnek.",
@@ -1761,26 +1777,15 @@
     "badgeNoClassroom": "Nincs osztály",
     "badgeMember": "Tag",
     "noGitHubUsername": "nincs GitHub-felhasználónév",
-    "idSuffix": "· azonosító: {{id}}",
     "detailTitle": "Tag adatai",
     "manageOnGitHub": "Kezelés a GitHubon",
     "classroomAccess": "Osztályhozzáférés",
     "noRoster": "Egyetlen osztály névsorában sem szerepel.",
     "archived": "archivált",
     "selfNotice": "Ez a bejelentkezett fiókod, ezért innen nem távolítható el a szervezetből.",
-    "notMemberPrefix": "{{label}} szerepel egy osztály névsorában, de",
-    "notMemberEmphasis": "nem tagja a szervezetnek",
-    "notMemberSuffix": ". Hívd meg, hogy visszaállítsd a hozzáférését. A meghívó azonosító alapján a GitHub-fiókjára megy, így akkor is működik, ha megváltozott a felhasználóneve.",
     "inviting": "Meghívás folyamatban…",
     "inviteToOrg": "Meghívás a szervezetbe",
     "notMemberNoId": "Ez a tanuló szerepel egy névsorban, de nem tagja a szervezetnek. Egyelőre nincs rögzített GitHub-azonosítója, ezért az osztálya Tanulók oldaláról hívd meg.",
-    "confirmUnenrollPrefix": "{{label}} először kikerül a következő osztályból:",
-    "confirmClassroomCount_one": "{{count}} osztály",
-    "confirmClassroomCount_other": "{{count}} osztály",
-    "confirmUnenrollMid": "({{classrooms}}), majd eltávolításra kerül a",
-    "confirmUnenrollSuffix": "szervezetből. A feladat-tárolói nem törlődnek.",
-    "confirmRemovePrefix": "{{label}} eltávolításra kerül a",
-    "confirmRemoveSuffix": "szervezetből.",
     "removing": "Eltávolítás folyamatban…",
     "removeFromOrg": "Eltávolítás a szervezetből",
     "inviteFailed": "Nem sikerült meghívni {{label}} tagot: {{reason}}",
@@ -1850,7 +1855,14 @@
     "unprovisionedAccessBadge": "Nincs a csapatban",
     "unprovisionedAccessTitle": "Ennek az osztályteremnek a névsorában szerepel, de nem tagja a GitHub-csapatnak — a pontgyűjtés kihagyná. A javításhoz add hozzá újra az osztályteremhez.",
     "unprovisionedBadge": "Nincs beiratkozva",
-    "unprovisionedTitle": "A névsorban szerepel, de nem tagja az osztályterem csapatának: {{classrooms}}. A pontgyűjtés csapatalapú, így kimaradna. A javításhoz add hozzá újra az osztályteremhez."
+    "unprovisionedTitle": "A névsorban szerepel, de nem tagja az osztályterem csapatának: {{classrooms}}. A pontgyűjtés csapatalapú, így kimaradna. A javításhoz add hozzá újra az osztályteremhez.",
+    "confirmRemove": "A(z) {{label}} el lesz távolítva a(z) <org>{{org}}</org> szervezetből.",
+    "confirmUnenroll_one": "A(z) {{label}} először kiiratkozik <count>{{count}} osztályból</count> ({{classrooms}}), majd eltávolításra kerül a(z) <org>{{org}}</org> szervezetből. A feladat-adattárai nem törlődnek.",
+    "confirmUnenroll_other": "A(z) {{label}} először kiiratkozik <count>{{count}} osztályból</count> ({{classrooms}}), majd eltávolításra kerül a(z) <org>{{org}}</org> szervezetből. A feladat-adattárai nem törlődnek.",
+    "noUsernameWithId": "<missing>nincs GitHub felhasználónév</missing> <meta>· id {{id}}</meta>",
+    "notMember": "A(z) {{label}} egy osztály névsorában szerepel, de <emphasis>nem szervezeti tag</emphasis>. Hívd meg, hogy visszaállítsd a hozzáférését. A meghívó a GitHub-fiókjához id alapján kerül elküldésre, így akkor is működik, ha a felhasználóneve megváltozott.",
+    "subtitle": "Mindenki a(z) <orgLink>{{org}}</orgLink> GitHub-szervezetben és az osztályok, amelyekhez tartoznak.",
+    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>"
   },
   "components": {
     "avatar": {
@@ -1869,12 +1881,10 @@
     },
     "notices": {
       "emptyRoster": {
-        "hasRows_prefix": "Egyetlen diák sem csatlakozott még a(z)",
-        "hasRows_suffix": "szervezethez. A feladat elfogadási linkje csak azoknak a diákoknak működik, akik a szervezet tagjai, ezért a meghívott diákoknak először el kell fogadniuk a meghívójukat.",
-        "empty_prefix": "Ebben a kurzusban még nincsenek diákok. A feladat elfogadási linkje csak azoknak a diákoknak működik, akik tagjai a(z)",
-        "empty_suffix": "szervezetnek, ezért a megosztás előtt vegyél fel és iratkoztass be diákokat.",
         "manageRoster": "Névsor kezelése",
-        "addStudents": "Diákok hozzáadása"
+        "addStudents": "Diákok hozzáadása",
+        "empty": "Ennek az osztálynak még nincsenek tanulói. Egy feladat elfogadási hivatkozása csak azoknak a tanulóknak működik, akik a(z) <org>{{org}}</org> szervezet tagjai, ezért adj hozzá és iratkoztass be tanulókat, mielőtt megosztod.",
+        "hasRows": "Még egyetlen tanuló sem csatlakozott a(z) <org>{{org}}</org> szervezethez. Egy feladat elfogadási hivatkozása csak a szervezeti tag tanulóknak működik, ezért a meghívott tanulóknak előbb el kell fogadniuk a meghívójukat."
       }
     },
     "confirmModal": {
@@ -1883,9 +1893,8 @@
       "yesContinue": "Igen, folytatás",
       "dangerousPrompt": "Biztosan folytatod? Ez a művelet nehezen vagy egyáltalán nem vonható vissza.",
       "genericError": "Valami hiba történt.",
-      "typeToConfirm_prefix": "A megerősítéshez írd be:",
-      "typeToConfirm_suffix": "alább.",
-      "typeAriaLabel": "Írd be a megerősítéshez: {{text}}"
+      "typeAriaLabel": "Írd be a megerősítéshez: {{text}}",
+      "typeToConfirm": "A megerősítéshez írd be a(z) <text>{{text}}</text> szöveget alább."
     },
     "modals": {
       "studentProfile": {
@@ -1900,8 +1909,6 @@
         "viewRepository": "Tárhely megtekintése",
         "loading": "Közreműködők betöltése",
         "saved": "Közreműködők elmentve!",
-        "onlyOwner_prefix": "Csak a csoport tulajdonosa",
-        "onlyOwner_suffix": "kezelheti ennek a tárhelynek a közreműködőit.",
         "groupMembers": "Csoporttagok",
         "personCount_one": "{{count}} fő",
         "personCount_other": "{{count}} fő",
@@ -1932,7 +1939,9 @@
           "addAndRemove": "Néhány közreműködőt nem sikerült hozzáadni vagy eltávolítani.{{removedNote}} Ellenőrizd a kiemelt felhasználóneveket, és a mentéssel próbáld újra.{{suffix}}",
           "add": "Néhány közreműködőt nem sikerült hozzáadni.{{removedNote}} Ellenőrizd a kiemelt felhasználóneveket, és a mentéssel próbáld újra.{{suffix}}",
           "remove": "Néhány közreműködőt nem sikerült eltávolítani.{{removedNote}} Ellenőrizd a kiemelt felhasználóneveket, és a mentéssel próbáld újra.{{suffix}}"
-        }
+        },
+        "onlyOwner": "Csak a csoport tulajdonosa kezelheti a közreműködőket ehhez az adattárhoz.",
+        "onlyOwnerNamed": "Csak a csoport tulajdonosa (<owner>{{owner}}</owner>) kezelheti a közreműködőket ehhez az adattárhoz."
       },
       "reuseShell": {
         "copying": "Másolás…",
@@ -1946,20 +1955,17 @@
       },
       "reuseAssignment": {
         "title": "Feladat újrafelhasználása",
-        "description_prefix": "Másold a(z)",
-        "description_suffix": "egy osztályterembe a(z) {{org}} szervezetben. A név, sablon, tesztek, futásidő, határidő és egyéb beállítások átmásolódnak; a tanulói tárolók és pontszámok nem.",
         "noTargets": "Nincs olyan osztályterem a(z) {{org}} szervezetben, amelybe újrahasznosíthatnád ezt a feladatot. Hozz létre először egy osztálytermet.",
         "targetClassroom": "Cél kurzus",
         "chooseClassroom": "Válassz egy kurzust…",
         "slugLabel": "Azonosító az új kurzusban",
         "chooseClassroomFirst": "Előbb válassz egy kurzust.",
         "uniqueHint": "Egyedinek kell lennie a cél kurzuson belül.",
-        "thisClassroomOption": "{{classroom}} (ez az osztályterem)"
+        "thisClassroomOption": "{{classroom}} (ez az osztályterem)",
+        "description": "A(z) <assignment>{{assignment}}</assignment> másolása a(z) {{org}} egyik osztályába. A név, sablon, tesztek, futtatókörnyezet, határidő és egyéb beállítások másolódnak; a tanulói adattárak és pontszámok nem."
       },
       "reuseFromClassroom": {
         "title": "Meglévő feladat újrafelhasználása",
-        "description_prefix": "Egy meglévő feladat másolása a(z) {{org}} szervezetből ide:",
-        "description_suffix": ". A név, sablon, tesztek, futtatókörnyezet, határidő és egyéb beállítások átmásolódnak; a diák-tárhelyek és a pontszámok nem.",
         "noSources": "Nincs olyan osztályterem a(z) {{org}} szervezetben, amelyből újrahasznosíthatnál egy feladatot.",
         "sourceClassroom": "Forrás kurzus",
         "chooseClassroom": "Válassz egy kurzust…",
@@ -1970,7 +1976,8 @@
         "loadError": "Nem sikerült betölteni a(z) {{classroom}} feladatait.",
         "slugLabel": "Azonosító itt: {{classroom}}",
         "uniqueHint": "Egyedinek kell lennie ezen a kurzuson belül.",
-        "thisClassroomOption": "{{classroom}} (ez az osztályterem)"
+        "thisClassroomOption": "{{classroom}} (ez az osztályterem)",
+        "description": "Egy meglévő feladat másolása a(z) {{org}} szervezetből a(z) <classroom>{{classroom}}</classroom> osztályba. A név, sablon, tesztek, futtatókörnyezet, határidő és egyéb beállítások másolódnak; a tanulói adattárak és pontszámok nem."
       }
     }
   },
@@ -2034,19 +2041,17 @@
       "title": "Valami hiba történt"
     },
     "notAMember": {
-      "body_prefix": "Nem tudtuk megerősíteni a tagságodat a(z)",
-      "body_suffix": "szervezetben.",
       "instructions": "Kérd meg a tanárodat, hogy erősítse meg, hogy meghívott, majd töltsd újra ezt az oldalt. Ha épp most fogadtál el egy e-mailes meghívót, adj a GitHubnak egy percet, és próbáld újra.",
-      "title": "Még nem vagy tag"
+      "title": "Még nem vagy tag",
+      "body": "Nem tudtuk megerősíteni a tagságodat a(z) <org>{{org}}</org> szervezetben."
     },
     "showDetails": "Részletek megjelenítése a tanárod számára",
     "ssoRequired": {
       "authorizeButton": "Egyszeri bejelentkezés engedélyezése",
-      "body_prefix": "A(z)",
-      "body_suffix": "szervezet SAML egyszeri bejelentkezést (SSO) igényel, és a jelenlegi munkameneted még nincs erre feljogosítva. Lehet, hogy már tag vagy — csak engedélyezned kell az SSO-t a folytatás előtt.",
       "instructionsUrlless": "Nyisd meg ezt a hivatkozást az iskolád tanulásmenedzsment-rendszeréből (LMS), hogy előbb egyszeri bejelentkezéssel legyél bejelentkezve, vagy hitelesítsd magad újra a GitHubbal, majd töltsd újra ezt az oldalt.",
       "instructionsWithUrl": "Használd az alábbi gombot az egyszeri bejelentkezés engedélyezéséhez ehhez a szervezethez, majd töltsd újra ezt az oldalt.",
-      "title": "Egyszeri bejelentkezés engedélyezése"
+      "title": "Egyszeri bejelentkezés engedélyezése",
+      "body": "A(z) <org>{{org}}</org> szervezet SAML egyszeri bejelentkezést (SSO) igényel, és a jelenlegi munkameneted még nincs erre engedélyezve. Lehet, hogy már tag vagy — csak engedélyezned kell az SSO-t a folytatás előtt."
     }
   },
   "appUpdate": {
@@ -2125,5 +2130,11 @@
     "bodyGeneric": "A Classroom 50 nehezen éri el a GitHubot. Ez általában átmeneti GitHub-kiesés, de egy VPN, proxy vagy az api.github.com-ot blokkoló böngészőbővítmény is okozhatja.",
     "checkStatusLink": "GitHub állapotának ellenőrzése",
     "title": "Lehet, hogy a GitHubnak problémái vannak"
+  },
+  "budgetCreated": {
+    "body": "A Classroom 50 létrehozott egy 0 dolláros GitHub Actions költségkeretet ehhez a szervezethez, hogy egy elszabadult automatikus értékelési munkafolyamat ne okozhasson költséget. A GitHubon bármikor megemelheted vagy eltávolíthatod.",
+    "dismiss": "Értem",
+    "manage": "Költségkeret kezelése a GitHubon",
+    "title": "Az Actions költségkeret 0 dollárra állítva"
   }
 }

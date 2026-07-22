@@ -13,7 +13,16 @@
     "no": "Ne",
     "openOrgOnGitHub": "Otevřít {{org}} na GitHubu",
     "yes": "Ano",
-    "dismissNotification": "Zavřít oznámení"
+    "dismissNotification": "Zavřít oznámení",
+    "pagination": {
+      "entries": "položek",
+      "navAria": "Stránkování",
+      "next": "Další stránka",
+      "previous": "Předchozí stránka",
+      "range": "{{from}}–{{to}} z {{total}}",
+      "show": "Zobrazit",
+      "showAria": "Řádků na stránku"
+    }
   },
   "notFound": {
     "title": "Stránka nenalezena",
@@ -36,9 +45,7 @@
     "expandSidebar": "Rozbalit postranní panel",
     "collapseSidebar": "Sbalit postranní panel",
     "allClasses": "Všechny učebny",
-    "allClassesArrow": "‹ Všechny učebny",
     "allAssignments": "Všechny úlohy",
-    "allAssignmentsArrow": "‹ Všechny úlohy",
     "accountMenu": "Nabídka účtu",
     "assignment": "Úloha",
     "assignments": "Úlohy",
@@ -89,7 +96,11 @@
     "aboutDiagnosticsTitle": "Diagnostika",
     "activity": "Aktivita",
     "roster": "Seznam studentů",
-    "roleTeacher": "Vyučující"
+    "roleTeacher": "Vyučující",
+    "allAssignmentsLink": "Všechna zadání",
+    "allClassesLink": "Všechny učebny",
+    "roleHeadTa": "Hlavní asistent",
+    "viewAsHeadTa": "Hlavní asistent"
   },
   "auth": {
     "signInTitle": "Přihlášení",
@@ -111,10 +122,8 @@
     "deviceStep3Hint": "Jakmile autorizaci potvrdíte na github.com, tato stránka by to měla během několika sekund rozpoznat.",
     "deviceStatus": "pokus {{attempts}} · další za {{seconds}} s · vyprší za {{expires}}",
     "missingScopesTitle": "Chybí některá oprávnění GitHubu",
-    "missingScopesBody_one": "Tato aplikace potřebuje oprávnění",
-    "missingScopesBody_other": "Tato aplikace potřebuje oprávnění",
-    "missingScopesBody_suffix_one": ". Dokud nebude uděleno, mohou některé akce selhat.",
-    "missingScopesBody_suffix_other": ". Dokud nebudou udělena, mohou některé akce selhat.",
+    "missingScopesBody_one": "Tato aplikace potřebuje oprávnění (scope) <scopes>{{scopes}}</scopes>. Dokud nebude uděleno, mohou některé akce selhat.",
+    "missingScopesBody_other": "Tato aplikace potřebuje oprávnění (scopes) <scopes>{{scopes}}</scopes>. Dokud nebudou udělena, mohou některé akce selhat.",
     "reauthorize": "Znovu autorizovat",
     "reauthorizeHint": "Pokud opětovná autorizace tento problém neodstraní, může být nutné, aby vlastník organizace aplikaci schválil v nastavení zásad OAuth dané organizace.",
     "signedInConfirmed": "Přihlášeno – vaše relace je aktivní",
@@ -175,9 +184,6 @@
     "unenrollStudent": "Odhlásit studenta",
     "added": "Přidáno: {{label}}.",
     "somethingWentWrong": "Něco se pokazilo.",
-    "unenrollBodyPrefix": "Tímto odeberete studenta",
-    "unenrollBodyFrom": "ze třídy",
-    "unenrollBodySuffix": "{{classroom}}. Repozitáře studenta s úlohami nebudou smazány.",
     "nativeInviteHint": "Pokročilé: sdílejte tento odkaz, aby studenti mohli přijmout pozvánku do organizace přímo na GitHubu. Většina studentů místo toho použije onboardingový odkaz výše.",
     "studentInviteLinkAria": "Odkaz na pozvánku pro studenta",
     "copyInviteLinkAria": "Kopírovat odkaz na pozvánku",
@@ -205,8 +211,6 @@
     "emailLabel": "E-mail",
     "editSectionPlaceholder": "Skupina (např. 3. hodina)",
     "sectionLabel": "Skupina",
-    "githubLabel": "GitHub:",
-    "githubIdSuffix": " (id {{id}})",
     "saving": "Ukládání…",
     "saveChanges": "Uložit změny",
     "couldNotReadFile": "Soubor nelze přečíst",
@@ -287,7 +291,7 @@
       "confirmCancelTitle_other": "Zrušit {{count}} pozvánek?",
       "memberCount_one": "{{count}} člen",
       "memberCount_other": "{{count}} členů",
-      "noneSelectable": "Zde není co vybrat — hromadné akce (vyřazení, pozvání) se týkají pouze studentů. Vyučující a TA se spravují v nastavení učebny."
+      "noneSelectable": "Zde není co vybírat — hromadné akce (odhlášení, pozvání) se týkají pouze studentů. Personál (učitelé, hlavní asistenti a asistenti) se spravuje v nastavení učebny."
     },
     "classroomTeamLabel": "Tým třídy",
     "confirmResendBody": "Znovu odeslat nevyřízené pozvání do organizace uživateli {{label}}? Jejich aktuální pozvání se zruší a odešle se nové pro {{org}}.",
@@ -438,13 +442,27 @@
     "uploadKindUsernameList": "Uživatelská jména na GitHubu (jedno na řádek)",
     "uploadTitle": "Nahrát",
     "addRoleLabel": "Role",
-    "addStaffHint": "Vyučující a TA se přidávají podle uživatelského jména GitHub a získávají přístup ke konfiguračnímu repozitáři učebny. Vyučující získává vlastnictví organizace.",
+    "addStaffHint": "Učitelé, hlavní asistenti a asistenti se přidávají podle uživatelského jména GitHub. Učitelé a hlavní asistenti získají přístup k zápisu do konfiguračního repozitáře učebny; asistenti získají přístup pouze ke čtení. Učiteli je udělen vlastník organizace.",
     "failedInviteNotSent": "Uživateli {{who}} nebyla odeslána žádná pozvánka — zkuste to znovu.",
     "failedInviteRateLimited": "GitHub omezil rychlost opakovaného pozvání pro {{who}} — zkuste to znovu.",
     "roleTeacher": "Vyučující",
     "teacherCount_one": "{{count}} vyučující",
     "teacherCount_other": "{{count}} vyučujících",
-    "uploadTeacherOwnerNotice": "Řádky označené jako Vyučující budou pozvány jako VLASTNÍCI organizace, což jim udělí plnou kontrolu nad organizací. Roli vyučujícího přidělte pouze lidem, kterým důvěřujete s přístupem vlastníka."
+    "uploadTeacherOwnerNotice": "Řádky označené jako Vyučující budou pozvány jako VLASTNÍCI organizace, což jim udělí plnou kontrolu nad organizací. Roli vyučujícího přidělte pouze lidem, kterým důvěřujete s přístupem vlastníka.",
+    "csvRoster": {
+      "caption": "Seznam členů CSV ze souboru roster.csv",
+      "colName": "Jméno",
+      "colRole": "Role",
+      "colSection": "Sekce",
+      "empty": "V souboru roster.csv zatím nikdo není uveden.",
+      "notice": "Seznam členů CSV ze souboru roster.csv (spravovaný učitelem). Autoritativní seznam členů řízený týmem a správa pozvánek jsou dostupné učitelům."
+    },
+    "githubIdentity": "GitHub: <username>@{{username}}</username> (id {{id}})",
+    "githubIdentityNoId": "GitHub: <username>@{{username}}</username>",
+    "headTaCount_one": "{{count}} hlavní asistent",
+    "headTaCount_other": "{{count}} hlavních asistentů",
+    "roleHeadTa": "Hlavní asistent",
+    "unenrollBody": "Tímto odeberete studenta <label>{{label}}</label> z učebny {{classroom}} organizace <org>{{org}}</org>. Repozitáře studentských zadání nebudou smazány."
   },
   "language": {
     "baseName": "Angličtina (základní)",
@@ -518,24 +536,32 @@
       "refresh": "Obnovit seznam"
     },
     "card": {
-      "noAccessBadge_prefix": "Bez",
-      "noAccessBadge_suffix": "přístupu",
-      "planTitleFree": "Bezplatný plán — Classroom 50 vyžaduje organizaci s plánem Team nebo Enterprise",
       "planTitlePaid": "Plán GitHub — Classroom 50 lze nastavit u plánů Team a Enterprise",
       "viewOnGitHub": "Zobrazit na GitHubu",
       "openOnGitHub": "Otevřít {{org}} na GitHubu",
       "open": "Otevřít",
-      "updatedAgo": "Aktualizováno {{when}}"
+      "updatedAgo": "Aktualizováno {{when}}",
+      "noAccessBadge": "Bez přístupu k <code>classroom50</code>"
     },
     "newOrg": {
-      "allSetUp": "Všechny vaše organizace jsou již nastaveny.",
+      "allSetUp": "Všechny organizace, které vidíme, jsou již nastaveny.",
       "button": "Nastavit novou organizaci",
       "createOnGitHub": "Vytvořit organizaci na GitHubu",
       "description": "Vyberte jednu ze svých organizací GitHub, ve které chcete nakonfigurovat Classroom 50. Nevidíte tu, kterou chcete? Nejprve ji vytvořte na GitHubu.",
-      "freePlanDisabled": "Bezplatný plán — Classroom 50 vyžaduje organizaci s plánem Team nebo Enterprise",
-      "pickPrompt": "Organizace připravené k nastavení",
       "setUp": "Nastavit",
-      "title": "Nastavit novou organizaci Classroom 50"
+      "title": "Nastavit novou organizaci Classroom 50",
+      "details": "Podrobnosti",
+      "freePlanInfo": {
+        "body": "Classroom 50 funguje pouze s organizacemi na plánu GitHub Team nebo Enterprise.",
+        "dismiss": "Rozumím",
+        "educationBody": "Jako ověřený učitel můžete jakoukoli organizaci, kterou vlastníte, bezplatně upgradovat na GitHub Team prostřednictvím GitHub Education.",
+        "educationCta": "Zjistit více na GitHub Education",
+        "educationTitle": "Získejte GitHub Team zdarma",
+        "title": "Tato organizace je na plánu Free"
+      },
+      "notSupportedBadge": "Nepodporováno",
+      "pickPrompt_one": "Organizace připravená k nastavení ({{count}})",
+      "pickPrompt_other": "Organizace připravené k nastavení ({{count}})"
     },
     "noResults": {
       "body": "Žádné organizace neodpovídají dotazu „{{query}}“.",
@@ -582,12 +608,7 @@
     "studentCount_one": "{{count}} student",
     "studentCount_other": "{{count}} studentů",
     "archived": "Archivováno",
-    "archivedNotice_prefix": "Tato třída je archivovaná — vytváření nových úloh a jejich přijímání studenty je zakázáno. Archivaci zrušíte v",
-    "archivedNotice_link": "Nastavení učebny",
-    "archivedNotice_suffix": ", chcete-li provádět změny.",
     "studentHeading": "Úlohy",
-    "studentViewAll_prefix": "Zobrazit všechny úlohy pro třídu",
-    "studentViewAll_suffix": ".",
     "newButton": {
       "assignment": "Úloha",
       "moreOptions": "Další možnosti úloh",
@@ -614,7 +635,7 @@
       "feedbackPr": "Pull request se zpětnou vazbou",
       "feedbackPrHelp": "Otevře pull request pro každý repozitář, umožňující řádkové posouzení každého odevzdání.",
       "advanced": "Pokročilá nastavení",
-      "advancedHelp": "Volitelná přepsání běhového prostředí. Prázdné použije výchozí hodnoty (ubuntu-latest + Python 3.12).",
+      "advancedHelp": "Volitelná nastavení hodnocení a běhového prostředí. Prázdná pole používají své zdokumentované výchozí hodnoty.",
       "dockerImage": "Obraz Dockeru",
       "dockerImagePlaceholder": "např. gcc:13",
       "containerUser": "Uživatel kontejneru",
@@ -625,17 +646,12 @@
       "patternCount_one": "{{count}} vzor",
       "patternCount_other": "{{count}} vzorů",
       "passThresholdToggle": "Nastavit hranici úspěšnosti",
-      "passThresholdSuffix": "% maximálního skóre pro úspěch",
       "back": "Zpět",
       "saveChanges": "Uložit změny",
       "createButton": "Vytvořit úlohu",
       "runner": {
         "label": "GitHub runner",
-        "selfHostedHint_prefix": "Zkombinujte štítky oddělené čárkami pro vlastního runnera (např.",
-        "selfHostedHint_suffix": ").",
         "checking": "Ověřování…",
-        "emptyHint_prefix": "Ponechte prázdné pro",
-        "emptyHint_suffix": ".",
         "hosted": "Runner hostovaný GitHubem",
         "selfHostedMatch_one": "Shoda s vlastním runnerem ({{names}})",
         "selfHostedMatch_other": "Shoda s vlastními runnery ({{names}})",
@@ -644,13 +660,21 @@
         "noRunnerMatch": "Žádný runner neodpovídá {{labels}} — zkontrolujte pravopis.",
         "tooMany": "Příliš mnoho štítků ({{count}}) — maximálně 10.",
         "cannotVerify": "Nelze ověřit — použito tak, jak bylo zadáno.",
-        "tip": "Popisek/popisky runneru GitHub Actions, který hodnotí tento úkol. Prázdné použije ubuntu-latest. Zkombinujte popisky oddělené čárkami pro vlastní runner (např. self-hosted, linux, x64)."
+        "tip": "Popisek/popisky runneru GitHub Actions, který hodnotí tento úkol. Prázdné použije ubuntu-latest. Zkombinujte popisky oddělené čárkami pro vlastní runner (např. self-hosted, linux, x64).",
+        "emptyHint": "Ponechte prázdné pro <code>ubuntu-latest</code>.",
+        "selfHostedHint": "Kombinujte čárkami oddělené štítky pro vlastního runnera (např. <code>self-hosted, linux, x64</code>)."
       },
       "validation": {
         "nameRequired": "Název úlohy je povinný.",
         "slugRequired": "Slug úlohy je povinný.",
         "maxGroupSizeInvalid": "Maximální velikost skupiny musí být platné číslo.",
-        "passThresholdRange": "Hranice úspěšnosti musí být celé číslo mezi {{min}} a {{max}}."
+        "passThresholdRange": "Hranice úspěšnosti musí být celé číslo mezi {{min}} a {{max}}.",
+        "releaseAssetsDuplicateBasename": "{{basename}} by se nahrával více než jednou; názvy souborů vydání musí být jedinečné.",
+        "releaseAssetsDuplicatePath": "{{path}} je uveden více než jednou; každá cesta k souboru vydání musí být jedinečná.",
+        "releaseAssetsInvalidBasename": "{{basename}} není bezpečný název souboru vydání nebo je rezervovaný.",
+        "releaseAssetsInvalidPath": "{{path}} není přesná cesta k souboru relativní k pracovnímu prostoru.",
+        "releaseAssetsTooLarge": "Cesty k souborům vydání odevzdání mohou dohromady tvořit nejvýše {{max}} bajtů UTF-8 (8 KiB); aktuálně {{bytes}}.",
+        "releaseAssetsTooMany": "Vyberte nejvýše {{max}} souborů vydání odevzdání (aktuálně {{count}})."
       },
       "allowedFilesTip": "Uspořádané vzory ve stylu {{gitignore}}, jeden na řádek, které určují, které soubory patří k odevzdání (rozhoduje poslední shoda, {{bang}} soubor znovu zahrne). Např. {{star}} a poté {{example}} povolí pouze {{result}}. Prázdné povolí každý soubor.",
       "containerUserTip": "Uživatel, pod kterým kontejner běží. Nastavte root, pokud checkout selže s chybou oprávnění. GitHub Actions spouští kroky v kontejneru pod uživatelem hostitelského runneru, takže obraz bez root často nemůže zapisovat do pracovního prostoru.",
@@ -685,7 +709,13 @@
       "emptyRepo": "Prázdný repozitář",
       "emptyRepoHelp": "Vytvoří repozitář každého studenta zcela prázdný: bez startovacích souborů, bez automatického hodnocení, bez pull requestu se zpětnou vazbou. Pro úlohy, kde studenti tvoří vše od začátku, včetně vlastních GitHub Actions. Tato volba je pro úlohu trvalá.",
       "emptyRepoLocked": "Po vytvoření ji nelze změnit.",
-      "feedbackPrEmptyRepoHelp": "Nedostupné pro prázdné repozitáře — neexistuje startovací commit, oproti kterému by se dal vytvořit rozdíl."
+      "feedbackPrEmptyRepoHelp": "Nedostupné pro prázdné repozitáře — neexistuje startovací commit, oproti kterému by se dal vytvořit rozdíl.",
+      "passThresholdUnit": "% z maximálního skóre pro splnění",
+      "releaseAssetCount_one": "{{count}} soubor vydání",
+      "releaseAssetCount_other": "{{count}} souborů vydání",
+      "releaseAssets": "Soubory vydání odevzdání",
+      "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
+      "releaseAssetsTip": "Jedna přesná cesta k souboru relativní k pracovnímu prostoru na řádek; cesty jsou přesné, nikoli vzory glob, a mohou dohromady tvořit nejvýše 8 KiB textu UTF-8. Soubory se shromažďují po hodnocení a připojují se jak k úspěšným, tak k neúspěšným hodnocením; chybějící soubory se přeskočí. Názvy souborů vydání mohou obsahovat pouze ASCII písmena, čísla, tečky, podtržítka a spojovníky a nesmějí začínat ani končit tečkou ani obsahovat po sobě jdoucí tečky."
     },
     "autograder": {
       "heading": "Testy automatického hodnocení",
@@ -715,8 +745,6 @@
       "comparisonRegex": "Regulární výraz — Python re.search, víceřádkové",
       "exitCode": "Požadovaný návratový kód",
       "exitCodeHint": "Ponechte prázdné pro vyžadování úspěšného ukončení (0).",
-      "pythonNote_prefix": "Příkaz ke spuštění by měl vyvolat pytest (např.",
-      "pythonNote_suffix": ") na testovací soubory v šabloně úlohy. pytest a pytest-json-report se instalují automaticky. Body se rozdělí mezi případy, které pytest objeví.",
       "timeout": "Časový limit (sekundy)",
       "timeoutHint": "0 = výchozí (10 s)",
       "points": "Body",
@@ -734,7 +762,8 @@
           "label": "Python (pytest)",
           "hint": "Spustí příkaz pytest; body se při hodnocení rozdělí mezi objevené testovací případy."
         }
-      }
+      },
+      "pythonNote": "Spouštěcí příkaz by měl vyvolat pytest (např. <code>python3 -m pytest -q</code>) na testovacích souborech v šabloně zadání. pytest a pytest-json-report se instalují automaticky. Body se rozdělí mezi případy, které pytest objeví."
     },
     "table": {
       "caption": "Úlohy",
@@ -753,13 +782,11 @@
       "viewAssignment": "Zobrazit úlohu",
       "deleteAria": "Smazat {{name}}",
       "deleteTitle": "Smazat úlohu?",
-      "deleteDescription_1": "Tímto se úloha",
-      "deleteDescription_2": "odebere ze třídy",
-      "deleteDescription_3": ". Studentské repozitáře úlohy nebudou smazány.",
       "deleteConfirm": "Smazat úlohu",
       "deleteCancel": "Ponechat úlohu",
       "reuseTitle": "Znovu použít v jiné třídě",
-      "reuseAria": "Znovu použít úlohu v jiné třídě"
+      "reuseAria": "Znovu použít úlohu v jiné třídě",
+      "deleteDescription": "Tímto odeberete zadání <assignment>{{assignment}}</assignment> z učebny <classroom>{{classroom}}</classroom>. Repozitáře studentských zadání nebudou smazány."
     },
     "template": {
       "label": "Repozitář se šablonou",
@@ -767,35 +794,15 @@
       "help": "Volitelné. Studenti obdrží kopii tohoto repozitáře. Ponechte prázdné pro prázdný repozitář obsahující pouze autohodnotič.",
       "checking": "Ověřování přístupu k šabloně…",
       "fallbackOrg": "vaše organizace",
-      "privateHasAccess_1": "Soukromá šablona v {{owner}} (větev",
-      "privateHasAccess_2": "). Tým třídy již má přístup pro čtení — studenti ji mohou zkopírovat.",
-      "privateWillGrant_1": "Soukromá šablona v {{owner}} (větev",
-      "privateWillGrant_2": "). Tým třídy zatím nemá přístup; bude přidán automaticky při vytvoření úlohy, aby ji studenti mohli zkopírovat.",
-      "okPrefixPublic": "Veřejná šablona v {{owner}}, větev",
-      "okPrefixPrivate": "Soukromá šablona v {{owner}}, větev",
-      "okPrefixPublicInOrg": "Veřejná šablona, větev",
-      "okPrefixPrivateInOrg": "Soukromá šablona, větev",
-      "okSuffix": ". Studenti k ní mají přístup.",
-      "okVerify_1": "Dostupná v {{owner}} (větev",
-      "okVerify_2": "). Pokud {{owner}} omezuje aplikace třetích stran, studenti ji nemohou zkopírovat, dokud vlastník neschválí Classroom 50.",
       "notVisible": "{{owner}}/{{repo}} pro vás není viditelný. Nastavte jej jako veřejný nebo jej zkopírujte do {{org}}.",
       "notTemplate": "{{owner}}/{{repo}} není šablonový repozitář. Povolte to v nastavení repozitáře.",
       "restricted": "{{owner}} zablokoval přístup k {{repo}} (HTTP 403). Často jde o omezení aplikací třetích stran — vlastník možná musí schválit Classroom 50 pro organizaci nebo autorizovat vaše OAuth oprávnění pro {{owner}} (Nastavení organizace → Přístup třetích stran). Může jít i o jinou příčinu chyby 403; viz zpráva od GitHubu níže.",
       "unknown": "{{owner}}/{{repo}} teď nelze ověřit. Ověří se znovu, až úlohu přijmou studenti.",
       "privateOutOfOrg": "{{owner}}/{{repo}} je soukromý a mimo {{org}}. Nastavte jej jako veřejný nebo jej zkopírujte do {{org}}.",
-      "noBranch_1": "{{owner}}/{{repo}} nemá výchozí větev. Odešlete commit nebo přidejte",
-      "noBranch_2": ".",
       "rateLimited": "Dosažen limit počtu požadavků GitHubu. Zkuste to za chvíli znovu.",
       "policyLink": "Zkontrolujte zásady aplikace OAuth pro {{owner}}",
       "githubSaid": "GitHub uvedl (HTTP {{status}}):",
-      "privateForkCrossOrg_1": "{{owner}}/{{repo}} je soukromý fork {{parent}} v jiné organizaci (větev",
-      "privateForkCrossOrg_2": "). Soukromé forky mezi organizacemi jsou jako šablony nespolehlivé — kopírování selže, když soukromý zdroj není pro Classroom 50 přístupný. Použijte místo toho čerstvý (nefork) repozitář šablony: vytvořte nový repozitář a zkopírujte do něj obsah forku.",
-      "privateForkInOrg_1": "{{owner}}/{{repo}} je soukromý fork {{parent}} (větev",
-      "privateForkInOrg_2": "). Zdroj je v této organizaci, takže kopírování by mělo fungovat — ale čerstvý (nefork) repozitář šablony je předvídatelnější, pokud přijetí selže.",
-      "privateForkNoParent_1": "{{owner}}/{{repo}} je soukromý fork (větev",
       "restrictedScope": "{{owner}} zablokoval přístup k {{repo}} (HTTP 403). GitHub uvádí, že vašemu tokenu chybí požadované oprávnění (scope) — odhlaste se a znovu přihlaste pro obnovení autorizace GitHubu, poté to zkuste znovu.",
-      "nonMainBranch_1": "Výchozí větev této šablony je",
-      "nonMainBranch_2": ", nikoli „main“. Úloha ji použije a automatické hodnocení studentů se odvíjí od této větve.",
       "accessModal": {
         "branchLabel": "větev",
         "close": "Zavřít",
@@ -820,7 +827,19 @@
         "failed": "Nepodařilo se udělit přístup k šabloně:",
         "pending": "Uděluji…",
         "success": "Čtení šablony týmem učebny je potvrzeno."
-      }
+      },
+      "noBranch": "{{owner}}/{{repo}} nemá žádnou výchozí větev. Odešlete commit nebo přidejte <hint/>.",
+      "nonMainBranch": "Výchozí větev této šablony je <branch>{{branch}}</branch>, nikoli „main“. Zadání ji použije a studentské automatické hodnocení se řídí touto větví.",
+      "okPrivate": "Soukromá šablona v {{owner}}, větev <branch>{{branch}}</branch>. Studenti k ní mají přístup.",
+      "okPrivateInOrg": "Soukromá šablona, větev <branch>{{branch}}</branch>. Studenti k ní mají přístup.",
+      "okPublic": "Veřejná šablona v {{owner}}, větev <branch>{{branch}}</branch>. Studenti k ní mají přístup.",
+      "okPublicInOrg": "Veřejná šablona, větev <branch>{{branch}}</branch>. Studenti k ní mají přístup.",
+      "okVerify": "Dosažitelné v {{owner}} (větev <branch>{{branch}}</branch>). Pokud {{owner}} omezuje aplikace třetích stran, studenti ji nemohou zkopírovat, dokud vlastník neschválí Classroom 50.",
+      "privateForkCrossOrg": "{{owner}}/{{repo}} je soukromý fork {{parent}} v jiné organizaci (větev <branch>{{branch}}</branch>). Soukromé forky napříč organizacemi jsou jako šablony nespolehlivé — kopírování selže, když soukromý upstream není pro Classroom 50 přístupný. Použijte místo toho čerstvý (nefork) repozitář šablony: vytvořte nový repozitář a zkopírujte do něj obsah forku.",
+      "privateForkInOrg": "{{owner}}/{{repo}} je soukromý fork {{parent}} (větev <branch>{{branch}}</branch>). Upstream je v této organizaci, takže kopírování by mělo fungovat — ale čerstvý (nefork) repozitář šablony je předvídatelnější, pokud přijetí selže.",
+      "privateForkNoParent": "{{owner}}/{{repo}} je soukromý fork (větev <branch>{{branch}}</branch>). Soukromé forky napříč organizacemi jsou jako šablony nespolehlivé — kopírování selže, když soukromý upstream není pro Classroom 50 přístupný. Použijte místo toho čerstvý (nefork) repozitář šablony: vytvořte nový repozitář a zkopírujte do něj obsah forku.",
+      "privateHasAccess": "Soukromá šablona v {{owner}} (větev <branch>{{branch}}</branch>). Tým učebny již má přístup ke čtení — studenti ji mohou zkopírovat.",
+      "privateWillGrant": "Soukromá šablona v {{owner}} (větev <branch>{{branch}}</branch>). Tým učebny zatím nemá přístup; bude přidán automaticky při vytvoření zadání, aby ji studenti mohli zkopírovat."
     },
     "toolbar": {
       "clear": "Vymazat",
@@ -892,12 +911,12 @@
         }
       },
       "viewSubmission": "Zobrazit moje odevzdání"
-    }
+    },
+    "archivedNotice": "Tato učebna je archivovaná — nová zadání a přijímání zadání studenty jsou zakázána. Chcete-li provádět změny, zrušte její archivaci v <settingsLink>nastavení učebny</settingsLink>.",
+    "studentViewAll": "Zobrazit všechna zadání pro učebnu <classroom>{{classroom}}</classroom>."
   },
   "published": {
     "pageHeading": "Publikované zdroje",
-    "pageSubheadingPrefix": "Vše veřejně poskytované ze stránky GitHub Pages organizace",
-    "pageSubheadingSuffix": ".",
     "copyUrl": "Kopírovat URL",
     "openUrl": "Otevřít URL",
     "optional": "Volitelné",
@@ -905,14 +924,12 @@
     "publicPath": "Veřejná cesta",
     "resourceCount_one": "{{count}} publikovaný zdroj",
     "resourceCount_other": "{{count}} publikovaných zdrojů",
-    "servedUnlistedSuffix": " · poskytováno na neveřejné URL",
     "unlistedWarning": "Tato učebna používá neveřejnou URL: její zdroje jsou poskytovány na neuhodnutelné cestě místo uhodnutelné. Jde o utajení skrze neznámost, nikoli o řízení přístupu — jediným, co data chrání, je odkaz; kdokoli, kdo jej má, si soubor může přečíst, a odkazy mohou uniknout (historie prohlížeče, referery, vyhledávací roboti). Sdílejte odkaz pro přijetí jednotlivého úkolu nebo příkaz CLI (které obsahují klíč) ze stránky každého úkolu.",
     "banner": {
       "title": "Vše níže je veřejně poskytováno přes internet",
       "body": "Váš konfigurační repozitář classroom50 je soukromý, ale jeho stránka GitHub Pages je záměrně veřejná — studenti i autograder tyto soubory načítají bez ověřování. Publikují se pouze soubory z níže uvedeného seznamu povolených; cokoli dalšího v repozitáři (váš seznam studentů, interní pole učebny, servisní token) zůstává soukromé. Učebna může použít neveřejnou URL, aby své soubory ztížila k nalezení, ale to je utajení skrze neznámost, nikoli řízení přístupu — soubory jsou stále veřejné pro každého, kdo má odkaz."
     },
     "orgLevel": "Na úrovni organizace",
-    "orgLevelServedPrefix": "Poskytováno v kořeni organizace",
     "perClassroom": "Podle učebny",
     "perClassroomDescription": "Manifesty úkolů a autogradery pro každou učebnu.",
     "noClassrooms": "Zatím žádné učebny. Jakmile nějakou vytvoříte a publikuje se, její zdroje se zobrazí zde.",
@@ -957,18 +974,19 @@
         "label": "Shim workflow autograderu — {{name}}",
         "description": "Nevýchozí shim workflow autograderu načtený, když student přijme úkol, který přepisuje výchozí spouštěč."
       }
-    }
+    },
+    "orgLevelServed": "Poskytováno z kořene <path>{{base}}/</path>.",
+    "pageSubheading": "Vše veřejně poskytované z webu GitHub Pages organizace <orgLink>{{org}}</orgLink>.",
+    "servedUnlistedNote": " · poskytováno na neuvedené adrese URL"
   },
   "getStarted": {
     "badge": "Registrace",
     "continueToAssignment": "Pokračovat k úloze",
     "notInvited": {
       "title": "Zatím tu není nic k vyřízení",
-      "body_prefix": "Nenašli jsme pozvánku pro váš účet do organizace",
-      "body_suffix": ".",
       "waitingTitle": "Čekání na pozvánku",
-      "waitingBody_prefix": "Pokud vás váš vyučující pozval do",
-      "waitingBody_suffix": ", zkontrolujte si e-mail s pozvánkou od GitHubu a přijměte ji, poté se vraťte na tuto stránku a obnovte ji. Jinak tu právě teď nemusíte nic dělat."
+      "body": "Pro váš účet se nepodařilo najít pozvánku do organizace <org>{{org}}</org>.",
+      "waitingBody": "Pokud vás učitel pozval do <classroom>{{classroom}}</classroom>, zkontrolujte svůj e-mail, zda tam není pozvánka od GitHubu, přijměte ji a poté se vraťte na tuto stránku a obnovte ji. Jinak tu právě teď nemáte nic na práci."
     },
     "active": {
       "goToClassroom": "Přejít do vaší třídy",
@@ -1004,34 +1022,23 @@
     "heading": "Nastavení úlohy",
     "editSuccess": "Vaše změny byly uloženy a publikují se na studentský web — průběh sleduje banner výše.",
     "loading": "Načítání úlohy",
-    "archivedNotice_prefix": "Tato učebna je archivovaná — její úlohy jsou jen ke čtení. Zrušte archivaci v",
-    "archivedNotice_link": "Nastavení učebny",
-    "archivedNotice_suffix": "a budete moci úlohy upravovat.",
-    "notAccepted_prefix": "Tuto úlohu ještě nemáte! Nepotřebujete ji nejprve",
-    "notAccepted_link": "přijmout",
-    "notAccepted_suffix": "?",
-    "individual_prefix": "Toto je individuální úloha — nejsou zde žádná nastavení skupiny, která by se dala spravovat. Zobrazte si své",
-    "individual_link": "odevzdání a výsledky autohodnocení",
-    "individual_suffix": ".",
     "groupMembers": "Členové skupiny",
     "viewRepository": "Zobrazit repozitář",
-    "collaboratorsHint_prefix": "Přidejte nebo odeberte spolupracovníky pro tento repozitář úlohy. Tato úloha umožňuje nejvýše",
-    "collaboratorsHint_suffix_one": "studenta navíc kromě vlastníka skupiny.",
-    "collaboratorsHint_suffix_other": "studentů navíc kromě vlastníka skupiny.",
-    "manageCollaborators": "Spravovat spolupracovníky"
+    "manageCollaborators": "Spravovat spolupracovníky",
+    "archivedNotice": "Tato učebna je archivovaná — její zadání jsou pouze ke čtení. Chcete-li zadání upravovat, zrušte archivaci v <settingsLink>nastavení učebny</settingsLink>.",
+    "collaboratorsHint_one": "Přidejte nebo odeberte spolupracovníky pro toto repozitář zadání. Toto zadání umožňuje kromě vlastníka skupiny nejvýše <count>{{count}}</count> studenta.",
+    "collaboratorsHint_other": "Přidejte nebo odeberte spolupracovníky pro toto repozitář zadání. Toto zadání umožňuje kromě vlastníka skupiny nejvýše <count>{{count}}</count> studentů.",
+    "individual": "Toto je individuální zadání — nejsou zde žádná skupinová nastavení ke správě. Zobrazte si své <submissionLink>odevzdání a výsledky autograderu</submissionLink>.",
+    "notAccepted": "Toto zadání ještě nemáte! Nepotřebujete jej nejprve <acceptLink>přijmout</acceptLink>?"
   },
   "orgSettings": {
     "page": {
       "heading": "Nastavení",
-      "subheading_prefix": "Konfigurace na úrovni organizace pro",
-      "subheading_suffix": "."
+      "subheading": "Konfigurace na úrovni organizace pro <orgLink>{{org}}</orgLink>."
     },
     "serviceToken": {
       "title": "Servisní token",
       "infoAria": "Co je to servisní token?",
-      "info_1": "Classroom 50 potřebuje servisní token — jemně odstupňovaný osobní přístupový token (PAT) s přístupem pro čtení i zápis k repozitářům v GitHub organizaci vaší třídy. Ukládá se jako tajný klíč",
-      "info_2": "ve vašem",
-      "info_3": "konfiguračním repozitáři, kde jej pracovní postup pro sběr výsledků používá ke čtení odevzdaných prací studentů a pracovní postup pro přehodnocení jej používá k opětovnému spuštění pracovních postupů automatického hodnocení studentů.",
       "statusPresent": "Servisní token je již nastaven",
       "statusMissing": "Zatím není nastaven žádný servisní token",
       "statusUnknown": "Nepodařilo se ověřit servisní token",
@@ -1045,41 +1052,23 @@
       "validRange": "Platný rozsah je {{min}}–{{max}} dní (maximum GitHubu).",
       "patDescription": "Servisní token pro sběr skóre a přehodnocování v Classroom 50. Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read pro organizaci {{org}}",
       "generateOnGitHub": "Vygenerovat token na GitHubu",
-      "generateHint_prefix": "Otevře formulář GitHubu pro token s předvyplněným názvem, vlastníkem zdroje, platností a oprávněními",
-      "generateHint_permissions": "Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read",
-      "generateHint_suffix": ".",
       "beforeGenerating": "Na stránce GitHubu před vygenerováním tokenu:",
-      "repoAccess_prefix": "Nastavte",
-      "repoAccess_field": "Repository access",
-      "repoAccess_mid": "na",
-      "repoAccess_value": "All repositories",
-      "repoAccess_period": ".",
-      "repoAccess_warning": "„Only select repositories“ přehlédne repozitáře studentů vytvořené později a naruší sběr výsledků.",
-      "permissions_prefix": "V části",
-      "permissions_field": "Permissions",
-      "permissions_confirm": "potvrďte",
-      "permissions_contents": "Contents: Read and write",
-      "permissions_and": "a",
-      "permissions_actions": "Actions: Read and write",
-      "permissions_metadata": "(Metadata: Read je zahrnuto automaticky.)",
-      "permissions_warning": "Read sbírá skóre; write umožňuje workflow přehodnocení znovu spustit studentské autohodnoticí workflow; Members: Read umožňuje sběru vypsat tým třídy.",
       "rotateNote": "Token vyprší po období, které jste nastavili výše. Po jeho vypršení budou pracovní postupy pro sběr výsledků a přehodnocení selhávat, dokud nevygenerujete nový token a znovu jej zde neuložíte, proto si nastavte připomenutí, abyste jej vyměnili včas.",
       "pasteBelow": "Po vygenerování tokenu na GitHubu jej zkopírujte a vložte níže.",
       "enterNewLabel": "Zadejte nový servisní token",
       "enterLabel": "Zadejte servisní token",
       "placeholder": "Zadejte token (např. github_pat_123...)",
-      "validateHint_prefix": "Před uložením ověříme, že je token platný. Zkontrolujte, že jste zvolili",
-      "validateHint_allRepos": "All repositories",
-      "validateHint_suffix": "při jeho vytváření.",
       "saveError": "Token se nepodařilo ověřit ani uložit.",
       "savedUpdated": "Servisní token ověřen a aktualizován.",
       "savedNew": "Servisní token ověřen a uložen.",
       "validating": "Ověřování…",
       "updateButton": "Aktualizovat servisní token",
       "saveButton": "Uložit servisní token",
-      "permissions_members": "Members: Read",
-      "permissions_members_note": "Members: Read je oprávnění na úrovni organizace, samostatná sekce zobrazená, jakmile je vlastníkem prostředku organizace.",
-      "permissions_administration": "Administration: Read and write"
+      "generateHint": "Otevře formulář tokenu na GitHubu s předvyplněným názvem, vlastníkem zdrojů, platností a oprávněními <permissions>Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read</permissions>.",
+      "info": "Classroom 50 potřebuje servisní token, jemně odstupňovaný osobní přístupový token (PAT) s přístupem ke čtení a zápisu do repozitářů v organizaci GitHub vaší učebny. Je uložen jako tajemství <secret>CLASSROOM50_SERVICE_TOKEN</secret> ve vašem konfiguračním repozitáři <repo>classroom50</repo>, kde jej pracovní postup shromažďování skóre používá ke čtení studentských odevzdání a pracovní postup přehodnocení k opětovnému spuštění studentských pracovních postupů automatického hodnocení.",
+      "permissions": "V části <field>Permissions</field> potvrďte <perm>Contents: Read and write</perm>, <perm>Actions: Read and write</perm>, <perm>Administration: Read and write</perm> a <perm>Members: Read</perm> (Metadata: Read je zahrnuto automaticky.) <note>Members: Read je oprávnění organizace, samostatná sekce, která se zobrazí, jakmile je vlastníkem zdrojů organizace.</note> <note>Read shromažďuje skóre; write umožňuje pracovnímu postupu přehodnocení znovu spouštět studentské pracovní postupy automatického hodnocení; Members: Read umožňuje při shromažďování vypsat tým učebny.</note>",
+      "repoAccess": "Nastavte <field>Repository access</field> na <value>All repositories</value>. <note>„Only select repositories“ vynechá studentské repozitáře vytvořené později a naruší shromažďování skóre.</note>",
+      "validateHint": "Před uložením ověříme, že je token platný. Znovu zkontrolujte, že jste při jeho vytváření zvolili <value>All repositories</value>."
     },
     "audit": {
       "title": "Zásady organizace",
@@ -1120,7 +1109,8 @@
       "renameModalBody": "Tímto přejmenujete výchozí větev konfiguračního repozitáře classroom50 na „main“. Pokud už někteří studenti přijali úlohy, jejich workflow automatického hodnocení je navázáno na aktuální název větve a přestane hodnotit, dokud úlohu znovu nepřijmou nebo dokud nepřesměrujete jejich shim. To dělejte raději jen před tím, než studenti úlohy přijmou, nebo buďte připraveni znovu spustit jejich nastavení.",
       "renameModalTitle": "Přejmenovat výchozí větev konfiguračního repozitáře na main?",
       "renameToMain": "Přejmenovat na main",
-      "renameError": "Nepodařilo se přejmenovat výchozí větev konfiguračního repozitáře. Možná nemáte oprávnění vlastníka, nebo přejmenování neproběhlo — zkuste to znovu."
+      "renameError": "Nepodařilo se přejmenovat výchozí větev konfiguračního repozitáře. Možná nemáte oprávnění vlastníka, nebo přejmenování neproběhlo — zkuste to znovu.",
+      "stateWarn": "Doporučeno"
     },
     "rerun": {
       "title": "Znovu spustit nastavení",
@@ -1134,27 +1124,21 @@
     },
     "teardown": {
       "title": "Nebezpečná zóna",
-      "description_prefix": "Zrušte tuto organizaci smazáním",
-      "description_every": "každého",
-      "description_mid": "repozitáře v ní, včetně",
-      "description_suffix": "konfiguračního repozitáře, a odebráním GitHub týmu každé třídy. To je nevratné.",
       "prepareError": "Plán zrušení se nepodařilo připravit.",
       "preparing": "Příprava…",
       "button": "Zrušit organizaci",
       "confirmText": "delete {{org}}",
       "confirmLabel": "Smazat všechny prostředky",
       "confirmTitle": "Smazat každý repozitář v této organizaci?",
-      "confirmBody_prefix": "Tímto trvale smažete",
-      "confirmBody_reposIn": "repozitářů v organizaci",
-      "confirmBody_including": ", včetně",
-      "confirmBody_deletedLast": "konfiguračního repozitáře (mazán jako poslední)",
-      "confirmBody_andRemove": ", a odeberete",
-      "confirmBody_teams_one": "tým třídy",
-      "confirmBody_teams_other": "týmy tříd",
-      "confirmBody_cannotUndo": ". Tuto akci nelze vrátit zpět.",
       "repositoriesHeading": "Repozitáře",
       "classroomTeamsHeading": "Týmy tříd",
-      "executeError": "Zrušení selhalo. Některé repozitáře nemusely být smazány."
+      "executeError": "Zrušení selhalo. Některé repozitáře nemusely být smazány.",
+      "confirmBodyCannotUndo": "Toto nelze vrátit zpět.",
+      "confirmBodyTeams_one": "Odebere také <count>{{count}}</count> tým učebny.",
+      "confirmBodyTeams_other": "Odebere také <count>{{count}}</count> týmů učeben.",
+      "confirmBody_one": "Tímto trvale smažete <count>{{count}}</count> repozitář v <org>{{org}}</org>, včetně konfiguračního repozitáře <repo>classroom50</repo> (smazán poslední).",
+      "confirmBody_other": "Tímto trvale smažete <count>{{count}}</count> repozitářů v <org>{{org}}</org>, včetně konfiguračního repozitáře <repo>classroom50</repo> (smazán poslední).",
+      "description": "Zrušte tuto organizaci smazáním <strong>každého</strong> repozitáře v ní, včetně konfiguračního repozitáře <repo>classroom50</repo>, a odebráním GitHub týmu každé učebny. Toto je nevratné."
     },
     "preflight": {
       "categoryServiceToken": "servisní token",
@@ -1162,9 +1146,7 @@
       "title": "Předběžná kontrola organizace selhala",
       "body_one": "Byl nalezen problém s částí {{categories}} této organizace.",
       "body_other": "Byly nalezeny problémy s částí {{categories}} této organizace.",
-      "reviewFixOn": "Zkontrolujte a opravte na",
-      "settingsPageLink": "stránce nastavení organizace",
-      "reviewFixSuffix": "."
+      "reviewFix": "Zkontrolujte a opravte na <settingsLink>stránce nastavení organizace</settingsLink>."
     },
     "overwrite": {
       "title": "Aktualizovat soubory workflow, aby hodnocení dále fungovalo?",
@@ -1172,9 +1154,7 @@
       "cancelLabel": "Teď ne",
       "body_one": "1 soubor workflow/skriptu Classroom 50 ve vašem konfiguračním repozitáři je zastaralý a bude aktualizován:",
       "body_other": "{{count}} souborů workflow/skriptů Classroom 50 ve vašem konfiguračním repozitáři je zastaralých a budou aktualizovány:",
-      "warning_prefix": "Classroom 50 tyto soubory spravuje, takže aktualizace je bezpečná. Ponechání zastaralých souborů může zastavit funkce, jako je autohodnocení. Pokud jste soubor upravili, zvolte",
-      "keepMine": "Teď ne",
-      "warning_suffix": "pro jeho ponechání beze změny."
+      "warning": "Classroom 50 tyto soubory spravuje, takže aktualizace je bezpečná. Ponechání zastaralých souborů může zastavit fungování funkcí, jako je autograder. Pokud jste soubor upravili, zvolte <keepMine>Teď ne</keepMine> a ponechte jej prozatím tak, jak je."
     },
     "steps": {
       "whyLabel": "Proč:",
@@ -1240,7 +1220,41 @@
         "what": "Vytvoří sady pravidel organizace, které chrání repozitáře tříd a úloh.",
         "why": "Sady pravidel vynucují ochranná opatření třídy (chráněné větve, omezené mazání) napříč každým repozitářem, který organizace vytvoří.",
         "remediation": "Otevřete stránku sad pravidel organizace k jejich kontrole, nebo znovu spusťte nastavení pro opětovné použití. Sady pravidel mohou vyžadovat GitHub Team nebo Enterprise."
+      },
+      "orgBudget": {
+        "remediation": "Otevřete nastavení fakturačních rozpočtů organizace a nastavte rozpočet GitHub Actions ve výši 0 $ se zapnutou volbou „prevent further usage“ (vyžaduje přístup Organization Administration).",
+        "title": "Strop výdajů na Actions",
+        "what": "Vytvoří strop výdajů na GitHub Actions ve výši 0 $ (pouze pokud žádný neexistuje).",
+        "why": "Pevný rozpočet 0 $ blokuje placené minuty Actions, takže rozjetý pracovní postup automatického hodnocení nemůže nahromadit účet. Existující rozpočet, který jste nastavili, zůstane nedotčen."
       }
+    },
+    "actions": {
+      "applying": "Aktualizuje se…",
+      "budgetAmount": "Rozpočet výdajů: ${{amount}}.",
+      "budgetHardStop": "Nastaven pevný rozpočet 0 $ — placené minuty jsou blokovány.",
+      "budgetManage": "Spravovat rozpočty",
+      "budgetNone": "Není nastaven žádný rozpočet výdajů.",
+      "confirmBody": "Studentská odevzdání nebudou hodnocena, dokud nebudete pokračovat. Konfigurační repozitář classroom50 funguje dál. Kdykoli vratné.",
+      "confirmButton": "Pozastavit automatické hodnocení",
+      "confirmTitle": "Pozastavit automatické hodnocení pro celou organizaci?",
+      "description": "Pozastavte automatické hodnocení v celé organizaci a zastavte tak výdaje na Actions. Správa kurzu funguje dál.",
+      "disabledNotice": "Actions jsou pro celou organizaci vypnuté, takže nic neběží. Znovu spusťte nastavení organizace nebo povolte Actions na GitHubu.",
+      "loading": "Kontroluje se stav…",
+      "openSettings": "Otevřít nastavení Actions",
+      "pausedNotice": "Pozastaveno — studentské pushe se nehodnotí. Opětovné spuštění nastavení organizace nezruší pozastavení, dokud toto nevypnete.",
+      "statusActive": "Automatické hodnocení zapnuto",
+      "statusDisabled": "Actions vypnuty",
+      "statusPaused": "Automatické hodnocení pozastaveno",
+      "title": "GitHub Actions",
+      "toggleFailed": "Nepodařilo se aktualizovat oprávnění Actions: {{message}}",
+      "toggleHint": "Zapnutím této volby přestanou být studentské pushe hodnoceny (žádné minuty Actions). Konfigurační repozitář classroom50 funguje dál. Vypnutím obnovíte hodnocení.",
+      "toggleLabel": "Pozastavit automatické hodnocení pro všechny studentské repozitáře",
+      "unknownNotice": "Nepodařilo se přečíst oprávnění Actions této organizace — možná nemáte práva vlastníka nebo je řídí enterprise politika.",
+      "usageCost": "${{amount}} účtováno tento měsíc.",
+      "usageMinutes": "{{minutes}} min využito",
+      "usageOfIncluded": "{{used}} min využito / {{included}} min zahrnuto",
+      "usageOverQuota": "{{over}} minut nad zahrnutou kvótu.",
+      "usageTitle": "Minuty Actions tento měsíc"
     }
   },
   "classes": {
@@ -1251,15 +1265,10 @@
     "loadingClassroom": "Načítání učebny",
     "configRepo": "Konfigurační repozitář",
     "configRepoTitle": "Otevřít složku této učebny v konfiguračním repozitáři classroom50 na GitHubu",
-    "settingsSubtitle_prefix": "Konfigurace učebny",
-    "settingsSubtitle_suffix": ".",
     "somethingWentWrong": "něco se pokazilo",
     "archivedReadOnlyNotice": "Tato učebna je archivována — nastavení je pouze pro čtení. Chcete-li provést změny, použijte výše tlačítko Zrušit archivaci.",
     "deleteClassroomAria": "Smazat učebnu",
     "deleteClassroomTitle": "Smazat učebnu?",
-    "deleteClassroomBody_1": "Tímto odeberete učebnu",
-    "deleteClassroomBody_2": "z organizace",
-    "deleteClassroomBody_3": ". Repozitáře úloh studujících nebudou smazány.",
     "deleteClassroomConfirm": "Smazat učebnu",
     "deleteClassroomCancel": "Ponechat učebnu",
     "archive": "Archivovat",
@@ -1268,10 +1277,6 @@
     "unarchiveTitle": "Zrušit archivaci učebny",
     "archiveConfirmTitle": "Archivovat učebnu?",
     "unarchiveConfirmTitle": "Zrušit archivaci učebny?",
-    "archiveBody_prefix": "Archivovat učebnu",
-    "archiveBody_suffix": ": vypadne z výchozího seznamu učeben a přestane přijímat nové úlohy a studenty. Její seznam studentů a úlohy zůstanou zachovány a později ji můžete znovu obnovit z archivu.",
-    "unarchiveBody_prefix": "Obnovit učebnu",
-    "unarchiveBody_suffix": "na aktivní: vrátí se do výchozího seznamu učeben a může znovu přijímat nové úlohy a studenty.",
     "archivedToast": "Učebna „{{classroom}}“ byla archivována.",
     "unarchivedToast": "Archivace učebny „{{classroom}}“ byla zrušena.",
     "archiveFailed": "Nepodařilo se archivovat učebnu „{{classroom}}“: {{error}}",
@@ -1296,11 +1301,10 @@
     },
     "join": {
       "title": "Připojit se k této učebně",
-      "body_prefix": "Máte čekající pozvánku k připojení do organizace",
-      "body_suffix": ". Přijetím pozvánky získáte přístup k úlohám své učebny.",
       "error": "Nepodařilo se připojit k organizaci. Zkuste to prosím znovu.",
       "joining": "Připojování...",
-      "joinButton": "Připojit se k organizaci"
+      "joinButton": "Připojit se k organizaci",
+      "body": "Máte nevyřízenou pozvánku ke vstupu do <org>{{org}}</org>. Pozvánku přijměte, abyste získali přístup k zadáním své učebny."
     },
     "filter": {
       "active": "Aktivní",
@@ -1345,8 +1349,7 @@
       "heading": "Personál a role",
       "githubTeams": "Týmy na GitHubu",
       "githubTeamsTitle": "Otevřít týmy této organizace na GitHubu",
-      "description": "Vyučující a TA získávají zápisový přístup ke konfiguraci Classroom 50 této organizace. TA vidí stejný obsah učebny jako vyučující, ale nastavení organizace a učebny zůstávají přístupná pouze vyučujícím.",
-      "roleTa": "Asistent",
+      "description": "Učitelé a hlavní asistenti získají přístup k zápisu do konfigurace Classroom 50 této organizace; asistenti získají přístup pouze ke čtení. Asistenti a hlavní asistenti vidí stejný obsah učebny jako učitelé, ale nastavení organizace a učebny zůstávají přístupná pouze učitelům.",
       "roleTaPlural": "Asistenti",
       "enterUsername": "Zadejte uživatelské jméno na GitHubu.",
       "noSuchUser": "Takový uživatel na GitHubu neexistuje.",
@@ -1369,8 +1372,16 @@
       "resendEmailOnly": "Tato pozvánka nemá uživatelské jméno na GitHubu, takže ji nelze znovu odeslat. Zrušte ji a osobu přidejte znovu.",
       "resendFailed": "Nepodařilo se znovu odeslat pozvánku pro {{who}}: {{error}}",
       "resentToast": "Pozvánka pro {{who}} byla znovu odeslána.",
-      "roleTeacher": "Vyučující",
-      "roleTeacherPlural": "Vyučující"
+      "roleTeacherPlural": "Vyučující",
+      "accessHeadTa": "Člen organizace. Přístup k zápisu do konfiguračního repozitáře.",
+      "accessTa": "Člen organizace. Přístup pouze ke čtení do konfiguračního repozitáře.",
+      "accessTeacher": "Vlastník organizace. Přístup k zápisu do konfiguračního repozitáře.",
+      "pendingCount_one": "{{count}} nevyřízená",
+      "pendingCount_other": "{{count}} nevyřízených",
+      "removeSelfTeacherBlocked": "Ze svého týmu učitelů se nemůžete odebrat sami — zrušilo by to váš vlastní přístup na úrovni vlastníka k této učebně. Požádejte jiného vlastníka organizace, aby vás odebral.",
+      "roleHeadTaPlural": "Hlavní asistenti",
+      "viewTeamTitle": "Otevřít tým {{role}} na GitHubu",
+      "you": "Vy"
     },
     "card": {
       "actionsAria": "Akce pro {{name}}",
@@ -1408,14 +1419,13 @@
         "studentCount": "Počet studentů",
         "term": "Období"
       },
-      "sortPrefix": "Řadit",
       "termLabel": "Filtrovat podle období",
-      "termPrefix": "Období",
       "view": {
         "gridLabel": "Zobrazení v mřížce",
         "label": "Zobrazení",
         "listLabel": "Zobrazení v seznamu"
-      }
+      },
+      "term": "Období"
     },
     "claimTeacher": {
       "action": "Přidat se jako vyučující",
@@ -1441,7 +1451,11 @@
           "nameAsc": "Název (A–Z)"
         }
       }
-    }
+    },
+    "archiveBody": "Archivovat <classroom>{{classroom}}</classroom>: vypadne z výchozího seznamu učeben a přestane přijímat nová zadání a studenty. Její seznam členů a zadání se zachovají a archivaci můžete později zrušit.",
+    "deleteClassroomBody": "Tímto odeberete učebnu <classroom>{{classroom}}</classroom> z organizace <org>{{org}}</org>. Repozitáře studentských zadání nebudou smazány.",
+    "settingsSubtitle": "Konfigurace pro učebnu <classroom>{{classroom}}</classroom>.",
+    "unarchiveBody": "Obnovit <classroom>{{classroom}}</classroom> do aktivního stavu: vrátí se do výchozího seznamu učeben a může opět přijímat nová zadání a studenty."
   },
   "accept": {
     "githubUser": "Uživatel GitHubu",
@@ -1466,12 +1480,10 @@
     "notFound": {
       "badge": "Úloha není dostupná",
       "title": "Úloha nenalezena",
-      "body_prefix": "Nepodařilo se nám najít úlohu odpovídající",
-      "body_suffix": "v této třídě. Odkaz může být nesprávný nebo úloha ještě nemusí být zveřejněna.",
       "unableToLoad": "Úlohu nelze načíst",
       "expectedSlug": "Očekávaný slug úlohy:",
-      "checkUrl_prefix": "Zkontrolujte, že je adresa URL správná, nebo požádejte vyučujícího, aby potvrdil, že tato úloha byla přidána do",
-      "checkUrl_suffix": "."
+      "body": "Nepodařilo se najít zadání odpovídající <assignment>{{assignment}}</assignment> v této učebně. Odkaz může být nesprávný, nebo zadání ještě nebylo publikováno.",
+      "checkUrl": "Zkontrolujte, zda je adresa URL správná, nebo požádejte svého učitele, aby potvrdil, že bylo toto zadání přidáno do souboru <file>assignments.json</file>."
     },
     "steps": {
       "account": "Ověřování vašeho účtu GitHub",
@@ -1510,13 +1522,6 @@
     "lateBadge_one": "{{count}} po termínu",
     "lateBadge_other": "{{count}} po termínu",
     "downloadCsv": "Stáhnout skóre (CSV)",
-    "collectionNote": "Odevzdání se sbírají automaticky, ale nová se mohou objevit až za 24 hodin.",
-    "lastCollected": "Naposledy sesbíráno (v rámci organizace) {{when}}.",
-    "updated": "Aktualizováno {{when}}",
-    "refresh": "Obnovit odevzdání",
-    "dashboard": {
-      "never": "nikdy"
-    },
     "errors": {
       "gradebookLoad": "Nepodařilo se načíst klasifikaci.",
       "gradebookLoadWithReason": "Nepodařilo se načíst klasifikaci: {{reason}}",
@@ -1554,16 +1559,14 @@
       "titleRegrading": "Přehodnocení již probíhá",
       "statusDispatching": "Spouští se přehodnocení…",
       "statusRunning": "Přehodnocení probíhá. Autograder se znovu spouští pro každý odevzdaný repozitář; sběr je pozastaven, dokud neskončí.",
-      "statusCompleted_prefix": "Přehodnocení spuštěno — každý repozitář se přehodnocuje na pozadí. Klikněte na",
-      "statusCompleted_suffix": "za pár minut pro načtení nového bodování.",
       "statusFailed": "Běh přehodnocení se nepodařilo úspěšně spustit.",
       "statusFailedWithReason": "Přehodnocení se nepodařilo spustit: {{reason}}",
       "statusFailedHint": "Zkontrolujte workflow na GitHubu a zkuste to znovu.",
       "statusTimeout": "Přehodnocení se registruje delší dobu. Zkontrolujte jeho průběh na GitHubu.",
       "confirmTitle": "Přehodnotit všechna odevzdání pro „{{name}}“?",
       "confirmBody1": "Tímto se znovu spustí autograder na posledním commitu každého odevzdaného repozitáře — užitečné po opravě testu nebo aktualizaci autograderu. Časy odevzdání se nemění.",
-      "confirmBody2_prefix": "Hodnocení běží na pozadí a může trvat několik minut; poté použijte",
-      "confirmBody2_suffix": "pro načtení nového bodování."
+      "confirmBody2": "Hodnocení běží na pozadí a může trvat několik minut; poté použijte <collectLabel>{{collectLabel}}</collectLabel> k načtení nových skóre.",
+      "statusCompleted": "Přehodnocení zahájeno — každý repozitář se přehodnocuje na pozadí. Za pár minut klikněte na <collectLabel>{{collectLabel}}</collectLabel> k načtení nových skóre."
     },
     "accept": {
       "heading": "Jak studenti úlohu přijmou",
@@ -1583,11 +1586,11 @@
       "showFailing": "Zobrazit neúspěšné studenty",
       "failingCount_one": "{{count}} neúspěšný",
       "failingCount_other": "{{count}} neúspěšných",
-      "ungradedSuffix_one": ", {{count}} neohodnocený",
-      "ungradedSuffix_other": ", {{count}} neohodnocených",
       "showAcceptedNotSubmitted": "Zobrazit studenty, kteří úlohu přijali, ale neodevzdali",
       "notYetSubmitted_one": "{{count}} zatím neodevzdal",
-      "notYetSubmitted_other": "{{count}} zatím neodevzdalo"
+      "notYetSubmitted_other": "{{count}} zatím neodevzdalo",
+      "ungradedNote_one": ", {{count}} neohodnocen",
+      "ungradedNote_other": ", {{count}} neohodnoceno"
     },
     "filters": {
       "searchGroupPlaceholder": "Hledat skupinu nebo člena…",
@@ -1652,9 +1655,6 @@
       "submittedBy": "od {{name}}",
       "review": "Zkontrolovat",
       "reviewAria": "Otevřít pull request se zpětnou vazbou",
-      "fullHistory_prefix": "Otevřete",
-      "fullHistory_link": "repozitář",
-      "fullHistory_suffix": "pro úplnou historii commitů.",
       "acceptedAwaiting": "Přijato · čeká na odevzdání",
       "emptyClearFilters": "Vymazat filtry",
       "emptyFilteredBody": "Zkuste jiné hledání nebo vymažte filtry, abyste viděli všechny.",
@@ -1664,14 +1664,22 @@
       "noGroup": "Není v započítané skupině",
       "noGroupTitle": "Tento student není započítán v repozitáři žádné odevzdávající skupiny. Členství ve skupině se čte ze spolupracovníků každého repozitáře v době sběru, takže student, který se nikdy nepřipojil ke skupině — nebo jehož členství ve skupině nebylo možné při posledním sběru přečíst — se objeví zde. Před hodnocením otevřete repozitáře skupin pro ověření.",
       "notAccepted": "Nepřijato",
-      "noGradingTitle": "Automatické hodnocení je pro tuto úlohu vypnuto"
+      "noGradingTitle": "Automatické hodnocení je pro tuto úlohu vypnuto",
+      "fullHistory": "Otevřete <repoLink>repozitář</repoLink> pro úplnou historii commitů.",
+      "liveLatest": "Poslední push {{date}} · zatím neohodnoceno",
+      "liveLatestTitle": "Po posledním shromáždění bylo odesláno novější odevzdání, takže ještě není ohodnoceno. Spusťte „Synchronizovat odevzdání nyní“ k jeho ohodnocení a obodování.",
+      "loading": "Načítání odevzdání…",
+      "pendingGrade": "Čeká se",
+      "pendingGradeTitle": "Odevzdáno — hodnocení zatím neshromážděno. Spusťte „Synchronizovat odevzdání nyní“ nebo počkejte na noční shromáždění.",
+      "resolvingNonSubmitters": "Zjišťuje se, kdo ještě neodevzdal…",
+      "staleCount": "Nové",
+      "staleCountTitle": "Tento student odeslal push více odevzdání, než kolik bylo ohodnoceno. Spusťte „Synchronizovat odevzdání nyní“ k ohodnocení a obodování nejnovějšího."
     },
     "reviewModal": {
       "errorTitle": "Nepodařilo se zkontrolovat pull request se zpětnou vazbou",
       "emptyTitle": "Zatím žádný pull request se zpětnou vazbou",
-      "emptyBody_prefix": "Pro",
-      "emptyBody_suffix": "zatím nebyl otevřen žádný pull request se zpětnou vazbou. Vytváří jej autograde workflow úlohy po ohodnoceném odevzdání — pokud student neodevzdal (nebo má úloha vypnutý pull request se zpětnou vazbou), není zatím co kontrolovat.",
-      "openRepoPrs": "Otevřít pull requesty repozitáře"
+      "openRepoPrs": "Otevřít pull requesty repozitáře",
+      "emptyBody": "Pro <repo>{{repo}}</repo> zatím nebyl otevřen žádný pull request se zpětnou vazbou. Vytváří jej pracovní postup automatického hodnocení zadání po ohodnoceném odevzdání — pokud student neodevzdal (nebo má zadání zpětnovazební PR zakázaný), není zatím co kontrolovat."
     },
     "rowRegrade": {
       "title": "Přehodnotit toto odevzdání",
@@ -1681,11 +1689,10 @@
       "titleFailed": "Přehodnocení se nepodařilo spustit — zkuste to znovu",
       "aria": "Přehodnotit odevzdání uživatele {{owner}}",
       "confirmTitle": "Přehodnotit odevzdání studenta {{name}}?",
-      "confirmBody1_prefix": "Tímto se znovu spustí autograder na posledním commitu studenta",
-      "confirmBody1_suffix": "pro tuto úlohu. Čas odevzdání se nemění.",
-      "confirmBody2_prefix": "Hodnocení běží na pozadí a může trvat několik minut; poté použijte",
-      "confirmBody2_suffix": "pro načtení nového bodování.",
-      "confirmLabel": "Přehodnotit"
+      "confirmLabel": "Přehodnotit",
+      "confirmBody1": "Tímto znovu spustíte autograder na nejnovějším commitu studenta <name>{{name}}</name> pro toto zadání. Čas jeho odevzdání se nemění.",
+      "confirmBody1WithLogin": "Tímto znovu spustíte autograder na nejnovějším commitu studenta <name>{{name}}</name> (<owner>{{owner}}</owner>) pro toto zadání. Čas jeho odevzdání se nemění.",
+      "confirmBody2": "Hodnocení běží na pozadí a může trvat několik minut; poté použijte <collectLabel>{{collectLabel}}</collectLabel> k načtení nového skóre."
     },
     "student": {
       "submittedAt": "Odevzdáno {{date}}",
@@ -1694,10 +1701,7 @@
       "modeGroup": "Skupinová",
       "modeIndividual": "Individuální",
       "loadError": "Nepodařilo se načíst vaše odevzdání.",
-      "notAccepted_prefix": "Tuto úlohu jste zatím nepřijali.",
-      "notAccepted_link": "Přijměte ji",
-      "notAccepted_suffix": "pro získání vašeho repozitáře a pak nahrajte svou práci k ohodnocení.",
-      "noGradedYet": "Zatím žádné ohodnocené odevzdání. Nahrajte commit do svého repozitáře úlohy a autograder zde zveřejní váš výsledek.",
+      "noGradedYet": "Zatím žádné ohodnocené odevzdání. Nahrajte své soubory výše, nebo odešlete push do repozitáře svého zadání z příkazové řádky — autograder zde publikuje váš výsledek.",
       "openMyRepo": "Otevřít můj repozitář",
       "releasesIntro": "Každé odevzdání otevře své ohodnocené vydání na GitHubu s vaším skóre a výsledky jednotlivých testů.",
       "fallbackTitle": "Odevzdání",
@@ -1708,7 +1712,8 @@
         "copySubmit": "Kopírovat příkaz submit",
         "step1": "Naklonujte si repozitář úlohy (jednou):",
         "step2": "Zevnitř repozitáře odevzdejte svou práci k hodnocení:",
-        "title": "Jak odevzdat"
+        "title": "Dáváte přednost příkazové řádce?",
+        "intro": "Místo nahrávání výše můžete odevzdat i z terminálu."
       },
       "upload": {
         "addFiles": "Přidat soubory",
@@ -1733,24 +1738,35 @@
         "success": "Nahráno. Hodnocení probíhá na pozadí; váš výsledek se zde brzy objeví.",
         "title": "Nahrát odevzdání",
         "unsafePath": "Přeskočeno „{{name}}“ — jeho cesta není povolena."
-      }
+      },
+      "notAccepted": "Toto zadání jste ještě nepřijali. <acceptLink>Přijměte jej</acceptLink>, abyste získali svůj repozitář, a poté odešlete svou práci push k ohodnocení."
     },
-    "viewSourceRepo": "Zobrazit zdrojový repozitář",
-    "justNow": "právě teď",
+    "viewSourceRepo": "Zobrazit šablonu",
     "menu": {
       "actions": "Akce",
-      "invite": "Odkaz pro pozvání",
-      "metrics": "Metriky"
+      "metrics": "Metriky",
+      "share": "Sdílet"
     },
     "metrics": {
       "title": "Metriky odevzdání"
     },
-    "emptyRepoNote": "Tato úloha používá prázdné repozitáře — automatické hodnocení, skóre a pull request se zpětnou vazbou jsou vypnuty. Studenti si vytvářejí a nahrávají vlastní práci; tabulka níže ukazuje, kdo úlohu přijal."
+    "emptyRepoNote": "Tato úloha používá prázdné repozitáře — automatické hodnocení, skóre a pull request se zpětnou vazbou jsou vypnuty. Studenti si vytvářejí a nahrávají vlastní práci; tabulka níže ukazuje, kdo úlohu přijal.",
+    "freshness": {
+      "collected": "Data odevzdání synchronizována {{when}}",
+      "neverCollected": "Data odevzdání zatím nesynchronizována",
+      "refresh": "Obnovit odevzdání",
+      "refreshHelp": "Spusťte Shromáždit skóre pro opětovné sestavení scores.json z nejnovějších pushů",
+      "refreshing": "Shromažďuje se…",
+      "sync": "Synchronizovat nyní",
+      "syncHelp": "Nové pushe do repozitářů zadání od posledního shromáždění. Spusťte Shromáždit skóre pro opětovné sestavení scores.json a ohodnocení nejnovější práce."
+    },
+    "live": {
+      "incomplete_one": "{{count}} repozitář se nepodařilo přečíst, takže živý stav odevzdání může být neúplný. Zkuste to znovu nebo spusťte „Synchronizovat odevzdání nyní“.",
+      "incomplete_other": "{{count}} repozitářů se nepodařilo přečíst, takže živý stav odevzdání může být neúplný. Zkuste to znovu nebo spusťte „Synchronizovat odevzdání nyní“."
+    }
   },
   "orgMembers": {
     "heading": "Členové",
-    "subtitlePrefix": "Všichni v organizaci",
-    "subtitleSuffix": "na GitHubu a třídy, do kterých patří.",
     "manageMembersOnGitHub": "Spravovat členy organizace na GitHubu",
     "discrepancy_one": "{{count}} student je na seznamu, ale není členem organizace.",
     "discrepancy_other": "{{count}} studentů je na seznamu, ale nejsou členy organizace.",
@@ -1766,26 +1782,15 @@
     "badgeNoClassroom": "Žádná třída",
     "badgeMember": "Člen",
     "noGitHubUsername": "žádné uživatelské jméno na GitHubu",
-    "idSuffix": "· id {{id}}",
     "detailTitle": "Podrobnosti o členovi",
     "manageOnGitHub": "Spravovat na GitHubu",
     "classroomAccess": "Přístup ke třídám",
     "noRoster": "Není na žádném seznamu třídy.",
     "archived": "archivováno",
     "selfNotice": "Toto je váš přihlášený účet, takže jej odtud nelze z organizace odebrat.",
-    "notMemberPrefix": "{{label}} je na seznamu třídy, ale",
-    "notMemberEmphasis": "není členem organizace",
-    "notMemberSuffix": ". Pozvěte je, abyste jim obnovili přístup. Pozvánka se odesílá na jejich účet GitHub podle id, takže funguje, i když se změnilo jejich uživatelské jméno.",
     "inviting": "Odesílání pozvánky…",
     "inviteToOrg": "Pozvat do organizace",
     "notMemberNoId": "Tento student je na seznamu, ale není členem organizace. Nemá zatím uložené žádné id na GitHubu, proto jej pozvěte ze stránky Studenti jeho třídy.",
-    "confirmUnenrollPrefix": "{{label}} bude nejprve odhlášen(a) z",
-    "confirmClassroomCount_one": "{{count}} třídy",
-    "confirmClassroomCount_other": "{{count}} tříd",
-    "confirmUnenrollMid": "({{classrooms}}) a poté odebrán(a) z organizace",
-    "confirmUnenrollSuffix": ". Jejich repozitáře s úkoly nebudou smazány.",
-    "confirmRemovePrefix": "{{label}} bude odebrán(a) z organizace",
-    "confirmRemoveSuffix": ".",
     "removing": "Odebírání…",
     "removeFromOrg": "Odebrat z organizace",
     "inviteFailed": "Nepodařilo se pozvat {{label}}: {{reason}}",
@@ -1855,7 +1860,14 @@
     "unprovisionedAccessBadge": "Není v týmu",
     "unprovisionedAccessTitle": "Je v seznamu této třídy, ale ne v jejím týmu GitHub — sběr klasifikace by je vynechal. Opravíte to opětovným přidáním do třídy.",
     "unprovisionedBadge": "Nezapsán",
-    "unprovisionedTitle": "Je v seznamu, ale ne v týmu třídy: {{classrooms}}. Sběr klasifikace se řídí týmem, takže by byli vynecháni. Opravíte to opětovným přidáním do třídy."
+    "unprovisionedTitle": "Je v seznamu, ale ne v týmu třídy: {{classrooms}}. Sběr klasifikace se řídí týmem, takže by byli vynecháni. Opravíte to opětovným přidáním do třídy.",
+    "confirmRemove": "{{label}} bude odebrán(a) z organizace <org>{{org}}</org>.",
+    "confirmUnenroll_one": "{{label}} bude nejprve odhlášen(a) z <count>{{count}} učebny</count> ({{classrooms}}) a poté odebrán(a) z organizace <org>{{org}}</org>. Repozitáře jejich zadání nebudou smazány.",
+    "confirmUnenroll_other": "{{label}} bude nejprve odhlášen(a) z <count>{{count}} učeben</count> ({{classrooms}}) a poté odebrán(a) z organizace <org>{{org}}</org>. Repozitáře jejich zadání nebudou smazány.",
+    "noUsernameWithId": "<missing>žádné uživatelské jméno GitHub</missing> <meta>· id {{id}}</meta>",
+    "notMember": "{{label}} je na seznamu členů učebny, ale <emphasis>není členem organizace</emphasis>. Pozvěte je, abyste obnovili jejich přístup. Pozvánka se odesílá na jejich účet GitHub podle id, takže funguje, i když se změnilo jejich uživatelské jméno.",
+    "subtitle": "Všichni v organizaci GitHub <orgLink>{{org}}</orgLink> a učebny, do kterých patří.",
+    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>"
   },
   "components": {
     "avatar": {
@@ -1874,12 +1886,10 @@
     },
     "notices": {
       "emptyRoster": {
-        "hasRows_prefix": "Do organizace",
-        "hasRows_suffix": "se zatím nepřipojil žádný student. Odkaz pro přijetí úkolu funguje pouze pro studenty, kteří jsou členy organizace, takže pozvaní studenti musí nejprve přijmout svou pozvánku.",
-        "empty_prefix": "Tato třída zatím nemá žádné studenty. Odkaz pro přijetí úkolu funguje pouze pro studenty, kteří jsou členy organizace",
-        "empty_suffix": ", proto před jeho sdílením studenty přidejte a zapište.",
         "manageRoster": "Spravovat seznam",
-        "addStudents": "Přidat studenty"
+        "addStudents": "Přidat studenty",
+        "empty": "Tato učebna zatím nemá žádné studenty. Odkaz pro přijetí zadání funguje pouze pro studenty, kteří jsou členy organizace <org>{{org}}</org>, proto před jeho sdílením přidejte a zapište studenty.",
+        "hasRows": "Do organizace <org>{{org}}</org> zatím nevstoupili žádní studenti. Odkaz pro přijetí zadání funguje pouze pro studenty, kteří jsou členy organizace, takže pozvaní studenti musí nejprve přijmout svou pozvánku."
       }
     },
     "confirmModal": {
@@ -1888,9 +1898,8 @@
       "yesContinue": "Ano, pokračovat",
       "dangerousPrompt": "Opravdu chcete pokračovat? Tuto akci může být obtížné nebo nemožné vrátit zpět.",
       "genericError": "Něco se pokazilo.",
-      "typeToConfirm_prefix": "Pro potvrzení napište",
-      "typeToConfirm_suffix": "níže.",
-      "typeAriaLabel": "Pro potvrzení napište {{text}}"
+      "typeAriaLabel": "Pro potvrzení napište {{text}}",
+      "typeToConfirm": "Pro potvrzení níže napište <text>{{text}}</text>."
     },
     "modals": {
       "studentProfile": {
@@ -1905,8 +1914,6 @@
         "viewRepository": "Zobrazit repozitář",
         "loading": "Načítání spolupracovníků",
         "saved": "Spolupracovníci uloženi!",
-        "onlyOwner_prefix": "Spolupracovníky tohoto repozitáře může spravovat pouze vlastník skupiny",
-        "onlyOwner_suffix": ".",
         "groupMembers": "Členové skupiny",
         "personCount_one": "{{count}} osoba",
         "personCount_other": "{{count}} osob",
@@ -1937,7 +1944,9 @@
           "addAndRemove": "Některé spolupracovníky se nepodařilo přidat ani odebrat.{{removedNote}} Zkontrolujte zvýrazněná uživatelská jména a opětovným uložením to zkuste znovu.{{suffix}}",
           "add": "Některé spolupracovníky se nepodařilo přidat.{{removedNote}} Zkontrolujte zvýrazněná uživatelská jména a opětovným uložením to zkuste znovu.{{suffix}}",
           "remove": "Některé spolupracovníky se nepodařilo odebrat.{{removedNote}} Zkontrolujte zvýrazněná uživatelská jména a opětovným uložením to zkuste znovu.{{suffix}}"
-        }
+        },
+        "onlyOwner": "Spolupracovníky pro tento repozitář může spravovat pouze vlastník skupiny.",
+        "onlyOwnerNamed": "Spolupracovníky pro tento repozitář může spravovat pouze vlastník skupiny (<owner>{{owner}}</owner>)."
       },
       "reuseShell": {
         "copying": "Kopírování…",
@@ -1951,20 +1960,17 @@
       },
       "reuseAssignment": {
         "title": "Znovu použít úkol",
-        "description_prefix": "Zkopírovat",
-        "description_suffix": "do třídy v {{org}}. Název, šablona, testy, běhové prostředí, termín odevzdání a další nastavení se zkopírují; studentské repozitáře a skóre nikoli.",
         "noTargets": "V {{org}} nejsou žádné třídy, do kterých by bylo možné tento úkol znovu použít. Nejprve vytvořte třídu.",
         "targetClassroom": "Cílová třída",
         "chooseClassroom": "Vyberte třídu…",
         "slugLabel": "Slug v nové třídě",
         "chooseClassroomFirst": "Nejprve vyberte třídu.",
         "uniqueHint": "Musí být jedinečný v rámci cílové třídy.",
-        "thisClassroomOption": "{{classroom}} (tato třída)"
+        "thisClassroomOption": "{{classroom}} (tato třída)",
+        "description": "Zkopírovat <assignment>{{assignment}}</assignment> do učebny v {{org}}. Zkopíruje se název, šablona, testy, běhové prostředí, termín odevzdání a další nastavení; studentské repozitáře a skóre nikoli."
       },
       "reuseFromClassroom": {
         "title": "Znovu použít existující úkol",
-        "description_prefix": "Zkopírovat existující úkol v {{org}} do",
-        "description_suffix": ". Zkopíruje se název, šablona, testy, běhové prostředí, termín odevzdání a další nastavení; repozitáře studentů a bodová hodnocení nikoli.",
         "noSources": "V {{org}} nejsou žádné třídy, ze kterých by bylo možné úkol znovu použít.",
         "sourceClassroom": "Zdrojová třída",
         "chooseClassroom": "Vyberte třídu…",
@@ -1975,7 +1981,8 @@
         "loadError": "Nepodařilo se načíst úkoly pro třídu {{classroom}}.",
         "slugLabel": "Slug ve třídě {{classroom}}",
         "uniqueHint": "Musí být jedinečný v rámci této třídy.",
-        "thisClassroomOption": "{{classroom}} (tato třída)"
+        "thisClassroomOption": "{{classroom}} (tato třída)",
+        "description": "Zkopírovat existující zadání v {{org}} do <classroom>{{classroom}}</classroom>. Zkopíruje se název, šablona, testy, běhové prostředí, termín odevzdání a další nastavení; studentské repozitáře a skóre nikoli."
       }
     }
   },
@@ -2039,19 +2046,17 @@
       "title": "Něco se pokazilo"
     },
     "notAMember": {
-      "body_prefix": "Nepodařilo se nám potvrdit vaše členství v organizaci",
-      "body_suffix": ".",
       "instructions": "Požádejte vyučujícího, aby potvrdil, že vás pozval, a poté tuto stránku znovu načtěte. Pokud jste právě přijali e-mailovou pozvánku, dejte GitHubu chvíli a zkuste to znovu.",
-      "title": "Zatím nejste členem"
+      "title": "Zatím nejste členem",
+      "body": "Nepodařilo se potvrdit vaše členství v organizaci <org>{{org}}</org>."
     },
     "showDetails": "Zobrazit podrobnosti pro vyučujícího",
     "ssoRequired": {
       "authorizeButton": "Autorizovat jednotné přihlášení",
-      "body_prefix": "Organizace",
-      "body_suffix": "vyžaduje jednotné přihlášení SAML (SSO) a vaše aktuální relace pro něj zatím není autorizovaná. Možná už jste členem — stačí před pokračováním autorizovat SSO.",
       "instructionsUrlless": "Otevřete tento odkaz z prostředí školního systému pro řízení výuky (LMS), abyste byli nejprve přihlášeni přes jednotné přihlášení, nebo se znovu ověřte u GitHubu, poté tuto stránku znovu načtěte.",
       "instructionsWithUrl": "Pomocí tlačítka níže autorizujte jednotné přihlášení pro tuto organizaci a poté tuto stránku znovu načtěte.",
-      "title": "Autorizovat jednotné přihlášení"
+      "title": "Autorizovat jednotné přihlášení",
+      "body": "Organizace <org>{{org}}</org> vyžaduje jednotné přihlášení SAML (SSO) a vaše aktuální relace pro něj zatím není autorizována. Možná už jste členem — stačí jen před pokračováním autorizovat SSO."
     }
   },
   "appUpdate": {
@@ -2130,5 +2135,11 @@
     "bodyGeneric": "Classroom 50 má potíže s dostupností GitHubu. Obvykle jde o dočasný výpadek GitHubu, ale může to způsobit i VPN, proxy nebo rozšíření prohlížeče blokující api.github.com.",
     "checkStatusLink": "Zkontrolovat stav GitHubu",
     "title": "GitHub může mít potíže"
+  },
+  "budgetCreated": {
+    "body": "Classroom 50 vytvořil pro tuto organizaci rozpočet výdajů na GitHub Actions ve výši 0 $, takže rozjetý pracovní postup automatického hodnocení nemůže nahromadit účet. Kdykoli jej můžete na GitHubu zvýšit nebo odebrat.",
+    "dismiss": "Rozumím",
+    "manage": "Spravovat rozpočet na GitHubu",
+    "title": "Strop výdajů na Actions nastaven na 0 $"
   }
 }
