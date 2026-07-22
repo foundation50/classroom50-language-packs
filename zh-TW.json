@@ -13,7 +13,16 @@
     "no": "否",
     "openOrgOnGitHub": "在 GitHub 上開啟 {{org}}",
     "yes": "是",
-    "dismissNotification": "關閉通知"
+    "dismissNotification": "關閉通知",
+    "pagination": {
+      "entries": "筆",
+      "navAria": "分頁",
+      "next": "下一頁",
+      "previous": "上一頁",
+      "range": "第 {{from}} 至 {{to}} 筆，共 {{total}} 筆",
+      "show": "顯示",
+      "showAria": "每頁列數"
+    }
   },
   "notFound": {
     "title": "找不到頁面",
@@ -36,9 +45,7 @@
     "expandSidebar": "展開側邊欄",
     "collapseSidebar": "收合側邊欄",
     "allClasses": "所有課程",
-    "allClassesArrow": "‹ 所有課程",
     "allAssignments": "所有作業",
-    "allAssignmentsArrow": "‹ 所有作業",
     "accountMenu": "帳號選單",
     "assignment": "作業",
     "assignments": "作業",
@@ -89,7 +96,11 @@
     "aboutDiagnosticsTitle": "診斷資訊",
     "activity": "動態",
     "roster": "名冊",
-    "roleTeacher": "老師"
+    "roleTeacher": "老師",
+    "allAssignmentsLink": "所有作業",
+    "allClassesLink": "所有課程",
+    "roleHeadTa": "首席助教",
+    "viewAsHeadTa": "首席助教"
   },
   "auth": {
     "signInTitle": "登入",
@@ -111,10 +122,8 @@
     "deviceStep3Hint": "當你在 github.com 上完成授權後，此頁面應會在幾秒內偵測到。",
     "deviceStatus": "第 {{attempts}} 次嘗試 · {{seconds}} 秒後再試 · {{expires}} 後到期",
     "missingScopesTitle": "缺少部分 GitHub 權限",
-    "missingScopesBody_one": "此應用程式需要以下權限範圍",
-    "missingScopesBody_other": "此應用程式需要以下權限範圍",
-    "missingScopesBody_suffix_one": "。在授予之前，某些操作可能會失敗。",
-    "missingScopesBody_suffix_other": "。在授予之前，某些操作可能會失敗。",
+    "missingScopesBody_one": "此應用程式需要 <scopes>{{scopes}}</scopes> 範圍。在授予前，部分操作可能會失敗。",
+    "missingScopesBody_other": "此應用程式需要 <scopes>{{scopes}}</scopes> 範圍。在授予前，部分操作可能會失敗。",
     "reauthorize": "重新授權",
     "reauthorizeHint": "若重新授權仍無法解決此問題，可能需要組織擁有者在組織的 OAuth 政策設定中核准此應用程式。",
     "signedInConfirmed": "已登入 - 你的工作階段有效中",
@@ -175,9 +184,6 @@
     "unenrollStudent": "取消註冊學生",
     "added": "已新增 {{label}}。",
     "somethingWentWrong": "發生錯誤。",
-    "unenrollBodyPrefix": "這將會把學生",
-    "unenrollBodyFrom": "從",
-    "unenrollBodySuffix": "{{classroom}} 課堂中移除。學生的作業儲存庫不會被刪除。",
     "nativeInviteHint": "進階：分享此連結，讓學生可直接在 GitHub 上接受組織邀請。多數學生會改用上方的上線引導連結。",
     "studentInviteLinkAria": "學生邀請連結",
     "copyInviteLinkAria": "複製邀請連結",
@@ -205,8 +211,6 @@
     "emailLabel": "電子郵件",
     "editSectionPlaceholder": "分組（例如：第 3 節）",
     "sectionLabel": "分組",
-    "githubLabel": "GitHub：",
-    "githubIdSuffix": "（id {{id}}）",
     "saving": "正在儲存…",
     "saveChanges": "儲存變更",
     "couldNotReadFile": "無法讀取檔案",
@@ -283,7 +287,7 @@
       "confirmCancelTitle_other": "要取消 {{count}} 個邀請嗎？",
       "memberCount_one": "{{count}} 位成員",
       "memberCount_other": "{{count}} 位成員",
-      "noneSelectable": "這裡沒有可選取的項目——批次操作（取消註冊、邀請）僅適用於學生。老師與 TA 在課程設定中管理。"
+      "noneSelectable": "這裡沒有可選取的項目——批次操作（退出註冊、邀請）僅適用於學生。教職人員（老師、首席助教與助教）在課程設定中管理。"
     },
     "classroomTeamLabel": "課程團隊",
     "confirmResendBody": "要重新傳送待處理的組織邀請給 {{label}} 嗎？他們目前的邀請會被取消，並為 {{org}} 傳送一個新邀請。",
@@ -434,13 +438,27 @@
     "uploadKindUsernameList": "GitHub 使用者名稱（每行一個）",
     "uploadTitle": "上傳",
     "addRoleLabel": "角色",
-    "addStaffHint": "老師與 TA 以 GitHub 使用者名稱加入，並獲得課程設定儲存庫的存取權。老師會被授予組織擁有者權限。",
+    "addStaffHint": "老師、首席助教與助教是以 GitHub 使用者名稱新增。老師與首席助教對課程設定儲存庫有寫入權限；助教為唯讀。老師會被授予組織擁有者身分。",
     "failedInviteNotSent": "未發送邀請給 {{who}}——請再試一次。",
     "failedInviteRateLimited": "GitHub 已限制對 {{who}} 重新發送邀請的頻率——請再試一次。",
     "roleTeacher": "老師",
     "teacherCount_one": "{{count}} 位老師",
     "teacherCount_other": "{{count}} 位老師",
-    "uploadTeacherOwnerNotice": "標記為老師的列將以組織擁有者身分受邀，授予對組織的完全控制權。僅將老師角色指派給你信任賦予擁有者存取權的人。"
+    "uploadTeacherOwnerNotice": "標記為老師的列將以組織擁有者身分受邀，授予對組織的完全控制權。僅將老師角色指派給你信任賦予擁有者存取權的人。",
+    "csvRoster": {
+      "caption": "來自 roster.csv 的 CSV 名冊",
+      "colName": "姓名",
+      "colRole": "角色",
+      "colSection": "分組",
+      "empty": "roster.csv 中尚未列出任何人。",
+      "notice": "來自 roster.csv 的 CSV 名冊（由老師維護）。權威的、以團隊為主的名冊與邀請管理供老師使用。"
+    },
+    "githubIdentity": "GitHub：<username>@{{username}}</username>（id {{id}}）",
+    "githubIdentityNoId": "GitHub：<username>@{{username}}</username>",
+    "headTaCount_one": "{{count}} 位首席助教",
+    "headTaCount_other": "{{count}} 位首席助教",
+    "roleHeadTa": "首席助教",
+    "unenrollBody": "這會將學生 <label>{{label}}</label> 從 <org>{{org}}</org> {{classroom}} 課程中移除。學生的作業儲存庫不會被刪除。"
   },
   "language": {
     "baseName": "英文（基礎）",
@@ -514,24 +532,32 @@
       "refresh": "重新整理清單"
     },
     "card": {
-      "noAccessBadge_prefix": "無",
-      "noAccessBadge_suffix": "存取權",
-      "planTitleFree": "Free 方案 — Classroom 50 需要 Team 或 Enterprise 組織",
       "planTitlePaid": "GitHub 方案 — Classroom 50 可在 Team 和 Enterprise 方案上設定",
       "viewOnGitHub": "在 GitHub 上檢視",
       "openOnGitHub": "在 GitHub 上開啟 {{org}}",
       "open": "開啟",
-      "updatedAgo": "更新於 {{when}}"
+      "updatedAgo": "更新於 {{when}}",
+      "noAccessBadge": "沒有 <code>classroom50</code> 存取權"
     },
     "newOrg": {
-      "allSetUp": "您所有的組織皆已完成設定。",
+      "allSetUp": "我們能看到的所有組織都已設定完成。",
       "button": "設定新組織",
       "createOnGitHub": "在 GitHub 上建立組織",
       "description": "選擇您其中一個 GitHub 組織來設定 Classroom 50。找不到想要的組織嗎？請先在 GitHub 上建立。",
-      "freePlanDisabled": "免費方案——Classroom 50 需要 Team 或 Enterprise 組織",
-      "pickPrompt": "可供設定的組織",
       "setUp": "設定",
-      "title": "設定新的 Classroom 50 組織"
+      "title": "設定新的 Classroom 50 組織",
+      "details": "詳細資料",
+      "freePlanInfo": {
+        "body": "Classroom 50 僅適用於採用 GitHub Team 或 Enterprise 方案的組織。",
+        "dismiss": "知道了",
+        "educationBody": "身為經驗證的老師，你可以透過 GitHub Education 免費將你擁有的任何組織升級為 GitHub Team。",
+        "educationCta": "在 GitHub Education 了解更多",
+        "educationTitle": "免費取得 GitHub Team",
+        "title": "這個組織採用免費方案"
+      },
+      "notSupportedBadge": "不支援",
+      "pickPrompt_one": "可設定的組織（{{count}}）",
+      "pickPrompt_other": "可設定的組織（{{count}}）"
     },
     "noResults": {
       "body": "沒有組織符合「{{query}}」。",
@@ -578,12 +604,7 @@
     "studentCount_one": "{{count}} 位學生",
     "studentCount_other": "{{count}} 位學生",
     "archived": "已封存",
-    "archivedNotice_prefix": "此課程已封存——無法建立新作業，學生也無法接受作業。若要進行變更，請至",
-    "archivedNotice_link": "課程設定",
-    "archivedNotice_suffix": "取消封存。",
     "studentHeading": "作業",
-    "studentViewAll_prefix": "檢視",
-    "studentViewAll_suffix": "課程的所有作業。",
     "newButton": {
       "assignment": "作業",
       "moreOptions": "更多作業選項",
@@ -610,7 +631,7 @@
       "feedbackPr": "回饋 pull request",
       "feedbackPrHelp": "為每個儲存庫開啟一個 pull request，以便對每份繳交內容進行逐行審閱。",
       "advanced": "進階設定",
-      "advancedHelp": "選填的執行環境覆寫設定。留空時使用預設值（ubuntu-latest + Python 3.12）。",
+      "advancedHelp": "選填的評分與執行環境設定。空白欄位會使用其文件記載的預設值。",
       "dockerImage": "Docker 映像檔",
       "dockerImagePlaceholder": "例如 gcc:13",
       "containerUser": "容器使用者",
@@ -621,17 +642,12 @@
       "patternCount_one": "{{count}} 條規則",
       "patternCount_other": "{{count}} 條規則",
       "passThresholdToggle": "設定及格門檻",
-      "passThresholdSuffix": "% 的滿分即為及格",
       "back": "返回",
       "saveChanges": "儲存變更",
       "createButton": "建立作業",
       "runner": {
         "label": "GitHub runner",
-        "selfHostedHint_prefix": "以逗號分隔多個標籤來組合自架 runner（例如",
-        "selfHostedHint_suffix": "）。",
         "checking": "檢查中……",
-        "emptyHint_prefix": "留白則使用",
-        "emptyHint_suffix": "。",
         "hosted": "GitHub 託管的 runner",
         "selfHostedMatch_one": "符合的自架 runner（{{names}}）",
         "selfHostedMatch_other": "符合的自架 runner（{{names}}）",
@@ -640,13 +656,21 @@
         "noRunnerMatch": "沒有符合 {{labels}} 的 runner——請檢查拼字。",
         "tooMany": "標籤過多（{{count}}）——最多 10 個。",
         "cannotVerify": "無法驗證——將直接依輸入使用。",
-        "tip": "用於為此作業評分的 GitHub Actions runner 標籤。留空時使用 ubuntu-latest。若要使用自架 runner，請以逗號分隔多個標籤（例如 self-hosted, linux, x64）。"
+        "tip": "用於為此作業評分的 GitHub Actions runner 標籤。留空時使用 ubuntu-latest。若要使用自架 runner，請以逗號分隔多個標籤（例如 self-hosted, linux, x64）。",
+        "emptyHint": "留空則使用 <code>ubuntu-latest</code>。",
+        "selfHostedHint": "以逗號分隔多個標籤來組合自代管 runner（例如 <code>self-hosted, linux, x64</code>）。"
       },
       "validation": {
         "nameRequired": "作業名稱為必填。",
         "slugRequired": "作業代稱為必填。",
         "maxGroupSizeInvalid": "小組人數上限必須是有效的數字。",
-        "passThresholdRange": "及格門檻必須是介於 {{min}} 與 {{max}} 之間的整數。"
+        "passThresholdRange": "及格門檻必須是介於 {{min}} 與 {{max}} 之間的整數。",
+        "releaseAssetsDuplicateBasename": "{{basename}} 會被上傳多次；發佈檔名必須唯一。",
+        "releaseAssetsDuplicatePath": "{{path}} 被列出多次；每個發佈檔案路徑必須唯一。",
+        "releaseAssetsInvalidBasename": "{{basename}} 不是安全的發佈檔名，或屬於保留名稱。",
+        "releaseAssetsInvalidPath": "{{path}} 不是精確的、相對於工作區的檔案路徑。",
+        "releaseAssetsTooLarge": "提交發佈檔案路徑合計最多可有 {{max}} 個 UTF-8 位元組（8 KiB）；目前為 {{bytes}}。",
+        "releaseAssetsTooMany": "最多選擇 {{max}} 個提交發佈檔案（目前有 {{count}} 個）。"
       },
       "allowedFilesTip": "採用 {{gitignore}} 樣式的有序模式，每行一個，用來定義哪些檔案屬於一份繳交（最後符合者優先，{{bang}} 可重新納入）。例如先寫 {{star}} 再寫 {{example}}，就只允許 {{result}}。留空則允許所有檔案。",
       "containerUserTip": "容器執行時所使用的使用者。若簽出（checkout）因權限錯誤而失敗，請設為 root。GitHub Actions 會以主機 runner 的使用者身分執行容器步驟，因此非 root 映像檔往往無法寫入工作區。",
@@ -681,7 +705,13 @@
       "emptyRepo": "空白儲存庫",
       "emptyRepoHelp": "為每位學生建立完全空白的儲存庫：沒有起始檔案、沒有自動評分、沒有回饋 pull request。適用於學生從零開始建構一切（包括自己的 GitHub Actions）的作業。此選擇在作業建立後無法變更。",
       "emptyRepoLocked": "建立後無法變更。",
-      "feedbackPrEmptyRepoHelp": "空白儲存庫無法使用——因為沒有起始 commit 可用於比對差異。"
+      "feedbackPrEmptyRepoHelp": "空白儲存庫無法使用——因為沒有起始 commit 可用於比對差異。",
+      "passThresholdUnit": "% 的最高分為及格標準",
+      "releaseAssetCount_one": "{{count}} 個發佈檔案",
+      "releaseAssetCount_other": "{{count}} 個發佈檔案",
+      "releaseAssets": "提交發佈檔案",
+      "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
+      "releaseAssetsTip": "每行填一個精確的、相對於工作區的檔案路徑；路徑為精確路徑，而非萬用字元模式，且合計最多可有 8 KiB 的 UTF-8 文字。檔案會在評分後收集，並在及格與不及格的分數上都會附加；缺少的檔案會略過。發佈檔名只能使用 ASCII 字母、數字、點、底線與連字號，且不可以點開頭或結尾，也不可包含連續的句點。"
     },
     "autograder": {
       "heading": "自動評分測試",
@@ -711,8 +741,6 @@
       "comparisonRegex": "正規表達式——Python re.search，多行模式",
       "exitCode": "所需的結束碼",
       "exitCodeHint": "留白則要求成功結束（0）。",
-      "pythonNote_prefix": "執行指令應呼叫 pytest（例如",
-      "pythonNote_suffix": "）來執行作業範本中的測試檔案。系統會自動安裝 pytest 與 pytest-json-report。分數會平均分配到 pytest 探索到的各個測試案例上。",
       "timeout": "逾時（秒）",
       "timeoutHint": "0 = 預設值（10 秒）",
       "points": "分數",
@@ -730,7 +758,8 @@
           "label": "Python（pytest）",
           "hint": "執行 pytest 指令；評分時分數會平均分配到找出的各個測試案例。"
         }
-      }
+      },
+      "pythonNote": "執行指令應對作業範本中的測試檔案呼叫 pytest（例如 <code>python3 -m pytest -q</code>）。系統會自動安裝 pytest 與 pytest-json-report。分數會平均分配到 pytest 探索到的各個案例。"
     },
     "table": {
       "caption": "作業",
@@ -749,13 +778,11 @@
       "viewAssignment": "檢視作業",
       "deleteAria": "刪除 {{name}}",
       "deleteTitle": "要刪除作業嗎？",
-      "deleteDescription_1": "這會將",
-      "deleteDescription_2": "作業從",
-      "deleteDescription_3": "課程中移除。學生的作業儲存庫不會被刪除。",
       "deleteConfirm": "刪除作業",
       "deleteCancel": "保留作業",
       "reuseTitle": "在其他課程中重複使用",
-      "reuseAria": "在其他課程中重複使用作業"
+      "reuseAria": "在其他課程中重複使用作業",
+      "deleteDescription": "這會將 <assignment>{{assignment}}</assignment> 作業從 <classroom>{{classroom}}</classroom> 課程中移除。學生的作業儲存庫不會被刪除。"
     },
     "template": {
       "label": "範本儲存庫",
@@ -763,35 +790,15 @@
       "help": "選用。學生會收到此儲存庫的副本。留白則會建立僅含自動評分程式的空儲存庫。",
       "checking": "檢查範本存取權限中……",
       "fallbackOrg": "你的組織",
-      "privateHasAccess_1": "{{owner}} 中的私人範本（分支",
-      "privateHasAccess_2": "）。課程團隊已擁有讀取權限——學生可以複製它。",
-      "privateWillGrant_1": "{{owner}} 中的私人範本（分支",
-      "privateWillGrant_2": "）。課程團隊尚未擁有存取權限；在你建立作業時會自動加入，讓學生可以複製它。",
-      "okPrefixPublic": "{{owner}} 中的公開範本，分支",
-      "okPrefixPrivate": "{{owner}} 中的私人範本，分支",
-      "okPrefixPublicInOrg": "公開範本，分支",
-      "okPrefixPrivateInOrg": "私人範本，分支",
-      "okSuffix": "。學生可以存取它。",
-      "okVerify_1": "在 {{owner}} 中可存取（分支",
-      "okVerify_2": "）。若 {{owner}} 限制第三方應用程式，學生在擁有者核准 Classroom 50 之前將無法複製它。",
       "notVisible": "你無法看到 {{owner}}/{{repo}}。請將其設為公開，或複製到 {{org}} 中。",
       "notTemplate": "{{owner}}/{{repo}} 不是範本儲存庫。請在該儲存庫的 Settings 中啟用它。",
       "restricted": "{{owner}} 封鎖了對 {{repo}} 的存取（HTTP 403）。這通常是第三方應用程式限制 —— 擁有者可能需要為該組織核准 Classroom 50，或為 {{owner}} 授權你的 OAuth 授予（組織設定 → Third-party access）。也可能是其他造成 403 的原因；請參閱下方 GitHub 的訊息。",
       "unknown": "目前無法驗證 {{owner}}/{{repo}}。學生接受作業時會重新檢查。",
       "privateOutOfOrg": "{{owner}}/{{repo}} 為私人且位於 {{org}} 之外。請將其設為公開，或複製到 {{org}} 中。",
-      "noBranch_1": "{{owner}}/{{repo}} 沒有預設分支。請推送一次 commit，或新增",
-      "noBranch_2": "。",
       "rateLimited": "已達 GitHub 速率限制。請稍後再試。",
       "policyLink": "檢查 {{owner}} 的 OAuth 應用程式政策",
       "githubSaid": "GitHub 回應（HTTP {{status}}）：",
-      "privateForkCrossOrg_1": "{{owner}}/{{repo}} 是位於另一個組織的 {{parent}} 私有分支（fork）（分支",
-      "privateForkCrossOrg_2": "）。跨組織的私有分支作為範本並不可靠 —— 當 Classroom 50 無法存取私有上游時，複製就會失敗。請改用全新（非分支）的範本儲存庫：建立一個新儲存庫，並將此分支的內容複製進去。",
-      "privateForkInOrg_1": "{{owner}}/{{repo}} 是 {{parent}} 的私有分支（fork）（分支",
-      "privateForkInOrg_2": "）。上游位於此組織內，所以複製應該可以運作 —— 但若接受時失敗，全新（非分支）的範本儲存庫會更為可靠。",
-      "privateForkNoParent_1": "{{owner}}/{{repo}} 是私有分支（fork）（分支",
       "restrictedScope": "{{owner}} 封鎖了對 {{repo}} 的存取（HTTP 403）。GitHub 表示你的權杖缺少必要的 scope —— 請登出後重新登入以更新你的 GitHub 授權，然後再試一次。",
-      "nonMainBranch_1": "此範本的預設分支是",
-      "nonMainBranch_2": "，而非「main」。作業將使用它，且學生的自動評分會依據該分支進行。",
       "accessModal": {
         "branchLabel": "分支",
         "close": "關閉",
@@ -816,7 +823,19 @@
         "failed": "無法授予範本存取權：",
         "pending": "授予中…",
         "success": "已確認課程團隊對範本的讀取權限。"
-      }
+      },
+      "noBranch": "{{owner}}/{{repo}} 沒有預設分支。請推送一次提交，或加入 <hint/>。",
+      "nonMainBranch": "此範本的預設分支是 <branch>{{branch}}</branch>，而非「main」。作業會使用此分支，且學生的自動評分會以該分支為準。",
+      "okPrivate": "{{owner}} 中的私有範本，分支為 <branch>{{branch}}</branch>。學生可以存取。",
+      "okPrivateInOrg": "私有範本，分支為 <branch>{{branch}}</branch>。學生可以存取。",
+      "okPublic": "{{owner}} 中的公開範本，分支為 <branch>{{branch}}</branch>。學生可以存取。",
+      "okPublicInOrg": "公開範本，分支為 <branch>{{branch}}</branch>。學生可以存取。",
+      "okVerify": "在 {{owner}} 中可存取（分支 <branch>{{branch}}</branch>）。若 {{owner}} 限制第三方應用程式，則在擁有者核准 Classroom 50 之前，學生無法複製它。",
+      "privateForkCrossOrg": "{{owner}}/{{repo}} 是另一個組織中 {{parent}} 的私有分叉（分支 <branch>{{branch}}</branch>）。跨組織的私有分叉作為範本並不可靠——當 Classroom 50 無法存取私有的上游時，複製就會失敗。請改用全新的（非分叉）範本儲存庫：建立一個新儲存庫，並將分叉的內容複製到其中。",
+      "privateForkInOrg": "{{owner}}/{{repo}} 是 {{parent}} 的私有分叉（分支 <branch>{{branch}}</branch>）。由於上游在此組織內，複製應該可行——但若領取失敗，全新的（非分叉）範本儲存庫會更可靠。",
+      "privateForkNoParent": "{{owner}}/{{repo}} 是私有分叉（分支 <branch>{{branch}}</branch>）。跨組織的私有分叉作為範本並不可靠——當 Classroom 50 無法存取私有的上游時，複製就會失敗。請改用全新的（非分叉）範本儲存庫：建立一個新儲存庫，並將分叉的內容複製到其中。",
+      "privateHasAccess": "{{owner}} 中的私有範本（分支 <branch>{{branch}}</branch>）。課程團隊已擁有讀取權限——學生可以複製它。",
+      "privateWillGrant": "{{owner}} 中的私有範本（分支 <branch>{{branch}}</branch>）。課程團隊尚無存取權限；建立作業時會自動加入，以便學生複製它。"
     },
     "toolbar": {
       "clear": "清除",
@@ -888,12 +907,12 @@
         }
       },
       "viewSubmission": "檢視我的繳交內容"
-    }
+    },
+    "archivedNotice": "這個課程已封存——已停用新作業與學生領取。請在<settingsLink>課程設定</settingsLink>中取消封存才能進行變更。",
+    "studentViewAll": "查看 <classroom>{{classroom}}</classroom> 課程的所有作業。"
   },
   "published": {
     "pageHeading": "已發佈的資源",
-    "pageSubheadingPrefix": "所有公開提供自",
-    "pageSubheadingSuffix": "的 GitHub Pages 網站的內容。",
     "copyUrl": "複製網址",
     "openUrl": "開啟網址",
     "optional": "選用",
@@ -901,14 +920,12 @@
     "publicPath": "公開路徑",
     "resourceCount_one": "{{count}} 項已發佈的資源",
     "resourceCount_other": "{{count}} 項已發佈的資源",
-    "servedUnlistedSuffix": "‧ 以未公開網址提供",
     "unlistedWarning": "這個課程使用未公開網址：其資源以無法猜測的路徑提供，而非可猜測的路徑。這只是隱蔽性，而非存取控制——連結是保護資料的唯一屏障，任何取得連結的人都能讀取檔案，且連結可能外洩（瀏覽器紀錄、參照來源、搜尋爬蟲）。請從每個作業的頁面分享該作業專屬的接受連結或 CLI 指令（其中包含金鑰）。",
     "banner": {
       "title": "以下所有內容皆會透過網際網路公開提供",
       "body": "你的 classroom50 設定儲存庫是私有的，但其 GitHub Pages 網站依設計是公開的——學生與自動評分器會在不驗證的情況下取得這些檔案。只有下方允許清單中的檔案會被發佈；儲存庫中的其他內容（你的名冊、內部課程欄位、服務權杖）都會保持私有。課程可以使用未公開網址讓檔案更難被找到，但那只是隱蔽性，而非存取控制——任何取得連結的人仍能公開存取這些檔案。"
     },
     "orgLevel": "組織層級",
-    "orgLevelServedPrefix": "提供於根路徑",
     "perClassroom": "各課程",
     "perClassroomDescription": "每個課程的作業清單與自動評分器。",
     "noClassrooms": "目前尚無課程。一旦你建立並發佈課程，其資源就會顯示在此。",
@@ -953,18 +970,19 @@
         "label": "自動評分工作流程墊片 — {{name}}",
         "description": "當學生接受一個覆寫預設執行器的作業時所取得的非預設自動評分工作流程墊片。"
       }
-    }
+    },
+    "orgLevelServed": "在 <path>{{base}}/</path> 的根路徑提供。",
+    "pageSubheading": "所有從 <orgLink>{{org}}</orgLink> 的 GitHub Pages 網站公開提供的內容。",
+    "servedUnlistedNote": " · 以未公開的 URL 提供"
   },
   "getStarted": {
     "badge": "加入流程",
     "continueToAssignment": "繼續前往你的作業",
     "notInvited": {
       "title": "目前這裡還沒有需要處理的事項",
-      "body_prefix": "我們找不到你的帳號受邀加入",
-      "body_suffix": "組織的邀請。",
       "waitingTitle": "等待邀請中",
-      "waitingBody_prefix": "如果你的老師已邀請你加入",
-      "waitingBody_suffix": "，請到你的電子郵件中查看 GitHub 邀請並接受它，然後回到此頁面重新整理。否則，你目前在這裡沒有需要處理的事項。"
+      "body": "我們找不到你的帳戶對 <org>{{org}}</org> 組織的邀請。",
+      "waitingBody": "若你的老師已邀請你加入 <classroom>{{classroom}}</classroom>，請查收 GitHub 邀請的電子郵件並接受它，然後回到此頁面重新整理。否則，你目前在這裡沒有需要處理的事。"
     },
     "active": {
       "goToClassroom": "前往你的課程",
@@ -1000,34 +1018,23 @@
     "heading": "作業設定",
     "editSuccess": "您的變更已儲存，正在發佈至學生網站——上方橫幅會顯示進度。",
     "loading": "載入作業中",
-    "archivedNotice_prefix": "此課程已封存——其作業為唯讀狀態。若要編輯作業，請至",
-    "archivedNotice_link": "課程設定",
-    "archivedNotice_suffix": "取消封存。",
-    "notAccepted_prefix": "你尚未領取這份作業！你是否需要先",
-    "notAccepted_link": "領取它",
-    "notAccepted_suffix": "呢？",
-    "individual_prefix": "這是一份個人作業——沒有群組設定需要管理。你可以查看你的",
-    "individual_link": "繳交內容與自動評分結果",
-    "individual_suffix": "。",
     "groupMembers": "群組成員",
     "viewRepository": "查看儲存庫",
-    "collaboratorsHint_prefix": "為此作業儲存庫新增或移除協作者。除了群組擁有者之外，這份作業最多允許",
-    "collaboratorsHint_suffix_one": "位學生。",
-    "collaboratorsHint_suffix_other": "位學生。",
-    "manageCollaborators": "管理協作者"
+    "manageCollaborators": "管理協作者",
+    "archivedNotice": "這個課程已封存——其作業為唯讀狀態。請在<settingsLink>課程設定</settingsLink>中取消封存才能編輯作業。",
+    "collaboratorsHint_one": "為此作業儲存庫新增或移除協作者。除了群組擁有者之外，此作業最多允許 <count>{{count}}</count> 位學生。",
+    "collaboratorsHint_other": "為此作業儲存庫新增或移除協作者。除了群組擁有者之外，此作業最多允許 <count>{{count}}</count> 位學生。",
+    "individual": "這是個人作業——沒有可管理的群組設定。查看你的<submissionLink>提交內容與自動評分結果</submissionLink>。",
+    "notAccepted": "你尚未領取此作業！你需要先<acceptLink>領取它</acceptLink>嗎？"
   },
   "orgSettings": {
     "page": {
       "heading": "設定",
-      "subheading_prefix": "組織層級的設定，適用於",
-      "subheading_suffix": "。"
+      "subheading": "<orgLink>{{org}}</orgLink> 的組織層級設定。"
     },
     "serviceToken": {
       "title": "服務權杖",
       "infoAria": "什麼是服務權杖？",
-      "info_1": "Classroom 50 需要一組服務權杖，也就是一個具備細部權限的個人存取權杖（PAT），對你課堂 GitHub 組織中的儲存庫擁有讀取與寫入權限。它會儲存為",
-      "info_2": "密鑰，位於你的",
-      "info_3": "設定儲存庫中，成績收集工作流程用它來讀取學生的繳交內容，重新評分工作流程則用它來重新執行學生的自動評分工作流程。",
       "statusPresent": "已設定服務權杖",
       "statusMissing": "尚未設定服務權杖",
       "statusUnknown": "無法檢查服務權杖",
@@ -1041,41 +1048,23 @@
       "validRange": "有效範圍為 {{min}}–{{max}} 天（GitHub 的上限）。",
       "patDescription": "用於 Classroom 50 分數收集與重新評分的服務權杖。對 {{org}} 組織的權限：Contents：Read and write + Actions：Read and write + Administration：Read and write + Members：Read",
       "generateOnGitHub": "在 GitHub 上產生權杖",
-      "generateHint_prefix": "會開啟 GitHub 的權杖表單，並預先填入名稱、資源擁有者、有效期限，以及",
-      "generateHint_permissions": "Contents：Read and write + Actions：Read and write + Administration：Read and write + Members：Read",
-      "generateHint_suffix": "權限。",
       "beforeGenerating": "在 GitHub 頁面上，產生權杖之前：",
-      "repoAccess_prefix": "將",
-      "repoAccess_field": "Repository access",
-      "repoAccess_mid": "設為",
-      "repoAccess_value": "All repositories",
-      "repoAccess_period": "。",
-      "repoAccess_warning": "選擇「Only select repositories」會遺漏之後才建立的學生儲存庫，導致成績收集失效。",
-      "permissions_prefix": "在",
-      "permissions_field": "Permissions",
-      "permissions_confirm": "底下，確認",
-      "permissions_contents": "Contents: Read and write",
-      "permissions_and": "以及",
-      "permissions_actions": "Actions: Read and write",
-      "permissions_metadata": "（Metadata：Read 會自動包含。）",
-      "permissions_warning": "Read 用於收集分數；write 讓重新評分工作流程可重新執行學生的自動評分工作流程；Members：Read 讓收集能列出課程團隊。",
       "rotateNote": "權杖會在你上方設定的期限後到期。到期後，成績收集與重新評分工作流程將會失敗，直到你產生新的權杖並再次在此儲存為止，因此請設定提醒，在到期前更換權杖。",
       "pasteBelow": "在 GitHub 上產生權杖後，複製它並貼到下方。",
       "enterNewLabel": "輸入新的服務權杖",
       "enterLabel": "輸入服務權杖",
       "placeholder": "輸入權杖（例如 github_pat_123...）",
-      "validateHint_prefix": "我們會在儲存前檢查權杖是否有效。請再次確認你在建立時選擇了",
-      "validateHint_allRepos": "All repositories",
-      "validateHint_suffix": "。",
       "saveError": "無法驗證或儲存權杖。",
       "savedUpdated": "服務權杖已檢查並更新。",
       "savedNew": "服務權杖已檢查並儲存。",
       "validating": "驗證中…",
       "updateButton": "更新服務權杖",
       "saveButton": "儲存服務權杖",
-      "permissions_members": "Members：Read",
-      "permissions_members_note": "Members：Read 屬於 Organization 權限，是在組織成為資源擁有者後才會出現的獨立區塊。",
-      "permissions_administration": "Administration：Read and write"
+      "generateHint": "會開啟 GitHub 的權杖表單，並預先填入名稱、資源擁有者、有效期限，以及 <permissions>Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read</permissions> 權限。",
+      "info": "Classroom 50 需要一個服務權杖，也就是對你課程的 GitHub 組織中的儲存庫具有讀寫權限的細粒度個人存取權杖（PAT）。它會以 <secret>CLASSROOM50_SERVICE_TOKEN</secret> 密鑰的形式儲存在你的 <repo>classroom50</repo> 設定儲存庫上，分數收集工作流程用它來讀取學生的提交，重新評分工作流程用它來重新執行學生的自動評分工作流程。",
+      "permissions": "在 <field>Permissions</field> 下，確認 <perm>Contents: Read and write</perm>、<perm>Actions: Read and write</perm>、<perm>Administration: Read and write</perm> 與 <perm>Members: Read</perm>（Metadata: Read 會自動包含。）<note>Members: Read 是組織權限，是在組織成為資源擁有者後才會顯示的獨立區塊。</note> <note>Read 用於收集分數；write 讓重新評分工作流程能重新執行學生的自動評分工作流程；Members: Read 讓收集程序能列出課程團隊。</note>",
+      "repoAccess": "將 <field>Repository access</field> 設為 <value>All repositories</value>。<note>「Only select repositories」會遺漏之後建立的學生儲存庫，並破壞分數收集。</note>",
+      "validateHint": "我們會在儲存前檢查權杖是否有效。請再次確認你在建立時選擇了 <value>All repositories</value>。"
     },
     "audit": {
       "title": "組織政策",
@@ -1116,7 +1105,8 @@
       "renameModalBody": "此操作會將 classroom50 設定存放庫的預設分支重新命名為「main」。如果已有學生接受作業，他們的自動評分工作流程會固定使用目前的分支名稱，在他們重新接受或您重新指向其墊片（shim）之前將停止評分。建議只在學生尚未接受前進行，否則請準備好重新執行他們的設定。",
       "renameModalTitle": "要將設定存放庫的預設分支重新命名為 main 嗎？",
       "renameToMain": "重新命名為 main",
-      "renameError": "無法重新命名設定儲存庫的預設分支。你可能沒有擁有者權限，或重新命名未成功——請再試一次。"
+      "renameError": "無法重新命名設定儲存庫的預設分支。你可能沒有擁有者權限，或重新命名未成功——請再試一次。",
+      "stateWarn": "建議"
     },
     "rerun": {
       "title": "重新執行設定",
@@ -1130,27 +1120,21 @@
     },
     "teardown": {
       "title": "危險區域",
-      "description_prefix": "拆除此組織，方式是刪除其中",
-      "description_every": "每一個",
-      "description_mid": "儲存庫，包含",
-      "description_suffix": "設定儲存庫，並移除每個課堂的 GitHub 團隊。此操作無法復原。",
       "prepareError": "無法準備拆除計畫。",
       "preparing": "準備中…",
       "button": "拆除組織",
       "confirmText": "delete {{org}}",
       "confirmLabel": "刪除所有資源",
       "confirmTitle": "刪除此組織中的每一個儲存庫？",
-      "confirmBody_prefix": "這會永久刪除",
-      "confirmBody_reposIn": "個儲存庫，位於",
-      "confirmBody_including": "，包含",
-      "confirmBody_deletedLast": "設定儲存庫（最後刪除）",
-      "confirmBody_andRemove": "，並移除",
-      "confirmBody_teams_one": "個課堂團隊",
-      "confirmBody_teams_other": "個課堂團隊",
-      "confirmBody_cannotUndo": "。此操作無法復原。",
       "repositoriesHeading": "儲存庫",
       "classroomTeamsHeading": "課堂團隊",
-      "executeError": "拆除失敗。部分儲存庫可能尚未被刪除。"
+      "executeError": "拆除失敗。部分儲存庫可能尚未被刪除。",
+      "confirmBodyCannotUndo": "此操作無法復原。",
+      "confirmBodyTeams_one": "它也會移除 <count>{{count}}</count> 個課程團隊。",
+      "confirmBodyTeams_other": "它也會移除 <count>{{count}}</count> 個課程團隊。",
+      "confirmBody_one": "這會永久刪除 <org>{{org}}</org> 中的 <count>{{count}}</count> 個儲存庫，包括 <repo>classroom50</repo> 設定儲存庫（最後刪除）。",
+      "confirmBody_other": "這會永久刪除 <org>{{org}}</org> 中的 <count>{{count}}</count> 個儲存庫，包括 <repo>classroom50</repo> 設定儲存庫（最後刪除）。",
+      "description": "拆解這個組織，方式是刪除其中<strong>每一個</strong>儲存庫，包括 <repo>classroom50</repo> 設定儲存庫，並移除每個課程的 GitHub 團隊。此操作無法復原。"
     },
     "preflight": {
       "categoryServiceToken": "服務權杖",
@@ -1158,9 +1142,7 @@
       "title": "組織預檢失敗",
       "body_one": "此組織的 {{categories}} 發現了一個問題。",
       "body_other": "此組織的 {{categories}} 發現了多個問題。",
-      "reviewFixOn": "請在",
-      "settingsPageLink": "組織設定頁面",
-      "reviewFixSuffix": "上檢視並修正。"
+      "reviewFix": "在<settingsLink>組織設定頁面</settingsLink>檢視並修正。"
     },
     "overwrite": {
       "title": "更新工作流程檔案以維持評分正常運作？",
@@ -1168,9 +1150,7 @@
       "cancelLabel": "暫時不要",
       "body_one": "你的設定儲存庫中有 1 個 Classroom 50 工作流程／指令碼檔案已過時，將會被更新：",
       "body_other": "你的設定儲存庫中有 {{count}} 個 Classroom 50 工作流程／指令碼檔案已過時，將會被更新：",
-      "warning_prefix": "Classroom 50 會管理這些檔案，所以更新是安全的。讓它們過時可能會導致自動評分等功能無法執行。若你曾自訂某個檔案，請選擇",
-      "keepMine": "暫時不要",
-      "warning_suffix": "以暫時維持原狀。"
+      "warning": "Classroom 50 會管理這些檔案，因此更新是安全的。讓它們保持過時可能會導致自動評分等功能無法執行。如果你自訂過某個檔案，請選擇<keepMine>暫時不要</keepMine>以暫時保留原樣。"
     },
     "steps": {
       "whyLabel": "原因：",
@@ -1236,7 +1216,41 @@
         "what": "建立保護課堂與作業儲存庫的組織規則集。",
         "why": "規則集會在組織建立的每一個儲存庫上強制執行課堂防護措施（受保護分支、限制刪除）。",
         "remediation": "開啟組織的規則集頁面加以檢視，或重新執行設定以重新套用。規則集可能需要 GitHub Team 或 Enterprise。"
+      },
+      "orgBudget": {
+        "remediation": "開啟組織帳單預算設定，並設定一個啟用「prevent further usage」的 $0 GitHub Actions 預算（需要 Organization Administration 存取權限）。",
+        "title": "Actions 支出上限",
+        "what": "建立一個 $0 的 GitHub Actions 支出上限（僅在尚未存在時）。",
+        "why": "$0 硬性停止預算會封鎖付費 Actions 分鐘數，因此失控的自動評分工作流程不會產生費用。你已設定的既有預算不會被更動。"
       }
+    },
+    "actions": {
+      "applying": "更新中…",
+      "budgetAmount": "支出預算：${{amount}}。",
+      "budgetHardStop": "已設定 $0 硬性停止預算——付費分鐘數已封鎖。",
+      "budgetManage": "管理預算",
+      "budgetNone": "未設定支出預算。",
+      "confirmBody": "在你恢復之前，學生的提交不會被評分。classroom50 設定儲存庫仍能繼續運作。隨時可還原。",
+      "confirmButton": "暫停自動評分",
+      "confirmTitle": "要為整個組織暫停自動評分嗎？",
+      "description": "在整個組織範圍暫停自動評分以停止 Actions 支出。課程管理仍可繼續運作。",
+      "disabledNotice": "整個組織的 Actions 都已關閉，因此不會執行任何內容。請重新執行組織設定，或在 GitHub 上啟用 Actions。",
+      "loading": "檢查狀態中…",
+      "openSettings": "開啟 Actions 設定",
+      "pausedNotice": "已暫停——學生的推送不會被評分。除非你先關閉此項，否則重新執行組織設定也不會恢復。",
+      "statusActive": "自動評分開啟",
+      "statusDisabled": "Actions 關閉",
+      "statusPaused": "自動評分已暫停",
+      "title": "GitHub Actions",
+      "toggleFailed": "無法更新 Actions 權限：{{message}}",
+      "toggleHint": "開啟此項會停止對學生推送進行評分（不消耗 Actions 分鐘數）。classroom50 設定儲存庫仍能繼續運作。關閉即可恢復。",
+      "toggleLabel": "為所有學生儲存庫暫停自動評分",
+      "unknownNotice": "無法讀取這個組織的 Actions 權限——你可能沒有擁有者權限，或有企業政策在控制它們。",
+      "usageCost": "本月已計費 ${{amount}}。",
+      "usageMinutes": "已使用 {{minutes}} 分鐘",
+      "usageOfIncluded": "已使用 {{used}} 分鐘 / 內含 {{included}} 分鐘",
+      "usageOverQuota": "超過內含額度 {{over}} 分鐘。",
+      "usageTitle": "本月 Actions 分鐘數"
     }
   },
   "classes": {
@@ -1247,15 +1261,10 @@
     "loadingClassroom": "正在載入課程",
     "configRepo": "設定儲存庫",
     "configRepoTitle": "在 GitHub 上開啟此課程在 classroom50 設定儲存庫中的資料夾",
-    "settingsSubtitle_prefix": "這是",
-    "settingsSubtitle_suffix": "課程的設定。",
     "somethingWentWrong": "發生了一些問題",
     "archivedReadOnlyNotice": "此課程已封存 — 設定為唯讀。請使用上方的「取消封存」以進行變更。",
     "deleteClassroomAria": "刪除課程",
     "deleteClassroomTitle": "刪除課程？",
-    "deleteClassroomBody_1": "這會從",
-    "deleteClassroomBody_2": "組織中移除",
-    "deleteClassroomBody_3": "課程。學生的作業儲存庫不會被刪除。",
     "deleteClassroomConfirm": "刪除課程",
     "deleteClassroomCancel": "保留課程",
     "archive": "封存",
@@ -1264,10 +1273,6 @@
     "unarchiveTitle": "取消封存課程",
     "archiveConfirmTitle": "封存課程？",
     "unarchiveConfirmTitle": "取消封存課程？",
-    "archiveBody_prefix": "封存",
-    "archiveBody_suffix": "：它會從預設課程清單中移除，並停止接受新作業和學生。其名冊與作業會保留，你之後可以取消封存。",
-    "unarchiveBody_prefix": "將",
-    "unarchiveBody_suffix": "回復為使用中：它會回到預設課程清單，並可再次接受新作業和學生。",
     "archivedToast": "已封存「{{classroom}}」。",
     "unarchivedToast": "已取消封存「{{classroom}}」。",
     "archiveFailed": "無法封存「{{classroom}}」：{{error}}",
@@ -1291,11 +1296,10 @@
     },
     "join": {
       "title": "加入此課程",
-      "body_prefix": "你有一份待處理的邀請，可加入",
-      "body_suffix": "。接受邀請即可存取你的課程作業。",
       "error": "無法加入該組織。請再試一次。",
       "joining": "正在加入…",
-      "joinButton": "加入組織"
+      "joinButton": "加入組織",
+      "body": "你有一個待處理的邀請可加入 <org>{{org}}</org>。接受邀請即可存取你的課程作業。"
     },
     "filter": {
       "active": "使用中",
@@ -1340,8 +1344,7 @@
       "heading": "教職人員與角色",
       "githubTeams": "GitHub 團隊",
       "githubTeamsTitle": "在 GitHub 上開啟此組織的團隊",
-      "description": "老師與 TA 對此組織的 Classroom 50 設定擁有寫入權限。TA 看到的課程內容與老師相同，但組織與課程設定僅限老師存取。",
-      "roleTa": "助教",
+      "description": "老師與首席助教對這個組織的 Classroom 50 設定有寫入權限；助教則為唯讀。助教與首席助教可看到與老師相同的課程內容，但組織與課程設定僅限老師使用。",
       "roleTaPlural": "助教",
       "enterUsername": "請輸入 GitHub 使用者名稱。",
       "noSuchUser": "找不到此 GitHub 使用者。",
@@ -1364,8 +1367,16 @@
       "resendEmailOnly": "此邀請沒有 GitHub 使用者名稱，因此無法重新傳送。請取消它並重新加入該人員。",
       "resendFailed": "無法將邀請重新傳送給 {{who}}：{{error}}",
       "resentToast": "已將邀請重新傳送給 {{who}}。",
-      "roleTeacher": "老師",
-      "roleTeacherPlural": "老師"
+      "roleTeacherPlural": "老師",
+      "accessHeadTa": "組織成員。對設定儲存庫有寫入權限。",
+      "accessTa": "組織成員。對設定儲存庫有唯讀權限。",
+      "accessTeacher": "組織擁有者。對設定儲存庫有寫入權限。",
+      "pendingCount_one": "{{count}} 個待處理",
+      "pendingCount_other": "{{count}} 個待處理",
+      "removeSelfTeacherBlocked": "你無法將自己從老師團隊中移除——這會撤銷你自己對這個課程的擁有者級別存取權限。請另一位組織擁有者移除你。",
+      "roleHeadTaPlural": "首席助教",
+      "viewTeamTitle": "在 GitHub 上開啟 {{role}} 團隊",
+      "you": "你"
     },
     "card": {
       "actionsAria": "{{name}} 的操作",
@@ -1403,14 +1414,13 @@
         "studentCount": "學生人數",
         "term": "學期"
       },
-      "sortPrefix": "排序",
       "termLabel": "依學期篩選",
-      "termPrefix": "學期",
       "view": {
         "gridLabel": "格狀檢視",
         "label": "檢視",
         "listLabel": "清單檢視"
-      }
+      },
+      "term": "學期"
     },
     "claimTeacher": {
       "action": "將自己加入為老師",
@@ -1436,7 +1446,11 @@
           "nameAsc": "名稱（A–Z）"
         }
       }
-    }
+    },
+    "archiveBody": "封存 <classroom>{{classroom}}</classroom>：它會從預設課程清單中移除，並停止接受新作業與學生。其名冊與作業會保留，你之後可以取消封存。",
+    "deleteClassroomBody": "這會將 <classroom>{{classroom}}</classroom> 課程從 <org>{{org}}</org> 組織中移除。學生的作業儲存庫不會被刪除。",
+    "settingsSubtitle": "<classroom>{{classroom}}</classroom> 課程的設定。",
+    "unarchiveBody": "將 <classroom>{{classroom}}</classroom> 恢復為使用中：它會回到預設課程清單，並可再次接受新作業與學生。"
   },
   "accept": {
     "githubUser": "GitHub 使用者",
@@ -1461,12 +1475,10 @@
     "notFound": {
       "badge": "作業無法使用",
       "title": "找不到作業",
-      "body_prefix": "我們在這個課堂中找不到符合",
-      "body_suffix": "的作業。連結可能有誤，或該作業尚未發布。",
       "unableToLoad": "無法載入作業",
       "expectedSlug": "預期找到的作業 slug：",
-      "checkUrl_prefix": "請確認網址正確無誤，或請老師確認此作業已加入",
-      "checkUrl_suffix": "。"
+      "body": "在這個課程中找不到符合 <assignment>{{assignment}}</assignment> 的作業。連結可能有誤，或作業尚未發佈。",
+      "checkUrl": "請確認網址正確，或請老師確認此作業已加入 <file>assignments.json</file>。"
     },
     "steps": {
       "account": "正在檢查你的 GitHub 帳號",
@@ -1505,13 +1517,6 @@
     "lateBadge_one": "{{count}} 份逾期",
     "lateBadge_other": "{{count}} 份逾期",
     "downloadCsv": "下載分數（CSV）",
-    "collectionNote": "繳交內容會自動收集，但新繳交的內容最多可能需要 24 小時才會顯示。",
-    "lastCollected": "上次收集（全組織）於 {{when}}。",
-    "updated": "更新於 {{when}}",
-    "refresh": "重新整理繳交內容",
-    "dashboard": {
-      "never": "從未"
-    },
     "errors": {
       "gradebookLoad": "無法載入成績簿。",
       "gradebookLoadWithReason": "無法載入成績簿：{{reason}}",
@@ -1549,16 +1554,14 @@
       "titleRegrading": "重新評分已在進行中",
       "statusDispatching": "正在開始重新評分…",
       "statusRunning": "重新評分進行中。正在為每個已繳交的儲存庫重新執行自動評分器；收集會暫停直到完成。",
-      "statusCompleted_prefix": "重新評分已開始——每個儲存庫都在背景重新評分中。請於幾分鐘後點選",
-      "statusCompleted_suffix": "以取得新的成績。",
       "statusFailed": "重新評分執行未能順利開始。",
       "statusFailedWithReason": "無法開始重新評分：{{reason}}",
       "statusFailedHint": "請在 GitHub 上查看工作流程，然後再試一次。",
       "statusTimeout": "重新評分需要一段時間才能登錄。請在 GitHub 上查看進度。",
       "confirmTitle": "要重新評分「{{name}}」的所有繳交內容嗎？",
       "confirmBody1": "這會對每個已繳交儲存庫的最新提交重新執行自動評分器——在修正測試或更新自動評分器後很有用。繳交時間不會改變。",
-      "confirmBody2_prefix": "評分在背景執行，可能需要數分鐘；之後請使用",
-      "confirmBody2_suffix": "以取得新的成績。"
+      "confirmBody2": "評分在背景執行，可能需要數分鐘；之後請使用 <collectLabel>{{collectLabel}}</collectLabel> 來取得新分數。",
+      "statusCompleted": "重新評分已開始——每個儲存庫都在背景重新評分。幾分鐘後請點選 <collectLabel>{{collectLabel}}</collectLabel> 以取得新分數。"
     },
     "accept": {
       "heading": "學生如何接受作業",
@@ -1578,11 +1581,11 @@
       "showFailing": "顯示不及格的學生",
       "failingCount_one": "{{count}} 位不及格",
       "failingCount_other": "{{count}} 位不及格",
-      "ungradedSuffix_one": "、{{count}} 位未評分",
-      "ungradedSuffix_other": "、{{count}} 位未評分",
       "showAcceptedNotSubmitted": "顯示已接受但尚未繳交的學生",
       "notYetSubmitted_one": "{{count}} 位尚未繳交",
-      "notYetSubmitted_other": "{{count}} 位尚未繳交"
+      "notYetSubmitted_other": "{{count}} 位尚未繳交",
+      "ungradedNote_one": "，{{count}} 個未評分",
+      "ungradedNote_other": "，{{count}} 個未評分"
     },
     "filters": {
       "searchGroupPlaceholder": "搜尋組別或成員…",
@@ -1647,9 +1650,6 @@
       "submittedBy": "由 {{name}} 繳交",
       "review": "檢閱",
       "reviewAria": "開啟回饋合併請求",
-      "fullHistory_prefix": "開啟",
-      "fullHistory_link": "儲存庫",
-      "fullHistory_suffix": "以檢視完整的提交歷程。",
       "acceptedAwaiting": "已接受 · 等待繳交",
       "emptyClearFilters": "清除篩選條件",
       "emptyFilteredBody": "請嘗試其他搜尋，或清除篩選條件以查看所有人。",
@@ -1659,14 +1659,22 @@
       "noGroup": "未列入任何計分小組",
       "noGroupTitle": "此學生未列入任何有繳交的小組儲存庫。小組成員資格是在收集時從各儲存庫的協作者讀取的，因此從未加入小組的學生——或上次收集時無法讀取小組成員資格的學生——會顯示於此。評分前請開啟小組儲存庫確認。",
       "notAccepted": "未接受",
-      "noGradingTitle": "此作業已停用自動評分"
+      "noGradingTitle": "此作業已停用自動評分",
+      "fullHistory": "開啟<repoLink>儲存庫</repoLink>以查看完整的提交歷史。",
+      "liveLatest": "最新推送 {{date}} · 尚未評分",
+      "liveLatestTitle": "在上次收集之後推送了較新的提交，因此尚未評分。執行「立即同步提交」以對其評分並計分。",
+      "loading": "載入提交中…",
+      "pendingGrade": "待處理",
+      "pendingGradeTitle": "已提交——分數尚未收集。請執行「立即同步提交」或等待每晚的收集。",
+      "resolvingNonSubmitters": "檢查誰尚未提交中…",
+      "staleCount": "新",
+      "staleCountTitle": "這位學生推送的提交多於已評分的數量。執行「立即同步提交」以對最新的內容評分並計分。"
     },
     "reviewModal": {
       "errorTitle": "無法檢查是否有回饋 PR",
       "emptyTitle": "尚無回饋合併請求",
-      "emptyBody_prefix": "尚未為",
-      "emptyBody_suffix": "開啟任何回饋 PR。它會在評分繳交後由作業的自動評分工作流程建立——如果學生尚未繳交（或該作業已停用回饋 PR），目前就沒有可檢閱的內容。",
-      "openRepoPrs": "開啟儲存庫的 PR"
+      "openRepoPrs": "開啟儲存庫的 PR",
+      "emptyBody": "尚未為 <repo>{{repo}}</repo> 開啟回饋 PR。它是在評分過的提交之後，由作業的自動評分工作流程建立——若學生尚未提交（或此作業已停用回饋 PR），則目前沒有可審閱的內容。"
     },
     "rowRegrade": {
       "title": "重新評分此繳交",
@@ -1676,11 +1684,10 @@
       "titleFailed": "重新評分未能開始——請再試一次",
       "aria": "重新評分 {{owner}} 的繳交內容",
       "confirmTitle": "要重新評分 {{name}} 的繳交內容嗎？",
-      "confirmBody1_prefix": "這會對",
-      "confirmBody1_suffix": "在此作業的最新提交重新執行自動評分器。他們的繳交時間不會改變。",
-      "confirmBody2_prefix": "評分在背景執行，可能需要幾分鐘；之後請使用",
-      "confirmBody2_suffix": "以取得新的成績。",
-      "confirmLabel": "重新評分"
+      "confirmLabel": "重新評分",
+      "confirmBody1": "這會針對 <name>{{name}}</name> 在此作業的最新提交重新執行自動評分。他們的提交時間不會改變。",
+      "confirmBody1WithLogin": "這會針對 <name>{{name}}</name>（<owner>{{owner}}</owner>）在此作業的最新提交重新執行自動評分。他們的提交時間不會改變。",
+      "confirmBody2": "評分在背景執行，可能需要幾分鐘；之後請使用 <collectLabel>{{collectLabel}}</collectLabel> 來取得新分數。"
     },
     "student": {
       "submittedAt": "繳交於 {{date}}",
@@ -1689,10 +1696,7 @@
       "modeGroup": "組別",
       "modeIndividual": "個人",
       "loadError": "無法載入你的繳交內容。",
-      "notAccepted_prefix": "你尚未接受此作業。",
-      "notAccepted_link": "接受作業",
-      "notAccepted_suffix": "以取得你的儲存庫，然後推送你的作品以供評分。",
-      "noGradedYet": "尚無已評分的繳交。請向你的作業儲存庫推送一次提交，自動評分器就會在此發布你的結果。",
+      "noGradedYet": "尚無已評分的提交。請在上方上傳你的檔案，或從命令列推送到你的作業儲存庫——自動評分程式會在此發佈你的結果。",
       "openMyRepo": "開啟我的儲存庫",
       "releasesIntro": "每份繳交都會開啟其在 GitHub 上的已評分發行版，內含你的分數與各測試的結果。",
       "fallbackTitle": "繳交",
@@ -1703,7 +1707,8 @@
         "copySubmit": "複製繳交指令",
         "step1": "複製（clone）你的作業儲存庫（僅需一次）：",
         "step2": "在儲存庫內，繳交你的作品以進行評分：",
-        "title": "如何繳交"
+        "title": "偏好使用命令列？",
+        "intro": "你也可以從終端機提交，而不透過上方上傳。"
       },
       "upload": {
         "addFiles": "新增檔案",
@@ -1728,24 +1733,35 @@
         "success": "已上傳。評分在背景執行；你的結果稍後會顯示在這裡。",
         "title": "上傳繳交內容",
         "unsafePath": "已略過「{{name}}」——其路徑不被允許。"
-      }
+      },
+      "notAccepted": "你尚未領取此作業。<acceptLink>領取它</acceptLink>以取得你的儲存庫，然後推送你的作業以進行評分。"
     },
-    "viewSourceRepo": "檢視來源儲存庫",
-    "justNow": "剛剛",
+    "viewSourceRepo": "查看範本",
     "menu": {
       "actions": "操作",
-      "invite": "邀請連結",
-      "metrics": "統計數據"
+      "metrics": "統計數據",
+      "share": "分享"
     },
     "metrics": {
       "title": "繳交統計數據"
     },
-    "emptyRepoNote": "此作業使用空白儲存庫——自動評分、分數與回饋 pull request 皆已停用。學生自行建立並推送作品；下表顯示誰已接受作業。"
+    "emptyRepoNote": "此作業使用空白儲存庫——自動評分、分數與回饋 pull request 皆已停用。學生自行建立並推送作品；下表顯示誰已接受作業。",
+    "freshness": {
+      "collected": "提交資料已於 {{when}} 同步",
+      "neverCollected": "提交資料尚未同步",
+      "refresh": "重新整理提交",
+      "refreshHelp": "執行「收集分數」以從最新的推送重建 scores.json",
+      "refreshing": "收集中…",
+      "sync": "立即同步",
+      "syncHelp": "自上次收集以來對作業儲存庫的新推送。執行「收集分數」以重建 scores.json 並評分最新的作業。"
+    },
+    "live": {
+      "incomplete_one": "有 {{count}} 個儲存庫無法讀取，因此即時提交狀態可能不完整。請重試，或執行「立即同步提交」。",
+      "incomplete_other": "有 {{count}} 個儲存庫無法讀取，因此即時提交狀態可能不完整。請重試，或執行「立即同步提交」。"
+    }
   },
   "orgMembers": {
     "heading": "成員",
-    "subtitlePrefix": "所有在",
-    "subtitleSuffix": "GitHub 組織中的人，以及他們所屬的課程。",
     "manageMembersOnGitHub": "在 GitHub 上管理組織成員",
     "discrepancy_one": "有 {{count}} 位學生列在名冊上，但不是組織成員。",
     "discrepancy_other": "有 {{count}} 位學生列在名冊上，但不是組織成員。",
@@ -1761,26 +1777,15 @@
     "badgeNoClassroom": "沒有課程",
     "badgeMember": "成員",
     "noGitHubUsername": "沒有 GitHub 使用者名稱",
-    "idSuffix": "· id {{id}}",
     "detailTitle": "成員詳細資料",
     "manageOnGitHub": "在 GitHub 上管理",
     "classroomAccess": "課程存取權",
     "noRoster": "未列在任何課程名冊上。",
     "archived": "已封存",
     "selfNotice": "這是你目前登入的帳號，因此無法在此從組織中移除。",
-    "notMemberPrefix": "{{label}} 列在課程名冊上，但",
-    "notMemberEmphasis": "不是組織成員",
-    "notMemberSuffix": "。邀請他們以恢復其存取權。邀請會依 id 傳送到他們的 GitHub 帳號，因此即使使用者名稱變更也能送達。",
     "inviting": "正在邀請…",
     "inviteToOrg": "邀請加入組織",
     "notMemberNoId": "此學生列在名冊上，但不是組織成員。目前尚未記錄其 GitHub id，因此請從該課程的「學生」頁面邀請他們。",
-    "confirmUnenrollPrefix": "{{label}} 會先從",
-    "confirmClassroomCount_one": "{{count}} 個課程",
-    "confirmClassroomCount_other": "{{count}} 個課程",
-    "confirmUnenrollMid": "（{{classrooms}}）中退選，然後從",
-    "confirmUnenrollSuffix": "組織中移除。他們的作業儲存庫不會被刪除。",
-    "confirmRemovePrefix": "{{label}} 將會從",
-    "confirmRemoveSuffix": "組織中移除。",
     "removing": "正在移除…",
     "removeFromOrg": "從組織中移除",
     "inviteFailed": "無法邀請 {{label}}：{{reason}}",
@@ -1850,7 +1855,14 @@
     "unprovisionedAccessBadge": "不在團隊中",
     "unprovisionedAccessTitle": "在此課程名冊上但不在其 GitHub 團隊中 —— 分數收集會遺漏他們。請將他們重新加入課程以修正。",
     "unprovisionedBadge": "未註冊",
-    "unprovisionedTitle": "在名冊上但不在課程團隊中：{{classrooms}}。分數收集以團隊為依據，因此會遺漏他們。請將他們重新加入課程以修正。"
+    "unprovisionedTitle": "在名冊上但不在課程團隊中：{{classrooms}}。分數收集以團隊為依據，因此會遺漏他們。請將他們重新加入課程以修正。",
+    "confirmRemove": "{{label}} 將從 <org>{{org}}</org> 組織中移除。",
+    "confirmUnenroll_one": "{{label}} 會先從 <count>{{count}} 個課程</count>（{{classrooms}}）中退出註冊，接著從 <org>{{org}}</org> 組織中移除。他們的作業儲存庫不會被刪除。",
+    "confirmUnenroll_other": "{{label}} 會先從 <count>{{count}} 個課程</count>（{{classrooms}}）中退出註冊，接著從 <org>{{org}}</org> 組織中移除。他們的作業儲存庫不會被刪除。",
+    "noUsernameWithId": "<missing>無 GitHub 使用者名稱</missing> <meta>· id {{id}}</meta>",
+    "notMember": "{{label}} 在某課程名冊上，但<emphasis>不是組織成員</emphasis>。邀請他們以恢復其存取權限。邀請會依 id 送到他們的 GitHub 帳戶，因此即使使用者名稱改變仍然有效。",
+    "subtitle": "<orgLink>{{org}}</orgLink> GitHub 組織中的每個人，以及他們所屬的課程。",
+    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>"
   },
   "components": {
     "avatar": {
@@ -1869,12 +1881,10 @@
     },
     "notices": {
       "emptyRoster": {
-        "hasRows_prefix": "目前尚無學生加入",
-        "hasRows_suffix": "組織。作業的接受連結只對身為組織成員的學生有效，因此受邀的學生必須先接受邀請。",
-        "empty_prefix": "此課程目前還沒有學生。作業的接受連結只對身為以下組織成員的學生有效：",
-        "empty_suffix": "，因此請先新增並註冊學生，再分享連結。",
         "manageRoster": "管理名冊",
-        "addStudents": "新增學生"
+        "addStudents": "新增學生",
+        "empty": "這個課程還沒有學生。作業的領取連結只對 <org>{{org}}</org> 組織的成員有效，因此請先新增並註冊學生再分享。",
+        "hasRows": "還沒有學生加入 <org>{{org}}</org> 組織。作業的領取連結只對組織成員有效，因此受邀學生必須先接受邀請。"
       }
     },
     "confirmModal": {
@@ -1883,9 +1893,8 @@
       "yesContinue": "是，繼續",
       "dangerousPrompt": "您確定要繼續嗎？此動作可能難以復原或無法復原。",
       "genericError": "發生了一些問題。",
-      "typeToConfirm_prefix": "若要確認，請在下方輸入",
-      "typeToConfirm_suffix": "。",
-      "typeAriaLabel": "輸入 {{text}} 以確認"
+      "typeAriaLabel": "輸入 {{text}} 以確認",
+      "typeToConfirm": "若要確認，請在下方輸入 <text>{{text}}</text>。"
     },
     "modals": {
       "studentProfile": {
@@ -1900,8 +1909,6 @@
         "viewRepository": "檢視儲存庫",
         "loading": "正在載入協作者",
         "saved": "協作者已儲存！",
-        "onlyOwner_prefix": "只有小組擁有者",
-        "onlyOwner_suffix": "才能管理此儲存庫的協作者。",
         "groupMembers": "小組成員",
         "personCount_one": "{{count}} 人",
         "personCount_other": "{{count}} 人",
@@ -1932,7 +1939,9 @@
           "addAndRemove": "部分協作者無法新增或移除。{{removedNote}} 請檢查標示的使用者名稱，然後再次儲存以重試。{{suffix}}",
           "add": "部分協作者無法新增。{{removedNote}} 請檢查標示的使用者名稱，然後再次儲存以重試。{{suffix}}",
           "remove": "部分協作者無法移除。{{removedNote}} 請檢查標示的使用者名稱，然後再次儲存以重試。{{suffix}}"
-        }
+        },
+        "onlyOwner": "只有群組擁有者可以管理這個儲存庫的協作者。",
+        "onlyOwnerNamed": "只有群組擁有者（<owner>{{owner}}</owner>）可以管理這個儲存庫的協作者。"
       },
       "reuseShell": {
         "copying": "正在複製…",
@@ -1946,20 +1955,17 @@
       },
       "reuseAssignment": {
         "title": "重複使用作業",
-        "description_prefix": "將",
-        "description_suffix": "到 {{org}} 中的某個課程。名稱、範本、測試、執行環境、截止日期及其他設定都會複製；學生儲存庫與分數則不會。",
         "noTargets": "{{org}} 中沒有可供重用此作業的課程。請先建立一個課程。",
         "targetClassroom": "目標課程",
         "chooseClassroom": "選擇課程…",
         "slugLabel": "在新課程中的 slug",
         "chooseClassroomFirst": "請先選擇課程。",
         "uniqueHint": "在目標課程中必須是唯一的。",
-        "thisClassroomOption": "{{classroom}}（目前的課程）"
+        "thisClassroomOption": "{{classroom}}（目前的課程）",
+        "description": "將 <assignment>{{assignment}}</assignment> 複製到 {{org}} 中的某個課程。名稱、範本、測試、執行環境、截止日期及其他設定都會複製；學生的儲存庫與分數則不會。"
       },
       "reuseFromClassroom": {
         "title": "重複使用現有作業",
-        "description_prefix": "將 {{org}} 中現有的一份作業複製到",
-        "description_suffix": "。名稱、範本、測試、執行環境、截止日期及其他設定都會一併複製；學生儲存庫與成績則不會。",
         "noSources": "{{org}} 中沒有可供重用作業的課程。",
         "sourceClassroom": "來源課程",
         "chooseClassroom": "選擇課程…",
@@ -1970,7 +1976,8 @@
         "loadError": "無法載入 {{classroom}} 的作業。",
         "slugLabel": "在 {{classroom}} 中的 slug",
         "uniqueHint": "在此課程中必須是唯一的。",
-        "thisClassroomOption": "{{classroom}}（目前的課程）"
+        "thisClassroomOption": "{{classroom}}（目前的課程）",
+        "description": "將 {{org}} 中現有的作業複製到 <classroom>{{classroom}}</classroom>。名稱、範本、測試、執行環境、截止日期及其他設定都會複製；學生的儲存庫與分數則不會。"
       }
     }
   },
@@ -2034,19 +2041,17 @@
       "title": "發生錯誤"
     },
     "notAMember": {
-      "body_prefix": "我們無法確認你是",
-      "body_suffix": "組織的成員。",
       "instructions": "請老師確認已邀請你，然後重新載入此頁面。如果你剛接受了電子郵件邀請，請稍待片刻讓 GitHub 更新後再試一次。",
-      "title": "尚未成為成員"
+      "title": "尚未成為成員",
+      "body": "我們無法確認你在 <org>{{org}}</org> 組織中的成員身分。"
     },
     "showDetails": "顯示提供給老師的詳細資料",
     "ssoRequired": {
       "authorizeButton": "授權單一登入",
-      "body_prefix": "此",
-      "body_suffix": "組織需要 SAML 單一登入（SSO），而你目前的工作階段尚未為其授權。你可能已經是成員 —— 只需先授權 SSO 才能繼續。",
       "instructionsUrlless": "請從你學校的學習管理系統（LMS）內開啟此連結，先透過單一登入登入，或重新以 GitHub 驗證，然後重新載入此頁面。",
       "instructionsWithUrl": "請使用下方按鈕為此組織授權單一登入，然後重新載入此頁面。",
-      "title": "授權單一登入"
+      "title": "授權單一登入",
+      "body": "<org>{{org}}</org> 組織要求 SAML 單一登入（SSO），而你目前的工作階段尚未獲得授權。你可能已是成員——只需在繼續前授權 SSO 即可。"
     }
   },
   "appUpdate": {
@@ -2125,5 +2130,11 @@
     "bodyGeneric": "Classroom 50 無法順利連線到 GitHub。這通常是暫時性的 GitHub 服務中斷，但 VPN、代理伺服器或封鎖 api.github.com 的瀏覽器擴充功能也可能造成此情況。",
     "checkStatusLink": "查看 GitHub 服務狀態",
     "title": "GitHub 可能發生問題"
+  },
+  "budgetCreated": {
+    "body": "Classroom 50 已為這個組織建立一個 $0 的 GitHub Actions 支出預算，因此失控的自動評分工作流程不會產生費用。你隨時可以在 GitHub 上調高或移除它。",
+    "dismiss": "知道了",
+    "manage": "在 GitHub 上管理預算",
+    "title": "Actions 支出上限已設為 $0"
   }
 }
