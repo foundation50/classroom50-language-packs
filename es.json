@@ -171,7 +171,8 @@
     "mySubmission": "Mi entrega",
     "submissions": "Entregas",
     "activity": "Actividad",
-    "roster": "Lista de estudiantes"
+    "roster": "Lista de estudiantes",
+    "settings": "Ajustes"
   },
   "students": {
     "addTitle": "Añadir miembro",
@@ -179,7 +180,7 @@
     "namePlaceholder": "Nombre (opcional)",
     "usernamePlaceholder": "github-username",
     "emailPlaceholder": "estudiante@universidad.edu (opcional)",
-    "sectionPlaceholder": "Sección (opcional, p. ej. Grupo 3)",
+    "sectionPlaceholder": "Sección (opcional, p. ej., Período 3)",
     "keepStudent": "Mantener estudiante",
     "unenrollStudent": "Dar de baja al estudiante",
     "added": "Se añadió a {{label}}.",
@@ -209,7 +210,7 @@
     "lastNamePlaceholder": "Apellidos",
     "editEmailPlaceholder": "estudiante@universidad.edu",
     "emailLabel": "Correo electrónico",
-    "editSectionPlaceholder": "Sección (p. ej. Grupo 3)",
+    "editSectionPlaceholder": "Sección (p. ej., Período 3)",
     "sectionLabel": "Sección",
     "saving": "Guardando...",
     "saveChanges": "Guardar cambios",
@@ -458,7 +459,8 @@
     "headTaCount_one": "{{count}} TA jefe",
     "headTaCount_other": "{{count}} TA jefe",
     "roleHeadTa": "TA jefe",
-    "unenrollBody": "Esto dará de baja al estudiante <label>{{label}}</label> de la clase {{classroom}} de <org>{{org}}</org>. Los repositorios de tareas del estudiante no se eliminarán."
+    "unenrollBody": "Esto dará de baja al estudiante <label>{{label}}</label> de la clase {{classroom}} de <org>{{org}}</org>. Los repositorios de tareas del estudiante no se eliminarán.",
+    "importMergeNotice": "Importar añade a tu lista existente — los estudiantes ya inscritos se omiten y no se elimina a nadie. Puedes importar por lotes con seguridad."
   },
   "language": {
     "baseName": "Inglés (base)",
@@ -467,7 +469,7 @@
     "switcherInstalled": "Disponible ahora",
     "switcherMore": "Más idiomas",
     "shareTitle": "Compartir un enlace de idioma",
-    "shareHint": "Copia un enlace que abra el sitio en un idioma concreto — útil para compartirlo con estudiantes que lo hablan (p. ej., español).",
+    "shareHint": "Copia un enlace que abre el sitio en un idioma específico — útil para compartir con estudiantes que lo hablan (p. ej., español).",
     "shareLanguageLabel": "Idioma que compartir",
     "shareUrlLabel": "Enlace para compartir",
     "shareCopy": "Copiar",
@@ -533,11 +535,14 @@
     },
     "card": {
       "planTitlePaid": "Plan de GitHub — Classroom 50 se puede configurar en los planes Team y Enterprise",
-      "viewOnGitHub": "Ver en GitHub",
-      "openOnGitHub": "Abrir {{org}} en GitHub",
       "open": "Abrir",
       "updatedAgo": "Actualizado {{when}}",
-      "noAccessBadge": "Sin acceso a <code>classroom50</code>"
+      "noAccessBadge": "Sin acceso a <code>classroom50</code>",
+      "details": "Detalles",
+      "hidden": "Se ocultó {{org}} de tu página de inicio.",
+      "hide": "Ocultar del inicio",
+      "moreActions": "Más acciones para {{org}}",
+      "undoHide": "Deshacer"
     },
     "newOrg": {
       "allSetUp": "Todas las organizaciones que podemos ver ya están configuradas.",
@@ -598,6 +603,31 @@
       "summary_one": "Tienes {{count}} invitación pendiente",
       "summary_other": "Tienes {{count}} invitaciones pendientes",
       "viewOnGitHub": "Ver invitación en GitHub"
+    },
+    "detailsModal": {
+      "cancel": "Cancelar",
+      "close": "Cerrar",
+      "description": "Descripción",
+      "descriptionPlaceholder": "Una breve descripción de esta organización",
+      "displayName": "Nombre para mostrar",
+      "displayNamePlaceholder": "p. ej., Classroom 50 Summer Dev",
+      "edit": "Editar perfil",
+      "editOnGitHub": "Editar en GitHub",
+      "email": "Correo de contacto",
+      "location": "Ubicación",
+      "manageOnGitHub": "Gestionar en GitHub",
+      "orgId": "ID de la organización",
+      "plan": "Plan",
+      "role": "Tu rol",
+      "roleAdmin": "Propietario",
+      "roleMember": "Miembro",
+      "save": "Guardar cambios",
+      "saveError": "No se pudo actualizar el perfil: {{error}}",
+      "saved": "Se actualizó el perfil de {{org}}.",
+      "saving": "Guardando…",
+      "school": "Escuela",
+      "website": "Sitio web",
+      "websitePlaceholder": "classroom50.org"
     }
   },
   "assignments": {
@@ -633,9 +663,9 @@
       "advanced": "Configuración avanzada",
       "advancedHelp": "Configuración opcional de corrección y de tiempo de ejecución. Los campos en blanco usan sus valores predeterminados documentados.",
       "dockerImage": "Imagen de Docker",
-      "dockerImagePlaceholder": "p. ej. gcc:13",
+      "dockerImagePlaceholder": "p. ej., gcc:13",
       "containerUser": "Usuario del contenedor",
-      "containerUserPlaceholder": "p. ej. root",
+      "containerUserPlaceholder": "p. ej., root",
       "setupCommand": "Comando de preparación",
       "setupCommandPlaceholder": "p. ej., gcc -o hello hello.c",
       "allowedFiles": "Archivos permitidos",
@@ -656,9 +686,9 @@
         "noRunnerMatch": "Ningún runner coincide con {{labels}}: revisa la ortografía.",
         "tooMany": "Demasiadas etiquetas ({{count}}): 10 como máximo.",
         "cannotVerify": "No se puede verificar: se usa tal como se introdujo.",
-        "tip": "Las etiquetas del runner de GitHub Actions que califican esta tarea. En blanco se usa ubuntu-latest. Combina etiquetas separadas por comas para un runner autoalojado (por ejemplo, self-hosted, linux, x64).",
+        "tip": "Las etiquetas del ejecutor de GitHub Actions que califican esta tarea. En blanco usa ubuntu-latest. Combina etiquetas separadas por comas para un ejecutor autoalojado (p. ej., self-hosted, linux, x64).",
         "emptyHint": "Déjalo en blanco para <code>ubuntu-latest</code>.",
-        "selfHostedHint": "Combina etiquetas separadas por comas para un runner autoalojado (por ejemplo, <code>self-hosted, linux, x64</code>)."
+        "selfHostedHint": "Combina etiquetas separadas por comas para un ejecutor autoalojado (p. ej., <code>self-hosted, linux, x64</code>)."
       },
       "validation": {
         "nameRequired": "El nombre de la tarea es obligatorio.",
@@ -680,7 +710,7 @@
         "aptCount_one": "{{count}} paquete",
         "aptCount_other": "{{count}} paquetes",
         "aptLabel": "Paquetes apt adicionales",
-        "aptPlaceholder": "p. ej. cmake, valgrind",
+        "aptPlaceholder": "p. ej., cmake, valgrind",
         "aptTip": "Paquetes de Ubuntu adicionales instalados (apt-get) antes de calificar, separados por comas o espacios. Nombres de paquetes Debian en minúsculas.",
         "envContainer": "Contenedor Docker",
         "envContainerHelp": "Califica dentro de una imagen pública de Docker (esta gestiona los paquetes del sistema operativo).",
@@ -691,8 +721,9 @@
         "languagesTip": "Elige una versión para instalar esa cadena de herramientas (por ejemplo, Node 26, Java 25), o escribe una personalizada. Un campo en blanco la omite. Python usa 3.12 de forma predeterminada cuando está en blanco en el runner alojado. Puedes habilitar tantas cadenas de herramientas como necesites.",
         "runnerContainerError": "\"{{label}}\" es un runner de macOS/Windows — una imagen de Docker necesita un runner de Ubuntu (o personalizado/autoalojado).",
         "versionMenu": "Elige una versión de {{language}}",
-        "versionPlaceholder": "p. ej. {{version}}",
-        "versionTip": "La versión de {{language}} que se instalará (mediante la acción setup-{{language}}). Déjalo en blanco para omitirla. Puedes escribir cualquier versión que la acción setup acepte."
+        "versionPlaceholder": "p. ej., {{version}}",
+        "versionTip": "La versión de {{language}} que se instalará (mediante la acción setup-{{language}}). Déjalo en blanco para omitirla. Puedes escribir cualquier versión que la acción setup acepte.",
+        "selfHostedDisabled": "Se ignora en un ejecutor autoalojado — usa sus propias cadenas de herramientas y paquetes precompilados. Prepáralos en la imagen del ejecutor en su lugar."
       },
       "setupCommandTip": "Un comando que se ejecuta una vez antes de calificar, por ejemplo para compilar. Se añade como un paso inicial de autocalificación de 0 puntos llamado «setup». Una salida distinta de cero hace que la ejecución falle.",
       "detailsSection": "Detalles",
@@ -744,7 +775,6 @@
       "timeout": "Tiempo de espera (segundos)",
       "timeoutHint": "0 = predeterminado (10 s)",
       "points": "Puntos",
-      "done": "Listo",
       "type": {
         "io": {
           "label": "Entrada/Salida",
@@ -759,7 +789,7 @@
           "hint": "Ejecuta un comando pytest; los puntos se reparten entre los casos de prueba descubiertos al calificar."
         }
       },
-      "pythonNote": "El comando de ejecución debe invocar pytest (por ejemplo, <code>python3 -m pytest -q</code>) sobre los archivos de prueba de la plantilla de la tarea. pytest y pytest-json-report se instalan automáticamente. Los puntos se reparten entre los casos que pytest descubre."
+      "pythonNote": "El comando de ejecución debe invocar pytest (p. ej., <code>python3 -m pytest -q</code>) sobre los archivos de prueba de la plantilla de la tarea. pytest y pytest-json-report se instalan automáticamente. Los puntos se reparten entre los casos que pytest detecta."
     },
     "table": {
       "caption": "Tareas",
@@ -1007,12 +1037,12 @@
     "setupComplete": "La configuración de la organización se ha completado. Revisa los pasos siguientes y luego continúa para establecer el token de servicio.",
     "allSetTitle": "¡Todo listo!",
     "allSetBody": "Tu organización está lista para usar Classroom 50. Ve a tu organización para crear tu primera clase y tus primeras tareas.",
-    "goToOrg": "Ir a {{org}}",
-    "yourOrganization": "tu organización",
     "notAdmin": "La configuración de Classroom 50 requiere permisos de propietario de la organización. Pide a un propietario de la organización que ejecute la configuración.",
     "notTeamOrEnterprise": "Es posible que GitHub Pages desde un repositorio privado requiera GitHub Team o Enterprise Cloud. Puedes continuar con la configuración, pero las tareas publicadas podrían no estar accesibles hasta que Pages esté disponible para esta organización.",
-    "manageServiceToken": "Gestionar el token de servicio",
-    "statusIndeterminate": "No se pudo determinar el estado de configuración de tu organización. Suele ser un problema temporal de GitHub o de permisos, no un problema con tu configuración."
+    "statusIndeterminate": "No se pudo determinar el estado de configuración de tu organización. Suele ser un problema temporal de GitHub o de permisos, no un problema con tu configuración.",
+    "done": "Listo",
+    "progressLabel": "Progreso de la configuración",
+    "stepLabel": "Paso {{step}}"
   },
   "assignmentSettings": {
     "heading": "Configuración de la tarea",
@@ -1106,7 +1136,18 @@
       "renameModalTitle": "¿Renombrar a «main» la rama predeterminada del repositorio de configuración?",
       "renameToMain": "Renombrar a main",
       "renameError": "No se pudo renombrar la rama predeterminada del repositorio de configuración. Puede que no tengas permisos de propietario o que el cambio de nombre no se completara; inténtalo de nuevo.",
-      "stateWarn": "Recomendado"
+      "stateWarn": "Recomendado",
+      "detail": {
+        "budgetMissing": "sin límite máximo de gasto de Actions de $0",
+        "budgetOverThreshold": "El presupuesto de Actions es de ${{amount}} (por encima de ${{threshold}}); se recomienda un límite máximo de $0",
+        "budgetUnreadable": "no se pudo verificar el límite de gasto de Actions (lectura fallida ({{reason}})) — probablemente facturación gestionada a nivel de empresa o un plan sin presupuestos de organización. Confirma manualmente un límite máximo de $0.",
+        "notConfigured": "no configurado",
+        "orgActions": "enabled_repositories=\"{{enabledRepositories}}\", allowed_actions=\"{{allowedActions}}\"",
+        "readFailed": "lectura fallida",
+        "readFailedStatus": "lectura fallida ({{status}})",
+        "rulesetsMissing": "faltan: {{names}}",
+        "workflowOrgManaged": "la política de la organización establece por defecto los flujos de trabajo en lectura; los flujos de trabajo base declaran sus propios permisos"
+      }
     },
     "rerun": {
       "title": "Volver a ejecutar la configuración",
@@ -1142,7 +1183,10 @@
       "title": "La comprobación previa de la organización falló",
       "body_one": "Se detectó un problema con {{categories}} de esta organización.",
       "body_other": "Se detectaron problemas con {{categories}} de esta organización.",
-      "reviewFix": "Revisa y corrige en la <settingsLink>página de configuración de la organización</settingsLink>."
+      "reviewFix": "Revisa y corrige en la <settingsLink>página de configuración de la organización</settingsLink>.",
+      "unverifiedBody": "No se pudo leer la facturación de esta organización, así que no podemos confirmar que haya un límite de gasto establecido. Vigila los costos de Actions y revisa tus ajustes de facturación o consulta a tu administrador de facturación si el uso no está limitado.",
+      "unverifiedReview": "Consulta los detalles en la <settingsLink>página de ajustes de la organización</settingsLink>.",
+      "unverifiedTitle": "No se pudo verificar el límite de gasto de Actions"
     },
     "overwrite": {
       "title": "¿Actualizar los archivos de flujo de trabajo para que la calificación siga funcionando?",
@@ -1350,7 +1394,7 @@
       "noSuchUser": "No existe ese usuario de GitHub.",
       "addFailed": "No se pudo añadir al personal: {{message}}",
       "githubUsername": "Nombre de usuario de GitHub",
-      "usernamePlaceholder": "p. ej. octocat",
+      "usernamePlaceholder": "p. ej., octocat",
       "role": "Rol",
       "add": "Añadir",
       "noneYet": "Aún no hay {{role}}.",
@@ -1569,7 +1613,11 @@
       "unlistedNote": "Esta clase usa una URL no listada, por lo que el enlace incluye la clave de acceso: trátalo como una contraseña compartida y envía el enlace completo tal cual.",
       "copyLink": "Copiar enlace de aceptación",
       "copyCli": "Copiar comando de la CLI",
-      "preferCli": "¿Prefieres la línea de comandos?"
+      "preferCli": "¿Prefieres la línea de comandos?",
+      "manageRoster": "Gestionar lista",
+      "shareWithCount_one": "Se comparte con <count>{{count}} estudiante</count> que puede aceptar esta tarea.",
+      "shareWithCount_other": "Se comparte con <count>{{count}} estudiantes</count> que pueden aceptar esta tarea.",
+      "warnNoStudents": "Todavía ningún estudiante puede aceptar este enlace en <classroom>{{classroom}}</classroom>. Primero agrega estudiantes a la lista e invítalos a la organización."
     },
     "stats": {
       "submitted": "Entregadas",
@@ -1921,7 +1969,7 @@
         "noCollaborators": "Aún no hay colaboradores.",
         "tooMany": "Esta tarea tiene un tamaño máximo de grupo de {{max}} (incluido el propietario).",
         "mustBeUnique": "Los colaboradores deben ser únicos.",
-        "addPlaceholder": "Añade un nombre de usuario de GitHub (p. ej. octocat)",
+        "addPlaceholder": "Agrega un nombre de usuario de GitHub (p. ej., octocat)",
         "addAriaLabel": "Añadir un nombre de usuario de GitHub",
         "add": "Añadir",
         "groupFull": "El grupo está completo — quita a alguien para añadir otro colaborador.",
@@ -2041,9 +2089,10 @@
       "title": "Algo salió mal"
     },
     "notAMember": {
-      "instructions": "Pídele a tu profesor que confirme que te ha invitado y luego recarga esta página. Si acabas de aceptar una invitación por correo electrónico, dale un momento a GitHub e inténtalo de nuevo.",
+      "instructions": "Pídele a tu docente que te agregue a la lista de la clase y te envíe una invitación (puede hacerlo desde la página de la lista de la clase). GitHub enviará la invitación por correo a tu cuenta — acéptala y luego vuelve a comprobar aquí. Si acabas de aceptar una invitación, dale a GitHub un momento para actualizarse.",
       "title": "Aún no eres miembro",
-      "body": "No hemos podido confirmar tu pertenencia a la organización <org>{{org}}</org>."
+      "body": "Todavía no eres miembro de la organización <org>{{org}}</org>, así que no puedes aceptar esta tarea. Primero es necesario unirse — una invitación a la organización de GitHub te da acceso para crear el repositorio de tu tarea.",
+      "checkAgain": "Comprobar de nuevo"
     },
     "showDetails": "Mostrar detalles para tu profesor",
     "ssoRequired": {
@@ -2136,5 +2185,17 @@
     "dismiss": "Entendido",
     "manage": "Gestionar el presupuesto en GitHub",
     "title": "Límite de gasto de Actions fijado en 0 $"
+  },
+  "settings": {
+    "hiddenOrgs": {
+      "empty": "No has ocultado ninguna organización.",
+      "heading": "Organizaciones ocultas",
+      "subheading": "Organizaciones que has ocultado de tu página de inicio. Muestra una de nuevo para volver a verla.",
+      "unhide": "Mostrar"
+    },
+    "page": {
+      "heading": "Ajustes",
+      "subheading": "Preferencias para este navegador. Nada de aquí se comparte con tus organizaciones."
+    }
   }
 }

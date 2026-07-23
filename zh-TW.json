@@ -171,7 +171,8 @@
     "mySubmission": "我的繳交內容",
     "submissions": "繳交內容",
     "activity": "動態",
-    "roster": "名冊"
+    "roster": "名冊",
+    "settings": "設定"
   },
   "students": {
     "addTitle": "新增成員",
@@ -179,7 +180,7 @@
     "namePlaceholder": "姓名（選填）",
     "usernamePlaceholder": "github-username",
     "emailPlaceholder": "student@university.edu（選填）",
-    "sectionPlaceholder": "分組（選填，例如：第 3 節）",
+    "sectionPlaceholder": "分組（選填，例如：第三節）",
     "keepStudent": "保留學生",
     "unenrollStudent": "取消註冊學生",
     "added": "已新增 {{label}}。",
@@ -209,7 +210,7 @@
     "lastNamePlaceholder": "姓氏",
     "editEmailPlaceholder": "student@university.edu",
     "emailLabel": "電子郵件",
-    "editSectionPlaceholder": "分組（例如：第 3 節）",
+    "editSectionPlaceholder": "分組（例如：第三節）",
     "sectionLabel": "分組",
     "saving": "正在儲存…",
     "saveChanges": "儲存變更",
@@ -458,7 +459,8 @@
     "headTaCount_one": "{{count}} 位首席助教",
     "headTaCount_other": "{{count}} 位首席助教",
     "roleHeadTa": "首席助教",
-    "unenrollBody": "這會將學生 <label>{{label}}</label> 從 <org>{{org}}</org> {{classroom}} 課程中移除。學生的作業儲存庫不會被刪除。"
+    "unenrollBody": "這會將學生 <label>{{label}}</label> 從 <org>{{org}}</org> {{classroom}} 課程中移除。學生的作業儲存庫不會被刪除。",
+    "importMergeNotice": "匯入會加入你現有的名冊——已註冊的學生會被略過，且不會移除任何人。你可以安心地分批匯入。"
   },
   "language": {
     "baseName": "英文（基礎）",
@@ -476,7 +478,7 @@
     "browseLoading": "正在載入可用的語言…",
     "installTitle": "從檔案或網址安裝",
     "installHint": "安裝語言包：翻譯基礎的 en.json 並在此載入。語言代碼會從檔案名稱偵測；只有在偵測失敗時，才需在下方輸入。",
-    "codePlaceholder": "語言代碼（例如 de）",
+    "codePlaceholder": "語言代碼（例如：de）",
     "codeOptionalLabel": "語言代碼（選填）",
     "uploadFile": "上傳 JSON 檔案",
     "urlPlaceholder": "…或貼上網址",
@@ -533,11 +535,14 @@
     },
     "card": {
       "planTitlePaid": "GitHub 方案 — Classroom 50 可在 Team 和 Enterprise 方案上設定",
-      "viewOnGitHub": "在 GitHub 上檢視",
-      "openOnGitHub": "在 GitHub 上開啟 {{org}}",
       "open": "開啟",
       "updatedAgo": "更新於 {{when}}",
-      "noAccessBadge": "沒有 <code>classroom50</code> 存取權"
+      "noAccessBadge": "沒有 <code>classroom50</code> 存取權",
+      "details": "詳情",
+      "hidden": "已將 {{org}} 從你的首頁隱藏。",
+      "hide": "從首頁隱藏",
+      "moreActions": "{{org}} 的更多操作",
+      "undoHide": "復原"
     },
     "newOrg": {
       "allSetUp": "我們能看到的所有組織都已設定完成。",
@@ -598,6 +603,31 @@
       "summary_one": "您有 {{count}} 個待處理的邀請",
       "summary_other": "您有 {{count}} 個待處理的邀請",
       "viewOnGitHub": "在 GitHub 上查看邀請"
+    },
+    "detailsModal": {
+      "cancel": "取消",
+      "close": "關閉",
+      "description": "描述",
+      "descriptionPlaceholder": "此組織的簡短描述",
+      "displayName": "顯示名稱",
+      "displayNamePlaceholder": "例如：Classroom 50 Summer Dev",
+      "edit": "編輯個人資料",
+      "editOnGitHub": "在 GitHub 上編輯",
+      "email": "聯絡電子郵件",
+      "location": "地點",
+      "manageOnGitHub": "在 GitHub 上管理",
+      "orgId": "組織 ID",
+      "plan": "方案",
+      "role": "你的角色",
+      "roleAdmin": "擁有者",
+      "roleMember": "成員",
+      "save": "儲存變更",
+      "saveError": "無法更新個人資料：{{error}}",
+      "saved": "已更新 {{org}} 的個人資料。",
+      "saving": "儲存中…",
+      "school": "學校",
+      "website": "網站",
+      "websitePlaceholder": "classroom50.org"
     }
   },
   "assignments": {
@@ -633,9 +663,9 @@
       "advanced": "進階設定",
       "advancedHelp": "選填的評分與執行環境設定。空白欄位會使用其文件記載的預設值。",
       "dockerImage": "Docker 映像檔",
-      "dockerImagePlaceholder": "例如 gcc:13",
+      "dockerImagePlaceholder": "例如：gcc:13",
       "containerUser": "容器使用者",
-      "containerUserPlaceholder": "例如 root",
+      "containerUserPlaceholder": "例如：root",
       "setupCommand": "設定指令",
       "setupCommandPlaceholder": "例如：gcc -o hello hello.c",
       "allowedFiles": "允許的檔案",
@@ -656,9 +686,9 @@
         "noRunnerMatch": "沒有符合 {{labels}} 的 runner——請檢查拼字。",
         "tooMany": "標籤過多（{{count}}）——最多 10 個。",
         "cannotVerify": "無法驗證——將直接依輸入使用。",
-        "tip": "用於為此作業評分的 GitHub Actions runner 標籤。留空時使用 ubuntu-latest。若要使用自架 runner，請以逗號分隔多個標籤（例如 self-hosted, linux, x64）。",
+        "tip": "為此作業評分的 GitHub Actions runner 標籤。留空則使用 ubuntu-latest。以逗號分隔多個標籤來指定自架 runner（例如 self-hosted, linux, x64）。",
         "emptyHint": "留空則使用 <code>ubuntu-latest</code>。",
-        "selfHostedHint": "以逗號分隔多個標籤來組合自代管 runner（例如 <code>self-hosted, linux, x64</code>）。"
+        "selfHostedHint": "以逗號分隔多個標籤來指定自架 runner（例如 <code>self-hosted, linux, x64</code>）。"
       },
       "validation": {
         "nameRequired": "作業名稱為必填。",
@@ -680,7 +710,7 @@
         "aptCount_one": "{{count}} 個套件",
         "aptCount_other": "{{count}} 個套件",
         "aptLabel": "額外的 apt 套件",
-        "aptPlaceholder": "例如 cmake, valgrind",
+        "aptPlaceholder": "例如：cmake, valgrind",
         "aptTip": "評分前額外安裝（apt-get）的 Ubuntu 套件，以逗號或空格分隔。使用小寫的 Debian 套件名稱。",
         "envContainer": "Docker 容器",
         "envContainerHelp": "在公開 Docker 映像檔中評分（由映像檔管理作業系統套件）。",
@@ -691,8 +721,9 @@
         "languagesTip": "選擇一個版本以安裝該工具鏈（例如 Node 26、Java 25），或自行輸入。留空則略過。在託管 runner 上，Python 留空時預設為 3.12。你可以視需要啟用任意多個工具鏈。",
         "runnerContainerError": "「{{label}}」是 macOS/Windows runner —— Docker 映像檔需要 Ubuntu（或自訂／自架）runner。",
         "versionMenu": "選擇 {{language}} 版本",
-        "versionPlaceholder": "例如 {{version}}",
-        "versionTip": "要安裝的 {{language}} 版本（透過 setup-{{language}} action）。留空則略過。你可以輸入 setup action 接受的任何版本。"
+        "versionPlaceholder": "例如：{{version}}",
+        "versionTip": "要安裝的 {{language}} 版本（透過 setup-{{language}} action）。留空則略過。你可以輸入 setup action 接受的任何版本。",
+        "selfHostedDisabled": "在自架 runner 上會被忽略——它會使用自己預先建置的工具鏈與套件。請改為在 runner 映像檔中預先安裝這些項目。"
       },
       "setupCommandTip": "評分前執行一次的指令，例如用來編譯。它會作為名為「setup」的 0 分前置自動評分步驟加入。非零的結束碼會使該次執行失敗。",
       "detailsSection": "詳細資料",
@@ -744,7 +775,6 @@
       "timeout": "逾時（秒）",
       "timeoutHint": "0 = 預設值（10 秒）",
       "points": "分數",
-      "done": "完成",
       "type": {
         "io": {
           "label": "輸入／輸出",
@@ -759,7 +789,7 @@
           "hint": "執行 pytest 指令；評分時分數會平均分配到找出的各個測試案例。"
         }
       },
-      "pythonNote": "執行指令應對作業範本中的測試檔案呼叫 pytest（例如 <code>python3 -m pytest -q</code>）。系統會自動安裝 pytest 與 pytest-json-report。分數會平均分配到 pytest 探索到的各個案例。"
+      "pythonNote": "執行指令應針對作業範本中的測試檔案呼叫 pytest（例如 <code>python3 -m pytest -q</code>）。pytest 與 pytest-json-report 會自動安裝。分數會分攤到 pytest 找到的各個測試案例。"
     },
     "table": {
       "caption": "作業",
@@ -1007,12 +1037,12 @@
     "setupComplete": "組織設定已完成。請檢視下列步驟，然後繼續設定服務權杖。",
     "allSetTitle": "一切就緒！",
     "allSetBody": "你的組織已準備好使用 Classroom 50。前往你的組織以建立第一個班級與作業。",
-    "goToOrg": "前往 {{org}}",
-    "yourOrganization": "你的組織",
     "notAdmin": "Classroom 50 的設定需要組織擁有者權限。請組織擁有者執行設定。",
     "notTeamOrEnterprise": "從私有存放庫提供的 GitHub Pages 可能需要 GitHub Team 或 Enterprise Cloud。你可以繼續設定，但在此組織能使用 Pages 之前，已發佈的作業可能無法存取。",
-    "manageServiceToken": "管理服務權杖",
-    "statusIndeterminate": "無法判斷你組織的設定狀態。這通常是暫時性的 GitHub 或權限問題，而非你的設定有問題。"
+    "statusIndeterminate": "無法判斷你組織的設定狀態。這通常是暫時性的 GitHub 或權限問題，而非你的設定有問題。",
+    "done": "完成",
+    "progressLabel": "設定進度",
+    "stepLabel": "步驟 {{step}}"
   },
   "assignmentSettings": {
     "heading": "作業設定",
@@ -1106,7 +1136,18 @@
       "renameModalTitle": "要將設定存放庫的預設分支重新命名為 main 嗎？",
       "renameToMain": "重新命名為 main",
       "renameError": "無法重新命名設定儲存庫的預設分支。你可能沒有擁有者權限，或重新命名未成功——請再試一次。",
-      "stateWarn": "建議"
+      "stateWarn": "建議",
+      "detail": {
+        "budgetMissing": "沒有 $0 硬性停止的 Actions 預算",
+        "budgetOverThreshold": "Actions 預算為 ${{amount}}（超過 ${{threshold}}）；建議設定 $0 硬性停止上限",
+        "budgetUnreadable": "無法驗證 Actions 支出上限（讀取失敗（{{reason}}））——可能是由企業管理的帳單，或方案不支援組織預算。請手動確認已設定 $0 硬性停止上限。",
+        "notConfigured": "尚未設定",
+        "orgActions": "enabled_repositories=\"{{enabledRepositories}}\", allowed_actions=\"{{allowedActions}}\"",
+        "readFailed": "讀取失敗",
+        "readFailedStatus": "讀取失敗（{{status}}）",
+        "rulesetsMissing": "缺少：{{names}}",
+        "workflowOrgManaged": "組織政策將工作流程預設為唯讀；骨架工作流程會自行宣告其權限"
+      }
     },
     "rerun": {
       "title": "重新執行設定",
@@ -1142,7 +1183,10 @@
       "title": "組織預檢失敗",
       "body_one": "此組織的 {{categories}} 發現了一個問題。",
       "body_other": "此組織的 {{categories}} 發現了多個問題。",
-      "reviewFix": "在<settingsLink>組織設定頁面</settingsLink>檢視並修正。"
+      "reviewFix": "在<settingsLink>組織設定頁面</settingsLink>檢視並修正。",
+      "unverifiedBody": "無法讀取此組織的帳單，因此我們無法確認是否已設定支出上限。請留意 Actions 費用；若使用量未設上限，請檢查你的帳單設定或詢問你的帳單管理員。",
+      "unverifiedReview": "在<settingsLink>組織設定頁面</settingsLink>查看詳情。",
+      "unverifiedTitle": "無法驗證 Actions 支出上限"
     },
     "overwrite": {
       "title": "更新工作流程檔案以維持評分正常運作？",
@@ -1569,7 +1613,11 @@
       "unlistedNote": "此課程使用未公開的網址，因此連結包含存取金鑰——請將它視為共用密碼，並原樣傳送完整連結。",
       "copyLink": "複製接受連結",
       "copyCli": "複製 CLI 指令",
-      "preferCli": "偏好使用命令列？"
+      "preferCli": "偏好使用命令列？",
+      "manageRoster": "管理名冊",
+      "shareWithCount_one": "與可接受此作業的 <count>{{count}} 位學生</count>分享。",
+      "shareWithCount_other": "與可接受此作業的 <count>{{count}} 位學生</count>分享。",
+      "warnNoStudents": "目前 <classroom>{{classroom}}</classroom> 中還沒有學生能接受此連結。請先將學生加入名冊並邀請他們加入組織。"
     },
     "stats": {
       "submitted": "已繳交",
@@ -1921,7 +1969,7 @@
         "noCollaborators": "尚無協作者。",
         "tooMany": "此作業的小組人數上限為 {{max}} 人（含擁有者）。",
         "mustBeUnique": "協作者不可重複。",
-        "addPlaceholder": "新增 GitHub 使用者名稱（例如 octocat）",
+        "addPlaceholder": "新增 GitHub 使用者名稱（例如：octocat）",
         "addAriaLabel": "新增 GitHub 使用者名稱",
         "add": "新增",
         "groupFull": "小組已滿 — 請先移除成員，才能新增其他協作者。",
@@ -2041,9 +2089,10 @@
       "title": "發生錯誤"
     },
     "notAMember": {
-      "instructions": "請老師確認已邀請你，然後重新載入此頁面。如果你剛接受了電子郵件邀請，請稍待片刻讓 GitHub 更新後再試一次。",
+      "instructions": "請你的老師將你加入班級名冊並寄送邀請給你（老師可在班級名冊頁面操作）。GitHub 會將邀請寄到你的帳號——請接受邀請，然後回到這裡重新檢查。如果你剛接受邀請，請稍待片刻讓 GitHub 更新。",
       "title": "尚未成為成員",
-      "body": "我們無法確認你在 <org>{{org}}</org> 組織中的成員身分。"
+      "body": "你還不是 <org>{{org}}</org> 組織的成員，因此無法接受這份作業。你必須先加入——GitHub 組織邀請會授予你建立作業儲存庫的權限。",
+      "checkAgain": "重新檢查"
     },
     "showDetails": "顯示提供給老師的詳細資料",
     "ssoRequired": {
@@ -2136,5 +2185,17 @@
     "dismiss": "知道了",
     "manage": "在 GitHub 上管理預算",
     "title": "Actions 支出上限已設為 $0"
+  },
+  "settings": {
+    "hiddenOrgs": {
+      "empty": "你尚未隱藏任何組織。",
+      "heading": "已隱藏的組織",
+      "subheading": "你已從首頁隱藏的組織。取消隱藏即可再次顯示。",
+      "unhide": "取消隱藏"
+    },
+    "page": {
+      "heading": "設定",
+      "subheading": "此瀏覽器的偏好設定。此處的任何內容都不會與你的組織共用。"
+    }
   }
 }

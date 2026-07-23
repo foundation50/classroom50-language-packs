@@ -171,7 +171,8 @@
     "mySubmission": "我的提交",
     "submissions": "提交",
     "activity": "活动",
-    "roster": "名册"
+    "roster": "名册",
+    "settings": "设置"
   },
   "students": {
     "addTitle": "添加成员",
@@ -179,7 +180,7 @@
     "namePlaceholder": "姓名（可选）",
     "usernamePlaceholder": "github-username",
     "emailPlaceholder": "student@university.edu（可选）",
-    "sectionPlaceholder": "班次（可选，例如第 3 节）",
+    "sectionPlaceholder": "分组（可选，例如第 3 节课）",
     "keepStudent": "保留学生",
     "unenrollStudent": "取消该学生的报名",
     "added": "已添加 {{label}}。",
@@ -209,7 +210,7 @@
     "lastNamePlaceholder": "姓",
     "editEmailPlaceholder": "student@university.edu",
     "emailLabel": "邮箱",
-    "editSectionPlaceholder": "班次（例如第 3 节）",
+    "editSectionPlaceholder": "分组（例如第 3 节课）",
     "sectionLabel": "班次",
     "saving": "正在保存……",
     "saveChanges": "保存更改",
@@ -458,7 +459,8 @@
     "headTaCount_one": "{{count}} 名首席助教",
     "headTaCount_other": "{{count}} 名首席助教",
     "roleHeadTa": "首席助教",
-    "unenrollBody": "这将把学生 <label>{{label}}</label> 从 <org>{{org}}</org> 的 {{classroom}} 课堂中移除。学生的作业仓库不会被删除。"
+    "unenrollBody": "这将把学生 <label>{{label}}</label> 从 <org>{{org}}</org> 的 {{classroom}} 课堂中移除。学生的作业仓库不会被删除。",
+    "importMergeNotice": "导入会追加到你现有的名单中——已注册的学生会被跳过，且不会移除任何人。你可以放心地分批导入。"
   },
   "language": {
     "baseName": "英语（基础）",
@@ -467,7 +469,7 @@
     "switcherInstalled": "现已可用",
     "switcherMore": "更多语言",
     "shareTitle": "分享语言链接",
-    "shareHint": "复制一个以特定语言打开站点的链接——方便分享给使用该语言的学生（例如西班牙语）。",
+    "shareHint": "复制一个以特定语言打开站点的链接——便于分享给使用该语言的学生（例如西班牙语）。",
     "shareLanguageLabel": "要分享的语言",
     "shareUrlLabel": "可分享的链接",
     "shareCopy": "复制",
@@ -533,11 +535,14 @@
     },
     "card": {
       "planTitlePaid": "GitHub 套餐 —— Classroom 50 可在 Team 和 Enterprise 套餐上设置",
-      "viewOnGitHub": "在 GitHub 上查看",
-      "openOnGitHub": "在 GitHub 上打开 {{org}}",
       "open": "打开",
       "updatedAgo": "更新于 {{when}}",
-      "noAccessBadge": "无 <code>classroom50</code> 访问权限"
+      "noAccessBadge": "无 <code>classroom50</code> 访问权限",
+      "details": "详情",
+      "hidden": "已将 {{org}} 从你的主页隐藏。",
+      "hide": "从主页隐藏",
+      "moreActions": "{{org}} 的更多操作",
+      "undoHide": "撤销"
     },
     "newOrg": {
       "allSetUp": "我们能看到的所有组织都已设置完毕。",
@@ -598,6 +603,31 @@
       "summary_one": "你有 {{count}} 个待处理的邀请",
       "summary_other": "你有 {{count}} 个待处理的邀请",
       "viewOnGitHub": "在 GitHub 上查看邀请"
+    },
+    "detailsModal": {
+      "cancel": "取消",
+      "close": "关闭",
+      "description": "描述",
+      "descriptionPlaceholder": "该组织的简短描述",
+      "displayName": "显示名称",
+      "displayNamePlaceholder": "例如 Classroom 50 Summer Dev",
+      "edit": "编辑资料",
+      "editOnGitHub": "在 GitHub 上编辑",
+      "email": "联系邮箱",
+      "location": "所在地",
+      "manageOnGitHub": "在 GitHub 上管理",
+      "orgId": "组织 ID",
+      "plan": "套餐",
+      "role": "你的角色",
+      "roleAdmin": "所有者",
+      "roleMember": "成员",
+      "save": "保存更改",
+      "saveError": "无法更新资料：{{error}}",
+      "saved": "已更新 {{org}} 的资料。",
+      "saving": "正在保存…",
+      "school": "学校",
+      "website": "网站",
+      "websitePlaceholder": "classroom50.org"
     }
   },
   "assignments": {
@@ -656,9 +686,9 @@
         "noRunnerMatch": "没有运行器匹配 {{labels}}——请检查拼写。",
         "tooMany": "标签过多（{{count}} 个）——最多 10 个。",
         "cannotVerify": "无法验证——将按输入内容使用。",
-        "tip": "为此作业评分的 GitHub Actions 运行器标签。留空则使用 ubuntu-latest。使用逗号分隔的多个标签来指定自托管运行器（例如 self-hosted、linux、x64）。",
+        "tip": "用于评分此作业的 GitHub Actions runner 标签。留空则使用 ubuntu-latest。对于自托管 runner，请组合以逗号分隔的标签（例如 self-hosted, linux, x64）。",
         "emptyHint": "留空则使用 <code>ubuntu-latest</code>。",
-        "selfHostedHint": "用逗号分隔多个标签组合成自托管运行器（例如 <code>self-hosted, linux, x64</code>）。"
+        "selfHostedHint": "对于自托管 runner，请组合以逗号分隔的标签（例如 <code>self-hosted, linux, x64</code>）。"
       },
       "validation": {
         "nameRequired": "作业名称为必填项。",
@@ -680,7 +710,7 @@
         "aptCount_one": "{{count}} 个软件包",
         "aptCount_other": "{{count}} 个软件包",
         "aptLabel": "额外的 apt 软件包",
-        "aptPlaceholder": "例如 cmake、valgrind",
+        "aptPlaceholder": "例如 cmake, valgrind",
         "aptTip": "评分前额外安装（apt-get）的 Ubuntu 软件包，以逗号或空格分隔。使用小写的 Debian 软件包名。",
         "envContainer": "Docker 容器",
         "envContainerHelp": "在公开 Docker 镜像中评分（由其管理操作系统软件包）。",
@@ -692,7 +722,8 @@
         "runnerContainerError": "“{{label}}”是 macOS/Windows 运行器 —— Docker 镜像需要 Ubuntu（或自定义/自托管）运行器。",
         "versionMenu": "选择 {{language}} 版本",
         "versionPlaceholder": "例如 {{version}}",
-        "versionTip": "要安装的 {{language}} 版本（通过 setup-{{language}} action）。留空则跳过。你可以输入 setup action 接受的任何版本。"
+        "versionTip": "要安装的 {{language}} 版本（通过 setup-{{language}} action）。留空则跳过。你可以输入 setup action 接受的任何版本。",
+        "selfHostedDisabled": "在自托管 runner 上会被忽略——它使用自己预构建的工具链和软件包。请改为在 runner 镜像中预置这些内容。"
       },
       "setupCommandTip": "评分前运行一次的命令，例如用于编译。它会作为一个名为“setup”的前置 0 分自动评分步骤添加。非零退出码会导致运行失败。",
       "detailsSection": "详情",
@@ -744,7 +775,6 @@
       "timeout": "超时（秒）",
       "timeoutHint": "0 = 默认（10 秒）",
       "points": "分数",
-      "done": "完成",
       "type": {
         "io": {
           "label": "输入/输出",
@@ -759,7 +789,7 @@
           "hint": "运行一个 pytest 命令；分数会在评分时按发现的测试用例平均分配。"
         }
       },
-      "pythonNote": "运行命令应调用 pytest（例如 <code>python3 -m pytest -q</code>）来运行作业模板中的测试文件。系统会自动安装 pytest 和 pytest-json-report。分数会在 pytest 发现的各个用例之间分配。"
+      "pythonNote": "运行命令应针对作业模板中的测试文件调用 pytest（例如 <code>python3 -m pytest -q</code>）。pytest 和 pytest-json-report 会自动安装。分数会分摊到 pytest 发现的各个用例上。"
     },
     "table": {
       "caption": "作业",
@@ -1007,12 +1037,12 @@
     "setupComplete": "组织设置已完成。请查看下方的步骤，然后继续设置服务令牌。",
     "allSetTitle": "一切准备就绪！",
     "allSetBody": "你的组织已准备好使用 Classroom 50。前往你的组织创建第一个课堂和作业吧。",
-    "goToOrg": "前往 {{org}}",
-    "yourOrganization": "你的组织",
     "notAdmin": "设置 Classroom 50 需要组织所有者权限。请让组织所有者来运行设置。",
     "notTeamOrEnterprise": "从私有仓库提供 GitHub Pages 可能需要 GitHub Team 或 Enterprise Cloud。你可以继续设置，但在该组织可用 Pages 之前，已发布的作业可能无法访问。",
-    "manageServiceToken": "管理服务令牌",
-    "statusIndeterminate": "无法确定你组织的设置状态。这通常是 GitHub 或权限的临时问题，而非你的设置有问题。"
+    "statusIndeterminate": "无法确定你组织的设置状态。这通常是 GitHub 或权限的临时问题，而非你的设置有问题。",
+    "done": "完成",
+    "progressLabel": "设置进度",
+    "stepLabel": "第 {{step}} 步"
   },
   "assignmentSettings": {
     "heading": "作业设置",
@@ -1106,7 +1136,18 @@
       "renameModalTitle": "将配置仓库的默认分支重命名为 main 吗？",
       "renameToMain": "重命名为 main",
       "renameError": "无法重命名配置仓库的默认分支。你可能缺少所有者权限，或重命名未成功——请重试。",
-      "stateWarn": "建议"
+      "stateWarn": "建议",
+      "detail": {
+        "budgetMissing": "没有 $0 硬性停止的 Actions 预算",
+        "budgetOverThreshold": "Actions 预算为 ${{amount}}（超过 ${{threshold}}）；建议设置 $0 硬性停止上限",
+        "budgetUnreadable": "无法验证 Actions 支出上限（读取失败（{{reason}}））——可能是由企业管理的计费，或该套餐不支持组织预算。请手动确认 $0 硬性停止上限。",
+        "notConfigured": "未配置",
+        "orgActions": "enabled_repositories=\"{{enabledRepositories}}\", allowed_actions=\"{{allowedActions}}\"",
+        "readFailed": "读取失败",
+        "readFailedStatus": "读取失败（{{status}}）",
+        "rulesetsMissing": "缺少：{{names}}",
+        "workflowOrgManaged": "组织策略将工作流默认设为只读；骨架工作流会声明各自的权限"
+      }
     },
     "rerun": {
       "title": "重新运行设置",
@@ -1142,7 +1183,10 @@
       "title": "组织预检失败",
       "body_one": "在此组织的 {{categories}} 中发现了一个问题。",
       "body_other": "在此组织的 {{categories}} 中发现了若干问题。",
-      "reviewFix": "请在<settingsLink>组织设置页面</settingsLink>上查看并修复。"
+      "reviewFix": "请在<settingsLink>组织设置页面</settingsLink>上查看并修复。",
+      "unverifiedBody": "无法读取此组织的计费信息，因此我们无法确认是否设置了支出上限。请留意 Actions 费用，如果用量未受限制，请检查你的计费设置或联系计费管理员。",
+      "unverifiedReview": "在<settingsLink>组织设置页面</settingsLink>查看详情。",
+      "unverifiedTitle": "无法验证 Actions 支出上限"
     },
     "overwrite": {
       "title": "更新工作流文件以保持评分正常运行？",
@@ -1350,7 +1394,7 @@
       "noSuchUser": "没有这个 GitHub 用户。",
       "addFailed": "无法添加教职人员：{{message}}",
       "githubUsername": "GitHub 用户名",
-      "usernamePlaceholder": "例如：octocat",
+      "usernamePlaceholder": "例如 octocat",
       "role": "角色",
       "add": "添加",
       "noneYet": "暂无{{role}}。",
@@ -1569,7 +1613,11 @@
       "unlistedNote": "此班级使用非公开 URL，因此该链接包含访问密钥——请像对待共享密码一样对待它，并按原样发送完整链接。",
       "copyLink": "复制接受链接",
       "copyCli": "复制 CLI 命令",
-      "preferCli": "更喜欢用命令行？"
+      "preferCli": "更喜欢用命令行？",
+      "manageRoster": "管理名单",
+      "shareWithCount_one": "正在与 <count>{{count}} 名学生</count>分享，他们可以接受此作业。",
+      "shareWithCount_other": "正在与 <count>{{count}} 名学生</count>分享，他们可以接受此作业。",
+      "warnNoStudents": "目前在 <classroom>{{classroom}}</classroom> 中还没有学生能接受此链接。请先将学生添加到名单并邀请他们加入组织。"
     },
     "stats": {
       "submitted": "已提交",
@@ -2041,9 +2089,10 @@
       "title": "出了点问题"
     },
     "notAMember": {
-      "instructions": "请让你的老师确认已邀请你，然后重新加载此页面。如果你刚接受了邮件邀请，请稍等片刻后再试。",
+      "instructions": "请让老师将你添加到班级名单并向你发送邀请（他们可以在班级名单页面完成此操作）。GitHub 会将邀请发送到你账户的邮箱——接受邀请后，再回到此处重新检查。如果你刚刚接受了邀请，请稍等片刻让 GitHub 同步。",
       "title": "尚未成为成员",
-      "body": "我们无法确认你在 <org>{{org}}</org> 组织中的成员身份。"
+      "body": "你还不是 <org>{{org}}</org> 组织的成员，因此无法接受此作业。需要先加入——GitHub 组织邀请会授予你创建作业仓库的权限。",
+      "checkAgain": "重新检查"
     },
     "showDetails": "显示详情供老师参考",
     "ssoRequired": {
@@ -2136,5 +2185,17 @@
     "dismiss": "知道了",
     "manage": "在 GitHub 上管理预算",
     "title": "Actions 支出上限已设为 $0"
+  },
+  "settings": {
+    "hiddenOrgs": {
+      "empty": "你还没有隐藏任何组织。",
+      "heading": "已隐藏的组织",
+      "subheading": "你已从主页隐藏的组织。取消隐藏即可重新显示。",
+      "unhide": "取消隐藏"
+    },
+    "page": {
+      "heading": "设置",
+      "subheading": "此浏览器的偏好设置。此处的任何内容都不会与你的组织共享。"
+    }
   }
 }

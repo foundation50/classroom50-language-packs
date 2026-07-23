@@ -200,7 +200,8 @@
     "classes": "Sınıflar",
     "mySubmission": "Gönderimim",
     "submissions": "Gönderimler",
-    "activity": "Etkinlik"
+    "activity": "Etkinlik",
+    "settings": "Ayarlar"
   },
   "students": {
     "addTitle": "Üye ekle",
@@ -210,7 +211,7 @@
     "namePlaceholder": "Ad (isteğe bağlı)",
     "usernamePlaceholder": "github-kullanici-adi",
     "emailPlaceholder": "ogrenci@universite.edu (isteğe bağlı)",
-    "sectionPlaceholder": "Şube (isteğe bağlı, örn. 3. Ders)",
+    "sectionPlaceholder": "Şube (isteğe bağlı, ör. 3. Ders Saati)",
     "keepStudent": "Öğrenciyi koru",
     "unenrollStudent": "Öğrencinin kaydını sil",
     "added": "{{label}} eklendi.",
@@ -403,7 +404,7 @@
     "lastNamePlaceholder": "Soyad",
     "editEmailPlaceholder": "ogrenci@universite.edu",
     "emailLabel": "E-posta",
-    "editSectionPlaceholder": "Şube (örn. 3. Ders)",
+    "editSectionPlaceholder": "Şube (ör. 3. Ders Saati)",
     "sectionLabel": "Şube",
     "githubIdentity": "GitHub: <username>@{{username}}</username> (kimlik {{id}})",
     "githubIdentityNoId": "GitHub: <username>@{{username}}</username>",
@@ -487,7 +488,8 @@
     "resultRoleChanged": "Uygulanan rol değişiklikleri",
     "resultRoleChangeFailures": "Başarısız olan rol değişiklikleri",
     "done": "Tamam",
-    "chooseAnotherFile": "Başka bir dosya seç"
+    "chooseAnotherFile": "Başka bir dosya seç",
+    "importMergeNotice": "İçe aktarma, mevcut listenize ekleme yapar — zaten kayıtlı olan öğrenciler atlanır ve kimse kaldırılmaz. Toplu olarak güvenle içe aktarabilirsiniz."
   },
   "language": {
     "baseName": "İngilizce (temel)",
@@ -498,7 +500,7 @@
     "switcherInstalled": "Şimdi kullanılabilir",
     "switcherMore": "Diğer diller",
     "shareTitle": "Dil bağlantısı paylaş",
-    "shareHint": "Siteyi belirli bir dilde açan bir bağlantı kopyalayın — o dili konuşan öğrencilerle paylaşmak için kullanışlıdır (örneğin İspanyolca).",
+    "shareHint": "Siteyi belirli bir dilde açan bir bağlantı kopyalayın — o dili konuşan öğrencilerle paylaşmak için kullanışlıdır (ör. İspanyolca).",
     "shareLanguageLabel": "Paylaşılacak dil",
     "shareUrlLabel": "Paylaşılabilir bağlantı",
     "shareCopy": "Kopyala",
@@ -509,7 +511,7 @@
     "browseLoading": "Kullanılabilir diller yükleniyor…",
     "installTitle": "Dosyadan veya URL'den yükle",
     "installHint": "Bir dil paketi yükleyin: temel en.json dosyasını çevirin ve buraya yükleyin. Dil kodu dosya adından algılanır; yalnızca algılama başarısız olursa aşağıya girin.",
-    "codePlaceholder": "Dil kodu (örneğin de)",
+    "codePlaceholder": "Dil kodu (ör. de)",
     "codeOptionalLabel": "Dil kodu (isteğe bağlı)",
     "uploadFile": "JSON dosyası yükle",
     "urlPlaceholder": "…veya bir URL yapıştırın",
@@ -608,10 +610,13 @@
     "card": {
       "noAccessBadge": "<code>classroom50</code> erişimi yok",
       "planTitlePaid": "GitHub planı — Classroom 50, Team ve Enterprise planlarında kurulabilir",
-      "viewOnGitHub": "GitHub'da görüntüle",
-      "openOnGitHub": "{{org}} organizasyonunu GitHub'da aç",
       "open": "Aç",
-      "updatedAgo": "{{when}} güncellendi"
+      "updatedAgo": "{{when}} güncellendi",
+      "details": "Ayrıntılar",
+      "hidden": "{{org}} ana sayfanızdan gizlendi.",
+      "hide": "Ana sayfadan gizle",
+      "moreActions": "{{org}} için daha fazla eylem",
+      "undoHide": "Geri al"
     },
     "invites": {
       "summary_one": "{{count}} bekleyen davetiniz var",
@@ -627,6 +632,31 @@
       "acceptError": "{{org}} organizasyonuna daveti kabul edemedik. GitHub'da SSO yetkilendirmesi gerekebilir veya tekrar deneyin.",
       "viewOnGitHub": "Daveti GitHub'da görüntüle",
       "openInviteOnGitHub": "{{org}} davetini GitHub'da aç"
+    },
+    "detailsModal": {
+      "cancel": "İptal",
+      "close": "Kapat",
+      "description": "Açıklama",
+      "descriptionPlaceholder": "Bu organizasyonun kısa bir açıklaması",
+      "displayName": "Görünen ad",
+      "displayNamePlaceholder": "ör. Classroom 50 Summer Dev",
+      "edit": "Profili düzenle",
+      "editOnGitHub": "GitHub'da düzenle",
+      "email": "İletişim e-postası",
+      "location": "Konum",
+      "manageOnGitHub": "GitHub'da yönet",
+      "orgId": "Organizasyon kimliği",
+      "plan": "Plan",
+      "role": "Rolünüz",
+      "roleAdmin": "Sahip",
+      "roleMember": "Üye",
+      "save": "Değişiklikleri kaydet",
+      "saveError": "Profil güncellenemedi: {{error}}",
+      "saved": "{{org}} profili güncellendi.",
+      "saving": "Kaydediliyor…",
+      "school": "Okul",
+      "website": "Web sitesi",
+      "websitePlaceholder": "classroom50.org"
     }
   },
   "assignments": {
@@ -746,8 +776,8 @@
       "createButton": "Ödev oluştur",
       "runner": {
         "label": "GitHub çalıştırıcı",
-        "tip": "Bu ödevi notlandıran GitHub Actions çalıştırıcı etiketi/etiketleri. Boş bırakılırsa ubuntu-latest kullanılır. Kendi kendine barındırılan bir çalıştırıcı için virgülle ayrılmış etiketleri birleştirin (örneğin self-hosted, linux, x64).",
-        "selfHostedHint": "Kendi barındırdığınız bir runner için virgülle ayrılmış etiketleri birleştirin (ör. <code>self-hosted, linux, x64</code>).",
+        "tip": "Bu ödevi notlandıran GitHub Actions çalıştırıcı etiket(ler)i. Boş bırakılırsa ubuntu-latest kullanılır. Kendi barındırdığınız bir çalıştırıcı için virgülle ayrılmış etiketleri birleştirin (ör. self-hosted, linux, x64).",
+        "selfHostedHint": "Kendi barındırdığınız bir çalıştırıcı için virgülle ayrılmış etiketleri birleştirin (ör. <code>self-hosted, linux, x64</code>).",
         "checking": "Kontrol ediliyor…",
         "emptyHint": "Şunun için boş bırakın: <code>ubuntu-latest</code>.",
         "hosted": "GitHub tarafından barındırılan runner",
@@ -767,15 +797,16 @@
         "envContainerHelp": "Herkese açık bir Docker imajının içinde notlandırır (işletim sistemi paketlerini o sağlar).",
         "languagesHeading": "Dil sürümleri",
         "languagesTip": "O araç zincirini kurmak için bir sürüm seçin (örneğin Node 26, Java 25) veya özel bir sürüm yazın. Boş bir alan bunu atlar. Barındırılan çalıştırıcıda boş bırakıldığında Python varsayılan olarak 3.12'dir. İhtiyacınız olduğu kadar araç zinciri etkinleştirebilirsiniz.",
-        "versionPlaceholder": "örneğin {{version}}",
+        "versionPlaceholder": "ör. {{version}}",
         "versionTip": "Kurulacak {{language}} sürümü (setup-{{language}} eylemi aracılığıyla). Atlamak için boş bırakın. Setup eyleminin kabul ettiği herhangi bir sürümü yazabilirsiniz.",
         "versionMenu": "Bir {{language}} sürümü seçin",
         "aptLabel": "Ek apt paketleri",
-        "aptPlaceholder": "örneğin cmake, valgrind",
+        "aptPlaceholder": "ör. cmake, valgrind",
         "aptTip": "Notlandırmadan önce (apt-get ile) kurulan, virgül veya boşlukla ayrılmış ek Ubuntu paketleri. Küçük harfli Debian paket adları.",
         "aptCount_one": "{{count}} paket",
         "aptCount_other": "{{count}} paket",
-        "runnerContainerError": "\"{{label}}\" bir macOS/Windows çalıştırıcısıdır — bir Docker imajı için Ubuntu (ya da özel/kendi kendine barındırılan) bir çalıştırıcı gerekir."
+        "runnerContainerError": "\"{{label}}\" bir macOS/Windows çalıştırıcısıdır — bir Docker imajı için Ubuntu (ya da özel/kendi kendine barındırılan) bir çalıştırıcı gerekir.",
+        "selfHostedDisabled": "Kendi barındırdığınız bir çalıştırıcıda yok sayılır — o, kendi önceden hazırlanmış araç zincirlerini ve paketlerini kullanır. Bunları bunun yerine çalıştırıcı imajında sağlayın."
       },
       "validation": {
         "nameRequired": "Ödev adı zorunludur.",
@@ -818,11 +849,10 @@
       "comparisonRegex": "Regex — Python re.search, çok satırlı",
       "exitCode": "Gerekli çıkış kodu",
       "exitCodeHint": "Başarılı bir çıkış (0) gerektirmek için boş bırakın.",
-      "pythonNote": "Çalıştırma komutu, ödev şablonundaki test dosyalarına karşı pytest'i çağırmalıdır (ör. <code>python3 -m pytest -q</code>). pytest ve pytest-json-report otomatik olarak kurulur. Puanlar, pytest'in bulduğu durumlara bölünür.",
+      "pythonNote": "Çalıştırma komutu, ödev şablonundaki test dosyalarına karşı pytest'i çağırmalıdır (ör. <code>python3 -m pytest -q</code>). pytest ve pytest-json-report otomatik olarak yüklenir. Puanlar, pytest'in keşfettiği durumlar arasında paylaştırılır.",
       "timeout": "Zaman Aşımı (saniye)",
       "timeoutHint": "0 = varsayılan (10sn)",
       "points": "Puan",
-      "done": "Tamam",
       "type": {
         "io": {
           "label": "Girdi/Çıktı",
@@ -1049,8 +1079,9 @@
     },
     "notAMember": {
       "title": "Henüz üye değilsiniz",
-      "body": "<org>{{org}}</org> kuruluşundaki üyeliğinizi doğrulayamadık.",
-      "instructions": "Öğretmeninizden sizi davet ettiğini doğrulamasını isteyin, sonra bu sayfayı yeniden yükleyin. E-posta davetini yeni kabul ettiyseniz, GitHub'a biraz zaman verin ve tekrar deneyin."
+      "body": "Henüz <org>{{org}}</org> organizasyonunun bir üyesi değilsiniz, bu nedenle bu ödevi kabul edemezsiniz. Önce katılmanız gerekir — bir GitHub organizasyon daveti, ödev deponuzu oluşturma erişimi verir.",
+      "instructions": "Öğretmeninizden sizi sınıf listesine eklemesini ve size bir davet göndermesini isteyin (bunu sınıf liste sayfasından yapabilirler). GitHub daveti hesabınıza e-postayla gönderir — kabul edin, ardından burada yeniden kontrol edin. Bir daveti henüz kabul ettiyseniz, GitHub'a yetişmesi için biraz zaman tanıyın.",
+      "checkAgain": "Yeniden kontrol et"
     },
     "generic": {
       "title": "Bir şeyler ters gitti",
@@ -1069,12 +1100,12 @@
     "setupComplete": "Kuruluş kurulumu tamamlandı. Aşağıdaki adımları gözden geçirin, ardından hizmet belirtecini ayarlamaya devam edin.",
     "allSetTitle": "Her şey hazır!",
     "allSetBody": "Kuruluşunuz Classroom 50'yi kullanmaya hazır. İlk sınıfınızı ve ödevlerinizi oluşturmak için kuruluşunuza gidin.",
-    "manageServiceToken": "Hizmet belirtecini yönet",
     "statusIndeterminate": "Kuruluşunuzun kurulum durumu belirlenemedi. Bu genellikle geçici bir GitHub veya izin sorunudur, kurulumunuzla ilgili bir sorun değildir.",
-    "goToOrg": "{{org}} kuruluşuna git",
-    "yourOrganization": "kuruluşunuz",
     "notAdmin": "Classroom 50 kurulumu için kuruluş sahibi izinleri gerekir. Kurulumu çalıştırması için bir kuruluş sahibinden yardım isteyin.",
-    "notTeamOrEnterprise": "Özel bir depodan GitHub Pages kullanmak GitHub Team veya Enterprise Cloud gerektirebilir. Kuruluma devam edebilirsiniz, ancak Pages bu kuruluş için kullanılabilir olana kadar yayımlanan ödevlere erişilemeyebilir."
+    "notTeamOrEnterprise": "Özel bir depodan GitHub Pages kullanmak GitHub Team veya Enterprise Cloud gerektirebilir. Kuruluma devam edebilirsiniz, ancak Pages bu kuruluş için kullanılabilir olana kadar yayımlanan ödevlere erişilemeyebilir.",
+    "done": "Bitti",
+    "progressLabel": "Kurulum ilerlemesi",
+    "stepLabel": "Adım {{step}}"
   },
   "assignmentSettings": {
     "heading": "Ödev ayarları",
@@ -1168,7 +1199,18 @@
       "renameModalTitle": "Yapılandırma deposunun varsayılan dalı main olarak yeniden adlandırılsın mı?",
       "renameModalBody": "Bu, classroom50 yapılandırma deposunun varsayılan dalını \"main\" olarak yeniden adlandırır. Bazı öğrenciler ödevleri zaten kabul ettiyse, otomatik değerlendirme iş akışları mevcut dal adına sabitlenir ve öğrenciler yeniden kabul edene veya shim'lerini yeniden yönlendirene kadar değerlendirmeyi durdurur. Bunu yalnızca öğrenciler kabul etmeden önce tercih edin veya kurulumlarını yeniden çalıştırmaya hazır olun.",
       "memberPermsToggle": "Yapılandırdığımız üye izinleri",
-      "memberPermsHint": "Classroom 50'nin ayarladığı, halihazırda uygulanmış olanlar da dahil, organizasyon üye ayrıcalıklarının tam listesi. Sapanlar yukarıda belirtilmiştir."
+      "memberPermsHint": "Classroom 50'nin ayarladığı, halihazırda uygulanmış olanlar da dahil, organizasyon üye ayrıcalıklarının tam listesi. Sapanlar yukarıda belirtilmiştir.",
+      "detail": {
+        "budgetMissing": "0 $ katı durdurma Actions bütçesi yok",
+        "budgetOverThreshold": "Actions bütçesi {{amount}} $ ({{threshold}} $ üzerinde); 0 $ katı durdurma sınırı öneriliyor",
+        "budgetUnreadable": "Actions harcama sınırı doğrulanamadı (okuma başarısız ({{reason}})) — muhtemelen kuruluş yönetimli faturalandırma veya organizasyon bütçesi olmayan bir plan. 0 $ katı durdurma sınırını elle onaylayın.",
+        "notConfigured": "yapılandırılmadı",
+        "orgActions": "enabled_repositories=\"{{enabledRepositories}}\", allowed_actions=\"{{allowedActions}}\"",
+        "readFailed": "okuma başarısız",
+        "readFailedStatus": "okuma başarısız ({{status}})",
+        "rulesetsMissing": "eksik: {{names}}",
+        "workflowOrgManaged": "organizasyon politikası iş akışlarını varsayılan olarak okumaya ayarlar; iskelet iş akışları kendi izinlerini bildirir"
+      }
     },
     "actions": {
       "title": "GitHub Actions",
@@ -1232,7 +1274,10 @@
       "title": "Organizasyon ön kontrolü başarısız oldu",
       "body_one": "Bu organizasyonun {{categories}} ile ilgili bir sorun bulundu.",
       "body_other": "Bu organizasyonun {{categories}} ile ilgili sorunlar bulundu.",
-      "reviewFix": "<settingsLink>Organizasyon ayarları sayfası</settingsLink> üzerinde gözden geçirin ve düzeltin."
+      "reviewFix": "<settingsLink>Organizasyon ayarları sayfası</settingsLink> üzerinde gözden geçirin ve düzeltin.",
+      "unverifiedBody": "Bu organizasyonun faturalandırması okunamadı, bu nedenle bir harcama sınırının ayarlandığını doğrulayamıyoruz. Actions maliyetlerine göz kulak olun ve kullanım sınırlandırılmamışsa faturalandırma ayarlarınızı veya faturalandırma yöneticinizi kontrol edin.",
+      "unverifiedReview": "<settingsLink>organizasyon ayarları sayfasında</settingsLink> ayrıntılara bakın.",
+      "unverifiedTitle": "Actions harcama sınırı doğrulanamadı"
     },
     "overwrite": {
       "title": "Notlandırmanın çalışır kalması için iş akışı dosyaları güncellensin mi?",
@@ -1688,7 +1733,11 @@
       "unlistedNote": "Bu sınıf listelenmemiş bir URL kullanıyor, bu nedenle bağlantı erişim anahtarını içerir — bunu paylaşılan bir parola gibi değerlendirin ve tam bağlantıyı olduğu gibi gönderin.",
       "copyLink": "Kabul bağlantısını kopyala",
       "copyCli": "CLI komutunu kopyala",
-      "preferCli": "Komut satırını mı tercih ediyorsunuz?"
+      "preferCli": "Komut satırını mı tercih ediyorsunuz?",
+      "manageRoster": "Listeyi yönet",
+      "shareWithCount_one": "Bu ödevi kabul edebilecek <count>{{count}} öğrenci</count> ile paylaşılıyor.",
+      "shareWithCount_other": "Bu ödevi kabul edebilecek <count>{{count}} öğrenci</count> ile paylaşılıyor.",
+      "warnNoStudents": "<classroom>{{classroom}}</classroom> sınıfında henüz hiçbir öğrenci bu bağlantıyı kabul edemez. Önce listeye öğrenci ekleyin ve onları organizasyona davet edin."
     },
     "stats": {
       "submitted": "Teslim edildi",
@@ -2076,7 +2125,7 @@
         "noCollaborators": "Henüz iş birlikçi yok.",
         "tooMany": "Bu ödevin maksimum grup boyutu {{max}}'dir (sahip dahil).",
         "mustBeUnique": "İş birlikçiler benzersiz olmalıdır.",
-        "addPlaceholder": "Bir GitHub kullanıcı adı ekleyin (örn. octocat)",
+        "addPlaceholder": "Bir GitHub kullanıcı adı ekleyin (ör. octocat)",
         "addAriaLabel": "Bir GitHub kullanıcı adı ekleyin",
         "add": "Ekle",
         "groupFull": "Grup dolu — başka bir iş birlikçi eklemek için birini çıkarın.",
@@ -2136,5 +2185,17 @@
   },
   "formatDate": {
     "invalidDate": "Geçersiz tarih"
+  },
+  "settings": {
+    "hiddenOrgs": {
+      "empty": "Hiçbir organizasyonu gizlemediniz.",
+      "heading": "Gizlenen organizasyonlar",
+      "subheading": "Ana sayfanızdan gizlediğiniz organizasyonlar. Yeniden göstermek için birinin gizlemesini kaldırın.",
+      "unhide": "Gizlemeyi kaldır"
+    },
+    "page": {
+      "heading": "Ayarlar",
+      "subheading": "Bu tarayıcıya ait tercihler. Buradaki hiçbir şey organizasyonlarınızla paylaşılmaz."
+    }
   }
 }

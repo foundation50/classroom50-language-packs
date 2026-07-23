@@ -200,7 +200,8 @@
     "classes": "Classes",
     "mySubmission": "Ma remise",
     "submissions": "Rendus",
-    "activity": "Activité"
+    "activity": "Activité",
+    "settings": "Paramètres"
   },
   "students": {
     "addTitle": "Ajouter un membre",
@@ -487,7 +488,8 @@
     "resultRoleChanged": "Changements de rôle appliqués",
     "resultRoleChangeFailures": "Changements de rôle échoués",
     "done": "Terminé",
-    "chooseAnotherFile": "Choisir un autre fichier"
+    "chooseAnotherFile": "Choisir un autre fichier",
+    "importMergeNotice": "L'importation s'ajoute à votre liste existante — les étudiants déjà inscrits sont ignorés et personne n'est supprimé. Vous pouvez importer par lots en toute sécurité."
   },
   "language": {
     "baseName": "Anglais (base)",
@@ -498,7 +500,7 @@
     "switcherInstalled": "Disponibles maintenant",
     "switcherMore": "Plus de langues",
     "shareTitle": "Partager un lien de langue",
-    "shareHint": "Copiez un lien qui ouvre le site dans une langue précise — pratique pour le partager avec des élèves qui la parlent (par ex. l'espagnol).",
+    "shareHint": "Copiez un lien qui ouvre le site dans une langue précise — pratique à partager avec les étudiants qui la parlent (p. ex. l'espagnol).",
     "shareLanguageLabel": "Langue à partager",
     "shareUrlLabel": "Lien partageable",
     "shareCopy": "Copier",
@@ -509,7 +511,7 @@
     "browseLoading": "Chargement des langues disponibles…",
     "installTitle": "Installer depuis un fichier ou une URL",
     "installHint": "Installez un pack de langue : traduisez le fichier de base en.json et chargez-le ici. Le code de langue est détecté à partir du nom du fichier ; ne le saisissez ci-dessous que si cela échoue.",
-    "codePlaceholder": "Code de langue (par ex. de)",
+    "codePlaceholder": "Code de langue (p. ex. de)",
     "codeOptionalLabel": "Code de langue (facultatif)",
     "uploadFile": "Téléverser un fichier JSON",
     "urlPlaceholder": "…ou collez une URL",
@@ -608,10 +610,13 @@
     "card": {
       "noAccessBadge": "Aucun accès <code>classroom50</code>",
       "planTitlePaid": "Forfait GitHub — Classroom 50 peut être configuré sur les forfaits Team et Enterprise",
-      "viewOnGitHub": "Voir sur GitHub",
-      "openOnGitHub": "Ouvrir {{org}} sur GitHub",
       "open": "Ouvrir",
-      "updatedAgo": "Mis à jour {{when}}"
+      "updatedAgo": "Mis à jour {{when}}",
+      "details": "Détails",
+      "hidden": "{{org}} a été masquée de votre page d'accueil.",
+      "hide": "Masquer de l'accueil",
+      "moreActions": "Plus d'actions pour {{org}}",
+      "undoHide": "Annuler"
     },
     "invites": {
       "summary_one": "Vous avez {{count}} invitation en attente",
@@ -627,6 +632,31 @@
       "acceptError": "Impossible d'accepter l'invitation à {{org}}. Une autorisation SSO sur GitHub peut être nécessaire, ou réessayez.",
       "viewOnGitHub": "Voir l'invitation sur GitHub",
       "openInviteOnGitHub": "Ouvrir l'invitation à {{org}} sur GitHub"
+    },
+    "detailsModal": {
+      "cancel": "Annuler",
+      "close": "Fermer",
+      "description": "Description",
+      "descriptionPlaceholder": "Une brève description de cette organisation",
+      "displayName": "Nom affiché",
+      "displayNamePlaceholder": "p. ex. Classroom 50 Summer Dev",
+      "edit": "Modifier le profil",
+      "editOnGitHub": "Modifier sur GitHub",
+      "email": "E-mail de contact",
+      "location": "Localisation",
+      "manageOnGitHub": "Gérer sur GitHub",
+      "orgId": "ID de l'organisation",
+      "plan": "Forfait",
+      "role": "Votre rôle",
+      "roleAdmin": "Propriétaire",
+      "roleMember": "Membre",
+      "save": "Enregistrer les modifications",
+      "saveError": "Impossible de mettre à jour le profil : {{error}}",
+      "saved": "Profil de {{org}} mis à jour.",
+      "saving": "Enregistrement…",
+      "school": "Établissement",
+      "website": "Site web",
+      "websitePlaceholder": "classroom50.org"
     }
   },
   "assignments": {
@@ -746,8 +776,8 @@
       "createButton": "Créer le devoir",
       "runner": {
         "label": "Exécuteur GitHub",
-        "tip": "Le ou les libellés de runner GitHub Actions qui évaluent ce devoir. Laissé vide, ubuntu-latest est utilisé. Combinez des libellés séparés par des virgules pour un runner auto-hébergé (par ex. self-hosted, linux, x64).",
-        "selfHostedHint": "Combinez des étiquettes séparées par des virgules pour un runner auto-hébergé (p. ex. <code>self-hosted, linux, x64</code>).",
+        "tip": "Le ou les libellés du runner GitHub Actions qui évaluent ce devoir. Vide utilise ubuntu-latest. Combinez des libellés séparés par des virgules pour un runner auto-hébergé (p. ex. self-hosted, linux, x64).",
+        "selfHostedHint": "Combinez des libellés séparés par des virgules pour un runner auto-hébergé (p. ex. <code>self-hosted, linux, x64</code>).",
         "checking": "Vérification…",
         "emptyHint": "Laissez vide pour <code>ubuntu-latest</code>.",
         "hosted": "Runner hébergé par GitHub",
@@ -767,15 +797,16 @@
         "envContainerHelp": "Évalue dans une image Docker publique (elle gère les paquets du système d'exploitation).",
         "languagesHeading": "Versions de langage",
         "languagesTip": "Choisissez une version pour installer cette chaîne d'outils (par exemple Node 26, Java 25), ou saisissez-en une personnalisée. Un champ vide l'ignore. Python utilise 3.12 par défaut lorsqu'il est vide sur le runner hébergé. Vous pouvez activer autant de chaînes d'outils que nécessaire.",
-        "versionPlaceholder": "par ex. {{version}}",
+        "versionPlaceholder": "p. ex. {{version}}",
         "versionTip": "La version de {{language}} à installer (via l'action setup-{{language}}). Laissez vide pour l'ignorer. Vous pouvez saisir toute version acceptée par l'action setup.",
         "versionMenu": "Choisir une version de {{language}}",
         "aptLabel": "Paquets apt supplémentaires",
-        "aptPlaceholder": "par ex. cmake, valgrind",
+        "aptPlaceholder": "p. ex. cmake, valgrind",
         "aptTip": "Paquets Ubuntu supplémentaires installés (apt-get) avant l'évaluation, séparés par des virgules ou des espaces. Noms de paquets Debian en minuscules.",
         "aptCount_one": "{{count}} paquet",
         "aptCount_other": "{{count}} paquets",
-        "runnerContainerError": "« {{label}} » est un runner macOS/Windows — une image Docker nécessite un runner Ubuntu (ou personnalisé/auto-hébergé)."
+        "runnerContainerError": "« {{label}} » est un runner macOS/Windows — une image Docker nécessite un runner Ubuntu (ou personnalisé/auto-hébergé).",
+        "selfHostedDisabled": "Ignoré sur un runner auto-hébergé — il utilise ses propres chaînes d'outils et paquets préinstallés. Provisionnez-les plutôt dans l'image du runner."
       },
       "validation": {
         "nameRequired": "Le nom du devoir est obligatoire.",
@@ -818,11 +849,10 @@
       "comparisonRegex": "Regex — re.search de Python, multiligne",
       "exitCode": "Code de sortie requis",
       "exitCodeHint": "Laissez vide pour exiger une sortie réussie (0).",
-      "pythonNote": "La commande d'exécution doit appeler pytest (p. ex. <code>python3 -m pytest -q</code>) sur les fichiers de test du modèle du devoir. pytest et pytest-json-report sont installés automatiquement. Les points sont répartis entre les cas que pytest détecte.",
+      "pythonNote": "La commande d'exécution doit invoquer pytest (p. ex. <code>python3 -m pytest -q</code>) sur les fichiers de test du modèle du devoir. pytest et pytest-json-report sont installés automatiquement. Les points sont répartis entre les cas détectés par pytest.",
       "timeout": "Délai d'expiration (secondes)",
       "timeoutHint": "0 = par défaut (10 s)",
       "points": "Points",
-      "done": "Terminé",
       "type": {
         "io": {
           "label": "Entrée/Sortie",
@@ -1049,8 +1079,9 @@
     },
     "notAMember": {
       "title": "Pas encore membre",
-      "body": "Nous n'avons pas pu confirmer votre appartenance à l'organisation <org>{{org}}</org>.",
-      "instructions": "Demandez à votre enseignant·e de confirmer qu'il·elle vous a invité·e, puis rechargez cette page. Si vous venez d'accepter une invitation par e-mail, laissez un moment à GitHub et réessayez."
+      "body": "Vous n'êtes pas encore membre de l'organisation <org>{{org}}</org>, vous ne pouvez donc pas accepter ce devoir. Il faut d'abord la rejoindre — une invitation à l'organisation GitHub vous donne accès à la création de votre dépôt de devoir.",
+      "instructions": "Demandez à votre enseignant·e de vous ajouter à la liste de la classe et de vous envoyer une invitation (il ou elle peut le faire depuis la page de liste de la classe). GitHub enverra l'invitation par e-mail à votre compte — acceptez-la, puis vérifiez à nouveau ici. Si vous venez d'accepter une invitation, laissez à GitHub un moment pour se mettre à jour.",
+      "checkAgain": "Vérifier à nouveau"
     },
     "generic": {
       "title": "Une erreur s'est produite",
@@ -1069,12 +1100,12 @@
     "setupComplete": "La configuration de l'organisation est terminée. Vérifiez les étapes ci-dessous, puis continuez pour définir le jeton de service.",
     "allSetTitle": "Tout est prêt !",
     "allSetBody": "Votre organisation est prête à utiliser Classroom 50. Rendez-vous dans votre organisation pour créer votre premier cours et vos premiers devoirs.",
-    "manageServiceToken": "Gérer le jeton de service",
     "statusIndeterminate": "Impossible de déterminer l'état de configuration de votre organisation. C'est généralement un problème temporaire de GitHub ou d'autorisations, et non un problème avec votre configuration.",
-    "goToOrg": "Aller à {{org}}",
-    "yourOrganization": "votre organisation",
     "notAdmin": "La configuration de Classroom 50 nécessite des autorisations de propriétaire de l'organisation. Demandez à un propriétaire de l'organisation de lancer la configuration.",
-    "notTeamOrEnterprise": "GitHub Pages depuis un dépôt privé peut nécessiter GitHub Team ou Enterprise Cloud. Vous pouvez poursuivre la configuration, mais les devoirs publiés pourraient être inaccessibles tant que Pages n'est pas disponible pour cette organisation."
+    "notTeamOrEnterprise": "GitHub Pages depuis un dépôt privé peut nécessiter GitHub Team ou Enterprise Cloud. Vous pouvez poursuivre la configuration, mais les devoirs publiés pourraient être inaccessibles tant que Pages n'est pas disponible pour cette organisation.",
+    "done": "Terminé",
+    "progressLabel": "Progression de la configuration",
+    "stepLabel": "Étape {{step}}"
   },
   "assignmentSettings": {
     "heading": "Paramètres du devoir",
@@ -1168,7 +1199,18 @@
       "renameModalTitle": "Renommer en main la branche par défaut du dépôt de configuration ?",
       "renameModalBody": "Cette action renomme la branche par défaut du dépôt de configuration classroom50 en « main ». Si des étudiants ont déjà accepté des devoirs, leur workflow d'autograding est figé sur le nom de branche actuel et cessera de noter jusqu'à ce qu'ils réacceptent ou que vous repointiez leur shim. Préférez cette action avant que les étudiants acceptent, ou soyez prêt à relancer leur configuration.",
       "memberPermsToggle": "Autorisations de membre que nous configurons",
-      "memberPermsHint": "La liste complète des privilèges de membre de l'organisation que Classroom 50 définit, y compris ceux déjà en place. Ceux qui se sont écartés sont signalés ci-dessus."
+      "memberPermsHint": "La liste complète des privilèges de membre de l'organisation que Classroom 50 définit, y compris ceux déjà en place. Ceux qui se sont écartés sont signalés ci-dessus.",
+      "detail": {
+        "budgetMissing": "aucun budget Actions avec arrêt strict à 0 $",
+        "budgetOverThreshold": "Le budget Actions est de {{amount}} $ (au-dessus de {{threshold}} $) ; un plafond d'arrêt strict à 0 $ est recommandé",
+        "budgetUnreadable": "impossible de vérifier le plafond de dépenses Actions (échec de lecture ({{reason}})) — probablement une facturation gérée par l'entreprise ou un forfait sans budgets d'organisation. Confirmez manuellement un plafond d'arrêt strict à 0 $.",
+        "notConfigured": "non configuré",
+        "orgActions": "enabled_repositories=\"{{enabledRepositories}}\", allowed_actions=\"{{allowedActions}}\"",
+        "readFailed": "échec de lecture",
+        "readFailedStatus": "échec de lecture ({{status}})",
+        "rulesetsMissing": "manquant : {{names}}",
+        "workflowOrgManaged": "la politique de l'organisation configure par défaut les workflows en lecture ; les workflows du squelette déclarent leurs propres autorisations"
+      }
     },
     "actions": {
       "title": "GitHub Actions",
@@ -1232,7 +1274,10 @@
       "title": "La vérification préalable de l'organisation a échoué",
       "body_one": "Un problème a été détecté avec {{categories}} de cette organisation.",
       "body_other": "Des problèmes ont été détectés avec {{categories}} de cette organisation.",
-      "reviewFix": "Vérifiez et corrigez sur la <settingsLink>page des paramètres de l'organisation</settingsLink>."
+      "reviewFix": "Vérifiez et corrigez sur la <settingsLink>page des paramètres de l'organisation</settingsLink>.",
+      "unverifiedBody": "La facturation de cette organisation n'a pas pu être lue, nous ne pouvons donc pas confirmer qu'un plafond de dépenses est défini. Surveillez les coûts d'Actions et vérifiez vos paramètres de facturation ou auprès de votre administrateur de facturation si l'usage n'est pas plafonné.",
+      "unverifiedReview": "Voir les détails sur la <settingsLink>page des paramètres de l'organisation</settingsLink>.",
+      "unverifiedTitle": "Impossible de vérifier le plafond de dépenses Actions"
     },
     "overwrite": {
       "title": "Mettre à jour les fichiers de workflow pour que l'évaluation continue de fonctionner ?",
@@ -1527,7 +1572,7 @@
       "noSuchUser": "Aucun utilisateur GitHub de ce nom.",
       "addFailed": "Impossible d'ajouter le membre de l'équipe : {{message}}",
       "githubUsername": "Nom d'utilisateur GitHub",
-      "usernamePlaceholder": "par ex. octocat",
+      "usernamePlaceholder": "p. ex. octocat",
       "role": "Rôle",
       "add": "Ajouter",
       "noneYet": "Aucun {{role}} pour l'instant.",
@@ -1688,7 +1733,11 @@
       "unlistedNote": "Ce cours utilise une URL non répertoriée, donc le lien contient la clé d'accès — traitez-le comme un mot de passe partagé et envoyez le lien complet tel quel.",
       "copyLink": "Copier le lien d'acceptation",
       "copyCli": "Copier la commande CLI",
-      "preferCli": "Vous préférez la ligne de commande ?"
+      "preferCli": "Vous préférez la ligne de commande ?",
+      "manageRoster": "Gérer la liste",
+      "shareWithCount_one": "Partagé avec <count>{{count}} étudiant</count> pouvant accepter ce devoir.",
+      "shareWithCount_other": "Partagé avec <count>{{count}} étudiants</count> pouvant accepter ce devoir.",
+      "warnNoStudents": "Aucun étudiant ne peut encore accepter ce lien dans la classe <classroom>{{classroom}}</classroom>. Ajoutez d'abord des étudiants à la liste et invitez-les à l'organisation."
     },
     "stats": {
       "submitted": "Rendu",
@@ -2076,7 +2125,7 @@
         "noCollaborators": "Aucun collaborateur pour le moment.",
         "tooMany": "Ce devoir a une taille de groupe maximale de {{max}} (propriétaire inclus).",
         "mustBeUnique": "Les collaborateurs doivent être uniques.",
-        "addPlaceholder": "Ajouter un nom d'utilisateur GitHub (ex. octocat)",
+        "addPlaceholder": "Ajouter un nom d'utilisateur GitHub (p. ex. octocat)",
         "addAriaLabel": "Ajouter un nom d'utilisateur GitHub",
         "add": "Ajouter",
         "groupFull": "Le groupe est complet — retirez quelqu'un pour ajouter un autre collaborateur.",
@@ -2136,5 +2185,17 @@
   },
   "formatDate": {
     "invalidDate": "Date invalide"
+  },
+  "settings": {
+    "hiddenOrgs": {
+      "empty": "Vous n'avez masqué aucune organisation.",
+      "heading": "Organisations masquées",
+      "subheading": "Organisations que vous avez masquées de votre page d'accueil. Affichez-en une pour la faire réapparaître.",
+      "unhide": "Afficher"
+    },
+    "page": {
+      "heading": "Paramètres",
+      "subheading": "Préférences pour ce navigateur. Rien ici n'est partagé avec vos organisations."
+    }
   }
 }

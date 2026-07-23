@@ -171,7 +171,8 @@
     "mySubmission": "自分の提出",
     "submissions": "提出物",
     "activity": "アクティビティ",
-    "roster": "名簿"
+    "roster": "名簿",
+    "settings": "設定"
   },
   "students": {
     "addTitle": "メンバーを追加",
@@ -179,7 +180,7 @@
     "namePlaceholder": "名前（任意）",
     "usernamePlaceholder": "github-username",
     "emailPlaceholder": "student@university.edu（任意）",
-    "sectionPlaceholder": "クラス（任意、例：3時限）",
+    "sectionPlaceholder": "セクション（任意、例: 3限）",
     "keepStudent": "受講者を残す",
     "unenrollStudent": "受講者の登録を解除",
     "added": "{{label}} を追加しました。",
@@ -209,7 +210,7 @@
     "lastNamePlaceholder": "姓",
     "editEmailPlaceholder": "student@university.edu",
     "emailLabel": "メールアドレス",
-    "editSectionPlaceholder": "クラス（例：3時限）",
+    "editSectionPlaceholder": "セクション（例: 3限）",
     "sectionLabel": "クラス",
     "saving": "保存中...",
     "saveChanges": "変更を保存",
@@ -458,7 +459,8 @@
     "headTaCount_one": "ヘッド TA {{count}} 人",
     "headTaCount_other": "ヘッド TA {{count}} 人",
     "roleHeadTa": "ヘッド TA",
-    "unenrollBody": "受講者 <label>{{label}}</label> を <org>{{org}}</org> の {{classroom}} 教室から削除します。受講者の課題リポジトリは削除されません。"
+    "unenrollBody": "受講者 <label>{{label}}</label> を <org>{{org}}</org> の {{classroom}} 教室から削除します。受講者の課題リポジトリは削除されません。",
+    "importMergeNotice": "インポートは既存の名簿に追加されます。すでに登録済みの学生はスキップされ、誰も削除されません。バッチで安全にインポートできます。"
   },
   "language": {
     "baseName": "English（ベース）",
@@ -467,7 +469,7 @@
     "switcherInstalled": "今すぐ利用可能",
     "switcherMore": "その他の言語",
     "shareTitle": "言語リンクを共有",
-    "shareHint": "特定の言語でサイトを開くリンクをコピーします。その言語を話す学生（例：スペイン語）と共有するのに便利です。",
+    "shareHint": "特定の言語でサイトを開くリンクをコピーします。その言語を話す学生と共有するのに便利です（例: スペイン語）。",
     "shareLanguageLabel": "共有する言語",
     "shareUrlLabel": "共有可能なリンク",
     "shareCopy": "コピー",
@@ -476,7 +478,7 @@
     "browseLoading": "利用可能な言語を読み込み中…",
     "installTitle": "ファイルまたは URL からインストール",
     "installHint": "言語パックのインストール方法：ベースの en.json を翻訳し、ここで読み込みます。言語コードはファイル名から自動検出されます。検出に失敗した場合のみ、下に入力してください。",
-    "codePlaceholder": "言語コード（例：de）",
+    "codePlaceholder": "言語コード（例: de）",
     "codeOptionalLabel": "言語コード（任意）",
     "uploadFile": "JSON ファイルをアップロード",
     "urlPlaceholder": "…または URL を貼り付け",
@@ -533,11 +535,14 @@
     },
     "card": {
       "planTitlePaid": "GitHub プラン — Classroom 50 は Team および Enterprise プランでセットアップできます",
-      "viewOnGitHub": "GitHub で表示",
-      "openOnGitHub": "{{org}} を GitHub で開く",
       "open": "開く",
       "updatedAgo": "{{when}}に更新",
-      "noAccessBadge": "<code>classroom50</code> へのアクセスなし"
+      "noAccessBadge": "<code>classroom50</code> へのアクセスなし",
+      "details": "詳細",
+      "hidden": "{{org}} をホームページから非表示にしました。",
+      "hide": "ホームから非表示",
+      "moreActions": "{{org}} のその他の操作",
+      "undoHide": "元に戻す"
     },
     "newOrg": {
       "allSetUp": "表示できるすべての組織はすでにセットアップ済みです。",
@@ -598,6 +603,31 @@
       "summary_one": "保留中の招待が {{count}} 件あります",
       "summary_other": "保留中の招待が {{count}} 件あります",
       "viewOnGitHub": "GitHub で招待を表示"
+    },
+    "detailsModal": {
+      "cancel": "キャンセル",
+      "close": "閉じる",
+      "description": "説明",
+      "descriptionPlaceholder": "この組織の簡単な説明",
+      "displayName": "表示名",
+      "displayNamePlaceholder": "例: Classroom 50 Summer Dev",
+      "edit": "プロフィールを編集",
+      "editOnGitHub": "GitHub で編集",
+      "email": "連絡先メールアドレス",
+      "location": "所在地",
+      "manageOnGitHub": "GitHub で管理",
+      "orgId": "組織 ID",
+      "plan": "プラン",
+      "role": "あなたの役割",
+      "roleAdmin": "オーナー",
+      "roleMember": "メンバー",
+      "save": "変更を保存",
+      "saveError": "プロフィールを更新できませんでした: {{error}}",
+      "saved": "{{org}} のプロフィールを更新しました。",
+      "saving": "保存中…",
+      "school": "学校",
+      "website": "ウェブサイト",
+      "websitePlaceholder": "classroom50.org"
     }
   },
   "assignments": {
@@ -656,7 +686,7 @@
         "noRunnerMatch": "{{labels}} に一致するランナーがありません — スペルを確認してください。",
         "tooMany": "ラベルが多すぎます（{{count}} 個）— 最大 10 個です。",
         "cannotVerify": "確認できません — 入力されたとおりに使用します。",
-        "tip": "この課題を採点する GitHub Actions ランナーのラベルです。空欄の場合は ubuntu-latest を使用します。セルフホスト型ランナーの場合はカンマ区切りのラベルを組み合わせます（例：self-hosted, linux, x64）。",
+        "tip": "この課題を採点する GitHub Actions ランナーのラベル。空欄の場合は ubuntu-latest を使用します。セルフホストランナーの場合はカンマ区切りのラベルを組み合わせます（例: self-hosted, linux, x64）。",
         "emptyHint": "空欄の場合は <code>ubuntu-latest</code> が使われます。",
         "selfHostedHint": "セルフホストランナーの場合は、カンマ区切りのラベルを組み合わせます（例: <code>self-hosted, linux, x64</code>）。"
       },
@@ -680,7 +710,7 @@
         "aptCount_one": "{{count}} 個のパッケージ",
         "aptCount_other": "{{count}} 個のパッケージ",
         "aptLabel": "追加の apt パッケージ",
-        "aptPlaceholder": "例：cmake, valgrind",
+        "aptPlaceholder": "例: cmake, valgrind",
         "aptTip": "採点前に（apt-get で）インストールする追加の Ubuntu パッケージで、カンマまたはスペース区切りです。小文字の Debian パッケージ名を指定してください。",
         "envContainer": "Docker コンテナ",
         "envContainerHelp": "公開 Docker イメージ内で採点します（イメージが OS パッケージを管理します）。",
@@ -691,8 +721,9 @@
         "languagesTip": "バージョンを選ぶとそのツールチェーンをインストールします（例：Node 26、Java 25）。または独自のバージョンを入力できます。空欄の場合はスキップします。Python はホスト型ランナーで空欄の場合、既定で 3.12 になります。必要な数だけツールチェーンを有効にできます。",
         "runnerContainerError": "「{{label}}」は macOS/Windows ランナーです。Docker イメージには Ubuntu（またはカスタム／セルフホスト型）ランナーが必要です。",
         "versionMenu": "{{language}} のバージョンを選択",
-        "versionPlaceholder": "例：{{version}}",
-        "versionTip": "インストールする {{language}} のバージョンです（setup-{{language}} アクション経由）。スキップするには空欄にします。setup アクションが受け付ける任意のバージョンを入力できます。"
+        "versionPlaceholder": "例: {{version}}",
+        "versionTip": "インストールする {{language}} のバージョンです（setup-{{language}} アクション経由）。スキップするには空欄にします。setup アクションが受け付ける任意のバージョンを入力できます。",
+        "selfHostedDisabled": "セルフホストランナーでは無視されます。独自のビルド済みツールチェーンとパッケージを使用するためです。代わりにランナーイメージにこれらを組み込んでください。"
       },
       "setupCommandTip": "採点前に一度だけ実行されるコマンドです（例：コンパイル）。「setup」という名前の 0 点の先頭の自動採点ステップとして追加されます。終了コードが 0 以外の場合は実行が失敗します。",
       "detailsSection": "詳細",
@@ -744,7 +775,6 @@
       "timeout": "タイムアウト（秒）",
       "timeoutHint": "0 = 既定値（10 秒）",
       "points": "点数",
-      "done": "完了",
       "type": {
         "io": {
           "label": "入力/出力",
@@ -759,7 +789,7 @@
           "hint": "pytest コマンドを実行します。点数は採点時に検出されたテストケースに分配されます。"
         }
       },
-      "pythonNote": "実行コマンドは、課題テンプレート内のテストファイルに対して pytest（例: <code>python3 -m pytest -q</code>）を呼び出す必要があります。pytest と pytest-json-report は自動でインストールされます。ポイントは pytest が検出したケースに分割されます。"
+      "pythonNote": "実行コマンドは、課題テンプレート内のテストファイルに対して pytest を呼び出す必要があります（例: <code>python3 -m pytest -q</code>）。pytest と pytest-json-report は自動的にインストールされます。ポイントは pytest が検出したケースに分割されます。"
     },
     "table": {
       "caption": "課題",
@@ -1007,12 +1037,12 @@
     "setupComplete": "組織のセットアップが完了しました。以下の手順を確認してから、サービストークンの設定に進んでください。",
     "allSetTitle": "準備が整いました！",
     "allSetBody": "組織は Classroom 50 を利用できる状態になりました。組織に移動して、最初のクラスと課題を作成しましょう。",
-    "goToOrg": "{{org}} に移動",
-    "yourOrganization": "あなたの組織",
     "notAdmin": "Classroom 50 のセットアップには組織オーナーの権限が必要です。組織オーナーにセットアップの実行を依頼してください。",
     "notTeamOrEnterprise": "プライベートリポジトリからの GitHub Pages には、GitHub Team または Enterprise Cloud が必要な場合があります。セットアップは続行できますが、この組織で Pages が利用可能になるまで、公開された課題にアクセスできないことがあります。",
-    "manageServiceToken": "サービストークンを管理",
-    "statusIndeterminate": "組織のセットアップ状況を判定できませんでした。これは通常、一時的な GitHub または権限の問題であり、セットアップ自体の問題ではありません。"
+    "statusIndeterminate": "組織のセットアップ状況を判定できませんでした。これは通常、一時的な GitHub または権限の問題であり、セットアップ自体の問題ではありません。",
+    "done": "完了",
+    "progressLabel": "セットアップの進捗",
+    "stepLabel": "ステップ {{step}}"
   },
   "assignmentSettings": {
     "heading": "課題設定",
@@ -1106,7 +1136,18 @@
       "renameModalTitle": "設定リポジトリのデフォルトブランチを main に変更しますか？",
       "renameToMain": "main に変更",
       "renameError": "設定リポジトリのデフォルトブランチの名前を変更できませんでした。オーナー権限がないか、名前の変更が完了しなかった可能性があります — もう一度お試しください。",
-      "stateWarn": "推奨"
+      "stateWarn": "推奨",
+      "detail": {
+        "budgetMissing": "$0 のハードストップ Actions 予算がありません",
+        "budgetOverThreshold": "Actions の予算は ${{amount}} です（${{threshold}} を超過）。$0 のハードストップ上限を推奨します",
+        "budgetUnreadable": "Actions の支出上限を確認できませんでした（読み取り失敗（{{reason}}））。エンタープライズ管理の請求か、組織予算のないプランの可能性があります。$0 のハードストップ上限を手動で確認してください。",
+        "notConfigured": "未設定",
+        "orgActions": "enabled_repositories=\"{{enabledRepositories}}\", allowed_actions=\"{{allowedActions}}\"",
+        "readFailed": "読み取り失敗",
+        "readFailedStatus": "読み取り失敗（{{status}}）",
+        "rulesetsMissing": "不足: {{names}}",
+        "workflowOrgManaged": "組織ポリシーによりワークフローは既定で読み取り専用です。スケルトンワークフローは独自の権限を宣言します"
+      }
     },
     "rerun": {
       "title": "セットアップを再実行",
@@ -1142,7 +1183,10 @@
       "title": "組織のプリフライトチェックに失敗しました",
       "body_one": "この組織の {{categories}} に問題が見つかりました。",
       "body_other": "この組織の {{categories}} に問題が見つかりました。",
-      "reviewFix": "<settingsLink>組織の設定ページ</settingsLink>で確認して修正してください。"
+      "reviewFix": "<settingsLink>組織の設定ページ</settingsLink>で確認して修正してください。",
+      "unverifiedBody": "この組織の請求情報を読み取れなかったため、支出上限が設定されているか確認できません。Actions のコストに注意し、使用量に上限がない場合は請求設定を確認するか、請求管理者に相談してください。",
+      "unverifiedReview": "<settingsLink>組織設定ページ</settingsLink>で詳細を確認してください。",
+      "unverifiedTitle": "Actions の支出上限を確認できませんでした"
     },
     "overwrite": {
       "title": "採点を機能させ続けるためにワークフローファイルを更新しますか？",
@@ -1350,7 +1394,7 @@
       "noSuchUser": "そのような GitHub ユーザーは存在しません。",
       "addFailed": "スタッフを追加できませんでした：{{message}}",
       "githubUsername": "GitHub ユーザー名",
-      "usernamePlaceholder": "例：octocat",
+      "usernamePlaceholder": "例: octocat",
       "role": "役割",
       "add": "追加",
       "noneYet": "{{role}} はまだいません。",
@@ -1569,7 +1613,11 @@
       "unlistedNote": "このクラスは限定公開の URL を使用しているため、リンクにアクセスキーが含まれます。共有パスワードと同様に扱い、リンク全体をそのまま送信してください。",
       "copyLink": "受諾リンクをコピー",
       "copyCli": "CLI コマンドをコピー",
-      "preferCli": "コマンドラインをご希望ですか？"
+      "preferCli": "コマンドラインをご希望ですか？",
+      "manageRoster": "名簿を管理",
+      "shareWithCount_one": "この課題を受け入れられる<count>{{count}} 名の学生</count>と共有します。",
+      "shareWithCount_other": "この課題を受け入れられる<count>{{count}} 名の学生</count>と共有します。",
+      "warnNoStudents": "<classroom>{{classroom}}</classroom>には、まだこのリンクを受け入れられる学生がいません。まず学生を名簿に追加し、組織に招待してください。"
     },
     "stats": {
       "submitted": "提出済み",
@@ -2041,9 +2089,10 @@
       "title": "問題が発生しました"
     },
     "notAMember": {
-      "instructions": "先生に招待済みか確認してもらい、このページを再読み込みしてください。メールの招待を承諾したばかりの場合は、GitHub に少し時間を置いてから再度お試しください。",
+      "instructions": "先生にクラス名簿への追加と招待の送信を依頼してください（クラスの名簿ページから行えます）。GitHub があなたのアカウントに招待をメールで送信します。それを受け入れてから、ここで再確認してください。招待を受け入れたばかりの場合は、GitHub の反映に少し時間がかかることがあります。",
       "title": "まだメンバーではありません",
-      "body": "<org>{{org}}</org> 組織へのあなたのメンバーシップを確認できませんでした。"
+      "body": "あなたはまだ <org>{{org}}</org> 組織のメンバーではないため、この課題を受け入れることはできません。まず参加が必要です。GitHub 組織への招待により、課題リポジトリを作成するアクセス権が得られます。",
+      "checkAgain": "再確認"
     },
     "showDetails": "先生向けの詳細を表示",
     "ssoRequired": {
@@ -2136,5 +2185,17 @@
     "dismiss": "了解",
     "manage": "GitHub で予算を管理",
     "title": "Actions の支出上限を $0 に設定しました"
+  },
+  "settings": {
+    "hiddenOrgs": {
+      "empty": "非表示にした組織はありません。",
+      "heading": "非表示の組織",
+      "subheading": "ホームページから非表示にした組織です。再表示するには非表示を解除してください。",
+      "unhide": "再表示"
+    },
+    "page": {
+      "heading": "設定",
+      "subheading": "このブラウザの設定です。ここでの内容は組織と共有されません。"
+    }
   }
 }

@@ -193,6 +193,7 @@
     "setup": "Setup",
     "classroomSettings": "Classroom settings",
     "organizationSettings": "Organization settings",
+    "settings": "Settings",
     "newAssignment": "New assignment",
     "acceptAssignment": "Accept assignment",
     "members": "Members",
@@ -210,7 +211,7 @@
     "namePlaceholder": "Name (optional)",
     "usernamePlaceholder": "github-username",
     "emailPlaceholder": "student@university.edu (optional)",
-    "sectionPlaceholder": "Section (optional, e.g. Period 3)",
+    "sectionPlaceholder": "Section (optional, e.g., Period 3)",
     "keepStudent": "Keep student",
     "unenrollStudent": "Unenroll student",
     "added": "Added {{label}}.",
@@ -403,7 +404,7 @@
     "lastNamePlaceholder": "Last name",
     "editEmailPlaceholder": "student@university.edu",
     "emailLabel": "Email",
-    "editSectionPlaceholder": "Section (e.g. Period 3)",
+    "editSectionPlaceholder": "Section (e.g., Period 3)",
     "sectionLabel": "Section",
     "githubIdentity": "GitHub: <username>@{{username}}</username> (id {{id}})",
     "githubIdentityNoId": "GitHub: <username>@{{username}}</username>",
@@ -424,6 +425,7 @@
     "fileLabel": "File: {{fileName}}",
     "usernamesFound_one": "Found {{count}} GitHub username to import.",
     "usernamesFound_other": "Found {{count}} GitHub usernames to import.",
+    "importMergeNotice": "Importing adds to your existing roster — students already enrolled are skipped, and no one is removed. You can safely import in batches.",
     "githubUsernameColumn": "GitHub username",
     "nameColumn": "Name",
     "emailColumn": "Email",
@@ -498,7 +500,7 @@
     "switcherInstalled": "Available now",
     "switcherMore": "More languages",
     "shareTitle": "Share a language link",
-    "shareHint": "Copy a link that opens the site in a specific language — handy for sharing with students who speak it (e.g. Spanish).",
+    "shareHint": "Copy a link that opens the site in a specific language — handy for sharing with students who speak it (e.g., Spanish).",
     "shareLanguageLabel": "Language to share",
     "shareUrlLabel": "Shareable link",
     "shareCopy": "Copy",
@@ -509,7 +511,7 @@
     "browseLoading": "Loading available languages…",
     "installTitle": "Install from a file or URL",
     "installHint": "Install a language pack: translate the base en.json and load it here. The language code is detected from the file name; enter it below only if that fails.",
-    "codePlaceholder": "Language code (e.g. de)",
+    "codePlaceholder": "Language code (e.g., de)",
     "codeOptionalLabel": "Language code (optional)",
     "uploadFile": "Upload JSON file",
     "urlPlaceholder": "…or paste a URL",
@@ -608,10 +610,38 @@
     "card": {
       "noAccessBadge": "No <code>classroom50</code> access",
       "planTitlePaid": "GitHub plan — Classroom 50 can be set up on Team and Enterprise plans",
-      "viewOnGitHub": "View on GitHub",
-      "openOnGitHub": "Open {{org}} on GitHub",
       "open": "Open",
-      "updatedAgo": "Updated {{when}}"
+      "updatedAgo": "Updated {{when}}",
+      "moreActions": "More actions for {{org}}",
+      "hide": "Hide from home",
+      "hidden": "Hid {{org}} from your home page.",
+      "undoHide": "Undo",
+      "details": "Details"
+    },
+    "detailsModal": {
+      "displayName": "Display name",
+      "displayNamePlaceholder": "e.g., Classroom 50 Summer Dev",
+      "description": "Description",
+      "descriptionPlaceholder": "A short description of this organization",
+      "website": "Website",
+      "websitePlaceholder": "classroom50.org",
+      "location": "Location",
+      "email": "Contact email",
+      "school": "School",
+      "orgId": "Organization ID",
+      "plan": "Plan",
+      "role": "Your role",
+      "roleAdmin": "Owner",
+      "roleMember": "Member",
+      "editOnGitHub": "Edit on GitHub",
+      "edit": "Edit profile",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "cancel": "Cancel",
+      "saved": "Updated {{org}}'s profile.",
+      "saveError": "Couldn't update the profile: {{error}}",
+      "manageOnGitHub": "Manage on GitHub",
+      "close": "Close"
     },
     "invites": {
       "summary_one": "You have {{count}} pending invitation",
@@ -627,6 +657,18 @@
       "acceptError": "Couldn't accept the invitation to {{org}}. It may need SSO authorization on GitHub, or try again.",
       "viewOnGitHub": "View invite on GitHub",
       "openInviteOnGitHub": "Open the {{org}} invitation on GitHub"
+    }
+  },
+  "settings": {
+    "page": {
+      "heading": "Settings",
+      "subheading": "Preferences for this browser. Nothing here is shared with your organizations."
+    },
+    "hiddenOrgs": {
+      "heading": "Hidden organizations",
+      "subheading": "Organizations you've hidden from your home page. Unhide one to show it again.",
+      "unhide": "Unhide",
+      "empty": "You haven't hidden any organizations."
     }
   },
   "assignments": {
@@ -721,10 +763,10 @@
       "advanced": "Advanced settings",
       "advancedHelp": "Optional grading and runtime settings. Blank fields use their documented defaults.",
       "dockerImage": "Docker image",
-      "dockerImagePlaceholder": "e.g. gcc:13",
+      "dockerImagePlaceholder": "e.g., gcc:13",
       "dockerImageTip": "Grade inside this public Docker image instead of a GitHub-hosted runner. The image provides the OS and its packages. It must be publicly pullable (for example ubuntu:24.04).",
       "containerUser": "Container user",
-      "containerUserPlaceholder": "e.g. root",
+      "containerUserPlaceholder": "e.g., root",
       "containerUserTip": "The user the container runs as. Set root if checkout fails with a permission error. GitHub Actions runs container steps as the host runner's user, so a non-root image often can't write to the workspace.",
       "setupCommand": "Setup command",
       "setupCommandPlaceholder": "e.g., gcc -o hello hello.c",
@@ -746,8 +788,8 @@
       "createButton": "Create assignment",
       "runner": {
         "label": "GitHub runner",
-        "tip": "The GitHub Actions runner label(s) that grade this assignment. Blank uses ubuntu-latest. Combine comma-separated labels for a self-hosted runner (e.g. self-hosted, linux, x64).",
-        "selfHostedHint": "Combine comma-separated labels for a self-hosted runner (e.g. <code>self-hosted, linux, x64</code>).",
+        "tip": "The GitHub Actions runner label(s) that grade this assignment. Blank uses ubuntu-latest. Combine comma-separated labels for a self-hosted runner (e.g., self-hosted, linux, x64).",
+        "selfHostedHint": "Combine comma-separated labels for a self-hosted runner (e.g., <code>self-hosted, linux, x64</code>).",
         "checking": "Checking…",
         "emptyHint": "Leave blank for <code>ubuntu-latest</code>.",
         "hosted": "GitHub-hosted runner",
@@ -767,11 +809,12 @@
         "envContainerHelp": "Grades inside a public Docker image (it owns the OS packages).",
         "languagesHeading": "Language versions",
         "languagesTip": "Pick a version to install that toolchain (for example Node 26, Java 25), or type a custom one. A blank field skips it. Python defaults to 3.12 when blank on the hosted runner. You can enable as many toolchains as you need.",
-        "versionPlaceholder": "e.g. {{version}}",
+        "selfHostedDisabled": "Ignored on a self-hosted runner — it uses its own prebuilt toolchains and packages. Provision these in the runner image instead.",
+        "versionPlaceholder": "e.g., {{version}}",
         "versionTip": "The {{language}} version to install (via the setup-{{language}} action). Leave blank to skip it. You can type any version the setup action accepts.",
         "versionMenu": "Choose a {{language}} version",
         "aptLabel": "Extra apt packages",
-        "aptPlaceholder": "e.g. cmake, valgrind",
+        "aptPlaceholder": "e.g., cmake, valgrind",
         "aptTip": "Extra Ubuntu packages installed (apt-get) before grading, comma- or space-separated. Lowercase Debian package names.",
         "aptCount_one": "{{count}} package",
         "aptCount_other": "{{count}} packages",
@@ -818,11 +861,10 @@
       "comparisonRegex": "Regex — Python re.search, multiline",
       "exitCode": "Required exit code",
       "exitCodeHint": "Leave empty to require a successful exit (0).",
-      "pythonNote": "The run command should invoke pytest (e.g. <code>python3 -m pytest -q</code>) against test files in the assignment template. pytest and pytest-json-report are installed automatically. Points are split across the cases pytest discovers.",
+      "pythonNote": "The run command should invoke pytest (e.g., <code>python3 -m pytest -q</code>) against test files in the assignment template. pytest and pytest-json-report are installed automatically. Points are split across the cases pytest discovers.",
       "timeout": "Timeout (seconds)",
       "timeoutHint": "0 = default (10s)",
       "points": "Points",
-      "done": "Done",
       "type": {
         "io": {
           "label": "Input/Output",
@@ -1049,8 +1091,9 @@
     },
     "notAMember": {
       "title": "Not a member yet",
-      "body": "We couldn't confirm your membership in the <org>{{org}}</org> organization.",
-      "instructions": "Ask your teacher to confirm they've invited you, then reload this page. If you just accepted an email invitation, give GitHub a moment and try again."
+      "body": "You're not yet a member of the <org>{{org}}</org> organization, so you can't accept this assignment. Joining is required first — a GitHub organization invitation gives you access to create your assignment repository.",
+      "instructions": "Ask your teacher to add you to the class roster and send you an invitation (they can do this from the classroom roster page). GitHub will email the invitation to your account — accept it, then check again here. If you just accepted an invitation, give GitHub a moment to catch up.",
+      "checkAgain": "Check again"
     },
     "generic": {
       "title": "Something went wrong",
@@ -1063,16 +1106,16 @@
     "pageHeading": "Setup Classroom 50",
     "pageSubheading": "This will set up your GitHub organization to use Classroom 50.",
     "loadingSetup": "Loading organization setup",
+    "progressLabel": "Setup progress",
+    "stepLabel": "Step {{step}}",
     "runSetup": "Run setup",
     "nextServiceToken": "Next: service token",
     "back": "Back",
     "setupComplete": "Organization setup is complete. Review the steps below, then continue to set the service token.",
     "allSetTitle": "You're all set!",
     "allSetBody": "Your organization is ready to use Classroom 50. Head to your organization to create your first classroom and assignments.",
-    "manageServiceToken": "Manage service token",
+    "done": "Done",
     "statusIndeterminate": "Couldn't determine your organization's setup status. This is usually a temporary GitHub or permissions issue, not a problem with your setup.",
-    "goToOrg": "Go to {{org}}",
-    "yourOrganization": "your organization",
     "notAdmin": "Classroom 50 setup requires org owner permissions. Ask an org owner to run setup.",
     "notTeamOrEnterprise": "GitHub Pages from a private repository may require GitHub Team or Enterprise Cloud. You can continue setup, but published assignments may not be accessible until Pages is available for this org."
   },
@@ -1129,6 +1172,17 @@
       "saveButton": "Save service token"
     },
     "audit": {
+      "detail": {
+        "readFailed": "read failed",
+        "readFailedStatus": "read failed ({{status}})",
+        "notConfigured": "not configured",
+        "orgActions": "enabled_repositories=\"{{enabledRepositories}}\", allowed_actions=\"{{allowedActions}}\"",
+        "budgetOverThreshold": "Actions budget is ${{amount}} (over ${{threshold}}); recommend a $0 hard-stop cap",
+        "budgetMissing": "no $0 hard-stop Actions budget",
+        "budgetUnreadable": "couldn't verify the Actions spending cap (read failed ({{reason}})) — likely enterprise-managed billing or a plan without org budgets. Confirm a $0 hard-stop cap manually.",
+        "workflowOrgManaged": "org policy defaults workflows to read; the skeleton workflows declare their own permissions",
+        "rulesetsMissing": "missing: {{names}}"
+      },
       "title": "Organization policy",
       "planBadgeTitle": "GitHub plan — determines which policies are in scope (Enterprise unlocks additional member-privilege fields)",
       "description": "What Classroom 50 configures on your behalf, and whether anything has drifted from the expected lockdown.",
@@ -1232,7 +1286,10 @@
       "title": "Organization preflight check failed",
       "body_one": "An issue was found with this organization's {{categories}}.",
       "body_other": "Issues were found with this organization's {{categories}}.",
-      "reviewFix": "Review and fix on the <settingsLink>organization settings page</settingsLink>."
+      "reviewFix": "Review and fix on the <settingsLink>organization settings page</settingsLink>.",
+      "unverifiedTitle": "Couldn't verify the Actions spending cap",
+      "unverifiedBody": "This organization's billing couldn't be read, so we can't confirm a spending cap is set. Keep an eye on Actions costs, and check your billing settings or with your billing admin if usage isn't capped.",
+      "unverifiedReview": "See details on the <settingsLink>organization settings page</settingsLink>."
     },
     "overwrite": {
       "title": "Update workflow files to keep grading working?",
@@ -1527,7 +1584,7 @@
       "noSuchUser": "No such GitHub user.",
       "addFailed": "Couldn't add staff: {{message}}",
       "githubUsername": "GitHub username",
-      "usernamePlaceholder": "e.g. octocat",
+      "usernamePlaceholder": "e.g., octocat",
       "role": "Role",
       "add": "Add",
       "noneYet": "No {{role}} yet.",
@@ -1688,7 +1745,11 @@
       "unlistedNote": "This classroom uses an unlisted URL, so the link includes the access key — treat it like a shared password and send the full link as-is.",
       "copyLink": "Copy accept link",
       "copyCli": "Copy CLI command",
-      "preferCli": "Prefer the command line?"
+      "preferCli": "Prefer the command line?",
+      "warnNoStudents": "No students can accept this link in <classroom>{{classroom}}</classroom> yet. Add students to the roster and invite them to the organization first.",
+      "shareWithCount_one": "Sharing with <count>{{count}} student</count> who can accept this assignment.",
+      "shareWithCount_other": "Sharing with <count>{{count}} students</count> who can accept this assignment.",
+      "manageRoster": "Manage roster"
     },
     "stats": {
       "submitted": "Submitted",
@@ -2076,7 +2137,7 @@
         "noCollaborators": "No collaborators yet.",
         "tooMany": "This assignment has a maximum group size of {{max}} (including the owner).",
         "mustBeUnique": "Collaborators must be unique.",
-        "addPlaceholder": "Add a GitHub username (e.g. octocat)",
+        "addPlaceholder": "Add a GitHub username (e.g., octocat)",
         "addAriaLabel": "Add a GitHub username",
         "add": "Add",
         "groupFull": "Group is full — remove someone to add another collaborator.",
