@@ -171,7 +171,8 @@
     "mySubmission": "Beadásom",
     "submissions": "Beadványok",
     "activity": "Tevékenység",
-    "roster": "Névsor"
+    "roster": "Névsor",
+    "settings": "Beállítások"
   },
   "students": {
     "addTitle": "Tag hozzáadása",
@@ -458,7 +459,8 @@
     "headTaCount_one": "{{count}} vezető gyakorlatvezető",
     "headTaCount_other": "{{count}} vezető gyakorlatvezető",
     "roleHeadTa": "Vezető gyakorlatvezető",
-    "unenrollBody": "Ezzel eltávolítja a(z) <label>{{label}}</label> tanulót a(z) <org>{{org}}</org> {{classroom}} osztályból. A tanulói feladat-adattárak nem törlődnek."
+    "unenrollBody": "Ezzel eltávolítja a(z) <label>{{label}}</label> tanulót a(z) <org>{{org}}</org> {{classroom}} osztályból. A tanulói feladat-adattárak nem törlődnek.",
+    "importMergeNotice": "Az importálás hozzáad a meglévő névsorhoz — a már beiratkozott diákok kimaradnak, és senki sem kerül eltávolításra. Nyugodtan importálhatsz kötegekben."
   },
   "language": {
     "baseName": "Angol (alap)",
@@ -467,7 +469,7 @@
     "switcherInstalled": "Most elérhető",
     "switcherMore": "További nyelvek",
     "shareTitle": "Nyelvi hivatkozás megosztása",
-    "shareHint": "Másolj ki egy hivatkozást, amely az oldalt egy adott nyelven nyitja meg — praktikus a diákokkal való megosztáshoz, akik ezt a nyelvet beszélik (pl. spanyol).",
+    "shareHint": "Másolj egy linket, amely egy adott nyelven nyitja meg az oldalt — praktikus, ha olyan diákokkal osztod meg, akik azt a nyelvet beszélik (pl. spanyol).",
     "shareLanguageLabel": "Megosztandó nyelv",
     "shareUrlLabel": "Megosztható hivatkozás",
     "shareCopy": "Másolás",
@@ -533,11 +535,14 @@
     },
     "card": {
       "planTitlePaid": "GitHub-csomag – a Classroom 50 Team és Enterprise csomagokon állítható be",
-      "viewOnGitHub": "Megtekintés a GitHubon",
-      "openOnGitHub": "A(z) {{org}} megnyitása a GitHubon",
       "open": "Megnyitás",
       "updatedAgo": "Frissítve {{when}}",
-      "noAccessBadge": "Nincs <code>classroom50</code> hozzáférés"
+      "noAccessBadge": "Nincs <code>classroom50</code> hozzáférés",
+      "details": "Részletek",
+      "hidden": "A(z) {{org}} elrejtve a kezdőlapodról.",
+      "hide": "Elrejtés a kezdőlapról",
+      "moreActions": "További műveletek a(z) {{org}} számára",
+      "undoHide": "Visszavonás"
     },
     "newOrg": {
       "allSetUp": "Minden látható szervezet már be van állítva.",
@@ -598,6 +603,31 @@
       "summary_one": "{{count}} függőben lévő meghívásod van",
       "summary_other": "{{count}} függőben lévő meghívásod van",
       "viewOnGitHub": "Meghívás megtekintése a GitHubon"
+    },
+    "detailsModal": {
+      "cancel": "Mégse",
+      "close": "Bezárás",
+      "description": "Leírás",
+      "descriptionPlaceholder": "Rövid leírás erről a szervezetről",
+      "displayName": "Megjelenített név",
+      "displayNamePlaceholder": "pl. Classroom 50 Summer Dev",
+      "edit": "Profil szerkesztése",
+      "editOnGitHub": "Szerkesztés a GitHubon",
+      "email": "Kapcsolattartó e-mail",
+      "location": "Hely",
+      "manageOnGitHub": "Kezelés a GitHubon",
+      "orgId": "Szervezetazonosító",
+      "plan": "Csomag",
+      "role": "A te szereped",
+      "roleAdmin": "Tulajdonos",
+      "roleMember": "Tag",
+      "save": "Módosítások mentése",
+      "saveError": "Nem sikerült frissíteni a profilt: {{error}}",
+      "saved": "A(z) {{org}} profilja frissítve.",
+      "saving": "Mentés…",
+      "school": "Iskola",
+      "website": "Weboldal",
+      "websitePlaceholder": "classroom50.org"
     }
   },
   "assignments": {
@@ -656,9 +686,9 @@
         "noRunnerMatch": "Egyetlen runner sem egyezik ezzel: {{labels}} – ellenőrizd a helyesírást.",
         "tooMany": "Túl sok címke ({{count}}) – legfeljebb 10 lehet.",
         "cannotVerify": "Nem ellenőrizhető – a megadott formában használva.",
-        "tip": "A GitHub Actions futtató címkéje(i), amely(ek) ezt a feladatot értékeli(k). Üresen hagyva az ubuntu-latest-et használja. Saját üzemeltetésű futtatóhoz vesszővel elválasztott címkéket kombinálj (pl. self-hosted, linux, x64).",
+        "tip": "A GitHub Actions futtató címké(k), amely(ek) ezt a feladatot értékeli(k). Üresen hagyva ubuntu-latest lesz. Egyéni tárhelyű futtatóhoz kombinálj vesszővel elválasztott címkéket (pl. self-hosted, linux, x64).",
         "emptyHint": "Hagyd üresen a(z) <code>ubuntu-latest</code> értékhez.",
-        "selfHostedHint": "Vesszővel elválasztott címkéket kombinálj saját üzemeltetésű futtatóhoz (pl. <code>self-hosted, linux, x64</code>)."
+        "selfHostedHint": "Egyéni tárhelyű futtatóhoz kombinálj vesszővel elválasztott címkéket (pl. <code>self-hosted, linux, x64</code>)."
       },
       "validation": {
         "nameRequired": "A feladat neve kötelező.",
@@ -692,7 +722,8 @@
         "runnerContainerError": "A(z) „{{label}}” egy macOS/Windows futtató — egy Docker image-hez Ubuntu (vagy egyedi/saját üzemeltetésű) futtató kell.",
         "versionMenu": "Válassz {{language}} verziót",
         "versionPlaceholder": "pl. {{version}}",
-        "versionTip": "A telepítendő {{language}} verzió (a setup-{{language}} action révén). Hagyd üresen a kihagyáshoz. Bármely verziót beírhatsz, amelyet a setup action elfogad."
+        "versionTip": "A telepítendő {{language}} verzió (a setup-{{language}} action révén). Hagyd üresen a kihagyáshoz. Bármely verziót beírhatsz, amelyet a setup action elfogad.",
+        "selfHostedDisabled": "Egyéni tárhelyű futtatón figyelmen kívül marad — az saját előre elkészített eszközkészleteit és csomagjait használja. Ezeket inkább a futtató lemezképében biztosítsd."
       },
       "setupCommandTip": "Az értékelés előtt egyszer lefutó parancs, például fordításhoz. Vezető, „setup” nevű, 0 pontos autograding lépésként kerül hozzáadásra. A nem nulla kilépési kód meghiúsítja a futást.",
       "detailsSection": "Részletek",
@@ -744,7 +775,6 @@
       "timeout": "Időkorlát (másodperc)",
       "timeoutHint": "0 = alapértelmezett (10 mp)",
       "points": "Pontok",
-      "done": "Kész",
       "type": {
         "io": {
           "label": "Bemenet/kimenet",
@@ -759,7 +789,7 @@
           "hint": "Futtat egy pytest-parancsot; a pontok az értékeléskor felfedezett tesztesetek között oszlanak el."
         }
       },
-      "pythonNote": "A futtatási parancsnak a pytestet kell meghívnia (pl. <code>python3 -m pytest -q</code>) a feladatsablonban lévő tesztfájlokon. A pytest és a pytest-json-report automatikusan telepítésre kerül. A pontok a pytest által felfedezett esetek között oszlanak meg."
+      "pythonNote": "A futtatási parancsnak a pytestet kell meghívnia (pl. <code>python3 -m pytest -q</code>) a feladatsablonban lévő tesztfájlokon. A pytest és a pytest-json-report automatikusan települ. A pontok elosztásra kerülnek a pytest által felfedezett esetek között."
     },
     "table": {
       "caption": "Feladatok",
@@ -1007,12 +1037,12 @@
     "setupComplete": "A szervezet beállítása befejeződött. Tekintsd át az alábbi lépéseket, majd folytasd a szolgáltatási token megadásával.",
     "allSetTitle": "Minden készen áll!",
     "allSetBody": "A szervezeted készen áll a Classroom 50 használatára. Nyisd meg a szervezetedet, és hozd létre az első osztálytermedet és feladataidat.",
-    "goToOrg": "Ugrás ide: {{org}}",
-    "yourOrganization": "a szervezeted",
     "notAdmin": "A Classroom 50 beállításához szervezettulajdonosi jogosultság szükséges. Kérj meg egy szervezettulajdonost a beállítás futtatására.",
     "notTeamOrEnterprise": "A privát tárolóból származó GitHub Pages használatához GitHub Team vagy Enterprise Cloud csomag szükséges lehet. Folytathatod a beállítást, de előfordulhat, hogy a közzétett feladatok nem lesznek elérhetők, amíg a Pages nem érhető el ehhez a szervezethez.",
-    "manageServiceToken": "Szolgáltatási token kezelése",
-    "statusIndeterminate": "Nem sikerült megállapítani a szervezeted beállítási állapotát. Ez általában átmeneti GitHub- vagy jogosultsági probléma, nem pedig a beállítással kapcsolatos hiba."
+    "statusIndeterminate": "Nem sikerült megállapítani a szervezeted beállítási állapotát. Ez általában átmeneti GitHub- vagy jogosultsági probléma, nem pedig a beállítással kapcsolatos hiba.",
+    "done": "Kész",
+    "progressLabel": "Beállítási folyamat",
+    "stepLabel": "{{step}}. lépés"
   },
   "assignmentSettings": {
     "heading": "Feladat beállításai",
@@ -1106,7 +1136,18 @@
       "renameModalTitle": "Átnevezed a config-tároló alapértelmezett ágát „main”-re?",
       "renameToMain": "Átnevezés main-re",
       "renameError": "Nem sikerült átnevezni a konfigurációs tároló alapértelmezett ágát. Lehet, hogy nincs tulajdonosi jogosultságod, vagy az átnevezés nem ment végbe — próbáld újra.",
-      "stateWarn": "Ajánlott"
+      "stateWarn": "Ajánlott",
+      "detail": {
+        "budgetMissing": "nincs $0 kemény leállítású Actions költségkeret",
+        "budgetOverThreshold": "Az Actions költségkeret ${{amount}} (több mint ${{threshold}}); $0 kemény leállítású felső korlát ajánlott",
+        "budgetUnreadable": "nem sikerült ellenőrizni az Actions költséghatárt (az olvasás sikertelen ({{reason}})) — valószínűleg vállalati kezelésű számlázás vagy szervezeti költségkeretek nélküli csomag. Erősítsd meg kézzel a $0 kemény leállítású felső korlátot.",
+        "notConfigured": "nincs beállítva",
+        "orgActions": "enabled_repositories=\"{{enabledRepositories}}\", allowed_actions=\"{{allowedActions}}\"",
+        "readFailed": "az olvasás sikertelen",
+        "readFailedStatus": "az olvasás sikertelen ({{status}})",
+        "rulesetsMissing": "hiányzik: {{names}}",
+        "workflowOrgManaged": "a szervezeti szabályzat alapértelmezetten olvasásra állítja a munkafolyamatokat; a vázmunkafolyamatok saját jogosultságokat deklarálnak"
+      }
     },
     "rerun": {
       "title": "Beállítás újrafuttatása",
@@ -1142,7 +1183,10 @@
       "title": "A szervezet indítás előtti ellenőrzése meghiúsult",
       "body_one": "Probléma merült fel ezzel: a szervezet {{categories}}eleménél.",
       "body_other": "Problémák merültek fel ezzel: a szervezet {{categories}}eleménél.",
-      "reviewFix": "Tekintsd át és javítsd a <settingsLink>szervezeti beállítások oldalán</settingsLink>."
+      "reviewFix": "Tekintsd át és javítsd a <settingsLink>szervezeti beállítások oldalán</settingsLink>.",
+      "unverifiedBody": "Ennek a szervezetnek a számlázását nem sikerült beolvasni, ezért nem tudjuk megerősíteni, hogy be van-e állítva költséghatár. Tartsd szemmel az Actions költségeket, és ellenőrizd a számlázási beállításaidat vagy egyeztess a számlázási rendszergazdáddal, ha a használat nincs korlátozva.",
+      "unverifiedReview": "Nézd meg a részleteket a <settingsLink>szervezeti beállítások oldalán</settingsLink>.",
+      "unverifiedTitle": "Nem sikerült ellenőrizni az Actions költséghatárt"
     },
     "overwrite": {
       "title": "Frissíted a workflow-fájlokat, hogy az értékelés működjön?",
@@ -1569,7 +1613,11 @@
       "unlistedNote": "Ez a csoportterem nem listázott URL-t használ, így a hivatkozás tartalmazza a hozzáférési kulcsot – kezeld megosztott jelszóként, és a teljes hivatkozást változatlanul küldd el.",
       "copyLink": "Elfogadási hivatkozás másolása",
       "copyCli": "CLI-parancs másolása",
-      "preferCli": "Inkább a parancssort használnád?"
+      "preferCli": "Inkább a parancssort használnád?",
+      "manageRoster": "Névsor kezelése",
+      "shareWithCount_one": "Megosztás <count>{{count}} diákkal</count>, aki elfogadhatja ezt a feladatot.",
+      "shareWithCount_other": "Megosztás <count>{{count}} diákkal</count>, akik elfogadhatják ezt a feladatot.",
+      "warnNoStudents": "Ezt a linket még egyetlen diák sem tudja elfogadni a(z) <classroom>{{classroom}}</classroom> kurzusban. Előbb vegyél fel diákokat a névsorba, és hívd meg őket a szervezetbe."
     },
     "stats": {
       "submitted": "Beadva",
@@ -1921,7 +1969,7 @@
         "noCollaborators": "Még nincsenek közreműködők.",
         "tooMany": "Ennek a feladatnak a maximális csoportmérete {{max}} (a tulajdonost is beleértve).",
         "mustBeUnique": "A közreműködőknek egyedieknek kell lenniük.",
-        "addPlaceholder": "Adj hozzá egy GitHub felhasználónevet (pl. octocat)",
+        "addPlaceholder": "Adj meg egy GitHub felhasználónevet (pl. octocat)",
         "addAriaLabel": "GitHub felhasználónév hozzáadása",
         "add": "Hozzáadás",
         "groupFull": "A csoport betelt — egy másik közreműködő hozzáadásához távolíts el valakit.",
@@ -2041,9 +2089,10 @@
       "title": "Valami hiba történt"
     },
     "notAMember": {
-      "instructions": "Kérd meg a tanárodat, hogy erősítse meg, hogy meghívott, majd töltsd újra ezt az oldalt. Ha épp most fogadtál el egy e-mailes meghívót, adj a GitHubnak egy percet, és próbáld újra.",
+      "instructions": "Kérd meg a tanárodat, hogy vegyen fel a kurzus névsorába, és küldjön neked meghívót (ezt a kurzus névsor oldaláról teheti meg). A GitHub e-mailben küldi el a meghívót a fiókodra — fogadd el, majd ellenőrizd újra itt. Ha épp most fogadtál el egy meghívót, adj a GitHubnak egy kis időt, hogy utolérje magát.",
       "title": "Még nem vagy tag",
-      "body": "Nem tudtuk megerősíteni a tagságodat a(z) <org>{{org}}</org> szervezetben."
+      "body": "Még nem vagy tagja a(z) <org>{{org}}</org> szervezetnek, ezért nem tudod elfogadni ezt a feladatot. Előbb csatlakoznod kell — egy GitHub szervezeti meghívó hozzáférést ad a feladat-adattárad létrehozásához.",
+      "checkAgain": "Ellenőrzés újra"
     },
     "showDetails": "Részletek megjelenítése a tanárod számára",
     "ssoRequired": {
@@ -2136,5 +2185,17 @@
     "dismiss": "Értem",
     "manage": "Költségkeret kezelése a GitHubon",
     "title": "Az Actions költségkeret 0 dollárra állítva"
+  },
+  "settings": {
+    "hiddenOrgs": {
+      "empty": "Nem rejtettél el egyetlen szervezetet sem.",
+      "heading": "Elrejtett szervezetek",
+      "subheading": "Azok a szervezetek, amelyeket elrejtettél a kezdőlapodról. Szüntesd meg egy elrejtését, hogy újra megjelenjen.",
+      "unhide": "Elrejtés megszüntetése"
+    },
+    "page": {
+      "heading": "Beállítások",
+      "subheading": "Beállítások ehhez a böngészőhöz. Semmi sem kerül megosztásra a szervezeteiddel."
+    }
   }
 }

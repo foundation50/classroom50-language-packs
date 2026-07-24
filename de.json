@@ -171,7 +171,8 @@
     "mySubmission": "Meine Abgabe",
     "submissions": "Abgaben",
     "activity": "Aktivität",
-    "roster": "Teilnehmerliste"
+    "roster": "Teilnehmerliste",
+    "settings": "Einstellungen"
   },
   "students": {
     "addTitle": "Mitglied hinzufügen",
@@ -179,7 +180,7 @@
     "namePlaceholder": "Name (optional)",
     "usernamePlaceholder": "github-benutzername",
     "emailPlaceholder": "lernende@universitaet.de (optional)",
-    "sectionPlaceholder": "Kurs (optional, z. B. Gruppe 3)",
+    "sectionPlaceholder": "Kursabschnitt (optional, z. B. Stunde 3)",
     "keepStudent": "Lernende behalten",
     "unenrollStudent": "Lernende abmelden",
     "added": "{{label}} hinzugefügt.",
@@ -209,7 +210,7 @@
     "lastNamePlaceholder": "Nachname",
     "editEmailPlaceholder": "lernende@universitaet.de",
     "emailLabel": "E-Mail",
-    "editSectionPlaceholder": "Kurs (z. B. Gruppe 3)",
+    "editSectionPlaceholder": "Kursabschnitt (z. B. Stunde 3)",
     "sectionLabel": "Kurs",
     "saving": "Wird gespeichert …",
     "saveChanges": "Änderungen speichern",
@@ -458,7 +459,8 @@
     "headTaCount_one": "{{count}} leitende TA",
     "headTaCount_other": "{{count}} leitende TAs",
     "roleHeadTa": "Leitende TA",
-    "unenrollBody": "Dadurch wird die lernende Person <label>{{label}}</label> aus dem Kursraum {{classroom}} in <org>{{org}}</org> entfernt. Die Aufgaben-Repositories der Lernenden werden nicht gelöscht."
+    "unenrollBody": "Dadurch wird die lernende Person <label>{{label}}</label> aus dem Kursraum {{classroom}} in <org>{{org}}</org> entfernt. Die Aufgaben-Repositories der Lernenden werden nicht gelöscht.",
+    "importMergeNotice": "Beim Importieren werden Einträge zu deiner bestehenden Kursliste hinzugefügt – bereits eingeschriebene Lernende werden übersprungen, und niemand wird entfernt. Du kannst gefahrlos in Chargen importieren."
   },
   "language": {
     "baseName": "Englisch (Basis)",
@@ -467,7 +469,7 @@
     "switcherInstalled": "Jetzt verfügbar",
     "switcherMore": "Weitere Sprachen",
     "shareTitle": "Sprachlink teilen",
-    "shareHint": "Kopiere einen Link, der die Website in einer bestimmten Sprache öffnet – praktisch, um ihn mit Studierenden zu teilen, die diese Sprache sprechen (z. B. Spanisch).",
+    "shareHint": "Kopiere einen Link, der die Website in einer bestimmten Sprache öffnet – praktisch zum Teilen mit Lernenden, die sie sprechen (z. B. Spanisch).",
     "shareLanguageLabel": "Zu teilende Sprache",
     "shareUrlLabel": "Teilbarer Link",
     "shareCopy": "Kopieren",
@@ -533,11 +535,14 @@
     },
     "card": {
       "planTitlePaid": "GitHub-Tarif – Classroom 50 kann in Team- und Enterprise-Tarifen eingerichtet werden",
-      "viewOnGitHub": "Auf GitHub ansehen",
-      "openOnGitHub": "{{org}} auf GitHub öffnen",
       "open": "Öffnen",
       "updatedAgo": "Aktualisiert {{when}}",
-      "noAccessBadge": "Kein <code>classroom50</code>-Zugriff"
+      "noAccessBadge": "Kein <code>classroom50</code>-Zugriff",
+      "details": "Details",
+      "hidden": "{{org}} von deiner Startseite ausgeblendet.",
+      "hide": "Von Startseite ausblenden",
+      "moreActions": "Weitere Aktionen für {{org}}",
+      "undoHide": "Rückgängig"
     },
     "newOrg": {
       "allSetUp": "Alle für uns sichtbaren Organisationen sind bereits eingerichtet.",
@@ -598,6 +603,31 @@
       "summary_one": "Du hast {{count}} ausstehende Einladung",
       "summary_other": "Du hast {{count}} ausstehende Einladungen",
       "viewOnGitHub": "Einladung auf GitHub ansehen"
+    },
+    "detailsModal": {
+      "cancel": "Abbrechen",
+      "close": "Schließen",
+      "description": "Beschreibung",
+      "descriptionPlaceholder": "Eine kurze Beschreibung dieser Organisation",
+      "displayName": "Anzeigename",
+      "displayNamePlaceholder": "z. B. Classroom 50 Summer Dev",
+      "edit": "Profil bearbeiten",
+      "editOnGitHub": "Auf GitHub bearbeiten",
+      "email": "Kontakt-E-Mail",
+      "location": "Standort",
+      "manageOnGitHub": "Auf GitHub verwalten",
+      "orgId": "Organisations-ID",
+      "plan": "Tarif",
+      "role": "Deine Rolle",
+      "roleAdmin": "Inhaber",
+      "roleMember": "Mitglied",
+      "save": "Änderungen speichern",
+      "saveError": "Das Profil konnte nicht aktualisiert werden: {{error}}",
+      "saved": "Profil von {{org}} aktualisiert.",
+      "saving": "Wird gespeichert…",
+      "school": "Schule",
+      "website": "Website",
+      "websitePlaceholder": "classroom50.org"
     }
   },
   "assignments": {
@@ -656,9 +686,9 @@
         "noRunnerMatch": "Kein Runner passt zu {{labels}} – überprüfen Sie die Schreibweise.",
         "tooMany": "Zu viele Labels ({{count}}) – maximal 10.",
         "cannotVerify": "Kann nicht überprüft werden – wird wie eingegeben verwendet.",
-        "tip": "Das/die GitHub-Actions-Runner-Label(s), das/die diese Aufgabe bewerten. Leer verwendet ubuntu-latest. Kombiniere kommagetrennte Labels für einen selbst gehosteten Runner (z. B. self-hosted, linux, x64).",
+        "tip": "Das/Die GitHub-Actions-Runner-Label, mit denen diese Aufgabe bewertet wird. Leer bedeutet ubuntu-latest. Kombiniere kommagetrennte Labels für einen selbstgehosteten Runner (z. B. self-hosted, linux, x64).",
         "emptyHint": "Für <code>ubuntu-latest</code> leer lassen.",
-        "selfHostedHint": "Kombiniere durch Kommas getrennte Labels für einen selbstgehosteten Runner (z. B. <code>self-hosted, linux, x64</code>)."
+        "selfHostedHint": "Kombiniere kommagetrennte Labels für einen selbstgehosteten Runner (z. B. <code>self-hosted, linux, x64</code>)."
       },
       "validation": {
         "nameRequired": "Der Aufgabenname ist erforderlich.",
@@ -692,7 +722,8 @@
         "runnerContainerError": "„{{label}}“ ist ein macOS-/Windows-Runner – ein Docker-Image benötigt einen Ubuntu-Runner (oder einen benutzerdefinierten/selbst gehosteten).",
         "versionMenu": "{{language}}-Version wählen",
         "versionPlaceholder": "z. B. {{version}}",
-        "versionTip": "Die {{language}}-Version, die installiert werden soll (über die setup-{{language}}-Action). Leer lassen, um sie zu überspringen. Du kannst jede Version eingeben, die die setup-Action akzeptiert."
+        "versionTip": "Die {{language}}-Version, die installiert werden soll (über die setup-{{language}}-Action). Leer lassen, um sie zu überspringen. Du kannst jede Version eingeben, die die setup-Action akzeptiert.",
+        "selfHostedDisabled": "Wird auf einem selbstgehosteten Runner ignoriert – er verwendet seine eigenen vorinstallierten Toolchains und Pakete. Stelle diese stattdessen im Runner-Image bereit."
       },
       "setupCommandTip": "Ein Befehl, der einmal vor der Bewertung ausgeführt wird, zum Beispiel zum Kompilieren. Er wird als vorangestellter Autograding-Schritt mit 0 Punkten namens „setup“ hinzugefügt. Ein Exit-Code ungleich null lässt den Lauf scheitern.",
       "detailsSection": "Details",
@@ -744,7 +775,6 @@
       "timeout": "Zeitlimit (Sekunden)",
       "timeoutHint": "0 = Standard (10 s)",
       "points": "Punkte",
-      "done": "Fertig",
       "type": {
         "io": {
           "label": "Eingabe/Ausgabe",
@@ -759,7 +789,7 @@
           "hint": "Führen Sie einen pytest-Befehl aus; die Punkte werden zur Bewertungszeit auf die gefundenen Testfälle aufgeteilt."
         }
       },
-      "pythonNote": "Der Ausführungsbefehl sollte pytest aufrufen (z. B. <code>python3 -m pytest -q</code>) und dabei die Testdateien in der Aufgabenvorlage verwenden. pytest und pytest-json-report werden automatisch installiert. Die Punkte werden auf die von pytest gefundenen Fälle aufgeteilt."
+      "pythonNote": "Der Ausführungsbefehl sollte pytest aufrufen (z. B. <code>python3 -m pytest -q</code>) und dabei die Testdateien in der Aufgabenvorlage prüfen. pytest und pytest-json-report werden automatisch installiert. Die Punkte werden auf die von pytest gefundenen Testfälle aufgeteilt."
     },
     "table": {
       "caption": "Aufgaben",
@@ -1007,12 +1037,12 @@
     "setupComplete": "Die Organisationseinrichtung ist abgeschlossen. Überprüfen Sie die untenstehenden Schritte und fahren Sie dann mit dem Festlegen des Dienst-Tokens fort.",
     "allSetTitle": "Alles bereit!",
     "allSetBody": "Ihre Organisation ist bereit für die Nutzung von Classroom 50. Wechseln Sie zu Ihrer Organisation, um Ihren ersten Kursraum und Ihre ersten Aufgaben zu erstellen.",
-    "goToOrg": "Zu {{org}} wechseln",
-    "yourOrganization": "Ihre Organisation",
     "notAdmin": "Die Einrichtung von Classroom 50 erfordert Inhaberberechtigungen für die Organisation. Bitten Sie einen Organisationsinhaber, die Einrichtung durchzuführen.",
     "notTeamOrEnterprise": "GitHub Pages aus einem privaten Repository erfordert möglicherweise GitHub Team oder Enterprise Cloud. Sie können die Einrichtung fortsetzen, aber veröffentlichte Aufgaben sind möglicherweise erst zugänglich, wenn Pages für diese Organisation verfügbar ist.",
-    "manageServiceToken": "Service-Token verwalten",
-    "statusIndeterminate": "Der Setup-Status deiner Organisation konnte nicht ermittelt werden. Das ist meist ein vorübergehendes Problem mit GitHub oder den Berechtigungen und kein Problem mit deinem Setup."
+    "statusIndeterminate": "Der Setup-Status deiner Organisation konnte nicht ermittelt werden. Das ist meist ein vorübergehendes Problem mit GitHub oder den Berechtigungen und kein Problem mit deinem Setup.",
+    "done": "Fertig",
+    "progressLabel": "Einrichtungsfortschritt",
+    "stepLabel": "Schritt {{step}}"
   },
   "assignmentSettings": {
     "heading": "Aufgabeneinstellungen",
@@ -1106,7 +1136,18 @@
       "renameModalTitle": "Standard-Branch des Konfigurations-Repos in main umbenennen?",
       "renameToMain": "In main umbenennen",
       "renameError": "Der Standard-Branch des Konfigurations-Repos konnte nicht umbenannt werden. Möglicherweise fehlen dir Inhaberberechtigungen, oder die Umbenennung ist nicht durchgegangen — versuche es erneut.",
-      "stateWarn": "Empfohlen"
+      "stateWarn": "Empfohlen",
+      "detail": {
+        "budgetMissing": "kein $0-Hard-Stop-Actions-Budget",
+        "budgetOverThreshold": "Actions-Budget beträgt ${{amount}} (über ${{threshold}}); empfohlen wird eine $0-Hard-Stop-Obergrenze",
+        "budgetUnreadable": "Das Actions-Ausgabenlimit konnte nicht überprüft werden (Lesevorgang fehlgeschlagen ({{reason}})) – wahrscheinlich unternehmensverwaltete Abrechnung oder ein Tarif ohne Organisationsbudgets. Bestätige eine $0-Hard-Stop-Obergrenze manuell.",
+        "notConfigured": "nicht konfiguriert",
+        "orgActions": "enabled_repositories=\"{{enabledRepositories}}\", allowed_actions=\"{{allowedActions}}\"",
+        "readFailed": "Lesevorgang fehlgeschlagen",
+        "readFailedStatus": "Lesevorgang fehlgeschlagen ({{status}})",
+        "rulesetsMissing": "fehlend: {{names}}",
+        "workflowOrgManaged": "Die Organisationsrichtlinie setzt Workflows standardmäßig auf Lesen; die Skeleton-Workflows deklarieren ihre eigenen Berechtigungen"
+      }
     },
     "rerun": {
       "title": "Einrichtung erneut ausführen",
@@ -1142,7 +1183,10 @@
       "title": "Preflight-Prüfung der Organisation fehlgeschlagen",
       "body_one": "Es wurde ein Problem mit {{categories}} dieser Organisation gefunden.",
       "body_other": "Es wurden Probleme mit {{categories}} dieser Organisation gefunden.",
-      "reviewFix": "Überprüfen und beheben auf der <settingsLink>Seite mit den Organisationseinstellungen</settingsLink>."
+      "reviewFix": "Überprüfen und beheben auf der <settingsLink>Seite mit den Organisationseinstellungen</settingsLink>.",
+      "unverifiedBody": "Die Abrechnung dieser Organisation konnte nicht gelesen werden, daher können wir nicht bestätigen, dass ein Ausgabenlimit festgelegt ist. Behalte die Actions-Kosten im Auge und prüfe deine Abrechnungseinstellungen oder wende dich an deinen Abrechnungsadministrator, falls die Nutzung nicht begrenzt ist.",
+      "unverifiedReview": "Details findest du auf der <settingsLink>Seite mit den Organisationseinstellungen</settingsLink>.",
+      "unverifiedTitle": "Actions-Ausgabenlimit konnte nicht überprüft werden"
     },
     "overwrite": {
       "title": "Workflow-Dateien aktualisieren, damit die Bewertung weiter funktioniert?",
@@ -1569,7 +1613,11 @@
       "unlistedNote": "Dieser Kurs verwendet eine nicht gelistete URL, daher enthält der Link den Zugangsschlüssel – behandle ihn wie ein gemeinsames Passwort und sende den vollständigen Link unverändert.",
       "copyLink": "Annahmelink kopieren",
       "copyCli": "CLI-Befehl kopieren",
-      "preferCli": "Lieber die Kommandozeile?"
+      "preferCli": "Lieber die Kommandozeile?",
+      "manageRoster": "Kursliste verwalten",
+      "shareWithCount_one": "Wird mit <count>{{count}} Lernenden</count> geteilt, die diese Aufgabe annehmen können.",
+      "shareWithCount_other": "Wird mit <count>{{count}} Lernenden</count> geteilt, die diese Aufgabe annehmen können.",
+      "warnNoStudents": "In <classroom>{{classroom}}</classroom> kann noch niemand diesen Link annehmen. Füge zuerst Lernende zur Kursliste hinzu und lade sie in die Organisation ein."
     },
     "stats": {
       "submitted": "Abgegeben",
@@ -1921,7 +1969,7 @@
         "noCollaborators": "Noch keine Mitarbeitenden.",
         "tooMany": "Diese Aufgabe hat eine maximale Gruppengröße von {{max}} (einschließlich Inhaber/in).",
         "mustBeUnique": "Mitarbeitende müssen eindeutig sein.",
-        "addPlaceholder": "Einen GitHub-Benutzernamen hinzufügen (z. B. octocat)",
+        "addPlaceholder": "GitHub-Benutzernamen hinzufügen (z. B. octocat)",
         "addAriaLabel": "Einen GitHub-Benutzernamen hinzufügen",
         "add": "Hinzufügen",
         "groupFull": "Die Gruppe ist voll – entfernen Sie jemanden, um weitere Mitarbeitende hinzuzufügen.",
@@ -2041,9 +2089,10 @@
       "title": "Etwas ist schiefgelaufen"
     },
     "notAMember": {
-      "instructions": "Bitte deine Lehrkraft zu bestätigen, dass sie dich eingeladen hat, und lade diese Seite dann neu. Wenn du gerade eine E-Mail-Einladung angenommen hast, gib GitHub einen Moment und versuche es erneut.",
+      "instructions": "Bitte deine Lehrkraft, dich in die Kursliste aufzunehmen und dir eine Einladung zu senden (dies ist über die Kurslisten-Seite des Kurses möglich). GitHub sendet die Einladung per E-Mail an dein Konto – nimm sie an und prüfe dann hier erneut. Wenn du gerade eine Einladung angenommen hast, gib GitHub einen Moment Zeit.",
       "title": "Noch kein Mitglied",
-      "body": "Wir konnten deine Mitgliedschaft in der Organisation <org>{{org}}</org> nicht bestätigen."
+      "body": "Du bist noch kein Mitglied der Organisation <org>{{org}}</org> und kannst diese Aufgabe daher nicht annehmen. Zunächst ist ein Beitritt erforderlich – eine Einladung zur GitHub-Organisation gibt dir Zugriff, um dein Aufgaben-Repository zu erstellen.",
+      "checkAgain": "Erneut prüfen"
     },
     "showDetails": "Details für deine Lehrkraft anzeigen",
     "ssoRequired": {
@@ -2136,5 +2185,17 @@
     "dismiss": "Verstanden",
     "manage": "Budget auf GitHub verwalten",
     "title": "Actions-Ausgabenobergrenze auf 0 $ gesetzt"
+  },
+  "settings": {
+    "hiddenOrgs": {
+      "empty": "Du hast keine Organisationen ausgeblendet.",
+      "heading": "Ausgeblendete Organisationen",
+      "subheading": "Organisationen, die du von deiner Startseite ausgeblendet hast. Blende eine wieder ein, um sie erneut anzuzeigen.",
+      "unhide": "Einblenden"
+    },
+    "page": {
+      "heading": "Einstellungen",
+      "subheading": "Einstellungen für diesen Browser. Nichts hiervon wird mit deinen Organisationen geteilt."
+    }
   }
 }

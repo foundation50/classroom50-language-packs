@@ -201,7 +201,8 @@
     "classes": "כיתות",
     "mySubmission": "ההגשה שלי",
     "submissions": "הגשות",
-    "activity": "פעילות"
+    "activity": "פעילות",
+    "settings": "הגדרות"
   },
   "students": {
     "addTitle": "הוספת חבר/ה",
@@ -211,7 +212,7 @@
     "namePlaceholder": "שם (אופציונלי)",
     "usernamePlaceholder": "github-username",
     "emailPlaceholder": "student@university.edu (אופציונלי)",
-    "sectionPlaceholder": "קבוצה (אופציונלי, למשל שיעור 3)",
+    "sectionPlaceholder": "קבוצה (רשות, למשל, שיעור 3)",
     "keepStudent": "השארת התלמיד/ה",
     "unenrollStudent": "ביטול רישום התלמיד/ה",
     "added": "{{label}} נוסף/ה.",
@@ -414,7 +415,7 @@
     "lastNamePlaceholder": "שם משפחה",
     "editEmailPlaceholder": "student@university.edu",
     "emailLabel": "אימייל",
-    "editSectionPlaceholder": "קבוצה (למשל שיעור 3)",
+    "editSectionPlaceholder": "קבוצה (למשל, שיעור 3)",
     "sectionLabel": "קבוצה",
     "githubIdentity": "GitHub: <username>@{{username}}</username> (מזהה {{id}})",
     "githubIdentityNoId": "GitHub: <username>@{{username}}</username>",
@@ -518,7 +519,8 @@
     },
     "headTaCount_one": "מתרגל/ת ראשי/ת אחד/ת",
     "headTaCount_other": "{{count}} מתרגלים ראשיים",
-    "roleHeadTa": "מתרגל/ת ראשי/ת"
+    "roleHeadTa": "מתרגל/ת ראשי/ת",
+    "importMergeNotice": "ייבוא מוסיף לרשימה הקיימת שלכם — לומדים שכבר רשומים מדולגים, ואיש אינו מוסר. ניתן לייבא בבטחה במנות."
   },
   "language": {
     "baseName": "אנגלית (בסיס)",
@@ -529,7 +531,7 @@
     "switcherInstalled": "זמין כעת",
     "switcherMore": "שפות נוספות",
     "shareTitle": "שיתוף קישור שפה",
-    "shareHint": "העתיקו קישור שפותח את האתר בשפה מסוימת — נוח לשיתוף עם תלמידים הדוברים אותה (למשל ספרדית).",
+    "shareHint": "העתיקו קישור שפותח את האתר בשפה מסוימת — נוח לשיתוף עם לומדים שדוברים אותה (למשל, ספרדית).",
     "shareLanguageLabel": "שפה לשיתוף",
     "shareUrlLabel": "קישור לשיתוף",
     "shareCopy": "העתקה",
@@ -540,7 +542,7 @@
     "browseLoading": "טוען את השפות הזמינות…",
     "installTitle": "התקנה מקובץ או מכתובת URL",
     "installHint": "התקנת חבילת שפה: תרגמו את קובץ הבסיס en.json וטענו אותו כאן. קוד השפה מזוהה משם הקובץ; הזינו אותו למטה רק אם הזיהוי נכשל.",
-    "codePlaceholder": "קוד שפה (למשל de)",
+    "codePlaceholder": "קוד שפה (למשל, de)",
     "codeOptionalLabel": "קוד שפה (אופציונלי)",
     "uploadFile": "העלאת קובץ JSON",
     "urlPlaceholder": "…או הדביקו כתובת URL",
@@ -639,10 +641,13 @@
     "card": {
       "noAccessBadge": "אין גישת <code>classroom50</code>",
       "planTitlePaid": "תוכנית GitHub — ניתן להגדיר את Classroom 50 בתוכניות Team ו-Enterprise",
-      "viewOnGitHub": "הצג ב-GitHub",
-      "openOnGitHub": "פתח את {{org}} ב-GitHub",
       "open": "פתח",
-      "updatedAgo": "עודכן {{when}}"
+      "updatedAgo": "עודכן {{when}}",
+      "details": "פרטים",
+      "hidden": "{{org}} הוסתר מדף הבית שלכם.",
+      "hide": "הסתירו מדף הבית",
+      "moreActions": "פעולות נוספות עבור {{org}}",
+      "undoHide": "בטלו"
     },
     "invites": {
       "summary_one": "יש לך הזמנה ממתינה אחת",
@@ -659,6 +664,31 @@
       "acceptError": "לא ניתן היה לקבל את ההזמנה ל-{{org}}. ייתכן שנדרש אישור SSO ב-GitHub, או נסה שוב.",
       "viewOnGitHub": "הצג הזמנה ב-GitHub",
       "openInviteOnGitHub": "פתח את ההזמנה של {{org}} ב-GitHub"
+    },
+    "detailsModal": {
+      "cancel": "ביטול",
+      "close": "סגירה",
+      "description": "תיאור",
+      "descriptionPlaceholder": "תיאור קצר של הארגון הזה",
+      "displayName": "שם תצוגה",
+      "displayNamePlaceholder": "למשל, Classroom 50 Summer Dev",
+      "edit": "עריכת פרופיל",
+      "editOnGitHub": "עריכה ב־GitHub",
+      "email": "דוא\"ל ליצירת קשר",
+      "location": "מיקום",
+      "manageOnGitHub": "ניהול ב־GitHub",
+      "orgId": "מזהה ארגון",
+      "plan": "תוכנית",
+      "role": "התפקיד שלכם",
+      "roleAdmin": "בעלים",
+      "roleMember": "חבר",
+      "save": "שמירת שינויים",
+      "saveError": "לא ניתן היה לעדכן את הפרופיל: {{error}}",
+      "saved": "הפרופיל של {{org}} עודכן.",
+      "saving": "שומר…",
+      "school": "מוסד לימודים",
+      "website": "אתר אינטרנט",
+      "websitePlaceholder": "classroom50.org"
     }
   },
   "assignments": {
@@ -753,10 +783,10 @@
       "advanced": "הגדרות מתקדמות",
       "advancedHelp": "הגדרות בדיקה וזמן ריצה אופציונליות. שדות ריקים משתמשים בברירות המחדל המתועדות.",
       "dockerImage": "תמונת Docker",
-      "dockerImagePlaceholder": "לדוגמה gcc:13",
+      "dockerImagePlaceholder": "למשל, gcc:13",
       "dockerImageTip": "בצע ציון בתוך תמונת Docker ציבורית זו במקום בסביבת ריצה מתארחת ב־GitHub. התמונה מספקת את מערכת ההפעלה ואת החבילות שלה. היא חייבת להיות ניתנת למשיכה באופן ציבורי (לדוגמה ubuntu:24.04).",
       "containerUser": "משתמש המכולה",
-      "containerUserPlaceholder": "לדוגמה root",
+      "containerUserPlaceholder": "למשל, root",
       "containerUserTip": "המשתמש שבשמו המכולה רצה. הגדר root אם השליפה נכשלת עם שגיאת הרשאה. GitHub Actions מריץ שלבי מכולה בשם המשתמש של סביבת הריצה המארחת, ולכן תמונה שאינה root לרוב אינה יכולה לכתוב לסביבת העבודה.",
       "setupCommand": "פקודת הגדרה",
       "setupCommandPlaceholder": "לדוגמה, gcc -o hello hello.c",
@@ -773,8 +803,8 @@
       "createButton": "צור מטלה",
       "runner": {
         "label": "סביבת ריצה של GitHub",
-        "tip": "תוויות סביבת הריצה של GitHub Actions שמעניקות ציון למטלה זו. ריק משתמש ב־ubuntu-latest. שלב תוויות מופרדות בפסיקים עבור סביבת ריצה בהתארחות עצמית (לדוגמה self-hosted, linux, x64).",
-        "selfHostedHint": "שלב תוויות מופרדות בפסיקים עבור סביבת ריצה בהתארחות עצמית (לדוגמה <code>self-hosted, linux, x64</code>).",
+        "tip": "תוויות מריץ GitHub Actions שמבצעות את בדיקת המטלה. ריק משתמש ב־ubuntu-latest. שלבו תוויות מופרדות בפסיקים עבור מריץ מתארח־עצמית (למשל, self-hosted, linux, x64).",
+        "selfHostedHint": "שלבו תוויות מופרדות בפסיקים עבור מריץ מתארח־עצמית (למשל, <code>self-hosted, linux, x64</code>).",
         "checking": "בודק…",
         "emptyHint": "השאר ריק עבור <code>ubuntu-latest</code>.",
         "hosted": "סביבת ריצה מתארחת ב־GitHub",
@@ -794,15 +824,16 @@
         "envContainerHelp": "מעניק ציון בתוך תמונת Docker ציבורית (היא בעלת חבילות מערכת ההפעלה).",
         "languagesHeading": "גרסאות שפה",
         "languagesTip": "בחר גרסה כדי להתקין את ערכת הכלים הזו (לדוגמה Node 26, Java 25), או הקלד גרסה מותאמת אישית. שדה ריק מדלג עליה. Python מוגדר כברירת מחדל ל־3.12 כאשר ריק בסביבת הריצה המתארחת. אפשר להפעיל כמה ערכות כלים שנדרשות.",
-        "versionPlaceholder": "לדוגמה {{version}}",
+        "versionPlaceholder": "למשל, {{version}}",
         "versionTip": "גרסת {{language}} להתקנה (באמצעות פעולת ה־setup-{{language}}). השאר ריק כדי לדלג. אפשר להקליד כל גרסה שפעולת ההגדרה מקבלת.",
         "versionMenu": "בחר גרסת {{language}}",
         "aptLabel": "חבילות apt נוספות",
-        "aptPlaceholder": "לדוגמה cmake, valgrind",
+        "aptPlaceholder": "למשל, cmake, valgrind",
         "aptTip": "חבילות Ubuntu נוספות שמותקנות (apt-get) לפני הציון, מופרדות בפסיקים או ברווחים. שמות חבילות Debian באותיות קטנות.",
         "aptCount_one": "חבילה {{count}}",
         "aptCount_other": "{{count}} חבילות",
-        "runnerContainerError": "\"{{label}}\" היא סביבת ריצה של macOS/Windows — תמונת Docker דורשת סביבת ריצה של Ubuntu (או מותאמת אישית/בהתארחות עצמית)."
+        "runnerContainerError": "\"{{label}}\" היא סביבת ריצה של macOS/Windows — תמונת Docker דורשת סביבת ריצה של Ubuntu (או מותאמת אישית/בהתארחות עצמית).",
+        "selfHostedDisabled": "מתעלמים מכך במריץ מתארח־עצמית — הוא משתמש בערכות הכלים והחבילות שהוכנו מראש שלו. במקום זאת, ספקו אותן בתמונת המריץ."
       },
       "validation": {
         "nameRequired": "שם המטלה נדרש.",
@@ -850,11 +881,10 @@
       "comparisonRegex": "ביטוי רגולרי — re.search של Python, רב־שורתי",
       "exitCode": "קוד יציאה נדרש",
       "exitCodeHint": "השאר ריק כדי לדרוש יציאה מוצלחת (0).",
-      "pythonNote": "פקודת ההרצה צריכה להפעיל את pytest (לדוגמה <code>python3 -m pytest -q</code>) על קבצי הבדיקה בתבנית המטלה. pytest ו־pytest-json-report מותקנים אוטומטית. הנקודות מתחלקות בין המקרים ש־pytest מגלה.",
+      "pythonNote": "פקודת ההרצה צריכה להפעיל את pytest (למשל <code>python3 -m pytest -q</code>) על קובצי הבדיקה בתבנית המטלה. pytest ו־pytest-json-report מותקנים אוטומטית. הנקודות מתחלקות בין המקרים ש־pytest מגלה.",
       "timeout": "פסק זמן (שניות)",
       "timeoutHint": "0 = ברירת מחדל (10 שנ׳)",
       "points": "נקודות",
-      "done": "בוצע",
       "type": {
         "io": {
           "label": "קלט/פלט",
@@ -1081,8 +1111,9 @@
     },
     "notAMember": {
       "title": "עדיין לא חבר",
-      "body": "לא הצלחנו לאמת את החברות שלך בארגון <org>{{org}}</org>.",
-      "instructions": "בקש מהמורה שלך לאשר שהוזמנת, ולאחר מכן טען מחדש את הדף. אם זה עתה אישרת הזמנה שהגיעה במייל, תן ל-GitHub רגע ונסה שוב."
+      "body": "עדיין אינכם חברים בארגון <org>{{org}}</org>, ולכן אינכם יכולים לקבל את המטלה הזו. יש להצטרף תחילה — הזמנה לארגון GitHub מעניקה לכם גישה ליצירת מאגר המטלה שלכם.",
+      "instructions": "בקשו מהמורה להוסיף אתכם לרשימת הכיתה ולשלוח לכם הזמנה (ניתן לעשות זאת מדף הרשימה של הכיתה). GitHub ישלח את ההזמנה בדוא\"ל לחשבונכם — קבלו אותה, ואז בדקו שוב כאן. אם זה עתה קיבלתם הזמנה, תנו ל־GitHub רגע להתעדכן.",
+      "checkAgain": "בדקו שוב"
     },
     "generic": {
       "title": "משהו השתבש",
@@ -1101,12 +1132,12 @@
     "setupComplete": "הגדרת הארגון הושלמה. סקור את השלבים שלהלן, ולאחר מכן המשך להגדרת אסימון השירות.",
     "allSetTitle": "הכול מוכן!",
     "allSetBody": "הארגון שלך מוכן לשימוש ב-Classroom 50. עבור לארגון שלך כדי ליצור את הכיתה והמטלות הראשונות שלך.",
-    "manageServiceToken": "ניהול אסימון השירות",
     "statusIndeterminate": "לא ניתן היה לקבוע את סטטוס ההגדרה של הארגון שלך. בדרך כלל מדובר בבעיה זמנית ב-GitHub או בהרשאות, ולא בבעיה בהגדרה שלך.",
-    "goToOrg": "עבור אל {{org}}",
-    "yourOrganization": "הארגון שלך",
     "notAdmin": "הגדרת Classroom 50 מחייבת הרשאות בעלים של ארגון. בקש מבעלים של הארגון להפעיל את ההגדרה.",
-    "notTeamOrEnterprise": "‏GitHub Pages ממאגר פרטי עשוי לחייב GitHub Team או Enterprise Cloud. ניתן להמשיך בהגדרה, אך ייתכן שמטלות שפורסמו לא יהיו נגישות עד ש-Pages יהיה זמין עבור ארגון זה."
+    "notTeamOrEnterprise": "‏GitHub Pages ממאגר פרטי עשוי לחייב GitHub Team או Enterprise Cloud. ניתן להמשיך בהגדרה, אך ייתכן שמטלות שפורסמו לא יהיו נגישות עד ש-Pages יהיה זמין עבור ארגון זה.",
+    "done": "סיום",
+    "progressLabel": "התקדמות ההתקנה",
+    "stepLabel": "שלב {{step}}"
   },
   "assignmentSettings": {
     "heading": "הגדרות המטלה",
@@ -1201,7 +1232,18 @@
       "renameModalBody": "פעולה זו משנה את שם הענף המשמש כברירת מחדל במאגר התצורה classroom50 ל־„main”. אם תלמידים כבר קיבלו מטלות, תהליך הבדיקה האוטומטית שלהם מקבע את שם הענף הנוכחי ויפסיק לבדוק עד שיקבלו מחדש או שתכוון מחדש את השים שלהם. עדיף לעשות זאת רק לפני שתלמידים מקבלים, או להיות מוכן להריץ מחדש את ההתקנה שלהם.",
       "memberPermsToggle": "הרשאות חברים שאנו מגדירים",
       "memberPermsHint": "הרשימה המלאה של הרשאות חברי הארגון ש‑Classroom 50 מגדירה, כולל אלו שכבר קיימות. אלו שסטו מסומנות למעלה.",
-      "stateWarn": "מומלץ"
+      "stateWarn": "מומלץ",
+      "detail": {
+        "budgetMissing": "אין תקציב Actions עם עצירה קשיחה של $0",
+        "budgetOverThreshold": "תקציב Actions הוא ${{amount}} (מעל ${{threshold}}); מומלץ תקרת עצירה קשיחה של $0",
+        "budgetUnreadable": "לא ניתן היה לאמת את תקרת ההוצאה של Actions (הקריאה נכשלה ({{reason}})) — כנראה חיוב מנוהל־ארגון או תוכנית ללא תקציבי ארגון. אשרו ידנית תקרת עצירה קשיחה של $0.",
+        "notConfigured": "לא הוגדר",
+        "orgActions": "enabled_repositories=\"{{enabledRepositories}}\", allowed_actions=\"{{allowedActions}}\"",
+        "readFailed": "הקריאה נכשלה",
+        "readFailedStatus": "הקריאה נכשלה ({{status}})",
+        "rulesetsMissing": "חסר: {{names}}",
+        "workflowOrgManaged": "מדיניות הארגון מגדירה כברירת מחדל תהליכי עבודה לקריאה; תהליכי העבודה של השלד מצהירים על ההרשאות שלהם"
+      }
     },
     "rerun": {
       "title": "הרץ התקנה מחדש",
@@ -1237,7 +1279,10 @@
       "title": "בדיקת המוכנות של הארגון נכשלה",
       "body_one": "נמצאה בעיה עם {{categories}} של ארגון זה.",
       "body_other": "נמצאו בעיות עם {{categories}} של ארגון זה.",
-      "reviewFix": "עיין ותקן ב<settingsLink>עמוד הגדרות הארגון</settingsLink>."
+      "reviewFix": "עיין ותקן ב<settingsLink>עמוד הגדרות הארגון</settingsLink>.",
+      "unverifiedBody": "לא ניתן היה לקרוא את החיוב של הארגון הזה, ולכן אין באפשרותנו לאשר שהוגדרה תקרת הוצאה. עקבו אחר עלויות Actions, ובדקו את הגדרות החיוב שלכם או עם מנהל החיוב אם השימוש אינו מוגבל בתקרה.",
+      "unverifiedReview": "ראו פרטים ב<settingsLink>דף הגדרות הארגון</settingsLink>.",
+      "unverifiedTitle": "לא ניתן היה לאמת את תקרת ההוצאה של Actions"
     },
     "overwrite": {
       "title": "לעדכן את קובצי התהליכים כדי שהבדיקה תמשיך לעבוד?",
@@ -1550,7 +1595,7 @@
       "noSuchUser": "אין משתמש GitHub כזה.",
       "addFailed": "לא ניתן היה להוסיף איש צוות: {{message}}",
       "githubUsername": "שם משתמש GitHub",
-      "usernamePlaceholder": "למשל octocat",
+      "usernamePlaceholder": "למשל, octocat",
       "role": "תפקיד",
       "add": "הוספה",
       "noneYet": "עדיין אין {{role}}.",
@@ -1705,7 +1750,11 @@
       "unlistedNote": "כיתה זו משתמשת בכתובת URL בלתי-רשומה, ולכן הקישור כולל את מפתח הגישה — התייחסו אליו כמו לסיסמה משותפת ושלחו את הקישור המלא כמות שהוא.",
       "copyLink": "העתקת קישור הקבלה",
       "copyCli": "העתקת פקודת CLI",
-      "preferCli": "מעדיפים את שורת הפקודה?"
+      "preferCli": "מעדיפים את שורת הפקודה?",
+      "manageRoster": "ניהול הרשימה",
+      "shareWithCount_one": "משתפים עם <count>לומד {{count}}</count> שיכול לקבל את המטלה הזו.",
+      "shareWithCount_other": "משתפים עם <count>{{count}} לומדים</count> שיכולים לקבל את המטלה הזו.",
+      "warnNoStudents": "אף לומד אינו יכול לקבל את הקישור הזה ב<classroom>{{classroom}}</classroom> עדיין. הוסיפו לומדים לרשימה והזמינו אותם לארגון תחילה."
     },
     "stats": {
       "submitted": "הוגש",
@@ -2118,7 +2167,7 @@
         "noCollaborators": "עדיין אין משתפים.",
         "tooMany": "למטלה הזו יש גודל קבוצה מרבי של {{max}} (כולל הבעלים).",
         "mustBeUnique": "המשתפים חייבים להיות ייחודיים.",
-        "addPlaceholder": "הוספת שם משתמש ב-GitHub (למשל octocat)",
+        "addPlaceholder": "הוסיפו שם משתמש של GitHub (למשל, octocat)",
         "addAriaLabel": "הוספת שם משתמש ב-GitHub",
         "add": "הוספה",
         "groupFull": "הקבוצה מלאה — הסר/י מישהו כדי להוסיף משתף נוסף.",
@@ -2184,5 +2233,17 @@
     "dismiss": "הבנתי",
     "manage": "ניהול התקציב ב-GitHub",
     "title": "מגבלת הוצאה של Actions נקבעה ל-0$"
+  },
+  "settings": {
+    "hiddenOrgs": {
+      "empty": "לא הסתרתם אף ארגון.",
+      "heading": "ארגונים מוסתרים",
+      "subheading": "ארגונים שהסתרתם מדף הבית שלכם. בטלו הסתרה של אחד כדי להציגו שוב.",
+      "unhide": "בטלו הסתרה"
+    },
+    "page": {
+      "heading": "הגדרות",
+      "subheading": "העדפות עבור דפדפן זה. שום דבר כאן אינו משותף עם הארגונים שלכם."
+    }
   }
 }

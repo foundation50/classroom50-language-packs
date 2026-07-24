@@ -171,7 +171,8 @@
     "mySubmission": "Moje odevzdání",
     "submissions": "Odevzdání",
     "activity": "Aktivita",
-    "roster": "Seznam studentů"
+    "roster": "Seznam studentů",
+    "settings": "Nastavení"
   },
   "students": {
     "addTitle": "Přidat člena",
@@ -179,7 +180,7 @@
     "namePlaceholder": "Jméno (nepovinné)",
     "usernamePlaceholder": "github-username",
     "emailPlaceholder": "student@univerzita.cz (nepovinné)",
-    "sectionPlaceholder": "Skupina (nepovinné, např. 3. hodina)",
+    "sectionPlaceholder": "Sekce (nepovinné, např. 3. hodina)",
     "keepStudent": "Ponechat studenta",
     "unenrollStudent": "Odhlásit studenta",
     "added": "Přidáno: {{label}}.",
@@ -209,7 +210,7 @@
     "lastNamePlaceholder": "Příjmení",
     "editEmailPlaceholder": "student@univerzita.cz",
     "emailLabel": "E-mail",
-    "editSectionPlaceholder": "Skupina (např. 3. hodina)",
+    "editSectionPlaceholder": "Sekce (např. 3. hodina)",
     "sectionLabel": "Skupina",
     "saving": "Ukládání…",
     "saveChanges": "Uložit změny",
@@ -462,7 +463,8 @@
     "headTaCount_one": "{{count}} hlavní asistent",
     "headTaCount_other": "{{count}} hlavních asistentů",
     "roleHeadTa": "Hlavní asistent",
-    "unenrollBody": "Tímto odeberete studenta <label>{{label}}</label> z učebny {{classroom}} organizace <org>{{org}}</org>. Repozitáře studentských zadání nebudou smazány."
+    "unenrollBody": "Tímto odeberete studenta <label>{{label}}</label> z učebny {{classroom}} organizace <org>{{org}}</org>. Repozitáře studentských zadání nebudou smazány.",
+    "importMergeNotice": "Import přidává do vašeho stávajícího seznamu — již zapsaní studenti se přeskočí a nikdo se neodebere. Import můžete bezpečně provádět po dávkách."
   },
   "language": {
     "baseName": "Angličtina (základní)",
@@ -471,7 +473,7 @@
     "switcherInstalled": "Dostupné nyní",
     "switcherMore": "Další jazyky",
     "shareTitle": "Sdílet odkaz s jazykem",
-    "shareHint": "Zkopírujte odkaz, který otevře web v konkrétním jazyce – hodí se pro sdílení se studenty, kteří tímto jazykem mluví (např. španělsky).",
+    "shareHint": "Zkopírujte odkaz, který otevře web v konkrétním jazyce — hodí se pro sdílení se studenty, kteří jím mluví (např. španělsky).",
     "shareLanguageLabel": "Jazyk ke sdílení",
     "shareUrlLabel": "Odkaz ke sdílení",
     "shareCopy": "Kopírovat",
@@ -537,11 +539,14 @@
     },
     "card": {
       "planTitlePaid": "Plán GitHub — Classroom 50 lze nastavit u plánů Team a Enterprise",
-      "viewOnGitHub": "Zobrazit na GitHubu",
-      "openOnGitHub": "Otevřít {{org}} na GitHubu",
       "open": "Otevřít",
       "updatedAgo": "Aktualizováno {{when}}",
-      "noAccessBadge": "Bez přístupu k <code>classroom50</code>"
+      "noAccessBadge": "Bez přístupu k <code>classroom50</code>",
+      "details": "Podrobnosti",
+      "hidden": "Organizace {{org}} byla skryta z domovské stránky.",
+      "hide": "Skrýt z domovské stránky",
+      "moreActions": "Další akce pro {{org}}",
+      "undoHide": "Vrátit zpět"
     },
     "newOrg": {
       "allSetUp": "Všechny organizace, které vidíme, jsou již nastaveny.",
@@ -602,6 +607,31 @@
       "summary_one": "Máte {{count}} nevyřízenou pozvánku",
       "summary_other": "Máte {{count}} nevyřízených pozvánek",
       "viewOnGitHub": "Zobrazit pozvánku na GitHubu"
+    },
+    "detailsModal": {
+      "cancel": "Zrušit",
+      "close": "Zavřít",
+      "description": "Popis",
+      "descriptionPlaceholder": "Krátký popis této organizace",
+      "displayName": "Zobrazovaný název",
+      "displayNamePlaceholder": "např. Classroom 50 Summer Dev",
+      "edit": "Upravit profil",
+      "editOnGitHub": "Upravit na GitHubu",
+      "email": "Kontaktní e-mail",
+      "location": "Umístění",
+      "manageOnGitHub": "Spravovat na GitHubu",
+      "orgId": "ID organizace",
+      "plan": "Plán",
+      "role": "Vaše role",
+      "roleAdmin": "Vlastník",
+      "roleMember": "Člen",
+      "save": "Uložit změny",
+      "saveError": "Nepodařilo se aktualizovat profil: {{error}}",
+      "saved": "Profil organizace {{org}} byl aktualizován.",
+      "saving": "Ukládání…",
+      "school": "Škola",
+      "website": "Web",
+      "websitePlaceholder": "classroom50.org"
     }
   },
   "assignments": {
@@ -660,9 +690,9 @@
         "noRunnerMatch": "Žádný runner neodpovídá {{labels}} — zkontrolujte pravopis.",
         "tooMany": "Příliš mnoho štítků ({{count}}) — maximálně 10.",
         "cannotVerify": "Nelze ověřit — použito tak, jak bylo zadáno.",
-        "tip": "Popisek/popisky runneru GitHub Actions, který hodnotí tento úkol. Prázdné použije ubuntu-latest. Zkombinujte popisky oddělené čárkami pro vlastní runner (např. self-hosted, linux, x64).",
+        "tip": "Štítek/y runneru GitHub Actions, který úlohu hodnotí. Prázdné použije ubuntu-latest. Pro vlastní runner zkombinujte štítky oddělené čárkami (např. self-hosted, linux, x64).",
         "emptyHint": "Ponechte prázdné pro <code>ubuntu-latest</code>.",
-        "selfHostedHint": "Kombinujte čárkami oddělené štítky pro vlastního runnera (např. <code>self-hosted, linux, x64</code>)."
+        "selfHostedHint": "Pro vlastní runner zkombinujte štítky oddělené čárkami (např. <code>self-hosted, linux, x64</code>)."
       },
       "validation": {
         "nameRequired": "Název úlohy je povinný.",
@@ -696,7 +726,8 @@
         "runnerContainerError": "„{{label}}“ je runner macOS/Windows — Docker obraz vyžaduje runner Ubuntu (nebo vlastní/self-hosted).",
         "versionMenu": "Vyberte verzi jazyka {{language}}",
         "versionPlaceholder": "např. {{version}}",
-        "versionTip": "Verze jazyka {{language}}, která se má nainstalovat (pomocí akce setup-{{language}}). Ponechte prázdné pro přeskočení. Můžete zadat jakoukoli verzi, kterou setup akce přijímá."
+        "versionTip": "Verze jazyka {{language}}, která se má nainstalovat (pomocí akce setup-{{language}}). Ponechte prázdné pro přeskočení. Můžete zadat jakoukoli verzi, kterou setup akce přijímá.",
+        "selfHostedDisabled": "Na vlastním runneru se ignoruje — používá své vlastní předpřipravené sady nástrojů a balíčky. Připravte je místo toho v obrazu runneru."
       },
       "setupCommandTip": "Příkaz spuštěný jednou před hodnocením, například pro kompilaci. Přidá se jako úvodní autohodnoticí krok s 0 body nazvaný „setup“. Nenulový návratový kód způsobí selhání běhu.",
       "detailsSection": "Podrobnosti",
@@ -748,7 +779,6 @@
       "timeout": "Časový limit (sekundy)",
       "timeoutHint": "0 = výchozí (10 s)",
       "points": "Body",
-      "done": "Hotovo",
       "type": {
         "io": {
           "label": "Vstup/výstup",
@@ -763,7 +793,7 @@
           "hint": "Spustí příkaz pytest; body se při hodnocení rozdělí mezi objevené testovací případy."
         }
       },
-      "pythonNote": "Spouštěcí příkaz by měl vyvolat pytest (např. <code>python3 -m pytest -q</code>) na testovacích souborech v šabloně zadání. pytest a pytest-json-report se instalují automaticky. Body se rozdělí mezi případy, které pytest objeví."
+      "pythonNote": "Spouštěcí příkaz by měl volat pytest (např. <code>python3 -m pytest -q</code>) nad testovacími soubory v šabloně úlohy. pytest a pytest-json-report se nainstalují automaticky. Body se rozdělí mezi jednotlivé případy, které pytest objeví."
     },
     "table": {
       "caption": "Úlohy",
@@ -1011,12 +1041,12 @@
     "setupComplete": "Nastavení organizace je dokončeno. Zkontrolujte kroky níže a pokračujte nastavením servisního tokenu.",
     "allSetTitle": "Vše je připraveno!",
     "allSetBody": "Vaše organizace je připravena k používání Classroom 50. Přejděte do své organizace a vytvořte svou první třídu a úlohy.",
-    "goToOrg": "Přejít na {{org}}",
-    "yourOrganization": "vaše organizace",
     "notAdmin": "Nastavení Classroom 50 vyžaduje oprávnění vlastníka organizace. Požádejte vlastníka organizace, aby nastavení spustil.",
     "notTeamOrEnterprise": "GitHub Pages ze soukromého repozitáře může vyžadovat plán GitHub Team nebo Enterprise Cloud. V nastavení můžete pokračovat, ale publikované úlohy nemusí být dostupné, dokud pro tuto organizaci nebudou k dispozici Pages.",
-    "manageServiceToken": "Spravovat servisní token",
-    "statusIndeterminate": "Nepodařilo se určit stav nastavení vaší organizace. Obvykle jde o dočasný problém GitHubu nebo oprávnění, nikoli o problém s vaším nastavením."
+    "statusIndeterminate": "Nepodařilo se určit stav nastavení vaší organizace. Obvykle jde o dočasný problém GitHubu nebo oprávnění, nikoli o problém s vaším nastavením.",
+    "done": "Hotovo",
+    "progressLabel": "Průběh nastavení",
+    "stepLabel": "Krok {{step}}"
   },
   "assignmentSettings": {
     "heading": "Nastavení úlohy",
@@ -1110,7 +1140,18 @@
       "renameModalTitle": "Přejmenovat výchozí větev konfiguračního repozitáře na main?",
       "renameToMain": "Přejmenovat na main",
       "renameError": "Nepodařilo se přejmenovat výchozí větev konfiguračního repozitáře. Možná nemáte oprávnění vlastníka, nebo přejmenování neproběhlo — zkuste to znovu.",
-      "stateWarn": "Doporučeno"
+      "stateWarn": "Doporučeno",
+      "detail": {
+        "budgetMissing": "žádný rozpočet Actions s tvrdým limitem $0",
+        "budgetOverThreshold": "rozpočet Actions je ${{amount}} (nad ${{threshold}}); doporučujeme tvrdý limit $0",
+        "budgetUnreadable": "nepodařilo se ověřit limit výdajů za Actions (čtení selhalo ({{reason}})) — pravděpodobně účtování spravované na úrovni enterprise nebo plán bez rozpočtů organizace. Ověřte tvrdý limit $0 ručně.",
+        "notConfigured": "není nakonfigurováno",
+        "orgActions": "enabled_repositories=\"{{enabledRepositories}}\", allowed_actions=\"{{allowedActions}}\"",
+        "readFailed": "čtení selhalo",
+        "readFailedStatus": "čtení selhalo ({{status}})",
+        "rulesetsMissing": "chybí: {{names}}",
+        "workflowOrgManaged": "zásady organizace nastavují workflow ve výchozím stavu na čtení; kostry workflow deklarují vlastní oprávnění"
+      }
     },
     "rerun": {
       "title": "Znovu spustit nastavení",
@@ -1146,7 +1187,10 @@
       "title": "Předběžná kontrola organizace selhala",
       "body_one": "Byl nalezen problém s částí {{categories}} této organizace.",
       "body_other": "Byly nalezeny problémy s částí {{categories}} této organizace.",
-      "reviewFix": "Zkontrolujte a opravte na <settingsLink>stránce nastavení organizace</settingsLink>."
+      "reviewFix": "Zkontrolujte a opravte na <settingsLink>stránce nastavení organizace</settingsLink>.",
+      "unverifiedBody": "Účtování této organizace se nepodařilo přečíst, takže nemůžeme potvrdit, že je nastaven limit výdajů. Sledujte náklady na Actions a zkontrolujte nastavení účtování nebo se obraťte na správce účtování, pokud spotřeba není omezena.",
+      "unverifiedReview": "Podrobnosti najdete na <settingsLink>stránce nastavení organizace</settingsLink>.",
+      "unverifiedTitle": "Nepodařilo se ověřit limit výdajů za Actions"
     },
     "overwrite": {
       "title": "Aktualizovat soubory workflow, aby hodnocení dále fungovalo?",
@@ -1574,7 +1618,11 @@
       "unlistedNote": "Tato třída používá neveřejnou adresu URL, takže odkaz obsahuje přístupový klíč — zacházejte s ním jako se sdíleným heslem a odešlete celý odkaz beze změny.",
       "copyLink": "Kopírovat odkaz pro přijetí",
       "copyCli": "Kopírovat příkaz CLI",
-      "preferCli": "Dáváte přednost příkazovému řádku?"
+      "preferCli": "Dáváte přednost příkazovému řádku?",
+      "manageRoster": "Spravovat seznam",
+      "shareWithCount_one": "Sdílíte s <count>{{count}} studentem</count>, který může tuto úlohu přijmout.",
+      "shareWithCount_other": "Sdílíte s <count>{{count}} studenty</count>, kteří mohou tuto úlohu přijmout.",
+      "warnNoStudents": "V třídě <classroom>{{classroom}}</classroom> zatím nemůže tento odkaz přijmout žádný student. Nejprve přidejte studenty do seznamu a pozvěte je do organizace."
     },
     "stats": {
       "submitted": "Odevzdáno",
@@ -2046,9 +2094,10 @@
       "title": "Něco se pokazilo"
     },
     "notAMember": {
-      "instructions": "Požádejte vyučujícího, aby potvrdil, že vás pozval, a poté tuto stránku znovu načtěte. Pokud jste právě přijali e-mailovou pozvánku, dejte GitHubu chvíli a zkuste to znovu.",
+      "instructions": "Požádejte svého učitele, aby vás přidal do seznamu třídy a poslal vám pozvánku (může to udělat na stránce seznamu třídy). GitHub pošle pozvánku na váš účet e-mailem — přijměte ji a poté to zde znovu zkontrolujte. Pokud jste pozvánku právě přijali, dejte GitHubu chvíli na zpracování.",
       "title": "Zatím nejste členem",
-      "body": "Nepodařilo se potvrdit vaše členství v organizaci <org>{{org}}</org>."
+      "body": "Zatím nejste členem organizace <org>{{org}}</org>, takže tuto úlohu nemůžete přijmout. Nejprve je nutné se připojit — pozvánka do organizace na GitHubu vám umožní vytvořit repozitář úlohy.",
+      "checkAgain": "Zkontrolovat znovu"
     },
     "showDetails": "Zobrazit podrobnosti pro vyučujícího",
     "ssoRequired": {
@@ -2141,5 +2190,17 @@
     "dismiss": "Rozumím",
     "manage": "Spravovat rozpočet na GitHubu",
     "title": "Strop výdajů na Actions nastaven na 0 $"
+  },
+  "settings": {
+    "hiddenOrgs": {
+      "empty": "Nemáte skryté žádné organizace.",
+      "heading": "Skryté organizace",
+      "subheading": "Organizace, které jste skryli z domovské stránky. Znovu jednu zobrazte, aby se objevila.",
+      "unhide": "Zobrazit"
+    },
+    "page": {
+      "heading": "Nastavení",
+      "subheading": "Předvolby pro tento prohlížeč. Nic zde se nesdílí s vašimi organizacemi."
+    }
   }
 }
