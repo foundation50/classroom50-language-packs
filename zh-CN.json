@@ -220,8 +220,6 @@
     "chooseFile": "选择文件",
     "supportedFormats": "支持格式：.csv、.txt",
     "fileLabel": "文件：{{fileName}}",
-    "usernamesFound_one": "找到 {{count}} 个待导入的 GitHub 用户名。",
-    "usernamesFound_other": "找到 {{count}} 个待导入的 GitHub 用户名。",
     "githubUsernameColumn": "GitHub 用户名",
     "noValidUsernames": "此文件中未找到有效的 GitHub 用户名。",
     "progressProcessed": "已处理 {{processed}} / {{total}}",
@@ -288,7 +286,8 @@
       "confirmCancelTitle_other": "取消 {{count}} 个邀请吗？",
       "memberCount_one": "{{count}} 名成员",
       "memberCount_other": "{{count}} 名成员",
-      "noneSelectable": "这里没有可选择的对象——批量操作（退出、邀请）仅适用于学生。教职人员（教师、首席助教和助教）在课堂设置中管理。"
+      "noneSelectable": "这里没有可选择的对象——批量操作（退出、邀请）仅适用于学生。教职人员（教师、首席助教和助教）在课堂设置中管理。",
+      "malformedInviteId": "roster.csv 中的 github_id 无效。"
     },
     "classroomTeamLabel": "班级团队",
     "confirmResendBody": "重新向 {{label}} 发送待处理的组织邀请？他们当前的邀请将被取消，并为 {{org}} 发送一个新邀请。",
@@ -391,19 +390,13 @@
     "needsAttentionNotInOrgHelp": "{{label}} 在名册中，但不是组织成员。请邀请他们加入组织以完成注册。",
     "noChangesToApply": "没有可应用的更改",
     "noValidEmails": "此文件中未找到有效的电子邮件地址。请上传一个每行一个电子邮件地址的 .txt 或 .csv 文件。",
-    "preflightAllMembersNote": "此文件中的每个人都已经是组织成员，因此不会发送任何邀请。",
-    "preflightChecking": "正在检查当前成员资格…",
     "preflightConfirmRoleChanges_one": "我确认将 {{count}} 名成员如上所列移动到不同的团队。",
     "preflightConfirmRoleChanges_other": "我确认将 {{count}} 名成员如上所列移动到不同的团队。",
     "preflightConfirmTitle": "处理前确认",
     "preflightEnrollOwnerDetail": "以教师身份注册（组织所有者）",
-    "preflightEnrollTitle": "将被注册",
     "preflightFailed": "无法检查当前成员资格：{{message}}。请重试。",
-    "preflightInviteTitle": "将被邀请",
-    "preflightNoActionTitle": "无需操作",
     "preflightRoleChangeDetail": "{{from}} → {{to}}",
     "preflightRoleChangeOwnerNotice": "一个或多个角色变更会将成员提升为教师，使其成为拥有完全控制权的组织所有者。请仅为你信任其拥有所有者权限的人确认。",
-    "preflightRoleChangeTitle": "角色更改（需要确认）",
     "processRoleChanges": "正在应用角色更改…",
     "reinvite": "重新邀请",
     "resultInvited": "已发送邀请",
@@ -460,7 +453,34 @@
     "headTaCount_other": "{{count}} 名首席助教",
     "roleHeadTa": "首席助教",
     "unenrollBody": "这将把学生 <label>{{label}}</label> 从 <org>{{org}}</org> 的 {{classroom}} 课堂中移除。学生的作业仓库不会被删除。",
-    "importMergeNotice": "导入会追加到你现有的名单中——已注册的学生会被跳过，且不会移除任何人。你可以放心地分批导入。"
+    "emailInviteInvalidBlocked_one": "有 {{count}} 行不是有效的电子邮件地址。请修正后重新上传，或在上方切换格式。",
+    "emailInviteInvalidBlocked_other": "有 {{count}} 行不是有效的电子邮件地址。请修正后重新上传，或在上方切换格式。",
+    "emailInviteInvalidRow": "第 {{line}} 行：{{value}}",
+    "firstNameColumn": "名字",
+    "inviteRosterMalformedId": "无法邀请 {{username}}：“{{githubId}}”不是有效的 GitHub id。请修正 roster.csv 中的 github_id 单元格。",
+    "lastNameColumn": "姓氏",
+    "metadataWritebackFailed": "导入已完成，但将更新后的学生信息写入 roster.csv 失败了。请重新运行导入以重试。",
+    "metadataWritebackMalformed": "导入已完成，但由于 roster.csv 格式错误，无法更新学生信息。请修正名册上标记的行，然后重新检查。",
+    "preflightConfirmMetadata_one": "我确认按上方所列更新 {{count}} 名学生的信息。",
+    "preflightConfirmMetadata_other": "我确认按上方所列更新 {{count}} 名学生的信息。",
+    "preflightMetadataConfirmTitle": "确认学生信息更新",
+    "preflightMetadataEmpty": "（空）",
+    "preflightMetadataReviewHint_one": "将更新 {{count}} 名学生的信息。请在确认前查看下方高亮的单元格（悬停可查看详情）。",
+    "preflightMetadataReviewHint_other": "将更新 {{count}} 名学生的信息。请在确认前查看下方高亮的单元格（悬停可查看详情）。",
+    "preflightRoleChangeMetadataNotice": "其中一些成员还有更新后的信息（显示在上方），这些信息将与团队变更一起保存。",
+    "resendMalformedId": "无法为 {{username}} 重新发送邀请：“{{githubId}}”不是有效的 GitHub id。请修正 roster.csv 中的 github_id 单元格。",
+    "rolePreviousHint": "原为 {{role}}",
+    "summaryHideDetails": "隐藏详情",
+    "summaryNoChanges": "此文件与你的名册一致——无需添加或更新。",
+    "summaryViewDetails": "查看详情",
+    "summary_add_one": "待添加",
+    "summary_add_other": "待添加",
+    "summary_skip_one": "已是最新",
+    "summary_skip_other": "已是最新",
+    "summary_update_one": "待更新",
+    "summary_update_other": "待更新",
+    "updateMetadata_one": "更新 {{count}} 名学生",
+    "updateMetadata_other": "更新 {{count}} 名学生"
   },
   "language": {
     "baseName": "英语（基础）",
@@ -528,10 +548,14 @@
     "emptyBody": "你所属的使用 Classroom 50 的组织会显示在这里。如果你预期会看到某个组织，请让你的老师确认已将你添加进去，然后刷新。",
     "missingNotice": {
       "title": "没有看到你的组织？",
-      "body": "Classroom 50 只能显示你在登录时明确授予访问权限的 GitHub 组织。如果某个组织没有显示，你可能需要更新你的 OAuth 权限。",
+      "body": "GitHub 只会列出你已授予 Classroom 50 访问权限的组织——仅有 GitHub Education 账户是不够的。",
       "manageOauth": "管理 GitHub OAuth 访问权限",
-      "refreshing": "正在刷新……",
-      "refresh": "刷新列表"
+      "reauthorizeHelp": "完全没有列出任何组织？请重新授权——在你加入之前签发的令牌无法看到它们。你尚未接受的邀请会显示在待处理邀请中。",
+      "steps": {
+        "grant": "在你的 GitHub OAuth 设置中，在该组织旁选择 Grant（授予）。",
+        "grantHelp": "如果该组织限制第三方应用，你会看到 Request access（请求访问），需要由组织所有者批准。若使用 SAML 单点登录，请在同一页面上使用 Configure SSO（配置 SSO）。",
+        "refresh": "回到此处并刷新列表。"
+      }
     },
     "card": {
       "planTitlePaid": "GitHub 套餐 —— Classroom 50 可在 Team 和 Enterprise 套餐上设置",
@@ -562,7 +586,10 @@
       },
       "notSupportedBadge": "不支持",
       "pickPrompt_one": "可供设置的组织（{{count}}）",
-      "pickPrompt_other": "可供设置的组织（{{count}}）"
+      "pickPrompt_other": "可供设置的组织（{{count}}）",
+      "newBadge": "新",
+      "refresh": "刷新",
+      "refreshing": "正在刷新…"
     },
     "noResults": {
       "body": "没有组织与“{{query}}”匹配。",
@@ -718,7 +745,7 @@
         "envHostedHelp": "在 GitHub Actions 运行器上评分。",
         "envLegend": "运行时环境",
         "languagesHeading": "语言版本",
-        "languagesTip": "选择一个版本以安装相应的工具链（例如 Node 26、Java 25），或自行输入版本。字段留空则跳过。在托管运行器上留空时 Python 默认为 3.12。你可以按需启用任意数量的工具链。",
+        "languagesTip": "选择一个版本以安装相应的工具链（例如 Node 26、Java 25），或输入自定义版本。留空则跳过。在托管运行器上留空时，Python 默认为 3.14。你可以根据需要启用任意多个工具链。",
         "runnerContainerError": "“{{label}}”是 macOS/Windows 运行器 —— Docker 镜像需要 Ubuntu（或自定义/自托管）运行器。",
         "versionMenu": "选择 {{language}} 版本",
         "versionPlaceholder": "例如 {{version}}",
@@ -1146,8 +1173,10 @@
         "readFailed": "读取失败",
         "readFailedStatus": "读取失败（{{status}}）",
         "rulesetsMissing": "缺少：{{names}}",
-        "workflowOrgManaged": "组织策略将工作流默认设为只读；骨架工作流会声明各自的权限"
-      }
+        "workflowOrgManaged": "组织策略将工作流默认设为只读；骨架工作流会声明各自的权限",
+        "orgActionsPaused": "自动评分已暂停，因此 GitHub Actions 被有意限制为仅在 classroom50 配置仓库运行。在上方的 GitHub Actions 部分关闭暂停即可恢复标准策略。"
+      },
+      "statePaused": "已暂停"
     },
     "rerun": {
       "title": "重新运行设置",
@@ -1274,14 +1303,14 @@
       "budgetHardStop": "已设置 $0 硬性停止预算——已阻止付费分钟数。",
       "budgetManage": "管理预算",
       "budgetNone": "未设置支出预算。",
-      "confirmBody": "在你恢复之前，学生提交将不会被评分。classroom50 配置仓库仍可正常工作。可随时撤销。",
+      "confirmBody": "在你恢复之前，学生提交将不会被评分。学生接受作业时仍会打开新的反馈拉取请求，现有的拉取请求也会继续显示最新推送——但暂停期间提交不会获得自动评分或 feedback-pr 状态检查。classroom50 配置仓库仍可正常工作。随时可逆。",
       "confirmButton": "暂停自动评分",
       "confirmTitle": "对整个组织暂停自动评分？",
       "description": "在整个组织范围内暂停自动评分，以停止 Actions 支出。课程管理仍可正常使用。",
       "disabledNotice": "整个组织的 Actions 已关闭，因此不会运行任何内容。请重新运行组织设置，或在 GitHub 上启用 Actions。",
       "loading": "正在检查状态……",
       "openSettings": "打开 Actions 设置",
-      "pausedNotice": "已暂停——学生的推送不会被评分。在你关闭此选项之前，重新运行组织设置也不会恢复。",
+      "pausedNotice": "已暂停——学生推送不会被评分，因此提交不会获得自动评分或 feedback-pr 状态检查。学生接受作业时仍会打开新的反馈拉取请求，现有的拉取请求也会继续显示最新推送。在你关闭此项之前，重新运行组织设置不会恢复评分。",
       "statusActive": "自动评分已开启",
       "statusDisabled": "Actions 已关闭",
       "statusPaused": "自动评分已暂停",
@@ -1531,7 +1560,8 @@
       "repo": "正在创建你的仓库",
       "access": "正在授予你访问权限",
       "setup": "正在设置自动评分",
-      "membership": "确认你的班级成员身份"
+      "membership": "确认你的班级成员身份",
+      "feedback": "正在打开反馈拉取请求"
     },
     "progress": {
       "error": "设置失败——请查看各步骤",
@@ -1551,7 +1581,45 @@
     "templateErrors": {
       "githubSaid": " GitHub 提示：“{{message}}”。",
       "inOrg": "无法复制私有模板 {{owner}}/{{repo}}（HTTP {{status}}）。{{detail}} 请让你的老师重新运行作业设置，然后再次接受。",
-      "outOfOrg": "无法复制模板 {{owner}}/{{repo}}（HTTP {{status}}）。{{detail}} 这通常是因为 {{owner}} 组织限制了第三方应用——请让你的老师为 {{owner}} 批准 Classroom 50 应用（或将模板设为公开），然后再次接受。"
+      "outOfOrg": "无法复制模板 {{owner}}/{{repo}}（HTTP {{status}}）。{{detail}} 这通常是因为 {{owner}} 组织限制了第三方应用——请让你的老师为 {{owner}} 批准 Classroom 50 应用（或将模板设为公开），然后再次接受。",
+      "orgRepoCreationDenied": "{{org}} 可能不允许成员创建私有仓库，因此无法创建你的仓库（HTTP {{status}}）。请让你的老师启用该权限，然后再次接受作业。",
+      "orgRepoCreationDeniedStep": "{{org}} 不允许创建你的仓库（HTTP {{status}}）。"
+    },
+    "errors": {
+      "emptyRepoWithTemplate": "作业“{{assignmentSlug}}”同时设置了空仓库和模板，这是无效的。请让你的老师重新运行作业设置。",
+      "founderAccessMismatch": "你的仓库 {{owner}}/{{repo}} 已创建，但 GitHub 显示你的访问权限为“{{effective}}”（角色“{{role}}”），而不是“{{permission}}”。请让你的老师将 {{username}} 的访问权限设为“{{permission}}”。",
+      "incoherentMode": "作业“{{slug}}”的小组人数为 {{maxGroupSize}}，但被设置为“{{mode}}”，因此其发布的设置不一致。请让你的老师重新运行作业设置。"
+    },
+    "stepActions": {
+      "access": "你的仓库 {{org}}/{{repo}} 已创建，但将你（{{username}}）添加为协作者失败了。这通常意味着你的 GitHub 用户名已更改，或你已离开 {{org}}。请确认你是 {{org}} 的成员，然后使用“重新运行设置”。",
+      "account": "无法读取你的 GitHub 账户。请退出登录后重新登录，然后再次接受作业。",
+      "assignment": "无法加载 {{org}}/{{classroom}} 的作业“{{assignmentSlug}}”。请检查链接，或让你的老师确认该作业已发布。",
+      "autograder": "无法解析“{{assignmentSlug}}”的自动评分器。请让你的老师确认它已发布，然后再次接受作业。",
+      "membership": "无法确认你的成员身份。如果你的组织使用单点登录（SSO），请为该组织授权（或从你的 LMS 打开此链接），然后再次接受作业。否则请让你的老师确认你的邀请。",
+      "repo": "无法创建 {{org}}/{{repo}}。请确认你是 {{org}} 的成员，并让你的老师核实该作业的模板仓库配置是否正确，然后再次接受作业。",
+      "setup": "你的仓库 {{org}}/{{repo}} 已存在，但将设置文件写入分支“{{branch}}”失败了。它可能仍在初始化中。请等待一分钟，然后使用“重新运行设置”。"
+    },
+    "stepDone": {
+      "access": "已授予你对仓库的访问权限",
+      "account": "已检查你的 GitHub 账户",
+      "assignment": "已找到作业 {{assignmentSlug}}",
+      "autograder": "已解析自动评分器",
+      "autograderDisabled": "此作业已禁用自动评分",
+      "feedback": "反馈拉取请求已就绪",
+      "feedbackDeferred": "现在无法打开反馈拉取请求：请再次接受作业以重试（如果已启用自动评分，则会在你首次提交时打开）",
+      "feedbackSkipped": "此作业没有反馈拉取请求",
+      "membership": "已确认你的课堂成员身份",
+      "repo": "已创建 {{org}}/{{repo}}",
+      "repoExists": "仓库已存在：{{org}}/{{repo}}",
+      "repoIncomplete": "发现未完成的设置：{{org}}/{{repo}}",
+      "setup": "已配置自动评分",
+      "setupSkippedEmptyRepo": "无需设置：此作业使用空仓库"
+    },
+    "stepErrors": {
+      "generic": "{{label}} 失败（HTTP {{status}}）。{{actions}}",
+      "rateLimited": "{{label}} 触发了 GitHub 的速率限制。请等待一分钟，然后再次尝试接受作业。",
+      "unauthorized": "{{label}} 失败，因为你的 GitHub 会话已过期（HTTP 401）。请退出登录后重新登录，然后再次接受作业。",
+      "unexpected": "{{label}} 意外失败。可以安全地重试。"
     }
   },
   "submissions": {
@@ -1722,7 +1790,7 @@
       "errorTitle": "无法检查反馈拉取请求",
       "emptyTitle": "尚无反馈拉取请求",
       "openRepoPrs": "打开仓库的拉取请求",
-      "emptyBody": "尚未为 <repo>{{repo}}</repo> 打开反馈 PR。它由作业的自动评分工作流在提交被评分后创建——如果学生尚未提交（或该作业已禁用反馈 PR），则暂无内容可供审阅。"
+      "emptyBody": "尚未为 <repo>{{repo}}</repo> 打开反馈 PR。它会在学生接受作业时打开——因此如果没有可供审阅的内容，可能是学生尚未接受、该作业已禁用反馈 PR，或打开被延迟了（会在重新接受时或首次评分提交时重试）。"
     },
     "rowRegrade": {
       "title": "重新评分此提交",
@@ -1744,7 +1812,7 @@
       "modeGroup": "小组",
       "modeIndividual": "个人",
       "loadError": "无法加载你的提交。",
-      "noGradedYet": "尚无已评分的提交。请在上方上传你的文件，或从命令行推送到你的作业仓库——自动评分器会在此处发布你的结果。",
+      "noGradedYet": "尚无已评分的提交。请从命令行推送到你的作业仓库，自动评分器会在此发布你的结果。",
       "openMyRepo": "打开我的仓库",
       "releasesIntro": "每次提交都会在 GitHub 上打开其已评分的发布版本，其中包含你的分数和每项测试的结果。",
       "fallbackTitle": "提交",
@@ -1755,8 +1823,8 @@
         "copySubmit": "复制提交命令",
         "step1": "克隆你的作业仓库（仅需一次）：",
         "step2": "在仓库内提交你的作业以进行评分：",
-        "title": "更喜欢用命令行？",
-        "intro": "你也可以从终端提交，而不是在上方上传。"
+        "title": "从命令行提交",
+        "intro": "从终端提交你的作业以进行评分。"
       },
       "upload": {
         "addFiles": "添加文件",
@@ -1806,6 +1874,43 @@
     "live": {
       "incomplete_one": "有 {{count}} 个仓库无法读取，因此实时提交状态可能不完整。请重试，或运行“立即同步提交”。",
       "incomplete_other": "有 {{count}} 个仓库无法读取，因此实时提交状态可能不完整。请重试，或运行“立即同步提交”。"
+    },
+    "openAllPrs": {
+      "blockedHint": "它们的反馈分支指向了错误的提交，因此打开 PR 会显示空的差异。组织管理员必须先删除每个反馈分支，才能重新运行此操作——仅重试无法解决问题。",
+      "blockedTitle": "这些仓库需要组织管理员处理：",
+      "confirmBody_one": "这将为 <b>{{name}}</b> 尚未拥有反馈 PR 的 <b>{{count}}</b> 个作业仓库打开反馈 PR。已有反馈 PR 的仓库保持不变。",
+      "confirmBody_other": "这将为 <b>{{name}}</b> 尚未拥有反馈 PR 的 <b>{{count}}</b> 个作业仓库各打开一个反馈 PR。已有反馈 PR 的仓库保持不变。",
+      "confirmHint": "它在你的浏览器中运行，一次处理一个仓库，因此对大班级可能需要一些时间。请保持此标签页打开直到完成。",
+      "confirmLabel_one": "打开 PR",
+      "confirmLabel_other": "打开 PR",
+      "failedHint": "这通常是暂时性的 GitHub 错误——再次运行此操作，仅重试仍缺少 PR 的仓库。",
+      "failedTitle": "无法处理这些仓库：",
+      "menuLabel": "打开所有反馈 PR",
+      "running": "正在打开… {{total}} 中的第 {{done}} 个",
+      "summaryBlocked_one": "{{count}} 个仓库被阻止（需要组织管理员）",
+      "summaryBlocked_other": "{{count}} 个仓库被阻止（需要组织管理员）",
+      "summaryExisted_one": "{{count}} 个仓库已有反馈 PR",
+      "summaryExisted_other": "{{count}} 个仓库已有反馈 PR",
+      "summaryFailed_one": "{{count}} 个仓库失败",
+      "summaryFailed_other": "{{count}} 个仓库失败",
+      "summaryLead": "已完成处理 <b>{{total}}</b> 个仓库。",
+      "summaryOpened_one": "已打开 {{count}} 个反馈 PR",
+      "summaryOpened_other": "已打开 {{count}} 个反馈 PR",
+      "summaryUnsupported_one": "跳过 {{count}} 个仓库（无作业基线）",
+      "summaryUnsupported_other": "跳过 {{count}} 个仓库（无作业基线）",
+      "title": "为每个仓库打开反馈 PR",
+      "titleEmptyRoster": "请先将学生添加到名册"
+    },
+    "repairPr": {
+      "alreadyExists": "{{repo}} 已存在反馈 PR。",
+      "baseMismatch": "此仓库的反馈分支指向了错误的提交，因此在此打开 PR 会显示空的差异。组织管理员必须先删除该反馈分支，才能正确重新创建它。重新运行无法解决此问题。",
+      "created": "已为 {{repo}} 打开反馈 PR。",
+      "failed": "无法打开反馈 PR：{{reason}}",
+      "hint": "如果学生已接受作业但打开 PR 失败（GitHub 故障或暂时性错误），你现在可以打开它。",
+      "noBaseline": "此仓库没有作业基线，因此无法为其打开反馈 PR（例如空仓库作业）。无需修复。",
+      "repair": "修复反馈 PR",
+      "repairing": "正在修复…",
+      "repoNotFound": "找不到仓库 {{repo}}——该学生可能尚未接受作业。"
     }
   },
   "orgMembers": {
@@ -1910,7 +2015,9 @@
     "noUsernameWithId": "<missing>无 GitHub 用户名</missing> <meta>· id {{id}}</meta>",
     "notMember": "{{label}} 在某个课堂花名册中，但<emphasis>不是组织成员</emphasis>。邀请他们以恢复其访问权限。邀请会按 id 发送到他们的 GitHub 账户，因此即使用户名已更改也能生效。",
     "subtitle": "<orgLink>{{org}}</orgLink> GitHub 组织中的所有成员及其所属课堂。",
-    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>"
+    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
+    "inviteMalformedId": "无法邀请 {{who}}：“{{githubId}}”不是有效的 GitHub id。请修正 roster.csv 中的 github_id 单元格。",
+    "inviteMissingId": "无法邀请 {{who}}：档案中没有 GitHub id。"
   },
   "components": {
     "avatar": {
@@ -1933,6 +2040,11 @@
         "addStudents": "添加学生",
         "empty": "此课堂尚无学生。作业的接受链接仅对 <org>{{org}}</org> 组织的成员有效，因此请先添加并注册学生，再分享链接。",
         "hasRows": "尚无学生加入 <org>{{org}}</org> 组织。作业的接受链接仅对组织成员有效，因此受邀学生必须先接受他们的邀请。"
+      },
+      "orgRepoCreation": {
+        "action": "组织设置",
+        "master": "<org>{{org}}</org> 不允许成员创建仓库，因此没有学生能接受作业。请重新运行组织设置，或在 <memberPrivileges>成员权限</memberPrivileges> 下允许创建私有（而非公开）仓库。企业策略可能会覆盖此设置。",
+        "private": "<org>{{org}}</org> 不允许成员创建私有仓库，因此没有学生能接受作业。请重新运行组织设置，或在 <memberPrivileges>成员权限</memberPrivileges> 下允许创建私有（而非公开）仓库。企业策略可能会覆盖此设置。"
       }
     },
     "confirmModal": {
@@ -2197,5 +2309,17 @@
       "heading": "设置",
       "subheading": "此浏览器的偏好设置。此处的任何内容都不会与你的组织共享。"
     }
+  },
+  "pagesErrors": {
+    "assignmentNotInManifest": "作业“{{assignmentSlug}}”不在此课堂已发布的作业中。请检查链接，或让你的老师发布该作业。",
+    "autograderLabel": "自动评分器“{{autograderName}}”",
+    "autograderMalformed": "自动评分器“{{autograderName}}”的 YAML 可能格式错误。请让你的老师检查配置仓库中的该文件。",
+    "classroomFetchFailed": "无法加载此课堂已发布的文件（HTTP {{status}}）。请让你的老师确认该课堂已发布，然后重试。",
+    "classroomNotPublished": "此课堂尚未发布。它可能不存在，或者发布工作流尚未运行。请让你的老师发布它，然后重试。",
+    "deployInFlight": "该课堂已发布的文件可能仍在部署中。请等待一分钟，然后重试。",
+    "fetchFailed": "无法加载 {{label}}（HTTP {{status}}）。请让你的老师确认该课堂已发布，然后重试。",
+    "manifestInvalidShape": "此课堂已发布的作业列表格式错误。请让你的老师检查 Classroom 50 配置。",
+    "manifestVersionUnsupported": "此课堂使用的作业格式（v{{version}}）比此版本的 Classroom 50 所支持的更新。请重新加载页面，或让你的老师更新 Classroom 50。",
+    "notPublished": "{{label}} 尚未发布。请让你的老师确认该文件存在于配置仓库中，且发布工作流已运行。"
   }
 }

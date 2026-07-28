@@ -220,8 +220,6 @@
     "chooseFile": "Fájl kiválasztása",
     "supportedFormats": "Támogatott: .csv, .txt",
     "fileLabel": "Fájl: {{fileName}}",
-    "usernamesFound_one": "{{count}} importálandó GitHub-felhasználónév található.",
-    "usernamesFound_other": "{{count}} importálandó GitHub-felhasználónév található.",
     "githubUsernameColumn": "GitHub-felhasználónév",
     "noValidUsernames": "Ebben a fájlban nem található érvényes GitHub-felhasználónév.",
     "progressProcessed": "{{processed}} / {{total}} feldolgozva",
@@ -288,7 +286,8 @@
       "confirmCancelTitle_other": "Visszavonsz {{count}} meghívást?",
       "memberCount_one": "{{count}} tag",
       "memberCount_other": "{{count}} tag",
-      "noneSelectable": "Itt nincs mit kiválasztani — a tömeges műveletek (kiiratkoztatás, meghívás) csak a tanulókra vonatkoznak. A munkatársakat (tanárok, vezető gyakorlatvezetők és gyakorlatvezetők) az osztálybeállításokban kezeljük."
+      "noneSelectable": "Itt nincs mit kiválasztani — a tömeges műveletek (kiiratkoztatás, meghívás) csak a tanulókra vonatkoznak. A munkatársakat (tanárok, vezető gyakorlatvezetők és gyakorlatvezetők) az osztálybeállításokban kezeljük.",
+      "malformedInviteId": "Érvénytelen github_id a roster.csv fájlban."
     },
     "classroomTeamLabel": "Osztályterem csapata",
     "confirmResendBody": "Újraküldöd a(z) {{label}} számára a függőben lévő szervezeti meghívást? A jelenlegi meghívásuk törlődik, és új meghívás megy ki a(z) {{org}} szervezethez.",
@@ -391,19 +390,13 @@
     "needsAttentionNotInOrgHelp": "{{label}} szerepel a névsorban, de nem tagja a szervezetnek. Hívd meg a szervezetbe a beiratkoztatásához.",
     "noChangesToApply": "Nincs alkalmazandó változás",
     "noValidEmails": "Ebben a fájlban nem található érvényes e-mail-cím. Tölts fel egy .txt vagy .csv fájlt, soronként egy e-mail-címmel.",
-    "preflightAllMembersNote": "Ebben a fájlban mindenki már a szervezet tagja, ezért nem lesz meghívás kiküldve.",
-    "preflightChecking": "Jelenlegi tagság ellenőrzése...",
     "preflightConfirmRoleChanges_one": "Megerősítem, hogy {{count}} tagot áthelyezek egy másik csapatba a fentiek szerint.",
     "preflightConfirmRoleChanges_other": "Megerősítem, hogy {{count}} tagot áthelyezek más csapatokba a fentiek szerint.",
     "preflightConfirmTitle": "Erősítsd meg a feldolgozás előtt",
     "preflightEnrollOwnerDetail": "beiratkozás tanárként (szervezeti TULAJDONOS)",
-    "preflightEnrollTitle": "Beiratkoztatásra kerül",
     "preflightFailed": "Nem sikerült ellenőrizni a jelenlegi tagságot: {{message}}. Próbáld újra.",
-    "preflightInviteTitle": "Meghívásra kerül",
-    "preflightNoActionTitle": "Nincs teendő",
     "preflightRoleChangeDetail": "{{from}} → {{to}}",
     "preflightRoleChangeOwnerNotice": "Egy vagy több szerepkör-módosítás Tanárrá lépteti elő az adott tagot, ami szervezeti TULAJDONOSSÁ teszi teljes irányítással. Csak olyanoknál erősítsd meg, akikben megbízol a tulajdonosi hozzáférést illetően.",
-    "preflightRoleChangeTitle": "Szerepváltozások (megerősítés szükséges)",
     "processRoleChanges": "Szerepváltozások alkalmazása...",
     "reinvite": "Újbóli meghívás",
     "resultInvited": "Elküldött meghívások",
@@ -460,7 +453,34 @@
     "headTaCount_other": "{{count}} vezető gyakorlatvezető",
     "roleHeadTa": "Vezető gyakorlatvezető",
     "unenrollBody": "Ezzel eltávolítja a(z) <label>{{label}}</label> tanulót a(z) <org>{{org}}</org> {{classroom}} osztályból. A tanulói feladat-adattárak nem törlődnek.",
-    "importMergeNotice": "Az importálás hozzáad a meglévő névsorhoz — a már beiratkozott diákok kimaradnak, és senki sem kerül eltávolításra. Nyugodtan importálhatsz kötegekben."
+    "emailInviteInvalidBlocked_one": "{{count}} sor nem érvényes e-mail-cím. Javítsd, és töltsd fel újra, vagy váltsd át a formátumot fentebb.",
+    "emailInviteInvalidBlocked_other": "{{count}} sor nem érvényes e-mail-cím. Javítsd őket, és töltsd fel újra, vagy váltsd át a formátumot fentebb.",
+    "emailInviteInvalidRow": "{{line}}. sor: {{value}}",
+    "firstNameColumn": "Utónév",
+    "inviteRosterMalformedId": "Nem lehet meghívni {{username}} felhasználót: a(z) „{{githubId}}” nem érvényes GitHub-azonosító. Javítsd a github_id cellát a roster.csv fájlban.",
+    "lastNameColumn": "Vezetéknév",
+    "metadataWritebackFailed": "Az importálás befejeződött, de a frissített diákadatok kiírása a roster.csv fájlba nem sikerült. Futtasd újra az importálást az újrapróbálkozáshoz.",
+    "metadataWritebackMalformed": "Az importálás befejeződött, de a diákadatokat nem lehetett frissíteni, mert a roster.csv hibás. Javítsd a megjelölt sorokat a névsorban, majd ellenőrizd újra.",
+    "preflightConfirmMetadata_one": "Megerősítem {{count}} diák adatainak frissítését a fentiek szerint.",
+    "preflightConfirmMetadata_other": "Megerősítem {{count}} diák adatainak frissítését a fentiek szerint.",
+    "preflightMetadataConfirmTitle": "Diákadat-frissítések megerősítése",
+    "preflightMetadataEmpty": "(üres)",
+    "preflightMetadataReviewHint_one": "{{count}} diák adatai frissülnek. Ellenőrizd a lentebb kiemelt cellákat (vidd az egeret rájuk a részletekért), mielőtt megerősítenéd.",
+    "preflightMetadataReviewHint_other": "{{count}} diák adatai frissülnek. Ellenőrizd a lentebb kiemelt cellákat (vidd az egeret rájuk a részletekért), mielőtt megerősítenéd.",
+    "preflightRoleChangeMetadataNotice": "E tagok közül néhánynak frissített adatai is vannak (fentebb látható), amelyek a csapatváltozással együtt kerülnek mentésre.",
+    "resendMalformedId": "Nem lehet újraküldeni a meghívást {{username}} felhasználónak: a(z) „{{githubId}}” nem érvényes GitHub-azonosító. Javítsd a github_id cellát a roster.csv fájlban.",
+    "rolePreviousHint": "korábban: {{role}}",
+    "summaryHideDetails": "Részletek elrejtése",
+    "summaryNoChanges": "Ez a fájl megegyezik a névsoroddal – nincs mit hozzáadni vagy frissíteni.",
+    "summaryViewDetails": "Részletek megtekintése",
+    "summary_add_one": "hozzáadandó",
+    "summary_add_other": "hozzáadandó",
+    "summary_skip_one": "már naprakész",
+    "summary_skip_other": "már naprakész",
+    "summary_update_one": "frissítendő",
+    "summary_update_other": "frissítendő",
+    "updateMetadata_one": "{{count}} diák frissítése",
+    "updateMetadata_other": "{{count}} diák frissítése"
   },
   "language": {
     "baseName": "Angol (alap)",
@@ -528,10 +548,14 @@
     "emptyBody": "Az általad tagolt, Classroom 50-et használó szervezetek itt jelennek meg. Ha várnál egyet, kérd meg a tanárodat, hogy erősítse meg, hogy hozzáadtak, majd frissíts.",
     "missingNotice": {
       "title": "Nem látod a szervezetedet?",
-      "body": "A Classroom 50 csak azokat a GitHub-szervezeteket tudja megjeleníteni, amelyekhez a bejelentkezés során kifejezetten hozzáférést adtál. Ha egy szervezet hiányzik, előfordulhat, hogy frissítened kell az OAuth-engedélyeidet.",
+      "body": "A GitHub csak azokat a szervezeteket sorolja fel, amelyekhez hozzáférést adtál a Classroom 50 számára – egy GitHub Education-fiók önmagában nem elég.",
       "manageOauth": "GitHub OAuth-hozzáférés kezelése",
-      "refreshing": "Frissítés…",
-      "refresh": "Lista frissítése"
+      "reauthorizeHelp": "Egyáltalán nincsenek szervezetek felsorolva? Engedélyezd újra – egy olyan token, amelyet a csatlakozásod előtt bocsátottak ki, nem látja őket. Egy még el nem fogadott meghívás a függőben lévő meghívások alatt jelenik meg.",
+      "steps": {
+        "grant": "A GitHub OAuth-beállításaidban válaszd a szervezet melletti Grant lehetőséget.",
+        "grantHelp": "Ha a szervezet korlátozza a harmadik féltől származó alkalmazásokat, helyette a Request access jelenik meg, és egy szervezeti tulajdonosnak jóvá kell hagynia. SAML egyszeri bejelentkezés esetén használd a Configure SSO lehetőséget ugyanazon az oldalon.",
+        "refresh": "Térj vissza ide, és frissítsd a listát."
+      }
     },
     "card": {
       "planTitlePaid": "GitHub-csomag – a Classroom 50 Team és Enterprise csomagokon állítható be",
@@ -562,7 +586,10 @@
       },
       "notSupportedBadge": "Nem támogatott",
       "pickPrompt_one": "Beállításra kész szervezet ({{count}})",
-      "pickPrompt_other": "Beállításra kész szervezetek ({{count}})"
+      "pickPrompt_other": "Beállításra kész szervezetek ({{count}})",
+      "newBadge": "Új",
+      "refresh": "Frissítés",
+      "refreshing": "Frissítés…"
     },
     "noResults": {
       "body": "Nincs a(z) „{{query}}” keresésnek megfelelő szervezet.",
@@ -718,7 +745,7 @@
         "envHostedHelp": "Az értékelés egy GitHub Actions futtatón fut.",
         "envLegend": "Futásidejű környezet",
         "languagesHeading": "Nyelvi verziók",
-        "languagesTip": "Válassz egy verziót az adott eszközkészlet telepítéséhez (például Node 26, Java 25), vagy írj be egyedit. Az üres mező kihagyja. A Python alapértelmezetten 3.12, ha üres az üzemeltetett futtatón. Annyi eszközkészletet engedélyezhetsz, amennyire szükséged van.",
+        "languagesTip": "Válassz egy verziót az adott eszközkészlet telepítéséhez (például Node 26, Java 25), vagy írj be egy egyedit. Az üres mező kihagyja azt. A Python alapértelmezés szerint 3.14 lesz, ha a mező üres a GitHub által üzemeltetett futtatón. Annyi eszközkészletet engedélyezhetsz, amennyire csak szükséged van.",
         "runnerContainerError": "A(z) „{{label}}” egy macOS/Windows futtató — egy Docker image-hez Ubuntu (vagy egyedi/saját üzemeltetésű) futtató kell.",
         "versionMenu": "Válassz {{language}} verziót",
         "versionPlaceholder": "pl. {{version}}",
@@ -1146,8 +1173,10 @@
         "readFailed": "az olvasás sikertelen",
         "readFailedStatus": "az olvasás sikertelen ({{status}})",
         "rulesetsMissing": "hiányzik: {{names}}",
-        "workflowOrgManaged": "a szervezeti szabályzat alapértelmezetten olvasásra állítja a munkafolyamatokat; a vázmunkafolyamatok saját jogosultságokat deklarálnak"
-      }
+        "workflowOrgManaged": "a szervezeti szabályzat alapértelmezetten olvasásra állítja a munkafolyamatokat; a vázmunkafolyamatok saját jogosultságokat deklarálnak",
+        "orgActionsPaused": "Az automatikus értékelés szüneteltetve van, ezért a GitHub Actions szándékosan a classroom50 konfigurációs tárolóra van korlátozva. Kapcsold ki a szüneteltetést a fenti GitHub Actions szakaszban a szokásos szabályzat visszaállításához."
+      },
+      "statePaused": "Szüneteltetve"
     },
     "rerun": {
       "title": "Beállítás újrafuttatása",
@@ -1274,14 +1303,14 @@
       "budgetHardStop": "0 dolláros kemény leállítási költségkeret beállítva — a fizetős percek le vannak tiltva.",
       "budgetManage": "Költségkeretek kezelése",
       "budgetNone": "Nincs beállítva költségkeret.",
-      "confirmBody": "A tanulói beadások nem lesznek értékelve, amíg nem folytatod. A classroom50 konfigurációs adattár továbbra is működik. Bármikor visszavonható.",
+      "confirmBody": "A diákok beadásait addig nem értékeljük, amíg nem folytatod. Az új visszajelzési egyesítési kérelmek továbbra is megnyílnak, amikor a diákok elfogadják a feladatot, és a meglévők továbbra is mutatják a legfrissebb feltöltéseket – de a beadások nem kapnak automatikus értékelési vagy feedback-pr állapotellenőrzéseket, amíg szüneteltetve van. A classroom50 konfigurációs tároló továbbra is működik. Bármikor visszavonható.",
       "confirmButton": "Automatikus értékelés szüneteltetése",
       "confirmTitle": "Szünetelteted az automatikus értékelést az egész szervezetre?",
       "description": "Az automatikus értékelés szüneteltetése az egész szervezetben az Actions költségek leállításához. A kurzuskezelés továbbra is működik.",
       "disabledNotice": "Az Actions ki van kapcsolva az egész szervezetben, így semmi sem fut. Futtasd újra a szervezet beállítását, vagy engedélyezd az Actions-t a GitHubon.",
       "loading": "Állapot ellenőrzése…",
       "openSettings": "Actions beállítások megnyitása",
-      "pausedNotice": "Szüneteltetve — a tanulói push-ok nem kerülnek értékelésre. A szervezet beállításának újrafuttatása nem folytatja, amíg ezt ki nem kapcsolod.",
+      "pausedNotice": "Szüneteltetve – a diákok feltöltései nem kerülnek értékelésre, így a beadások nem kapnak automatikus értékelési vagy feedback-pr állapotellenőrzéseket. Az új visszajelzési egyesítési kérelmek továbbra is megnyílnak, amikor a diákok elfogadják a feladatot, és a meglévők továbbra is mutatják a legfrissebb feltöltéseket. A szervezet beállításának újrafuttatása nem folytatja mindaddig, amíg ezt ki nem kapcsolod.",
       "statusActive": "Automatikus értékelés bekapcsolva",
       "statusDisabled": "Actions kikapcsolva",
       "statusPaused": "Automatikus értékelés szüneteltetve",
@@ -1531,7 +1560,8 @@
       "repo": "A tárolód létrehozása",
       "access": "Hozzáférés megadása",
       "setup": "Automatikus értékelés beállítása",
-      "membership": "Osztálytermi tagságod ellenőrzése"
+      "membership": "Osztálytermi tagságod ellenőrzése",
+      "feedback": "Visszajelzési egyesítési kérelem megnyitása"
     },
     "progress": {
       "error": "A beállítás nem sikerült – nézd át a lépéseket",
@@ -1551,7 +1581,45 @@
     "templateErrors": {
       "githubSaid": " A GitHub ezt mondta: „{{message}}”.",
       "inOrg": "Nem sikerült lemásolni a privát sablont: {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Kérd meg a tanárodat, hogy futtassa le újra a feladat beállítását, majd fogadd el újra.",
-      "outOfOrg": "Nem sikerült lemásolni a sablont: {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Ennek gyakran az az oka, hogy a(z) {{owner}} szervezet korlátozza a külső alkalmazásokat — kérd meg a tanárodat, hogy hagyja jóvá a Classroom 50 alkalmazást a(z) {{owner}} számára (vagy tegye nyilvánossá a sablont), majd fogadd el újra."
+      "outOfOrg": "Nem sikerült lemásolni a sablont: {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Ennek gyakran az az oka, hogy a(z) {{owner}} szervezet korlátozza a külső alkalmazásokat — kérd meg a tanárodat, hogy hagyja jóvá a Classroom 50 alkalmazást a(z) {{owner}} számára (vagy tegye nyilvánossá a sablont), majd fogadd el újra.",
+      "orgRepoCreationDenied": "Lehet, hogy a(z) {{org}} nem engedélyezi a tagoknak privát tárolók létrehozását, ezért a tárolódat nem lehetett létrehozni (HTTP {{status}}). Kérd meg a tanárodat, hogy engedélyezze, majd fogadd el ismét.",
+      "orgRepoCreationDeniedStep": "A(z) {{org}} nem engedte létrehozni a tárolódat (HTTP {{status}})."
+    },
+    "errors": {
+      "emptyRepoWithTemplate": "A(z) „{{assignmentSlug}}” feladat egyszerre állít be üres tárolót és sablont, ami nem érvényes. Kérd meg a tanárodat, hogy futtassa le újra a feladat beállítását.",
+      "founderAccessMismatch": "A(z) {{owner}}/{{repo}} tárolód létrejött, de a GitHub a hozzáférésedet „{{effective}}” értékként jelzi (szerepkör: „{{role}}”) a várt „{{permission}}” helyett. Kérd meg a tanárodat, hogy állítsa {{username}} hozzáférését „{{permission}}” értékre.",
+      "incoherentMode": "A(z) „{{slug}}” feladat csoportmérete {{maxGroupSize}}, de „{{mode}}” módra van beállítva, így a közzétett beállításai ellentmondásosak. Kérd meg a tanárodat, hogy futtassa le újra a feladat beállítását."
+    },
+    "stepActions": {
+      "access": "A(z) {{org}}/{{repo}} tárolód létrejött, de a hozzáadásod ({{username}}) közreműködőként nem sikerült. Ez általában azt jelenti, hogy megváltozott a GitHub-felhasználóneved, vagy kiléptél a(z) {{org}} szervezetből. Erősítsd meg, hogy tagja vagy a(z) {{org}} szervezetnek, majd használd a „Beállítás újrafuttatása” lehetőséget.",
+      "account": "Nem sikerült beolvasni a GitHub-fiókodat. Jelentkezz ki, majd jelentkezz be újra, és fogadd el ismét a feladatot.",
+      "assignment": "Nem sikerült betölteni a(z) „{{assignmentSlug}}” feladatot a(z) {{org}}/{{classroom}} számára. Ellenőrizd a hivatkozást, vagy kérd meg a tanárodat, hogy erősítse meg, a feladat közzé lett-e téve.",
+      "autograder": "Nem sikerült feloldani az automatikus értékelőt a(z) „{{assignmentSlug}}” feladathoz. Kérd meg a tanárodat, hogy erősítse meg a közzétételt, majd fogadd el ismét a feladatot.",
+      "membership": "Nem sikerült megerősíteni a tagságodat. Ha a szervezeted egyszeri bejelentkezést (SSO) használ, engedélyezd azt ehhez a szervezethez (vagy nyisd meg ezt a hivatkozást az LMS-edből), majd fogadd el ismét. Ellenkező esetben kérd meg a tanárodat, hogy erősítse meg a meghívásodat.",
+      "repo": "Nem sikerült létrehozni a(z) {{org}}/{{repo}} tárolót. Erősítsd meg, hogy tagja vagy a(z) {{org}} szervezetnek, és kérd meg a tanárodat, hogy ellenőrizze, a feladat sablontárolója helyesen van-e beállítva, majd fogadd el ismét.",
+      "setup": "A(z) {{org}}/{{repo}} tárolód létezik, de a beállítási fájlok írása a(z) „{{branch}}” ágra nem sikerült. Lehet, hogy még inicializálódik. Várj egy percet, majd használd a „Beállítás újrafuttatása” lehetőséget."
+    },
+    "stepDone": {
+      "access": "Hozzáférést kaptál a tárolódhoz",
+      "account": "GitHub-fiók ellenőrizve",
+      "assignment": "Megtalált feladat: {{assignmentSlug}}",
+      "autograder": "Az automatikus értékelő feloldva",
+      "autograderDisabled": "Az automatikus értékelés le van tiltva ehhez a feladathoz",
+      "feedback": "A visszajelzési egyesítési kérelem kész",
+      "feedbackDeferred": "A visszajelzési egyesítési kérelmet most nem sikerült megnyitni: fogadd el újra az újrapróbálkozáshoz (vagy megnyílik az első beadásodkor, ha az automatikus értékelés engedélyezett)",
+      "feedbackSkipped": "Ehhez a feladathoz nincs visszajelzési egyesítési kérelem",
+      "membership": "A tantermi tagságod megerősítve",
+      "repo": "Létrehozva: {{org}}/{{repo}}",
+      "repoExists": "A tároló már létezik: {{org}}/{{repo}}",
+      "repoIncomplete": "Befejezetlen beállítás található: {{org}}/{{repo}}",
+      "setup": "Az automatikus értékelés beállítva",
+      "setupSkippedEmptyRepo": "Nincs szükség beállításra: ez a feladat üres tárolót használ"
+    },
+    "stepErrors": {
+      "generic": "A(z) {{label}} sikertelen volt (HTTP {{status}}). {{actions}}",
+      "rateLimited": "A(z) {{label}} elérte a GitHub sebességkorlátját. Várj egy percet, majd próbáld meg újra elfogadni a feladatot.",
+      "unauthorized": "A(z) {{label}} azért nem sikerült, mert lejárt a GitHub-munkameneted (HTTP 401). Jelentkezz ki, majd jelentkezz be újra, és fogadd el ismét a feladatot.",
+      "unexpected": "A(z) {{label}} váratlanul sikertelen volt. Ezt biztonságosan meg lehet ismételni."
     }
   },
   "submissions": {
@@ -1722,7 +1790,7 @@
       "errorTitle": "Nem sikerült ellenőrizni a visszajelzési PR-t",
       "emptyTitle": "Még nincs visszajelzési pull request",
       "openRepoPrs": "Repó PR-jeinek megnyitása",
-      "emptyBody": "Még nem nyílt Visszajelzés PR a(z) <repo>{{repo}}</repo> adattárhoz. Ezt a feladat automatikus értékelési munkafolyamata hozza létre egy értékelt beadás után — ha a tanuló még nem adott be (vagy a feladatnál a Visszajelzés PR le van tiltva), akkor még nincs mit áttekinteni."
+      "emptyBody": "A(z) <repo>{{repo}}</repo> tárolóhoz még nem nyílt visszajelzési egyesítési kérelem. Akkor nyílik meg, amikor a diák elfogadja a feladatot – így ha nincs mit áttekinteni, lehet, hogy a diák még nem fogadta el, a feladatnál a visszajelzési egyesítési kérelem le van tiltva, vagy a megnyitása el lett halasztva (az újbóli elfogadáskor vagy az első értékelt beadáskor újrapróbálkozik)."
     },
     "rowRegrade": {
       "title": "Ennek a beadványnak az újraértékelése",
@@ -1744,7 +1812,7 @@
       "modeGroup": "Csoportos",
       "modeIndividual": "Egyéni",
       "loadError": "Nem sikerült betölteni a beadványaidat.",
-      "noGradedYet": "Még nincs értékelt beadás. Töltsd fel a fájljaidat fent, vagy push-old a feladat-adattáradba a parancssorból — az automatikus értékelő itt teszi közzé az eredményedet.",
+      "noGradedYet": "Még nincs értékelt beadás. Tölts fel a feladattárolódba a parancssorból, és az automatikus értékelő itt közzéteszi az eredményedet.",
       "openMyRepo": "A repóm megnyitása",
       "releasesIntro": "Minden beadvány megnyitja az értékelt kiadását a GitHubon, a pontszámoddal és a tesztenkénti eredményekkel.",
       "fallbackTitle": "Beadvány",
@@ -1755,8 +1823,8 @@
         "copySubmit": "Beadási parancs másolása",
         "step1": "Klónozd a feladat tárolóját (egyszer):",
         "step2": "A tárolón belülről add be a munkádat értékelésre:",
-        "title": "Jobban szereted a parancssort?",
-        "intro": "A fenti feltöltés helyett terminálból is beadhatsz."
+        "title": "Beadás a parancssorból",
+        "intro": "Add be a munkádat értékelésre egy terminálból."
       },
       "upload": {
         "addFiles": "Fájlok hozzáadása",
@@ -1806,6 +1874,43 @@
     "live": {
       "incomplete_one": "{{count}} adattárat nem sikerült beolvasni, így az élő beadási állapot hiányos lehet. Próbáld újra, vagy futtasd a „Beadások szinkronizálása most” műveletet.",
       "incomplete_other": "{{count}} adattárat nem sikerült beolvasni, így az élő beadási állapot hiányos lehet. Próbáld újra, vagy futtasd a „Beadások szinkronizálása most” műveletet."
+    },
+    "openAllPrs": {
+      "blockedHint": "A visszajelzési águk rossz commitra mutat, így az egyesítési kérelem megnyitása üres eltérést mutatna. Egy szervezeti adminisztrátornak minden egyes visszajelzési ágat törölnie kell, mielőtt újrafuttatnád ezt a műveletet – az újrapróbálkozás önmagában nem oldja meg őket.",
+      "blockedTitle": "Ezekhez a tárolókhoz szervezeti adminisztrátor szükséges:",
+      "confirmBody_one": "Ez megnyit egy visszajelzési egyesítési kérelmet a(z) <b>{{name}}</b> azon <b>{{count}}</b> feladattárolójában, amelynek még nincs. Azok a tárolók, amelyekben már van visszajelzési egyesítési kérelem, érintetlenül maradnak.",
+      "confirmBody_other": "Ez megnyit egy visszajelzési egyesítési kérelmet a(z) <b>{{name}}</b> azon <b>{{count}}</b> feladattárolójában, amelyeknek még nincs. Azok a tárolók, amelyekben már van visszajelzési egyesítési kérelem, érintetlenül maradnak.",
+      "confirmHint": "A böngésződből fut, egyszerre egy tárolót dolgozva fel, így egy nagy osztály esetén eltarthat egy ideig. Tartsd nyitva ezt a lapot, amíg be nem fejeződik.",
+      "confirmLabel_one": "Egyesítési kérelem megnyitása",
+      "confirmLabel_other": "Egyesítési kérelmek megnyitása",
+      "failedHint": "Ez gyakran átmeneti GitHub-hiba – futtasd le újra a műveletet, hogy csak azokat a tárolókat próbáld újra, amelyekből még hiányzik az egyesítési kérelem.",
+      "failedTitle": "Ezeket a tárolókat nem sikerült feldolgozni:",
+      "menuLabel": "Az összes visszajelzési egyesítési kérelem megnyitása",
+      "running": "Megnyitás… {{done}} / {{total}}",
+      "summaryBlocked_one": "{{count}} tároló blokkolva (szervezeti adminisztrátor szükséges)",
+      "summaryBlocked_other": "{{count}} tároló blokkolva (szervezeti adminisztrátor szükséges)",
+      "summaryExisted_one": "{{count}} tárolóban már volt egy",
+      "summaryExisted_other": "{{count}} tárolóban már volt egy",
+      "summaryFailed_one": "{{count}} tároló sikertelen",
+      "summaryFailed_other": "{{count}} tároló sikertelen",
+      "summaryLead": "<b>{{total}}</b> tároló feldolgozása befejeződött.",
+      "summaryOpened_one": "{{count}} visszajelzési egyesítési kérelem megnyitva",
+      "summaryOpened_other": "{{count}} visszajelzési egyesítési kérelem megnyitva",
+      "summaryUnsupported_one": "{{count}} tároló kihagyva (nincs feladat-alapvonal)",
+      "summaryUnsupported_other": "{{count}} tároló kihagyva (nincs feladat-alapvonal)",
+      "title": "Visszajelzési egyesítési kérelmek megnyitása minden tárolóhoz",
+      "titleEmptyRoster": "Először adj diákokat a névsorhoz"
+    },
+    "repairPr": {
+      "alreadyExists": "A(z) {{repo}} tárolóhoz már létezik egy visszajelzési egyesítési kérelem.",
+      "baseMismatch": "A visszajelzési ág ebben a tárolóban rossz commitra mutat, így az egyesítési kérelem itteni megnyitása üres eltérést mutatna. Egy szervezeti adminisztrátornak törölnie kell a visszajelzési ágat, mielőtt az helyesen újra létrehozható lenne. Az újrafuttatás ezt nem oldja meg.",
+      "created": "A visszajelzési egyesítési kérelem megnyitva a(z) {{repo}} tárolóhoz.",
+      "failed": "Nem sikerült megnyitni a visszajelzési egyesítési kérelmet: {{reason}}",
+      "hint": "Ha a diák elfogadta a feladatot, de az egyesítési kérelem megnyitása nem sikerült (egy GitHub-kimaradás vagy átmeneti hiba miatt), most megnyithatod.",
+      "noBaseline": "Ennek a tárolónak nincs feladat-alapvonala, ezért nem lehet hozzá visszajelzési egyesítési kérelmet megnyitni (például egy üres tárolós feladat). Nincs mit helyreállítani.",
+      "repair": "Visszajelzési egyesítési kérelem helyreállítása",
+      "repairing": "Helyreállítás…",
+      "repoNotFound": "Nem található a(z) {{repo}} tároló – lehet, hogy a diák még nem fogadta el a feladatot."
     }
   },
   "orgMembers": {
@@ -1910,7 +2015,9 @@
     "noUsernameWithId": "<missing>nincs GitHub felhasználónév</missing> <meta>· id {{id}}</meta>",
     "notMember": "A(z) {{label}} egy osztály névsorában szerepel, de <emphasis>nem szervezeti tag</emphasis>. Hívd meg, hogy visszaállítsd a hozzáférését. A meghívó a GitHub-fiókjához id alapján kerül elküldésre, így akkor is működik, ha a felhasználóneve megváltozott.",
     "subtitle": "Mindenki a(z) <orgLink>{{org}}</orgLink> GitHub-szervezetben és az osztályok, amelyekhez tartoznak.",
-    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>"
+    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
+    "inviteMalformedId": "Nem lehet meghívni {{who}} felhasználót: a(z) „{{githubId}}” nem érvényes GitHub-azonosító. Javítsd a github_id cellát a roster.csv fájlban.",
+    "inviteMissingId": "Nem lehet meghívni {{who}} felhasználót: nincs nyilvántartott GitHub-azonosító."
   },
   "components": {
     "avatar": {
@@ -1933,6 +2040,11 @@
         "addStudents": "Diákok hozzáadása",
         "empty": "Ennek az osztálynak még nincsenek tanulói. Egy feladat elfogadási hivatkozása csak azoknak a tanulóknak működik, akik a(z) <org>{{org}}</org> szervezet tagjai, ezért adj hozzá és iratkoztass be tanulókat, mielőtt megosztod.",
         "hasRows": "Még egyetlen tanuló sem csatlakozott a(z) <org>{{org}}</org> szervezethez. Egy feladat elfogadási hivatkozása csak a szervezeti tag tanulóknak működik, ezért a meghívott tanulóknak előbb el kell fogadniuk a meghívójukat."
+      },
+      "orgRepoCreation": {
+        "action": "Szervezeti beállítások",
+        "master": "A(z) <org>{{org}}</org> nem engedélyezi a tagoknak tárolók létrehozását, ezért egyetlen diák sem tud feladatot elfogadni. Futtasd újra a szervezet beállítását, vagy engedélyezd a privát (nem nyilvános) tárolók létrehozását a <memberPrivileges>Tagsági jogosultságok</memberPrivileges> alatt. Egy vállalati szabályzat felülbírálhatja ezt a beállítást.",
+        "private": "A(z) <org>{{org}}</org> nem engedélyezi a tagoknak privát tárolók létrehozását, ezért egyetlen diák sem tud feladatot elfogadni. Futtasd újra a szervezet beállítását, vagy engedélyezd a privát (nem nyilvános) tárolók létrehozását a <memberPrivileges>Tagsági jogosultságok</memberPrivileges> alatt. Egy vállalati szabályzat felülbírálhatja ezt a beállítást."
       }
     },
     "confirmModal": {
@@ -2197,5 +2309,17 @@
       "heading": "Beállítások",
       "subheading": "Beállítások ehhez a böngészőhöz. Semmi sem kerül megosztásra a szervezeteiddel."
     }
+  },
+  "pagesErrors": {
+    "assignmentNotInManifest": "A(z) „{{assignmentSlug}}” feladat nincs benne ennek a tanteremnek a közzétett feladatai között. Ellenőrizd a hivatkozást, vagy kérd meg a tanárodat, hogy tegye közzé a feladatot.",
+    "autograderLabel": "„{{autograderName}}” automatikus értékelő",
+    "autograderMalformed": "A(z) „{{autograderName}}” automatikus értékelő YAML-je hibás lehet. Kérd meg a tanárodat, hogy ellenőrizze a fájlt a konfigurációs tárolóban.",
+    "classroomFetchFailed": "Nem sikerült betölteni ennek a tanteremnek a közzétett fájljait (HTTP {{status}}). Kérd meg a tanárodat, hogy erősítse meg a tanterem közzétételét, majd próbáld újra.",
+    "classroomNotPublished": "Ez a tanterem még nincs közzétéve. Lehet, hogy nem létezik, vagy a közzétételi munkafolyamat nem futott le. Kérd meg a tanárodat, hogy tegye közzé, majd próbáld újra.",
+    "deployInFlight": "A tanterem közzétett fájljai lehet, hogy még telepítés alatt állnak. Várj egy percet, majd próbáld újra.",
+    "fetchFailed": "Nem sikerült betölteni a(z) {{label}} elemet (HTTP {{status}}). Kérd meg a tanárodat, hogy erősítse meg a tanterem közzétételét, majd próbáld újra.",
+    "manifestInvalidShape": "Ennek a tanteremnek a közzétett feladatlistája hibás. Kérd meg a tanárodat, hogy ellenőrizze a Classroom 50 konfigurációját.",
+    "manifestVersionUnsupported": "Ez a tanterem újabb feladatformátumot (v{{version}}) használ, mint amit a Classroom 50 e példánya támogat. Töltsd újra az oldalt, vagy kérd meg a tanárodat, hogy frissítse a Classroom 50-et.",
+    "notPublished": "A(z) {{label}} még nincs közzétéve. Kérd meg a tanárodat, hogy erősítse meg, a fájl létezik-e a konfigurációs tárolóban, és hogy a közzétételi munkafolyamat lefutott-e."
   }
 }

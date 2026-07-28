@@ -220,10 +220,6 @@
     "chooseFile": "Vybrat soubor",
     "supportedFormats": "Podporováno: .csv, .txt",
     "fileLabel": "Soubor: {{fileName}}",
-    "usernamesFound_one": "Nalezeno {{count}} uživatelské jméno na GitHubu k importu.",
-    "usernamesFound_few": "Nalezena {{count}} uživatelská jména na GitHubu k importu.",
-    "usernamesFound_many": "Nalezeno {{count}} uživatelského jména na GitHubu k importu.",
-    "usernamesFound_other": "Nalezeno {{count}} uživatelských jmen na GitHubu k importu.",
     "githubUsernameColumn": "Uživatelské jméno na GitHubu",
     "noValidUsernames": "V tomto souboru nebyla nalezena žádná platná uživatelská jména na GitHubu.",
     "progressProcessed": "{{processed}} / {{total}} zpracováno",
@@ -292,7 +288,8 @@
       "confirmCancelTitle_other": "Zrušit {{count}} pozvánek?",
       "memberCount_one": "{{count}} člen",
       "memberCount_other": "{{count}} členů",
-      "noneSelectable": "Zde není co vybírat — hromadné akce (odhlášení, pozvání) se týkají pouze studentů. Personál (učitelé, hlavní asistenti a asistenti) se spravuje v nastavení učebny."
+      "noneSelectable": "Zde není co vybírat — hromadné akce (odhlášení, pozvání) se týkají pouze studentů. Personál (učitelé, hlavní asistenti a asistenti) se spravuje v nastavení učebny.",
+      "malformedInviteId": "Neplatné github_id v souboru roster.csv."
     },
     "classroomTeamLabel": "Tým třídy",
     "confirmResendBody": "Znovu odeslat nevyřízené pozvání do organizace uživateli {{label}}? Jejich aktuální pozvání se zruší a odešle se nové pro {{org}}.",
@@ -395,19 +392,13 @@
     "needsAttentionNotInOrgHelp": "{{label}} je na seznamu studentů, ale není členem organizace. Pozvěte jej do organizace, abyste jej zapsali.",
     "noChangesToApply": "Žádné změny k použití",
     "noValidEmails": "V tomto souboru nebyly nalezeny žádné platné e-mailové adresy. Nahrajte soubor .txt nebo .csv s jednou e-mailovou adresou na řádek.",
-    "preflightAllMembersNote": "Všichni v tomto souboru už jsou členy organizace, takže se neodešlou žádné pozvánky.",
-    "preflightChecking": "Kontroluje se aktuální členství...",
     "preflightConfirmRoleChanges_one": "Potvrzuji přesun {{count}} člena do jiného týmu podle výše uvedeného.",
     "preflightConfirmRoleChanges_other": "Potvrzuji přesun {{count}} členů do jiných týmů podle výše uvedeného.",
     "preflightConfirmTitle": "Potvrďte před zpracováním",
     "preflightEnrollOwnerDetail": "zapsat jako vyučujícího (VLASTNÍK organizace)",
-    "preflightEnrollTitle": "Bude zapsán",
     "preflightFailed": "Nepodařilo se zkontrolovat aktuální členství: {{message}}. Zkuste to znovu.",
-    "preflightInviteTitle": "Bude pozván",
-    "preflightNoActionTitle": "Není potřeba žádná akce",
     "preflightRoleChangeDetail": "{{from}} → {{to}}",
     "preflightRoleChangeOwnerNotice": "Jedna nebo více změn rolí povyšuje člena na vyučujícího, čímž se stává VLASTNÍKEM organizace s plnou kontrolou. Potvrzujte pouze pro lidi, kterým důvěřujete s přístupem vlastníka.",
-    "preflightRoleChangeTitle": "Změny rolí (vyžadují potvrzení)",
     "processRoleChanges": "Používají se změny rolí...",
     "reinvite": "Znovu pozvat",
     "resultInvited": "Odeslané pozvánky",
@@ -464,7 +455,34 @@
     "headTaCount_other": "{{count}} hlavních asistentů",
     "roleHeadTa": "Hlavní asistent",
     "unenrollBody": "Tímto odeberete studenta <label>{{label}}</label> z učebny {{classroom}} organizace <org>{{org}}</org>. Repozitáře studentských zadání nebudou smazány.",
-    "importMergeNotice": "Import přidává do vašeho stávajícího seznamu — již zapsaní studenti se přeskočí a nikdo se neodebere. Import můžete bezpečně provádět po dávkách."
+    "emailInviteInvalidBlocked_one": "{{count}} řádek není platná e-mailová adresa. Opravte jej a nahrajte znovu, nebo přepněte formát výše.",
+    "emailInviteInvalidBlocked_other": "{{count}} řádků nejsou platné e-mailové adresy. Opravte je a nahrajte znovu, nebo přepněte formát výše.",
+    "emailInviteInvalidRow": "Řádek {{line}}: {{value}}",
+    "firstNameColumn": "Křestní jméno",
+    "inviteRosterMalformedId": "Nelze pozvat {{username}}: „{{githubId}}“ není platné GitHub id. Opravte buňku github_id v souboru roster.csv.",
+    "lastNameColumn": "Příjmení",
+    "metadataWritebackFailed": "Import proběhl, ale zápis aktualizovaných údajů studentů do souboru roster.csv se nezdařil. Spusťte import znovu a zkuste to znovu.",
+    "metadataWritebackMalformed": "Import proběhl, ale údaje studentů nebylo možné aktualizovat, protože soubor roster.csv je poškozený. Opravte označené řádky v seznamu a poté zkontrolujte znovu.",
+    "preflightConfirmMetadata_one": "Potvrzuji aktualizaci údajů {{count}} studenta podle výše uvedeného seznamu.",
+    "preflightConfirmMetadata_other": "Potvrzuji aktualizaci údajů {{count}} studentů podle výše uvedeného seznamu.",
+    "preflightMetadataConfirmTitle": "Potvrďte aktualizace údajů studentů",
+    "preflightMetadataEmpty": "(prázdné)",
+    "preflightMetadataReviewHint_one": "Údaje {{count}} studenta budou aktualizovány. Před potvrzením zkontrolujte zvýrazněné buňky níže (najetím myší zobrazíte podrobnosti).",
+    "preflightMetadataReviewHint_other": "Údaje {{count}} studentů budou aktualizovány. Před potvrzením zkontrolujte zvýrazněné buňky níže (najetím myší zobrazíte podrobnosti).",
+    "preflightRoleChangeMetadataNotice": "Někteří z těchto členů mají také aktualizované údaje (zobrazené výše), které se uloží společně se změnou týmu.",
+    "resendMalformedId": "Nelze znovu odeslat pozvání pro {{username}}: „{{githubId}}“ není platné GitHub id. Opravte buňku github_id v souboru roster.csv.",
+    "rolePreviousHint": "bylo {{role}}",
+    "summaryHideDetails": "Skrýt podrobnosti",
+    "summaryNoChanges": "Tento soubor odpovídá vašemu seznamu — není co přidat ani aktualizovat.",
+    "summaryViewDetails": "Zobrazit podrobnosti",
+    "summary_add_one": "k přidání",
+    "summary_add_other": "k přidání",
+    "summary_skip_one": "již aktuální",
+    "summary_skip_other": "již aktuální",
+    "summary_update_one": "k aktualizaci",
+    "summary_update_other": "k aktualizaci",
+    "updateMetadata_one": "Aktualizovat {{count}} studenta",
+    "updateMetadata_other": "Aktualizovat {{count}} studentů"
   },
   "language": {
     "baseName": "Angličtina (základní)",
@@ -532,10 +550,14 @@
     "emptyBody": "Organizace, do kterých patříte a které používají Classroom 50, se objeví zde. Pokud nějakou očekáváte, požádejte vyučujícího, aby potvrdil, že jste byli přidáni, a poté obnovte stránku.",
     "missingNotice": {
       "title": "Nevidíte svou organizaci?",
-      "body": "Classroom 50 může zobrazit pouze ty organizace GitHub, ke kterým jste během přihlášení výslovně udělili přístup. Pokud některá organizace chybí, možná budete muset aktualizovat svá oprávnění OAuth.",
+      "body": "GitHub zobrazuje pouze organizace, kterým jste udělili přístup pro Classroom 50 — samotný účet GitHub Education nestačí.",
       "manageOauth": "Spravovat přístup GitHub OAuth",
-      "refreshing": "Obnovování…",
-      "refresh": "Obnovit seznam"
+      "reauthorizeHelp": "Nezobrazují se vůbec žádné organizace? Znovu autorizujte — token vydaný předtím, než jste se připojili, je nevidí. Pozvání, které jste dosud nepřijali, se zobrazuje v čekajících pozváních.",
+      "steps": {
+        "grant": "V nastavení GitHub OAuth vyberte vedle organizace možnost Grant.",
+        "grantHelp": "Pokud organizace omezuje aplikace třetích stran, uvidíte místo toho Request access a musí to schválit vlastník organizace. Při jednotném přihlášení SAML použijte na téže stránce Configure SSO.",
+        "refresh": "Vraťte se sem a obnovte seznam."
+      }
     },
     "card": {
       "planTitlePaid": "Plán GitHub — Classroom 50 lze nastavit u plánů Team a Enterprise",
@@ -566,7 +588,10 @@
       },
       "notSupportedBadge": "Nepodporováno",
       "pickPrompt_one": "Organizace připravená k nastavení ({{count}})",
-      "pickPrompt_other": "Organizace připravené k nastavení ({{count}})"
+      "pickPrompt_other": "Organizace připravené k nastavení ({{count}})",
+      "newBadge": "Nové",
+      "refresh": "Obnovit",
+      "refreshing": "Obnovování…"
     },
     "noResults": {
       "body": "Žádné organizace neodpovídají dotazu „{{query}}“.",
@@ -722,7 +747,7 @@
         "envHostedHelp": "Hodnotí na runneru GitHub Actions.",
         "envLegend": "Běhové prostředí",
         "languagesHeading": "Verze jazyků",
-        "languagesTip": "Vyberte verzi pro instalaci daného nástrojového řetězce (například Node 26, Java 25), nebo napište vlastní. Prázdné pole ji přeskočí. Python se ve výchozím stavu nastaví na 3.12, když je pole prázdné na hostovaném runneru. Můžete povolit tolik nástrojových řetězců, kolik potřebujete.",
+        "languagesTip": "Vyberte verzi pro instalaci daného toolchainu (například Node 26, Java 25) nebo zadejte vlastní. Prázdné pole tento krok přeskočí. Python se na hostovaném runneru výchozím způsobem nastaví na 3.14, pokud je pole prázdné. Můžete zapnout tolik toolchainů, kolik potřebujete.",
         "runnerContainerError": "„{{label}}“ je runner macOS/Windows — Docker obraz vyžaduje runner Ubuntu (nebo vlastní/self-hosted).",
         "versionMenu": "Vyberte verzi jazyka {{language}}",
         "versionPlaceholder": "např. {{version}}",
@@ -1150,8 +1175,10 @@
         "readFailed": "čtení selhalo",
         "readFailedStatus": "čtení selhalo ({{status}})",
         "rulesetsMissing": "chybí: {{names}}",
-        "workflowOrgManaged": "zásady organizace nastavují workflow ve výchozím stavu na čtení; kostry workflow deklarují vlastní oprávnění"
-      }
+        "workflowOrgManaged": "zásady organizace nastavují workflow ve výchozím stavu na čtení; kostry workflow deklarují vlastní oprávnění",
+        "orgActionsPaused": "Autograding je pozastaven, takže GitHub Actions je záměrně omezeno pouze na konfigurační repozitář classroom50. Vypněte pozastavení v části GitHub Actions výše, abyste obnovili standardní zásadu."
+      },
+      "statePaused": "Pozastaveno"
     },
     "rerun": {
       "title": "Znovu spustit nastavení",
@@ -1278,14 +1305,14 @@
       "budgetHardStop": "Nastaven pevný rozpočet 0 $ — placené minuty jsou blokovány.",
       "budgetManage": "Spravovat rozpočty",
       "budgetNone": "Není nastaven žádný rozpočet výdajů.",
-      "confirmBody": "Studentská odevzdání nebudou hodnocena, dokud nebudete pokračovat. Konfigurační repozitář classroom50 funguje dál. Kdykoli vratné.",
+      "confirmBody": "Odevzdané práce studentů nebudou hodnoceny, dokud hodnocení neobnovíte. Nové pull requesty pro zpětnou vazbu se stále otevírají, když studenti úlohu přijmou, a stávající dál zobrazují nejnovější push. Během pozastavení však odevzdané práce nemají žádné kontroly stavu autograde ani feedback-pr. Konfigurační repozitář classroom50 dál funguje. Kdykoli lze vrátit zpět.",
       "confirmButton": "Pozastavit automatické hodnocení",
       "confirmTitle": "Pozastavit automatické hodnocení pro celou organizaci?",
       "description": "Pozastavte automatické hodnocení v celé organizaci a zastavte tak výdaje na Actions. Správa kurzu funguje dál.",
       "disabledNotice": "Actions jsou pro celou organizaci vypnuté, takže nic neběží. Znovu spusťte nastavení organizace nebo povolte Actions na GitHubu.",
       "loading": "Kontroluje se stav…",
       "openSettings": "Otevřít nastavení Actions",
-      "pausedNotice": "Pozastaveno — studentské pushe se nehodnotí. Opětovné spuštění nastavení organizace nezruší pozastavení, dokud toto nevypnete.",
+      "pausedNotice": "Pozastaveno — push studentů se nehodnotí, takže odevzdané práce nemají žádné kontroly stavu autograde ani feedback-pr. Nové pull requesty pro zpětnou vazbu se stále otevírají, když studenti úlohu přijmou, a stávající dál zobrazují nejnovější push. Opětovné spuštění nastavení organizace hodnocení neobnoví, dokud toto nevypnete.",
       "statusActive": "Automatické hodnocení zapnuto",
       "statusDisabled": "Actions vypnuty",
       "statusPaused": "Automatické hodnocení pozastaveno",
@@ -1536,7 +1563,8 @@
       "repo": "Vytváření vašeho repozitáře",
       "access": "Udělování přístupu",
       "setup": "Nastavování automatického hodnocení",
-      "membership": "Ověřujeme vaše členství ve třídě"
+      "membership": "Ověřujeme vaše členství ve třídě",
+      "feedback": "Otevírání pull requestu pro zpětnou vazbu"
     },
     "progress": {
       "error": "Nastavení selhalo — zkontrolujte kroky",
@@ -1556,7 +1584,45 @@
     "templateErrors": {
       "githubSaid": " GitHub uvedl: „{{message}}“.",
       "inOrg": "Nepodařilo se zkopírovat soukromou šablonu {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Požádejte vyučujícího, aby znovu spustil nastavení úlohy, a poté ji přijměte znovu.",
-      "outOfOrg": "Nepodařilo se zkopírovat šablonu {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Často je to proto, že organizace {{owner}} omezuje aplikace třetích stran — požádejte vyučujícího, aby schválil aplikaci Classroom 50 pro {{owner}} (nebo aby šablonu zveřejnil), a poté úlohu přijměte znovu."
+      "outOfOrg": "Nepodařilo se zkopírovat šablonu {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Často je to proto, že organizace {{owner}} omezuje aplikace třetích stran — požádejte vyučujícího, aby schválil aplikaci Classroom 50 pro {{owner}} (nebo aby šablonu zveřejnil), a poté úlohu přijměte znovu.",
+      "orgRepoCreationDenied": "Organizace {{org}} možná nedovoluje členům vytvářet soukromé repozitáře, takže váš repozitář nebylo možné vytvořit (HTTP {{status}}). Požádejte svého vyučujícího, aby to povolil, a poté úlohu přijměte znovu.",
+      "orgRepoCreationDeniedStep": "Organizace {{org}} nedovolila vytvoření vašeho repozitáře (HTTP {{status}})."
+    },
+    "errors": {
+      "emptyRepoWithTemplate": "Úloha „{{assignmentSlug}}“ má nastavený prázdný repozitář i šablonu zároveň, což není platné. Požádejte svého vyučujícího, aby znovu spustil nastavení úlohy.",
+      "founderAccessMismatch": "Váš repozitář {{owner}}/{{repo}} byl vytvořen, ale GitHub uvádí vaše oprávnění jako „{{effective}}“ (role „{{role}}“) místo „{{permission}}“. Požádejte svého vyučujícího, aby nastavil oprávnění uživatele {{username}} na „{{permission}}“.",
+      "incoherentMode": "Úloha „{{slug}}“ má velikost skupiny {{maxGroupSize}}, ale je nastavena jako „{{mode}}“, takže její publikované nastavení není konzistentní. Požádejte svého vyučujícího, aby znovu spustil nastavení úlohy."
+    },
+    "stepActions": {
+      "access": "Váš repozitář {{org}}/{{repo}} byl vytvořen, ale přidání vás ({{username}}) jako spolupracovníka se nezdařilo. Obvykle to znamená, že se změnilo vaše uživatelské jméno na GitHubu nebo jste opustili organizaci {{org}}. Ověřte, že jste členem organizace {{org}}, a poté použijte „Spustit nastavení znovu“.",
+      "account": "Nepodařilo se načíst váš účet na GitHubu. Odhlaste se a znovu přihlaste, poté úlohu přijměte znovu.",
+      "assignment": "Nepodařilo se načíst úlohu „{{assignmentSlug}}“ pro {{org}}/{{classroom}}. Zkontrolujte odkaz nebo požádejte svého vyučujícího, aby ověřil, že je úloha publikována.",
+      "autograder": "Nepodařilo se vyřešit autograder pro úlohu „{{assignmentSlug}}“. Požádejte svého vyučujícího, aby ověřil, že je publikován, a poté úlohu přijměte znovu.",
+      "membership": "Nepodařilo se ověřit vaše členství. Pokud vaše organizace používá jednotné přihlášení (SSO), autorizujte jej pro tuto organizaci (nebo tento odkaz otevřete ze svého LMS) a poté úlohu přijměte znovu. Jinak požádejte svého vyučujícího, aby potvrdil vaše pozvání.",
+      "repo": "Nepodařilo se vytvořit {{org}}/{{repo}}. Ověřte, že jste členem organizace {{org}}, a požádejte svého vyučujícího, aby ověřil správné nastavení šablonového repozitáře úlohy, poté úlohu přijměte znovu.",
+      "setup": "Váš repozitář {{org}}/{{repo}} existuje, ale zápis nastavovacích souborů do větve „{{branch}}“ se nezdařil. Repozitář se možná ještě inicializuje. Počkejte chvíli a poté použijte „Spustit nastavení znovu“."
+    },
+    "stepDone": {
+      "access": "Byl vám udělen přístup k vašemu repozitáři",
+      "account": "Váš účet na GitHubu byl zkontrolován",
+      "assignment": "Nalezena úloha {{assignmentSlug}}",
+      "autograder": "Autograder vyřešen",
+      "autograderDisabled": "Autograding je pro tuto úlohu vypnutý",
+      "feedback": "Pull request pro zpětnou vazbu je připraven",
+      "feedbackDeferred": "Pull request pro zpětnou vazbu se nyní nepodařilo otevřít: přijměte úlohu znovu pro opakování (nebo se otevře při vaší první odevzdané práci, pokud je autograding zapnutý)",
+      "feedbackSkipped": "Pro tuto úlohu není pull request pro zpětnou vazbu",
+      "membership": "Vaše členství ve třídě bylo potvrzeno",
+      "repo": "Vytvořeno {{org}}/{{repo}}",
+      "repoExists": "Repozitář již existuje: {{org}}/{{repo}}",
+      "repoIncomplete": "Nalezeno nedokončené nastavení: {{org}}/{{repo}}",
+      "setup": "Autograding nastaven",
+      "setupSkippedEmptyRepo": "Není potřeba žádné nastavení: tato úloha používá prázdný repozitář"
+    },
+    "stepErrors": {
+      "generic": "{{label}} selhalo (HTTP {{status}}). {{actions}}",
+      "rateLimited": "{{label}} narazilo na limit počtu požadavků GitHubu. Počkejte chvíli a poté zkuste úlohu přijmout znovu.",
+      "unauthorized": "{{label}} selhalo, protože vaše relace na GitHubu vypršela (HTTP 401). Odhlaste se a znovu přihlaste, poté úlohu přijměte znovu.",
+      "unexpected": "{{label}} neočekávaně selhalo. Opakování je bezpečné."
     }
   },
   "submissions": {
@@ -1727,7 +1793,7 @@
       "errorTitle": "Nepodařilo se zkontrolovat pull request se zpětnou vazbou",
       "emptyTitle": "Zatím žádný pull request se zpětnou vazbou",
       "openRepoPrs": "Otevřít pull requesty repozitáře",
-      "emptyBody": "Pro <repo>{{repo}}</repo> zatím nebyl otevřen žádný pull request se zpětnou vazbou. Vytváří jej pracovní postup automatického hodnocení zadání po ohodnoceném odevzdání — pokud student neodevzdal (nebo má zadání zpětnovazební PR zakázaný), není zatím co kontrolovat."
+      "emptyBody": "Pro <repo>{{repo}}</repo> zatím nebyl otevřen žádný pull request pro zpětnou vazbu. Otevírá se, když student úlohu přijme — takže pokud není co kontrolovat, student možná ještě úlohu nepřijal, úloha může mít pull request pro zpětnou vazbu vypnutý, nebo bylo jeho otevření odloženo (opakuje se při opětovném přijetí nebo při první ohodnocené odevzdané práci)."
     },
     "rowRegrade": {
       "title": "Přehodnotit toto odevzdání",
@@ -1749,7 +1815,7 @@
       "modeGroup": "Skupinová",
       "modeIndividual": "Individuální",
       "loadError": "Nepodařilo se načíst vaše odevzdání.",
-      "noGradedYet": "Zatím žádné ohodnocené odevzdání. Nahrajte své soubory výše, nebo odešlete push do repozitáře svého zadání z příkazové řádky — autograder zde publikuje váš výsledek.",
+      "noGradedYet": "Zatím žádná ohodnocená odevzdaná práce. Nahrajte push do repozitáře úlohy z příkazové řádky a autograder zde zveřejní váš výsledek.",
       "openMyRepo": "Otevřít můj repozitář",
       "releasesIntro": "Každé odevzdání otevře své ohodnocené vydání na GitHubu s vaším skóre a výsledky jednotlivých testů.",
       "fallbackTitle": "Odevzdání",
@@ -1760,8 +1826,8 @@
         "copySubmit": "Kopírovat příkaz submit",
         "step1": "Naklonujte si repozitář úlohy (jednou):",
         "step2": "Zevnitř repozitáře odevzdejte svou práci k hodnocení:",
-        "title": "Dáváte přednost příkazové řádce?",
-        "intro": "Místo nahrávání výše můžete odevzdat i z terminálu."
+        "title": "Odevzdání z příkazové řádky",
+        "intro": "Odevzdejte svou práci k hodnocení z terminálu."
       },
       "upload": {
         "addFiles": "Přidat soubory",
@@ -1811,6 +1877,43 @@
     "live": {
       "incomplete_one": "{{count}} repozitář se nepodařilo přečíst, takže živý stav odevzdání může být neúplný. Zkuste to znovu nebo spusťte „Synchronizovat odevzdání nyní“.",
       "incomplete_other": "{{count}} repozitářů se nepodařilo přečíst, takže živý stav odevzdání může být neúplný. Zkuste to znovu nebo spusťte „Synchronizovat odevzdání nyní“."
+    },
+    "openAllPrs": {
+      "blockedHint": "Jejich větev pro zpětnou vazbu ukazuje na nesprávný commit, takže otevření PR by zobrazilo prázdný rozdíl. Správce organizace musí smazat každou větev pro zpětnou vazbu, než tuto akci spustíte znovu — samotné opakování je neopraví.",
+      "blockedTitle": "Tyto repozitáře vyžadují správce organizace:",
+      "confirmBody_one": "Tímto se otevře pull request pro zpětnou vazbu na <b>{{count}}</b> repozitáři úlohy pro <b>{{name}}</b>, který jej ještě nemá. Repozitáře, které již pull request pro zpětnou vazbu mají, zůstanou nedotčeny.",
+      "confirmBody_other": "Tímto se otevře pull request pro zpětnou vazbu na každém z <b>{{count}}</b> repozitářů úlohy pro <b>{{name}}</b>, které jej ještě nemají. Repozitáře, které již pull request pro zpětnou vazbu mají, zůstanou nedotčeny.",
+      "confirmHint": "Běží z vašeho prohlížeče, po jednom repozitáři, takže u velké třídy to může chvíli trvat. Ponechte tuto kartu otevřenou, dokud akce neskončí.",
+      "confirmLabel_one": "Otevřít PR",
+      "confirmLabel_other": "Otevřít PR",
+      "failedHint": "Často jde o dočasnou chybu GitHubu — spusťte akci znovu a zopakujte ji jen pro repozitáře, kterým PR stále chybí.",
+      "failedTitle": "Tyto repozitáře nebylo možné zpracovat:",
+      "menuLabel": "Otevřít všechny pull requesty pro zpětnou vazbu",
+      "running": "Otevírání… {{done}} z {{total}}",
+      "summaryBlocked_one": "{{count}} repozitář zablokován (vyžaduje správce organizace)",
+      "summaryBlocked_other": "{{count}} repozitářů zablokováno (vyžadují správce organizace)",
+      "summaryExisted_one": "{{count}} repozitář jej již měl",
+      "summaryExisted_other": "{{count}} repozitářů jej již mělo",
+      "summaryFailed_one": "{{count}} repozitář selhal",
+      "summaryFailed_other": "{{count}} repozitářů selhalo",
+      "summaryLead": "Zpracování <b>{{total}}</b> repozitářů dokončeno.",
+      "summaryOpened_one": "Otevřen {{count}} pull request pro zpětnou vazbu",
+      "summaryOpened_other": "Otevřeno {{count}} pull requestů pro zpětnou vazbu",
+      "summaryUnsupported_one": "{{count}} repozitář přeskočen (bez základní verze úlohy)",
+      "summaryUnsupported_other": "{{count}} repozitářů přeskočeno (bez základní verze úlohy)",
+      "title": "Otevřít pull requesty pro zpětnou vazbu pro každý repozitář",
+      "titleEmptyRoster": "Nejprve přidejte studenty do seznamu"
+    },
+    "repairPr": {
+      "alreadyExists": "Pro {{repo}} již pull request pro zpětnou vazbu existuje.",
+      "baseMismatch": "Větev pro zpětnou vazbu v tomto repozitáři ukazuje na nesprávný commit, takže otevření PR by zde zobrazilo prázdný rozdíl. Správce organizace musí smazat větev pro zpětnou vazbu, než ji bude možné správně znovu vytvořit. Opakování to neopraví.",
+      "created": "Otevřen pull request pro zpětnou vazbu pro {{repo}}.",
+      "failed": "Nepodařilo se otevřít pull request pro zpětnou vazbu: {{reason}}",
+      "hint": "Pokud student úlohu přijal, ale otevření PR selhalo (výpadek GitHubu nebo přechodná chyba), můžete jej otevřít nyní.",
+      "noBaseline": "Tento repozitář nemá základní verzi úlohy, takže pro něj nelze otevřít pull request pro zpětnou vazbu (například úloha s prázdným repozitářem). Není co opravovat.",
+      "repair": "Opravit pull request pro zpětnou vazbu",
+      "repairing": "Oprava…",
+      "repoNotFound": "Nepodařilo se najít repozitář {{repo}} — student možná ještě úlohu nepřijal."
     }
   },
   "orgMembers": {
@@ -1915,7 +2018,9 @@
     "noUsernameWithId": "<missing>žádné uživatelské jméno GitHub</missing> <meta>· id {{id}}</meta>",
     "notMember": "{{label}} je na seznamu členů učebny, ale <emphasis>není členem organizace</emphasis>. Pozvěte je, abyste obnovili jejich přístup. Pozvánka se odesílá na jejich účet GitHub podle id, takže funguje, i když se změnilo jejich uživatelské jméno.",
     "subtitle": "Všichni v organizaci GitHub <orgLink>{{org}}</orgLink> a učebny, do kterých patří.",
-    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>"
+    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
+    "inviteMalformedId": "Nelze pozvat {{who}}: „{{githubId}}“ není platné GitHub id. Opravte buňku github_id v souboru roster.csv.",
+    "inviteMissingId": "Nelze pozvat {{who}}: v záznamu chybí GitHub id."
   },
   "components": {
     "avatar": {
@@ -1938,6 +2043,11 @@
         "addStudents": "Přidat studenty",
         "empty": "Tato učebna zatím nemá žádné studenty. Odkaz pro přijetí zadání funguje pouze pro studenty, kteří jsou členy organizace <org>{{org}}</org>, proto před jeho sdílením přidejte a zapište studenty.",
         "hasRows": "Do organizace <org>{{org}}</org> zatím nevstoupili žádní studenti. Odkaz pro přijetí zadání funguje pouze pro studenty, kteří jsou členy organizace, takže pozvaní studenti musí nejprve přijmout svou pozvánku."
+      },
+      "orgRepoCreation": {
+        "action": "Nastavení organizace",
+        "master": "Organizace <org>{{org}}</org> nedovoluje členům vytvářet repozitáře, takže žádný student nemůže přijmout úlohu. Spusťte znovu nastavení organizace nebo povolte vytváření soukromých (nikoli veřejných) repozitářů v části <memberPrivileges>Oprávnění členů</memberPrivileges>. Podnikové zásady mohou toto nastavení přepsat.",
+        "private": "Organizace <org>{{org}}</org> nedovoluje členům vytvářet soukromé repozitáře, takže žádný student nemůže přijmout úlohu. Spusťte znovu nastavení organizace nebo povolte vytváření soukromých (nikoli veřejných) repozitářů v části <memberPrivileges>Oprávnění členů</memberPrivileges>. Podnikové zásady mohou toto nastavení přepsat."
       }
     },
     "confirmModal": {
@@ -2202,5 +2312,17 @@
       "heading": "Nastavení",
       "subheading": "Předvolby pro tento prohlížeč. Nic zde se nesdílí s vašimi organizacemi."
     }
+  },
+  "pagesErrors": {
+    "assignmentNotInManifest": "Úloha „{{assignmentSlug}}“ není mezi publikovanými úlohami této třídy. Zkontrolujte odkaz nebo požádejte svého vyučujícího, aby úlohu publikoval.",
+    "autograderLabel": "Autograder „{{autograderName}}“",
+    "autograderMalformed": "Autograder „{{autograderName}}“ může mít poškozený YAML. Požádejte svého vyučujícího, aby zkontroloval soubor v konfiguračním repozitáři.",
+    "classroomFetchFailed": "Nepodařilo se načíst publikované soubory této třídy (HTTP {{status}}). Požádejte svého vyučujícího, aby ověřil, že je třída publikována, a poté to zkuste znovu.",
+    "classroomNotPublished": "Tato třída ještě není publikována. Možná neexistuje nebo neproběhl publikační workflow. Požádejte svého vyučujícího, aby ji publikoval, a poté to zkuste znovu.",
+    "deployInFlight": "Publikované soubory třídy se možná ještě nasazují. Počkejte chvíli a poté to zkuste znovu.",
+    "fetchFailed": "Nepodařilo se načíst {{label}} (HTTP {{status}}). Požádejte svého vyučujícího, aby ověřil, že je třída publikována, a poté to zkuste znovu.",
+    "manifestInvalidShape": "Publikovaný seznam úloh této třídy je poškozený. Požádejte svého vyučujícího, aby zkontroloval konfiguraci Classroom 50.",
+    "manifestVersionUnsupported": "Tato třída používá novější formát úloh (v{{version}}), než tato kopie Classroom 50 podporuje. Načtěte stránku znovu nebo požádejte svého vyučujícího, aby aktualizoval Classroom 50.",
+    "notPublished": "{{label}} ještě není publikováno. Požádejte svého vyučujícího, aby ověřil, že soubor existuje v konfiguračním repozitáři a že proběhl publikační workflow."
   }
 }

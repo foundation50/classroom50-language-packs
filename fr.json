@@ -381,7 +381,8 @@
       "confirmInviteTitle_one": "Inviter {{count}} étudiant ?",
       "confirmInviteTitle_other": "Inviter {{count}} étudiants ?",
       "confirmInviteBodyPlain_one": "Envoyer une invitation à l'organisation à {{count}} étudiant sélectionné ? Il rejoindra l'organisation et l'équipe de la classe une fois qu'il aura accepté.",
-      "confirmInviteBodyPlain_other": "Envoyer des invitations à l'organisation à {{count}} étudiants sélectionnés ? Ils rejoindront l'organisation et l'équipe de la classe une fois qu'ils auront accepté."
+      "confirmInviteBodyPlain_other": "Envoyer des invitations à l'organisation à {{count}} étudiants sélectionnés ? Ils rejoindront l'organisation et l'équipe de la classe une fois qu'ils auront accepté.",
+      "malformedInviteId": "github_id invalide dans roster.csv."
     },
     "emptyTitle": "Aucun membre pour le moment",
     "emptyBody": "Partagez le lien d'intégration ci-dessus avec vos élèves, ou ajoutez des enseignant·e·s et des AE dans les Paramètres. Une fois que les personnes auront accepté l'invitation et se seront connectées, elles apparaîtront ici.",
@@ -423,8 +424,6 @@
     "chooseFile": "Choisir un fichier",
     "supportedFormats": "Pris en charge : .csv, .txt",
     "fileLabel": "Fichier : {{fileName}}",
-    "usernamesFound_one": "{{count}} nom d'utilisateur GitHub trouvé à importer.",
-    "usernamesFound_other": "{{count}} noms d'utilisateur GitHub trouvés à importer.",
     "githubUsernameColumn": "Nom d'utilisateur GitHub",
     "nameColumn": "Nom",
     "emailColumn": "E-mail",
@@ -471,16 +470,10 @@
     "resultInvitesFailed": "Invitations échouées",
     "invitePassFailed": "La liste a été enregistrée, mais l'envoi des invitations a échoué : {{message}}. Relancez l'import pour réessayer les invitations.",
     "couldNotAddToTeam": "Impossible d'ajouter cet utilisateur à l'équipe",
-    "preflightChecking": "Vérification de l'adhésion actuelle...",
     "preflightFailed": "Impossible de vérifier l'adhésion actuelle : {{message}}. Réessayez.",
-    "preflightNoActionTitle": "Aucune action requise",
-    "preflightInviteTitle": "Sera invité",
-    "preflightEnrollTitle": "Sera inscrit",
-    "preflightRoleChangeTitle": "Changements de rôle (confirmation requise)",
     "preflightRoleChangeDetail": "{{from}} → {{to}}",
     "preflightConfirmTitle": "Confirmer avant le traitement",
     "preflightEnrollOwnerDetail": "inscrire en tant qu'enseignant·e (PROPRIÉTAIRE de l'organisation)",
-    "preflightAllMembersNote": "Toutes les personnes de ce fichier sont déjà membres de l'organisation, aucune invitation ne sera donc envoyée.",
     "preflightConfirmRoleChanges_one": "Je confirme le déplacement de {{count}} membre vers une autre équipe, comme indiqué ci-dessus.",
     "preflightConfirmRoleChanges_other": "Je confirme le déplacement de {{count}} membres vers d'autres équipes, comme indiqué ci-dessus.",
     "preflightRoleChangeOwnerNotice": "Un ou plusieurs changements de rôle promeuvent un membre au rang d'enseignant·e, ce qui en fait un·e PROPRIÉTAIRE de l'organisation avec un contrôle total. Ne confirmez que pour des personnes à qui vous faites confiance avec un accès propriétaire.",
@@ -489,7 +482,34 @@
     "resultRoleChangeFailures": "Changements de rôle échoués",
     "done": "Terminé",
     "chooseAnotherFile": "Choisir un autre fichier",
-    "importMergeNotice": "L'importation s'ajoute à votre liste existante — les étudiants déjà inscrits sont ignorés et personne n'est supprimé. Vous pouvez importer par lots en toute sécurité."
+    "emailInviteInvalidBlocked_one": "{{count}} ligne n'est pas une adresse e-mail valide. Corrigez-la et téléchargez à nouveau, ou changez le format ci-dessus.",
+    "emailInviteInvalidBlocked_other": "{{count}} lignes ne sont pas des adresses e-mail valides. Corrigez-les et téléchargez à nouveau, ou changez le format ci-dessus.",
+    "emailInviteInvalidRow": "Ligne {{line}} : {{value}}",
+    "firstNameColumn": "Prénom",
+    "inviteRosterMalformedId": "Impossible d'inviter {{username}} : « {{githubId}} » n'est pas un identifiant GitHub valide. Corrigez la cellule github_id dans roster.csv.",
+    "lastNameColumn": "Nom",
+    "metadataWritebackFailed": "L'importation est terminée, mais l'écriture des coordonnées mises à jour des élèves dans roster.csv a échoué. Relancez l'importation pour réessayer.",
+    "metadataWritebackMalformed": "L'importation est terminée, mais les coordonnées des élèves n'ont pas pu être mises à jour car roster.csv est mal formé. Corrigez les lignes signalées sur la liste, puis revérifiez.",
+    "preflightConfirmMetadata_one": "Je confirme la mise à jour des coordonnées de {{count}} élève telles qu'énumérées ci-dessus.",
+    "preflightConfirmMetadata_other": "Je confirme la mise à jour des coordonnées de {{count}} élèves telles qu'énumérées ci-dessus.",
+    "preflightMetadataConfirmTitle": "Confirmer les mises à jour des coordonnées des élèves",
+    "preflightMetadataEmpty": "(vide)",
+    "preflightMetadataReviewHint_one": "Les coordonnées de {{count}} élève seront mises à jour. Vérifiez les cellules surlignées ci-dessous (survolez pour plus de détails) avant de confirmer.",
+    "preflightMetadataReviewHint_other": "Les coordonnées de {{count}} élèves seront mises à jour. Vérifiez les cellules surlignées ci-dessous (survolez pour plus de détails) avant de confirmer.",
+    "preflightRoleChangeMetadataNotice": "Certains de ces membres ont également des coordonnées mises à jour (indiquées ci-dessus), qui seront enregistrées en même temps que le changement d'équipe.",
+    "resendMalformedId": "Impossible de renvoyer l'invitation pour {{username}} : « {{githubId}} » n'est pas un identifiant GitHub valide. Corrigez la cellule github_id dans roster.csv.",
+    "rolePreviousHint": "était {{role}}",
+    "summaryHideDetails": "Masquer les détails",
+    "summaryNoChanges": "Ce fichier correspond à votre liste — rien à ajouter ni à mettre à jour.",
+    "summaryViewDetails": "Voir les détails",
+    "summary_add_one": "à ajouter",
+    "summary_add_other": "à ajouter",
+    "summary_skip_one": "déjà à jour",
+    "summary_skip_other": "déjà à jour",
+    "summary_update_one": "à mettre à jour",
+    "summary_update_other": "à mettre à jour",
+    "updateMetadata_one": "Mettre à jour {{count}} élève",
+    "updateMetadata_other": "Mettre à jour {{count}} élèves"
   },
   "language": {
     "baseName": "Anglais (base)",
@@ -598,14 +618,21 @@
         "educationBody": "En tant qu'enseignant·e vérifié·e, vous pouvez faire passer gratuitement n'importe quelle organisation que vous possédez à GitHub Team via GitHub Education.",
         "educationCta": "En savoir plus sur GitHub Education",
         "dismiss": "Compris"
-      }
+      },
+      "newBadge": "Nouveau",
+      "refresh": "Actualiser",
+      "refreshing": "Actualisation…"
     },
     "missingNotice": {
       "title": "Vous ne voyez pas votre organisation ?",
-      "body": "Classroom 50 ne peut afficher que les organisations GitHub auxquelles vous avez explicitement accordé l'accès lors de la connexion. Si une organisation manque, vous devrez peut-être mettre à jour vos autorisations OAuth.",
+      "body": "GitHub ne liste que les organisations auxquelles vous avez accordé l'accès à Classroom 50 — un compte GitHub Education ne suffit pas à lui seul.",
       "manageOauth": "Gérer l'accès OAuth GitHub",
-      "refreshing": "Actualisation…",
-      "refresh": "Actualiser la liste"
+      "reauthorizeHelp": "Aucune organisation n'apparaît du tout ? Réautorisez — un jeton émis avant votre adhésion ne peut pas les voir. Une invitation que vous n'avez pas acceptée apparaît plutôt sous les invitations en attente.",
+      "steps": {
+        "grant": "Dans vos paramètres GitHub OAuth, sélectionnez Grant à côté de l'organisation.",
+        "grantHelp": "Si l'organisation restreint les applications tierces, vous verrez plutôt Request access, et un propriétaire de l'organisation doit l'approuver. Avec l'authentification unique SAML, utilisez Configure SSO sur cette même page.",
+        "refresh": "Revenez ici et actualisez la liste."
+      }
     },
     "card": {
       "noAccessBadge": "Aucun accès <code>classroom50</code>",
@@ -796,7 +823,7 @@
         "envHostedHelp": "Évalue sur un runner GitHub Actions.",
         "envContainerHelp": "Évalue dans une image Docker publique (elle gère les paquets du système d'exploitation).",
         "languagesHeading": "Versions de langage",
-        "languagesTip": "Choisissez une version pour installer cette chaîne d'outils (par exemple Node 26, Java 25), ou saisissez-en une personnalisée. Un champ vide l'ignore. Python utilise 3.12 par défaut lorsqu'il est vide sur le runner hébergé. Vous pouvez activer autant de chaînes d'outils que nécessaire.",
+        "languagesTip": "Choisissez une version pour installer cette chaîne d'outils (par exemple Node 26, Java 25), ou saisissez-en une personnalisée. Un champ vide l'ignore. Python utilise 3.14 par défaut lorsqu'il est vide sur le runner hébergé. Vous pouvez activer autant de chaînes d'outils que nécessaire.",
         "versionPlaceholder": "p. ex. {{version}}",
         "versionTip": "La version de {{language}} à installer (via l'action setup-{{language}}). Laissez vide pour l'ignorer. Vous pouvez saisir toute version acceptée par l'action setup.",
         "versionMenu": "Choisir une version de {{language}}",
@@ -1209,8 +1236,10 @@
         "readFailed": "échec de lecture",
         "readFailedStatus": "échec de lecture ({{status}})",
         "rulesetsMissing": "manquant : {{names}}",
-        "workflowOrgManaged": "la politique de l'organisation configure par défaut les workflows en lecture ; les workflows du squelette déclarent leurs propres autorisations"
-      }
+        "workflowOrgManaged": "la politique de l'organisation configure par défaut les workflows en lecture ; les workflows du squelette déclarent leurs propres autorisations",
+        "orgActionsPaused": "L'autograding est en pause, donc GitHub Actions est délibérément restreint au dépôt de configuration classroom50. Désactivez la pause dans la section GitHub Actions ci-dessus pour rétablir la politique standard."
+      },
+      "statePaused": "En pause"
     },
     "actions": {
       "title": "GitHub Actions",
@@ -1232,11 +1261,11 @@
       "applying": "Mise à jour en cours…",
       "toggleLabel": "Suspendre l'autocorrection pour tous les dépôts d'étudiants",
       "toggleHint": "Activer cette option empêche l'évaluation des pushes des étudiants (aucune minute Actions). Le dépôt de config classroom50 continue de fonctionner. Désactivez pour reprendre.",
-      "pausedNotice": "Suspendue — les pushes des étudiants ne sont pas évalués. Relancer la configuration de l'organisation ne reprendra pas tant que vous n'aurez pas désactivé cette option.",
+      "pausedNotice": "En pause — les pushs des élèves ne sont pas évalués, de sorte que les soumissions ne reçoivent aucune vérification d'état d'autograde ou de feedback-pr. De nouvelles pull requests de retour s'ouvrent toujours lorsque les élèves acceptent, et les existantes continuent d'afficher les derniers pushs. Relancer la configuration de l'organisation ne reprendra pas tant que vous ne l'aurez pas désactivé.",
       "disabledNotice": "Actions est désactivé pour toute l'organisation, donc rien ne s'exécute. Relancez la configuration de l'organisation ou activez Actions sur GitHub.",
       "unknownNotice": "Impossible de lire les autorisations Actions de cette organisation — il se peut que vous n'ayez pas les droits de propriétaire, ou qu'une politique enterprise les contrôle.",
       "confirmTitle": "Suspendre l'autocorrection pour toute l'organisation ?",
-      "confirmBody": "Les rendus des étudiants ne seront pas évalués tant que vous ne reprendrez pas. Le dépôt de config classroom50 continue de fonctionner. Réversible à tout moment.",
+      "confirmBody": "Les soumissions des élèves ne seront pas évaluées tant que vous n'aurez pas repris. De nouvelles pull requests de retour s'ouvrent toujours lorsque les élèves acceptent, et les existantes continuent d'afficher les derniers pushs, mais les soumissions ne reçoivent aucune vérification d'état d'autograde ou de feedback-pr pendant la pause. Le dépôt de configuration classroom50 continue de fonctionner. Réversible à tout moment.",
       "confirmButton": "Suspendre l'autocorrection",
       "toggleFailed": "Impossible de mettre à jour les autorisations Actions : {{message}}"
     },
@@ -1619,7 +1648,9 @@
     "templateErrors": {
       "githubSaid": " GitHub a indiqué : « {{message}} ».",
       "outOfOrg": "Impossible de copier le modèle {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} C'est souvent parce que l'organisation {{owner}} restreint les applications tierces — demandez à votre enseignant·e d'approuver l'application Classroom 50 pour {{owner}} (ou de rendre le modèle public), puis acceptez à nouveau.",
-      "inOrg": "Impossible de copier le modèle privé {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Demandez à votre enseignant·e de relancer la configuration du devoir, puis acceptez à nouveau."
+      "inOrg": "Impossible de copier le modèle privé {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Demandez à votre enseignant·e de relancer la configuration du devoir, puis acceptez à nouveau.",
+      "orgRepoCreationDenied": "{{org}} n'autorise peut-être pas les membres à créer des dépôts privés, de sorte que votre dépôt n'a pas pu être créé (HTTP {{status}}). Demandez à votre enseignant de l'activer, puis acceptez à nouveau.",
+      "orgRepoCreationDeniedStep": "{{org}} n'a pas autorisé la création de votre dépôt (HTTP {{status}})."
     },
     "notFound": {
       "badge": "Devoir indisponible",
@@ -1636,7 +1667,8 @@
       "autograder": "Résolution de l'autograder",
       "repo": "Création de votre dépôt",
       "access": "Octroi de votre accès",
-      "setup": "Configuration de l'autograding"
+      "setup": "Configuration de l'autograding",
+      "feedback": "Ouverture de la pull request de retour"
     },
     "progress": {
       "error": "Échec de la configuration — vérifiez les étapes",
@@ -1649,6 +1681,42 @@
       "havingTrouble": "Un problème ?",
       "hint": "L'autograding ne s'exécute pas, ou des fichiers de configuration sont manquants ? Relancez la configuration pour réparer votre dépôt.",
       "rerun": "Relancer la configuration"
+    },
+    "errors": {
+      "emptyRepoWithTemplate": "Le devoir « {{assignmentSlug}} » définit à la fois un dépôt vide et un modèle, ce qui n'est pas valide. Demandez à votre enseignant de relancer la configuration du devoir.",
+      "founderAccessMismatch": "Votre dépôt {{owner}}/{{repo}} a été créé, mais GitHub indique votre accès comme « {{effective}} » (rôle « {{role}} ») au lieu de « {{permission}} ». Demandez à votre enseignant de définir l'accès de {{username}} sur « {{permission}} ».",
+      "incoherentMode": "Le devoir « {{slug}} » a une taille de groupe de {{maxGroupSize}} mais est configuré comme « {{mode}} », de sorte que ses paramètres publiés sont incohérents. Demandez à votre enseignant de relancer la configuration du devoir."
+    },
+    "stepActions": {
+      "access": "Votre dépôt {{org}}/{{repo}} a été créé, mais votre ajout ({{username}}) en tant que collaborateur a échoué. Cela signifie généralement que votre nom d'utilisateur GitHub a changé ou que vous avez quitté {{org}}. Vérifiez que vous êtes membre de {{org}}, puis utilisez « Relancer la configuration ».",
+      "account": "Impossible de lire votre compte GitHub. Déconnectez-vous et reconnectez-vous, puis acceptez à nouveau.",
+      "assignment": "Impossible de charger le devoir « {{assignmentSlug}} » pour {{org}}/{{classroom}}. Vérifiez le lien, ou demandez à votre enseignant de confirmer que le devoir est publié.",
+      "autograder": "Impossible de résoudre l'autograder pour « {{assignmentSlug}} ». Demandez à votre enseignant de confirmer qu'il est publié, puis acceptez à nouveau.",
+      "membership": "Impossible de confirmer votre appartenance. Si votre organisation utilise l'authentification unique (SSO), autorisez-la pour cette organisation (ou ouvrez ce lien depuis votre ENT), puis acceptez à nouveau. Sinon, demandez à votre enseignant de confirmer votre invitation.",
+      "repo": "Impossible de créer {{org}}/{{repo}}. Vérifiez que vous êtes membre de {{org}} et demandez à votre enseignant de vérifier que le dépôt modèle du devoir est correctement configuré, puis acceptez à nouveau.",
+      "setup": "Votre dépôt {{org}}/{{repo}} existe, mais l'écriture des fichiers de configuration sur la branche « {{branch}} » a échoué. Il est peut-être encore en cours d'initialisation. Patientez une minute, puis utilisez « Relancer la configuration »."
+    },
+    "stepDone": {
+      "access": "Accès à votre dépôt accordé",
+      "account": "Votre compte GitHub a été vérifié",
+      "assignment": "Devoir {{assignmentSlug}} trouvé",
+      "autograder": "Autograder résolu",
+      "autograderDisabled": "L'autograding est désactivé pour ce devoir",
+      "feedback": "Pull request de retour prête",
+      "feedbackDeferred": "Impossible d'ouvrir la pull request de retour pour le moment : acceptez à nouveau pour réessayer (ou elle s'ouvre lors de votre première soumission si l'autograding est activé)",
+      "feedbackSkipped": "Aucune pull request de retour pour ce devoir",
+      "membership": "Appartenance à votre classe confirmée",
+      "repo": "{{org}}/{{repo}} créé",
+      "repoExists": "Le dépôt existe déjà : {{org}}/{{repo}}",
+      "repoIncomplete": "Configuration incomplète trouvée : {{org}}/{{repo}}",
+      "setup": "Autograding configuré",
+      "setupSkippedEmptyRepo": "Aucune configuration nécessaire : ce devoir utilise un dépôt vide"
+    },
+    "stepErrors": {
+      "generic": "{{label}} a échoué (HTTP {{status}}). {{actions}}",
+      "rateLimited": "{{label}} a atteint la limite de débit de GitHub. Patientez une minute, puis réessayez d'accepter.",
+      "unauthorized": "{{label}} a échoué car votre session GitHub a expiré (HTTP 401). Déconnectez-vous et reconnectez-vous, puis acceptez à nouveau.",
+      "unexpected": "{{label}} a échoué de manière inattendue. Vous pouvez réessayer sans risque."
     }
   },
   "submissions": {
@@ -1841,7 +1909,7 @@
     "reviewModal": {
       "errorTitle": "Impossible de vérifier la présence d'une PR de retour",
       "emptyTitle": "Aucune pull request de retour pour l'instant",
-      "emptyBody": "Aucune PR de retour n'a été ouverte pour <repo>{{repo}}</repo> pour l'instant. Elle est créée par le workflow d'autograder du devoir après un rendu évalué — si l'étudiant n'a pas rendu (ou si la PR de retour est désactivée pour le devoir), il n'y a rien à réviser pour l'instant.",
+      "emptyBody": "Aucune PR de retour n'a encore été ouverte pour <repo>{{repo}}</repo>. Elle est ouverte lorsque l'élève accepte le devoir — donc s'il n'y a rien à examiner, l'élève ne l'a peut-être pas encore accepté, le devoir a peut-être la PR de retour désactivée, ou son ouverture a été reportée (elle réessaie lors d'une nouvelle acceptation, ou lors de la première soumission évaluée).",
       "openRepoPrs": "Ouvrir les PR du dépôt"
     },
     "rowRegrade": {
@@ -1866,11 +1934,11 @@
       "modeIndividual": "Individuel",
       "loadError": "Impossible de charger vos rendus.",
       "notAccepted": "Vous n'avez pas encore accepté ce devoir. <acceptLink>Acceptez-le</acceptLink> pour obtenir votre dépôt, puis poussez votre travail pour qu'il soit évalué.",
-      "noGradedYet": "Aucun rendu évalué pour l'instant. Envoyez vos fichiers ci-dessus, ou poussez un commit dans le dépôt de votre devoir depuis la ligne de commande — l'autograder publiera votre résultat ici.",
+      "noGradedYet": "Aucune soumission évaluée pour l'instant. Poussez vers votre dépôt de devoir depuis la ligne de commande et l'autograder publiera votre résultat ici.",
       "openMyRepo": "Ouvrir mon dépôt",
       "submitGuide": {
-        "title": "Vous préférez la ligne de commande ?",
-        "intro": "Vous pouvez aussi remettre depuis un terminal au lieu d'envoyer vos fichiers ci-dessus.",
+        "title": "Soumettre depuis la ligne de commande",
+        "intro": "Soumettez votre travail pour évaluation depuis un terminal.",
         "step1": "Clonez votre dépôt de devoir (une seule fois) :",
         "step2": "Depuis l'intérieur du dépôt, remettez votre travail pour correction :",
         "copyClone": "Copier la commande de clonage",
@@ -1903,6 +1971,43 @@
       "releasesIntro": "Chaque rendu ouvre sa version évaluée sur GitHub, avec votre note et les résultats par test.",
       "fallbackTitle": "Rendu",
       "missingParams": "Informations sur le cours ou le devoir manquantes."
+    },
+    "openAllPrs": {
+      "blockedHint": "Leur branche de retour pointe vers le mauvais commit, de sorte que l'ouverture de la PR afficherait une différence vide. Un administrateur de l'organisation doit supprimer chaque branche de retour avant de relancer cette action — réessayer seul ne les corrigera pas.",
+      "blockedTitle": "Ces dépôts nécessitent un administrateur de l'organisation :",
+      "confirmBody_one": "Cela ouvre une PR de retour sur le <b>{{count}}</b> dépôt de devoir de <b>{{name}}</b> qui n'en a pas encore. Les dépôts qui ont déjà une PR de retour restent inchangés.",
+      "confirmBody_other": "Cela ouvre une PR de retour sur chacun des <b>{{count}}</b> dépôts de devoir de <b>{{name}}</b> qui n'en ont pas encore. Les dépôts qui ont déjà une PR de retour restent inchangés.",
+      "confirmHint": "Cela s'exécute depuis votre navigateur, un dépôt à la fois, cela peut donc prendre un certain temps pour une grande classe. Gardez cet onglet ouvert jusqu'à ce que ce soit terminé.",
+      "confirmLabel_one": "Ouvrir la PR",
+      "confirmLabel_other": "Ouvrir les PR",
+      "failedHint": "Il s'agit souvent d'une erreur GitHub transitoire — relancez l'action pour réessayer uniquement les dépôts qui n'ont toujours pas de PR.",
+      "failedTitle": "Ces dépôts n'ont pas pu être traités :",
+      "menuLabel": "Ouvrir toutes les PR de retour",
+      "running": "Ouverture… {{done}} sur {{total}}",
+      "summaryBlocked_one": "{{count}} dépôt bloqué (nécessite un administrateur de l'organisation)",
+      "summaryBlocked_other": "{{count}} dépôts bloqués (nécessitent un administrateur de l'organisation)",
+      "summaryExisted_one": "{{count}} dépôt en avait déjà une",
+      "summaryExisted_other": "{{count}} dépôts en avaient déjà une",
+      "summaryFailed_one": "{{count}} dépôt a échoué",
+      "summaryFailed_other": "{{count}} dépôts ont échoué",
+      "summaryLead": "Traitement de <b>{{total}}</b> dépôts terminé.",
+      "summaryOpened_one": "{{count}} PR de retour ouverte",
+      "summaryOpened_other": "{{count}} PR de retour ouvertes",
+      "summaryUnsupported_one": "{{count}} dépôt ignoré (aucune base de référence de devoir)",
+      "summaryUnsupported_other": "{{count}} dépôts ignorés (aucune base de référence de devoir)",
+      "title": "Ouvrir les PR de retour pour tous les dépôts",
+      "titleEmptyRoster": "Ajoutez d'abord des élèves à la liste"
+    },
+    "repairPr": {
+      "alreadyExists": "Une PR de retour existe déjà pour {{repo}}.",
+      "baseMismatch": "La branche de retour de ce dépôt pointe vers le mauvais commit, de sorte que l'ouverture de la PR ici afficherait une différence vide. Un administrateur de l'organisation doit supprimer la branche de retour avant qu'elle puisse être recréée correctement. Relancer ne corrigera pas cela.",
+      "created": "PR de retour ouverte pour {{repo}}.",
+      "failed": "Impossible d'ouvrir la PR de retour : {{reason}}",
+      "hint": "Si l'élève a accepté mais que l'ouverture de la PR a échoué (une panne GitHub ou une erreur transitoire), vous pouvez l'ouvrir maintenant.",
+      "noBaseline": "Ce dépôt n'a pas de base de référence de devoir, donc une PR de retour ne peut pas y être ouverte (par exemple, un devoir à dépôt vide). Rien à réparer.",
+      "repair": "Réparer la PR de retour",
+      "repairing": "Réparation…",
+      "repoNotFound": "Impossible de trouver le dépôt {{repo}} — l'élève ne l'a peut-être pas encore accepté."
     }
   },
   "orgActivity": {
@@ -2064,7 +2169,9 @@
         "archived": "La classe est archivée — désarchivez-la pour modifier l'appartenance.",
         "resolve-failed": "Impossible de résoudre son compte GitHub actuel."
       }
-    }
+    },
+    "inviteMalformedId": "Impossible d'inviter {{who}} : « {{githubId}} » n'est pas un identifiant GitHub valide. Corrigez la cellule github_id dans roster.csv.",
+    "inviteMissingId": "Impossible d'inviter {{who}} : aucun identifiant GitHub enregistré."
   },
   "components": {
     "avatar": {
@@ -2087,6 +2194,11 @@
         "empty": "Cette classe n'a encore aucun élève. Le lien d'acceptation d'un devoir ne fonctionne que pour les élèves membres de l'organisation <org>{{org}}</org> ; ajoutez et inscrivez donc des élèves avant de le partager.",
         "manageRoster": "Gérer la liste des élèves",
         "addStudents": "Ajouter des élèves"
+      },
+      "orgRepoCreation": {
+        "action": "Paramètres de l'organisation",
+        "master": "<org>{{org}}</org> n'autorise pas les membres à créer des dépôts, de sorte qu'aucun élève ne peut accepter un devoir. Relancez la configuration de l'organisation, ou autorisez la création de dépôts privés (et non publics) sous <memberPrivileges>Member privileges</memberPrivileges>. Une politique d'entreprise peut remplacer ce paramètre.",
+        "private": "<org>{{org}}</org> n'autorise pas les membres à créer des dépôts privés, de sorte qu'aucun élève ne peut accepter un devoir. Relancez la configuration de l'organisation, ou autorisez la création de dépôts privés (et non publics) sous <memberPrivileges>Member privileges</memberPrivileges>. Une politique d'entreprise peut remplacer ce paramètre."
       }
     },
     "confirmModal": {
@@ -2197,5 +2309,17 @@
       "heading": "Paramètres",
       "subheading": "Préférences pour ce navigateur. Rien ici n'est partagé avec vos organisations."
     }
+  },
+  "pagesErrors": {
+    "assignmentNotInManifest": "Le devoir « {{assignmentSlug}} » ne figure pas dans les devoirs publiés de cette classe. Vérifiez le lien, ou demandez à votre enseignant de publier le devoir.",
+    "autograderLabel": "Autograder « {{autograderName}} »",
+    "autograderMalformed": "L'autograder « {{autograderName}} » contient peut-être du YAML mal formé. Demandez à votre enseignant de vérifier le fichier dans le dépôt de configuration.",
+    "classroomFetchFailed": "Impossible de charger les fichiers publiés de cette classe (HTTP {{status}}). Demandez à votre enseignant de confirmer que la classe est publiée, puis réessayez.",
+    "classroomNotPublished": "Cette classe n'est pas encore publiée. Elle n'existe peut-être pas, ou le workflow de publication n'a peut-être pas été exécuté. Demandez à votre enseignant de la publier, puis réessayez.",
+    "deployInFlight": "Les fichiers publiés de la classe sont peut-être encore en cours de déploiement. Patientez une minute, puis réessayez.",
+    "fetchFailed": "Impossible de charger {{label}} (HTTP {{status}}). Demandez à votre enseignant de confirmer que la classe est publiée, puis réessayez.",
+    "manifestInvalidShape": "La liste des devoirs publiés de cette classe est mal formée. Demandez à votre enseignant de vérifier la configuration de Classroom 50.",
+    "manifestVersionUnsupported": "Cette classe utilise un format de devoir plus récent (v{{version}}) que celui pris en charge par cette copie de Classroom 50. Rechargez la page, ou demandez à votre enseignant de mettre à jour Classroom 50.",
+    "notPublished": "{{label}} n'est pas encore publié. Demandez à votre enseignant de confirmer que le fichier existe dans le dépôt de configuration et que le workflow de publication a été exécuté."
   }
 }

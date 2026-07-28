@@ -220,8 +220,6 @@
     "chooseFile": "Datei auswählen",
     "supportedFormats": "Unterstützt: .csv, .txt",
     "fileLabel": "Datei: {{fileName}}",
-    "usernamesFound_one": "{{count}} GitHub-Benutzername zum Importieren gefunden.",
-    "usernamesFound_other": "{{count}} GitHub-Benutzernamen zum Importieren gefunden.",
     "githubUsernameColumn": "GitHub-Benutzername",
     "noValidUsernames": "In dieser Datei wurden keine gültigen GitHub-Benutzernamen gefunden.",
     "progressProcessed": "{{processed}} / {{total}} verarbeitet",
@@ -288,7 +286,8 @@
       "confirmCancelTitle_other": "{{count}} Einladungen stornieren?",
       "memberCount_one": "{{count}} Mitglied",
       "memberCount_other": "{{count}} Mitglieder",
-      "noneSelectable": "Hier gibt es nichts auszuwählen – Sammelaktionen (Austragen, Einladen) gelten nur für Lernende. Personal (Lehrkräfte, leitende TAs und TAs) wird in den Kursraumeinstellungen verwaltet."
+      "noneSelectable": "Hier gibt es nichts auszuwählen – Sammelaktionen (Austragen, Einladen) gelten nur für Lernende. Personal (Lehrkräfte, leitende TAs und TAs) wird in den Kursraumeinstellungen verwaltet.",
+      "malformedInviteId": "Ungültige github_id in roster.csv."
     },
     "classroomTeamLabel": "Kursteam",
     "confirmResendBody": "Die ausstehende Organisationseinladung an {{label}} erneut senden? Ihre aktuelle Einladung wird storniert und eine neue für {{org}} gesendet.",
@@ -391,19 +390,13 @@
     "needsAttentionNotInOrgHelp": "{{label}} steht auf der Teilnehmerliste, ist aber kein Organisationsmitglied. Lade die Person in die Organisation ein, um sie einzuschreiben.",
     "noChangesToApply": "Keine Änderungen zu übernehmen",
     "noValidEmails": "In dieser Datei wurden keine gültigen E-Mail-Adressen gefunden. Lade eine .txt- oder .csv-Datei mit einer E-Mail-Adresse pro Zeile hoch.",
-    "preflightAllMembersNote": "Alle in dieser Datei sind bereits Organisationsmitglieder, daher werden keine Einladungen gesendet.",
-    "preflightChecking": "Aktuelle Mitgliedschaft wird geprüft ...",
     "preflightConfirmRoleChanges_one": "Ich bestätige, dass {{count}} Mitglied wie oben aufgeführt in ein anderes Team verschoben wird.",
     "preflightConfirmRoleChanges_other": "Ich bestätige, dass {{count}} Mitglieder wie oben aufgeführt in andere Teams verschoben werden.",
     "preflightConfirmTitle": "Vor der Verarbeitung bestätigen",
     "preflightEnrollOwnerDetail": "als Lehrkraft einschreiben (Organisations-INHABER)",
-    "preflightEnrollTitle": "Wird eingeschrieben",
     "preflightFailed": "Die aktuelle Mitgliedschaft konnte nicht geprüft werden: {{message}}. Versuche es erneut.",
-    "preflightInviteTitle": "Wird eingeladen",
-    "preflightNoActionTitle": "Keine Aktion erforderlich",
     "preflightRoleChangeDetail": "{{from}} → {{to}}",
     "preflightRoleChangeOwnerNotice": "Eine oder mehrere Rollenänderungen befördern ein Mitglied zur Lehrkraft und machen es zu einem Organisations-INHABER mit voller Kontrolle. Bestätige dies nur für Personen, denen du Inhaberzugriff anvertraust.",
-    "preflightRoleChangeTitle": "Rollenänderungen (Bestätigung erforderlich)",
     "processRoleChanges": "Rollenänderungen werden angewendet ...",
     "reinvite": "Erneut einladen",
     "resultInvited": "Einladungen gesendet",
@@ -460,7 +453,34 @@
     "headTaCount_other": "{{count}} leitende TAs",
     "roleHeadTa": "Leitende TA",
     "unenrollBody": "Dadurch wird die lernende Person <label>{{label}}</label> aus dem Kursraum {{classroom}} in <org>{{org}}</org> entfernt. Die Aufgaben-Repositories der Lernenden werden nicht gelöscht.",
-    "importMergeNotice": "Beim Importieren werden Einträge zu deiner bestehenden Kursliste hinzugefügt – bereits eingeschriebene Lernende werden übersprungen, und niemand wird entfernt. Du kannst gefahrlos in Chargen importieren."
+    "emailInviteInvalidBlocked_one": "{{count}} Zeile ist keine gültige E-Mail-Adresse. Korrigiere sie und lade erneut hoch oder wechsle das Format oben.",
+    "emailInviteInvalidBlocked_other": "{{count}} Zeilen sind keine gültigen E-Mail-Adressen. Korrigiere sie und lade erneut hoch oder wechsle das Format oben.",
+    "emailInviteInvalidRow": "Zeile {{line}}: {{value}}",
+    "firstNameColumn": "Vorname",
+    "inviteRosterMalformedId": "{{username}} kann nicht eingeladen werden: „{{githubId}}“ ist keine gültige GitHub-ID. Korrigiere die Zelle github_id in roster.csv.",
+    "lastNameColumn": "Nachname",
+    "metadataWritebackFailed": "Der Import wurde abgeschlossen, aber das Schreiben der aktualisierten Studierendendetails in roster.csv ist fehlgeschlagen. Führe den Import erneut aus, um es zu wiederholen.",
+    "metadataWritebackMalformed": "Der Import wurde abgeschlossen, aber die Studierendendetails konnten nicht aktualisiert werden, da roster.csv fehlerhaft ist. Korrigiere die markierten Zeilen im Verzeichnis und prüfe dann erneut.",
+    "preflightConfirmMetadata_one": "Ich bestätige die Aktualisierung der Details von {{count}} Studierenden wie oben aufgeführt.",
+    "preflightConfirmMetadata_other": "Ich bestätige die Aktualisierung der Details von {{count}} Studierenden wie oben aufgeführt.",
+    "preflightMetadataConfirmTitle": "Aktualisierungen der Studierendendetails bestätigen",
+    "preflightMetadataEmpty": "(leer)",
+    "preflightMetadataReviewHint_one": "Die Details von {{count}} Studierenden werden aktualisiert. Überprüfe die hervorgehobenen Zellen unten (für Details darüber schweben), bevor du bestätigst.",
+    "preflightMetadataReviewHint_other": "Die Details von {{count}} Studierenden werden aktualisiert. Überprüfe die hervorgehobenen Zellen unten (für Details darüber schweben), bevor du bestätigst.",
+    "preflightRoleChangeMetadataNotice": "Einige dieser Mitglieder haben ebenfalls aktualisierte Details (oben gezeigt), die zusammen mit der Team-Änderung gespeichert werden.",
+    "resendMalformedId": "Die Einladung für {{username}} kann nicht erneut gesendet werden: „{{githubId}}“ ist keine gültige GitHub-ID. Korrigiere die Zelle github_id in roster.csv.",
+    "rolePreviousHint": "war {{role}}",
+    "summaryHideDetails": "Details ausblenden",
+    "summaryNoChanges": "Diese Datei stimmt mit deinem Verzeichnis überein – nichts hinzuzufügen oder zu aktualisieren.",
+    "summaryViewDetails": "Details anzeigen",
+    "summary_add_one": "hinzuzufügen",
+    "summary_add_other": "hinzuzufügen",
+    "summary_skip_one": "bereits aktuell",
+    "summary_skip_other": "bereits aktuell",
+    "summary_update_one": "zu aktualisieren",
+    "summary_update_other": "zu aktualisieren",
+    "updateMetadata_one": "{{count}} Studierenden aktualisieren",
+    "updateMetadata_other": "{{count}} Studierende aktualisieren"
   },
   "language": {
     "baseName": "Englisch (Basis)",
@@ -528,10 +548,14 @@
     "emptyBody": "Organisationen, denen du angehörst und die Classroom 50 verwenden, erscheinen hier. Wenn du eine erwartest, bitte deine Lehrkraft zu bestätigen, dass du hinzugefügt wurdest, und aktualisiere dann.",
     "missingNotice": {
       "title": "Deine Organisation wird nicht angezeigt?",
-      "body": "Classroom 50 kann nur GitHub-Organisationen anzeigen, für die du beim Anmelden ausdrücklich den Zugriff erteilt hast. Wenn eine Organisation fehlt, musst du möglicherweise deine OAuth-Berechtigungen aktualisieren.",
+      "body": "GitHub listet nur Organisationen auf, denen du Classroom 50 Zugriff gewährt hast – ein GitHub-Education-Konto allein genügt nicht.",
       "manageOauth": "GitHub-OAuth-Zugriff verwalten",
-      "refreshing": "Wird aktualisiert …",
-      "refresh": "Liste aktualisieren"
+      "reauthorizeHelp": "Werden überhaupt keine Organisationen aufgelistet? Autorisiere erneut – ein Token, das vor deinem Beitritt ausgestellt wurde, kann sie nicht sehen. Eine noch nicht angenommene Einladung erscheint stattdessen unter ausstehenden Einladungen.",
+      "steps": {
+        "grant": "Wähle in deinen GitHub-OAuth-Einstellungen neben der Organisation „Grant“ aus.",
+        "grantHelp": "Wenn die Organisation Apps von Drittanbietern einschränkt, siehst du stattdessen „Request access“, und ein·e Organisationsinhaber·in muss es genehmigen. Verwende bei SAML-Single-Sign-On „Configure SSO“ auf derselben Seite.",
+        "refresh": "Kehre hierher zurück und aktualisiere die Liste."
+      }
     },
     "card": {
       "planTitlePaid": "GitHub-Tarif – Classroom 50 kann in Team- und Enterprise-Tarifen eingerichtet werden",
@@ -562,7 +586,10 @@
       },
       "notSupportedBadge": "Nicht unterstützt",
       "pickPrompt_one": "Zur Einrichtung bereite Organisation ({{count}})",
-      "pickPrompt_other": "Zur Einrichtung bereite Organisationen ({{count}})"
+      "pickPrompt_other": "Zur Einrichtung bereite Organisationen ({{count}})",
+      "newBadge": "Neu",
+      "refresh": "Aktualisieren",
+      "refreshing": "Wird aktualisiert…"
     },
     "noResults": {
       "body": "Keine Organisationen entsprechen „{{query}}“.",
@@ -718,7 +745,7 @@
         "envHostedHelp": "Bewertet auf einem GitHub-Actions-Runner.",
         "envLegend": "Laufzeitumgebung",
         "languagesHeading": "Sprachversionen",
-        "languagesTip": "Wähle eine Version, um diese Toolchain zu installieren (zum Beispiel Node 26, Java 25), oder gib eine eigene ein. Ein leeres Feld überspringt sie. Python verwendet standardmäßig 3.12, wenn das Feld auf dem gehosteten Runner leer ist. Du kannst so viele Toolchains aktivieren, wie du benötigst.",
+        "languagesTip": "Wähle eine Version, um diese Toolchain zu installieren (zum Beispiel Node 26, Java 25), oder gib eine eigene ein. Ein leeres Feld überspringt sie. Python verwendet auf dem gehosteten Runner standardmäßig 3.14, wenn das Feld leer ist. Du kannst so viele Toolchains aktivieren, wie du benötigst.",
         "runnerContainerError": "„{{label}}“ ist ein macOS-/Windows-Runner – ein Docker-Image benötigt einen Ubuntu-Runner (oder einen benutzerdefinierten/selbst gehosteten).",
         "versionMenu": "{{language}}-Version wählen",
         "versionPlaceholder": "z. B. {{version}}",
@@ -1146,8 +1173,10 @@
         "readFailed": "Lesevorgang fehlgeschlagen",
         "readFailedStatus": "Lesevorgang fehlgeschlagen ({{status}})",
         "rulesetsMissing": "fehlend: {{names}}",
-        "workflowOrgManaged": "Die Organisationsrichtlinie setzt Workflows standardmäßig auf Lesen; die Skeleton-Workflows deklarieren ihre eigenen Berechtigungen"
-      }
+        "workflowOrgManaged": "Die Organisationsrichtlinie setzt Workflows standardmäßig auf Lesen; die Skeleton-Workflows deklarieren ihre eigenen Berechtigungen",
+        "orgActionsPaused": "Das autom. Bewerten ist pausiert, daher ist GitHub Actions absichtlich auf das classroom50-Konfigurations-Repo beschränkt. Deaktiviere die Pause im Abschnitt GitHub Actions oben, um die Standardrichtlinie wiederherzustellen."
+      },
+      "statePaused": "Pausiert"
     },
     "rerun": {
       "title": "Einrichtung erneut ausführen",
@@ -1274,14 +1303,14 @@
       "budgetHardStop": "Hartes Stopp-Budget von 0 $ gesetzt – kostenpflichtige Minuten blockiert.",
       "budgetManage": "Budgets verwalten",
       "budgetNone": "Kein Ausgabenbudget festgelegt.",
-      "confirmBody": "Abgaben von Lernenden werden erst wieder bewertet, wenn du fortsetzt. Das classroom50-Konfigurations-Repository funktioniert weiter. Jederzeit rückgängig zu machen.",
+      "confirmBody": "Studierendenabgaben werden erst wieder bewertet, wenn du fortsetzt. Neue Feedback-Pull-Requests öffnen sich weiterhin, wenn Studierende annehmen, und bestehende zeigen weiterhin die neuesten Pushes an – aber während der Pause erhalten Abgaben keine Autograde- oder Feedback-PR-Statusprüfungen. Das classroom50-Konfigurations-Repo funktioniert weiterhin. Jederzeit umkehrbar.",
       "confirmButton": "Autograding pausieren",
       "confirmTitle": "Autograding für die gesamte Organisation pausieren?",
       "description": "Pausiere das Autograding organisationsweit, um Actions-Ausgaben zu stoppen. Die Kursverwaltung funktioniert weiter.",
       "disabledNotice": "Actions sind für die gesamte Organisation deaktiviert, daher läuft nichts. Führe das Organisations-Setup erneut aus oder aktiviere Actions auf GitHub.",
       "loading": "Status wird geprüft…",
       "openSettings": "Actions-Einstellungen öffnen",
-      "pausedNotice": "Pausiert – Pushes von Lernenden werden nicht bewertet. Das erneute Ausführen des Organisations-Setups setzt nichts fort, bis du dies deaktivierst.",
+      "pausedNotice": "Pausiert – Studierenden-Pushes werden nicht bewertet, sodass Abgaben keine Autograde- oder Feedback-PR-Statusprüfungen erhalten. Neue Feedback-Pull-Requests öffnen sich weiterhin, wenn Studierende annehmen, und bestehende zeigen weiterhin die neuesten Pushes an. Ein erneutes Ausführen der Organisationseinrichtung setzt nicht fort, bis du dies deaktivierst.",
       "statusActive": "Autograding ein",
       "statusDisabled": "Actions aus",
       "statusPaused": "Autograding pausiert",
@@ -1531,7 +1560,8 @@
       "repo": "Dein Repository wird erstellt",
       "access": "Zugriff wird gewährt",
       "setup": "Autograding wird eingerichtet",
-      "membership": "Deine Kurszugehörigkeit wird bestätigt"
+      "membership": "Deine Kurszugehörigkeit wird bestätigt",
+      "feedback": "Feedback-Pull-Request wird geöffnet"
     },
     "progress": {
       "error": "Einrichtung fehlgeschlagen – überprüfe die Schritte",
@@ -1551,7 +1581,45 @@
     "templateErrors": {
       "githubSaid": " GitHub meldete: „{{message}}“.",
       "inOrg": "Die private Vorlage {{owner}}/{{repo}} konnte nicht kopiert werden (HTTP {{status}}).{{detail}} Bitte deine Lehrkraft, das Aufgaben-Setup erneut auszuführen, und nimm die Aufgabe dann erneut an.",
-      "outOfOrg": "Die Vorlage {{owner}}/{{repo}} konnte nicht kopiert werden (HTTP {{status}}).{{detail}} Häufig liegt es daran, dass die Organisation {{owner}} Drittanbieter-Apps einschränkt — bitte deine Lehrkraft, die Classroom-50-App für {{owner}} freizugeben (oder die Vorlage öffentlich zu machen), und nimm die Aufgabe dann erneut an."
+      "outOfOrg": "Die Vorlage {{owner}}/{{repo}} konnte nicht kopiert werden (HTTP {{status}}).{{detail}} Häufig liegt es daran, dass die Organisation {{owner}} Drittanbieter-Apps einschränkt — bitte deine Lehrkraft, die Classroom-50-App für {{owner}} freizugeben (oder die Vorlage öffentlich zu machen), und nimm die Aufgabe dann erneut an.",
+      "orgRepoCreationDenied": "{{org}} erlaubt Mitgliedern möglicherweise nicht, private Repositorys zu erstellen, sodass dein Repository nicht erstellt werden konnte (HTTP {{status}}). Bitte deine Lehrkraft, dies zu aktivieren, und nimm die Aufgabe dann erneut an.",
+      "orgRepoCreationDeniedStep": "{{org}} hat die Erstellung deines Repositorys nicht zugelassen (HTTP {{status}})."
+    },
+    "errors": {
+      "emptyRepoWithTemplate": "Die Aufgabe „{{assignmentSlug}}“ legt sowohl ein leeres Repository als auch eine Vorlage fest, was nicht zulässig ist. Bitte deine Lehrkraft, die Aufgaben-Einrichtung erneut auszuführen.",
+      "founderAccessMismatch": "Dein Repository {{owner}}/{{repo}} wurde erstellt, aber GitHub meldet deinen Zugriff als „{{effective}}“ (Rolle „{{role}}“) statt „{{permission}}“. Bitte deine Lehrkraft, den Zugriff von {{username}} auf „{{permission}}“ zu setzen.",
+      "incoherentMode": "Die Aufgabe „{{slug}}“ hat eine Gruppengröße von {{maxGroupSize}}, ist aber als „{{mode}}“ eingerichtet, sodass ihre veröffentlichten Einstellungen widersprüchlich sind. Bitte deine Lehrkraft, die Aufgaben-Einrichtung erneut auszuführen."
+    },
+    "stepActions": {
+      "access": "Dein Repository {{org}}/{{repo}} wurde erstellt, aber das Hinzufügen von dir ({{username}}) als Mitwirkende·r ist fehlgeschlagen. Meist bedeutet das, dass sich dein GitHub-Benutzername geändert hat oder du {{org}} verlassen hast. Vergewissere dich, dass du Mitglied von {{org}} bist, und verwende dann „Einrichtung erneut ausführen“.",
+      "account": "Dein GitHub-Konto konnte nicht gelesen werden. Melde dich ab und wieder an und nimm die Aufgabe dann erneut an.",
+      "assignment": "Die Aufgabe „{{assignmentSlug}}“ für {{org}}/{{classroom}} konnte nicht geladen werden. Überprüfe den Link oder bitte deine Lehrkraft zu bestätigen, dass die Aufgabe veröffentlicht ist.",
+      "autograder": "Der Autograder für „{{assignmentSlug}}“ konnte nicht aufgelöst werden. Bitte deine Lehrkraft zu bestätigen, dass er veröffentlicht ist, und nimm die Aufgabe dann erneut an.",
+      "membership": "Deine Mitgliedschaft konnte nicht bestätigt werden. Falls deine Organisation Single Sign-On (SSO) verwendet, autorisiere es für diese Organisation (oder öffne diesen Link über dein LMS) und nimm die Aufgabe dann erneut an. Andernfalls bitte deine Lehrkraft, deine Einladung zu bestätigen.",
+      "repo": "{{org}}/{{repo}} konnte nicht erstellt werden. Vergewissere dich, dass du Mitglied von {{org}} bist, und bitte deine Lehrkraft zu prüfen, ob das Vorlagen-Repository der Aufgabe korrekt konfiguriert ist. Nimm die Aufgabe dann erneut an.",
+      "setup": "Dein Repository {{org}}/{{repo}} existiert, aber das Schreiben der Einrichtungsdateien in den Branch „{{branch}}“ ist fehlgeschlagen. Es wird möglicherweise noch initialisiert. Warte eine Minute und verwende dann „Einrichtung erneut ausführen“."
+    },
+    "stepDone": {
+      "access": "Dir wurde Zugriff auf dein Repository gewährt",
+      "account": "Dein GitHub-Konto wurde geprüft",
+      "assignment": "Aufgabe {{assignmentSlug}} gefunden",
+      "autograder": "Autograder aufgelöst",
+      "autograderDisabled": "Das autom. Bewerten ist für diese Aufgabe deaktiviert",
+      "feedback": "Feedback-Pull-Request bereit",
+      "feedbackDeferred": "Der Feedback-Pull-Request konnte jetzt nicht geöffnet werden: Nimm die Aufgabe erneut an, um es zu wiederholen (oder er öffnet sich bei deiner ersten Abgabe, falls das autom. Bewerten aktiviert ist)",
+      "feedbackSkipped": "Kein Feedback-Pull-Request für diese Aufgabe",
+      "membership": "Deine Klassenzimmer-Mitgliedschaft wurde bestätigt",
+      "repo": "{{org}}/{{repo}} erstellt",
+      "repoExists": "Repository existiert bereits: {{org}}/{{repo}}",
+      "repoIncomplete": "Unvollständige Einrichtung gefunden: {{org}}/{{repo}}",
+      "setup": "Autom. Bewerten konfiguriert",
+      "setupSkippedEmptyRepo": "Keine Einrichtung nötig: Diese Aufgabe verwendet ein leeres Repository"
+    },
+    "stepErrors": {
+      "generic": "{{label}} fehlgeschlagen (HTTP {{status}}). {{actions}}",
+      "rateLimited": "{{label}} hat GitHubs Ratenbegrenzung erreicht. Warte eine Minute und versuche dann erneut, die Aufgabe anzunehmen.",
+      "unauthorized": "{{label}} ist fehlgeschlagen, weil deine GitHub-Sitzung abgelaufen ist (HTTP 401). Melde dich ab und wieder an und nimm die Aufgabe dann erneut an.",
+      "unexpected": "{{label}} ist unerwartet fehlgeschlagen. Dies kann gefahrlos erneut versucht werden."
     }
   },
   "submissions": {
@@ -1722,7 +1790,7 @@
       "errorTitle": "Es konnte nicht nach einem Feedback-PR gesucht werden",
       "emptyTitle": "Noch kein Feedback-Pull-Request",
       "openRepoPrs": "Repository-PRs öffnen",
-      "emptyBody": "Für <repo>{{repo}}</repo> wurde noch kein Feedback-PR geöffnet. Er wird vom Autograde-Workflow der Aufgabe nach einer bewerteten Abgabe erstellt – wenn die lernende Person noch nichts abgegeben hat (oder der Feedback-PR für die Aufgabe deaktiviert ist), gibt es noch nichts zu überprüfen."
+      "emptyBody": "Für <repo>{{repo}}</repo> wurde noch kein Feedback-PR geöffnet. Er wird geöffnet, wenn die·der Studierende die Aufgabe annimmt – wenn es also nichts zu überprüfen gibt, hat die·der Studierende möglicherweise noch nicht angenommen, bei der Aufgabe ist der Feedback-PR möglicherweise deaktiviert, oder das Öffnen wurde aufgeschoben (es wird beim erneuten Annehmen oder bei der ersten bewerteten Abgabe wiederholt)."
     },
     "rowRegrade": {
       "title": "Diese Abgabe neu bewerten",
@@ -1744,7 +1812,7 @@
       "modeGroup": "Gruppe",
       "modeIndividual": "Einzeln",
       "loadError": "Deine Abgaben konnten nicht geladen werden.",
-      "noGradedYet": "Noch keine bewertete Abgabe. Lade oben deine Dateien hoch oder pushe von der Kommandozeile in dein Aufgaben-Repository – der Autograder veröffentlicht dein Ergebnis hier.",
+      "noGradedYet": "Noch keine bewertete Abgabe. Pushe von der Kommandozeile aus zu deinem Aufgaben-Repository, und der Autograder veröffentlicht dein Ergebnis hier.",
       "openMyRepo": "Mein Repository öffnen",
       "releasesIntro": "Jede Abgabe öffnet ihr bewertetes Release auf GitHub, mit deiner Bewertung und den Ergebnissen pro Test.",
       "fallbackTitle": "Abgabe",
@@ -1755,8 +1823,8 @@
         "copySubmit": "Abgabe-Befehl kopieren",
         "step1": "Klone dein Aufgaben-Repository (einmalig):",
         "step2": "Reiche deine Arbeit aus dem Repository heraus zur Bewertung ein:",
-        "title": "Lieber die Kommandozeile?",
-        "intro": "Du kannst auch über ein Terminal abgeben, statt oben hochzuladen."
+        "title": "Über die Kommandozeile einreichen",
+        "intro": "Reiche deine Arbeit über ein Terminal zur Bewertung ein."
       },
       "upload": {
         "addFiles": "Dateien hinzufügen",
@@ -1806,6 +1874,43 @@
     "live": {
       "incomplete_one": "{{count}} Repository konnte nicht gelesen werden, daher ist der Live-Abgabestatus möglicherweise unvollständig. Versuche es erneut oder führe „Abgaben jetzt synchronisieren“ aus.",
       "incomplete_other": "{{count}} Repositories konnten nicht gelesen werden, daher ist der Live-Abgabestatus möglicherweise unvollständig. Versuche es erneut oder führe „Abgaben jetzt synchronisieren“ aus."
+    },
+    "openAllPrs": {
+      "blockedHint": "Ihr Feedback-Branch verweist auf den falschen Commit, sodass das Öffnen des PR ein leeres Diff zeigen würde. Ein·e Organisations-Admin muss jeden Feedback-Branch löschen, bevor diese Aktion erneut ausgeführt wird – ein bloßes Wiederholen behebt es nicht.",
+      "blockedTitle": "Diese Repositorys benötigen eine·n Organisations-Admin:",
+      "confirmBody_one": "Dies öffnet einen Feedback-PR für das <b>{{count}}</b> Aufgaben-Repository für <b>{{name}}</b>, das noch keinen hat. Repos, die bereits einen Feedback-PR haben, bleiben unberührt.",
+      "confirmBody_other": "Dies öffnet einen Feedback-PR für jedes der <b>{{count}}</b> Aufgaben-Repositorys für <b>{{name}}</b>, die noch keinen haben. Repos, die bereits einen Feedback-PR haben, bleiben unberührt.",
+      "confirmHint": "Dies läuft in deinem Browser, ein Repository nach dem anderen, und kann bei einer großen Klasse eine Weile dauern. Lass diesen Tab geöffnet, bis es abgeschlossen ist.",
+      "confirmLabel_one": "PR öffnen",
+      "confirmLabel_other": "PRs öffnen",
+      "failedHint": "Dies ist oft ein vorübergehender GitHub-Fehler – führe die Aktion erneut aus, um nur die Repositorys zu wiederholen, denen noch ein PR fehlt.",
+      "failedTitle": "Diese Repositorys konnten nicht verarbeitet werden:",
+      "menuLabel": "Alle Feedback-PRs öffnen",
+      "running": "Wird geöffnet… {{done}} von {{total}}",
+      "summaryBlocked_one": "{{count}} Repository blockiert (benötigt eine·n Organisations-Admin)",
+      "summaryBlocked_other": "{{count}} Repositorys blockiert (benötigen eine·n Organisations-Admin)",
+      "summaryExisted_one": "{{count}} Repository hatte bereits einen",
+      "summaryExisted_other": "{{count}} Repositorys hatten bereits einen",
+      "summaryFailed_one": "{{count}} Repository fehlgeschlagen",
+      "summaryFailed_other": "{{count}} Repositorys fehlgeschlagen",
+      "summaryLead": "Verarbeitung von <b>{{total}}</b> Repositorys abgeschlossen.",
+      "summaryOpened_one": "{{count}} Feedback-PR geöffnet",
+      "summaryOpened_other": "{{count}} Feedback-PRs geöffnet",
+      "summaryUnsupported_one": "{{count}} Repository übersprungen (keine Aufgaben-Baseline)",
+      "summaryUnsupported_other": "{{count}} Repositorys übersprungen (keine Aufgaben-Baseline)",
+      "title": "Feedback-PRs für jedes Repo öffnen",
+      "titleEmptyRoster": "Füge zuerst Studierende zum Verzeichnis hinzu"
+    },
+    "repairPr": {
+      "alreadyExists": "Für {{repo}} existiert bereits ein Feedback-PR.",
+      "baseMismatch": "Der Feedback-Branch dieses Repositorys verweist auf den falschen Commit, sodass das Öffnen des PR hier ein leeres Diff zeigen würde. Ein·e Organisations-Admin muss den Feedback-Branch löschen, bevor er korrekt neu erstellt werden kann. Ein Wiederholen behebt dies nicht.",
+      "created": "Feedback-PR für {{repo}} geöffnet.",
+      "failed": "Der Feedback-PR konnte nicht geöffnet werden: {{reason}}",
+      "hint": "Wenn die·der Studierende angenommen hat, das Öffnen des PR aber fehlgeschlagen ist (ein GitHub-Ausfall oder ein vorübergehender Fehler), kannst du ihn jetzt öffnen.",
+      "noBaseline": "Dieses Repository hat keine Aufgaben-Baseline, sodass dafür kein Feedback-PR geöffnet werden kann (zum Beispiel bei einer Leeres-Repo-Aufgabe). Nichts zu reparieren.",
+      "repair": "Feedback-PR reparieren",
+      "repairing": "Wird repariert…",
+      "repoNotFound": "Das Repository {{repo}} konnte nicht gefunden werden – die·der Studierende hat möglicherweise noch nicht angenommen."
     }
   },
   "orgMembers": {
@@ -1910,7 +2015,9 @@
     "noUsernameWithId": "<missing>kein GitHub-Benutzername</missing> <meta>· ID {{id}}</meta>",
     "notMember": "{{label}} steht auf einem Kursraum-Roster, ist aber <emphasis>kein Organisationsmitglied</emphasis>. Lade die Person ein, um ihren Zugriff wiederherzustellen. Die Einladung wird per ID an ihr GitHub-Konto gesendet und funktioniert daher auch, wenn sich der Benutzername geändert hat.",
     "subtitle": "Alle in der GitHub-Organisation <orgLink>{{org}}</orgLink> und die Kursräume, denen sie angehören.",
-    "usernameWithId": "<username>@{{username}}</username> <meta>· ID {{id}}</meta>"
+    "usernameWithId": "<username>@{{username}}</username> <meta>· ID {{id}}</meta>",
+    "inviteMalformedId": "{{who}} kann nicht eingeladen werden: „{{githubId}}“ ist keine gültige GitHub-ID. Korrigiere die Zelle github_id in roster.csv.",
+    "inviteMissingId": "{{who}} kann nicht eingeladen werden: keine GitHub-ID hinterlegt."
   },
   "components": {
     "avatar": {
@@ -1933,6 +2040,11 @@
         "addStudents": "Lernende hinzufügen",
         "empty": "Dieser Kursraum hat noch keine Lernenden. Der Annahme-Link einer Aufgabe funktioniert nur für Lernende, die Mitglieder der Organisation <org>{{org}}</org> sind, füge daher Lernende hinzu und schreibe sie ein, bevor du ihn teilst.",
         "hasRows": "Es sind noch keine Lernenden der Organisation <org>{{org}}</org> beigetreten. Der Annahme-Link einer Aufgabe funktioniert nur für Lernende, die Organisationsmitglieder sind, daher müssen eingeladene Lernende zuerst ihre Einladung annehmen."
+      },
+      "orgRepoCreation": {
+        "action": "Organisationseinstellungen",
+        "master": "<org>{{org}}</org> erlaubt Mitgliedern nicht, Repositorys zu erstellen, sodass keine·r Studierende·r eine Aufgabe annehmen kann. Führe die Organisationseinrichtung erneut aus oder erlaube die Erstellung privater (nicht öffentlicher) Repositorys unter <memberPrivileges>Mitgliederberechtigungen</memberPrivileges>. Eine Enterprise-Richtlinie kann diese Einstellung überschreiben.",
+        "private": "<org>{{org}}</org> erlaubt Mitgliedern nicht, private Repositorys zu erstellen, sodass keine·r Studierende·r eine Aufgabe annehmen kann. Führe die Organisationseinrichtung erneut aus oder erlaube die Erstellung privater (nicht öffentlicher) Repositorys unter <memberPrivileges>Mitgliederberechtigungen</memberPrivileges>. Eine Enterprise-Richtlinie kann diese Einstellung überschreiben."
       }
     },
     "confirmModal": {
@@ -2197,5 +2309,17 @@
       "heading": "Einstellungen",
       "subheading": "Einstellungen für diesen Browser. Nichts hiervon wird mit deinen Organisationen geteilt."
     }
+  },
+  "pagesErrors": {
+    "assignmentNotInManifest": "Die Aufgabe „{{assignmentSlug}}“ ist nicht in den veröffentlichten Aufgaben dieses Klassenzimmers enthalten. Überprüfe den Link oder bitte deine Lehrkraft, die Aufgabe zu veröffentlichen.",
+    "autograderLabel": "Autograder „{{autograderName}}“",
+    "autograderMalformed": "Der Autograder „{{autograderName}}“ enthält möglicherweise fehlerhaftes YAML. Bitte deine Lehrkraft, die Datei im Konfigurations-Repo zu prüfen.",
+    "classroomFetchFailed": "Die veröffentlichten Dateien dieses Klassenzimmers konnten nicht geladen werden (HTTP {{status}}). Bitte deine Lehrkraft zu bestätigen, dass das Klassenzimmer veröffentlicht ist, und versuche es dann erneut.",
+    "classroomNotPublished": "Dieses Klassenzimmer ist noch nicht veröffentlicht. Es existiert möglicherweise nicht, oder der Veröffentlichungs-Workflow wurde noch nicht ausgeführt. Bitte deine Lehrkraft, es zu veröffentlichen, und versuche es dann erneut.",
+    "deployInFlight": "Die veröffentlichten Dateien des Klassenzimmers werden möglicherweise noch bereitgestellt. Warte eine Minute und versuche es dann erneut.",
+    "fetchFailed": "{{label}} konnte nicht geladen werden (HTTP {{status}}). Bitte deine Lehrkraft zu bestätigen, dass das Klassenzimmer veröffentlicht ist, und versuche es dann erneut.",
+    "manifestInvalidShape": "Die veröffentlichte Aufgabenliste dieses Klassenzimmers ist fehlerhaft. Bitte deine Lehrkraft, die Classroom-50-Konfiguration zu prüfen.",
+    "manifestVersionUnsupported": "Dieses Klassenzimmer verwendet ein neueres Aufgabenformat (v{{version}}), als diese Version von Classroom 50 unterstützt. Lade die Seite neu oder bitte deine Lehrkraft, Classroom 50 zu aktualisieren.",
+    "notPublished": "{{label}} ist noch nicht veröffentlicht. Bitte deine Lehrkraft zu bestätigen, dass die Datei im Konfigurations-Repo vorhanden ist und dass der Veröffentlichungs-Workflow ausgeführt wurde."
   }
 }
