@@ -220,8 +220,6 @@
     "chooseFile": "選擇檔案",
     "supportedFormats": "支援格式：.csv、.txt",
     "fileLabel": "檔案：{{fileName}}",
-    "usernamesFound_one": "找到 {{count}} 個可匯入的 GitHub 使用者名稱。",
-    "usernamesFound_other": "找到 {{count}} 個可匯入的 GitHub 使用者名稱。",
     "githubUsernameColumn": "GitHub 使用者名稱",
     "noValidUsernames": "此檔案中找不到有效的 GitHub 使用者名稱。",
     "progressProcessed": "已處理 {{processed}} / {{total}}",
@@ -288,7 +286,8 @@
       "confirmCancelTitle_other": "要取消 {{count}} 個邀請嗎？",
       "memberCount_one": "{{count}} 位成員",
       "memberCount_other": "{{count}} 位成員",
-      "noneSelectable": "這裡沒有可選取的項目——批次操作（退出註冊、邀請）僅適用於學生。教職人員（老師、首席助教與助教）在課程設定中管理。"
+      "noneSelectable": "這裡沒有可選取的項目——批次操作（退出註冊、邀請）僅適用於學生。教職人員（老師、首席助教與助教）在課程設定中管理。",
+      "malformedInviteId": "roster.csv 中的 github_id 無效。"
     },
     "classroomTeamLabel": "課程團隊",
     "confirmResendBody": "要重新傳送待處理的組織邀請給 {{label}} 嗎？他們目前的邀請會被取消，並為 {{org}} 傳送一個新邀請。",
@@ -391,19 +390,13 @@
     "needsAttentionNotInOrgHelp": "{{label}} 在名冊上，但不是組織成員。邀請他們加入組織以進行註冊。",
     "noChangesToApply": "沒有可套用的變更",
     "noValidEmails": "此檔案中找不到有效的電子郵件地址。請上傳每行一個電子郵件地址的 .txt 或 .csv 檔案。",
-    "preflightAllMembersNote": "此檔案中的每個人都已是組織成員，因此不會傳送任何邀請。",
-    "preflightChecking": "正在檢查目前的成員資格…",
     "preflightConfirmRoleChanges_one": "我確認將 {{count}} 位成員移至上方所列的不同團隊。",
     "preflightConfirmRoleChanges_other": "我確認將 {{count}} 位成員移至上方所列的不同團隊。",
     "preflightConfirmTitle": "處理前請確認",
     "preflightEnrollOwnerDetail": "以老師身分註冊（組織擁有者）",
-    "preflightEnrollTitle": "將被註冊",
     "preflightFailed": "無法檢查目前的成員資格：{{message}}。請重試。",
-    "preflightInviteTitle": "將被邀請",
-    "preflightNoActionTitle": "無需操作",
     "preflightRoleChangeDetail": "{{from}} → {{to}}",
     "preflightRoleChangeOwnerNotice": "一項或多項角色變更會將成員升級為老師，使其成為擁有完全控制權的組織擁有者。僅對你信任賦予擁有者存取權的人確認。",
-    "preflightRoleChangeTitle": "角色變更（需要確認）",
     "processRoleChanges": "正在套用角色變更…",
     "reinvite": "重新邀請",
     "resultInvited": "已傳送邀請",
@@ -460,7 +453,34 @@
     "headTaCount_other": "{{count}} 位首席助教",
     "roleHeadTa": "首席助教",
     "unenrollBody": "這會將學生 <label>{{label}}</label> 從 <org>{{org}}</org> {{classroom}} 課程中移除。學生的作業儲存庫不會被刪除。",
-    "importMergeNotice": "匯入會加入你現有的名冊——已註冊的學生會被略過，且不會移除任何人。你可以安心地分批匯入。"
+    "emailInviteInvalidBlocked_one": "{{count}} 行不是有效的電子郵件地址。請修正後重新上傳，或切換上方的格式。",
+    "emailInviteInvalidBlocked_other": "{{count}} 行不是有效的電子郵件地址。請修正後重新上傳，或切換上方的格式。",
+    "emailInviteInvalidRow": "第 {{line}} 行：{{value}}",
+    "firstNameColumn": "名字",
+    "inviteRosterMalformedId": "無法邀請 {{username}}：「{{githubId}}」不是有效的 GitHub id。請修正 roster.csv 中的 github_id 儲存格。",
+    "lastNameColumn": "姓氏",
+    "metadataWritebackFailed": "匯入已完成，但將更新後的學生資料寫入 roster.csv 時失敗。請重新執行匯入以重試。",
+    "metadataWritebackMalformed": "匯入已完成，但因 roster.csv 格式有誤而無法更新學生資料。請修正名冊上標示的行，然後重新檢查。",
+    "preflightConfirmMetadata_one": "我確認依上列更新 {{count}} 位學生的資料。",
+    "preflightConfirmMetadata_other": "我確認依上列更新 {{count}} 位學生的資料。",
+    "preflightMetadataConfirmTitle": "確認更新學生資料",
+    "preflightMetadataEmpty": "（空白）",
+    "preflightMetadataReviewHint_one": "將更新 {{count}} 位學生的資料。請在確認前檢視下方標示的儲存格（將滑鼠移上以查看詳情）。",
+    "preflightMetadataReviewHint_other": "將更新 {{count}} 位學生的資料。請在確認前檢視下方標示的儲存格（將滑鼠移上以查看詳情）。",
+    "preflightRoleChangeMetadataNotice": "其中部分成員也有更新過的資料（如上所示），將與團隊變更一併儲存。",
+    "resendMalformedId": "無法重新傳送給 {{username}} 的邀請：「{{githubId}}」不是有效的 GitHub id。請修正 roster.csv 中的 github_id 儲存格。",
+    "rolePreviousHint": "原為 {{role}}",
+    "summaryHideDetails": "隱藏詳情",
+    "summaryNoChanges": "此檔案與你的名冊一致——無需新增或更新。",
+    "summaryViewDetails": "檢視詳情",
+    "summary_add_one": "將新增",
+    "summary_add_other": "將新增",
+    "summary_skip_one": "已是最新",
+    "summary_skip_other": "已是最新",
+    "summary_update_one": "將更新",
+    "summary_update_other": "將更新",
+    "updateMetadata_one": "更新 {{count}} 位學生",
+    "updateMetadata_other": "更新 {{count}} 位學生"
   },
   "language": {
     "baseName": "英文（基礎）",
@@ -528,10 +548,14 @@
     "emptyBody": "你所屬且使用 Classroom 50 的組織會顯示在這裡。如果你預期會有一個，請老師確認你已被加入，然後重新整理。",
     "missingNotice": {
       "title": "沒看到您的組織嗎？",
-      "body": "Classroom 50 只能顯示您在登入時明確授予存取權的 GitHub 組織。如果缺少某個組織，您可能需要更新您的 OAuth 權限。",
+      "body": "GitHub 只會列出你已授予 Classroom 50 存取權限的組織——光有 GitHub Education 帳戶並不足夠。",
       "manageOauth": "管理 GitHub OAuth 存取權",
-      "refreshing": "正在重新整理…",
-      "refresh": "重新整理清單"
+      "reauthorizeHelp": "完全沒有列出任何組織？請重新授權——在你加入之前發行的權杖無法看到它們。你尚未接受的邀請則會顯示在待處理邀請下。",
+      "steps": {
+        "grant": "在你的 GitHub OAuth 設定中，選擇組織旁的「Grant」。",
+        "grantHelp": "如果該組織限制第三方應用程式，你會看到「Request access」，且需由組織擁有者核准。若使用 SAML 單一登入，請在同一頁面使用「Configure SSO」。",
+        "refresh": "回到此處並重新整理清單。"
+      }
     },
     "card": {
       "planTitlePaid": "GitHub 方案 — Classroom 50 可在 Team 和 Enterprise 方案上設定",
@@ -562,7 +586,10 @@
       },
       "notSupportedBadge": "不支援",
       "pickPrompt_one": "可設定的組織（{{count}}）",
-      "pickPrompt_other": "可設定的組織（{{count}}）"
+      "pickPrompt_other": "可設定的組織（{{count}}）",
+      "newBadge": "新增",
+      "refresh": "重新整理",
+      "refreshing": "重新整理中…"
     },
     "noResults": {
       "body": "沒有組織符合「{{query}}」。",
@@ -718,7 +745,7 @@
         "envHostedHelp": "在 GitHub Actions runner 上評分。",
         "envLegend": "執行環境",
         "languagesHeading": "語言版本",
-        "languagesTip": "選擇一個版本以安裝該工具鏈（例如 Node 26、Java 25），或自行輸入。留空則略過。在託管 runner 上，Python 留空時預設為 3.12。你可以視需要啟用任意多個工具鏈。",
+        "languagesTip": "選擇一個版本以安裝該工具鏈（例如 Node 26、Java 25），或輸入自訂版本。留空則略過。在 GitHub 託管的執行器上，Python 留空時預設為 3.14。你可以視需要啟用任意數量的工具鏈。",
         "runnerContainerError": "「{{label}}」是 macOS/Windows runner —— Docker 映像檔需要 Ubuntu（或自訂／自架）runner。",
         "versionMenu": "選擇 {{language}} 版本",
         "versionPlaceholder": "例如：{{version}}",
@@ -1146,8 +1173,10 @@
         "readFailed": "讀取失敗",
         "readFailedStatus": "讀取失敗（{{status}}）",
         "rulesetsMissing": "缺少：{{names}}",
-        "workflowOrgManaged": "組織政策將工作流程預設為唯讀；骨架工作流程會自行宣告其權限"
-      }
+        "workflowOrgManaged": "組織政策將工作流程預設為唯讀；骨架工作流程會自行宣告其權限",
+        "orgActionsPaused": "自動評分已暫停，因此 GitHub Actions 被刻意限制在 classroom50 設定儲存庫。在上方的 GitHub Actions 區段關閉暫停，即可還原標準原則。"
+      },
+      "statePaused": "已暫停"
     },
     "rerun": {
       "title": "重新執行設定",
@@ -1274,14 +1303,14 @@
       "budgetHardStop": "已設定 $0 硬性停止預算——付費分鐘數已封鎖。",
       "budgetManage": "管理預算",
       "budgetNone": "未設定支出預算。",
-      "confirmBody": "在你恢復之前，學生的提交不會被評分。classroom50 設定儲存庫仍能繼續運作。隨時可還原。",
+      "confirmBody": "在你恢復之前，學生繳交的作業不會被評分。學生接受作業時仍會開啟新的回饋拉取請求，現有的也會持續顯示最新的推送——但暫停期間繳交的作業不會有自動評分或回饋 PR 的狀態檢查。classroom50 設定儲存庫仍可正常運作。可隨時還原。",
       "confirmButton": "暫停自動評分",
       "confirmTitle": "要為整個組織暫停自動評分嗎？",
       "description": "在整個組織範圍暫停自動評分以停止 Actions 支出。課程管理仍可繼續運作。",
       "disabledNotice": "整個組織的 Actions 都已關閉，因此不會執行任何內容。請重新執行組織設定，或在 GitHub 上啟用 Actions。",
       "loading": "檢查狀態中…",
       "openSettings": "開啟 Actions 設定",
-      "pausedNotice": "已暫停——學生的推送不會被評分。除非你先關閉此項，否則重新執行組織設定也不會恢復。",
+      "pausedNotice": "已暫停——學生的推送不會被評分，因此繳交的作業不會有自動評分或回饋 PR 的狀態檢查。學生接受作業時仍會開啟新的回饋拉取請求，現有的也會持續顯示最新的推送。在你關閉此選項前，重新執行組織設定不會恢復評分。",
       "statusActive": "自動評分開啟",
       "statusDisabled": "Actions 關閉",
       "statusPaused": "自動評分已暫停",
@@ -1531,7 +1560,8 @@
       "repo": "正在建立你的儲存庫",
       "access": "正在授予你存取權",
       "setup": "正在設定自動評分",
-      "membership": "正在確認你的課程成員資格"
+      "membership": "正在確認你的課程成員資格",
+      "feedback": "正在開啟回饋拉取請求"
     },
     "progress": {
       "error": "設定失敗——請檢視各步驟",
@@ -1551,7 +1581,45 @@
     "templateErrors": {
       "githubSaid": " GitHub 訊息：「{{message}}」。",
       "inOrg": "無法複製私有範本 {{owner}}/{{repo}}（HTTP {{status}}）。{{detail}}請老師重新執行作業設定，然後再接受一次。",
-      "outOfOrg": "無法複製範本 {{owner}}/{{repo}}（HTTP {{status}}）。{{detail}}這通常是因為 {{owner}} 組織限制了第三方應用程式——請老師為 {{owner}} 核准 Classroom 50 應用程式（或將範本設為公開），然後再接受一次。"
+      "outOfOrg": "無法複製範本 {{owner}}/{{repo}}（HTTP {{status}}）。{{detail}}這通常是因為 {{owner}} 組織限制了第三方應用程式——請老師為 {{owner}} 核准 Classroom 50 應用程式（或將範本設為公開），然後再接受一次。",
+      "orgRepoCreationDenied": "{{org}} 可能不允許成員建立私有儲存庫，因此無法建立你的儲存庫（HTTP {{status}}）。請你的老師啟用此功能，然後再次接受作業。",
+      "orgRepoCreationDeniedStep": "{{org}} 不允許建立你的儲存庫（HTTP {{status}}）。"
+    },
+    "errors": {
+      "emptyRepoWithTemplate": "作業「{{assignmentSlug}}」同時設定了空白儲存庫與範本，這是無效的組合。請你的老師重新執行作業設定。",
+      "founderAccessMismatch": "你的儲存庫 {{owner}}/{{repo}} 已建立，但 GitHub 回報你的存取權限為「{{effective}}」（角色「{{role}}」），而非「{{permission}}」。請你的老師將 {{username}} 的存取權限設為「{{permission}}」。",
+      "incoherentMode": "作業「{{slug}}」的群組人數為 {{maxGroupSize}}，卻被設定為「{{mode}}」，因此其發佈設定不一致。請你的老師重新執行作業設定。"
+    },
+    "stepActions": {
+      "access": "你的儲存庫 {{org}}/{{repo}} 已建立，但將你（{{username}}）加入為協作者時失敗。這通常表示你的 GitHub 使用者名稱已變更，或你已離開 {{org}}。請確認你是 {{org}} 的成員，然後使用「重新執行設定」。",
+      "account": "無法讀取你的 GitHub 帳戶。請登出後重新登入，然後再次接受作業。",
+      "assignment": "無法為 {{org}}/{{classroom}} 載入作業「{{assignmentSlug}}」。請檢查連結，或請你的老師確認該作業已發佈。",
+      "autograder": "無法解析「{{assignmentSlug}}」的自動評分器。請你的老師確認它已發佈，然後再次接受作業。",
+      "membership": "無法確認你的成員身分。如果你的組織使用單一登入（SSO），請為此組織授權 SSO（或從你的 LMS 開啟此連結），然後再次接受作業。否則請你的老師確認你的邀請。",
+      "repo": "無法建立 {{org}}/{{repo}}。請確認你是 {{org}} 的成員，並請你的老師確認該作業的範本儲存庫設定正確，然後再次接受作業。",
+      "setup": "你的儲存庫 {{org}}/{{repo}} 已存在，但將設定檔寫入分支「{{branch}}」時失敗。它可能仍在初始化中。請稍待片刻，然後使用「重新執行設定」。"
+    },
+    "stepDone": {
+      "access": "已授予你對儲存庫的存取權限",
+      "account": "已檢查你的 GitHub 帳戶",
+      "assignment": "已找到作業 {{assignmentSlug}}",
+      "autograder": "已解析自動評分器",
+      "autograderDisabled": "此作業已停用自動評分",
+      "feedback": "回饋拉取請求已就緒",
+      "feedbackDeferred": "目前無法開啟回饋拉取請求：再次接受作業以重試（若已啟用自動評分，它也會在你第一次繳交時開啟）",
+      "feedbackSkipped": "此作業沒有回饋拉取請求",
+      "membership": "已確認你的課程成員身分",
+      "repo": "已建立 {{org}}/{{repo}}",
+      "repoExists": "儲存庫已存在：{{org}}/{{repo}}",
+      "repoIncomplete": "發現未完成的設定：{{org}}/{{repo}}",
+      "setup": "已設定自動評分",
+      "setupSkippedEmptyRepo": "無需設定：此作業使用空白儲存庫"
+    },
+    "stepErrors": {
+      "generic": "{{label}} 失敗（HTTP {{status}}）。{{actions}}",
+      "rateLimited": "{{label}} 觸及 GitHub 的速率限制。請稍待一分鐘，然後再次嘗試接受作業。",
+      "unauthorized": "{{label}} 失敗，因為你的 GitHub 工作階段已過期（HTTP 401）。請登出後重新登入，然後再次接受作業。",
+      "unexpected": "{{label}} 意外失敗。可以安全地重試。"
     }
   },
   "submissions": {
@@ -1722,7 +1790,7 @@
       "errorTitle": "無法檢查是否有回饋 PR",
       "emptyTitle": "尚無回饋合併請求",
       "openRepoPrs": "開啟儲存庫的 PR",
-      "emptyBody": "尚未為 <repo>{{repo}}</repo> 開啟回饋 PR。它是在評分過的提交之後，由作業的自動評分工作流程建立——若學生尚未提交（或此作業已停用回饋 PR），則目前沒有可審閱的內容。"
+      "emptyBody": "尚未為 <repo>{{repo}}</repo> 開啟回饋 PR。它會在學生接受作業時開啟——因此若沒有可審閱的內容，可能是學生尚未接受、該作業已停用回饋 PR，或開啟被延後（會在重新接受時或第一次評分繳交時重試）。"
     },
     "rowRegrade": {
       "title": "重新評分此繳交",
@@ -1744,7 +1812,7 @@
       "modeGroup": "組別",
       "modeIndividual": "個人",
       "loadError": "無法載入你的繳交內容。",
-      "noGradedYet": "尚無已評分的提交。請在上方上傳你的檔案，或從命令列推送到你的作業儲存庫——自動評分程式會在此發佈你的結果。",
+      "noGradedYet": "尚無已評分的繳交。請從命令列推送到你的作業儲存庫，自動評分器會在此發佈你的結果。",
       "openMyRepo": "開啟我的儲存庫",
       "releasesIntro": "每份繳交都會開啟其在 GitHub 上的已評分發行版，內含你的分數與各測試的結果。",
       "fallbackTitle": "繳交",
@@ -1755,8 +1823,8 @@
         "copySubmit": "複製繳交指令",
         "step1": "複製（clone）你的作業儲存庫（僅需一次）：",
         "step2": "在儲存庫內，繳交你的作品以進行評分：",
-        "title": "偏好使用命令列？",
-        "intro": "你也可以從終端機提交，而不透過上方上傳。"
+        "title": "從命令列繳交",
+        "intro": "從終端機繳交你的作業以進行評分。"
       },
       "upload": {
         "addFiles": "新增檔案",
@@ -1806,6 +1874,43 @@
     "live": {
       "incomplete_one": "有 {{count}} 個儲存庫無法讀取，因此即時提交狀態可能不完整。請重試，或執行「立即同步提交」。",
       "incomplete_other": "有 {{count}} 個儲存庫無法讀取，因此即時提交狀態可能不完整。請重試，或執行「立即同步提交」。"
+    },
+    "openAllPrs": {
+      "blockedHint": "它們的回饋分支指向錯誤的提交，因此開啟 PR 會顯示空白差異。組織管理員必須先刪除每個回饋分支，才能重新執行此操作——僅靠重試無法修正。",
+      "blockedTitle": "這些儲存庫需要組織管理員處理：",
+      "confirmBody_one": "這會在 <b>{{name}}</b> 尚未擁有回饋 PR 的 <b>{{count}}</b> 個作業儲存庫上開啟回饋 PR。已擁有回饋 PR 的儲存庫不會受影響。",
+      "confirmBody_other": "這會在 <b>{{name}}</b> 尚未擁有回饋 PR 的 <b>{{count}}</b> 個作業儲存庫上各開啟一個回饋 PR。已擁有回饋 PR 的儲存庫不會受影響。",
+      "confirmHint": "此操作在你的瀏覽器中執行，一次處理一個儲存庫，因此在大型班級中可能需要一段時間。請保持此分頁開啟直到完成。",
+      "confirmLabel_one": "開啟 PR",
+      "confirmLabel_other": "開啟 PR",
+      "failedHint": "這通常是暫時性的 GitHub 錯誤——再次執行此操作，只會重試仍缺少 PR 的儲存庫。",
+      "failedTitle": "無法處理這些儲存庫：",
+      "menuLabel": "開啟所有回饋 PR",
+      "running": "開啟中… {{total}} 個中的第 {{done}} 個",
+      "summaryBlocked_one": "{{count}} 個儲存庫被封鎖（需要組織管理員）",
+      "summaryBlocked_other": "{{count}} 個儲存庫被封鎖（需要組織管理員）",
+      "summaryExisted_one": "{{count}} 個儲存庫已有一個",
+      "summaryExisted_other": "{{count}} 個儲存庫已有一個",
+      "summaryFailed_one": "{{count}} 個儲存庫失敗",
+      "summaryFailed_other": "{{count}} 個儲存庫失敗",
+      "summaryLead": "已完成處理 <b>{{total}}</b> 個儲存庫。",
+      "summaryOpened_one": "已開啟 {{count}} 個回饋 PR",
+      "summaryOpened_other": "已開啟 {{count}} 個回饋 PR",
+      "summaryUnsupported_one": "已略過 {{count}} 個儲存庫（無作業基準）",
+      "summaryUnsupported_other": "已略過 {{count}} 個儲存庫（無作業基準）",
+      "title": "為每個儲存庫開啟回饋 PR",
+      "titleEmptyRoster": "請先將學生加入名冊"
+    },
+    "repairPr": {
+      "alreadyExists": "{{repo}} 已存在回饋 PR。",
+      "baseMismatch": "此儲存庫的回饋分支指向錯誤的提交，因此在此開啟 PR 會顯示空白差異。組織管理員必須先刪除該回饋分支，才能正確重新建立。重新執行無法修正此問題。",
+      "created": "已為 {{repo}} 開啟回饋 PR。",
+      "failed": "無法開啟回饋 PR：{{reason}}",
+      "hint": "如果學生已接受作業，但開啟 PR 失敗（GitHub 中斷或暫時性錯誤），你現在可以開啟它。",
+      "noBaseline": "此儲存庫沒有作業基準，因此無法為其開啟回饋 PR（例如空白儲存庫作業）。無需修復。",
+      "repair": "修復回饋 PR",
+      "repairing": "修復中…",
+      "repoNotFound": "找不到儲存庫 {{repo}}——該學生可能尚未接受作業。"
     }
   },
   "orgMembers": {
@@ -1910,7 +2015,9 @@
     "noUsernameWithId": "<missing>無 GitHub 使用者名稱</missing> <meta>· id {{id}}</meta>",
     "notMember": "{{label}} 在某課程名冊上，但<emphasis>不是組織成員</emphasis>。邀請他們以恢復其存取權限。邀請會依 id 送到他們的 GitHub 帳戶，因此即使使用者名稱改變仍然有效。",
     "subtitle": "<orgLink>{{org}}</orgLink> GitHub 組織中的每個人，以及他們所屬的課程。",
-    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>"
+    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
+    "inviteMalformedId": "無法邀請 {{who}}：「{{githubId}}」不是有效的 GitHub id。請修正 roster.csv 中的 github_id 儲存格。",
+    "inviteMissingId": "無法邀請 {{who}}：紀錄中沒有 GitHub id。"
   },
   "components": {
     "avatar": {
@@ -1933,6 +2040,11 @@
         "addStudents": "新增學生",
         "empty": "這個課程還沒有學生。作業的領取連結只對 <org>{{org}}</org> 組織的成員有效，因此請先新增並註冊學生再分享。",
         "hasRows": "還沒有學生加入 <org>{{org}}</org> 組織。作業的領取連結只對組織成員有效，因此受邀學生必須先接受邀請。"
+      },
+      "orgRepoCreation": {
+        "action": "組織設定",
+        "master": "<org>{{org}}</org> 不允許成員建立儲存庫，因此沒有任何學生能接受作業。請重新執行組織設定，或在 <memberPrivileges>成員權限</memberPrivileges> 下允許建立私有（而非公開）儲存庫。企業原則可能會覆寫此設定。",
+        "private": "<org>{{org}}</org> 不允許成員建立私有儲存庫，因此沒有任何學生能接受作業。請重新執行組織設定，或在 <memberPrivileges>成員權限</memberPrivileges> 下允許建立私有（而非公開）儲存庫。企業原則可能會覆寫此設定。"
       }
     },
     "confirmModal": {
@@ -2197,5 +2309,17 @@
       "heading": "設定",
       "subheading": "此瀏覽器的偏好設定。此處的任何內容都不會與你的組織共用。"
     }
+  },
+  "pagesErrors": {
+    "assignmentNotInManifest": "作業「{{assignmentSlug}}」不在此課程已發佈的作業中。請檢查連結，或請你的老師發佈該作業。",
+    "autograderLabel": "自動評分器「{{autograderName}}」",
+    "autograderMalformed": "自動評分器「{{autograderName}}」的 YAML 格式可能有誤。請你的老師檢查設定儲存庫中的檔案。",
+    "classroomFetchFailed": "無法載入此課程已發佈的檔案（HTTP {{status}}）。請你的老師確認此課程已發佈，然後再試一次。",
+    "classroomNotPublished": "此課程尚未發佈。它可能不存在，或發佈工作流程尚未執行。請你的老師發佈它，然後再試一次。",
+    "deployInFlight": "此課程已發佈的檔案可能仍在部署中。請稍待一分鐘，然後再試一次。",
+    "fetchFailed": "無法載入 {{label}}（HTTP {{status}}）。請你的老師確認此課程已發佈，然後再試一次。",
+    "manifestInvalidShape": "此課程已發佈的作業清單格式有誤。請你的老師檢查 Classroom 50 的設定。",
+    "manifestVersionUnsupported": "此課程使用的作業格式（v{{version}}）比這份 Classroom 50 所支援的更新。請重新載入頁面，或請你的老師更新 Classroom 50。",
+    "notPublished": "{{label}} 尚未發佈。請你的老師確認該檔案存在於設定儲存庫中，且發佈工作流程已執行。"
   }
 }

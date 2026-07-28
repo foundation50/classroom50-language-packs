@@ -220,8 +220,6 @@
     "chooseFile": "Escolher arquivo",
     "supportedFormats": "Compatíveis: .csv, .txt",
     "fileLabel": "Arquivo: {{fileName}}",
-    "usernamesFound_one": "{{count}} nome de usuário do GitHub encontrado para importar.",
-    "usernamesFound_other": "{{count}} nomes de usuário do GitHub encontrados para importar.",
     "githubUsernameColumn": "Nome de usuário do GitHub",
     "noValidUsernames": "Nenhum nome de usuário válido do GitHub foi encontrado neste arquivo.",
     "progressProcessed": "{{processed}} / {{total}} processados",
@@ -288,7 +286,8 @@
       "confirmCancelTitle_other": "Cancelar {{count}} convites?",
       "memberCount_one": "{{count}} membro",
       "memberCount_other": "{{count}} membros",
-      "noneSelectable": "Não há nada para selecionar aqui — as ações em massa (desmatricular, convidar) aplicam-se apenas a alunos. A equipe (professores, monitores-chefes e monitores) é gerenciada nas Configurações da turma."
+      "noneSelectable": "Não há nada para selecionar aqui — as ações em massa (desmatricular, convidar) aplicam-se apenas a alunos. A equipe (professores, monitores-chefes e monitores) é gerenciada nas Configurações da turma.",
+      "malformedInviteId": "github_id inválido no roster.csv."
     },
     "classroomTeamLabel": "Equipe da turma",
     "confirmResendBody": "Reenviar o convite pendente da organização para {{label}}? O convite atual dele é cancelado e um novo é enviado para {{org}}.",
@@ -391,19 +390,13 @@
     "needsAttentionNotInOrgHelp": "{{label}} está na lista de participantes, mas não é membro da organização. Convide-o para a organização para matriculá-lo.",
     "noChangesToApply": "Nenhuma alteração a aplicar",
     "noValidEmails": "Nenhum endereço de e-mail válido foi encontrado neste arquivo. Envie um .txt ou .csv com um endereço de e-mail por linha.",
-    "preflightAllMembersNote": "Todos neste arquivo já são membros da organização, então nenhum convite será enviado.",
-    "preflightChecking": "Verificando a associação atual...",
     "preflightConfirmRoleChanges_one": "Confirmo mover {{count}} membro para uma equipe diferente, conforme listado acima.",
     "preflightConfirmRoleChanges_other": "Confirmo mover {{count}} membros para equipes diferentes, conforme listado acima.",
     "preflightConfirmTitle": "Confirme antes de processar",
     "preflightEnrollOwnerDetail": "matricular como professor (PROPRIETÁRIO da organização)",
-    "preflightEnrollTitle": "Será matriculado",
     "preflightFailed": "Não foi possível verificar a associação atual: {{message}}. Tente novamente.",
-    "preflightInviteTitle": "Será convidado",
-    "preflightNoActionTitle": "Nenhuma ação necessária",
     "preflightRoleChangeDetail": "{{from}} → {{to}}",
     "preflightRoleChangeOwnerNotice": "Uma ou mais alterações de função promovem um membro a Professor, tornando-o um PROPRIETÁRIO da organização com controle total. Confirme apenas para pessoas em quem você confia com acesso de proprietário.",
-    "preflightRoleChangeTitle": "Alterações de papel (precisam de confirmação)",
     "processRoleChanges": "Aplicando alterações de papel...",
     "reinvite": "Reconvidar",
     "resultInvited": "Convites enviados",
@@ -460,7 +453,34 @@
     "headTaCount_other": "{{count}} monitores-chefes",
     "roleHeadTa": "Monitor-chefe",
     "unenrollBody": "Isto removerá o aluno <label>{{label}}</label> da turma {{classroom}} de <org>{{org}}</org>. Os repositórios de atividade do aluno não serão excluídos.",
-    "importMergeNotice": "A importação adiciona à sua lista de participantes existente — estudantes já matriculados são ignorados e ninguém é removido. Você pode importar em lotes com segurança."
+    "emailInviteInvalidBlocked_one": "{{count}} linha não é um endereço de e-mail válido. Corrija-a e reenvie, ou altere o formato acima.",
+    "emailInviteInvalidBlocked_other": "{{count}} linhas não são endereços de e-mail válidos. Corrija-as e reenvie, ou altere o formato acima.",
+    "emailInviteInvalidRow": "Linha {{line}}: {{value}}",
+    "firstNameColumn": "Nome",
+    "inviteRosterMalformedId": "Não é possível convidar {{username}}: \"{{githubId}}\" não é um id do GitHub válido. Corrija a célula github_id no roster.csv.",
+    "lastNameColumn": "Sobrenome",
+    "metadataWritebackFailed": "A importação foi concluída, mas falhou a gravação dos dados atualizados dos alunos no roster.csv. Execute a importação novamente para tentar de novo.",
+    "metadataWritebackMalformed": "A importação foi concluída, mas os dados dos alunos não puderam ser atualizados porque o roster.csv está mal formado. Corrija as linhas sinalizadas no roster e depois verifique novamente.",
+    "preflightConfirmMetadata_one": "Confirmo a atualização dos dados de {{count}} aluno conforme listado acima.",
+    "preflightConfirmMetadata_other": "Confirmo a atualização dos dados de {{count}} alunos conforme listado acima.",
+    "preflightMetadataConfirmTitle": "Confirmar atualizações de dados dos alunos",
+    "preflightMetadataEmpty": "(vazio)",
+    "preflightMetadataReviewHint_one": "Os dados de {{count}} aluno serão atualizados. Revise as células destacadas abaixo (passe o mouse para ver os detalhes) antes de confirmar.",
+    "preflightMetadataReviewHint_other": "Os dados de {{count}} alunos serão atualizados. Revise as células destacadas abaixo (passe o mouse para ver os detalhes) antes de confirmar.",
+    "preflightRoleChangeMetadataNotice": "Alguns desses membros também têm dados atualizados (mostrados acima), que serão salvos junto com a alteração de equipe.",
+    "resendMalformedId": "Não é possível reenviar o convite para {{username}}: \"{{githubId}}\" não é um id do GitHub válido. Corrija a célula github_id no roster.csv.",
+    "rolePreviousHint": "era {{role}}",
+    "summaryHideDetails": "Ocultar detalhes",
+    "summaryNoChanges": "Este arquivo corresponde à sua lista — nada a adicionar ou atualizar.",
+    "summaryViewDetails": "Ver detalhes",
+    "summary_add_one": "a adicionar",
+    "summary_add_other": "a adicionar",
+    "summary_skip_one": "já atualizado",
+    "summary_skip_other": "já atualizados",
+    "summary_update_one": "a atualizar",
+    "summary_update_other": "a atualizar",
+    "updateMetadata_one": "Atualizar {{count}} aluno",
+    "updateMetadata_other": "Atualizar {{count}} alunos"
   },
   "language": {
     "baseName": "Inglês (base)",
@@ -528,10 +548,14 @@
     "emptyBody": "As organizações às quais você pertence que usam o Classroom 50 aparecerão aqui. Se você espera uma, peça ao seu professor para confirmar que você foi adicionado e depois atualize.",
     "missingNotice": {
       "title": "Não está vendo sua organização?",
-      "body": "O Classroom 50 só pode mostrar organizações do GitHub às quais você concedeu acesso explicitamente durante o login. Se uma organização estiver faltando, talvez seja necessário atualizar suas permissões de OAuth.",
+      "body": "O GitHub lista apenas as organizações às quais você concedeu acesso ao Classroom 50 — uma conta do GitHub Education não é suficiente por si só.",
       "manageOauth": "Gerenciar acesso OAuth do GitHub",
-      "refreshing": "Atualizando…",
-      "refresh": "Atualizar lista"
+      "reauthorizeHelp": "Nenhuma organização listada? Reautorize — um token emitido antes de você entrar não consegue vê-las. Um convite que você ainda não aceitou aparece em convites pendentes.",
+      "steps": {
+        "grant": "Nas suas configurações de OAuth do GitHub, selecione Grant ao lado da organização.",
+        "grantHelp": "Se a organização restringe aplicativos de terceiros, você verá Request access, e um proprietário da organização precisa aprová-lo. Com login único SAML, use Configure SSO na mesma página.",
+        "refresh": "Volte aqui e atualize a lista."
+      }
     },
     "card": {
       "planTitlePaid": "Plano do GitHub — o Classroom 50 pode ser configurado nos planos Team e Enterprise",
@@ -562,7 +586,10 @@
       },
       "notSupportedBadge": "Não suportado",
       "pickPrompt_one": "Organização pronta para configurar ({{count}})",
-      "pickPrompt_other": "Organizações prontas para configurar ({{count}})"
+      "pickPrompt_other": "Organizações prontas para configurar ({{count}})",
+      "newBadge": "Novo",
+      "refresh": "Atualizar",
+      "refreshing": "Atualizando…"
     },
     "noResults": {
       "body": "Nenhuma organização corresponde a “{{query}}”.",
@@ -718,7 +745,7 @@
         "envHostedHelp": "Avalia em um runner do GitHub Actions.",
         "envLegend": "Ambiente de execução",
         "languagesHeading": "Versões das linguagens",
-        "languagesTip": "Escolha uma versão para instalar essa toolchain (por exemplo Node 26, Java 25) ou digite uma personalizada. Um campo em branco a ignora. O Python usa 3.12 por padrão quando em branco no runner hospedado. Você pode habilitar quantas toolchains precisar.",
+        "languagesTip": "Escolha uma versão para instalar essa cadeia de ferramentas (por exemplo, Node 26, Java 25) ou digite uma personalizada. Um campo em branco a ignora. O Python usa a versão 3.14 por padrão quando o campo fica em branco no runner hospedado. Você pode habilitar quantas cadeias de ferramentas precisar.",
         "runnerContainerError": "\"{{label}}\" é um runner macOS/Windows — uma imagem Docker precisa de um runner Ubuntu (ou personalizado/auto-hospedado).",
         "versionMenu": "Escolha uma versão do {{language}}",
         "versionPlaceholder": "ex.: {{version}}",
@@ -1146,8 +1173,10 @@
         "readFailed": "falha na leitura",
         "readFailedStatus": "falha na leitura ({{status}})",
         "rulesetsMissing": "ausente(s): {{names}}",
-        "workflowOrgManaged": "a política da organização define os fluxos de trabalho como leitura por padrão; os fluxos de trabalho do esqueleto declaram suas próprias permissões"
-      }
+        "workflowOrgManaged": "a política da organização define os fluxos de trabalho como leitura por padrão; os fluxos de trabalho do esqueleto declaram suas próprias permissões",
+        "orgActionsPaused": "A autocorreção está pausada, então o GitHub Actions está deliberadamente restrito ao repositório de configuração classroom50. Desative a pausa na seção GitHub Actions acima para restaurar a política padrão."
+      },
+      "statePaused": "Pausado"
     },
     "rerun": {
       "title": "Executar a configuração novamente",
@@ -1274,14 +1303,14 @@
       "budgetHardStop": "Orçamento de parada total de US$ 0 definido — minutos pagos bloqueados.",
       "budgetManage": "Gerenciar orçamentos",
       "budgetNone": "Nenhum orçamento de gastos definido.",
-      "confirmBody": "As entregas dos alunos não serão corrigidas até você retomar. O repositório de configuração classroom50 continua funcionando. Reversível a qualquer momento.",
+      "confirmBody": "Os envios dos alunos não serão corrigidos até você retomar. Novos pull requests de feedback continuam sendo abertos quando os alunos aceitam, e os existentes continuam mostrando os pushes mais recentes — mas os envios não recebem verificações de status de autocorreção nem de feedback-pr enquanto estiver pausado. O repositório de configuração classroom50 continua funcionando. Reversível a qualquer momento.",
       "confirmButton": "Pausar correção automática",
       "confirmTitle": "Pausar a correção automática de toda a organização?",
       "description": "Pause a correção automática em toda a organização para interromper os gastos com Actions. O gerenciamento do curso continua funcionando.",
       "disabledNotice": "O Actions está desativado para toda a organização, então nada é executado. Execute novamente a configuração da organização ou ative o Actions no GitHub.",
       "loading": "Verificando status…",
       "openSettings": "Abrir configurações do Actions",
-      "pausedNotice": "Pausado — os pushes dos alunos não são corrigidos. Executar novamente a configuração da organização não retomará até você desativar isto.",
+      "pausedNotice": "Pausado — os pushes dos alunos não são corrigidos, então os envios não recebem verificações de status de autocorreção nem de feedback-pr. Novos pull requests de feedback continuam sendo abertos quando os alunos aceitam, e os existentes continuam mostrando os pushes mais recentes. Executar novamente a configuração da organização não retomará a autocorreção até você desativar isto.",
       "statusActive": "Correção automática ativada",
       "statusDisabled": "Actions desativado",
       "statusPaused": "Correção automática pausada",
@@ -1531,7 +1560,8 @@
       "repo": "Criando seu repositório",
       "access": "Concedendo seu acesso",
       "setup": "Configurando a correção automática",
-      "membership": "Confirmando sua participação na turma"
+      "membership": "Confirmando sua participação na turma",
+      "feedback": "Abrindo pull request de feedback"
     },
     "progress": {
       "error": "Falha na configuração — revise as etapas",
@@ -1551,7 +1581,45 @@
     "templateErrors": {
       "githubSaid": " O GitHub informou: \"{{message}}\".",
       "inOrg": "Não foi possível copiar o template privado {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Peça ao seu professor para executar novamente a configuração da tarefa e depois aceite novamente.",
-      "outOfOrg": "Não foi possível copiar o template {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Isso geralmente ocorre porque a organização {{owner}} restringe aplicativos de terceiros — peça ao seu professor para aprovar o aplicativo Classroom 50 para {{owner}} (ou torne o template público) e depois aceite novamente."
+      "outOfOrg": "Não foi possível copiar o template {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Isso geralmente ocorre porque a organização {{owner}} restringe aplicativos de terceiros — peça ao seu professor para aprovar o aplicativo Classroom 50 para {{owner}} (ou torne o template público) e depois aceite novamente.",
+      "orgRepoCreationDenied": "{{org}} pode não permitir que membros criem repositórios privados, então seu repositório não pôde ser criado (HTTP {{status}}). Peça ao seu professor para habilitar isso e depois aceite outra vez.",
+      "orgRepoCreationDeniedStep": "{{org}} não permitiu que seu repositório fosse criado (HTTP {{status}})."
+    },
+    "errors": {
+      "emptyRepoWithTemplate": "A tarefa \"{{assignmentSlug}}\" define ao mesmo tempo um repositório vazio e um modelo, o que não é válido. Peça ao seu professor para executar novamente a configuração da tarefa.",
+      "founderAccessMismatch": "Seu repositório {{owner}}/{{repo}} foi criado, mas o GitHub informa seu acesso como \"{{effective}}\" (função \"{{role}}\") em vez de \"{{permission}}\". Peça ao seu professor para definir o acesso de {{username}} como \"{{permission}}\".",
+      "incoherentMode": "A tarefa \"{{slug}}\" tem um tamanho de grupo de {{maxGroupSize}}, mas está configurada como \"{{mode}}\", então suas configurações publicadas são inconsistentes. Peça ao seu professor para executar novamente a configuração da tarefa."
+    },
+    "stepActions": {
+      "access": "Seu repositório {{org}}/{{repo}} foi criado, mas não foi possível adicionar você ({{username}}) como colaborador. Isso normalmente significa que seu nome de usuário do GitHub mudou ou que você saiu de {{org}}. Confirme que você é membro de {{org}} e depois use \"Executar configuração novamente\".",
+      "account": "Não foi possível ler sua conta do GitHub. Saia e entre novamente e depois aceite outra vez.",
+      "assignment": "Não foi possível carregar a tarefa \"{{assignmentSlug}}\" de {{org}}/{{classroom}}. Verifique o link ou peça ao seu professor para confirmar que a tarefa foi publicada.",
+      "autograder": "Não foi possível resolver o autocorretor de \"{{assignmentSlug}}\". Peça ao seu professor para confirmar que ele foi publicado e depois aceite outra vez.",
+      "membership": "Não foi possível confirmar sua participação. Se a sua organização usa login único (SSO), autorize-o para esta organização (ou abra este link a partir do seu AVA) e depois aceite outra vez. Caso contrário, peça ao seu professor para confirmar seu convite.",
+      "repo": "Não foi possível criar {{org}}/{{repo}}. Confirme que você é membro de {{org}} e peça ao seu professor para verificar se o repositório de modelo da tarefa está configurado corretamente, e depois aceite outra vez.",
+      "setup": "Seu repositório {{org}}/{{repo}} existe, mas não foi possível gravar os arquivos de configuração na branch \"{{branch}}\". Ele ainda pode estar sendo inicializado. Aguarde um minuto e depois use \"Executar configuração novamente\"."
+    },
+    "stepDone": {
+      "access": "Acesso ao seu repositório concedido",
+      "account": "Sua conta do GitHub foi verificada",
+      "assignment": "Tarefa {{assignmentSlug}} encontrada",
+      "autograder": "Autocorretor resolvido",
+      "autograderDisabled": "A autocorreção está desativada para esta tarefa",
+      "feedback": "Pull request de feedback pronto",
+      "feedbackDeferred": "Não foi possível abrir o pull request de feedback agora: aceite outra vez para repetir (ou ele será aberto no seu primeiro envio se a autocorreção estiver ativada)",
+      "feedbackSkipped": "Sem pull request de feedback para esta tarefa",
+      "membership": "Sua participação na turma foi confirmada",
+      "repo": "{{org}}/{{repo}} criado",
+      "repoExists": "O repositório já existe: {{org}}/{{repo}}",
+      "repoIncomplete": "Configuração incompleta encontrada: {{org}}/{{repo}}",
+      "setup": "Autocorreção configurada",
+      "setupSkippedEmptyRepo": "Nenhuma configuração necessária: esta tarefa usa um repositório vazio"
+    },
+    "stepErrors": {
+      "generic": "{{label}} falhou (HTTP {{status}}). {{actions}}",
+      "rateLimited": "{{label}} atingiu o limite de requisições do GitHub. Aguarde um minuto e depois tente aceitar novamente.",
+      "unauthorized": "{{label}} falhou porque sua sessão do GitHub expirou (HTTP 401). Saia e entre novamente e depois aceite outra vez.",
+      "unexpected": "{{label}} falhou inesperadamente. É seguro tentar novamente."
     }
   },
   "submissions": {
@@ -1722,7 +1790,7 @@
       "errorTitle": "Não foi possível verificar um PR de feedback",
       "emptyTitle": "Ainda não há pull request de feedback",
       "openRepoPrs": "Abrir PRs do repositório",
-      "emptyBody": "Nenhum PR de Feedback foi aberto para <repo>{{repo}}</repo> ainda. Ele é criado pelo fluxo de correção automática da atividade após uma entrega corrigida — se o aluno ainda não fez a entrega (ou a atividade tem o PR de Feedback desativado), não há nada para revisar ainda."
+      "emptyBody": "Nenhum PR de feedback foi aberto para <repo>{{repo}}</repo> ainda. Ele é aberto quando o aluno aceita a tarefa — então, se não há nada para revisar, o aluno pode ainda não ter aceitado, a tarefa pode ter o PR de feedback desativado, ou a abertura foi adiada (ela é repetida ao reaceitar ou no primeiro envio corrigido)."
     },
     "rowRegrade": {
       "title": "Recorrigir esta entrega",
@@ -1744,7 +1812,7 @@
       "modeGroup": "Grupo",
       "modeIndividual": "Individual",
       "loadError": "Não foi possível carregar suas entregas.",
-      "noGradedYet": "Nenhuma entrega corrigida ainda. Envie seus arquivos acima ou faça push para o seu repositório de atividade pela linha de comando — o corretor automático publicará seu resultado aqui.",
+      "noGradedYet": "Nenhum envio corrigido ainda. Faça push para o repositório da sua tarefa pela linha de comando e o autocorretor publicará seu resultado aqui.",
       "openMyRepo": "Abrir meu repositório",
       "releasesIntro": "Cada entrega abre a release corrigida no GitHub, com sua nota e os resultados de cada teste.",
       "fallbackTitle": "Entrega",
@@ -1755,8 +1823,8 @@
         "copySubmit": "Copiar comando de entrega",
         "step1": "Clone seu repositório da tarefa (uma vez):",
         "step2": "De dentro do repositório, envie seu trabalho para correção:",
-        "title": "Prefere a linha de comando?",
-        "intro": "Você também pode fazer a entrega por um terminal em vez de enviar acima."
+        "title": "Enviar pela linha de comando",
+        "intro": "Envie seu trabalho para correção a partir de um terminal."
       },
       "upload": {
         "addFiles": "Adicionar arquivos",
@@ -1806,6 +1874,43 @@
     "live": {
       "incomplete_one": "{{count}} repositório não pôde ser lido, então o status de entrega ao vivo pode estar incompleto. Tente novamente ou execute \"Sincronizar entregas agora\".",
       "incomplete_other": "{{count}} repositórios não puderam ser lidos, então o status de entrega ao vivo pode estar incompleto. Tente novamente ou execute \"Sincronizar entregas agora\"."
+    },
+    "openAllPrs": {
+      "blockedHint": "A branch de feedback deles aponta para o commit errado, então abrir o PR mostraria uma diferença vazia. Um administrador da organização precisa excluir cada branch de feedback antes de executar esta ação novamente — apenas tentar de novo não resolverá.",
+      "blockedTitle": "Estes repositórios precisam de um administrador da organização:",
+      "confirmBody_one": "Isto abre um PR de feedback no <b>{{count}}</b> repositório de tarefa de <b>{{name}}</b> que ainda não tem um. Repositórios que já têm um PR de feedback não são alterados.",
+      "confirmBody_other": "Isto abre um PR de feedback em cada um dos <b>{{count}}</b> repositórios de tarefa de <b>{{name}}</b> que ainda não têm um. Repositórios que já têm um PR de feedback não são alterados.",
+      "confirmHint": "Ele é executado a partir do seu navegador, um repositório de cada vez, então pode demorar para uma turma grande. Mantenha esta aba aberta até terminar.",
+      "confirmLabel_one": "Abrir PR",
+      "confirmLabel_other": "Abrir PRs",
+      "failedHint": "Isso costuma ser um erro transitório do GitHub — execute a ação novamente para tentar de novo apenas os repositórios que ainda não têm um PR.",
+      "failedTitle": "Estes repositórios não puderam ser processados:",
+      "menuLabel": "Abrir todos os PRs de feedback",
+      "running": "Abrindo… {{done}} de {{total}}",
+      "summaryBlocked_one": "{{count}} repositório bloqueado (precisa de um administrador da organização)",
+      "summaryBlocked_other": "{{count}} repositórios bloqueados (precisam de um administrador da organização)",
+      "summaryExisted_one": "{{count}} repositório já tinha um",
+      "summaryExisted_other": "{{count}} repositórios já tinham um",
+      "summaryFailed_one": "{{count}} repositório falhou",
+      "summaryFailed_other": "{{count}} repositórios falharam",
+      "summaryLead": "Processamento de <b>{{total}}</b> repositórios concluído.",
+      "summaryOpened_one": "{{count}} PR de feedback aberto",
+      "summaryOpened_other": "{{count}} PRs de feedback abertos",
+      "summaryUnsupported_one": "{{count}} repositório ignorado (sem baseline da tarefa)",
+      "summaryUnsupported_other": "{{count}} repositórios ignorados (sem baseline da tarefa)",
+      "title": "Abrir PRs de feedback para todos os repositórios",
+      "titleEmptyRoster": "Adicione alunos à lista primeiro"
+    },
+    "repairPr": {
+      "alreadyExists": "Já existe um PR de feedback para {{repo}}.",
+      "baseMismatch": "A branch de feedback deste repositório aponta para o commit errado, então abrir o PR aqui mostraria uma diferença vazia. Um administrador da organização precisa excluir a branch de feedback antes de ela poder ser recriada corretamente. Executar novamente não resolverá isto.",
+      "created": "PR de feedback aberto para {{repo}}.",
+      "failed": "Não foi possível abrir o PR de feedback: {{reason}}",
+      "hint": "Se o aluno aceitou, mas a abertura do PR falhou (uma queda do GitHub ou um erro transitório), você pode abri-lo agora.",
+      "noBaseline": "Este repositório não tem baseline da tarefa, então não é possível abrir um PR de feedback para ele (por exemplo, uma tarefa de repositório vazio). Nada a reparar.",
+      "repair": "Reparar PR de feedback",
+      "repairing": "Reparando…",
+      "repoNotFound": "Não foi possível encontrar o repositório {{repo}} — o aluno pode ainda não ter aceitado."
     }
   },
   "orgMembers": {
@@ -1910,7 +2015,9 @@
     "noUsernameWithId": "<missing>sem nome de usuário do GitHub</missing> <meta>· id {{id}}</meta>",
     "notMember": "{{label}} está na lista de participantes de uma turma, mas <emphasis>não é membro da organização</emphasis>. Convide-o para restaurar o acesso. O convite é enviado à conta do GitHub por id, então funciona mesmo que o nome de usuário tenha mudado.",
     "subtitle": "Todos na organização do GitHub <orgLink>{{org}}</orgLink> e as turmas às quais pertencem.",
-    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>"
+    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
+    "inviteMalformedId": "Não é possível convidar {{who}}: \"{{githubId}}\" não é um id do GitHub válido. Corrija a célula github_id no roster.csv.",
+    "inviteMissingId": "Não é possível convidar {{who}}: nenhum id do GitHub registrado."
   },
   "components": {
     "avatar": {
@@ -1933,6 +2040,11 @@
         "addStudents": "Adicionar alunos",
         "empty": "Esta turma ainda não tem alunos. O link de aceite de uma atividade só funciona para alunos que são membros da organização <org>{{org}}</org>, então adicione e matricule os alunos antes de compartilhá-lo.",
         "hasRows": "Nenhum aluno entrou na organização <org>{{org}}</org> ainda. O link de aceite de uma atividade só funciona para alunos que são membros da organização, então os alunos convidados precisam aceitar o convite primeiro."
+      },
+      "orgRepoCreation": {
+        "action": "Configurações da organização",
+        "master": "<org>{{org}}</org> não permite que membros criem repositórios, então nenhum aluno pode aceitar uma tarefa. Execute novamente a configuração da organização ou permita a criação de repositórios privados (não públicos) em <memberPrivileges>Privilégios de membros</memberPrivileges>. Uma política empresarial pode substituir essa configuração.",
+        "private": "<org>{{org}}</org> não permite que membros criem repositórios privados, então nenhum aluno pode aceitar uma tarefa. Execute novamente a configuração da organização ou permita a criação de repositórios privados (não públicos) em <memberPrivileges>Privilégios de membros</memberPrivileges>. Uma política empresarial pode substituir essa configuração."
       }
     },
     "confirmModal": {
@@ -2197,5 +2309,17 @@
       "heading": "Configurações",
       "subheading": "Preferências deste navegador. Nada aqui é compartilhado com suas organizações."
     }
+  },
+  "pagesErrors": {
+    "assignmentNotInManifest": "A tarefa \"{{assignmentSlug}}\" não está entre as tarefas publicadas desta turma. Verifique o link ou peça ao seu professor para publicar a tarefa.",
+    "autograderLabel": "Autocorretor \"{{autograderName}}\"",
+    "autograderMalformed": "O autocorretor \"{{autograderName}}\" pode ter YAML mal formado. Peça ao seu professor para verificar o arquivo no repositório de configuração.",
+    "classroomFetchFailed": "Não foi possível carregar os arquivos publicados desta turma (HTTP {{status}}). Peça ao seu professor para confirmar que a turma foi publicada e depois tente novamente.",
+    "classroomNotPublished": "Esta turma ainda não foi publicada. Ela pode não existir, ou o fluxo de trabalho de publicação pode não ter sido executado. Peça ao seu professor para publicá-la e depois tente novamente.",
+    "deployInFlight": "Os arquivos publicados da turma ainda podem estar sendo implantados. Aguarde um minuto e depois tente novamente.",
+    "fetchFailed": "Não foi possível carregar {{label}} (HTTP {{status}}). Peça ao seu professor para confirmar que a turma foi publicada e depois tente novamente.",
+    "manifestInvalidShape": "A lista de tarefas publicadas desta turma está mal formada. Peça ao seu professor para verificar a configuração do Classroom 50.",
+    "manifestVersionUnsupported": "Esta turma usa um formato de tarefa mais novo (v{{version}}) do que esta versão do Classroom 50 suporta. Recarregue a página ou peça ao seu professor para atualizar o Classroom 50.",
+    "notPublished": "{{label}} ainda não foi publicado. Peça ao seu professor para confirmar que o arquivo existe no repositório de configuração e que o fluxo de trabalho de publicação foi executado."
   }
 }

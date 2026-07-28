@@ -381,7 +381,8 @@
       "confirmInviteTitle_one": "{{count}} öğrenci davet edilsin mi?",
       "confirmInviteTitle_other": "{{count}} öğrenci davet edilsin mi?",
       "confirmInviteBodyPlain_one": "Seçilen {{count}} öğrenciye bir kuruluş daveti gönderilsin mi? Kabul ettiklerinde kuruluşa ve sınıf ekibine katılırlar.",
-      "confirmInviteBodyPlain_other": "Seçilen {{count}} öğrenciye kuruluş davetleri gönderilsin mi? Kabul ettiklerinde kuruluşa ve sınıf ekibine katılırlar."
+      "confirmInviteBodyPlain_other": "Seçilen {{count}} öğrenciye kuruluş davetleri gönderilsin mi? Kabul ettiklerinde kuruluşa ve sınıf ekibine katılırlar.",
+      "malformedInviteId": "roster.csv dosyasında geçersiz github_id."
     },
     "emptyTitle": "Henüz üye yok",
     "emptyBody": "Yukarıdaki katılım bağlantısını öğrencilerinizle paylaşın veya Ayarlar'dan öğretmen ve TA ekleyin. Kişiler daveti kabul edip oturum açtığında burada görünecektir.",
@@ -423,8 +424,6 @@
     "chooseFile": "Dosya seç",
     "supportedFormats": "Desteklenen: .csv, .txt",
     "fileLabel": "Dosya: {{fileName}}",
-    "usernamesFound_one": "İçe aktarılacak {{count}} GitHub kullanıcı adı bulundu.",
-    "usernamesFound_other": "İçe aktarılacak {{count}} GitHub kullanıcı adı bulundu.",
     "githubUsernameColumn": "GitHub kullanıcı adı",
     "nameColumn": "Ad",
     "emailColumn": "E-posta",
@@ -471,16 +470,10 @@
     "resultInvitesFailed": "Başarısız olan davetler",
     "invitePassFailed": "Liste kaydedildi, ancak davetlerin gönderilmesi başarısız oldu: {{message}}. Davetleri yeniden denemek için içe aktarmayı yeniden çalıştırın.",
     "couldNotAddToTeam": "Bu kullanıcı takıma eklenemedi",
-    "preflightChecking": "Mevcut üyelik kontrol ediliyor...",
     "preflightFailed": "Mevcut üyelik kontrol edilemedi: {{message}}. Tekrar deneyin.",
-    "preflightNoActionTitle": "İşlem gerekmiyor",
-    "preflightInviteTitle": "Davet edilecek",
-    "preflightEnrollTitle": "Kaydedilecek",
-    "preflightRoleChangeTitle": "Rol değişiklikleri (onay gerektiriyor)",
     "preflightRoleChangeDetail": "{{from}} → {{to}}",
     "preflightConfirmTitle": "İşlemeden önce onaylayın",
     "preflightEnrollOwnerDetail": "öğretmen olarak kaydet (kuruluş SAHİBİ)",
-    "preflightAllMembersNote": "Bu dosyadaki herkes zaten bir kuruluş üyesi, bu yüzden davet gönderilmeyecek.",
     "preflightConfirmRoleChanges_one": "Yukarıda listelendiği gibi {{count}} üyeyi farklı bir ekibe taşımayı onaylıyorum.",
     "preflightConfirmRoleChanges_other": "Yukarıda listelendiği gibi {{count}} üyeyi farklı ekiplere taşımayı onaylıyorum.",
     "preflightRoleChangeOwnerNotice": "Bir veya daha fazla rol değişikliği bir üyeyi Öğretmen'e yükseltir ve onu tam kontrole sahip bir kuruluş SAHİBİ yapar. Yalnızca sahip erişimi konusunda güvendiğiniz kişiler için onaylayın.",
@@ -489,7 +482,34 @@
     "resultRoleChangeFailures": "Başarısız olan rol değişiklikleri",
     "done": "Tamam",
     "chooseAnotherFile": "Başka bir dosya seç",
-    "importMergeNotice": "İçe aktarma, mevcut listenize ekleme yapar — zaten kayıtlı olan öğrenciler atlanır ve kimse kaldırılmaz. Toplu olarak güvenle içe aktarabilirsiniz."
+    "emailInviteInvalidBlocked_one": "{{count}} satır geçerli bir e-posta adresi değil. Düzeltip yeniden yükleyin veya yukarıdaki biçimi değiştirin.",
+    "emailInviteInvalidBlocked_other": "{{count}} satır geçerli e-posta adresleri değil. Düzeltip yeniden yükleyin veya yukarıdaki biçimi değiştirin.",
+    "emailInviteInvalidRow": "Satır {{line}}: {{value}}",
+    "firstNameColumn": "Ad",
+    "inviteRosterMalformedId": "{{username}} davet edilemiyor: \"{{githubId}}\" geçerli bir GitHub kimliği değil. roster.csv dosyasındaki github_id hücresini düzeltin.",
+    "lastNameColumn": "Soyad",
+    "metadataWritebackFailed": "İçe aktarma tamamlandı, ancak güncellenen öğrenci bilgilerinin roster.csv dosyasına yazılması başarısız oldu. Yeniden denemek için içe aktarmayı tekrar çalıştırın.",
+    "metadataWritebackMalformed": "İçe aktarma tamamlandı, ancak roster.csv hatalı biçimlendirilmiş olduğu için öğrenci bilgileri güncellenemedi. Listede işaretli satırları düzeltin, ardından yeniden denetleyin.",
+    "preflightConfirmMetadata_one": "Yukarıda listelendiği gibi {{count}} öğrencinin bilgilerini güncellemeyi onaylıyorum.",
+    "preflightConfirmMetadata_other": "Yukarıda listelendiği gibi {{count}} öğrencinin bilgilerini güncellemeyi onaylıyorum.",
+    "preflightMetadataConfirmTitle": "Öğrenci bilgi güncellemelerini onaylayın",
+    "preflightMetadataEmpty": "(boş)",
+    "preflightMetadataReviewHint_one": "{{count}} öğrencinin bilgileri güncellenecek. Onaylamadan önce aşağıdaki vurgulanan hücreleri (ayrıntılar için üzerine gelin) gözden geçirin.",
+    "preflightMetadataReviewHint_other": "{{count}} öğrencinin bilgileri güncellenecek. Onaylamadan önce aşağıdaki vurgulanan hücreleri (ayrıntılar için üzerine gelin) gözden geçirin.",
+    "preflightRoleChangeMetadataNotice": "Bu üyelerin bazılarının ayrıca güncellenmiş bilgileri var (yukarıda gösterilmiştir); bunlar takım değişikliğiyle birlikte kaydedilecek.",
+    "resendMalformedId": "{{username}} için davet yeniden gönderilemiyor: \"{{githubId}}\" geçerli bir GitHub kimliği değil. roster.csv dosyasındaki github_id hücresini düzeltin.",
+    "rolePreviousHint": "eski: {{role}}",
+    "summaryHideDetails": "Ayrıntıları gizle",
+    "summaryNoChanges": "Bu dosya listenizle eşleşiyor — eklenecek veya güncellenecek bir şey yok.",
+    "summaryViewDetails": "Ayrıntıları göster",
+    "summary_add_one": "eklenecek",
+    "summary_add_other": "eklenecek",
+    "summary_skip_one": "zaten güncel",
+    "summary_skip_other": "zaten güncel",
+    "summary_update_one": "güncellenecek",
+    "summary_update_other": "güncellenecek",
+    "updateMetadata_one": "{{count}} öğrenciyi güncelle",
+    "updateMetadata_other": "{{count}} öğrenciyi güncelle"
   },
   "language": {
     "baseName": "İngilizce (temel)",
@@ -598,14 +618,21 @@
         "educationBody": "Doğrulanmış bir öğretmen olarak, sahibi olduğunuz herhangi bir organizasyonu GitHub Education aracılığıyla ücretsiz olarak GitHub Team'e yükseltebilirsiniz.",
         "educationCta": "GitHub Education'da daha fazla bilgi edinin",
         "dismiss": "Anladım"
-      }
+      },
+      "newBadge": "Yeni",
+      "refresh": "Yenile",
+      "refreshing": "Yenileniyor…"
     },
     "missingNotice": {
       "title": "Organizasyonunuzu göremiyor musunuz?",
-      "body": "Classroom 50 yalnızca oturum açarken açıkça erişim izni verdiğiniz GitHub organizasyonlarını gösterebilir. Bir organizasyon eksikse, OAuth izinlerinizi güncellemeniz gerekebilir.",
+      "body": "GitHub yalnızca Classroom 50'ye erişim verdiğiniz kuruluşları listeler — tek başına bir GitHub Education hesabı yeterli değildir.",
       "manageOauth": "GitHub OAuth erişimini yönet",
-      "refreshing": "Yenileniyor…",
-      "refresh": "Listeyi yenile"
+      "reauthorizeHelp": "Hiç kuruluş listelenmiyor mu? Yeniden yetkilendirin — katılmadan önce verilen bir belirteç bunları göremez. Henüz kabul etmediğiniz bir davet bunun yerine bekleyen davetler altında görünür.",
+      "steps": {
+        "grant": "GitHub OAuth ayarlarınızda, kuruluşun yanındaki Grant (Ver) seçeneğini seçin.",
+        "grantHelp": "Kuruluş üçüncü taraf uygulamaları kısıtlıyorsa bunun yerine Request access (Erişim iste) seçeneğini görürsünüz ve bir kuruluş sahibinin bunu onaylaması gerekir. SAML tek oturum açma ile aynı sayfadaki Configure SSO (SSO'yu yapılandır) seçeneğini kullanın.",
+        "refresh": "Buraya geri dönüp listeyi yenileyin."
+      }
     },
     "card": {
       "noAccessBadge": "<code>classroom50</code> erişimi yok",
@@ -796,7 +823,7 @@
         "envHostedHelp": "Bir GitHub Actions çalıştırıcısında notlandırır.",
         "envContainerHelp": "Herkese açık bir Docker imajının içinde notlandırır (işletim sistemi paketlerini o sağlar).",
         "languagesHeading": "Dil sürümleri",
-        "languagesTip": "O araç zincirini kurmak için bir sürüm seçin (örneğin Node 26, Java 25) veya özel bir sürüm yazın. Boş bir alan bunu atlar. Barındırılan çalıştırıcıda boş bırakıldığında Python varsayılan olarak 3.12'dir. İhtiyacınız olduğu kadar araç zinciri etkinleştirebilirsiniz.",
+        "languagesTip": "O araç zincirini yüklemek için bir sürüm seçin (örneğin Node 26, Java 25) veya özel bir sürüm yazın. Boş bir alan bunu atlar. Barındırılan çalıştırıcıda boş bırakıldığında Python varsayılan olarak 3.14 olur. İhtiyacınız olan kadar araç zincirini etkinleştirebilirsiniz.",
         "versionPlaceholder": "ör. {{version}}",
         "versionTip": "Kurulacak {{language}} sürümü (setup-{{language}} eylemi aracılığıyla). Atlamak için boş bırakın. Setup eyleminin kabul ettiği herhangi bir sürümü yazabilirsiniz.",
         "versionMenu": "Bir {{language}} sürümü seçin",
@@ -1209,8 +1236,10 @@
         "readFailed": "okuma başarısız",
         "readFailedStatus": "okuma başarısız ({{status}})",
         "rulesetsMissing": "eksik: {{names}}",
-        "workflowOrgManaged": "organizasyon politikası iş akışlarını varsayılan olarak okumaya ayarlar; iskelet iş akışları kendi izinlerini bildirir"
-      }
+        "workflowOrgManaged": "organizasyon politikası iş akışlarını varsayılan olarak okumaya ayarlar; iskelet iş akışları kendi izinlerini bildirir",
+        "orgActionsPaused": "Otomatik değerlendirme duraklatıldı, bu nedenle GitHub Actions kasıtlı olarak classroom50 yapılandırma deposuyla sınırlandırıldı. Standart ilkeyi geri yüklemek için yukarıdaki GitHub Actions bölümünden duraklatmayı kapatın."
+      },
+      "statePaused": "Duraklatıldı"
     },
     "actions": {
       "title": "GitHub Actions",
@@ -1232,11 +1261,11 @@
       "applying": "Güncelleniyor…",
       "toggleLabel": "Tüm öğrenci depoları için otomatik not vermeyi duraklat",
       "toggleHint": "Bunu açmak, öğrenci gönderimlerinin notlandırılmasını durdurur (Actions dakikası harcanmaz). classroom50 yapılandırma deposu çalışmaya devam eder. Devam etmek için kapatın.",
-      "pausedNotice": "Duraklatıldı — öğrenci gönderimleri notlandırılmıyor. Bunu kapatana kadar organizasyon kurulumunu yeniden çalıştırmak devam ettirmez.",
+      "pausedNotice": "Duraklatıldı — öğrenci gönderimleri değerlendirilmiyor, bu nedenle gönderimler otomatik değerlendirme veya geri bildirim çekme isteği durum denetimi almıyor. Öğrenciler kabul ettiğinde yeni geri bildirim çekme istekleri yine de açılır ve mevcut olanlar en son gönderimleri göstermeye devam eder. Bunu kapatmadıkça kuruluş kurulumunu yeniden çalıştırmak devam ettirmez.",
       "disabledNotice": "Actions tüm organizasyon için kapalı, bu nedenle hiçbir şey çalışmaz. Organizasyon kurulumunu yeniden çalıştırın veya GitHub'da Actions'ı etkinleştirin.",
       "unknownNotice": "Bu organizasyonun Actions izinleri okunamadı — sahip haklarınız olmayabilir veya bir enterprise politikası bunları kontrol ediyor olabilir.",
       "confirmTitle": "Tüm organizasyon için otomatik not verme duraklatılsın mı?",
-      "confirmBody": "Siz devam ettirene kadar öğrenci gönderimleri notlandırılmaz. classroom50 yapılandırma deposu çalışmaya devam eder. İstediğiniz zaman geri alınabilir.",
+      "confirmBody": "Devam ettirene kadar öğrenci gönderimleri değerlendirilmez. Öğrenciler kabul ettiğinde yeni geri bildirim çekme istekleri yine de açılır ve mevcut olanlar en son gönderimleri göstermeye devam eder — ancak duraklatıldığı sürece gönderimler otomatik değerlendirme veya geri bildirim çekme isteği durum denetimi almaz. classroom50 yapılandırma deposu çalışmaya devam eder. Her an geri alınabilir.",
       "confirmButton": "Otomatik not vermeyi duraklat",
       "toggleFailed": "Actions izinleri güncellenemedi: {{message}}"
     },
@@ -1619,7 +1648,9 @@
     "templateErrors": {
       "githubSaid": " GitHub şöyle dedi: \"{{message}}\".",
       "outOfOrg": "Şablon {{owner}}/{{repo}} kopyalanamadı (HTTP {{status}}).{{detail}} Bu genellikle {{owner}} organizasyonunun üçüncü taraf uygulamalarını kısıtlamasından kaynaklanır — öğretmeninizden {{owner}} için Classroom 50 uygulamasını onaylamasını (veya şablonu herkese açık yapmasını) isteyin, sonra tekrar kabul edin.",
-      "inOrg": "Özel şablon {{owner}}/{{repo}} kopyalanamadı (HTTP {{status}}).{{detail}} Öğretmeninizden ödev kurulumunu yeniden çalıştırmasını isteyin, sonra tekrar kabul edin."
+      "inOrg": "Özel şablon {{owner}}/{{repo}} kopyalanamadı (HTTP {{status}}).{{detail}} Öğretmeninizden ödev kurulumunu yeniden çalıştırmasını isteyin, sonra tekrar kabul edin.",
+      "orgRepoCreationDenied": "{{org}} üyelerin özel depo oluşturmasına izin vermiyor olabilir, bu nedenle deponuz oluşturulamadı (HTTP {{status}}). Öğretmeninizden bunu etkinleştirmesini isteyin, ardından ödevi tekrar kabul edin.",
+      "orgRepoCreationDeniedStep": "{{org}} deponuzun oluşturulmasına izin vermedi (HTTP {{status}})."
     },
     "notFound": {
       "badge": "Ödev kullanılamıyor",
@@ -1636,7 +1667,8 @@
       "autograder": "Otomatik değerlendirici çözümleniyor",
       "repo": "Deponuz oluşturuluyor",
       "access": "Size erişim veriliyor",
-      "setup": "Otomatik değerlendirme ayarlanıyor"
+      "setup": "Otomatik değerlendirme ayarlanıyor",
+      "feedback": "Geri bildirim çekme isteği açılıyor"
     },
     "progress": {
       "error": "Kurulum başarısız oldu — adımları gözden geçirin",
@@ -1649,6 +1681,42 @@
       "havingTrouble": "Sorun mu yaşıyorsunuz?",
       "hint": "Otomatik değerlendirme çalışmıyor mu veya kurulum dosyaları eksik mi? Deponuzu onarmak için kurulumu yeniden çalıştırın.",
       "rerun": "Kurulumu yeniden çalıştır"
+    },
+    "errors": {
+      "emptyRepoWithTemplate": "\"{{assignmentSlug}}\" ödevi hem boş bir depo hem de bir şablon belirtiyor; bu geçerli değil. Öğretmeninizden ödev kurulumunu yeniden çalıştırmasını isteyin.",
+      "founderAccessMismatch": "{{owner}}/{{repo}} deponuz oluşturuldu, ancak GitHub erişiminizi \"{{permission}}\" yerine \"{{effective}}\" (rol \"{{role}}\") olarak bildiriyor. Öğretmeninizden {{username}} kullanıcısının erişimini \"{{permission}}\" olarak ayarlamasını isteyin.",
+      "incoherentMode": "\"{{slug}}\" ödevinin grup boyutu {{maxGroupSize}} ancak \"{{mode}}\" olarak ayarlanmış, dolayısıyla yayımlanan ayarları tutarsız. Öğretmeninizden ödev kurulumunu yeniden çalıştırmasını isteyin."
+    },
+    "stepActions": {
+      "access": "{{org}}/{{repo}} deponuz oluşturuldu, ancak sizi ({{username}}) işbirlikçi olarak eklerken hata oluştu. Bu genellikle GitHub kullanıcı adınızın değiştiği veya {{org}} kuruluşundan ayrıldığınız anlamına gelir. {{org}} üyesi olduğunuzu doğrulayın, ardından \"Kurulumu yeniden çalıştır\" seçeneğini kullanın.",
+      "account": "GitHub hesabınız okunamadı. Oturumu kapatıp yeniden açın, ardından ödevi tekrar kabul edin.",
+      "assignment": "\"{{assignmentSlug}}\" ödevi {{org}}/{{classroom}} için yüklenemedi. Bağlantıyı kontrol edin veya öğretmeninizden ödevin yayımlandığını doğrulamasını isteyin.",
+      "autograder": "\"{{assignmentSlug}}\" için otomatik değerlendirici çözümlenemedi. Öğretmeninizden yayımlandığını doğrulamasını isteyin, ardından ödevi tekrar kabul edin.",
+      "membership": "Üyeliğiniz doğrulanamadı. Kuruluşunuz tek oturum açma (SSO) kullanıyorsa, bunu bu kuruluş için yetkilendirin (veya bu bağlantıyı LMS'nizden açın), ardından ödevi tekrar kabul edin. Aksi halde öğretmeninizden davetinizi doğrulamasını isteyin.",
+      "repo": "{{org}}/{{repo}} oluşturulamadı. {{org}} üyesi olduğunuzu doğrulayın ve öğretmeninizden ödevin şablon deposunun doğru yapılandırıldığını doğrulamasını isteyin, ardından ödevi tekrar kabul edin.",
+      "setup": "{{org}}/{{repo}} deponuz mevcut, ancak kurulum dosyalarının \"{{branch}}\" dalına yazılması başarısız oldu. Depo hâlâ başlatılıyor olabilir. Bir dakika bekleyin, ardından \"Kurulumu yeniden çalıştır\" seçeneğini kullanın."
+    },
+    "stepDone": {
+      "access": "Deponuza erişim verildi",
+      "account": "GitHub hesabınız kontrol edildi",
+      "assignment": "{{assignmentSlug}} ödevi bulundu",
+      "autograder": "Otomatik değerlendirici çözümlendi",
+      "autograderDisabled": "Bu ödev için otomatik değerlendirme devre dışı",
+      "feedback": "Geri bildirim çekme isteği hazır",
+      "feedbackDeferred": "Geri bildirim çekme isteği şimdi açılamadı: tekrar denemek için ödevi yeniden kabul edin (veya otomatik değerlendirme etkinse ilk gönderiminizde açılır)",
+      "feedbackSkipped": "Bu ödev için geri bildirim çekme isteği yok",
+      "membership": "Sınıf üyeliğiniz doğrulandı",
+      "repo": "{{org}}/{{repo}} oluşturuldu",
+      "repoExists": "Depo zaten mevcut: {{org}}/{{repo}}",
+      "repoIncomplete": "Tamamlanmamış kurulum bulundu: {{org}}/{{repo}}",
+      "setup": "Otomatik değerlendirme yapılandırıldı",
+      "setupSkippedEmptyRepo": "Kuruluma gerek yok: bu ödev boş bir depo kullanıyor"
+    },
+    "stepErrors": {
+      "generic": "{{label}} başarısız oldu (HTTP {{status}}). {{actions}}",
+      "rateLimited": "{{label}}, GitHub'ın hız sınırına takıldı. Bir dakika bekleyin, ardından ödevi tekrar kabul etmeyi deneyin.",
+      "unauthorized": "{{label}}, GitHub oturumunuzun süresi dolduğu için başarısız oldu (HTTP 401). Oturumu kapatıp yeniden açın, ardından ödevi tekrar kabul edin.",
+      "unexpected": "{{label}} beklenmedik şekilde başarısız oldu. Yeniden denemek güvenlidir."
     }
   },
   "submissions": {
@@ -1841,7 +1909,7 @@
     "reviewModal": {
       "errorTitle": "Geri bildirim PR'ı kontrol edilemedi",
       "emptyTitle": "Henüz geri bildirim pull request'i yok",
-      "emptyBody": "Henüz <repo>{{repo}}</repo> için bir Geri Bildirim PR'ı açılmadı. Bu, değerlendirilen bir teslimden sonra ödevin otomatik değerlendirme iş akışı tarafından oluşturulur — öğrenci teslim etmediyse (veya ödevde Geri Bildirim PR'ı devre dışıysa), henüz incelenecek bir şey yoktur.",
+      "emptyBody": "<repo>{{repo}}</repo> için henüz bir geri bildirim çekme isteği açılmadı. Bu, öğrenci ödevi kabul ettiğinde açılır — dolayısıyla incelenecek bir şey yoksa, öğrenci henüz kabul etmemiş olabilir, ödevde geri bildirim çekme isteği devre dışı olabilir veya açılması ertelenmiş olabilir (yeniden kabulde veya ilk değerlendirilen gönderimde yeniden dener).",
       "openRepoPrs": "Repo PR'larını aç"
     },
     "rowRegrade": {
@@ -1866,11 +1934,11 @@
       "modeIndividual": "Bireysel",
       "loadError": "Teslimleriniz yüklenemedi.",
       "notAccepted": "Bu ödevi henüz kabul etmediniz. Repolarınızı almak için <acceptLink>kabul edin</acceptLink>, ardından değerlendirilmesi için çalışmanızı gönderin.",
-      "noGradedYet": "Henüz değerlendirilmiş bir teslim yok. Dosyalarınızı yukarıdan yükleyin veya ödev reponuza komut satırından bir commit gönderin — otomatik değerlendirici sonucunuzu burada yayınlayacaktır.",
+      "noGradedYet": "Henüz değerlendirilmiş bir gönderim yok. Ödev deponuza komut satırından gönderim yapın; otomatik değerlendirici sonucunuzu burada yayımlayacak.",
       "openMyRepo": "Repomu aç",
       "submitGuide": {
-        "title": "Komut satırını mı tercih ediyorsunuz?",
-        "intro": "Yukarıdan yüklemek yerine bir terminalden de gönderebilirsiniz.",
+        "title": "Komut satırından gönder",
+        "intro": "Çalışmanızı bir terminalden değerlendirilmek üzere gönderin.",
         "step1": "Ödev deponuzu klonlayın (bir kez):",
         "step2": "Depo içinden çalışmanızı değerlendirilmek üzere gönderin:",
         "copyClone": "Clone komutunu kopyala",
@@ -1903,6 +1971,43 @@
       "releasesIntro": "Her teslim, puanınız ve test bazında sonuçlarınızla birlikte değerlendirilmiş sürümünü GitHub'da açar.",
       "fallbackTitle": "Teslim",
       "missingParams": "Sınıf veya ödev bilgisi eksik."
+    },
+    "openAllPrs": {
+      "blockedHint": "Geri bildirim dalları yanlış işlemeyi (commit) gösteriyor, bu nedenle çekme isteğini açmak boş bir fark gösterir. Bir kuruluş yöneticisinin bu işlemi yeniden çalıştırmadan önce her geri bildirim dalını silmesi gerekir — yalnızca yeniden denemek bunları düzeltmez.",
+      "blockedTitle": "Bu depolar bir kuruluş yöneticisi gerektiriyor:",
+      "confirmBody_one": "Bu, <b>{{name}}</b> için henüz geri bildirim çekme isteği olmayan <b>{{count}}</b> ödev deposunda bir geri bildirim çekme isteği açar. Zaten geri bildirim çekme isteği olan depolara dokunulmaz.",
+      "confirmBody_other": "Bu, <b>{{name}}</b> için henüz geri bildirim çekme isteği olmayan <b>{{count}}</b> ödev deposunun her birinde bir geri bildirim çekme isteği açar. Zaten geri bildirim çekme isteği olan depolara dokunulmaz.",
+      "confirmHint": "Bu, tarayıcınızdan bir seferde bir depo olacak şekilde çalışır, bu nedenle büyük bir sınıf için biraz zaman alabilir. Bitene kadar bu sekmeyi açık tutun.",
+      "confirmLabel_one": "Çekme isteği aç",
+      "confirmLabel_other": "Çekme isteklerini aç",
+      "failedHint": "Bu genellikle geçici bir GitHub hatasıdır — yalnızca hâlâ çekme isteği eksik olan depoları yeniden denemek için işlemi tekrar çalıştırın.",
+      "failedTitle": "Bu depolar işlenemedi:",
+      "menuLabel": "Tüm geri bildirim çekme isteklerini aç",
+      "running": "Açılıyor… {{total}} depodan {{done}}",
+      "summaryBlocked_one": "{{count}} depo engellendi (bir kuruluş yöneticisi gerekiyor)",
+      "summaryBlocked_other": "{{count}} depo engellendi (bir kuruluş yöneticisi gerekiyor)",
+      "summaryExisted_one": "{{count}} depoda zaten bir tane vardı",
+      "summaryExisted_other": "{{count}} depoda zaten birer tane vardı",
+      "summaryFailed_one": "{{count}} depo başarısız oldu",
+      "summaryFailed_other": "{{count}} depo başarısız oldu",
+      "summaryLead": "<b>{{total}}</b> deponun işlenmesi tamamlandı.",
+      "summaryOpened_one": "{{count}} geri bildirim çekme isteği açıldı",
+      "summaryOpened_other": "{{count}} geri bildirim çekme isteği açıldı",
+      "summaryUnsupported_one": "{{count}} depo atlandı (ödev temeli yok)",
+      "summaryUnsupported_other": "{{count}} depo atlandı (ödev temeli yok)",
+      "title": "Her depo için geri bildirim çekme isteklerini aç",
+      "titleEmptyRoster": "Önce listeye öğrenci ekleyin"
+    },
+    "repairPr": {
+      "alreadyExists": "{{repo}} için zaten bir geri bildirim çekme isteği mevcut.",
+      "baseMismatch": "Bu depodaki geri bildirim dalı yanlış işlemeyi (commit) gösteriyor, bu nedenle çekme isteğini burada açmak boş bir fark gösterir. Bir kuruluş yöneticisinin, doğru şekilde yeniden oluşturulabilmesi için geri bildirim dalını silmesi gerekir. Yeniden çalıştırmak bunu düzeltmez.",
+      "created": "{{repo}} için geri bildirim çekme isteği açıldı.",
+      "failed": "Geri bildirim çekme isteği açılamadı: {{reason}}",
+      "hint": "Öğrenci ödevi kabul ettiyse ancak çekme isteğini açmak başarısız olduysa (bir GitHub kesintisi veya geçici hata), şimdi açabilirsiniz.",
+      "noBaseline": "Bu deponun ödev temeli yok, bu nedenle onun için bir geri bildirim çekme isteği açılamaz (örneğin, boş depolu bir ödev). Onarılacak bir şey yok.",
+      "repair": "Geri bildirim çekme isteğini onar",
+      "repairing": "Onarılıyor…",
+      "repoNotFound": "{{repo}} deposu bulunamadı — öğrenci henüz kabul etmemiş olabilir."
     }
   },
   "orgActivity": {
@@ -2064,7 +2169,9 @@
         "archived": "Sınıf arşivlenmiş — üyeliği değiştirmek için arşivden çıkarın.",
         "resolve-failed": "Mevcut GitHub hesapları çözümlenemedi."
       }
-    }
+    },
+    "inviteMalformedId": "{{who}} davet edilemiyor: \"{{githubId}}\" geçerli bir GitHub kimliği değil. roster.csv dosyasındaki github_id hücresini düzeltin.",
+    "inviteMissingId": "{{who}} davet edilemiyor: kayıtlı GitHub kimliği yok."
   },
   "components": {
     "avatar": {
@@ -2087,6 +2194,11 @@
         "empty": "Bu sınıfta henüz öğrenci yok. Bir ödevin kabul bağlantısı yalnızca <org>{{org}}</org> organizasyonunun üyesi olan öğrenciler için çalışır; bu nedenle paylaşmadan önce öğrencileri ekleyip kaydedin.",
         "manageRoster": "Listeyi yönet",
         "addStudents": "Öğrenci ekle"
+      },
+      "orgRepoCreation": {
+        "action": "Kuruluş ayarları",
+        "master": "<org>{{org}}</org> üyelerin depo oluşturmasına izin vermiyor, bu nedenle hiçbir öğrenci ödevi kabul edemez. Kuruluş kurulumunu yeniden çalıştırın veya <memberPrivileges>Üye ayrıcalıkları</memberPrivileges> altında özel (genel değil) depo oluşturmaya izin verin. Bir kurumsal ilke bu ayarı geçersiz kılabilir.",
+        "private": "<org>{{org}}</org> üyelerin özel depo oluşturmasına izin vermiyor, bu nedenle hiçbir öğrenci ödevi kabul edemez. Kuruluş kurulumunu yeniden çalıştırın veya <memberPrivileges>Üye ayrıcalıkları</memberPrivileges> altında özel (genel değil) depo oluşturmaya izin verin. Bir kurumsal ilke bu ayarı geçersiz kılabilir."
       }
     },
     "confirmModal": {
@@ -2197,5 +2309,17 @@
       "heading": "Ayarlar",
       "subheading": "Bu tarayıcıya ait tercihler. Buradaki hiçbir şey organizasyonlarınızla paylaşılmaz."
     }
+  },
+  "pagesErrors": {
+    "assignmentNotInManifest": "\"{{assignmentSlug}}\" ödevi bu sınıfın yayımlanan ödevlerinde yok. Bağlantıyı kontrol edin veya öğretmeninizden ödevi yayımlamasını isteyin.",
+    "autograderLabel": "Otomatik değerlendirici \"{{autograderName}}\"",
+    "autograderMalformed": "Otomatik değerlendirici \"{{autograderName}}\" hatalı biçimlendirilmiş YAML olabilir. Öğretmeninizden yapılandırma deposundaki dosyayı kontrol etmesini isteyin.",
+    "classroomFetchFailed": "Bu sınıfın yayımlanan dosyaları yüklenemedi (HTTP {{status}}). Öğretmeninizden sınıfın yayımlandığını doğrulamasını isteyin, ardından tekrar deneyin.",
+    "classroomNotPublished": "Bu sınıf henüz yayımlanmadı. Mevcut olmayabilir veya yayımlama iş akışı çalışmamış olabilir. Öğretmeninizden yayımlamasını isteyin, ardından tekrar deneyin.",
+    "deployInFlight": "Sınıfın yayımlanan dosyaları hâlâ dağıtılıyor olabilir. Bir dakika bekleyin, ardından tekrar deneyin.",
+    "fetchFailed": "{{label}} yüklenemedi (HTTP {{status}}). Öğretmeninizden sınıfın yayımlandığını doğrulamasını isteyin, ardından tekrar deneyin.",
+    "manifestInvalidShape": "Bu sınıfın yayımlanan ödev listesi hatalı biçimlendirilmiş. Öğretmeninizden Classroom 50 yapılandırmasını kontrol etmesini isteyin.",
+    "manifestVersionUnsupported": "Bu sınıf, bu Classroom 50 kopyasının desteklediğinden daha yeni bir ödev biçimi (v{{version}}) kullanıyor. Sayfayı yeniden yükleyin veya öğretmeninizden Classroom 50'yi güncellemesini isteyin.",
+    "notPublished": "{{label}} henüz yayımlanmadı. Öğretmeninizden dosyanın yapılandırma deposunda bulunduğunu ve yayımlama iş akışının çalıştırıldığını doğrulamasını isteyin."
   }
 }

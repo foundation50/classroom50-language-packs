@@ -220,8 +220,6 @@
     "chooseFile": "ファイルを選択",
     "supportedFormats": "対応形式：.csv、.txt",
     "fileLabel": "ファイル：{{fileName}}",
-    "usernamesFound_one": "インポートする GitHub ユーザー名が {{count}} 件見つかりました。",
-    "usernamesFound_other": "インポートする GitHub ユーザー名が {{count}} 件見つかりました。",
     "githubUsernameColumn": "GitHub ユーザー名",
     "noValidUsernames": "このファイル内に有効な GitHub ユーザー名が見つかりませんでした。",
     "progressProcessed": "{{total}} 件中 {{processed}} 件処理済み",
@@ -288,7 +286,8 @@
       "confirmCancelTitle_other": "招待 {{count}} 件をキャンセルしますか？",
       "memberCount_one": "{{count}} 人のメンバー",
       "memberCount_other": "{{count}} 人のメンバー",
-      "noneSelectable": "ここに選択できるものはありません。一括操作（登録解除、招待）は受講者にのみ適用されます。スタッフ（教師、ヘッド TA、TA）は教室の設定で管理します。"
+      "noneSelectable": "ここに選択できるものはありません。一括操作（登録解除、招待）は受講者にのみ適用されます。スタッフ（教師、ヘッド TA、TA）は教室の設定で管理します。",
+      "malformedInviteId": "roster.csv の github_id が無効です。"
     },
     "classroomTeamLabel": "クラスチーム",
     "confirmResendBody": "{{label}} への保留中の組織招待を再送信しますか？現在の招待はキャンセルされ、{{org}} 用に新しい招待が送信されます。",
@@ -391,19 +390,13 @@
     "needsAttentionNotInOrgHelp": "{{label}} は名簿にありますが、組織のメンバーではありません。組織に招待して登録してください。",
     "noChangesToApply": "適用する変更はありません",
     "noValidEmails": "このファイルに有効なメールアドレスが見つかりませんでした。1行につき1つのメールアドレスを記載した .txt または .csv をアップロードしてください。",
-    "preflightAllMembersNote": "このファイル内の全員がすでに組織のメンバーであるため、招待は送信されません。",
-    "preflightChecking": "現在のメンバーシップを確認しています...",
     "preflightConfirmRoleChanges_one": "上記のとおり {{count}} 人のメンバーを別のチームに移動することを確認します。",
     "preflightConfirmRoleChanges_other": "上記のとおり {{count}} 人のメンバーを別のチームに移動することを確認します。",
     "preflightConfirmTitle": "処理する前に確認してください",
     "preflightEnrollOwnerDetail": "先生（組織オーナー）として登録",
-    "preflightEnrollTitle": "登録されます",
     "preflightFailed": "現在のメンバーシップを確認できませんでした：{{message}}。もう一度お試しください。",
-    "preflightInviteTitle": "招待されます",
-    "preflightNoActionTitle": "操作は不要です",
     "preflightRoleChangeDetail": "{{from}} → {{to}}",
     "preflightRoleChangeOwnerNotice": "1件以上の役割変更でメンバーが先生に昇格し、完全な制御を持つ組織オーナーになります。オーナーアクセスを任せられる信頼できる人にのみ確定してください。",
-    "preflightRoleChangeTitle": "役割の変更（確認が必要）",
     "processRoleChanges": "役割の変更を適用しています...",
     "reinvite": "再招待",
     "resultInvited": "送信された招待",
@@ -460,7 +453,34 @@
     "headTaCount_other": "ヘッド TA {{count}} 人",
     "roleHeadTa": "ヘッド TA",
     "unenrollBody": "受講者 <label>{{label}}</label> を <org>{{org}}</org> の {{classroom}} 教室から削除します。受講者の課題リポジトリは削除されません。",
-    "importMergeNotice": "インポートは既存の名簿に追加されます。すでに登録済みの学生はスキップされ、誰も削除されません。バッチで安全にインポートできます。"
+    "emailInviteInvalidBlocked_one": "{{count}} 行が有効なメールアドレスではありません。修正して再アップロードするか、上でフォーマットを切り替えてください。",
+    "emailInviteInvalidBlocked_other": "{{count}} 行が有効なメールアドレスではありません。修正して再アップロードするか、上でフォーマットを切り替えてください。",
+    "emailInviteInvalidRow": "{{line}} 行目: {{value}}",
+    "firstNameColumn": "名",
+    "inviteRosterMalformedId": "{{username}} を招待できません: 「{{githubId}}」は有効な GitHub ID ではありません。roster.csv の github_id セルを修正してください。",
+    "lastNameColumn": "姓",
+    "metadataWritebackFailed": "インポートは完了しましたが、更新された学生の詳細を roster.csv に書き込めませんでした。インポートを再実行して再試行してください。",
+    "metadataWritebackMalformed": "インポートは完了しましたが、roster.csv に不備があるため学生の詳細を更新できませんでした。名簿でフラグの付いた行を修正してから、再確認してください。",
+    "preflightConfirmMetadata_one": "上に記載のとおり {{count}} 名の学生の詳細を更新することを確認します。",
+    "preflightConfirmMetadata_other": "上に記載のとおり {{count}} 名の学生の詳細を更新することを確認します。",
+    "preflightMetadataConfirmTitle": "学生の詳細の更新を確認",
+    "preflightMetadataEmpty": "（空欄）",
+    "preflightMetadataReviewHint_one": "{{count}} 名の学生の詳細が更新されます。確認する前に、下でハイライトされたセルを確認してください（詳細はカーソルを合わせると表示されます）。",
+    "preflightMetadataReviewHint_other": "{{count}} 名の学生の詳細が更新されます。確認する前に、下でハイライトされたセルを確認してください（詳細はカーソルを合わせると表示されます）。",
+    "preflightRoleChangeMetadataNotice": "これらのメンバーの一部には更新された詳細（上に表示）もあり、チームの変更と一緒に保存されます。",
+    "resendMalformedId": "{{username}} への招待を再送できません: 「{{githubId}}」は有効な GitHub ID ではありません。roster.csv の github_id セルを修正してください。",
+    "rolePreviousHint": "以前は {{role}}",
+    "summaryHideDetails": "詳細を隠す",
+    "summaryNoChanges": "このファイルは名簿と一致しています — 追加や更新はありません。",
+    "summaryViewDetails": "詳細を表示",
+    "summary_add_one": "追加",
+    "summary_add_other": "追加",
+    "summary_skip_one": "すでに最新",
+    "summary_skip_other": "すでに最新",
+    "summary_update_one": "更新",
+    "summary_update_other": "更新",
+    "updateMetadata_one": "{{count}} 名の学生を更新",
+    "updateMetadata_other": "{{count}} 名の学生を更新"
   },
   "language": {
     "baseName": "English（ベース）",
@@ -528,10 +548,14 @@
     "emptyBody": "Classroom 50 を使用している、あなたが所属する組織がここに表示されます。表示されるはずの組織がある場合は、先生に追加済みか確認してもらってから更新してください。",
     "missingNotice": {
       "title": "Organization が表示されませんか？",
-      "body": "Classroom 50 は、サインイン時に明示的にアクセスを許可した GitHub Organization のみを表示できます。Organization が表示されない場合は、OAuth の権限を更新する必要があるかもしれません。",
+      "body": "GitHub は Classroom 50 にアクセスを許可した組織のみを一覧表示します。GitHub Education アカウントだけでは十分ではありません。",
       "manageOauth": "GitHub の OAuth アクセスを管理",
-      "refreshing": "更新しています…",
-      "refresh": "一覧を更新"
+      "reauthorizeHelp": "組織がまったく表示されませんか？ 再認可してください — 参加前に発行されたトークンでは組織を見ることができません。まだ承諾していない招待は、代わりに保留中の招待に表示されます。",
+      "steps": {
+        "grant": "GitHub の OAuth 設定で、組織の横にある「許可（Grant）」を選択します。",
+        "grantHelp": "組織がサードパーティ製アプリを制限している場合は、代わりに「アクセスをリクエスト（Request access）」が表示され、組織のオーナーが承認する必要があります。SAML シングルサインオンの場合は、同じページの「SSO を設定（Configure SSO）」を使用してください。",
+        "refresh": "ここに戻ってリストを更新します。"
+      }
     },
     "card": {
       "planTitlePaid": "GitHub プラン — Classroom 50 は Team および Enterprise プランでセットアップできます",
@@ -562,7 +586,10 @@
       },
       "notSupportedBadge": "非対応",
       "pickPrompt_one": "セットアップ可能な組織（{{count}}）",
-      "pickPrompt_other": "セットアップ可能な組織（{{count}}）"
+      "pickPrompt_other": "セットアップ可能な組織（{{count}}）",
+      "newBadge": "新規",
+      "refresh": "更新",
+      "refreshing": "更新中…"
     },
     "noResults": {
       "body": "「{{query}}」に一致する組織はありません。",
@@ -718,7 +745,7 @@
         "envHostedHelp": "GitHub Actions ランナー上で採点します。",
         "envLegend": "実行環境",
         "languagesHeading": "言語バージョン",
-        "languagesTip": "バージョンを選ぶとそのツールチェーンをインストールします（例：Node 26、Java 25）。または独自のバージョンを入力できます。空欄の場合はスキップします。Python はホスト型ランナーで空欄の場合、既定で 3.12 になります。必要な数だけツールチェーンを有効にできます。",
+        "languagesTip": "そのツールチェーンをインストールするバージョンを選択するか（例: Node 26、Java 25）、カスタムのものを入力します。空欄の場合はスキップされます。ホスト型ランナーで空欄の場合、Python は 3.14 になります。必要なだけツールチェーンを有効にできます。",
         "runnerContainerError": "「{{label}}」は macOS/Windows ランナーです。Docker イメージには Ubuntu（またはカスタム／セルフホスト型）ランナーが必要です。",
         "versionMenu": "{{language}} のバージョンを選択",
         "versionPlaceholder": "例: {{version}}",
@@ -1146,8 +1173,10 @@
         "readFailed": "読み取り失敗",
         "readFailedStatus": "読み取り失敗（{{status}}）",
         "rulesetsMissing": "不足: {{names}}",
-        "workflowOrgManaged": "組織ポリシーによりワークフローは既定で読み取り専用です。スケルトンワークフローは独自の権限を宣言します"
-      }
+        "workflowOrgManaged": "組織ポリシーによりワークフローは既定で読み取り専用です。スケルトンワークフローは独自の権限を宣言します",
+        "orgActionsPaused": "自動採点が一時停止されているため、GitHub Actions は意図的に classroom50 の設定リポジトリに制限されています。標準のポリシーを復元するには、上の GitHub Actions セクションで一時停止をオフにしてください。"
+      },
+      "statePaused": "一時停止中"
     },
     "rerun": {
       "title": "セットアップを再実行",
@@ -1274,14 +1303,14 @@
       "budgetHardStop": "$0 のハードストップ予算が設定されています。有料の分数はブロックされます。",
       "budgetManage": "予算を管理",
       "budgetNone": "支出予算は設定されていません。",
-      "confirmBody": "再開するまで受講者の提出物は採点されません。classroom50 設定リポジトリは引き続き機能します。いつでも元に戻せます。",
+      "confirmBody": "再開するまで学生の提出は採点されません。学生が受け入れると新しいフィードバックのプルリクエストは引き続き開かれ、既存のものも最新のプッシュを表示し続けますが、一時停止中の提出には自動採点や feedback-pr のステータスチェックは行われません。classroom50 の設定リポジトリは引き続き動作します。いつでも元に戻せます。",
       "confirmButton": "自動採点を一時停止",
       "confirmTitle": "組織全体で自動採点を一時停止しますか？",
       "description": "組織全体で自動採点を一時停止して Actions の支出を止めます。コース管理は引き続き機能します。",
       "disabledNotice": "組織全体で Actions がオフになっているため、何も実行されません。組織のセットアップを再実行するか、GitHub で Actions を有効にしてください。",
       "loading": "ステータスを確認中…",
       "openSettings": "Actions の設定を開く",
-      "pausedNotice": "一時停止中 — 受講者のプッシュは採点されません。これをオフにするまで、組織セットアップを再実行しても再開されません。",
+      "pausedNotice": "一時停止中 — 学生のプッシュは採点されないため、提出には自動採点や feedback-pr のステータスチェックが行われません。学生が受け入れると新しいフィードバックのプルリクエストは引き続き開かれ、既存のものも最新のプッシュを表示し続けます。これをオフにするまで組織のセットアップを再実行しても再開しません。",
       "statusActive": "自動採点オン",
       "statusDisabled": "Actions オフ",
       "statusPaused": "自動採点を一時停止中",
@@ -1531,7 +1560,8 @@
       "repo": "リポジトリを作成しています",
       "access": "アクセス権を付与しています",
       "setup": "自動採点をセットアップしています",
-      "membership": "クラスへの参加を確認中"
+      "membership": "クラスへの参加を確認中",
+      "feedback": "フィードバックのプルリクエストを開いています"
     },
     "progress": {
       "error": "セットアップに失敗しました — 各ステップを確認してください",
@@ -1551,7 +1581,45 @@
     "templateErrors": {
       "githubSaid": " GitHubからのメッセージ: \"{{message}}\"。",
       "inOrg": "プライベートテンプレート {{owner}}/{{repo}} をコピーできませんでした (HTTP {{status}})。{{detail}} 先生に課題のセットアップを再実行してもらってから、もう一度承諾してください。",
-      "outOfOrg": "テンプレート {{owner}}/{{repo}} をコピーできませんでした (HTTP {{status}})。{{detail}} これは多くの場合、{{owner}} 組織がサードパーティ製アプリを制限しているためです。先生に {{owner}} 向けの Classroom 50 アプリを承認してもらう（またはテンプレートを公開してもらう）よう依頼し、もう一度承諾してください。"
+      "outOfOrg": "テンプレート {{owner}}/{{repo}} をコピーできませんでした (HTTP {{status}})。{{detail}} これは多くの場合、{{owner}} 組織がサードパーティ製アプリを制限しているためです。先生に {{owner}} 向けの Classroom 50 アプリを承認してもらう（またはテンプレートを公開してもらう）よう依頼し、もう一度承諾してください。",
+      "orgRepoCreationDenied": "{{org}} はメンバーによるプライベートリポジトリの作成を許可していない可能性があるため、リポジトリを作成できませんでした（HTTP {{status}}）。担当の先生に有効化してもらってから、もう一度受け入れてください。",
+      "orgRepoCreationDeniedStep": "{{org}} がリポジトリの作成を許可しませんでした（HTTP {{status}}）。"
+    },
+    "errors": {
+      "emptyRepoWithTemplate": "課題「{{assignmentSlug}}」は空のリポジトリとテンプレートの両方が設定されており、これは無効です。担当の先生に課題のセットアップを再実行してもらってください。",
+      "founderAccessMismatch": "リポジトリ {{owner}}/{{repo}} は作成されましたが、GitHub はあなたのアクセス権を「{{permission}}」ではなく「{{effective}}」（ロール「{{role}}」）と報告しています。担当の先生に {{username}} のアクセス権を「{{permission}}」に設定してもらってください。",
+      "incoherentMode": "課題「{{slug}}」はグループサイズが {{maxGroupSize}} ですが「{{mode}}」として設定されているため、公開された設定に矛盾があります。担当の先生に課題のセットアップを再実行してもらってください。"
+    },
+    "stepActions": {
+      "access": "リポジトリ {{org}}/{{repo}} は作成されましたが、あなた（{{username}}）を共同作業者として追加できませんでした。これは通常、GitHub ユーザー名が変更されたか、{{org}} から抜けたことが原因です。{{org}} のメンバーであることを確認してから「セットアップを再実行」を使用してください。",
+      "account": "あなたの GitHub アカウントを読み取れませんでした。いったんサインアウトしてから再度サインインし、もう一度受け入れてください。",
+      "assignment": "{{org}}/{{classroom}} の課題「{{assignmentSlug}}」を読み込めませんでした。リンクを確認するか、担当の先生に課題が公開されているか確認してもらってください。",
+      "autograder": "「{{assignmentSlug}}」の自動採点を解決できませんでした。担当の先生に公開されているか確認してもらってから、もう一度受け入れてください。",
+      "membership": "メンバーシップを確認できませんでした。組織がシングルサインオン（SSO）を使用している場合は、この組織向けに SSO を承認する（または LMS からこのリンクを開く）と、もう一度受け入れてください。それ以外の場合は担当の先生に招待を確認してもらってください。",
+      "repo": "{{org}}/{{repo}} を作成できませんでした。{{org}} のメンバーであることを確認し、担当の先生に課題のテンプレートリポジトリが正しく設定されているか確認してもらってから、もう一度受け入れてください。",
+      "setup": "リポジトリ {{org}}/{{repo}} は存在しますが、ブランチ「{{branch}}」へのセットアップファイルの書き込みに失敗しました。まだ初期化中の可能性があります。少し待ってから「セットアップを再実行」を使用してください。"
+    },
+    "stepDone": {
+      "access": "リポジトリへのアクセス権を付与しました",
+      "account": "GitHub アカウントを確認しました",
+      "assignment": "課題 {{assignmentSlug}} を見つけました",
+      "autograder": "自動採点を解決しました",
+      "autograderDisabled": "この課題では自動採点が無効です",
+      "feedback": "フィードバックのプルリクエストの準備ができました",
+      "feedbackDeferred": "フィードバックのプルリクエストを今は開けませんでした。もう一度受け入れて再試行してください（または自動採点が有効なら最初の提出時に開きます）",
+      "feedbackSkipped": "この課題にはフィードバックのプルリクエストはありません",
+      "membership": "クラスのメンバーシップを確認しました",
+      "repo": "{{org}}/{{repo}} を作成しました",
+      "repoExists": "リポジトリはすでに存在します: {{org}}/{{repo}}",
+      "repoIncomplete": "未完了のセットアップが見つかりました: {{org}}/{{repo}}",
+      "setup": "自動採点を設定しました",
+      "setupSkippedEmptyRepo": "セットアップは不要です: この課題は空のリポジトリを使用します"
+    },
+    "stepErrors": {
+      "generic": "{{label}} が失敗しました（HTTP {{status}}）。{{actions}}",
+      "rateLimited": "{{label}} で GitHub のレート制限に達しました。少し待ってから、もう一度受け入れてください。",
+      "unauthorized": "GitHub のセッションが期限切れになったため、{{label}} が失敗しました（HTTP 401）。いったんサインアウトしてから再度サインインし、もう一度受け入れてください。",
+      "unexpected": "{{label}} が予期せず失敗しました。再試行しても安全です。"
     }
   },
   "submissions": {
@@ -1722,7 +1790,7 @@
       "errorTitle": "フィードバック PR を確認できませんでした",
       "emptyTitle": "フィードバックのプルリクエストはまだありません",
       "openRepoPrs": "リポジトリの PR を開く",
-      "emptyBody": "<repo>{{repo}}</repo> にはまだフィードバック PR が開かれていません。これは採点済みの提出後に課題の自動採点ワークフローによって作成されます。受講者がまだ提出していない場合（または課題でフィードバック PR が無効になっている場合）は、まだレビューするものはありません。"
+      "emptyBody": "<repo>{{repo}}</repo> にはまだフィードバック PR が開かれていません。これは学生が課題を受け入れたときに開かれます。レビューするものがない場合は、学生がまだ受け入れていないか、課題でフィードバック PR が無効になっているか、開くのが先送りされた（再受け入れ時、または最初の採点済み提出時に再試行されます）可能性があります。"
     },
     "rowRegrade": {
       "title": "この提出物を再採点",
@@ -1744,7 +1812,7 @@
       "modeGroup": "グループ",
       "modeIndividual": "個人",
       "loadError": "提出物を読み込めませんでした。",
-      "noGradedYet": "採点済みの提出物はまだありません。上でファイルをアップロードするか、コマンドラインから課題リポジトリにプッシュしてください。自動採点が結果をここに公開します。",
+      "noGradedYet": "採点済みの提出はまだありません。コマンドラインから課題リポジトリにプッシュすると、自動採点があなたの結果をここに公開します。",
       "openMyRepo": "自分のリポジトリを開く",
       "releasesIntro": "各提出物では、GitHub 上の採点済みリリースが開き、スコアとテストごとの結果が表示されます。",
       "fallbackTitle": "提出物",
@@ -1755,8 +1823,8 @@
         "copySubmit": "提出コマンドをコピー",
         "step1": "課題リポジトリをクローンします（初回のみ）:",
         "step2": "リポジトリ内から、採点用に作業を提出します:",
-        "title": "コマンドラインを使いたいですか？",
-        "intro": "上でアップロードする代わりに、ターミナルから提出することもできます。"
+        "title": "コマンドラインから提出する",
+        "intro": "ターミナルから、採点のために作業を提出します。"
       },
       "upload": {
         "addFiles": "ファイルを追加",
@@ -1806,6 +1874,43 @@
     "live": {
       "incomplete_one": "{{count}} 個のリポジトリを読み取れなかったため、ライブの提出ステータスが不完全な場合があります。再試行するか、「今すぐ提出物を同期」を実行してください。",
       "incomplete_other": "{{count}} 個のリポジトリを読み取れなかったため、ライブの提出ステータスが不完全な場合があります。再試行するか、「今すぐ提出物を同期」を実行してください。"
+    },
+    "openAllPrs": {
+      "blockedHint": "これらのフィードバックブランチは誤ったコミットを指しているため、PR を開いても空の差分が表示されます。このアクションを再実行する前に、組織の管理者が各フィードバックブランチを削除する必要があります。再試行だけでは修正できません。",
+      "blockedTitle": "これらのリポジトリには組織の管理者が必要です:",
+      "confirmBody_one": "これにより、<b>{{name}}</b> のフィードバック PR がまだない <b>{{count}}</b> 個の課題リポジトリに PR を開きます。すでにフィードバック PR があるリポジトリはそのままにされます。",
+      "confirmBody_other": "これにより、<b>{{name}}</b> のフィードバック PR がまだない <b>{{count}}</b> 個の課題リポジトリそれぞれに PR を開きます。すでにフィードバック PR があるリポジトリはそのままにされます。",
+      "confirmHint": "これはブラウザから 1 リポジトリずつ実行されるため、大人数のクラスでは時間がかかることがあります。完了するまでこのタブを開いたままにしてください。",
+      "confirmLabel_one": "PR を開く",
+      "confirmLabel_other": "PR を開く",
+      "failedHint": "これはよく一時的な GitHub エラーです — アクションを再実行すると、まだ PR がないリポジトリのみを再試行します。",
+      "failedTitle": "これらのリポジトリは処理できませんでした:",
+      "menuLabel": "すべてのフィードバック PR を開く",
+      "running": "開いています… {{total}} 個中 {{done}} 個",
+      "summaryBlocked_one": "{{count}} 個のリポジトリがブロックされました（組織の管理者が必要）",
+      "summaryBlocked_other": "{{count}} 個のリポジトリがブロックされました（組織の管理者が必要）",
+      "summaryExisted_one": "{{count}} 個のリポジトリにはすでに存在していました",
+      "summaryExisted_other": "{{count}} 個のリポジトリにはすでに存在していました",
+      "summaryFailed_one": "{{count}} 個のリポジトリが失敗しました",
+      "summaryFailed_other": "{{count}} 個のリポジトリが失敗しました",
+      "summaryLead": "<b>{{total}}</b> 個のリポジトリの処理が完了しました。",
+      "summaryOpened_one": "{{count}} 個のフィードバック PR を開きました",
+      "summaryOpened_other": "{{count}} 個のフィードバック PR を開きました",
+      "summaryUnsupported_one": "{{count}} 個のリポジトリをスキップしました（課題のベースラインなし）",
+      "summaryUnsupported_other": "{{count}} 個のリポジトリをスキップしました（課題のベースラインなし）",
+      "title": "すべてのリポジトリにフィードバック PR を開く",
+      "titleEmptyRoster": "先に学生を名簿に追加してください"
+    },
+    "repairPr": {
+      "alreadyExists": "{{repo}} にはすでにフィードバック PR があります。",
+      "baseMismatch": "このリポジトリのフィードバックブランチは誤ったコミットを指しているため、ここで PR を開いても空の差分が表示されます。正しく再作成できるようにするには、組織の管理者がフィードバックブランチを削除する必要があります。再実行しても修正されません。",
+      "created": "{{repo}} のフィードバック PR を開きました。",
+      "failed": "フィードバック PR を開けませんでした: {{reason}}",
+      "hint": "学生が受け入れたのに PR を開くのに失敗した場合（GitHub の障害や一時的なエラー）、今開くことができます。",
+      "noBaseline": "このリポジトリには課題のベースラインがないため、フィードバック PR を開くことができません（例: 空のリポジトリの課題）。修復するものはありません。",
+      "repair": "フィードバック PR を修復",
+      "repairing": "修復中…",
+      "repoNotFound": "リポジトリ {{repo}} が見つかりませんでした — 学生がまだ受け入れていない可能性があります。"
     }
   },
   "orgMembers": {
@@ -1910,7 +2015,9 @@
     "noUsernameWithId": "<missing>GitHub ユーザー名なし</missing> <meta>· id {{id}}</meta>",
     "notMember": "{{label}} は教室の名簿にありますが、<emphasis>組織のメンバーではありません</emphasis>。招待してアクセスを復元してください。招待は id によってその GitHub アカウント宛てに送られるため、ユーザー名が変わっていても機能します。",
     "subtitle": "<orgLink>{{org}}</orgLink> GitHub 組織の全員と、その所属教室です。",
-    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>"
+    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
+    "inviteMalformedId": "{{who}} を招待できません: 「{{githubId}}」は有効な GitHub ID ではありません。roster.csv の github_id セルを修正してください。",
+    "inviteMissingId": "{{who}} を招待できません: GitHub ID が登録されていません。"
   },
   "components": {
     "avatar": {
@@ -1933,6 +2040,11 @@
         "addStudents": "受講者を追加",
         "empty": "この教室にはまだ受講者がいません。課題の受け取りリンクは <org>{{org}}</org> 組織のメンバーである受講者にのみ有効なため、共有する前に受講者を追加して登録してください。",
         "hasRows": "まだ <org>{{org}}</org> 組織に参加した受講者がいません。課題の受け取りリンクは組織メンバーである受講者にのみ有効なため、招待された受講者はまず招待を承認する必要があります。"
+      },
+      "orgRepoCreation": {
+        "action": "組織の設定",
+        "master": "<org>{{org}}</org> はメンバーによるリポジトリの作成を許可していないため、どの学生も課題を受け入れられません。組織のセットアップを再実行するか、<memberPrivileges>メンバー権限</memberPrivileges>でプライベート（パブリックではない）リポジトリの作成を許可してください。エンタープライズのポリシーがこの設定を上書きすることがあります。",
+        "private": "<org>{{org}}</org> はメンバーによるプライベートリポジトリの作成を許可していないため、どの学生も課題を受け入れられません。組織のセットアップを再実行するか、<memberPrivileges>メンバー権限</memberPrivileges>でプライベート（パブリックではない）リポジトリの作成を許可してください。エンタープライズのポリシーがこの設定を上書きすることがあります。"
       }
     },
     "confirmModal": {
@@ -2197,5 +2309,17 @@
       "heading": "設定",
       "subheading": "このブラウザの設定です。ここでの内容は組織と共有されません。"
     }
+  },
+  "pagesErrors": {
+    "assignmentNotInManifest": "課題「{{assignmentSlug}}」はこのクラスの公開済み課題に含まれていません。リンクを確認するか、担当の先生に課題を公開してもらってください。",
+    "autograderLabel": "自動採点「{{autograderName}}」",
+    "autograderMalformed": "自動採点「{{autograderName}}」の YAML に不備がある可能性があります。担当の先生に設定リポジトリのファイルを確認してもらってください。",
+    "classroomFetchFailed": "このクラスの公開済みファイルを読み込めませんでした（HTTP {{status}}）。担当の先生にクラスが公開されているか確認してもらってから、もう一度お試しください。",
+    "classroomNotPublished": "このクラスはまだ公開されていません。存在しないか、公開ワークフローがまだ実行されていない可能性があります。担当の先生に公開してもらってから、もう一度お試しください。",
+    "deployInFlight": "クラスの公開済みファイルはまだデプロイ中の可能性があります。1 分ほど待ってから、もう一度お試しください。",
+    "fetchFailed": "{{label}} を読み込めませんでした（HTTP {{status}}）。担当の先生にクラスが公開されているか確認してもらってから、もう一度お試しください。",
+    "manifestInvalidShape": "このクラスの公開済み課題リストに不備があります。担当の先生に Classroom 50 の設定を確認してもらってください。",
+    "manifestVersionUnsupported": "このクラスは、この Classroom 50 がサポートするよりも新しい課題フォーマット（v{{version}}）を使用しています。ページを再読み込みするか、担当の先生に Classroom 50 を更新してもらってください。",
+    "notPublished": "{{label}} はまだ公開されていません。担当の先生に、設定リポジトリにファイルが存在すること、および公開ワークフローが実行されたことを確認してもらってください。"
   }
 }

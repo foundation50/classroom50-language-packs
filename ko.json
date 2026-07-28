@@ -220,8 +220,6 @@
     "chooseFile": "파일 선택",
     "supportedFormats": "지원 형식: .csv, .txt",
     "fileLabel": "파일: {{fileName}}",
-    "usernamesFound_one": "가져올 GitHub 사용자 이름 {{count}}개를 찾았습니다.",
-    "usernamesFound_other": "가져올 GitHub 사용자 이름 {{count}}개를 찾았습니다.",
     "githubUsernameColumn": "GitHub 사용자 이름",
     "noValidUsernames": "이 파일에서 유효한 GitHub 사용자 이름을 찾을 수 없습니다.",
     "progressProcessed": "{{total}}개 중 {{processed}}개 처리됨",
@@ -288,7 +286,8 @@
       "confirmCancelTitle_other": "초대 {{count}}건을 취소할까요?",
       "memberCount_one": "구성원 {{count}}명",
       "memberCount_other": "구성원 {{count}}명",
-      "noneSelectable": "여기서 선택할 항목이 없습니다 — 대량 작업(등록 해제, 초대)은 학생에게만 적용됩니다. 교직원(선생님, 헤드 TA, TA)은 강의실 설정에서 관리됩니다."
+      "noneSelectable": "여기서 선택할 항목이 없습니다 — 대량 작업(등록 해제, 초대)은 학생에게만 적용됩니다. 교직원(선생님, 헤드 TA, TA)은 강의실 설정에서 관리됩니다.",
+      "malformedInviteId": "roster.csv의 github_id가 잘못되었습니다."
     },
     "classroomTeamLabel": "클래스룸 팀",
     "confirmResendBody": "{{label}}에게 대기 중인 조직 초대를 다시 보낼까요? 현재 초대는 취소되고 {{org}}에 대한 새 초대가 전송됩니다.",
@@ -391,19 +390,13 @@
     "needsAttentionNotInOrgHelp": "{{label}}은(는) 명단에 있지만 조직 구성원이 아닙니다. 등록하려면 조직에 초대하세요.",
     "noChangesToApply": "적용할 변경 사항 없음",
     "noValidEmails": "이 파일에서 유효한 이메일 주소를 찾지 못했습니다. 이메일 주소를 한 줄에 하나씩 담은 .txt 또는 .csv 파일을 업로드하세요.",
-    "preflightAllMembersNote": "이 파일의 모든 사람이 이미 조직 구성원이므로 초대가 전송되지 않습니다.",
-    "preflightChecking": "현재 멤버십을 확인하는 중...",
     "preflightConfirmRoleChanges_one": "위에 나열된 대로 구성원 {{count}}명을 다른 팀으로 이동하는 것을 확인합니다.",
     "preflightConfirmRoleChanges_other": "위에 나열된 대로 구성원 {{count}}명을 다른 팀으로 이동하는 것을 확인합니다.",
     "preflightConfirmTitle": "처리 전 확인",
     "preflightEnrollOwnerDetail": "선생님(조직 소유자)으로 등록",
-    "preflightEnrollTitle": "등록됩니다",
     "preflightFailed": "현재 멤버십을 확인하지 못했습니다: {{message}}. 다시 시도하세요.",
-    "preflightInviteTitle": "초대됩니다",
-    "preflightNoActionTitle": "필요한 작업 없음",
     "preflightRoleChangeDetail": "{{from}} → {{to}}",
     "preflightRoleChangeOwnerNotice": "하나 이상의 역할 변경으로 구성원이 선생님으로 승격되어 전체 제어 권한을 가진 조직 소유자가 됩니다. 소유자 접근 권한을 신뢰할 수 있는 사람에게만 확인하세요.",
-    "preflightRoleChangeTitle": "역할 변경 (확인 필요)",
     "processRoleChanges": "역할 변경을 적용하는 중...",
     "reinvite": "다시 초대",
     "resultInvited": "전송된 초대",
@@ -460,7 +453,34 @@
     "headTaCount_other": "헤드 TA {{count}}명",
     "roleHeadTa": "헤드 TA",
     "unenrollBody": "이 작업은 <org>{{org}}</org> {{classroom}} 강의실에서 학생 <label>{{label}}</label>을(를) 제거합니다. 학생 과제 저장소는 삭제되지 않습니다.",
-    "importMergeNotice": "가져오기는 기존 명단에 추가됩니다 — 이미 등록된 학생은 건너뛰며 아무도 제거되지 않습니다. 여러 번에 나눠 안전하게 가져올 수 있습니다."
+    "emailInviteInvalidBlocked_one": "{{count}}줄이 올바른 이메일 주소가 아닙니다. 수정하여 다시 업로드하거나, 위에서 형식을 전환하세요.",
+    "emailInviteInvalidBlocked_other": "{{count}}줄이 올바른 이메일 주소가 아닙니다. 수정하여 다시 업로드하거나, 위에서 형식을 전환하세요.",
+    "emailInviteInvalidRow": "{{line}}줄: {{value}}",
+    "firstNameColumn": "이름",
+    "inviteRosterMalformedId": "{{username}}을(를) 초대할 수 없습니다: \"{{githubId}}\"은(는) 올바른 GitHub id가 아닙니다. roster.csv의 github_id 셀을 수정하세요.",
+    "lastNameColumn": "성",
+    "metadataWritebackFailed": "가져오기가 완료되었지만, 업데이트된 학생 세부 정보를 roster.csv에 쓰지 못했습니다. 가져오기를 다시 실행하여 재시도하세요.",
+    "metadataWritebackMalformed": "가져오기가 완료되었지만, roster.csv 형식이 잘못되어 학생 세부 정보를 업데이트할 수 없었습니다. 명단에서 표시된 줄을 수정한 뒤 다시 확인하세요.",
+    "preflightConfirmMetadata_one": "위에 나열된 대로 학생 {{count}}명의 세부 정보를 업데이트하는 것을 확인합니다.",
+    "preflightConfirmMetadata_other": "위에 나열된 대로 학생 {{count}}명의 세부 정보를 업데이트하는 것을 확인합니다.",
+    "preflightMetadataConfirmTitle": "학생 세부 정보 업데이트 확인",
+    "preflightMetadataEmpty": "(비어 있음)",
+    "preflightMetadataReviewHint_one": "학생 {{count}}명의 세부 정보가 업데이트됩니다. 확인하기 전에 아래 강조 표시된 셀을 검토하세요(자세한 내용은 마우스를 올려 보세요).",
+    "preflightMetadataReviewHint_other": "학생 {{count}}명의 세부 정보가 업데이트됩니다. 확인하기 전에 아래 강조 표시된 셀을 검토하세요(자세한 내용은 마우스를 올려 보세요).",
+    "preflightRoleChangeMetadataNotice": "이 구성원 중 일부는 업데이트된 세부 정보(위 표시)도 있으며, 팀 변경과 함께 저장됩니다.",
+    "resendMalformedId": "{{username}}의 초대를 다시 보낼 수 없습니다: \"{{githubId}}\"은(는) 올바른 GitHub id가 아닙니다. roster.csv의 github_id 셀을 수정하세요.",
+    "rolePreviousHint": "이전: {{role}}",
+    "summaryHideDetails": "세부 정보 숨기기",
+    "summaryNoChanges": "이 파일이 명단과 일치합니다 — 추가하거나 업데이트할 항목이 없습니다.",
+    "summaryViewDetails": "세부 정보 보기",
+    "summary_add_one": "추가 예정",
+    "summary_add_other": "추가 예정",
+    "summary_skip_one": "이미 최신 상태",
+    "summary_skip_other": "이미 최신 상태",
+    "summary_update_one": "업데이트 예정",
+    "summary_update_other": "업데이트 예정",
+    "updateMetadata_one": "학생 {{count}}명 업데이트",
+    "updateMetadata_other": "학생 {{count}}명 업데이트"
   },
   "language": {
     "baseName": "English (기본)",
@@ -528,10 +548,14 @@
     "emptyBody": "Classroom 50을 사용하는 소속 조직이 여기에 표시됩니다. 조직이 있어야 한다고 생각한다면, 선생님께 추가되었는지 확인을 요청한 후 새로고침하세요.",
     "missingNotice": {
       "title": "조직이 보이지 않나요?",
-      "body": "Classroom 50은 로그인 시 명시적으로 접근 권한을 부여한 GitHub 조직만 표시할 수 있습니다. 조직이 보이지 않는다면 OAuth 권한을 업데이트해야 할 수 있습니다.",
+      "body": "GitHub는 회원님이 Classroom 50에 접근 권한을 부여한 조직만 나열합니다 — GitHub Education 계정만으로는 충분하지 않습니다.",
       "manageOauth": "GitHub OAuth 접근 관리",
-      "refreshing": "새로 고치는 중…",
-      "refresh": "목록 새로 고침"
+      "reauthorizeHelp": "조직이 하나도 나열되지 않나요? 다시 승인하세요 — 회원님이 가입하기 전에 발급된 토큰은 해당 조직을 볼 수 없습니다. 아직 수락하지 않은 초대는 대신 대기 중인 초대에 표시됩니다.",
+      "steps": {
+        "grant": "GitHub OAuth 설정에서 해당 조직 옆의 Grant를 선택하세요.",
+        "grantHelp": "조직이 타사 앱을 제한하는 경우 대신 Request access가 표시되며, 조직 소유자가 승인해야 합니다. SAML 싱글 사인온을 사용하는 경우 같은 페이지에서 Configure SSO를 사용하세요.",
+        "refresh": "여기로 돌아와 목록을 새로 고치세요."
+      }
     },
     "card": {
       "planTitlePaid": "GitHub 요금제 — Classroom 50은 Team 및 Enterprise 요금제에서 설정할 수 있습니다",
@@ -562,7 +586,10 @@
       },
       "notSupportedBadge": "지원되지 않음",
       "pickPrompt_one": "설정 준비된 조직 ({{count}})",
-      "pickPrompt_other": "설정 준비된 조직 ({{count}})"
+      "pickPrompt_other": "설정 준비된 조직 ({{count}})",
+      "newBadge": "신규",
+      "refresh": "새로 고침",
+      "refreshing": "새로 고치는 중…"
     },
     "noResults": {
       "body": "“{{query}}”과(와) 일치하는 조직이 없습니다.",
@@ -718,7 +745,7 @@
         "envHostedHelp": "GitHub Actions 러너에서 채점합니다.",
         "envLegend": "런타임 환경",
         "languagesHeading": "언어 버전",
-        "languagesTip": "해당 툴체인을 설치할 버전을 선택하거나(예: Node 26, Java 25) 직접 입력하세요. 비워 두면 건너뜁니다. 호스팅 러너에서 비워 두면 Python은 기본값 3.12를 사용합니다. 필요한 만큼 여러 툴체인을 활성화할 수 있습니다.",
+        "languagesTip": "버전을 선택하여 해당 툴체인을 설치하거나(예: Node 26, Java 25), 사용자 지정 버전을 입력하세요. 비워 두면 건너뜁니다. 호스팅 러너에서 비워 두면 Python은 3.14가 기본값입니다. 필요한 만큼 툴체인을 활성화할 수 있습니다.",
         "runnerContainerError": "\"{{label}}\"은(는) macOS/Windows 러너입니다 — Docker 이미지에는 Ubuntu(또는 커스텀/셀프 호스팅) 러너가 필요합니다.",
         "versionMenu": "{{language}} 버전 선택",
         "versionPlaceholder": "예: {{version}}",
@@ -1146,8 +1173,10 @@
         "readFailed": "읽기 실패",
         "readFailedStatus": "읽기 실패({{status}})",
         "rulesetsMissing": "누락됨: {{names}}",
-        "workflowOrgManaged": "조직 정책이 워크플로를 기본적으로 읽기로 설정합니다. 스켈레톤 워크플로는 자체 권한을 선언합니다"
-      }
+        "workflowOrgManaged": "조직 정책이 워크플로를 기본적으로 읽기로 설정합니다. 스켈레톤 워크플로는 자체 권한을 선언합니다",
+        "orgActionsPaused": "자동 채점이 일시 중지되어 GitHub Actions가 의도적으로 classroom50 구성 저장소로만 제한되어 있습니다. 표준 정책을 복원하려면 위의 GitHub Actions 섹션에서 일시 중지를 해제하세요."
+      },
+      "statePaused": "일시 중지됨"
     },
     "rerun": {
       "title": "설정 다시 실행",
@@ -1274,14 +1303,14 @@
       "budgetHardStop": "$0 강제 중지 예산 설정됨 — 유료 시간 차단됨.",
       "budgetManage": "예산 관리",
       "budgetNone": "지출 예산이 설정되지 않았습니다.",
-      "confirmBody": "재개할 때까지 학생 제출물이 채점되지 않습니다. classroom50 구성 저장소는 계속 작동합니다. 언제든지 되돌릴 수 있습니다.",
+      "confirmBody": "재개할 때까지 학생 제출물은 채점되지 않습니다. 학생이 수락하면 새 피드백 풀 리퀘스트는 여전히 열리고 기존 풀 리퀘스트도 최신 푸시를 계속 표시하지만, 일시 중지된 동안 제출물에는 자동 채점 또는 feedback-pr 상태 검사가 실행되지 않습니다. classroom50 구성 저장소는 계속 작동합니다. 언제든 되돌릴 수 있습니다.",
       "confirmButton": "자동 채점 일시 중지",
       "confirmTitle": "전체 조직에 대해 자동 채점을 일시 중지하시겠습니까?",
       "description": "Actions 지출을 중단하기 위해 조직 전체의 자동 채점을 일시 중지합니다. 강의 관리는 계속 작동합니다.",
       "disabledNotice": "전체 조직에 대해 Actions가 꺼져 있어 아무것도 실행되지 않습니다. 조직 설정을 다시 실행하거나 GitHub에서 Actions를 활성화하세요.",
       "loading": "상태 확인 중…",
       "openSettings": "Actions 설정 열기",
-      "pausedNotice": "일시 중지됨 — 학생 푸시가 채점되지 않습니다. 이를 끄기 전까지는 조직 설정을 다시 실행해도 재개되지 않습니다.",
+      "pausedNotice": "일시 중지됨 — 학생 푸시가 채점되지 않아 제출물에 자동 채점 또는 feedback-pr 상태 검사가 실행되지 않습니다. 학생이 수락하면 새 피드백 풀 리퀘스트는 여전히 열리고 기존 풀 리퀘스트도 최신 푸시를 계속 표시합니다. 이 옵션을 끄기 전까지는 조직 설정을 다시 실행해도 재개되지 않습니다.",
       "statusActive": "자동 채점 켜짐",
       "statusDisabled": "Actions 꺼짐",
       "statusPaused": "자동 채점 일시 중지됨",
@@ -1531,7 +1560,8 @@
       "repo": "저장소 생성 중",
       "access": "접근 권한 부여 중",
       "setup": "자동 채점 설정 중",
-      "membership": "클래스룸 구성원 여부 확인 중"
+      "membership": "클래스룸 구성원 여부 확인 중",
+      "feedback": "피드백 풀 리퀘스트 여는 중"
     },
     "progress": {
       "error": "설정 실패 — 단계를 확인하세요",
@@ -1551,7 +1581,45 @@
     "templateErrors": {
       "githubSaid": " GitHub의 응답: \"{{message}}\".",
       "inOrg": "비공개 템플릿 {{owner}}/{{repo}}을(를) 복사할 수 없습니다(HTTP {{status}}).{{detail}} 선생님께 과제 설정을 다시 실행하도록 요청한 후 다시 수락하세요.",
-      "outOfOrg": "템플릿 {{owner}}/{{repo}}을(를) 복사할 수 없습니다(HTTP {{status}}).{{detail}} 이는 흔히 {{owner}} 조직이 서드파티 앱을 제한하기 때문입니다 — 선생님께 {{owner}}에 대해 Classroom 50 앱을 승인하도록(또는 템플릿을 공개로 설정하도록) 요청한 후 다시 수락하세요."
+      "outOfOrg": "템플릿 {{owner}}/{{repo}}을(를) 복사할 수 없습니다(HTTP {{status}}).{{detail}} 이는 흔히 {{owner}} 조직이 서드파티 앱을 제한하기 때문입니다 — 선생님께 {{owner}}에 대해 Classroom 50 앱을 승인하도록(또는 템플릿을 공개로 설정하도록) 요청한 후 다시 수락하세요.",
+      "orgRepoCreationDenied": "{{org}}이(가) 구성원의 비공개 저장소 생성을 허용하지 않아 회원님의 저장소를 만들 수 없습니다 (HTTP {{status}}). 선생님께 이를 활성화해 달라고 요청한 뒤 다시 수락하세요.",
+      "orgRepoCreationDeniedStep": "{{org}}이(가) 회원님의 저장소 생성을 허용하지 않았습니다 (HTTP {{status}})."
+    },
+    "errors": {
+      "emptyRepoWithTemplate": "\"{{assignmentSlug}}\" 과제가 빈 저장소와 템플릿을 동시에 설정하고 있어 올바르지 않습니다. 선생님께 과제 설정을 다시 실행해 달라고 요청하세요.",
+      "founderAccessMismatch": "저장소 {{owner}}/{{repo}}가 생성되었지만, GitHub가 보고한 접근 권한이 \"{{permission}}\"이 아니라 \"{{effective}}\"(역할 \"{{role}}\")입니다. 선생님께 {{username}}의 접근 권한을 \"{{permission}}\"으로 설정해 달라고 요청하세요.",
+      "incoherentMode": "\"{{slug}}\" 과제의 그룹 크기는 {{maxGroupSize}}이지만 \"{{mode}}\"으로 설정되어 있어 게시된 설정이 일치하지 않습니다. 선생님께 과제 설정을 다시 실행해 달라고 요청하세요."
+    },
+    "stepActions": {
+      "access": "저장소 {{org}}/{{repo}}가 생성되었지만, 회원님({{username}})을 공동 작업자로 추가하지 못했습니다. 대개 GitHub 사용자 이름이 바뀌었거나 {{org}}에서 나갔을 때 발생합니다. {{org}}의 구성원인지 확인한 뒤 \"설정 다시 실행\"을 사용하세요.",
+      "account": "회원님의 GitHub 계정을 읽을 수 없습니다. 로그아웃했다가 다시 로그인한 후 다시 수락하세요.",
+      "assignment": "{{org}}/{{classroom}}에 대한 \"{{assignmentSlug}}\" 과제를 불러올 수 없습니다. 링크를 확인하거나, 선생님께 과제가 게시되었는지 확인해 달라고 요청하세요.",
+      "autograder": "\"{{assignmentSlug}}\"의 자동 채점기를 확인할 수 없습니다. 선생님께 게시되었는지 확인해 달라고 요청한 뒤 다시 수락하세요.",
+      "membership": "회원님의 소속을 확인할 수 없습니다. 조직에서 싱글 사인온(SSO)을 사용하는 경우 이 조직에 대해 SSO를 승인하거나(또는 LMS에서 이 링크를 여세요) 다시 수락하세요. 그렇지 않으면 선생님께 초대를 확인해 달라고 요청하세요.",
+      "repo": "{{org}}/{{repo}}를 생성할 수 없습니다. {{org}}의 구성원인지 확인하고, 선생님께 과제의 템플릿 저장소가 올바르게 구성되어 있는지 확인해 달라고 요청한 뒤 다시 수락하세요.",
+      "setup": "저장소 {{org}}/{{repo}}는 존재하지만, \"{{branch}}\" 브랜치에 설정 파일을 쓰지 못했습니다. 아직 초기화 중일 수 있습니다. 잠시 기다린 후 \"설정 다시 실행\"을 사용하세요."
+    },
+    "stepDone": {
+      "access": "회원님에게 저장소 접근 권한을 부여했습니다",
+      "account": "회원님의 GitHub 계정을 확인했습니다",
+      "assignment": "{{assignmentSlug}} 과제를 찾았습니다",
+      "autograder": "자동 채점기를 확인했습니다",
+      "autograderDisabled": "이 과제는 자동 채점이 비활성화되어 있습니다",
+      "feedback": "피드백 풀 리퀘스트가 준비되었습니다",
+      "feedbackDeferred": "지금은 피드백 풀 리퀘스트를 열 수 없습니다: 다시 수락하여 재시도하세요(또는 자동 채점이 활성화되어 있으면 첫 제출 시 열립니다)",
+      "feedbackSkipped": "이 과제에는 피드백 풀 리퀘스트가 없습니다",
+      "membership": "회원님의 클래스룸 소속을 확인했습니다",
+      "repo": "{{org}}/{{repo}}를 생성했습니다",
+      "repoExists": "저장소가 이미 존재합니다: {{org}}/{{repo}}",
+      "repoIncomplete": "미완료된 설정을 발견했습니다: {{org}}/{{repo}}",
+      "setup": "자동 채점이 구성되었습니다",
+      "setupSkippedEmptyRepo": "설정이 필요 없습니다: 이 과제는 빈 저장소를 사용합니다"
+    },
+    "stepErrors": {
+      "generic": "{{label}} 실패 (HTTP {{status}}). {{actions}}",
+      "rateLimited": "{{label}}이(가) GitHub의 요청 한도에 도달했습니다. 잠시 기다린 후 다시 수락해 보세요.",
+      "unauthorized": "GitHub 세션이 만료되어 {{label}}이(가) 실패했습니다 (HTTP 401). 로그아웃했다가 다시 로그인한 후 다시 수락하세요.",
+      "unexpected": "{{label}}이(가) 예기치 않게 실패했습니다. 다시 시도해도 안전합니다."
     }
   },
   "submissions": {
@@ -1722,7 +1790,7 @@
       "errorTitle": "피드백 PR을 확인할 수 없습니다",
       "emptyTitle": "아직 피드백 풀 리퀘스트가 없습니다",
       "openRepoPrs": "저장소 PR 열기",
-      "emptyBody": "아직 <repo>{{repo}}</repo>에 대해 열린 피드백 PR이 없습니다. 이는 채점된 제출물 이후 과제의 자동 채점 워크플로에 의해 생성됩니다 — 학생이 제출하지 않았거나(또는 과제에서 피드백 PR이 비활성화된 경우) 아직 검토할 것이 없습니다."
+      "emptyBody": "<repo>{{repo}}</repo>에 대한 피드백 PR이 아직 열리지 않았습니다. 이는 학생이 과제를 수락할 때 열립니다 — 따라서 검토할 항목이 없다면 학생이 아직 수락하지 않았거나, 과제의 피드백 PR이 비활성화되었거나, 열기가 연기되었을 수 있습니다(다시 수락하거나 첫 채점 제출 시 재시도됩니다)."
     },
     "rowRegrade": {
       "title": "이 제출물 재채점",
@@ -1744,7 +1812,7 @@
       "modeGroup": "그룹",
       "modeIndividual": "개인",
       "loadError": "제출물을 불러올 수 없습니다.",
-      "noGradedYet": "아직 채점된 제출물이 없습니다. 위에서 파일을 업로드하거나 명령줄에서 과제 저장소로 푸시하세요 — 자동 채점기가 여기에 결과를 게시합니다.",
+      "noGradedYet": "아직 채점된 제출물이 없습니다. 명령줄에서 과제 저장소로 푸시하면 자동 채점기가 결과를 여기에 게시합니다.",
       "openMyRepo": "내 저장소 열기",
       "releasesIntro": "각 제출물은 GitHub에서 채점된 릴리스를 열어 점수와 테스트별 결과를 보여줍니다.",
       "fallbackTitle": "제출물",
@@ -1755,8 +1823,8 @@
         "copySubmit": "제출 명령 복사",
         "step1": "과제 저장소를 클론하세요 (한 번만):",
         "step2": "저장소 내부에서 채점을 위해 작업을 제출하세요:",
-        "title": "명령줄을 선호하시나요?",
-        "intro": "위에서 업로드하는 대신 터미널에서도 제출할 수 있습니다."
+        "title": "명령줄에서 제출하기",
+        "intro": "터미널에서 채점을 위한 작업물을 제출하세요."
       },
       "upload": {
         "addFiles": "파일 추가",
@@ -1806,6 +1874,43 @@
     "live": {
       "incomplete_one": "저장소 {{count}}개를 읽을 수 없어 실시간 제출 상태가 불완전할 수 있습니다. 다시 시도하거나 \"지금 제출물 동기화\"를 실행하세요.",
       "incomplete_other": "저장소 {{count}}개를 읽을 수 없어 실시간 제출 상태가 불완전할 수 있습니다. 다시 시도하거나 \"지금 제출물 동기화\"를 실행하세요."
+    },
+    "openAllPrs": {
+      "blockedHint": "해당 피드백 브랜치가 잘못된 커밋을 가리키고 있어 PR을 열면 빈 diff가 표시됩니다. 이 작업을 다시 실행하기 전에 조직 관리자가 각 피드백 브랜치를 삭제해야 하며, 재시도만으로는 해결되지 않습니다.",
+      "blockedTitle": "이 저장소들은 조직 관리자가 필요합니다:",
+      "confirmBody_one": "이 작업은 아직 피드백 PR이 없는 <b>{{name}}</b>의 과제 저장소 <b>{{count}}</b>개에 피드백 PR을 엽니다. 이미 피드백 PR이 있는 저장소는 그대로 둡니다.",
+      "confirmBody_other": "이 작업은 아직 피드백 PR이 없는 <b>{{name}}</b>의 과제 저장소 <b>{{count}}</b>개 각각에 피드백 PR을 엽니다. 이미 피드백 PR이 있는 저장소는 그대로 둡니다.",
+      "confirmHint": "이 작업은 브라우저에서 한 번에 하나의 저장소씩 실행되므로, 학급 규모가 크면 시간이 걸릴 수 있습니다. 완료될 때까지 이 탭을 열어 두세요.",
+      "confirmLabel_one": "PR 열기",
+      "confirmLabel_other": "PR 열기",
+      "failedHint": "일시적인 GitHub 오류인 경우가 많습니다 — 작업을 다시 실행하면 아직 PR이 없는 저장소만 재시도합니다.",
+      "failedTitle": "이 저장소들은 처리할 수 없었습니다:",
+      "menuLabel": "모든 피드백 PR 열기",
+      "running": "여는 중… {{total}}개 중 {{done}}개",
+      "summaryBlocked_one": "저장소 {{count}}개 차단됨(조직 관리자 필요)",
+      "summaryBlocked_other": "저장소 {{count}}개 차단됨(조직 관리자 필요)",
+      "summaryExisted_one": "저장소 {{count}}개는 이미 있음",
+      "summaryExisted_other": "저장소 {{count}}개는 이미 있음",
+      "summaryFailed_one": "저장소 {{count}}개 실패",
+      "summaryFailed_other": "저장소 {{count}}개 실패",
+      "summaryLead": "저장소 <b>{{total}}</b>개 처리를 완료했습니다.",
+      "summaryOpened_one": "피드백 PR {{count}}개 열림",
+      "summaryOpened_other": "피드백 PR {{count}}개 열림",
+      "summaryUnsupported_one": "저장소 {{count}}개 건너뜀(과제 기준선 없음)",
+      "summaryUnsupported_other": "저장소 {{count}}개 건너뜀(과제 기준선 없음)",
+      "title": "모든 저장소에 피드백 PR 열기",
+      "titleEmptyRoster": "먼저 명단에 학생을 추가하세요"
+    },
+    "repairPr": {
+      "alreadyExists": "{{repo}}에 대한 피드백 PR이 이미 존재합니다.",
+      "baseMismatch": "이 저장소의 피드백 브랜치가 잘못된 커밋을 가리키고 있어, 여기서 PR을 열면 빈 diff가 표시됩니다. 올바르게 다시 생성할 수 있도록 조직 관리자가 피드백 브랜치를 삭제해야 합니다. 다시 실행해도 해결되지 않습니다.",
+      "created": "{{repo}}에 대한 피드백 PR을 열었습니다.",
+      "failed": "피드백 PR을 열 수 없습니다: {{reason}}",
+      "hint": "학생이 수락했지만 PR 열기가 실패한 경우(GitHub 장애 또는 일시적 오류), 지금 열 수 있습니다.",
+      "noBaseline": "이 저장소에는 과제 기준선이 없어 피드백 PR을 열 수 없습니다(예: 빈 저장소 과제). 복구할 항목이 없습니다.",
+      "repair": "피드백 PR 복구",
+      "repairing": "복구하는 중…",
+      "repoNotFound": "저장소 {{repo}}를 찾을 수 없습니다 — 학생이 아직 수락하지 않았을 수 있습니다."
     }
   },
   "orgMembers": {
@@ -1910,7 +2015,9 @@
     "noUsernameWithId": "<missing>GitHub 사용자 이름 없음</missing> <meta>· id {{id}}</meta>",
     "notMember": "{{label}}은(는) 강의실 명단에 있지만 <emphasis>조직 멤버가 아닙니다</emphasis>. 접근 권한을 복원하려면 초대하세요. 초대는 id로 GitHub 계정에 전송되므로 사용자 이름이 변경되어도 작동합니다.",
     "subtitle": "<orgLink>{{org}}</orgLink> GitHub 조직의 모든 구성원과 그들이 속한 강의실입니다.",
-    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>"
+    "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
+    "inviteMalformedId": "{{who}}을(를) 초대할 수 없습니다: \"{{githubId}}\"은(는) 올바른 GitHub id가 아닙니다. roster.csv의 github_id 셀을 수정하세요.",
+    "inviteMissingId": "{{who}}을(를) 초대할 수 없습니다: 등록된 GitHub id가 없습니다."
   },
   "components": {
     "avatar": {
@@ -1933,6 +2040,11 @@
         "addStudents": "학생 추가",
         "empty": "이 강의실에는 아직 학생이 없습니다. 과제의 수락 링크는 <org>{{org}}</org> 조직의 멤버인 학생에게만 작동하므로, 링크를 공유하기 전에 학생을 추가하고 등록하세요.",
         "hasRows": "아직 <org>{{org}}</org> 조직에 참여한 학생이 없습니다. 과제의 수락 링크는 조직 멤버인 학생에게만 작동하므로, 초대된 학생은 먼저 초대를 수락해야 합니다."
+      },
+      "orgRepoCreation": {
+        "action": "조직 설정",
+        "master": "<org>{{org}}</org>이(가) 구성원의 저장소 생성을 허용하지 않아 어떤 학생도 과제를 수락할 수 없습니다. 조직 설정을 다시 실행하거나, <memberPrivileges>구성원 권한</memberPrivileges>에서 비공개(공개 아님) 저장소 생성을 허용하세요. 엔터프라이즈 정책이 이 설정을 재정의할 수 있습니다.",
+        "private": "<org>{{org}}</org>이(가) 구성원의 비공개 저장소 생성을 허용하지 않아 어떤 학생도 과제를 수락할 수 없습니다. 조직 설정을 다시 실행하거나, <memberPrivileges>구성원 권한</memberPrivileges>에서 비공개(공개 아님) 저장소 생성을 허용하세요. 엔터프라이즈 정책이 이 설정을 재정의할 수 있습니다."
       }
     },
     "confirmModal": {
@@ -2197,5 +2309,17 @@
       "heading": "설정",
       "subheading": "이 브라우저에 대한 기본 설정입니다. 여기의 어떤 항목도 회원님의 조직과 공유되지 않습니다."
     }
+  },
+  "pagesErrors": {
+    "assignmentNotInManifest": "\"{{assignmentSlug}}\" 과제가 이 클래스룸의 게시된 과제에 없습니다. 링크를 확인하거나, 선생님께 과제를 게시해 달라고 요청하세요.",
+    "autograderLabel": "자동 채점기 \"{{autograderName}}\"",
+    "autograderMalformed": "자동 채점기 \"{{autograderName}}\"의 YAML 형식이 잘못되었을 수 있습니다. 선생님께 구성 저장소의 파일을 확인해 달라고 요청하세요.",
+    "classroomFetchFailed": "이 클래스룸의 게시된 파일을 불러올 수 없습니다 (HTTP {{status}}). 선생님께 클래스룸이 게시되었는지 확인해 달라고 요청한 뒤 다시 시도하세요.",
+    "classroomNotPublished": "이 클래스룸은 아직 게시되지 않았습니다. 존재하지 않거나 게시 워크플로가 실행되지 않았을 수 있습니다. 선생님께 게시해 달라고 요청한 뒤 다시 시도하세요.",
+    "deployInFlight": "클래스룸의 게시된 파일이 아직 배포 중일 수 있습니다. 잠시 기다린 후 다시 시도하세요.",
+    "fetchFailed": "{{label}}을(를) 불러올 수 없습니다 (HTTP {{status}}). 선생님께 클래스룸이 게시되었는지 확인해 달라고 요청한 뒤 다시 시도하세요.",
+    "manifestInvalidShape": "이 클래스룸의 게시된 과제 목록 형식이 잘못되었습니다. 선생님께 Classroom 50 구성을 확인해 달라고 요청하세요.",
+    "manifestVersionUnsupported": "이 클래스룸은 현재 사용 중인 Classroom 50이 지원하는 것보다 최신 과제 형식(v{{version}})을 사용합니다. 페이지를 새로 고치거나, 선생님께 Classroom 50을 업데이트해 달라고 요청하세요.",
+    "notPublished": "{{label}}이(가) 아직 게시되지 않았습니다. 선생님께 구성 저장소에 파일이 존재하는지, 게시 워크플로가 실행되었는지 확인해 달라고 요청하세요."
   }
 }
