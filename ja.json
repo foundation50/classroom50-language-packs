@@ -22,7 +22,8 @@
       "range": "{{total}} 件中 {{from}}〜{{to}}",
       "show": "表示",
       "showAria": "1 ページあたりの行数"
-    }
+    },
+    "linkToSection": "{{section}}へのリンク"
   },
   "notFound": {
     "title": "ページが見つかりません",
@@ -566,7 +567,8 @@
       "hidden": "{{org}} をホームページから非表示にしました。",
       "hide": "ホームから非表示",
       "moreActions": "{{org}} のその他の操作",
-      "undoHide": "元に戻す"
+      "undoHide": "元に戻す",
+      "manageToken": "トークンを管理"
     },
     "newOrg": {
       "allSetUp": "表示できるすべての組織はすでにセットアップ済みです。",
@@ -727,7 +729,9 @@
         "releaseAssetsInvalidBasename": "{{basename}} は安全なリリースファイル名ではないか、予約されています。",
         "releaseAssetsInvalidPath": "{{path}} は正確なワークスペース相対ファイルパスではありません。",
         "releaseAssetsTooLarge": "提出リリースファイルのパスは合計で最大 {{max}} UTF-8 バイト（8 KiB）までです。現在は {{bytes}} です。",
-        "releaseAssetsTooMany": "提出リリースファイルは最大 {{max}} 件まで選択できます（現在 {{count}} 件）。"
+        "releaseAssetsTooMany": "提出リリースファイルは最大 {{max}} 件まで選択できます（現在 {{count}} 件）。",
+        "setupTimeoutRange": "セットアップのタイムアウトは、0、または1から{{max}}までの整数秒でなければなりません。",
+        "studentPermissionInvalid": "生徒のリポジトリアクセスは、pull、triage、push、maintain、adminのいずれかでなければなりません。"
       },
       "allowedFilesTip": "1 行に 1 つずつ、順序付きの {{gitignore}} 形式のパターンで、提出物に含めるファイルを定義します（後のマッチが優先、{{bang}} で再度含める）。例：{{star}} の後に {{example}} を指定すると {{result}} のみが許可されます。空欄の場合はすべてのファイルを許可します。",
       "containerUserTip": "コンテナを実行するユーザーです。チェックアウトが権限エラーで失敗する場合は root を設定してください。GitHub Actions はコンテナのステップをホストランナーのユーザーとして実行するため、非 root イメージではワークスペースに書き込めないことがよくあります。",
@@ -752,7 +756,7 @@
         "versionTip": "インストールする {{language}} のバージョンです（setup-{{language}} アクション経由）。スキップするには空欄にします。setup アクションが受け付ける任意のバージョンを入力できます。",
         "selfHostedDisabled": "セルフホストランナーでは無視されます。独自のビルド済みツールチェーンとパッケージを使用するためです。代わりにランナーイメージにこれらを組み込んでください。"
       },
-      "setupCommandTip": "採点前に一度だけ実行されるコマンドです（例：コンパイル）。「setup」という名前の 0 点の先頭の自動採点ステップとして追加されます。終了コードが 0 以外の場合は実行が失敗します。",
+      "setupCommandTip": "他のテストの前に一度だけ実行されます。たとえばコンパイルや依存関係のインストールに使います。終了コードが0以外またはタイムアウトの場合、数値スコアは変えずにオートグレードのステータスを失敗にします。それ以降のテストは実行されます。",
       "detailsSection": "詳細",
       "dueDateTz": "時刻はお使いのローカルタイムゾーン（{{tz}}）で表示されます。",
       "optional": "任意",
@@ -769,7 +773,53 @@
       "releaseAssetCount_other": "リリースファイル {{count}} 件",
       "releaseAssets": "提出リリースファイル",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
-      "releaseAssetsTip": "1 行につき 1 つの正確なワークスペース相対ファイルパスを指定します。パスは正確な指定であり glob パターンではなく、合計で最大 8 KiB の UTF-8 テキストまでです。ファイルは採点後に収集され、合格・不合格どちらの場合も添付されます。存在しないファイルはスキップされます。リリースファイル名には ASCII の英字、数字、ドット、アンダースコア、ハイフンのみを使用でき、ドットで始めたり終えたりすることや、連続したピリオドを含めることはできません。"
+      "releaseAssetsTip": "1 行につき 1 つの正確なワークスペース相対ファイルパスを指定します。パスは正確な指定であり glob パターンではなく、合計で最大 8 KiB の UTF-8 テキストまでです。ファイルは採点後に収集され、合格・不合格どちらの場合も添付されます。存在しないファイルはスキップされます。リリースファイル名には ASCII の英字、数字、ドット、アンダースコア、ハイフンのみを使用でき、ドットで始めたり終えたりすることや、連続したピリオドを含めることはできません。",
+      "availableFrom": "公開日（{{tz}}）",
+      "availableFromTz": "時刻はお使いのローカルタイムゾーン（{{tz}}）で表示されます。",
+      "repoFeatures": {
+        "choices": {
+          "inherit": "テンプレートから継承",
+          "inheritLoading": "テンプレートから継承（確認中…）",
+          "inheritOff": "テンプレートから継承（現在オフ）",
+          "inheritOn": "テンプレートから継承（現在オン）",
+          "off": "オフ",
+          "on": "オン"
+        },
+        "heading": "リポジトリ機能",
+        "help": "各生徒のリポジトリでWiki、Issues、Projects、Pull requestsを有効にするかどうかです。生徒が受け取ったとき（新規リポジトリのみ）に適用されます。すでに作成済みのリポジトリを変更するには成績表を使用してください。プライベートテンプレートを継承すると、そのWiki/Issues/Projectsの内容もコピーされるため、継承元のテンプレートには解答キーを含めないでください。",
+        "issues": {
+          "label": "Issues"
+        },
+        "overrideWarning": "今後作成されるリポジトリに適用され、生徒がすでに受け取ったものは変更されません。「継承」は受け取り時のテンプレートに従います（後でテンプレートが変わっても既存のリポジトリはずれません）。既存のリポジトリを更新するには、提出物ページの一括リポジトリ機能アクションを使用してください。",
+        "projects": {
+          "label": "Projects"
+        },
+        "pull_requests": {
+          "label": "Pull requests"
+        },
+        "refresh": "テンプレート設定を再取得",
+        "wiki": {
+          "label": "Wiki"
+        }
+      },
+      "setAvailableFrom": "公開日を設定",
+      "setAvailableFromTip": "課題は既定で生徒の課題ページから非表示になります。生徒は招待リンク経由でのみ受け取れます。公開日を設定すると、その日付を過ぎたときに全員向けに一覧表示されます。すでに受け取った生徒には常に表示されます。これは一覧表示のみを制御し、アクセスは制御しません。",
+      "setupTimeout": "セットアップのタイムアウト（秒）",
+      "setupTimeoutTip": "新しいセットアップコマンドは{{default}}秒から始まります。ランナーの既定である10秒を使うには0を設定するか、1から{{max}}までの整数を選んでください。",
+      "studentPermission": {
+        "default": "既定（{{level}}）",
+        "groupHelp": "グループメンバーは、グループのオーナーがチームメートを追加できるよう、最低でもadminで参加します。これは今後作成されるリポジトリに適用されます。既存のものを変更するには成績表を使用してください。",
+        "help": "受け取り時に各生徒が自分の課題リポジトリに付与されるロールです。Push（書き込み）が既定です。生徒がリポジトリの設定を管理しGitHub Pagesを有効にできるようにするにはAdminを選んでください。これは今後受け取る生徒に適用されます。すでに作成済みのリポジトリを変更するには成績表を使用してください。",
+        "label": "生徒のリポジトリアクセス",
+        "learnMore": "詳細",
+        "levels": {
+          "admin": "Admin",
+          "maintain": "Maintain",
+          "pull": "Read（pull）",
+          "push": "Write（push）",
+          "triage": "Triage"
+        }
+      }
     },
     "autograder": {
       "heading": "自動採点テスト",
@@ -839,7 +889,26 @@
       "deleteCancel": "課題を残す",
       "reuseTitle": "別のクラスで再利用",
       "reuseAria": "別のクラスでこの課題を再利用",
-      "deleteDescription": "<assignment>{{assignment}}</assignment> 課題を <classroom>{{classroom}}</classroom> 教室から削除します。受講者の課題リポジトリは削除されません。"
+      "deleteDescription": "<assignment>{{assignment}}</assignment> 課題を <classroom>{{classroom}}</classroom> 教室から削除します。受講者の課題リポジトリは削除されません。",
+      "colReleaseDate": "公開日",
+      "linkOnlyTitle": "公開日を過ぎるまで生徒の一覧からは非表示です。それまでは招待リンク経由でのみ受け取れます。すでに受け取った生徒には引き続き表示されます。",
+      "lockAria": "{{name}}をロック",
+      "lockCancel": "キャンセル",
+      "lockConfirm": "課題をロック",
+      "lockDescription": "これにより、すでに受け取った生徒を含むすべての生徒に対して、受け取りページ、課題一覧、提出物ビュー、CLIで<assignment>{{assignment}}</assignment>を閉じます。プライベートテンプレートを使用している場合、そのテンプレートに対する生徒チームの読み取り権限も削除されます（スタッフのアクセスには影響しません）。既存の生徒リポジトリは削除されません。",
+      "lockSuccess": "{{name}}をロックしました。",
+      "lockTitle": "課題をロック",
+      "lockTitleModal": "課題をロックしますか？",
+      "lockedBadge": "ロック中",
+      "lockedBadgeTitle": "ロック中：生徒はこの課題にアクセスも受け取りもできません。プライベートテンプレートの場合、ロック中は生徒チームの読み取りアクセスが削除されます。",
+      "releaseNotSet": "未設定 · リンクのみ",
+      "scheduled": "{{date}}に公開",
+      "unlockAria": "{{name}}のロックを解除",
+      "unlockConfirm": "課題のロックを解除",
+      "unlockDescription": "これにより<assignment>{{assignment}}</assignment>を生徒に再度開きます。プライベートテンプレートを使用している場合、生徒が再び受け取れるよう、そのテンプレートに対する生徒チームの読み取り権限が復元されます。",
+      "unlockSuccess": "{{name}}のロックを解除しました。",
+      "unlockTitle": "課題のロックを解除",
+      "unlockTitleModal": "課題のロックを解除しますか？"
     },
     "template": {
       "label": "テンプレートリポジトリ",
@@ -849,7 +918,7 @@
       "fallbackOrg": "あなたの Organization",
       "notVisible": "{{owner}}/{{repo}} はあなたには表示されません。パブリックにするか、{{org}} にコピーしてください。",
       "notTemplate": "{{owner}}/{{repo}} はテンプレートリポジトリではありません。リポジトリの Settings で有効にしてください。",
-      "restricted": "{{owner}} が {{repo}} へのアクセスをブロックしました（HTTP 403）。これはサードパーティアプリの制限であることが多く、オーナーが組織に対して Classroom 50 を承認するか、{{owner}} に対するあなたの OAuth 付与を認可する必要があるかもしれません（組織設定 → Third-party access）。他の 403 の原因の可能性もあります。以下の GitHub のメッセージをご覧ください。",
+      "restricted": "{{owner}}が{{repo}}へのアクセスをブロックしました（HTTP 403）。おそらくサードパーティアプリの制限です。次の順に試してください：",
       "unknown": "現在 {{owner}}/{{repo}} を確認できませんでした。受講者が受け取る際に再確認されます。",
       "privateOutOfOrg": "{{owner}}/{{repo}} はプライベートで、{{org}} の外にあります。パブリックにするか、{{org}} にコピーしてください。",
       "rateLimited": "GitHub のレート制限に達しました。しばらくしてからもう一度お試しください。",
@@ -888,11 +957,17 @@
       "okPublic": "{{owner}} 内のパブリックテンプレート、ブランチ <branch>{{branch}}</branch>。受講者がアクセスできます。",
       "okPublicInOrg": "パブリックテンプレート、ブランチ <branch>{{branch}}</branch>。受講者がアクセスできます。",
       "okVerify": "{{owner}} 内で到達可能です（ブランチ <branch>{{branch}}</branch>）。{{owner}} がサードパーティアプリを制限している場合、オーナーが Classroom 50 を承認するまで受講者はコピーできません。",
-      "privateForkCrossOrg": "{{owner}}/{{repo}} は別の組織にある {{parent}} のプライベートフォークです（ブランチ <branch>{{branch}}</branch>）。組織をまたぐプライベートフォークはテンプレートとして不安定で、プライベートな上流に Classroom 50 がアクセスできないとコピーが失敗します。代わりに新規（フォークでない）テンプレートリポジトリを使ってください。新しいリポジトリを作成し、フォークの内容をそこにコピーします。",
+      "privateForkCrossOrg": "{{owner}}/{{repo}}は{{parent}}のプライベートフォークです（ブランチ<branch>{{branch}}</branch>）。<important>重要：{{parentOrg}}はClassroom 50を承認したままにしておく必要があります。この承認が解除されると、生徒は受け取りに失敗します（HTTP 403）。</important> {{parentOrg}}への依存を避けるには、新規（フォークではない）のリポジトリを使ってください。新しいリポジトリを作成し、フォークの内容をコピーしてください。",
       "privateForkInOrg": "{{owner}}/{{repo}} は {{parent}} のプライベートフォークです（ブランチ <branch>{{branch}}</branch>）。上流はこの組織内にあるためコピーはできるはずですが、受け取りに失敗する場合は新規（フォークでない）テンプレートリポジトリのほうが予測しやすくなります。",
-      "privateForkNoParent": "{{owner}}/{{repo}} はプライベートフォークです（ブランチ <branch>{{branch}}</branch>）。組織をまたぐプライベートフォークはテンプレートとして不安定で、プライベートな上流に Classroom 50 がアクセスできないとコピーが失敗します。代わりに新規（フォークでない）テンプレートリポジトリを使ってください。新しいリポジトリを作成し、フォークの内容をそこにコピーします。",
+      "privateForkNoParent": "{{owner}}/{{repo}}はプライベートフォークです（ブランチ<branch>{{branch}}</branch>）。<important>重要：フォークの上流組織はClassroom 50を承認したままにしておく必要があります。この承認が解除されると、生徒は受け取りに失敗します（HTTP 403）。</important> 上流組織への依存を避けるには、新規（フォークではない）のリポジトリを使ってください。新しいリポジトリを作成し、フォークの内容をコピーしてください。",
       "privateHasAccess": "{{owner}} 内のプライベートテンプレート（ブランチ <branch>{{branch}}</branch>）。教室チームはすでに読み取り権限を持っているため、受講者はコピーできます。",
-      "privateWillGrant": "{{owner}} 内のプライベートテンプレート（ブランチ <branch>{{branch}}</branch>）。教室チームはまだアクセス権を持っていませんが、課題を作成すると自動的に追加され、受講者がコピーできるようになります。"
+      "privateWillGrant": "{{owner}} 内のプライベートテンプレート（ブランチ <branch>{{branch}}</branch>）。教室チームはまだアクセス権を持っていませんが、課題を作成すると自動的に追加され、受講者がコピーできるようになります。",
+      "recheckAccess": "アクセスを再確認",
+      "recheckingAccess": "再確認中…",
+      "restrictedItemApprove": "{{owner}}向けにClassroom 50を承認してください（組織設定 → サードパーティアクセス）。",
+      "restrictedItemFork": "{{repo}}がフォークの場合、フォークの上流組織でもClassroom 50を承認してください。プライベートフォークのアクセスは上流組織のポリシーに従います。",
+      "restrictedItemOther": "それ以外の場合は別の403の可能性があります。下記のGitHubのメッセージを参照してください。",
+      "viewTemplateRepo": "GitHubで{{owner}}/{{repo}}を開く"
     },
     "toolbar": {
       "clear": "クリア",
@@ -963,7 +1038,9 @@
           "listLabel": "リスト表示"
         }
       },
-      "viewSubmission": "自分の提出を表示"
+      "viewSubmission": "自分の提出を表示",
+      "linkOnlyBody": "このクラスの課題は、先生が共有する招待リンクから開きます。そのリンクを開いて課題を受け取ると、先生が全員に公開した課題と並んでここに表示されます。",
+      "linkOnlyTitle": "招待リンクを開いて始めましょう"
     },
     "archivedNotice": "この教室はアーカイブされています。新しい課題の作成や受講者の受け取りは無効です。変更するには、<settingsLink>教室の設定</settingsLink>でアーカイブを解除してください。",
     "studentViewAll": "<classroom>{{classroom}}</classroom> 教室のすべての課題を表示します。"
@@ -1091,37 +1168,38 @@
     },
     "serviceToken": {
       "title": "サービストークン",
-      "infoAria": "サービストークンとは？",
-      "statusPresent": "サービストークンはすでに設定されています",
-      "statusMissing": "サービストークンはまだ設定されていません",
-      "statusUnknown": "サービストークンを確認できませんでした",
-      "replaceNote": "下で保存すると、既存のトークンが置き換えられます（更新）。古いトークンはその場で上書きされます。",
-      "hideConfig": "トークン構成を非表示",
-      "updateOrReplace": "トークンを更新または置き換え",
+      "statusPresent": "トークン設定済み",
+      "statusMissing": "サービストークンが未設定",
       "expiryLabel": "トークンの有効期限",
       "days": "日",
       "expiresOn": "{{date}} に期限切れ",
-      "enterRange": "{{min}}〜{{max}} 日で入力してください",
-      "validRange": "有効な範囲は {{min}}〜{{max}} 日です（GitHub の上限）。",
-      "patDescription": "Classroom 50 のスコア収集と再採点のためのサービストークン。{{org}} 組織に対して Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read",
-      "generateOnGitHub": "GitHub でトークンを生成",
-      "beforeGenerating": "GitHub のページで、トークンを生成する前に:",
-      "rotateNote": "トークンは上で設定した期間の後に期限切れになります。期限切れになると、新しいトークンを生成してここで再度保存するまで、スコア収集と再採点のワークフローが失敗します。期限切れの前にローテーションするようリマインダーを設定してください。",
-      "pasteBelow": "GitHub でトークンを生成したら、それをコピーして下に貼り付けてください。",
-      "enterNewLabel": "新しいサービストークンを入力",
-      "enterLabel": "サービストークンを入力",
-      "placeholder": "トークンを入力（例: github_pat_123...）",
+      "patDescription": "{{org}}組織におけるClassroom 50のスコア収集と再採点のためのサービストークン",
+      "generateOnGitHub": "新しいアクセストークンを生成",
+      "placeholder": "github_pat_…",
       "saveError": "トークンを検証または保存できませんでした。",
-      "savedUpdated": "サービストークンを確認し、更新しました。",
-      "savedNew": "サービストークンを確認し、保存しました。",
       "validating": "検証中…",
-      "updateButton": "サービストークンを更新",
-      "saveButton": "サービストークンを保存",
-      "generateHint": "名前、リソースのオーナー、有効期限、<permissions>Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read</permissions> の権限があらかじめ入力された状態で、GitHub のトークン作成フォームを開きます。",
-      "info": "Classroom 50 には、教室の GitHub 組織内のリポジトリに対する読み書きアクセス権を持つ、きめ細かい個人用アクセストークン（PAT）であるサービストークンが必要です。これは <repo>classroom50</repo> 設定リポジトリの <secret>CLASSROOM50_SERVICE_TOKEN</secret> シークレットとして保存され、スコア収集ワークフローがそれを使って受講者の提出物を読み取り、再採点ワークフローがそれを使って受講者の自動採点ワークフローを再実行します。",
-      "permissions": "<field>Permissions</field> で、<perm>Contents: Read and write</perm>、<perm>Actions: Read and write</perm>、<perm>Administration: Read and write</perm>、<perm>Members: Read</perm> を確認してください（Metadata: Read は自動的に含まれます）。<note>Members: Read は組織の権限で、組織がリソースのオーナーになると表示される別のセクションにあります。</note> <note>Read はスコアを収集し、write は再採点ワークフローが受講者の自動採点ワークフローを再実行できるようにし、Members: Read は収集時に教室チームを一覧できるようにします。</note>",
-      "repoAccess": "<field>Repository access</field> を <value>All repositories</value> に設定してください。<note>「Only select repositories」では後で作成される受講者リポジトリが漏れ、スコア収集が壊れます。</note>",
-      "validateHint": "保存する前にトークンが有効か確認します。作成時に <value>All repositories</value> を選んだかもう一度確認してください。"
+      "saveButton": "トークンを保存",
+      "cancelRename": "キャンセル",
+      "checking": "確認中…",
+      "expiryRange": "{{min}}〜{{max}}日を入力してください",
+      "expiryUntrackedHint": "このトークンの有効期限は追跡されていません。Classroom 50が期限切れ前に警告できるよう、新しいトークンを設定してください。",
+      "generateHelp": "名前、有効期限、必要なスコープがあらかじめ入力されたGitHubのトークンフォームを開きます。Repository accessをAll repositoriesに設定してください。",
+      "help": "Classroom 50が生徒リポジトリ全体でスコアを収集し再採点できるようにする、fine-grainedのGitHubトークンです。classroom50設定リポジトリにシークレットとして保存されます。",
+      "learnMore": "サービストークンについて学ぶ",
+      "nameHelp": "名前は、このトークンがGitHubのパーソナルアクセストークン一覧でどう表示されるかと一致させるべきです。Classroom 50はこれをラベルとしてのみ使用します。ここで名前を変更しても、GitHub上のトークン名は変わりません。",
+      "nameRowLabel": "名前：",
+      "pasteHelp": "GitHubで生成したトークンを貼り付けてください。Classroom 50は保存前に検証します。",
+      "pasteLabel": "トークンを貼り付け",
+      "rename": "トークンの名前を変更",
+      "rotateButton": "新しいトークンを設定",
+      "saveName": "名前を保存",
+      "saved": "サービストークンを保存しました。",
+      "savedNoMetadata": "サービストークンを保存しましたが、その有効期限と名前を記録できませんでした。もう一度保存するまで、ヘルスチップに「有効期限が追跡されていません」と表示される場合があります。",
+      "setButton": "トークンを設定",
+      "setModalSubtitle": "GitHubでfine-grainedトークンを生成し、ここに貼り付けて保存してください。",
+      "setModalTitle": "サービストークンを設定",
+      "step1Label": "GitHubでトークンを生成",
+      "step2Label": "GitHubアクセストークン"
     },
     "audit": {
       "title": "組織ポリシー",
@@ -1303,20 +1381,20 @@
       "budgetHardStop": "$0 のハードストップ予算が設定されています。有料の分数はブロックされます。",
       "budgetManage": "予算を管理",
       "budgetNone": "支出予算は設定されていません。",
-      "confirmBody": "再開するまで学生の提出は採点されません。学生が受け入れると新しいフィードバックのプルリクエストは引き続き開かれ、既存のものも最新のプッシュを表示し続けますが、一時停止中の提出には自動採点や feedback-pr のステータスチェックは行われません。classroom50 の設定リポジトリは引き続き動作します。いつでも元に戻せます。",
+      "confirmBody": "これにより、オートグレードだけでなく生徒リポジトリ内のすべてのワークフローが停止するため、生徒が実行しているCIも停止します。再開するまで、提出物は採点されず、オートグレードやfeedback-prのチェックも行われません。フィードバックのプルリクエストは、生徒が受け取ったときに引き続き開かれ、新しいプッシュを表示し続けます。",
       "confirmButton": "自動採点を一時停止",
       "confirmTitle": "組織全体で自動採点を一時停止しますか？",
       "description": "組織全体で自動採点を一時停止して Actions の支出を止めます。コース管理は引き続き機能します。",
       "disabledNotice": "組織全体で Actions がオフになっているため、何も実行されません。組織のセットアップを再実行するか、GitHub で Actions を有効にしてください。",
       "loading": "ステータスを確認中…",
       "openSettings": "Actions の設定を開く",
-      "pausedNotice": "一時停止中 — 学生のプッシュは採点されないため、提出には自動採点や feedback-pr のステータスチェックが行われません。学生が受け入れると新しいフィードバックのプルリクエストは引き続き開かれ、既存のものも最新のプッシュを表示し続けます。これをオフにするまで組織のセットアップを再実行しても再開しません。",
+      "pausedNotice": "オートグレードだけでなく生徒リポジトリ内のすべてのワークフローが停止しているため、生徒が実行しているCIも停止します。提出物は採点されず、オートグレードやfeedback-prのチェックも行われません。フィードバックのプルリクエストは、生徒が受け取ったときに引き続き開かれ、新しいプッシュを表示し続けます。組織のセットアップを再実行しても、これをオフにするまで採点は再開されません。",
       "statusActive": "自動採点オン",
       "statusDisabled": "Actions オフ",
       "statusPaused": "自動採点を一時停止中",
       "title": "GitHub Actions",
       "toggleFailed": "Actions の権限を更新できませんでした: {{message}}",
-      "toggleHint": "これをオンにすると、受講者のプッシュが採点されなくなります（Actions の分数を消費しません）。classroom50 設定リポジトリは引き続き機能します。再開するにはオフにしてください。",
+      "toggleHint": "一時停止すると、オートグレードだけでなく生徒リポジトリ内のすべてのワークフローが停止します。生徒が実行しているCIも停止し、Actionsの分数も消費されません。再開するにはオフにしてください。",
       "toggleLabel": "すべての受講者リポジトリの自動採点を一時停止",
       "unknownNotice": "この組織の Actions 権限を読み取れませんでした。オーナー権限がないか、エンタープライズポリシーによって制御されている可能性があります。",
       "usageCost": "今月 ${{amount}} が請求されました。",
@@ -1523,7 +1601,10 @@
     "archiveBody": "<classroom>{{classroom}}</classroom> をアーカイブします。既定の教室一覧から外れ、新しい課題や受講者の受け入れを停止します。名簿と課題は保持され、後でアーカイブを解除できます。",
     "deleteClassroomBody": "<classroom>{{classroom}}</classroom> 教室を <org>{{org}}</org> 組織から削除します。受講者の課題リポジトリは削除されません。",
     "settingsSubtitle": "<classroom>{{classroom}}</classroom> 教室の設定です。",
-    "unarchiveBody": "<classroom>{{classroom}}</classroom> をアクティブに戻します。既定の教室一覧に復帰し、再び新しい課題や受講者を受け入れられるようになります。"
+    "unarchiveBody": "<classroom>{{classroom}}</classroom> をアクティブに戻します。既定の教室一覧に復帰し、再び新しい課題や受講者を受け入れられるようになります。",
+    "newButton": {
+      "moreOptions": "その他のオプション"
+    }
   },
   "accept": {
     "githubUser": "GitHub ユーザー",
@@ -1558,7 +1639,7 @@
       "assignment": "課題を検索しています",
       "autograder": "自動採点ツールを解決しています",
       "repo": "リポジトリを作成しています",
-      "access": "アクセス権を付与しています",
+      "access": "リポジトリのアクセス権を設定中",
       "setup": "自動採点をセットアップしています",
       "membership": "クラスへの参加を確認中",
       "feedback": "フィードバックのプルリクエストを開いています"
@@ -1583,15 +1664,16 @@
       "inOrg": "プライベートテンプレート {{owner}}/{{repo}} をコピーできませんでした (HTTP {{status}})。{{detail}} 先生に課題のセットアップを再実行してもらってから、もう一度承諾してください。",
       "outOfOrg": "テンプレート {{owner}}/{{repo}} をコピーできませんでした (HTTP {{status}})。{{detail}} これは多くの場合、{{owner}} 組織がサードパーティ製アプリを制限しているためです。先生に {{owner}} 向けの Classroom 50 アプリを承認してもらう（またはテンプレートを公開してもらう）よう依頼し、もう一度承諾してください。",
       "orgRepoCreationDenied": "{{org}} はメンバーによるプライベートリポジトリの作成を許可していない可能性があるため、リポジトリを作成できませんでした（HTTP {{status}}）。担当の先生に有効化してもらってから、もう一度受け入れてください。",
-      "orgRepoCreationDeniedStep": "{{org}} がリポジトリの作成を許可しませんでした（HTTP {{status}}）。"
+      "orgRepoCreationDeniedStep": "{{org}} がリポジトリの作成を許可しませんでした（HTTP {{status}}）。",
+      "forkParentRestricted": "テンプレート{{owner}}/{{repo}}をコピーできませんでした（HTTP {{status}}）。{{detail}} このテンプレートは{{parentOwner}}組織にあるリポジトリのフォークで、フォークのコピーはその組織のサードパーティアプリ制限に従います。先生に{{parentOwner}}向けにClassroom 50アプリを承認してもらうか、新規（フォークではない）のテンプレートリポジトリを使ってもらってから、もう一度受け取ってください。",
+      "forkParentRestrictedStep": "{{parentOwner}}がフォークの上流に対してClassroom 50を承認していません（HTTP {{status}}）。"
     },
     "errors": {
       "emptyRepoWithTemplate": "課題「{{assignmentSlug}}」は空のリポジトリとテンプレートの両方が設定されており、これは無効です。担当の先生に課題のセットアップを再実行してもらってください。",
-      "founderAccessMismatch": "リポジトリ {{owner}}/{{repo}} は作成されましたが、GitHub はあなたのアクセス権を「{{permission}}」ではなく「{{effective}}」（ロール「{{role}}」）と報告しています。担当の先生に {{username}} のアクセス権を「{{permission}}」に設定してもらってください。",
       "incoherentMode": "課題「{{slug}}」はグループサイズが {{maxGroupSize}} ですが「{{mode}}」として設定されているため、公開された設定に矛盾があります。担当の先生に課題のセットアップを再実行してもらってください。"
     },
     "stepActions": {
-      "access": "リポジトリ {{org}}/{{repo}} は作成されましたが、あなた（{{username}}）を共同作業者として追加できませんでした。これは通常、GitHub ユーザー名が変更されたか、{{org}} から抜けたことが原因です。{{org}} のメンバーであることを確認してから「セットアップを再実行」を使用してください。",
+      "access": "リポジトリ{{org}}/{{repo}}は作成されましたが、あなた（{{username}}）のアクセス権の設定に失敗しました。これは通常、GitHubのユーザー名が変更されたか、{{org}}から退出したことを意味します。{{org}}のメンバーであることを確認してから、「セットアップを再実行」を使用してください。",
       "account": "あなたの GitHub アカウントを読み取れませんでした。いったんサインアウトしてから再度サインインし、もう一度受け入れてください。",
       "assignment": "{{org}}/{{classroom}} の課題「{{assignmentSlug}}」を読み込めませんでした。リンクを確認するか、担当の先生に課題が公開されているか確認してもらってください。",
       "autograder": "「{{assignmentSlug}}」の自動採点を解決できませんでした。担当の先生に公開されているか確認してもらってから、もう一度受け入れてください。",
@@ -1600,7 +1682,7 @@
       "setup": "リポジトリ {{org}}/{{repo}} は存在しますが、ブランチ「{{branch}}」へのセットアップファイルの書き込みに失敗しました。まだ初期化中の可能性があります。少し待ってから「セットアップを再実行」を使用してください。"
     },
     "stepDone": {
-      "access": "リポジトリへのアクセス権を付与しました",
+      "access": "リポジトリのアクセス権を設定しました",
       "account": "GitHub アカウントを確認しました",
       "assignment": "課題 {{assignmentSlug}} を見つけました",
       "autograder": "自動採点を解決しました",
@@ -1620,6 +1702,17 @@
       "rateLimited": "{{label}} で GitHub のレート制限に達しました。少し待ってから、もう一度受け入れてください。",
       "unauthorized": "GitHub のセッションが期限切れになったため、{{label}} が失敗しました（HTTP 401）。いったんサインアウトしてから再度サインインし、もう一度受け入れてください。",
       "unexpected": "{{label}} が予期せず失敗しました。再試行しても安全です。"
+    },
+    "locked": {
+      "badge": "ロック中",
+      "body": "先生が<assignment>{{assignment}}</assignment>をロックしているため、現在は受け取れません。後でもう一度確認するか、先生にロック解除を依頼してください。",
+      "title": "この課題はロックされています"
+    },
+    "notEnrolled": {
+      "badge": "利用不可",
+      "body": "誤りだと思われる場合は、先生に確認してください。",
+      "error": "この課題はあなたには利用できません。誤りだと思われる場合は、先生に確認してください。",
+      "title": "この課題はあなたには利用できません"
     }
   },
   "submissions": {
@@ -1751,7 +1844,6 @@
       "lateHistoryTitle": "締切後にプッシュされました。",
       "gradedAt": "採点 {{date}}",
       "gradedAtTitle": "オートグレーダーがこの提出物を最後に（再）採点した日時です。再採点すると提出日時は変わらずこの日時のみ更新されます。",
-      "membersAria": "グループメンバーの表示と管理",
       "members": "メンバー",
       "openRepoLabel": "リポジトリ {{repo}} を開く",
       "viewRepo": "リポジトリを表示",
@@ -1760,7 +1852,6 @@
       "noCommit": "まだコミットがありません",
       "viewDetails": "オートグレーダーの詳細を表示",
       "details": "詳細",
-      "noDetailsLabel": "オートグレーダーの詳細はまだありません",
       "noDetails": "詳細はまだありません",
       "notSubmitted": "未提出",
       "submittedBy": "{{name}} による",
@@ -1784,7 +1875,9 @@
       "pendingGradeTitle": "提出済み — 採点はまだ収集されていません。「今すぐ提出物を同期」を実行するか、夜間の収集をお待ちください。",
       "resolvingNonSubmitters": "まだ提出していない人を確認中…",
       "staleCount": "新着",
-      "staleCountTitle": "この受講者は採点済みより多くの提出物をプッシュしています。「今すぐ提出物を同期」を実行して最新のものを採点・スコア付けしてください。"
+      "staleCountTitle": "この受講者は採点済みより多くの提出物をプッシュしています。「今すぐ提出物を同期」を実行して最新のものを採点・スコア付けしてください。",
+      "manageAccess": "リポジトリのアクセスを管理",
+      "manageAccessAria": "{{owner}}のリポジトリのアクセスを管理"
     },
     "reviewModal": {
       "errorTitle": "フィードバック PR を確認できませんでした",
@@ -1850,7 +1943,8 @@
         "title": "提出をアップロード",
         "unsafePath": "\"{{name}}\" をスキップしました — そのパスは許可されていません。"
       },
-      "notAccepted": "この課題はまだ受け取っていません。<acceptLink>受け取る</acceptLink>とリポジトリが作成されるので、成果物をプッシュして採点を受けてください。"
+      "notAccepted": "この課題はまだ受け取っていません。<acceptLink>受け取る</acceptLink>とリポジトリが作成されるので、成果物をプッシュして採点を受けてください。",
+      "locked": "この課題は先生によってロックされており、現在は利用できません。後でもう一度確認するか、先生にロック解除を依頼してください。"
     },
     "viewSourceRepo": "テンプレートを表示",
     "menu": {
@@ -1911,6 +2005,113 @@
       "repair": "フィードバック PR を修復",
       "repairing": "修復中…",
       "repoNotFound": "リポジトリ {{repo}} が見つかりませんでした — 学生がまだ受け入れていない可能性があります。"
+    },
+    "bulkAccess": {
+      "apply": "すべてに適用",
+      "deferredDetail": "スキップされました。再実行して更新してください。",
+      "deferredSection_one": "{{count}}件のリポジトリは更新されませんでした",
+      "deferredSection_other": "{{count}}件のリポジトリは更新されませんでした",
+      "failedSection_one": "{{count}}件のリポジトリを更新できませんでした",
+      "failedSection_other": "{{count}}件のリポジトリを更新できませんでした",
+      "menuLabel": "生徒のリポジトリアクセスを更新",
+      "menuTitle": "各生徒の自分のリポジトリにおけるロールを変更する",
+      "noRepos": "この課題をまだ受け取った生徒がいないため、変更するリポジトリがありません。",
+      "progress": "{{total}}件中{{processed}}件を更新",
+      "resultHeadline": "{{total}}人中{{count}}人の生徒を{{level}}に設定しました。",
+      "resultHeadlineThrottled": "{{total}}人中{{count}}人の生徒を{{level}}に設定したところでGitHubにレート制限されました。残りを完了するには再実行してください。",
+      "roleLabel": "リポジトリのロール",
+      "subtitle_one": "この課題を受け取った{{count}}人の生徒に適用されます。",
+      "subtitle_other": "この課題を受け取った{{count}}人の生徒に適用されます。",
+      "title": "生徒のリポジトリアクセスを設定",
+      "titleEmptyRoster": "まだ課題を受け取った生徒がいません",
+      "warning_one": "これにより、{{count}}人の生徒の自分のリポジトリにおけるロールを{{level}}に設定します。Adminにすると、リポジトリの設定を変更でき、プライベートリポジトリでは公開範囲も変更できます。それ以外の既存のコラボレーターには影響しません。",
+      "warning_other": "これにより、{{count}}人の生徒の自分のリポジトリにおけるロールを{{level}}に設定します。Adminにすると、リポジトリの設定を変更でき、プライベートリポジトリでは公開範囲も変更できます。それ以外の既存のコラボレーターには影響しません。",
+      "working": "リポジトリを更新中"
+    },
+    "bulkFeatures": {
+      "apply": "すべてに適用",
+      "deferredDetail": "スキップされました。再実行して更新してください。",
+      "deferredSection_one": "{{count}}件のリポジトリは更新されませんでした",
+      "deferredSection_other": "{{count}}件のリポジトリは更新されませんでした",
+      "failedSection_one": "{{count}}件のリポジトリを更新できませんでした",
+      "failedSection_other": "{{count}}件のリポジトリを更新できませんでした",
+      "keep": "変更しない",
+      "menuLabel": "リポジトリ機能を更新",
+      "menuTitle": "すべての生徒リポジトリでIssues、Wiki、Projects、Pull requestsをオン／オフする",
+      "noRepos": "この課題をまだ受け取った生徒がいないため、変更するリポジトリがありません。",
+      "progress": "{{total}}件中{{processed}}件を更新",
+      "resultHeadline": "{{total}}件中{{count}}件のリポジトリの機能を更新しました。",
+      "resultHeadlineThrottled": "{{total}}件中{{count}}件のリポジトリを更新したところでGitHubにレート制限されました。残りを完了するには再実行してください。",
+      "subtitle_one": "この課題を受け取った{{count}}人の生徒に適用されます。",
+      "subtitle_other": "この課題を受け取った{{count}}人の生徒に適用されます。",
+      "title": "リポジトリ機能を設定",
+      "titleEmptyRoster": "まだ課題を受け取った生徒がいません",
+      "warning_one": "これにより、{{count}}人の生徒のリポジトリで選択した機能を変更します。「変更しない」機能には触れません。既存のリポジトリの内容には影響しません。",
+      "warning_other": "これにより、{{count}}人の生徒のリポジトリで選択した機能を変更します。「変更しない」機能には触れません。既存のリポジトリの内容には影響しません。",
+      "working": "リポジトリを更新中"
+    },
+    "downloadAll": {
+      "assemblyError": "すべての提出物をダウンロードしましたが、結合されたzipが大きすぎてブラウザで組み立てられませんでした。セクションで絞り込み、より小さなバッチでダウンロードしてみてください。",
+      "confirmBody_one": "これにより、<b>{{name}}</b>を提出した<b>{{count}}</b>人の生徒の最新の提出物をダウンロードし、1つのzipにまとめます。",
+      "confirmBody_other": "これにより、<b>{{name}}</b>を提出した<b>{{count}}</b>人の生徒の最新の提出物をダウンロードし、1つのzipにまとめます。",
+      "confirmHint": "処理はブラウザから、一度に1つのリポジトリずつ実行されるため、大きなクラスでは時間がかかることがあります。完了するまでこのタブを開いたままにしてください。",
+      "confirmLabel_one": "提出物をダウンロード",
+      "confirmLabel_other": "提出物をダウンロード",
+      "emptyHint": "その生徒は課題を受け取りましたが、まだ作業をプッシュしていないため、含める提出物がありません。",
+      "emptyTitle": "これらのリポジトリにはダウンロードするものがありませんでした：",
+      "failedHint": "これはGitHubの一時的なエラーであることが多いです。アクションを再実行して再試行してください。",
+      "failedTitle": "これらの提出物はダウンロードできませんでした：",
+      "largeClassWarning": "これにより{{count}}件の提出物をダウンロードし、結合されたzipをブラウザで作成します。これは大量のメモリを使用する可能性があり、非常に大きなクラスでは遅くなったり失敗したりすることがあります。まずセクションで絞り込むことを検討してください。",
+      "menuLabel": "すべての提出物をダウンロード",
+      "nothingDownloaded": "ファイルはダウンロードされませんでした。選択した生徒の誰も取得する提出物がありませんでした。",
+      "runError": "ダウンロードを完了できませんでした。もう一度お試しください。",
+      "running": "ダウンロード中… {{total}}件中{{done}}件",
+      "summaryDownloaded_one": "{{count}}件の提出物をダウンロードしました",
+      "summaryDownloaded_other": "{{count}}件の提出物をダウンロードしました",
+      "summaryEmpty_one": "{{count}}件のリポジトリは空でした（スキップ）",
+      "summaryEmpty_other": "{{count}}件のリポジトリは空でした（スキップ）",
+      "summaryFailed_one": "{{count}}件の提出物が失敗しました",
+      "summaryFailed_other": "{{count}}件の提出物が失敗しました",
+      "summaryLead": "<b>{{total}}</b>件の提出物の処理が完了しました。",
+      "summarySaved_one": "{{count}}件の提出物を選択したフォルダーに保存しました",
+      "summarySaved_other": "{{count}}件の提出物を選択したフォルダーに保存しました",
+      "title": "すべての生徒の最新の提出物をダウンロード",
+      "titleDisabled": "まだダウンロードできる提出物がありません"
+    },
+    "lock": {
+      "lockDescription": "これにより、すでに受け取った生徒を含むすべての生徒に対して、受け取りページ、課題一覧、提出物ビュー、CLIで<assignment>{{assignment}}</assignment>を閉じます。プライベートテンプレートを使用している場合、そのテンプレートに対する生徒チームの読み取り権限も削除されます（スタッフのアクセスには影響しません）。既存の生徒リポジトリは削除されません。",
+      "lockLabel": "課題をロック",
+      "lockSuccess": "課題をロックしました。",
+      "lockTitle": "この課題を生徒に閉じ、プライベートテンプレートの場合は生徒チームの読み取り権限を削除する",
+      "lockTitleModal": "課題をロックしますか？",
+      "unlockDescription": "これにより<assignment>{{assignment}}</assignment>を生徒に再度開きます。プライベートテンプレートを使用している場合、生徒が再び受け取れるよう、そのテンプレートに対する生徒チームの読み取り権限が復元されます。",
+      "unlockLabel": "課題のロックを解除",
+      "unlockSuccess": "課題のロックを解除しました。",
+      "unlockTitle": "この課題を生徒に再度開き、プライベートテンプレートのアクセスを復元する",
+      "unlockTitleModal": "課題のロックを解除しますか？"
+    },
+    "lockedNotice": "この課題はロックされています。生徒は受け取ることも開くこともできず、プライベートテンプレートを使用している場合はそのテンプレートへの生徒チームのアクセスが削除されています。既存のリポジトリとその提出物には影響しません。再度開くには、Actionsメニュー（または課題一覧）からロックを解除してください。",
+    "manageModal": {
+      "accepted": "受け取り済み",
+      "access": "アクセス",
+      "accessDescription": "生徒のロールとコラボレーターを編集",
+      "collaborators_one": "コラボレーター{{count}}人",
+      "collaborators_other": "コラボレーター{{count}}人",
+      "commitDescription": "GitHubで最新のコミットを開く",
+      "detailsDescription": "GitHubでオートグレードの結果を開く",
+      "downloadDescription": "提出物をzipアーカイブとして保存",
+      "lastPush": "最終プッシュ",
+      "membersDescription": "グループのメンバーを表示・管理",
+      "open": "提出物を管理",
+      "openAria": "{{owner}}の提出物を管理",
+      "regradeDescription": "最新のコミットでオートグレードを再実行",
+      "reviewDescription": "フィードバックのプルリクエストを開く"
+    },
+    "rowDownload": {
+      "aria": "{{owner}}の提出物をダウンロード",
+      "error": "{{owner}}の提出物をダウンロードできませんでした。もう一度お試しください。",
+      "nothingToDownload": "{{owner}}にはまだダウンロードできる提出物がありません。",
+      "title": "この提出物をダウンロード"
     }
   },
   "orgMembers": {
@@ -2093,7 +2294,8 @@
           "rateLimited": "GitHub のレート制限に達しました — しばらく待ってから再試行してください。",
           "forbidden": "このリポジトリのコラボレーターを変更する権限がありません。",
           "notFound": "ユーザー名が見つからないか、GitHub Organization のメンバーではありません。",
-          "conflict": "既にコラボレーターであるか、GitHub によってリクエストが拒否されました。"
+          "conflict": "既にコラボレーターであるか、GitHub によってリクエストが拒否されました。",
+          "httpStatus": "GitHubがエラーを返しました（HTTP {{status}}）。"
         },
         "error": {
           "addAndRemove": "一部のコラボレーターを追加または削除できませんでした。{{removedNote}} ハイライトされたユーザー名を確認し、もう一度保存して再試行してください。{{suffix}}",
@@ -2138,6 +2340,21 @@
         "uniqueHint": "このクラス内で一意である必要があります。",
         "thisClassroomOption": "{{classroom}}（このクラス）",
         "description": "{{org}} 内の既存の課題を <classroom>{{classroom}}</classroom> にコピーします。名前、テンプレート、テスト、実行環境、締め切り、その他の設定はコピーされますが、受講者のリポジトリとスコアはコピーされません。"
+      },
+      "repoAccess": {
+        "adminWarning": "各コラボレーターのロールを設定するか、コラボレーターを追加・削除します。<b>Admin</b>を付与すると、そのコラボレーターはリポジトリの設定を変更でき、プライベートリポジトリでは公開範囲も変更できます。",
+        "loading": "コラボレーターを読み込み中",
+        "needsAdmin": "コラボレーターを変更するには、このリポジトリのadminアクセスが必要です。",
+        "newRole": "新しいコラボレーターのロール",
+        "notApplied": "GitHubは既存のロール（{{effective}}）を維持しました。リポジトリの作成者はadminより下に降格できません。生徒に自分のアクセスを下げてもらうか、リポジトリの所有権を移譲してください。",
+        "removeUser": "{{username}}を削除",
+        "roleFor": "{{username}}のロール",
+        "save": "アクセスを更新",
+        "saveError": "一部の変更を保存できませんでした。強調表示されたコラボレーターを確認し、もう一度保存して再試行してください。{{suffix}}",
+        "saved": "アクセスを更新しました！",
+        "studentBadge": "生徒",
+        "title": "リポジトリのアクセスを管理",
+        "viewRepoNamed": "{{name}}リポジトリを表示"
       }
     }
   },
@@ -2308,6 +2525,14 @@
     "page": {
       "heading": "設定",
       "subheading": "このブラウザの設定です。ここでの内容は組織と共有されません。"
+    },
+    "serviceTokens": {
+      "empty": "Classroom 50がセットアップされている組織はまだありません。",
+      "expires": "{{date}}に期限切れ",
+      "heading": "サービストークンの管理",
+      "loading": "組織を確認中…",
+      "manage": "管理",
+      "subheading": "あなたが所有するすべての組織にわたるサービストークンの状態です。夜間のスコア収集が継続して実行されるよう、期限切れ前にトークンをローテーションしてください。"
     }
   },
   "pagesErrors": {
@@ -2321,5 +2546,168 @@
     "manifestInvalidShape": "このクラスの公開済み課題リストに不備があります。担当の先生に Classroom 50 の設定を確認してもらってください。",
     "manifestVersionUnsupported": "このクラスは、この Classroom 50 がサポートするよりも新しい課題フォーマット（v{{version}}）を使用しています。ページを再読み込みするか、担当の先生に Classroom 50 を更新してもらってください。",
     "notPublished": "{{label}} はまだ公開されていません。担当の先生に、設定リポジトリにファイルが存在すること、および公開ワークフローが実行されたことを確認してもらってください。"
+  },
+  "migration": {
+    "access": {
+      "explain": "インポートしようとしている課題はGitHub上の「{{org}}」組織のものですが、Classroom 50はまだそのリポジトリを読み取る権限がありません。以下からアクセスを許可してから再確認してください。これが解決するまで何もインポートできません。",
+      "headline": "Classroom 50には「{{org}}」へのアクセスが必要です",
+      "recheck": "アクセスを再確認",
+      "recheckHint": "アクセスを許可した後にクリックして続行してください。",
+      "rechecking": "再確認中…",
+      "step1Body": "GitHubの設定でClassroom 50アプリを開き、「{{org}}」組織へのアクセスを許可してください。通常はこれだけで十分です。",
+      "step1Button": "Classroom 50アプリの設定を開く",
+      "step1Title": "承認済みアプリのページでアクセスを許可する",
+      "step2Body": "以前にアクセスを拒否したことがある場合、または組織がオーナーの承認を必要とする場合は、「{{org}}」組織のサードパーティアプリケーションポリシーからアクセスを要求または承認してください。組織のオーナーによる承認が必要な場合があります。",
+      "step2Button": "「{{org}}」のアプリケーションポリシーを開く",
+      "step2Title": "うまくいかない場合は、組織のポリシーページを使う",
+      "title": "続行するにはアクセスを許可してください"
+    },
+    "blocker": {
+      "dir_exists": "「{{shortName}}」という名前のクラスは、この組織にすでに存在します。続行するには別の短縮名を選んでください。",
+      "needs_org_setup": "「{{org}}」はまだClassroom 50向けにセットアップされていません。先に組織のセットアップを実行してから再試行してください。",
+      "source_org_access": "Classroom 50は「{{org}}」内のスターターリポジトリを読み取れません。アプリがその組織へのアクセスを付与されていません。"
+    },
+    "confirm": {
+      "back": "戻る",
+      "columnSource": "ソース（GitHub Classroom）",
+      "columnTarget": "ターゲット（Classroom 50）",
+      "fromLine": "GitHub Classroom上の<b>{{source}}</b>（{{org}}）から課題をインポートします。",
+      "fromLineNoName": "GitHub Classroom上の<b>{{source}}</b>から課題をインポートします。",
+      "importButton": "{{count}}件の課題をインポート",
+      "importing": "インポートを開始中…",
+      "loading": "クラスのデータを取得中…",
+      "modalCancel": "キャンセル",
+      "modalConfirm": "はい、インポートします",
+      "modalConfirmQuestion": "これは簡単には元に戻せません。続行しますか？",
+      "modalReuseNote_one": "1件の課題は既存のテンプレートリポジトリを再利用します。",
+      "modalReuseNote_other": "{{count}}件の課題は既存のテンプレートリポジトリを再利用します。",
+      "modalSkipNote_one": "1件の課題はスキップされ、インポートされません。",
+      "modalSkipNote_other": "{{count}}件の課題はスキップされ、インポートされません。",
+      "modalSummary_one": "これにより{{org}}に「{{shortName}}」クラスを作成し、GitHubチームを追加し、1件の課題リポジトリをコピーします。",
+      "modalSummary_other": "これにより{{org}}に「{{shortName}}」クラスを作成し、GitHubチームを追加し、{{count}}件の課題リポジトリをコピーします。",
+      "modalTitle": "このステップは元に戻すのが困難です",
+      "name": "新しいクラス名",
+      "nameHelp": "Classroom 50組織に作成されるクラスの表示名です。あなたと生徒に表示されます。ソースのクラス名と一致させても、好きな名前にしてもかまいません。既定ではソース名になります。",
+      "noneSelected": "課題が選択されていません。インポートするものを少なくとも1つチェックするか、戻ってください。",
+      "preflightError": "インポートのプレビューを作成できませんでした。",
+      "shortName": "新しいクラスID（短縮名）",
+      "shortNameHelp": "ターゲット組織内のクラスのURLセーフな識別子です（例：cs50-fall）。これは設定フォルダーとGitHubチーム名になり、すべての生徒リポジトリの接頭辞になるため、後から変更できません。ソースのクラス名から自動入力されます。別のIDにしたい場合は編集してください。",
+      "suffix": "テンプレートリポジトリのサフィックス",
+      "suffixHelp": "コピーされる各テンプレートリポジトリ名に付加される任意のテキストです（例：hw1がhw1-f26になります）。課題名のリポジトリがこの組織にすでに存在し、インポートで衝突する場合にのみ使用してください。ほとんどの場合は空欄のままにしてください。",
+      "suffixPlaceholder": "任意",
+      "term": "学期",
+      "termHelp": "このクラスがいつ実施されるかの任意のラベルです（例：Fall-2026）。クラスに表示され、その設定に保存されます。リポジトリ名やチーム名には影響しません。",
+      "termPlaceholder": "例：Fall-2026",
+      "title": "インポートされる内容を確認",
+      "updating": "プレビューを更新中…"
+    },
+    "documentTitle": "GitHub Classroomからインポート",
+    "entryButton": "GitHub Classroomからインポート",
+    "error": {
+      "assignmentInaccessible": "課題{{id}}にアクセスできません。そのGitHub Classroomの管理者である必要があります。",
+      "classroomInaccessible": "クラス{{id}}にはあなたのアカウントからアクセスできません。そのGitHub Classroomの管理者である必要があります。",
+      "classroomNameEmpty": "クラス名が空です。短縮名を明示的に入力してください。",
+      "githubSaid": "（GitHub：{{status}} {{message}}）",
+      "multipleClassrooms": "「{{org}}」組織に複数のクラスが見つかりました。IDで1つ選んでください：{{ids}}。",
+      "noClassroomInOrg": "「{{org}}」組織にクラスが見つかりません。そこで1つの管理者であることを確認してください。",
+      "noClassroomInOrgHidden": "「{{org}}」組織にクラスが見つかりません（アーカイブ済みのクラスは非表示です）。そこで1つの管理者であることを確認してください。",
+      "noClassrooms": "あなたのアカウントからアクセスできるGitHub Classroomがありません。1つの管理者であることを確認してください。",
+      "shortNameInvalid": "「{{shortName}}」は有効な短縮名ではありません。{{description}}である必要があります。明示的に1つ入力してください。",
+      "shortNameInvalidFrom": "「{{rawName}}」から有効な短縮名を導き出せませんでした（「{{shortName}}」になりました）。{{description}}である必要があります。明示的に1つ入力してください。",
+      "shortNameNotCanonical": "短縮名「{{shortName}}」ではGitHubチームを構成できません。連続するハイフンや末尾のハイフンを削除してください（GitHubがチームのスラッグを書き換え、メンバーシップやテンプレートの権限付与が壊れます）。",
+      "sourceEmpty": "インポート元となる数値のクラスIDまたは組織のログインを入力してください。",
+      "targetRepoCollision": "「{{repo}}」という名前のリポジトリがすでに存在し、テンプレートではありません。別のテンプレートサフィックスを選んで再試行してください。{{detail}}",
+      "templateSourceAccess": "スターターリポジトリ「{{fullName}}」を読み取れません。「{{org}}」組織向けにClassroom 50アプリを承認してから再試行してください。{{detail}}"
+    },
+    "execute": {
+      "error": "インポートを完了できませんでした。",
+      "summaryComplete": "インポートが完了しました。",
+      "summaryCounts": "生成{{generated}}件、再利用{{reused}}件、スキップ{{skipped}}件。",
+      "summaryPartial": "一部の課題をスキップしてインポートが完了しました。",
+      "viewClass": "新しいクラスを開く"
+    },
+    "gate": {
+      "body": "「{{org}}」はまだClassroom 50の組織ではありません。一度限りのセットアップを実行してから、戻ってインポートしてください。",
+      "checkError": "組織のセットアップ状況を確認できませんでした。",
+      "checkOrgAccess": "この組織のアプリアクセスを確認",
+      "checking": "組織を確認中…",
+      "setupButton": "組織のセットアップへ移動",
+      "title": "まずこの組織をセットアップしてください"
+    },
+    "item": {
+      "assignmentBadge": "課題",
+      "branchLabel": "ブランチ",
+      "deadlineLabel": "締め切り",
+      "emptyRepo": "空のリポジトリ（オートグレードのシムのみ）",
+      "feedbackLabel": "フィードバックPR",
+      "groupSizeLabel": "最大グループサイズ",
+      "no": "無効",
+      "noSource": "ソースリポジトリなし",
+      "none": "なし",
+      "private": "プライベート",
+      "public": "パブリック",
+      "repoLabel": "リポジトリ",
+      "sourcePanel": "ソース（GitHub Classroom）",
+      "targetPanel": "ターゲット（Classroom 50）",
+      "typeGroup": "グループ",
+      "typeIndividual": "個人",
+      "typeLabel": "種類",
+      "visibilityLabel": "公開範囲",
+      "willImport": "インポート",
+      "willSkip": "スキップ",
+      "yes": "有効"
+    },
+    "missingOrg": "このページにはURLに組織が必要です。",
+    "reason": {
+      "badStarter": "スターターリポジトリ「{{fullName}}」の名前が予期しないものです。",
+      "copyFailed": "テンプレートをコピーできませんでした：{{message}}",
+      "deselected": "チェックが外れています。インポートされません。",
+      "invalidMode": "サポートされていない課題タイプ「{{type}}」です。",
+      "invalidSlug": "課題スラッグ「{{slug}}」は有効なリポジトリ名ではありません。",
+      "sourceNotAccessible": "スターターリポジトリ「{{fullName}}」にはあなたのアカウントからアクセスできません。",
+      "sourceNotTemplate": "スターターリポジトリ「{{fullName}}」はテンプレートではありません。そのリポジトリで「Template repository」を有効にして再試行してください。",
+      "sourceOrgAccess": "Classroom 50は「{{org}}」組織に対して認可されていないため、そのスターターリポジトリをコピーできません。",
+      "targetCollision": "「{{name}}」という名前のリポジトリが{{org}}にすでに存在し、テンプレートではありません。衝突を避けるためにテンプレートサフィックスを設定してください。"
+    },
+    "select": {
+      "archivedTag": "アーカイブ済み",
+      "body": "これらはあなたのアカウントが管理できるGitHub Classroomです。",
+      "empty": "あなたのアカウントからアクセスできるGitHub Classroomがありません。classroom.github.comで1つの管理者であることを確認してください。",
+      "loadError": "GitHub Classroomを読み込めませんでした。",
+      "orgLine": "組織：{{org}}",
+      "retry": "再試行",
+      "showArchived": "アーカイブ済みのクラスを表示",
+      "title": "インポートするGitHub Classroomを選択"
+    },
+    "status": {
+      "generated": "インポート済み",
+      "pending": "保留中",
+      "reused": "再利用済み",
+      "running": "処理中…",
+      "skipped": "スキップ済み",
+      "willImport": "インポート予定",
+      "willReuse": "再利用予定",
+      "willSkip": "スキップ予定"
+    },
+    "steps": {
+      "confirm": "確認",
+      "execute": "インポート",
+      "select": "クラスを選択"
+    },
+    "subtitle": "既存のGitHub Classroom（その課題やスターターリポジトリ）を、新しいクラスとしてこの組織に取り込みます。何かが作成される前に、すべてを確認して承認します。",
+    "title": "GitHub Classroomからインポート"
+  },
+  "serviceTokenHealth": {
+    "chip": {
+      "checking": "トークンを確認中…",
+      "expired": "トークンが期限切れ",
+      "expiringSoon": "トークンがまもなく期限切れ",
+      "expiryUntracked": "有効期限が追跡されていません",
+      "missing": "サービストークンなし",
+      "rotateAria": "{{org}}のサービストークンを確認",
+      "unknown": "トークンのステータス不明"
+    },
+    "summary_one": "{{count}}件の組織でサービストークンの確認が必要です。",
+    "summary_other": "{{count}}件の組織でサービストークンの確認が必要です。"
   }
 }
