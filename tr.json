@@ -46,7 +46,8 @@
       "navAria": "Sayfalandırma",
       "previous": "Önceki sayfa",
       "next": "Sonraki sayfa"
-    }
+    },
+    "linkToSection": "{{section}} bölümüne bağlantı"
   },
   "notFound": {
     "title": "Sayfa bulunamadı",
@@ -643,7 +644,8 @@
       "hidden": "{{org}} ana sayfanızdan gizlendi.",
       "hide": "Ana sayfadan gizle",
       "moreActions": "{{org}} için daha fazla eylem",
-      "undoHide": "Geri al"
+      "undoHide": "Geri al",
+      "manageToken": "Belirteci yönet"
     },
     "invites": {
       "summary_one": "{{count}} bekleyen davetiniz var",
@@ -737,7 +739,9 @@
       "noResults": {
         "title": "Filtrelerinize uyan ödev yok",
         "body": "Farklı bir arama deneyin veya filtreleri temizleyin."
-      }
+      },
+      "linkOnlyBody": "Bu sınıftaki ödevler, öğretmeninizin paylaştığı davet bağlantısından açılır. Bir ödevi kabul etmek için o bağlantıyı açın; ödev daha sonra öğretmeninizin herkese sunduğu ödevlerin yanında burada görünecektir.",
+      "linkOnlyTitle": "Başlamak için davet bağlantınızı açın"
     },
     "newButton": {
       "assignment": "Ödev",
@@ -785,7 +789,7 @@
       "containerUserTip": "Konteynerin çalıştığı kullanıcı. Checkout bir izin hatasıyla başarısız olursa root olarak ayarlayın. GitHub Actions, konteyner adımlarını ana çalıştırıcı kullanıcısı olarak çalıştırır, bu nedenle root olmayan bir imaj çoğu zaman çalışma alanına yazamaz.",
       "setupCommand": "Kurulum komutu",
       "setupCommandPlaceholder": "ör. gcc -o hello hello.c",
-      "setupCommandTip": "Notlandırmadan önce bir kez çalıştırılan bir komut, örneğin derleme yapmak için. “setup” adlı öncü 0 puanlık bir otomatik notlandırma adımı olarak eklenir. Sıfır olmayan bir çıkış çalıştırmayı başarısız kılar.",
+      "setupCommandTip": "Diğer testlerden önce bir kez çalışır, örneğin derlemek veya bağımlılıkları kurmak için. Sıfır olmayan bir çıkış veya zaman aşımı, sayısal puanı değiştirmeden otomatik değerlendirme durumunu başarısız olarak ayarlar; sonraki testler yine de çalışır.",
       "allowedFiles": "İzin verilen dosyalar",
       "allowedFilesTip": "Bir gönderime hangi dosyaların ait olduğunu tanımlayan, her satırda bir tane olacak şekilde sıralı {{gitignore}} stili desenler (son eşleşme geçerlidir, {{bang}} yeniden dahil eder). Örneğin {{star}} ardından {{example}} yalnızca {{result}} dosyasına izin verir. Boş bırakılırsa tüm dosyalara izin verilir.",
       "releaseAssets": "Gönderim sürüm dosyaları",
@@ -845,7 +849,55 @@
         "releaseAssetsInvalidPath": "{{path}} tam bir çalışma alanına göreli dosya yolu değil.",
         "releaseAssetsInvalidBasename": "{{basename}} güvenli bir Release dosya adı değil veya ayrılmış.",
         "releaseAssetsDuplicatePath": "{{path}} birden fazla kez listelenmiş; her sürüm dosya yolu benzersiz olmalıdır.",
-        "releaseAssetsDuplicateBasename": "{{basename}} birden fazla kez yüklenirdi; Release dosya adları benzersiz olmalıdır."
+        "releaseAssetsDuplicateBasename": "{{basename}} birden fazla kez yüklenirdi; Release dosya adları benzersiz olmalıdır.",
+        "setupTimeoutRange": "Kurulum zaman aşımı 0 veya 1 ile {{max}} arasında bir tam saniye sayısı olmalıdır.",
+        "studentPermissionInvalid": "Öğrenci depo erişimi pull, triage, push, maintain veya admin değerlerinden biri olmalıdır."
+      },
+      "availableFrom": "Yayınlanma tarihi ({{tz}})",
+      "availableFromTz": "Saatler yerel saat diliminizle gösterilir ({{tz}}).",
+      "repoFeatures": {
+        "choices": {
+          "inherit": "Şablondan devral",
+          "inheritLoading": "Şablondan devral (kontrol ediliyor…)",
+          "inheritOff": "Şablondan devral (şu anda kapalı)",
+          "inheritOn": "Şablondan devral (şu anda açık)",
+          "off": "Kapalı",
+          "on": "Açık"
+        },
+        "heading": "Depo özellikleri",
+        "help": "Her öğrenci deposunda Wiki, Issue, Project ve Pull request'lerin etkin olup olmayacağı. Bir öğrenci ödevi kabul ettiğinde uygulanır (yalnızca yeni depolar); halihazırda oluşturulmuş depoları değiştirmek için not defterini kullanın. Özel bir şablonu devralmak, onun Wiki/Issue/Project içeriğini de kopyalar, bu yüzden devraldığınız bir şablonda yanıt anahtarları bulundurmayın.",
+        "issues": {
+          "label": "Issue'lar"
+        },
+        "overrideWarning": "Bundan sonra oluşturulan depolara uygulanır; öğrencilerin halihazırda kabul ettikleri değişmez. \"Devral\", kabul anındaki şablonu izler (mevcut depolar, şablon daha sonra değiştiğinde kaymaz). Mevcut depoları güncellemek için gönderimler sayfasındaki toplu depo özellikleri eylemini kullanın.",
+        "projects": {
+          "label": "Project'ler"
+        },
+        "pull_requests": {
+          "label": "Pull request'ler"
+        },
+        "refresh": "Şablon ayarlarını yenile",
+        "wiki": {
+          "label": "Wiki"
+        }
+      },
+      "setAvailableFrom": "Yayınlanma tarihi ayarla",
+      "setAvailableFromTip": "Ödevler varsayılan olarak öğrenci ödevleri sayfasından gizlidir — öğrenciler yalnızca davet bağlantısı aracılığıyla kabul edebilir. Tarih geçtiğinde herkes için listelenmesi için bir yayınlanma tarihi ayarlayın. Zaten kabul etmiş öğrenciler ödevi her zaman görür. Bu yalnızca listelemeyi denetler, erişimi değil.",
+      "setupTimeout": "Kurulum zaman aşımı (saniye)",
+      "setupTimeoutTip": "Yeni kurulum komutları {{default}} saniyeden başlar. Çalıştırıcının 10 saniyelik varsayılanını kullanmak için 0 ayarlayın veya 1 ile {{max}} arasında bir tam sayı seçin.",
+      "studentPermission": {
+        "default": "Varsayılan ({{level}})",
+        "groupHelp": "Grup üyeleri, grup sahibinin takım arkadaşları ekleyebilmesi için en az admin ile katılır. Bu, bundan sonra oluşturulan depolara uygulanır; mevcut olanları değiştirmek için not defterini kullanın.",
+        "help": "Her öğrenciye kabul anında kendi ödev deposunda verilen rol. Varsayılan Push (yazma) rolüdür. Öğrencilerin depo ayarlarını yönetmesine ve GitHub Pages'i etkinleştirmesine izin vermek için Admin'i seçin. Bu, bundan sonra kabul eden öğrencilere uygulanır; halihazırda oluşturulmuş depoları değiştirmek için not defterini kullanın.",
+        "label": "Öğrenci depo erişimi",
+        "learnMore": "Daha fazla bilgi",
+        "levels": {
+          "admin": "Admin",
+          "maintain": "Maintain",
+          "pull": "Okuma (pull)",
+          "push": "Yazma (push)",
+          "triage": "Triage"
+        }
       }
     },
     "autograder": {
@@ -916,7 +968,26 @@
       "deleteConfirm": "Ödevi sil",
       "deleteCancel": "Ödevi koru",
       "reuseTitle": "Başka bir sınıfta yeniden kullan",
-      "reuseAria": "Ödevi başka bir sınıfta yeniden kullan"
+      "reuseAria": "Ödevi başka bir sınıfta yeniden kullan",
+      "colReleaseDate": "Yayınlanma tarihi",
+      "linkOnlyTitle": "Yayınlanma tarihi geçene kadar öğrencilerin listesinden gizlidir; o zamana dek yalnızca davet bağlantısı aracılığıyla kabul edebilirler. Zaten kabul etmiş öğrenciler ödevi görmeye devam eder.",
+      "lockAria": "{{name}} kilitle",
+      "lockCancel": "İptal",
+      "lockConfirm": "Ödevi kilitle",
+      "lockDescription": "Bu, <assignment>{{assignment}}</assignment> ödevini kabul sayfasında, ödev listesinde, gönderim görünümünde ve CLI'de her öğrenciye — zaten kabul etmiş olanlar dahil — kapatır. Özel bir şablon kullanıyorsa, öğrenci takımının o şablondaki okuma erişimi de kaldırılır (personel erişimi etkilenmez). Mevcut öğrenci depoları silinmez.",
+      "lockSuccess": "{{name}} kilitlendi.",
+      "lockTitle": "Ödevi kilitle",
+      "lockTitleModal": "Ödev kilitlensin mi?",
+      "lockedBadge": "Kilitli",
+      "lockedBadgeTitle": "Kilitli: öğrenciler bu ödeve erişemez veya kabul edemez. Özel bir şablon için, kilitliyken öğrenci takımının okuma erişimi kaldırılır.",
+      "releaseNotSet": "Ayarlanmadı · yalnızca bağlantı",
+      "scheduled": "{{date}} tarihinde yayınlanır",
+      "unlockAria": "{{name}} kilidini aç",
+      "unlockConfirm": "Ödev kilidini aç",
+      "unlockDescription": "Bu, <assignment>{{assignment}}</assignment> ödevini öğrencilere yeniden açar. Özel bir şablon kullanıyorsa, öğrencilerin tekrar kabul edebilmesi için öğrenci takımının o şablondaki okuma erişimi geri yüklenir.",
+      "unlockSuccess": "{{name}} kilidi açıldı.",
+      "unlockTitle": "Ödev kilidini aç",
+      "unlockTitleModal": "Ödev kilidi açılsın mı?"
     },
     "toolbar": {
       "searchPlaceholder": "Ödevlerde ara…",
@@ -959,12 +1030,12 @@
       "okVerify": "{{owner}} içinde erişilebilir (dal <branch>{{branch}}</branch>). {{owner}} üçüncü taraf uygulamaları kısıtlıyorsa, bir sahip Classroom 50'yi onaylayana kadar öğrenciler kopyalayamaz.",
       "notVisible": "{{owner}}/{{repo}} size görünmüyor. Herkese açık yapın veya {{org}} içine kopyalayın.",
       "notTemplate": "{{owner}}/{{repo}} bir şablon deposu değil. Deponun Ayarlar bölümünden etkinleştirin.",
-      "restricted": "{{owner}}, {{repo}} deposuna erişimi engelledi (HTTP 403). Bu genellikle üçüncü taraf uygulama kısıtlamasıdır — bir sahibinin Classroom 50'yi kuruluş için onaylaması ya da {{owner}} için OAuth yetkinizi vermesi gerekebilir (Kuruluş ayarları → Third-party access). Başka bir 403 nedeni de olabilir; aşağıdaki GitHub mesajına bakın.",
+      "restricted": "{{owner}}, {{repo}} deposuna erişimi engelledi (HTTP 403) — büyük olasılıkla bir üçüncü taraf uygulama kısıtlaması. Sırasıyla deneyin:",
       "restrictedScope": "{{owner}}, {{repo}} deposuna erişimi engelledi (HTTP 403). GitHub, belirtecinizde gerekli bir kapsamın eksik olduğunu söylüyor — GitHub yetkinizi yenilemek için oturumu kapatıp yeniden açın, sonra tekrar deneyin.",
       "githubSaid": "GitHub şunu söyledi (HTTP {{status}}):",
-      "privateForkCrossOrg": "{{owner}}/{{repo}}, başka bir kuruluştaki {{parent}} deposunun özel bir çatalıdır (dal <branch>{{branch}}</branch>). Kuruluşlar arası özel çatallar şablon olarak güvenilir değildir — özel yukarı akış Classroom 50 tarafından erişilebilir olmadığında kopyalama başarısız olur. Bunun yerine yeni (çatal olmayan) bir şablon deposu kullanın: yeni bir depo oluşturun ve çatalın içeriğini ona kopyalayın.",
+      "privateForkCrossOrg": "{{owner}}/{{repo}}, {{parent}} deposunun özel bir çatalıdır (dal <branch>{{branch}}</branch>). <important>Önemli: {{parentOrg}}, Classroom 50'yi onaylı tutmalıdır — bu onay herhangi bir zamanda kaldırılırsa, öğrenciler kabul etmede başarısız olur (HTTP 403).</important> {{parentOrg}} kuruluşuna bağımlı olmaktan kaçınmak için çatal olmayan yeni bir depo kullanın: yeni bir depo oluşturun ve çatalın içeriğini içine kopyalayın.",
       "privateForkInOrg": "{{owner}}/{{repo}}, {{parent}} deposunun özel bir çatalıdır (dal <branch>{{branch}}</branch>). Yukarı akış bu kuruluşta olduğundan kopyalama çalışmalı — ancak kabul başarısız olursa yeni (çatal olmayan) bir şablon deposu daha öngörülebilirdir.",
-      "privateForkNoParent": "{{owner}}/{{repo}} özel bir çataldır (dal <branch>{{branch}}</branch>). Kuruluşlar arası özel çatallar şablon olarak güvenilir değildir — özel yukarı akış Classroom 50 tarafından erişilebilir olmadığında kopyalama başarısız olur. Bunun yerine yeni (çatal olmayan) bir şablon deposu kullanın: yeni bir depo oluşturun ve çatalın içeriğini ona kopyalayın.",
+      "privateForkNoParent": "{{owner}}/{{repo}}, özel bir çataldır (dal <branch>{{branch}}</branch>). <important>Önemli: çatalın üst kaynak kuruluşu Classroom 50'yi onaylı tutmalıdır — bu onay herhangi bir zamanda kaldırılırsa, öğrenciler kabul etmede başarısız olur (HTTP 403).</important> Üst kaynak kuruluşuna bağımlı olmaktan kaçınmak için çatal olmayan yeni bir depo kullanın: yeni bir depo oluşturun ve çatalın içeriğini içine kopyalayın.",
       "unknown": "{{owner}}/{{repo}} şu anda doğrulanamadı. Öğrenciler kabul ettiğinde yeniden kontrol edilecek.",
       "privateOutOfOrg": "{{owner}}/{{repo}} özel ve {{org}} dışında. Herkese açık yapın veya {{org}} içine kopyalayın.",
       "noBranch": "{{owner}}/{{repo}} deposunun varsayılan dalı yok. Bir commit gönderin veya <hint/> ekleyin.",
@@ -994,7 +1065,13 @@
         "fixSatisfied": "Sınıf ekibinin zaten okuma erişimi var — düzeltilecek bir şey yok.",
         "ownerOnlyNote": "Ekip erişimini yalnızca bir organizasyon sahibi verebilir. Bir sahipten bunu çalıştırmasını isteyin veya şablona ekiplere okuma iznini GitHub'da verin.",
         "close": "Kapat"
-      }
+      },
+      "recheckAccess": "Erişimi yeniden kontrol et",
+      "recheckingAccess": "Yeniden kontrol ediliyor…",
+      "restrictedItemApprove": "Classroom 50'yi {{owner}} için onaylayın (Kuruluş ayarları → Üçüncü taraf erişimi).",
+      "restrictedItemFork": "{{repo}} bir çatalsa, Classroom 50'yi çatalın üst kaynak kuruluşu için de onaylayın — özel bir çatalın erişimi, üst kaynak kuruluşun politikasını izler.",
+      "restrictedItemOther": "Aksi takdirde farklı bir 403 olabilir; aşağıdaki GitHub mesajına bakın.",
+      "viewTemplateRepo": "{{owner}}/{{repo}} deposunu GitHub'da aç"
     }
   },
   "published": {
@@ -1154,37 +1231,38 @@
     },
     "serviceToken": {
       "title": "Hizmet belirteci",
-      "infoAria": "Servis belirteci nedir?",
-      "info": "Classroom 50, sınıfınızın GitHub organizasyonundaki depolara okuma ve yazma erişimi olan ayrıntılı bir Kişisel Erişim Belirteci (PAT) olan bir servis belirtecine ihtiyaç duyar. <secret>CLASSROOM50_SERVICE_TOKEN</secret> gizli değeri olarak <repo>classroom50</repo> yapılandırma deponuzda saklanır; burada puan toplama iş akışı bunu öğrenci gönderimlerini okumak için, yeniden not verme iş akışı ise öğrencilerin otomatik not verme iş akışlarını yeniden çalıştırmak için kullanır.",
-      "statusPresent": "Bir servis belirteci zaten ayarlanmış",
-      "statusMissing": "Henüz bir servis belirteci ayarlanmadı",
-      "statusUnknown": "Servis belirteci kontrol edilemedi",
-      "replaceNote": "Aşağıdan kaydetmek mevcut belirteci değiştirir (bir güncelleme). Eski belirteç yerinde üzerine yazılır.",
-      "hideConfig": "Belirteç yapılandırmasını gizle",
-      "updateOrReplace": "Belirteci güncelle veya değiştir",
+      "statusPresent": "Belirteç ayarlandı",
+      "statusMissing": "Servis belirteci ayarlanmadı",
       "expiryLabel": "Belirteç süresi",
       "days": "gün",
       "expiresOn": "Süre sonu: {{date}}",
-      "enterRange": "{{min}}–{{max}} gün girin",
-      "validRange": "Geçerli aralık {{min}}–{{max}} gündür (GitHub'ın azami değeri).",
-      "patDescription": "Classroom 50 puan toplama ve yeniden değerlendirme için hizmet belirteci. {{org}} organizasyonunda Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read",
-      "generateOnGitHub": "Belirteci GitHub'da oluştur",
-      "generateHint": "GitHub'ın belirteç formunu; ad, kaynak sahibi, süre sonu ve <permissions>Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read</permissions> izinleri önceden doldurulmuş olarak açar.",
-      "beforeGenerating": "GitHub sayfasında, belirteci oluşturmadan önce:",
-      "repoAccess": "<field>Repository access</field> ayarını <value>All repositories</value> olarak ayarlayın. <note>“Only select repositories” seçeneği, daha sonra oluşturulan öğrenci depolarını atlar ve puan toplamayı bozar.</note>",
-      "permissions": "<field>Permissions</field> altında <perm>Contents: Read and write</perm>, <perm>Actions: Read and write</perm>, <perm>Administration: Read and write</perm> ve <perm>Members: Read</perm> izinlerini doğrulayın (Metadata: Read otomatik olarak dahil edilir.) <note>Members: Read bir Kuruluş iznidir; kuruluş kaynak sahibi olduğunda gösterilen ayrı bir bölümdür.</note> <note>Read puanları toplar; write, yeniden notlandırma iş akışının öğrenci otomatik notlandırma iş akışlarını yeniden çalıştırmasını sağlar; Members: Read, toplamanın sınıf ekibini listelemesini sağlar.</note>",
-      "rotateNote": "Belirteç, yukarıda ayarladığınız süreden sonra sona erer. Süresi dolduğunda, yeni bir belirteç oluşturup burada tekrar kaydedene kadar puan toplama ve yeniden not verme iş akışları başarısız olur; bu nedenle onu o zamandan önce yenilemek için bir hatırlatıcı ayarlayın.",
-      "pasteBelow": "GitHub'da belirteci oluşturduktan sonra kopyalayın ve aşağıya yapıştırın.",
-      "enterNewLabel": "Yeni servis belirteci girin",
-      "enterLabel": "Servis belirteci girin",
-      "placeholder": "Belirteci girin (örn. github_pat_123...)",
-      "validateHint": "Kaydetmeden önce belirtecin geçerli olduğunu kontrol edeceğiz. Oluştururken <value>All repositories</value> seçtiğinizden emin olun.",
+      "patDescription": "{{org}} kuruluşunda Classroom 50 puan toplama ve yeniden değerlendirme için servis belirteci",
+      "generateOnGitHub": "Yeni erişim belirteci oluştur",
+      "placeholder": "github_pat_…",
       "saveError": "Belirteç doğrulanamadı veya kaydedilemedi.",
-      "savedUpdated": "Servis belirteci kontrol edildi ve güncellendi.",
-      "savedNew": "Servis belirteci kontrol edildi ve kaydedildi.",
       "validating": "Doğrulanıyor…",
-      "updateButton": "Servis belirtecini güncelle",
-      "saveButton": "Servis belirtecini kaydet"
+      "saveButton": "Belirteci kaydet",
+      "cancelRename": "İptal",
+      "checking": "Kontrol ediliyor…",
+      "expiryRange": "{{min}}–{{max}} gün girin",
+      "expiryUntrackedHint": "Bu belirtecin sona erme tarihi izlenmiyor. Classroom 50'nin sona ermeden önce sizi uyarabilmesi için yeni bir belirteç ayarlayın.",
+      "generateHelp": "GitHub'ın belirteç formunu adı, sona erme süresi ve gerekli kapsamları önceden doldurulmuş olarak açar. Depo erişimini Tüm depolar olarak ayarlayın.",
+      "help": "Classroom 50'nin öğrenci depolarınız genelinde puan toplamasına ve yeniden değerlendirme yapmasına olanak tanıyan, ince ayarlı bir GitHub belirteci. classroom50 yapılandırma deponuzda bir gizli değer olarak saklanır.",
+      "learnMore": "Servis belirteçleri hakkında bilgi edinin",
+      "nameHelp": "Ad, bu belirtecin GitHub kişisel erişim belirteçleri listenizde nasıl göründüğüyle eşleşmelidir. Classroom 50 bunu yalnızca bir etiket olarak kullanır; burada yeniden adlandırmak, belirteci GitHub'da yeniden adlandırmaz.",
+      "nameRowLabel": "Ad:",
+      "pasteHelp": "GitHub'da oluşturduğunuz belirteci yapıştırın. Classroom 50, kaydetmeden önce doğrular.",
+      "pasteLabel": "Belirteci yapıştır",
+      "rename": "Belirteci yeniden adlandır",
+      "rotateButton": "Yeni bir belirteç ayarla",
+      "saveName": "Adı kaydet",
+      "saved": "Servis belirteci kaydedildi.",
+      "savedNoMetadata": "Servis belirteci kaydedildi, ancak sona erme tarihi ve adı kaydedilemedi — yeniden kaydedene kadar durum çipi \"sona erme izlenmiyor\" gösterebilir.",
+      "setButton": "Belirteç ayarla",
+      "setModalSubtitle": "GitHub'da ince ayarlı bir belirteç oluşturun, ardından kaydetmek için buraya geri yapıştırın.",
+      "setModalTitle": "Servis belirteci ayarla",
+      "step1Label": "Belirteci GitHub'da oluşturun",
+      "step2Label": "GitHub Erişim Belirteci"
     },
     "audit": {
       "title": "Organizasyon politikası",
@@ -1260,12 +1338,12 @@
       "loading": "Durum kontrol ediliyor…",
       "applying": "Güncelleniyor…",
       "toggleLabel": "Tüm öğrenci depoları için otomatik not vermeyi duraklat",
-      "toggleHint": "Bunu açmak, öğrenci gönderimlerinin notlandırılmasını durdurur (Actions dakikası harcanmaz). classroom50 yapılandırma deposu çalışmaya devam eder. Devam etmek için kapatın.",
-      "pausedNotice": "Duraklatıldı — öğrenci gönderimleri değerlendirilmiyor, bu nedenle gönderimler otomatik değerlendirme veya geri bildirim çekme isteği durum denetimi almıyor. Öğrenciler kabul ettiğinde yeni geri bildirim çekme istekleri yine de açılır ve mevcut olanlar en son gönderimleri göstermeye devam eder. Bunu kapatmadıkça kuruluş kurulumunu yeniden çalıştırmak devam ettirmez.",
+      "toggleHint": "Duraklatmak, yalnızca otomatik değerlendirmeyi değil, öğrenci depolarındaki tüm iş akışlarını durdurur. Öğrencilerinizin çalıştırdığı herhangi bir CI de durur ve hiç Actions dakikası kullanılmaz. Devam ettirmek için kapatın.",
+      "pausedNotice": "Öğrenci depolarındaki tüm iş akışları durduruldu, yalnızca otomatik değerlendirme değil, bu nedenle öğrencilerinizin çalıştırdığı herhangi bir CI de durdurulur. Gönderimler değerlendirilmez ve otomatik değerlendirme veya geri bildirim PR kontrolleri almaz. Öğrenciler kabul ettiğinde geri bildirim pull request'leri yine açılır ve yeni gönderimleri göstermeye devam eder. Bunu kapatana kadar kuruluş kurulumunu yeniden çalıştırmak değerlendirmeyi devam ettirmez.",
       "disabledNotice": "Actions tüm organizasyon için kapalı, bu nedenle hiçbir şey çalışmaz. Organizasyon kurulumunu yeniden çalıştırın veya GitHub'da Actions'ı etkinleştirin.",
       "unknownNotice": "Bu organizasyonun Actions izinleri okunamadı — sahip haklarınız olmayabilir veya bir enterprise politikası bunları kontrol ediyor olabilir.",
       "confirmTitle": "Tüm organizasyon için otomatik not verme duraklatılsın mı?",
-      "confirmBody": "Devam ettirene kadar öğrenci gönderimleri değerlendirilmez. Öğrenciler kabul ettiğinde yeni geri bildirim çekme istekleri yine de açılır ve mevcut olanlar en son gönderimleri göstermeye devam eder — ancak duraklatıldığı sürece gönderimler otomatik değerlendirme veya geri bildirim çekme isteği durum denetimi almaz. classroom50 yapılandırma deposu çalışmaya devam eder. Her an geri alınabilir.",
+      "confirmBody": "Bu, yalnızca otomatik değerlendirmeyi değil, öğrenci depolarındaki tüm iş akışlarını durdurur, bu nedenle öğrencilerinizin çalıştırdığı herhangi bir CI de durur. Devam ettirene kadar gönderimler değerlendirilmez ve otomatik değerlendirme veya geri bildirim PR kontrolleri almaz. Öğrenciler kabul ettiğinde geri bildirim pull request'leri yine açılır ve yeni gönderimleri göstermeye devam eder.",
       "confirmButton": "Otomatik not vermeyi duraklat",
       "toggleFailed": "Actions izinleri güncellenemedi: {{message}}"
     },
@@ -1620,6 +1698,9 @@
       "cancelInvite": "Daveti iptal et",
       "cancelledToast": "{{who}} için davet iptal edildi.",
       "cancelFailed": "{{who}} için davet iptal edilemedi: {{error}}"
+    },
+    "newButton": {
+      "moreOptions": "Diğer seçenekler"
     }
   },
   "accept": {
@@ -1650,7 +1731,9 @@
       "outOfOrg": "Şablon {{owner}}/{{repo}} kopyalanamadı (HTTP {{status}}).{{detail}} Bu genellikle {{owner}} organizasyonunun üçüncü taraf uygulamalarını kısıtlamasından kaynaklanır — öğretmeninizden {{owner}} için Classroom 50 uygulamasını onaylamasını (veya şablonu herkese açık yapmasını) isteyin, sonra tekrar kabul edin.",
       "inOrg": "Özel şablon {{owner}}/{{repo}} kopyalanamadı (HTTP {{status}}).{{detail}} Öğretmeninizden ödev kurulumunu yeniden çalıştırmasını isteyin, sonra tekrar kabul edin.",
       "orgRepoCreationDenied": "{{org}} üyelerin özel depo oluşturmasına izin vermiyor olabilir, bu nedenle deponuz oluşturulamadı (HTTP {{status}}). Öğretmeninizden bunu etkinleştirmesini isteyin, ardından ödevi tekrar kabul edin.",
-      "orgRepoCreationDeniedStep": "{{org}} deponuzun oluşturulmasına izin vermedi (HTTP {{status}})."
+      "orgRepoCreationDeniedStep": "{{org}} deponuzun oluşturulmasına izin vermedi (HTTP {{status}}).",
+      "forkParentRestricted": "{{owner}}/{{repo}} şablonu kopyalanamadı (HTTP {{status}}).{{detail}} Bu şablon, {{parentOwner}} kuruluşundaki bir deponun çatalıdır ve bir çatalı kopyalamak o kuruluşun üçüncü taraf uygulama kısıtlamalarına tabidir. Öğretmeninizden Classroom 50 uygulamasını {{parentOwner}} için onaylamasını veya çatal olmayan yeni bir şablon deposu kullanmasını isteyin, ardından tekrar kabul edin.",
+      "forkParentRestrictedStep": "{{parentOwner}}, çatalın üst kaynağı için Classroom 50'yi onaylamadı (HTTP {{status}})."
     },
     "notFound": {
       "badge": "Ödev kullanılamıyor",
@@ -1666,7 +1749,7 @@
       "assignment": "Ödev aranıyor",
       "autograder": "Otomatik değerlendirici çözümleniyor",
       "repo": "Deponuz oluşturuluyor",
-      "access": "Size erişim veriliyor",
+      "access": "Depo erişiminiz ayarlanıyor",
       "setup": "Otomatik değerlendirme ayarlanıyor",
       "feedback": "Geri bildirim çekme isteği açılıyor"
     },
@@ -1684,11 +1767,10 @@
     },
     "errors": {
       "emptyRepoWithTemplate": "\"{{assignmentSlug}}\" ödevi hem boş bir depo hem de bir şablon belirtiyor; bu geçerli değil. Öğretmeninizden ödev kurulumunu yeniden çalıştırmasını isteyin.",
-      "founderAccessMismatch": "{{owner}}/{{repo}} deponuz oluşturuldu, ancak GitHub erişiminizi \"{{permission}}\" yerine \"{{effective}}\" (rol \"{{role}}\") olarak bildiriyor. Öğretmeninizden {{username}} kullanıcısının erişimini \"{{permission}}\" olarak ayarlamasını isteyin.",
       "incoherentMode": "\"{{slug}}\" ödevinin grup boyutu {{maxGroupSize}} ancak \"{{mode}}\" olarak ayarlanmış, dolayısıyla yayımlanan ayarları tutarsız. Öğretmeninizden ödev kurulumunu yeniden çalıştırmasını isteyin."
     },
     "stepActions": {
-      "access": "{{org}}/{{repo}} deponuz oluşturuldu, ancak sizi ({{username}}) işbirlikçi olarak eklerken hata oluştu. Bu genellikle GitHub kullanıcı adınızın değiştiği veya {{org}} kuruluşundan ayrıldığınız anlamına gelir. {{org}} üyesi olduğunuzu doğrulayın, ardından \"Kurulumu yeniden çalıştır\" seçeneğini kullanın.",
+      "access": "{{org}}/{{repo}} deponuz oluşturuldu, ancak üzerindeki erişiminizi ({{username}}) ayarlama başarısız oldu. Bu genellikle GitHub kullanıcı adınızın değiştiği veya {{org}} kuruluşundan ayrıldığınız anlamına gelir. {{org}} kuruluşunun üyesi olduğunuzu doğrulayın, ardından \"Kurulumu yeniden çalıştır\"ı kullanın.",
       "account": "GitHub hesabınız okunamadı. Oturumu kapatıp yeniden açın, ardından ödevi tekrar kabul edin.",
       "assignment": "\"{{assignmentSlug}}\" ödevi {{org}}/{{classroom}} için yüklenemedi. Bağlantıyı kontrol edin veya öğretmeninizden ödevin yayımlandığını doğrulamasını isteyin.",
       "autograder": "\"{{assignmentSlug}}\" için otomatik değerlendirici çözümlenemedi. Öğretmeninizden yayımlandığını doğrulamasını isteyin, ardından ödevi tekrar kabul edin.",
@@ -1697,7 +1779,7 @@
       "setup": "{{org}}/{{repo}} deponuz mevcut, ancak kurulum dosyalarının \"{{branch}}\" dalına yazılması başarısız oldu. Depo hâlâ başlatılıyor olabilir. Bir dakika bekleyin, ardından \"Kurulumu yeniden çalıştır\" seçeneğini kullanın."
     },
     "stepDone": {
-      "access": "Deponuza erişim verildi",
+      "access": "Depo erişiminiz ayarlandı",
       "account": "GitHub hesabınız kontrol edildi",
       "assignment": "{{assignmentSlug}} ödevi bulundu",
       "autograder": "Otomatik değerlendirici çözümlendi",
@@ -1717,6 +1799,17 @@
       "rateLimited": "{{label}}, GitHub'ın hız sınırına takıldı. Bir dakika bekleyin, ardından ödevi tekrar kabul etmeyi deneyin.",
       "unauthorized": "{{label}}, GitHub oturumunuzun süresi dolduğu için başarısız oldu (HTTP 401). Oturumu kapatıp yeniden açın, ardından ödevi tekrar kabul edin.",
       "unexpected": "{{label}} beklenmedik şekilde başarısız oldu. Yeniden denemek güvenlidir."
+    },
+    "locked": {
+      "badge": "Kilitli",
+      "body": "Öğretmeniniz <assignment>{{assignment}}</assignment> ödevini kilitledi, bu nedenle şu anda kabul edilemez. Daha sonra tekrar kontrol edin veya öğretmeninizden kilidini açmasını isteyin.",
+      "title": "Bu ödev kilitli"
+    },
+    "notEnrolled": {
+      "badge": "Kullanılamıyor",
+      "body": "Bunun bir hata olduğunu düşünüyorsanız öğretmeninize danışın.",
+      "error": "Bu ödev size sunulmuyor. Bunun bir hata olduğunu düşünüyorsanız öğretmeninize danışın.",
+      "title": "Bu ödev size sunulmuyor"
     }
   },
   "submissions": {
@@ -1880,7 +1973,6 @@
       "gradedAtTitle": "Otomatik değerlendiricinin bu teslimi en son ne zaman (yeniden) değerlendirdiği. Yeniden değerlendirme, teslim zamanını değiştirmeden bunu günceller.",
       "liveLatest": "Son gönderim {{date}} · henüz değerlendirilmedi",
       "liveLatestTitle": "Son toplamadan sonra daha yeni bir teslim gönderildi, bu nedenle henüz değerlendirilmedi. Değerlendirip puanlamak için \"Teslimleri şimdi eşitle\"yi çalıştırın.",
-      "membersAria": "Grup üyelerini görüntüle ve yönet",
       "members": "Üyeler",
       "openRepoLabel": "{{repo}} reposunu aç",
       "viewRepo": "Repoyu görüntüle",
@@ -1889,7 +1981,6 @@
       "noCommit": "Henüz commit yok",
       "viewDetails": "Otomatik değerlendirici ayrıntılarını görüntüle",
       "details": "Ayrıntılar",
-      "noDetailsLabel": "Henüz otomatik değerlendirici ayrıntısı yok",
       "noDetails": "Henüz ayrıntı yok",
       "noGradingTitle": "Bu ödev için otomatik değerlendirme devre dışı",
       "resolvingNonSubmitters": "Kimlerin henüz teslim etmediği kontrol ediliyor…",
@@ -1904,7 +1995,9 @@
       "submittedBy": "{{name}} tarafından",
       "review": "İncele",
       "reviewAria": "Geri bildirim pull request'ini aç",
-      "fullHistory": "Tam commit geçmişi için <repoLink>repoyu</repoLink> açın."
+      "fullHistory": "Tam commit geçmişi için <repoLink>repoyu</repoLink> açın.",
+      "manageAccess": "Depo erişimini yönet",
+      "manageAccessAria": "{{owner}} için depo erişimini yönet"
     },
     "reviewModal": {
       "errorTitle": "Geri bildirim PR'ı kontrol edilemedi",
@@ -1970,7 +2063,8 @@
       },
       "releasesIntro": "Her teslim, puanınız ve test bazında sonuçlarınızla birlikte değerlendirilmiş sürümünü GitHub'da açar.",
       "fallbackTitle": "Teslim",
-      "missingParams": "Sınıf veya ödev bilgisi eksik."
+      "missingParams": "Sınıf veya ödev bilgisi eksik.",
+      "locked": "Bu ödev öğretmeniniz tarafından kilitlenmiş ve şu anda kullanılamıyor. Daha sonra tekrar kontrol edin veya öğretmeninizden kilidini açmasını isteyin."
     },
     "openAllPrs": {
       "blockedHint": "Geri bildirim dalları yanlış işlemeyi (commit) gösteriyor, bu nedenle çekme isteğini açmak boş bir fark gösterir. Bir kuruluş yöneticisinin bu işlemi yeniden çalıştırmadan önce her geri bildirim dalını silmesi gerekir — yalnızca yeniden denemek bunları düzeltmez.",
@@ -2008,6 +2102,113 @@
       "repair": "Geri bildirim çekme isteğini onar",
       "repairing": "Onarılıyor…",
       "repoNotFound": "{{repo}} deposu bulunamadı — öğrenci henüz kabul etmemiş olabilir."
+    },
+    "bulkAccess": {
+      "apply": "Tümüne uygula",
+      "deferredDetail": "Atlandı — güncellemek için yeniden çalıştırın.",
+      "deferredSection_one": "{{count}} depo güncellenmedi",
+      "deferredSection_other": "{{count}} depo güncellenmedi",
+      "failedSection_one": "{{count}} depo güncellenemedi",
+      "failedSection_other": "{{count}} depo güncellenemedi",
+      "menuLabel": "Öğrenci depo erişimini güncelle",
+      "menuTitle": "Her öğrencinin kendi deposundaki rolünü değiştirin",
+      "noRepos": "Bu ödevi henüz hiçbir öğrenci kabul etmedi, bu nedenle değiştirilecek depo yok.",
+      "progress": "{{total}} depodan {{processed}} tanesi güncellendi",
+      "resultHeadline": "{{total}} öğrenciden {{count}} tanesi {{level}} olarak ayarlandı.",
+      "resultHeadlineThrottled": "GitHub isteği hız sınırlamadan önce {{total}} öğrenciden {{count}} tanesi {{level}} olarak ayarlandı — kalanını tamamlamak için yeniden çalıştırın.",
+      "roleLabel": "Depo rolü",
+      "subtitle_one": "Bu ödevi kabul etmiş {{count}} öğrenciye uygulanır.",
+      "subtitle_other": "Bu ödevi kabul etmiş {{count}} öğrenciye uygulanır.",
+      "title": "Öğrenci depo erişimini ayarla",
+      "titleEmptyRoster": "Henüz hiçbir öğrenci kabul etmedi",
+      "warning_one": "Bu, {{count}} öğrencinin kendi deposundaki rolünü {{level}} olarak ayarlar. Admin, onların depo ayarlarını ve özel bir depoda görünürlüğünü değiştirmesine izin verir. Mevcut katkıda bulunanlar başka türlü etkilenmez.",
+      "warning_other": "Bu, {{count}} öğrencinin kendi depolarındaki rollerini {{level}} olarak ayarlar. Admin, onların depo ayarlarını ve özel bir depoda görünürlüğünü değiştirmesine izin verir. Mevcut katkıda bulunanlar başka türlü etkilenmez.",
+      "working": "Depolar güncelleniyor"
+    },
+    "bulkFeatures": {
+      "apply": "Tümüne uygula",
+      "deferredDetail": "Atlandı — güncellemek için yeniden çalıştırın.",
+      "deferredSection_one": "{{count}} depo güncellenmedi",
+      "deferredSection_other": "{{count}} depo güncellenmedi",
+      "failedSection_one": "{{count}} depo güncellenemedi",
+      "failedSection_other": "{{count}} depo güncellenemedi",
+      "keep": "Değiştirme",
+      "menuLabel": "Depo özelliklerini güncelle",
+      "menuTitle": "Her öğrenci deposu genelinde Issue, Wiki, Project veya Pull request'leri açın ya da kapatın",
+      "noRepos": "Bu ödevi henüz hiçbir öğrenci kabul etmedi, bu nedenle değiştirilecek depo yok.",
+      "progress": "{{total}} depodan {{processed}} tanesi güncellendi",
+      "resultHeadline": "{{total}} depodan {{count}} tanesinde özellikler güncellendi.",
+      "resultHeadlineThrottled": "GitHub isteği hız sınırlamadan önce {{total}} depodan {{count}} tanesi güncellendi — kalanını tamamlamak için yeniden çalıştırın.",
+      "subtitle_one": "Bu ödevi kabul etmiş {{count}} öğrenciye uygulanır.",
+      "subtitle_other": "Bu ödevi kabul etmiş {{count}} öğrenciye uygulanır.",
+      "title": "Depo özelliklerini ayarla",
+      "titleEmptyRoster": "Henüz hiçbir öğrenci kabul etmedi",
+      "warning_one": "Bu, {{count}} öğrencinin deposundaki seçili özellikleri değiştirir. \"Değiştirme\" özelliklerine dokunulmaz. Mevcut depo içeriği etkilenmez.",
+      "warning_other": "Bu, {{count}} öğrencinin depolarındaki seçili özellikleri değiştirir. \"Değiştirme\" özelliklerine dokunulmaz. Mevcut depo içeriği etkilenmez.",
+      "working": "Depolar güncelleniyor"
+    },
+    "downloadAll": {
+      "assemblyError": "Her gönderim indirildi, ancak birleştirilmiş zip tarayıcıda birleştirilemeyecek kadar büyüktü. Bölüme göre filtrelemeyi ve daha küçük gruplar halinde indirmeyi deneyin.",
+      "confirmBody_one": "Bu, <b>{{name}}</b> ödevini gönderen <b>{{count}}</b> öğrencinin en son gönderimini tek bir zip'te toplanmış olarak indirir.",
+      "confirmBody_other": "Bu, <b>{{name}}</b> ödevini gönderen <b>{{count}}</b> öğrencinin en son gönderimlerini tek bir zip'te toplanmış olarak indirir.",
+      "confirmHint": "Tarayıcınızdan, her seferinde bir depo olarak çalışır, bu nedenle büyük bir sınıf için biraz zaman alabilir. Bitene kadar bu sekmeyi açık tutun.",
+      "confirmLabel_one": "Gönderimi indir",
+      "confirmLabel_other": "Gönderimleri indir",
+      "emptyHint": "Öğrenci ödevi kabul etti ancak henüz herhangi bir iş göndermedi, bu nedenle dahil edilecek bir gönderim yok.",
+      "emptyTitle": "Bu depolarda indirilecek bir şey yoktu:",
+      "failedHint": "Bu genellikle geçici bir GitHub hatasıdır — yeniden denemek için eylemi tekrar çalıştırın.",
+      "failedTitle": "Bu gönderimler indirilemedi:",
+      "largeClassWarning": "Bu, {{count}} gönderimi indirir ve birleştirilmiş zip'i tarayıcınızda oluşturur; bu çok fazla bellek kullanabilir ve çok büyük bir sınıf için yavaş olabilir veya başarısız olabilir. Önce bölüme göre filtrelemeyi düşünün.",
+      "menuLabel": "Tüm gönderimleri indir",
+      "nothingDownloaded": "Hiçbir dosya indirilmedi — seçili öğrencilerin hiçbirinde alınacak bir gönderim yoktu.",
+      "runError": "İndirme tamamlanamadı. Lütfen tekrar deneyin.",
+      "running": "İndiriliyor… {{total}} içinden {{done}}",
+      "summaryDownloaded_one": "{{count}} gönderim indirildi",
+      "summaryDownloaded_other": "{{count}} gönderim indirildi",
+      "summaryEmpty_one": "{{count}} depo boştu (atlandı)",
+      "summaryEmpty_other": "{{count}} depo boştu (atlandı)",
+      "summaryFailed_one": "{{count}} gönderim başarısız oldu",
+      "summaryFailed_other": "{{count}} gönderim başarısız oldu",
+      "summaryLead": "<b>{{total}}</b> gönderim işlendi.",
+      "summarySaved_one": "{{count}} gönderim seçtiğiniz klasöre kaydedildi",
+      "summarySaved_other": "{{count}} gönderim seçtiğiniz klasöre kaydedildi",
+      "title": "Her öğrencinin en son gönderimini indir",
+      "titleDisabled": "Henüz indirilecek gönderim yok"
+    },
+    "lock": {
+      "lockDescription": "Bu, <assignment>{{assignment}}</assignment> ödevini kabul sayfasında, ödev listesinde, gönderim görünümünde ve CLI'de her öğrenciye — zaten kabul etmiş olanlar dahil — kapatır. Özel bir şablon kullanıyorsa, öğrenci takımının o şablondaki okuma erişimi de kaldırılır (personel erişimi etkilenmez). Mevcut öğrenci depoları silinmez.",
+      "lockLabel": "Ödevi kilitle",
+      "lockSuccess": "Ödev kilitlendi.",
+      "lockTitle": "Bu ödevi öğrencilere kapatın ve özel bir şablon için öğrenci takımının okuma erişimini kaldırın",
+      "lockTitleModal": "Ödev kilitlensin mi?",
+      "unlockDescription": "Bu, <assignment>{{assignment}}</assignment> ödevini öğrencilere yeniden açar. Özel bir şablon kullanıyorsa, öğrencilerin tekrar kabul edebilmesi için öğrenci takımının o şablondaki okuma erişimi geri yüklenir.",
+      "unlockLabel": "Ödev kilidini aç",
+      "unlockSuccess": "Ödev kilidi açıldı.",
+      "unlockTitle": "Bu ödevi öğrencilere yeniden açın ve özel şablon erişimini geri yükleyin",
+      "unlockTitleModal": "Ödev kilidi açılsın mı?"
+    },
+    "lockedNotice": "Bu ödev kilitli. Öğrenciler onu kabul edemez veya açamaz ve özel bir şablon kullanıyorsa öğrenci takımının o şablona erişimi kaldırılmıştır. Mevcut depolar ve gönderimleri etkilenmez. Yeniden açmak için Eylemler menüsünden (veya ödev listesinden) kilidini açın.",
+    "manageModal": {
+      "accepted": "Kabul edildi",
+      "access": "Erişim",
+      "accessDescription": "Öğrencinin rolünü ve katkıda bulunanları düzenle",
+      "collaborators_one": "{{count}} katkıda bulunan",
+      "collaborators_other": "{{count}} katkıda bulunan",
+      "commitDescription": "En son commit'i GitHub'da aç",
+      "detailsDescription": "Otomatik değerlendirme sonucunu GitHub'da aç",
+      "downloadDescription": "Gönderimi zip arşivi olarak kaydet",
+      "lastPush": "Son push",
+      "membersDescription": "Grubun üyelerini görüntüle ve yönet",
+      "open": "Gönderimi yönet",
+      "openAria": "{{owner}} kullanıcısının gönderimini yönet",
+      "regradeDescription": "Otomatik değerlendirme aracını en son commit üzerinde yeniden çalıştır",
+      "reviewDescription": "Geri bildirim pull request'ini aç"
+    },
+    "rowDownload": {
+      "aria": "{{owner}} kullanıcısının gönderimini indir",
+      "error": "{{owner}} kullanıcısının gönderimi indirilemedi. Lütfen tekrar deneyin.",
+      "nothingToDownload": "{{owner}} kullanıcısının henüz indirilecek bir gönderimi yok.",
+      "title": "Bu gönderimi indir"
     }
   },
   "orgActivity": {
@@ -2249,7 +2450,8 @@
           "rateLimited": "GitHub istek sınırına ulaşıldı — biraz bekleyip tekrar deneyin.",
           "forbidden": "Bu depodaki iş birlikçileri değiştirme izniniz yok.",
           "notFound": "Kullanıcı adı bulunamadı veya GitHub organizasyonunun üyesi değil.",
-          "conflict": "Zaten iş birlikçi veya istek GitHub tarafından reddedildi."
+          "conflict": "Zaten iş birlikçi veya istek GitHub tarafından reddedildi.",
+          "httpStatus": "GitHub bir hata döndürdü (HTTP {{status}})."
         },
         "error": {
           "addAndRemove": "Bazı iş birlikçiler eklenemedi veya çıkarılamadı.{{removedNote}} Vurgulanan kullanıcı adlarını kontrol edip yeniden denemek için tekrar Kaydet'e basın.{{suffix}}",
@@ -2292,6 +2494,21 @@
         "loadError": "{{classroom}} için ödevler yüklenemedi.",
         "slugLabel": "{{classroom}} içindeki kısa ad",
         "uniqueHint": "Bu sınıf içinde benzersiz olmalıdır."
+      },
+      "repoAccess": {
+        "adminWarning": "Her katkıda bulunanın rolünü ayarlayın veya katkıda bulunan ekleyin ve kaldırın. <b>Admin</b>, bir katkıda bulunanın depo ayarlarını ve özel bir depoda görünürlüğünü değiştirmesine izin verir.",
+        "loading": "Katkıda bulunanlar yükleniyor",
+        "needsAdmin": "Bu deponun katkıda bulunanlarını değiştirmek için admin erişimine ihtiyacınız var.",
+        "newRole": "Yeni katkıda bulunan için rol",
+        "notApplied": "GitHub mevcut rolü ({{effective}}) korudu — bir depo oluşturucusu admin'in altına düşürülemez. Öğrenciden kendi erişimini düşürmesini isteyin veya depo sahipliğini devredin.",
+        "removeUser": "{{username}} kullanıcısını kaldır",
+        "roleFor": "{{username}} için rol",
+        "save": "Erişimi güncelle",
+        "saveError": "Bazı değişiklikler kaydedilemedi. Vurgulanan katkıda bulunanları kontrol edin ve yeniden denemek için tekrar Kaydet'e basın.{{suffix}}",
+        "saved": "Erişim güncellendi!",
+        "studentBadge": "Öğrenci",
+        "title": "Depo erişimini yönet",
+        "viewRepoNamed": "{{name}} deposunu görüntüle"
       }
     }
   },
@@ -2308,6 +2525,14 @@
     "page": {
       "heading": "Ayarlar",
       "subheading": "Bu tarayıcıya ait tercihler. Buradaki hiçbir şey organizasyonlarınızla paylaşılmaz."
+    },
+    "serviceTokens": {
+      "empty": "Henüz Classroom 50 kurulu kuruluş yok.",
+      "expires": "{{date}} tarihinde sona erer",
+      "heading": "Servis Belirteçlerini Yönet",
+      "loading": "Kuruluşlarınız kontrol ediliyor…",
+      "manage": "Yönet",
+      "subheading": "Sahip olduğunuz her kuruluş genelinde servis belirteci durumu. Gecelik puan toplamanın çalışmaya devam etmesi için bir belirteci süresi dolmadan önce yenileyin."
     }
   },
   "pagesErrors": {
@@ -2321,5 +2546,168 @@
     "manifestInvalidShape": "Bu sınıfın yayımlanan ödev listesi hatalı biçimlendirilmiş. Öğretmeninizden Classroom 50 yapılandırmasını kontrol etmesini isteyin.",
     "manifestVersionUnsupported": "Bu sınıf, bu Classroom 50 kopyasının desteklediğinden daha yeni bir ödev biçimi (v{{version}}) kullanıyor. Sayfayı yeniden yükleyin veya öğretmeninizden Classroom 50'yi güncellemesini isteyin.",
     "notPublished": "{{label}} henüz yayımlanmadı. Öğretmeninizden dosyanın yapılandırma deposunda bulunduğunu ve yayımlama iş akışının çalıştırıldığını doğrulamasını isteyin."
+  },
+  "migration": {
+    "access": {
+      "explain": "İçe aktardığınız ödevler, GitHub'daki \"{{org}}\" kuruluşundan geliyor, ancak Classroom 50 henüz depolarını okumaya yetkili değil. Aşağıdan erişim verin, ardından yeniden kontrol edin — bu çözülene kadar hiçbir şey içe aktarılamaz.",
+      "headline": "Classroom 50'nin \"{{org}}\" kuruluşuna erişmesi gerekiyor",
+      "recheck": "Erişimi yeniden kontrol et",
+      "recheckHint": "Devam etmek için erişim verdikten sonra tıklayın.",
+      "rechecking": "Yeniden kontrol ediliyor…",
+      "step1Body": "GitHub ayarlarınızda Classroom 50 uygulamasını açın ve ona \"{{org}}\" kuruluşuna erişim verin. Genellikle gereken tek şey budur.",
+      "step1Button": "Classroom 50 uygulama ayarlarını aç",
+      "step1Title": "Yetkilendirilmiş uygulamalar sayfanızda erişim verin",
+      "step2Body": "Daha önce erişimi reddettiyseniz veya kuruluşunuz sahip onayı gerektiriyorsa, \"{{org}}\" kuruluşunun üçüncü taraf uygulama politikasından erişim isteyin veya onaylayın. Bir kuruluş sahibinin onaylaması gerekebilir.",
+      "step2Button": "\"{{org}}\" uygulama politikasını aç",
+      "step2Title": "Bu işe yaramazsa, kuruluşun politika sayfasını kullanın",
+      "title": "Devam etmek için erişim verin"
+    },
+    "blocker": {
+      "dir_exists": "Bu kuruluşta \"{{shortName}}\" adında bir sınıf zaten var. Devam etmek için farklı bir kısa ad seçin.",
+      "needs_org_setup": "\"{{org}}\" henüz Classroom 50 için kurulmadı — önce kuruluş kurulumunu çalıştırın, sonra tekrar deneyin.",
+      "source_org_access": "Classroom 50, \"{{org}}\" kuruluşundaki başlangıç depolarını okuyamıyor — uygulamaya o kuruluşa erişim verilmedi."
+    },
+    "confirm": {
+      "back": "Geri",
+      "columnSource": "Kaynak (GitHub Classroom)",
+      "columnTarget": "Hedef (Classroom 50)",
+      "fromLine": "Ödevler GitHub Classroom üzerindeki <b>{{source}}</b> ({{org}}) kaynağından içe aktarılıyor.",
+      "fromLineNoName": "Ödevler GitHub Classroom üzerindeki <b>{{source}}</b> kaynağından içe aktarılıyor.",
+      "importButton": "{{count}} ödevi içe aktar",
+      "importing": "İçe aktarma başlatılıyor…",
+      "loading": "Sınıf verileri alınıyor…",
+      "modalCancel": "İptal",
+      "modalConfirm": "Evet, içe aktar",
+      "modalConfirmQuestion": "Bu kolayca geri alınamaz. Devam edilsin mi?",
+      "modalReuseNote_one": "1 ödev, mevcut bir şablon deposunu yeniden kullanacak.",
+      "modalReuseNote_other": "{{count}} ödev, mevcut şablon depolarını yeniden kullanacak.",
+      "modalSkipNote_one": "1 ödev atlanacak ve içe aktarılmayacak.",
+      "modalSkipNote_other": "{{count}} ödev atlanacak ve içe aktarılmayacak.",
+      "modalSummary_one": "Bu, {{org}} içinde \"{{shortName}}\" sınıfını oluşturacak, bir GitHub takımı ekleyecek ve 1 ödev deposunu kopyalayacak.",
+      "modalSummary_other": "Bu, {{org}} içinde \"{{shortName}}\" sınıfını oluşturacak, GitHub takımları ekleyecek ve {{count}} ödev deposunu kopyalayacak.",
+      "modalTitle": "Bu adımı geri almak zordur",
+      "name": "Yeni sınıf adı",
+      "nameHelp": "Classroom 50 kuruluşunuzda oluşturulan sınıfın görünen adı — size ve öğrencilere gösterilir. Kaynak sınıfın adıyla eşleşebilir veya istediğiniz herhangi bir şey olabilir. Varsayılan olarak kaynak adı kullanılır.",
+      "noneSelected": "Hiçbir ödev seçilmedi — içe aktarmak için en az birini işaretleyin veya geri dönün.",
+      "preflightError": "İçe aktarma önizlemesi oluşturulamadı.",
+      "shortName": "Yeni sınıf kimliği (kısa ad)",
+      "shortNameHelp": "Hedef kuruluşunuzdaki sınıf için URL'ye uygun tanımlayıcı (örneğin cs50-fall). Yapılandırma klasörü ve GitHub takım adları olur ve her öğrenci deposunun önüne eklenir, bu yüzden daha sonra değiştirilemez. Kaynak sınıf adından otomatik doldurulur; farklı bir kimlik isterseniz düzenleyin.",
+      "suffix": "Şablon depo son eki",
+      "suffixHelp": "Kopyalanan her şablon depo adına eklenen isteğe bağlı metin (örneğin hw1, hw1-f26 olur). Bunu yalnızca bu kuruluşta ödevin adıyla bir depo zaten varsa ve içe aktarma aksi halde çakışacaksa kullanın. Çoğu durumda boş bırakın.",
+      "suffixPlaceholder": "isteğe bağlı",
+      "term": "Dönem",
+      "termHelp": "Bu sınıfın ne zaman yürütüldüğüne dair isteğe bağlı etiket (örneğin Güz-2026). Sınıfta gösterilir ve ayarlarında saklanır; depo veya takım adlarını etkilemez.",
+      "termPlaceholder": "örneğin Güz-2026",
+      "title": "İçe aktarılacakları gözden geçirin",
+      "updating": "Önizleme güncelleniyor…"
+    },
+    "documentTitle": "GitHub Classroom'dan içe aktar",
+    "entryButton": "GitHub Classroom'dan içe aktar",
+    "error": {
+      "assignmentInaccessible": "{{id}} ödevine erişilemiyor — GitHub Classroom'unu yönetiyor olmalısınız.",
+      "classroomInaccessible": "{{id}} sınıfına hesabınızdan erişilemiyor — onun için bir GitHub Classroom yöneticisi olmalısınız.",
+      "classroomNameEmpty": "Sınıf adı boş — açıkça bir kısa ad girin.",
+      "githubSaid": "(GitHub: {{status}} {{message}})",
+      "multipleClassrooms": "\"{{org}}\" kuruluşunda birden çok sınıf bulundu — kimliğe göre birini seçin: {{ids}}.",
+      "noClassroomInOrg": "\"{{org}}\" kuruluşunda sınıf bulunamadı — orada bir tane yönettiğinizi doğrulayın.",
+      "noClassroomInOrgHidden": "\"{{org}}\" kuruluşunda sınıf bulunamadı (arşivlenmiş sınıflar gizli) — orada bir tane yönettiğinizi doğrulayın.",
+      "noClassrooms": "Hesabınızın erişebileceği GitHub Classroom yok — bir tane yönettiğinizi doğrulayın.",
+      "shortNameInvalid": "\"{{shortName}}\" geçerli bir kısa ad değil — {{description}} olmalıdır. Açıkça bir tane girin.",
+      "shortNameInvalidFrom": "\"{{rawName}}\" değerinden geçerli bir kısa ad türetilemedi (\"{{shortName}}\" elde edildi) — {{description}} olmalıdır. Açıkça bir tane girin.",
+      "shortNameNotCanonical": "\"{{shortName}}\" kısa adı bir GitHub takımını destekleyemez — ardışık veya sondaki tireleri kaldırın (GitHub, takım slug'ını yeniden yazarak üyeliği ve şablon izinlerini bozar).",
+      "sourceEmpty": "İçe aktarmak için sayısal bir sınıf kimliği veya bir kuruluş oturum açma adı girin.",
+      "targetRepoCollision": "\"{{repo}}\" adında bir depo zaten var ve şablon değil — farklı bir şablon son eki seçin ve tekrar deneyin. {{detail}}",
+      "templateSourceAccess": "\"{{fullName}}\" başlangıç deposu okunamıyor — Classroom 50 uygulamasını \"{{org}}\" kuruluşu için onaylayın, ardından tekrar deneyin. {{detail}}"
+    },
+    "execute": {
+      "error": "İçe aktarma tamamlanamadı.",
+      "summaryComplete": "İçe aktarma tamamlandı.",
+      "summaryCounts": "{{generated}} oluşturuldu, {{reused}} yeniden kullanıldı, {{skipped}} atlandı.",
+      "summaryPartial": "İçe aktarma bazı ödevler atlanarak bitti.",
+      "viewClass": "Yeni sınıfı aç"
+    },
+    "gate": {
+      "body": "\"{{org}}\" henüz bir Classroom 50 kuruluşu değil. Tek seferlik kurulumu çalıştırın, sonra içe aktarmak için geri dönün.",
+      "checkError": "Kuruluşun kurulum durumu kontrol edilemedi.",
+      "checkOrgAccess": "Bu kuruluş için uygulama erişimini gözden geçir",
+      "checking": "Kuruluş kontrol ediliyor…",
+      "setupButton": "Kuruluş kurulumuna git",
+      "title": "Önce bu kuruluşu kurun"
+    },
+    "item": {
+      "assignmentBadge": "Ödev",
+      "branchLabel": "Dal",
+      "deadlineLabel": "Son teslim tarihi",
+      "emptyRepo": "Boş depo (yalnızca otomatik değerlendirme aracı)",
+      "feedbackLabel": "Geri bildirim PR'ı",
+      "groupSizeLabel": "Maksimum grup boyutu",
+      "no": "Devre dışı",
+      "noSource": "Kaynak depo yok",
+      "none": "Yok",
+      "private": "Özel",
+      "public": "Herkese açık",
+      "repoLabel": "Depo",
+      "sourcePanel": "Kaynak (GitHub Classroom)",
+      "targetPanel": "Hedef (Classroom 50)",
+      "typeGroup": "Grup",
+      "typeIndividual": "Bireysel",
+      "typeLabel": "Tür",
+      "visibilityLabel": "Görünürlük",
+      "willImport": "İçe aktar",
+      "willSkip": "Atla",
+      "yes": "Etkin"
+    },
+    "missingOrg": "Bu sayfanın URL'de bir kuruluşa ihtiyacı var.",
+    "reason": {
+      "badStarter": "\"{{fullName}}\" başlangıç deposunun beklenmeyen bir adı var.",
+      "copyFailed": "Şablon kopyalanamadı: {{message}}",
+      "deselected": "İşaret kaldırıldı — içe aktarılmayacak.",
+      "invalidMode": "Desteklenmeyen ödev türü \"{{type}}\".",
+      "invalidSlug": "\"{{slug}}\" ödev slug'ı geçerli bir depo adı değil.",
+      "sourceNotAccessible": "\"{{fullName}}\" başlangıç deposuna hesabınızdan erişilemiyor.",
+      "sourceNotTemplate": "\"{{fullName}}\" başlangıç deposu bir şablon değil — üzerinde \"Şablon deposu\" seçeneğini etkinleştirin ve tekrar deneyin.",
+      "sourceOrgAccess": "Classroom 50, \"{{org}}\" kuruluşu için yetkili değil, bu nedenle başlangıç deposu kopyalanamaz.",
+      "targetCollision": "\"{{name}}\" adında bir depo {{org}} içinde zaten var ve bir şablon değil. Çakışmayı önlemek için bir şablon son eki ayarlayın."
+    },
+    "select": {
+      "archivedTag": "arşivlenmiş",
+      "body": "Bunlar hesabınızın yönetebileceği GitHub Classroom'lardır.",
+      "empty": "Hesabınızın erişebileceği GitHub Classroom yok. classroom.github.com adresinde bir tane yönettiğinizi doğrulayın.",
+      "loadError": "GitHub Classroom'larınız yüklenemedi.",
+      "orgLine": "Kuruluş: {{org}}",
+      "retry": "Yeniden dene",
+      "showArchived": "Arşivlenmiş sınıfları göster",
+      "title": "İçe aktarılacak bir GitHub Classroom seçin"
+    },
+    "status": {
+      "generated": "İçe aktarıldı",
+      "pending": "Bekliyor",
+      "reused": "Yeniden kullanıldı",
+      "running": "Çalışıyor…",
+      "skipped": "Atlandı",
+      "willImport": "İçe aktarılacak",
+      "willReuse": "Yeniden kullanılacak",
+      "willSkip": "Atlanacak"
+    },
+    "steps": {
+      "confirm": "Gözden geçir",
+      "execute": "İçe aktar",
+      "select": "Sınıf seç"
+    },
+    "subtitle": "Mevcut bir GitHub Classroom'u — ödevlerini ve başlangıç depolarını — yeni bir sınıf olarak bu kuruluşa getirin. Herhangi bir şey oluşturulmadan önce her şeyi gözden geçirip onaylayacaksınız.",
+    "title": "GitHub Classroom'dan içe aktar"
+  },
+  "serviceTokenHealth": {
+    "chip": {
+      "checking": "Belirteç kontrol ediliyor…",
+      "expired": "Belirtecin süresi doldu",
+      "expiringSoon": "Belirtecin süresi yakında dolacak",
+      "expiryUntracked": "Sona erme izlenmiyor",
+      "missing": "Servis belirteci yok",
+      "rotateAria": "{{org}} için servis belirtecini gözden geçir",
+      "unknown": "Belirteç durumu bilinmiyor"
+    },
+    "summary_one": "{{count}} kuruluşun servis belirteci kontrolüne ihtiyacı var.",
+    "summary_other": "{{count}} kuruluşun servis belirteci kontrolüne ihtiyacı var."
   }
 }

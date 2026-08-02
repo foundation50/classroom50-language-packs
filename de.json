@@ -22,7 +22,8 @@
       "range": "{{from}} bis {{to}} von {{total}}",
       "show": "Anzeigen",
       "showAria": "Zeilen pro Seite"
-    }
+    },
+    "linkToSection": "Link zu {{section}}"
   },
   "notFound": {
     "title": "Seite nicht gefunden",
@@ -566,7 +567,8 @@
       "hidden": "{{org}} von deiner Startseite ausgeblendet.",
       "hide": "Von Startseite ausblenden",
       "moreActions": "Weitere Aktionen für {{org}}",
-      "undoHide": "Rückgängig"
+      "undoHide": "Rückgängig",
+      "manageToken": "Token verwalten"
     },
     "newOrg": {
       "allSetUp": "Alle für uns sichtbaren Organisationen sind bereits eingerichtet.",
@@ -727,7 +729,9 @@
         "releaseAssetsInvalidBasename": "{{basename}} ist kein sicherer Release-Dateiname oder ist reserviert.",
         "releaseAssetsInvalidPath": "{{path}} ist kein exakter, auf den Workspace bezogener Dateipfad.",
         "releaseAssetsTooLarge": "Die Release-Dateipfade der Abgabe dürfen insgesamt höchstens {{max}} UTF-8-Bytes (8 KiB) umfassen; aktuell {{bytes}}.",
-        "releaseAssetsTooMany": "Wähle höchstens {{max}} Release-Dateien für die Abgabe aus (aktuell {{count}})."
+        "releaseAssetsTooMany": "Wähle höchstens {{max}} Release-Dateien für die Abgabe aus (aktuell {{count}}).",
+        "setupTimeoutRange": "Die Setup-Zeitüberschreitung muss 0 oder eine ganze Zahl von Sekunden von 1 bis {{max}} sein.",
+        "studentPermissionInvalid": "Der Repository-Zugriff der Studierenden muss einer von pull, triage, push, maintain oder admin sein."
       },
       "allowedFilesTip": "Geordnete Muster im {{gitignore}}-Stil, eines pro Zeile, die festlegen, welche Dateien zu einer Abgabe gehören (der letzte Treffer gewinnt, {{bang}} schließt wieder ein). Z. B. {{star}} und dann {{example}} erlaubt nur {{result}}. Leer erlaubt jede Datei.",
       "containerUserTip": "Der Benutzer, unter dem der Container läuft. Setze root, wenn der Checkout mit einem Berechtigungsfehler fehlschlägt. GitHub Actions führt Container-Schritte als Benutzer des Host-Runners aus, sodass ein Nicht-Root-Image oft nicht in den Arbeitsbereich schreiben kann.",
@@ -752,7 +756,7 @@
         "versionTip": "Die {{language}}-Version, die installiert werden soll (über die setup-{{language}}-Action). Leer lassen, um sie zu überspringen. Du kannst jede Version eingeben, die die setup-Action akzeptiert.",
         "selfHostedDisabled": "Wird auf einem selbstgehosteten Runner ignoriert – er verwendet seine eigenen vorinstallierten Toolchains und Pakete. Stelle diese stattdessen im Runner-Image bereit."
       },
-      "setupCommandTip": "Ein Befehl, der einmal vor der Bewertung ausgeführt wird, zum Beispiel zum Kompilieren. Er wird als vorangestellter Autograding-Schritt mit 0 Punkten namens „setup“ hinzugefügt. Ein Exit-Code ungleich null lässt den Lauf scheitern.",
+      "setupCommandTip": "Wird einmal vor den anderen Tests ausgeführt, zum Beispiel zum Kompilieren oder Installieren von Abhängigkeiten. Ein Exit-Code ungleich null oder eine Zeitüberschreitung setzt den Autograde-Status auf „fehlgeschlagen“, ohne die numerische Punktzahl zu ändern; spätere Tests laufen dennoch.",
       "detailsSection": "Details",
       "dueDateTz": "Die Zeiten beziehen sich auf deine lokale Zeitzone ({{tz}}).",
       "optional": "optional",
@@ -769,7 +773,53 @@
       "releaseAssetCount_other": "{{count}} Release-Dateien",
       "releaseAssets": "Release-Dateien der Abgabe",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
-      "releaseAssetsTip": "Ein exakter, auf den Workspace bezogener Dateipfad pro Zeile; Pfade sind exakt, keine Glob-Muster, und dürfen insgesamt höchstens 8 KiB UTF-8-Text umfassen. Dateien werden nach der Bewertung gesammelt und sowohl bei bestandenen als auch bei nicht bestandenen Bewertungen angehängt; fehlende Dateien werden übersprungen. Release-Dateinamen dürfen nur ASCII-Buchstaben, Zahlen, Punkte, Unterstriche und Bindestriche enthalten und dürfen nicht mit einem Punkt beginnen oder enden oder aufeinanderfolgende Punkte enthalten."
+      "releaseAssetsTip": "Ein exakter, auf den Workspace bezogener Dateipfad pro Zeile; Pfade sind exakt, keine Glob-Muster, und dürfen insgesamt höchstens 8 KiB UTF-8-Text umfassen. Dateien werden nach der Bewertung gesammelt und sowohl bei bestandenen als auch bei nicht bestandenen Bewertungen angehängt; fehlende Dateien werden übersprungen. Release-Dateinamen dürfen nur ASCII-Buchstaben, Zahlen, Punkte, Unterstriche und Bindestriche enthalten und dürfen nicht mit einem Punkt beginnen oder enden oder aufeinanderfolgende Punkte enthalten.",
+      "availableFrom": "Veröffentlichungsdatum ({{tz}})",
+      "availableFromTz": "Die Zeiten beziehen sich auf deine lokale Zeitzone ({{tz}}).",
+      "repoFeatures": {
+        "choices": {
+          "inherit": "Vom Template übernehmen",
+          "inheritLoading": "Vom Template übernehmen (wird geprüft…)",
+          "inheritOff": "Vom Template übernehmen (derzeit aus)",
+          "inheritOn": "Vom Template übernehmen (derzeit an)",
+          "off": "Aus",
+          "on": "An"
+        },
+        "heading": "Repository-Funktionen",
+        "help": "Ob in jedem Studierenden-Repository Wikis, Issues, Projects und Pull Requests aktiviert sind. Wird angewendet, wenn Studierende annehmen (nur neue Repositories); verwende das Notenbuch, um bereits erstellte Repositories zu ändern. Beim Übernehmen von einem privaten Template werden auch dessen Wiki-/Issues-/Projects-Inhalte kopiert, halte also Lösungsschlüssel aus einem Template heraus, von dem du übernimmst.",
+        "issues": {
+          "label": "Issues"
+        },
+        "overrideWarning": "Gilt für ab jetzt erstellte Repositories; die von Studierenden bereits angenommenen werden nicht geändert. „Übernehmen“ folgt dem Template zum Zeitpunkt der Annahme (bestehende Repositories ändern sich nicht, wenn das Template später geändert wird). Um bestehende Repositories zu aktualisieren, verwende die Sammelaktion für Repository-Funktionen auf der Abgabenseite.",
+        "projects": {
+          "label": "Projects"
+        },
+        "pull_requests": {
+          "label": "Pull Requests"
+        },
+        "refresh": "Template-Einstellungen aktualisieren",
+        "wiki": {
+          "label": "Wiki"
+        }
+      },
+      "setAvailableFrom": "Veröffentlichungsdatum festlegen",
+      "setAvailableFromTip": "Aufgaben sind standardmäßig auf der Aufgabenseite der Studierenden ausgeblendet – Studierende können sie nur über den Einladungslink annehmen. Lege ein Veröffentlichungsdatum fest, um sie nach Ablauf des Datums für alle aufzulisten. Studierende, die bereits angenommen haben, sehen sie immer. Dies steuert nur die Auflistung, nicht den Zugriff.",
+      "setupTimeout": "Setup-Zeitüberschreitung (Sekunden)",
+      "setupTimeoutTip": "Neue Setup-Befehle starten mit {{default}} Sekunden. Setze 0, um den 10-Sekunden-Standard des Runners zu verwenden, oder wähle eine ganze Zahl von 1 bis {{max}}.",
+      "studentPermission": {
+        "default": "Standard ({{level}})",
+        "groupHelp": "Gruppenmitglieder treten mit mindestens Admin-Rechten bei, damit die Gruppeneigentümerin bzw. der Gruppeneigentümer Teammitglieder hinzufügen kann. Dies gilt für ab jetzt erstellte Repositories; verwende das Notenbuch, um bestehende zu ändern.",
+        "help": "Die Rolle, die jede bzw. jeder Studierende zum Zeitpunkt der Annahme im eigenen Aufgaben-Repository erhält. Push (Schreiben) ist der Standard. Wähle Admin, damit Studierende Repository-Einstellungen verwalten und GitHub Pages aktivieren können. Dies gilt für Studierende, die ab jetzt annehmen; verwende das Notenbuch, um bereits erstellte Repositories zu ändern.",
+        "label": "Repository-Zugriff der Studierenden",
+        "learnMore": "Mehr erfahren",
+        "levels": {
+          "admin": "Admin",
+          "maintain": "Maintain",
+          "pull": "Lesen (Pull)",
+          "push": "Schreiben (Push)",
+          "triage": "Triage"
+        }
+      }
     },
     "autograder": {
       "heading": "Autograding-Tests",
@@ -839,7 +889,26 @@
       "deleteCancel": "Aufgabe behalten",
       "reuseTitle": "In einem anderen Kurs wiederverwenden",
       "reuseAria": "Aufgabe in einem anderen Kurs wiederverwenden",
-      "deleteDescription": "Dadurch wird die Aufgabe <assignment>{{assignment}}</assignment> aus dem Kursraum <classroom>{{classroom}}</classroom> entfernt. Die Aufgaben-Repositories der Lernenden werden nicht gelöscht."
+      "deleteDescription": "Dadurch wird die Aufgabe <assignment>{{assignment}}</assignment> aus dem Kursraum <classroom>{{classroom}}</classroom> entfernt. Die Aufgaben-Repositories der Lernenden werden nicht gelöscht.",
+      "colReleaseDate": "Veröffentlichungsdatum",
+      "linkOnlyTitle": "Bis zum Ablauf des Veröffentlichungsdatums aus der Liste der Studierenden ausgeblendet; bis dahin können sie sie nur über den Einladungslink annehmen. Studierende, die bereits angenommen haben, sehen sie weiterhin.",
+      "lockAria": "{{name}} sperren",
+      "lockCancel": "Abbrechen",
+      "lockConfirm": "Aufgabe sperren",
+      "lockDescription": "Dadurch wird <assignment>{{assignment}}</assignment> für alle Studierenden geschlossen – auch für jene, die bereits angenommen haben – auf der Annahmeseite, in der Aufgabenliste, in der Abgabeansicht und in der CLI. Bei einem privaten Template wird auch der Lesezugriff des Studierenden-Teams auf dieses Template entfernt (der Zugriff des Personals bleibt unberührt). Bestehende Studierenden-Repositories werden nicht gelöscht.",
+      "lockSuccess": "{{name}} gesperrt.",
+      "lockTitle": "Aufgabe sperren",
+      "lockTitleModal": "Aufgabe sperren?",
+      "lockedBadge": "Gesperrt",
+      "lockedBadgeTitle": "Gesperrt: Studierende können auf diese Aufgabe nicht zugreifen und sie nicht annehmen. Bei einem privaten Template wird der Lesezugriff des Studierenden-Teams entfernt, solange gesperrt ist.",
+      "releaseNotSet": "Nicht festgelegt · nur per Link",
+      "scheduled": "Veröffentlichung {{date}}",
+      "unlockAria": "{{name}} entsperren",
+      "unlockConfirm": "Aufgabe entsperren",
+      "unlockDescription": "Dadurch wird <assignment>{{assignment}}</assignment> wieder für Studierende geöffnet. Bei einem privaten Template wird der Lesezugriff des Studierenden-Teams auf dieses Template wiederhergestellt, damit Studierende erneut annehmen können.",
+      "unlockSuccess": "{{name}} entsperrt.",
+      "unlockTitle": "Aufgabe entsperren",
+      "unlockTitleModal": "Aufgabe entsperren?"
     },
     "template": {
       "label": "Vorlagen-Repository",
@@ -849,7 +918,7 @@
       "fallbackOrg": "Ihre Organisation",
       "notVisible": "{{owner}}/{{repo}} ist für Sie nicht sichtbar. Machen Sie es öffentlich oder kopieren Sie es in {{org}}.",
       "notTemplate": "{{owner}}/{{repo}} ist kein Vorlagen-Repository. Aktivieren Sie dies in den Einstellungen des Repositorys.",
-      "restricted": "{{owner}} hat den Zugriff auf {{repo}} blockiert (HTTP 403). Dies ist häufig eine Drittanbieter-App-Einschränkung – ein Inhaber muss Classroom 50 möglicherweise für die Organisation genehmigen oder deine OAuth-Berechtigung für {{owner}} autorisieren (Org-Einstellungen → Zugriff durch Dritte). Es kann auch eine andere 403-Ursache sein; siehe die Meldung von GitHub unten.",
+      "restricted": "{{owner}} hat den Zugriff auf {{repo}} blockiert (HTTP 403) – wahrscheinlich eine Drittanbieter-App-Beschränkung. Versuche der Reihe nach:",
       "unknown": "{{owner}}/{{repo}} konnte jetzt nicht überprüft werden. Es wird erneut geprüft, wenn Teilnehmer annehmen.",
       "privateOutOfOrg": "{{owner}}/{{repo}} ist privat und außerhalb von {{org}}. Machen Sie es öffentlich oder kopieren Sie es in {{org}}.",
       "rateLimited": "GitHub-Ratenlimit erreicht. Versuchen Sie es in Kürze erneut.",
@@ -888,11 +957,17 @@
       "okPublic": "Öffentliche Vorlage in {{owner}}, Branch <branch>{{branch}}</branch>. Lernende können darauf zugreifen.",
       "okPublicInOrg": "Öffentliche Vorlage, Branch <branch>{{branch}}</branch>. Lernende können darauf zugreifen.",
       "okVerify": "Erreichbar in {{owner}} (Branch <branch>{{branch}}</branch>). Wenn {{owner}} Drittanbieter-Apps einschränkt, können Lernende sie erst kopieren, wenn eine Inhaberin bzw. ein Inhaber Classroom 50 genehmigt.",
-      "privateForkCrossOrg": "{{owner}}/{{repo}} ist ein privater Fork von {{parent}} in einer anderen Organisation (Branch <branch>{{branch}}</branch>). Private organisationsübergreifende Forks sind als Vorlagen unzuverlässig – das Kopieren schlägt fehl, wenn Classroom 50 nicht auf das private Upstream zugreifen kann. Verwende stattdessen ein frisches (nicht geforktes) Vorlagen-Repository: erstelle ein neues Repository und kopiere den Inhalt des Forks hinein.",
+      "privateForkCrossOrg": "{{owner}}/{{repo}} ist ein privater Fork von {{parent}} (Branch <branch>{{branch}}</branch>). <important>Wichtig: {{parentOrg}} muss Classroom 50 genehmigt lassen – wird diese Genehmigung jemals entfernt, können Studierende nicht mehr annehmen (HTTP 403).</important> Um nicht von {{parentOrg}} abhängig zu sein, verwende ein neues (kein Fork) Repository: Erstelle ein neues Repository und kopiere den Inhalt des Forks hinein.",
       "privateForkInOrg": "{{owner}}/{{repo}} ist ein privater Fork von {{parent}} (Branch <branch>{{branch}}</branch>). Das Upstream liegt in dieser Organisation, daher sollte das Kopieren funktionieren – ein frisches (nicht geforktes) Vorlagen-Repository ist jedoch zuverlässiger, falls die Annahme fehlschlägt.",
-      "privateForkNoParent": "{{owner}}/{{repo}} ist ein privater Fork (Branch <branch>{{branch}}</branch>). Private organisationsübergreifende Forks sind als Vorlagen unzuverlässig – das Kopieren schlägt fehl, wenn Classroom 50 nicht auf das private Upstream zugreifen kann. Verwende stattdessen ein frisches (nicht geforktes) Vorlagen-Repository: erstelle ein neues Repository und kopiere den Inhalt des Forks hinein.",
+      "privateForkNoParent": "{{owner}}/{{repo}} ist ein privater Fork (Branch <branch>{{branch}}</branch>). <important>Wichtig: Die Upstream-Organisation des Forks muss Classroom 50 genehmigt lassen – wird diese Genehmigung jemals entfernt, können Studierende nicht mehr annehmen (HTTP 403).</important> Um nicht von der Upstream-Organisation abhängig zu sein, verwende ein neues (kein Fork) Repository: Erstelle ein neues Repository und kopiere den Inhalt des Forks hinein.",
       "privateHasAccess": "Private Vorlage in {{owner}} (Branch <branch>{{branch}}</branch>). Das Kursraum-Team hat bereits Lesezugriff – Lernende können sie kopieren.",
-      "privateWillGrant": "Private Vorlage in {{owner}} (Branch <branch>{{branch}}</branch>). Das Kursraum-Team hat noch keinen Zugriff; er wird beim Erstellen der Aufgabe automatisch hinzugefügt, damit Lernende sie kopieren können."
+      "privateWillGrant": "Private Vorlage in {{owner}} (Branch <branch>{{branch}}</branch>). Das Kursraum-Team hat noch keinen Zugriff; er wird beim Erstellen der Aufgabe automatisch hinzugefügt, damit Lernende sie kopieren können.",
+      "recheckAccess": "Zugriff erneut prüfen",
+      "recheckingAccess": "Wird erneut geprüft…",
+      "restrictedItemApprove": "Genehmige Classroom 50 für {{owner}} (Organisationseinstellungen → Drittanbieterzugriff).",
+      "restrictedItemFork": "Falls {{repo}} ein Fork ist, genehmige Classroom 50 auch in der Upstream-Organisation des Forks – der Zugriff eines privaten Forks folgt der Richtlinie der Upstream-Organisation.",
+      "restrictedItemOther": "Andernfalls kann es sich um einen anderen 403-Fehler handeln; siehe die Meldung von GitHub unten.",
+      "viewTemplateRepo": "{{owner}}/{{repo}} auf GitHub öffnen"
     },
     "toolbar": {
       "clear": "Zurücksetzen",
@@ -963,7 +1038,9 @@
           "listLabel": "Listenansicht"
         }
       },
-      "viewSubmission": "Meine Abgabe ansehen"
+      "viewSubmission": "Meine Abgabe ansehen",
+      "linkOnlyBody": "Aufgaben in diesem Kursraum öffnen sich über den Einladungslink, den deine Lehrkraft teilt. Öffne diesen Link, um eine Aufgabe anzunehmen; sie erscheint dann hier zusammen mit allen, die deine Lehrkraft für alle freigegeben hat.",
+      "linkOnlyTitle": "Öffne deinen Einladungslink, um loszulegen"
     },
     "archivedNotice": "Dieser Kursraum ist archiviert – neue Aufgaben und Annahmen durch Lernende sind deaktiviert. Hebe die Archivierung in den <settingsLink>Kursraumeinstellungen</settingsLink> auf, um Änderungen vorzunehmen.",
     "studentViewAll": "Alle Aufgaben für den Kursraum <classroom>{{classroom}}</classroom> anzeigen."
@@ -1091,37 +1168,38 @@
     },
     "serviceToken": {
       "title": "Service-Token",
-      "infoAria": "Was ist das Service-Token?",
-      "statusPresent": "Es ist bereits ein Service-Token gesetzt",
-      "statusMissing": "Noch kein Service-Token gesetzt",
-      "statusUnknown": "Das Service-Token konnte nicht überprüft werden",
-      "replaceNote": "Beim Speichern unten wird das vorhandene Token ersetzt (eine Aktualisierung). Das alte Token wird an Ort und Stelle überschrieben.",
-      "hideConfig": "Token-Konfiguration ausblenden",
-      "updateOrReplace": "Token aktualisieren oder ersetzen",
+      "statusPresent": "Token festgelegt",
+      "statusMissing": "Kein Service-Token festgelegt",
       "expiryLabel": "Token-Ablauf",
       "days": "Tage",
       "expiresOn": "Läuft am {{date}} ab",
-      "enterRange": "Gib {{min}}–{{max}} Tage ein",
-      "validRange": "Gültiger Bereich ist {{min}}–{{max}} Tage (Maximum von GitHub).",
-      "patDescription": "Service-Token für die Punkteerfassung und Neubewertung von Classroom 50. Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read für die Organisation {{org}}",
-      "generateOnGitHub": "Token auf GitHub generieren",
-      "beforeGenerating": "Auf der GitHub-Seite, bevor du das Token generierst:",
-      "rotateNote": "Das Token läuft nach dem oben festgelegten Zeitraum ab. Bei Ablauf schlagen die Workflows zur Punkteerfassung und Neubewertung fehl, bis du ein neues Token generierst und hier erneut speicherst — richte dir also eine Erinnerung ein, es rechtzeitig zu erneuern.",
-      "pasteBelow": "Nachdem du das Token auf GitHub generiert hast, kopiere es und füge es unten ein.",
-      "enterNewLabel": "Neues Service-Token eingeben",
-      "enterLabel": "Service-Token eingeben",
-      "placeholder": "Token eingeben (z. B. github_pat_123...)",
+      "patDescription": "Service-Token für die Punkteerfassung und Neubenotung von Classroom 50 in der Organisation {{org}}",
+      "generateOnGitHub": "Neues Zugriffstoken generieren",
+      "placeholder": "github_pat_…",
       "saveError": "Das Token konnte nicht validiert oder gespeichert werden.",
-      "savedUpdated": "Service-Token geprüft und aktualisiert.",
-      "savedNew": "Service-Token geprüft und gespeichert.",
       "validating": "Wird validiert…",
-      "updateButton": "Service-Token aktualisieren",
-      "saveButton": "Service-Token speichern",
-      "generateHint": "Öffnet das Token-Formular von GitHub mit vorausgefülltem Namen, Ressourcenbesitzer, Ablaufdatum und den Berechtigungen <permissions>Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read</permissions>.",
-      "info": "Classroom 50 benötigt ein Service-Token, ein Personal Access Token (PAT) mit feiner Granularität, das Lese- und Schreibzugriff auf die Repositories in der GitHub-Organisation deines Kursraums hat. Es wird als Secret <secret>CLASSROOM50_SERVICE_TOKEN</secret> in deinem <repo>classroom50</repo>-Konfigurations-Repository gespeichert, wo der Score-Collection-Workflow es zum Lesen von Abgaben der Lernenden und der Regrade-Workflow es zum erneuten Ausführen der Autograde-Workflows der Lernenden verwendet.",
-      "permissions": "Bestätige unter <field>Permissions</field> <perm>Contents: Read and write</perm>, <perm>Actions: Read and write</perm>, <perm>Administration: Read and write</perm> und <perm>Members: Read</perm>. (Metadata: Read ist automatisch enthalten.) <note>Members: Read ist eine Organisationsberechtigung, ein separater Abschnitt, der angezeigt wird, sobald die Organisation der Ressourcenbesitzer ist.</note> <note>Read sammelt Bewertungen; write lässt den Regrade-Workflow die Autograde-Workflows der Lernenden erneut ausführen; Members: Read ermöglicht der Sammlung, das Kursraum-Team aufzulisten.</note>",
-      "repoAccess": "Setze <field>Repository access</field> auf <value>All repositories</value>. <note>„Only select repositories“ würde später erstellte Repositories der Lernenden übersehen und die Score-Sammlung beeinträchtigen.</note>",
-      "validateHint": "Wir prüfen vor dem Speichern, ob das Token gültig ist. Vergewissere dich, dass du beim Erstellen <value>All repositories</value> gewählt hast."
+      "saveButton": "Token speichern",
+      "cancelRename": "Abbrechen",
+      "checking": "Wird geprüft…",
+      "expiryRange": "Gib {{min}}–{{max}} Tage ein",
+      "expiryUntrackedHint": "Der Ablauf dieses Tokens wird nicht erfasst. Lege ein neues Token fest, damit Classroom 50 dich vor dem Ablauf warnen kann.",
+      "generateHelp": "Öffnet das Token-Formular von GitHub mit vorausgefülltem Namen, Ablauf und den erforderlichen Scopes. Setze den Repository-Zugriff auf „All repositories“.",
+      "help": "Ein fein abgestuftes GitHub-Token, mit dem Classroom 50 über deine Studierenden-Repositories hinweg Punktzahlen erfassen und neu benoten kann. Wird als Secret in deinem classroom50-Konfigurations-Repository gespeichert.",
+      "learnMore": "Mehr über Service-Tokens erfahren",
+      "nameHelp": "Der Name sollte damit übereinstimmen, wie dieses Token in deiner Liste der persönlichen GitHub-Zugriffstokens erscheint. Classroom 50 verwendet ihn nur als Bezeichnung; das Umbenennen hier benennt das Token auf GitHub nicht um.",
+      "nameRowLabel": "Name:",
+      "pasteHelp": "Füge das Token ein, das du auf GitHub generiert hast. Classroom 50 überprüft es vor dem Speichern.",
+      "pasteLabel": "Token einfügen",
+      "rename": "Token umbenennen",
+      "rotateButton": "Neues Token festlegen",
+      "saveName": "Namen speichern",
+      "saved": "Service-Token gespeichert.",
+      "savedNoMetadata": "Service-Token gespeichert, aber sein Ablauf und Name konnten nicht erfasst werden – der Status-Chip zeigt möglicherweise „Ablauf nicht erfasst“ an, bis du erneut speicherst.",
+      "setButton": "Token festlegen",
+      "setModalSubtitle": "Generiere ein fein abgestuftes Token auf GitHub und füge es dann hier wieder ein, um es zu speichern.",
+      "setModalTitle": "Service-Token festlegen",
+      "step1Label": "Token auf GitHub generieren",
+      "step2Label": "GitHub-Zugriffstoken"
     },
     "audit": {
       "title": "Organisationsrichtlinie",
@@ -1303,20 +1381,20 @@
       "budgetHardStop": "Hartes Stopp-Budget von 0 $ gesetzt – kostenpflichtige Minuten blockiert.",
       "budgetManage": "Budgets verwalten",
       "budgetNone": "Kein Ausgabenbudget festgelegt.",
-      "confirmBody": "Studierendenabgaben werden erst wieder bewertet, wenn du fortsetzt. Neue Feedback-Pull-Requests öffnen sich weiterhin, wenn Studierende annehmen, und bestehende zeigen weiterhin die neuesten Pushes an – aber während der Pause erhalten Abgaben keine Autograde- oder Feedback-PR-Statusprüfungen. Das classroom50-Konfigurations-Repo funktioniert weiterhin. Jederzeit umkehrbar.",
+      "confirmBody": "Dadurch werden alle Workflows in Studierenden-Repositories gestoppt, nicht nur das Autograding, sodass auch jede CI, die deine Studierenden ausführen, gestoppt wird. Abgaben werden nicht benotet und erhalten keine Autograde- oder Feedback-PR-Prüfungen, bis du fortsetzt. Feedback-Pull-Requests werden weiterhin geöffnet, wenn Studierende annehmen, und zeigen weiterhin neue Pushes an.",
       "confirmButton": "Autograding pausieren",
       "confirmTitle": "Autograding für die gesamte Organisation pausieren?",
       "description": "Pausiere das Autograding organisationsweit, um Actions-Ausgaben zu stoppen. Die Kursverwaltung funktioniert weiter.",
       "disabledNotice": "Actions sind für die gesamte Organisation deaktiviert, daher läuft nichts. Führe das Organisations-Setup erneut aus oder aktiviere Actions auf GitHub.",
       "loading": "Status wird geprüft…",
       "openSettings": "Actions-Einstellungen öffnen",
-      "pausedNotice": "Pausiert – Studierenden-Pushes werden nicht bewertet, sodass Abgaben keine Autograde- oder Feedback-PR-Statusprüfungen erhalten. Neue Feedback-Pull-Requests öffnen sich weiterhin, wenn Studierende annehmen, und bestehende zeigen weiterhin die neuesten Pushes an. Ein erneutes Ausführen der Organisationseinrichtung setzt nicht fort, bis du dies deaktivierst.",
+      "pausedNotice": "Alle Workflows in Studierenden-Repositories werden gestoppt, nicht nur das Autograding, sodass auch jede CI, die deine Studierenden ausführen, gestoppt wird. Abgaben werden nicht benotet und erhalten keine Autograde- oder Feedback-PR-Prüfungen. Feedback-Pull-Requests werden weiterhin geöffnet, wenn Studierende annehmen, und zeigen weiterhin neue Pushes an. Ein erneutes Ausführen der Organisationseinrichtung setzt die Benotung nicht fort, bis du dies ausschaltest.",
       "statusActive": "Autograding ein",
       "statusDisabled": "Actions aus",
       "statusPaused": "Autograding pausiert",
       "title": "GitHub Actions",
       "toggleFailed": "Actions-Berechtigungen konnten nicht aktualisiert werden: {{message}}",
-      "toggleHint": "Wenn du dies aktivierst, werden Pushes von Lernenden nicht mehr bewertet (keine Actions-Minuten). Das classroom50-Konfigurations-Repository funktioniert weiter. Deaktiviere es, um fortzusetzen.",
+      "toggleHint": "Das Pausieren stoppt alle Workflows in Studierenden-Repositories, nicht nur das Autograding. Auch jede CI, die deine Studierenden ausführen, wird gestoppt, und es werden keine Actions-Minuten verbraucht. Schalte aus, um fortzusetzen.",
       "toggleLabel": "Autograding für alle Repositories der Lernenden pausieren",
       "unknownNotice": "Die Actions-Berechtigungen dieser Organisation konnten nicht gelesen werden – dir fehlen möglicherweise Inhaberrechte, oder eine Enterprise-Richtlinie steuert sie.",
       "usageCost": "{{amount}} $ diesen Monat abgerechnet.",
@@ -1523,7 +1601,10 @@
     "archiveBody": "Archiviere <classroom>{{classroom}}</classroom>: Der Kursraum verschwindet aus der Standard-Kursraumliste und nimmt keine neuen Aufgaben und Lernenden mehr an. Sein Roster und seine Aufgaben bleiben erhalten, und du kannst die Archivierung später aufheben.",
     "deleteClassroomBody": "Dadurch wird der Kursraum <classroom>{{classroom}}</classroom> aus der Organisation <org>{{org}}</org> entfernt. Die Aufgaben-Repositories der Lernenden werden nicht gelöscht.",
     "settingsSubtitle": "Konfiguration für den Kursraum <classroom>{{classroom}}</classroom>.",
-    "unarchiveBody": "Setze <classroom>{{classroom}}</classroom> wieder auf aktiv: Der Kursraum erscheint wieder in der Standard-Kursraumliste und kann erneut neue Aufgaben und Lernende annehmen."
+    "unarchiveBody": "Setze <classroom>{{classroom}}</classroom> wieder auf aktiv: Der Kursraum erscheint wieder in der Standard-Kursraumliste und kann erneut neue Aufgaben und Lernende annehmen.",
+    "newButton": {
+      "moreOptions": "Weitere Optionen"
+    }
   },
   "accept": {
     "githubUser": "GitHub-Benutzer",
@@ -1558,7 +1639,7 @@
       "assignment": "Aufgabe wird gesucht",
       "autograder": "Autograder wird aufgelöst",
       "repo": "Dein Repository wird erstellt",
-      "access": "Zugriff wird gewährt",
+      "access": "Repository-Zugriff wird festgelegt",
       "setup": "Autograding wird eingerichtet",
       "membership": "Deine Kurszugehörigkeit wird bestätigt",
       "feedback": "Feedback-Pull-Request wird geöffnet"
@@ -1583,15 +1664,16 @@
       "inOrg": "Die private Vorlage {{owner}}/{{repo}} konnte nicht kopiert werden (HTTP {{status}}).{{detail}} Bitte deine Lehrkraft, das Aufgaben-Setup erneut auszuführen, und nimm die Aufgabe dann erneut an.",
       "outOfOrg": "Die Vorlage {{owner}}/{{repo}} konnte nicht kopiert werden (HTTP {{status}}).{{detail}} Häufig liegt es daran, dass die Organisation {{owner}} Drittanbieter-Apps einschränkt — bitte deine Lehrkraft, die Classroom-50-App für {{owner}} freizugeben (oder die Vorlage öffentlich zu machen), und nimm die Aufgabe dann erneut an.",
       "orgRepoCreationDenied": "{{org}} erlaubt Mitgliedern möglicherweise nicht, private Repositorys zu erstellen, sodass dein Repository nicht erstellt werden konnte (HTTP {{status}}). Bitte deine Lehrkraft, dies zu aktivieren, und nimm die Aufgabe dann erneut an.",
-      "orgRepoCreationDeniedStep": "{{org}} hat die Erstellung deines Repositorys nicht zugelassen (HTTP {{status}})."
+      "orgRepoCreationDeniedStep": "{{org}} hat die Erstellung deines Repositorys nicht zugelassen (HTTP {{status}}).",
+      "forkParentRestricted": "Das Template {{owner}}/{{repo}} konnte nicht kopiert werden (HTTP {{status}}).{{detail}} Dieses Template ist ein Fork eines Repositorys in der Organisation {{parentOwner}}, und das Kopieren eines Forks unterliegt den Drittanbieter-App-Beschränkungen dieser Organisation. Bitte deine Lehrkraft, die Classroom-50-App für {{parentOwner}} zu genehmigen oder ein neues (kein Fork) Template-Repository zu verwenden, und nimm die Aufgabe dann erneut an.",
+      "forkParentRestrictedStep": "{{parentOwner}} hat Classroom 50 nicht für den Upstream des Forks genehmigt (HTTP {{status}})."
     },
     "errors": {
       "emptyRepoWithTemplate": "Die Aufgabe „{{assignmentSlug}}“ legt sowohl ein leeres Repository als auch eine Vorlage fest, was nicht zulässig ist. Bitte deine Lehrkraft, die Aufgaben-Einrichtung erneut auszuführen.",
-      "founderAccessMismatch": "Dein Repository {{owner}}/{{repo}} wurde erstellt, aber GitHub meldet deinen Zugriff als „{{effective}}“ (Rolle „{{role}}“) statt „{{permission}}“. Bitte deine Lehrkraft, den Zugriff von {{username}} auf „{{permission}}“ zu setzen.",
       "incoherentMode": "Die Aufgabe „{{slug}}“ hat eine Gruppengröße von {{maxGroupSize}}, ist aber als „{{mode}}“ eingerichtet, sodass ihre veröffentlichten Einstellungen widersprüchlich sind. Bitte deine Lehrkraft, die Aufgaben-Einrichtung erneut auszuführen."
     },
     "stepActions": {
-      "access": "Dein Repository {{org}}/{{repo}} wurde erstellt, aber das Hinzufügen von dir ({{username}}) als Mitwirkende·r ist fehlgeschlagen. Meist bedeutet das, dass sich dein GitHub-Benutzername geändert hat oder du {{org}} verlassen hast. Vergewissere dich, dass du Mitglied von {{org}} bist, und verwende dann „Einrichtung erneut ausführen“.",
+      "access": "Dein Repository {{org}}/{{repo}} wurde erstellt, aber das Festlegen deines Zugriffs ({{username}}) darauf ist fehlgeschlagen. Das bedeutet meist, dass sich dein GitHub-Benutzername geändert hat oder du {{org}} verlassen hast. Vergewissere dich, dass du Mitglied von {{org}} bist, und verwende dann „Setup erneut ausführen“.",
       "account": "Dein GitHub-Konto konnte nicht gelesen werden. Melde dich ab und wieder an und nimm die Aufgabe dann erneut an.",
       "assignment": "Die Aufgabe „{{assignmentSlug}}“ für {{org}}/{{classroom}} konnte nicht geladen werden. Überprüfe den Link oder bitte deine Lehrkraft zu bestätigen, dass die Aufgabe veröffentlicht ist.",
       "autograder": "Der Autograder für „{{assignmentSlug}}“ konnte nicht aufgelöst werden. Bitte deine Lehrkraft zu bestätigen, dass er veröffentlicht ist, und nimm die Aufgabe dann erneut an.",
@@ -1600,7 +1682,7 @@
       "setup": "Dein Repository {{org}}/{{repo}} existiert, aber das Schreiben der Einrichtungsdateien in den Branch „{{branch}}“ ist fehlgeschlagen. Es wird möglicherweise noch initialisiert. Warte eine Minute und verwende dann „Einrichtung erneut ausführen“."
     },
     "stepDone": {
-      "access": "Dir wurde Zugriff auf dein Repository gewährt",
+      "access": "Repository-Zugriff festgelegt",
       "account": "Dein GitHub-Konto wurde geprüft",
       "assignment": "Aufgabe {{assignmentSlug}} gefunden",
       "autograder": "Autograder aufgelöst",
@@ -1620,6 +1702,17 @@
       "rateLimited": "{{label}} hat GitHubs Ratenbegrenzung erreicht. Warte eine Minute und versuche dann erneut, die Aufgabe anzunehmen.",
       "unauthorized": "{{label}} ist fehlgeschlagen, weil deine GitHub-Sitzung abgelaufen ist (HTTP 401). Melde dich ab und wieder an und nimm die Aufgabe dann erneut an.",
       "unexpected": "{{label}} ist unerwartet fehlgeschlagen. Dies kann gefahrlos erneut versucht werden."
+    },
+    "locked": {
+      "badge": "Gesperrt",
+      "body": "Deine Lehrkraft hat <assignment>{{assignment}}</assignment> gesperrt, daher kann diese Aufgabe derzeit nicht angenommen werden. Schau später noch einmal vorbei oder bitte deine Lehrkraft, sie zu entsperren.",
+      "title": "Diese Aufgabe ist gesperrt"
+    },
+    "notEnrolled": {
+      "badge": "Nicht verfügbar",
+      "body": "Frage deine Lehrkraft, falls du glaubst, dass dies ein Fehler ist.",
+      "error": "Diese Aufgabe ist für dich nicht verfügbar. Frage deine Lehrkraft, falls du glaubst, dass dies ein Fehler ist.",
+      "title": "Diese Aufgabe ist für dich nicht verfügbar"
     }
   },
   "submissions": {
@@ -1751,7 +1844,6 @@
       "lateHistoryTitle": "Nach der Frist gepusht.",
       "gradedAt": "Bewertet {{date}}",
       "gradedAtTitle": "Wann der Autograder diese Abgabe zuletzt (neu) bewertet hat. Eine Neubewertung aktualisiert dies, ohne die Abgabezeit zu ändern.",
-      "membersAria": "Gruppenmitglieder anzeigen und verwalten",
       "members": "Mitglieder",
       "openRepoLabel": "Repository {{repo}} öffnen",
       "viewRepo": "Repository anzeigen",
@@ -1760,7 +1852,6 @@
       "noCommit": "Noch kein Commit",
       "viewDetails": "Autograder-Details anzeigen",
       "details": "Details",
-      "noDetailsLabel": "Noch keine Autograder-Details",
       "noDetails": "Noch keine Details",
       "notSubmitted": "Nicht abgegeben",
       "submittedBy": "von {{name}}",
@@ -1784,7 +1875,9 @@
       "pendingGradeTitle": "Abgegeben – Bewertung noch nicht gesammelt. Führe „Abgaben jetzt synchronisieren“ aus oder warte auf die nächtliche Sammlung.",
       "resolvingNonSubmitters": "Es wird geprüft, wer noch nicht abgegeben hat…",
       "staleCount": "Neu",
-      "staleCountTitle": "Diese lernende Person hat mehr Abgaben gepusht, als bewertet wurden. Führe „Abgaben jetzt synchronisieren“ aus, um die neuesten zu bewerten und zu benoten."
+      "staleCountTitle": "Diese lernende Person hat mehr Abgaben gepusht, als bewertet wurden. Führe „Abgaben jetzt synchronisieren“ aus, um die neuesten zu bewerten und zu benoten.",
+      "manageAccess": "Repository-Zugriff verwalten",
+      "manageAccessAria": "Repository-Zugriff für {{owner}} verwalten"
     },
     "reviewModal": {
       "errorTitle": "Es konnte nicht nach einem Feedback-PR gesucht werden",
@@ -1850,7 +1943,8 @@
         "title": "Abgabe hochladen",
         "unsafePath": "„{{name}}“ übersprungen — dieser Pfad ist nicht zulässig."
       },
-      "notAccepted": "Du hast diese Aufgabe noch nicht angenommen. <acceptLink>Nimm sie an</acceptLink>, um dein Repository zu erhalten, und pushe dann deine Arbeit, um sie bewerten zu lassen."
+      "notAccepted": "Du hast diese Aufgabe noch nicht angenommen. <acceptLink>Nimm sie an</acceptLink>, um dein Repository zu erhalten, und pushe dann deine Arbeit, um sie bewerten zu lassen.",
+      "locked": "Diese Aufgabe wurde von deiner Lehrkraft gesperrt und ist derzeit nicht verfügbar. Schau später noch einmal vorbei oder bitte deine Lehrkraft, sie zu entsperren."
     },
     "viewSourceRepo": "Vorlage anzeigen",
     "menu": {
@@ -1911,6 +2005,113 @@
       "repair": "Feedback-PR reparieren",
       "repairing": "Wird repariert…",
       "repoNotFound": "Das Repository {{repo}} konnte nicht gefunden werden – die·der Studierende hat möglicherweise noch nicht angenommen."
+    },
+    "bulkAccess": {
+      "apply": "Auf alle anwenden",
+      "deferredDetail": "Übersprungen – erneut ausführen, um zu aktualisieren.",
+      "deferredSection_one": "{{count}} Repository wurde nicht aktualisiert",
+      "deferredSection_other": "{{count}} Repositories wurden nicht aktualisiert",
+      "failedSection_one": "{{count}} Repository konnte nicht aktualisiert werden",
+      "failedSection_other": "{{count}} Repositories konnten nicht aktualisiert werden",
+      "menuLabel": "Repository-Zugriff der Studierenden aktualisieren",
+      "menuTitle": "Die Rolle jeder bzw. jedes Studierenden im eigenen Repository ändern",
+      "noRepos": "Noch keine Studierenden haben diese Aufgabe angenommen, daher gibt es keine Repositories zum Ändern.",
+      "progress": "{{processed}} von {{total}} aktualisiert",
+      "resultHeadline": "{{count}} von {{total}} Studierenden auf {{level}} gesetzt.",
+      "resultHeadlineThrottled": "{{count}} von {{total}} Studierenden auf {{level}} gesetzt, bevor GitHub die Anfrage drosselte – erneut ausführen, um den Rest abzuschließen.",
+      "roleLabel": "Repository-Rolle",
+      "subtitle_one": "Gilt für {{count}} Studierende bzw. Studierenden, die diese Aufgabe angenommen hat.",
+      "subtitle_other": "Gilt für {{count}} Studierende, die diese Aufgabe angenommen haben.",
+      "title": "Repository-Zugriff der Studierenden festlegen",
+      "titleEmptyRoster": "Noch keine Studierenden haben angenommen",
+      "warning_one": "Dadurch wird die Rolle von {{count}} Studierenden bzw. Studierendem im eigenen Repository auf {{level}} gesetzt. Admin erlaubt ihnen, Repository-Einstellungen und, bei einem privaten Repository, dessen Sichtbarkeit zu ändern. Bestehende Mitwirkende sind sonst nicht betroffen.",
+      "warning_other": "Dadurch werden die Rollen von {{count}} Studierenden in ihren eigenen Repositories auf {{level}} gesetzt. Admin erlaubt ihnen, Repository-Einstellungen und, bei einem privaten Repository, dessen Sichtbarkeit zu ändern. Bestehende Mitwirkende sind sonst nicht betroffen.",
+      "working": "Repositories werden aktualisiert"
+    },
+    "bulkFeatures": {
+      "apply": "Auf alle anwenden",
+      "deferredDetail": "Übersprungen – erneut ausführen, um zu aktualisieren.",
+      "deferredSection_one": "{{count}} Repository wurde nicht aktualisiert",
+      "deferredSection_other": "{{count}} Repositories wurden nicht aktualisiert",
+      "failedSection_one": "{{count}} Repository konnte nicht aktualisiert werden",
+      "failedSection_other": "{{count}} Repositories konnten nicht aktualisiert werden",
+      "keep": "Unverändert lassen",
+      "menuLabel": "Repository-Funktionen aktualisieren",
+      "menuTitle": "Issues, Wiki, Projects oder Pull Requests über jedes Studierenden-Repository hinweg ein- oder ausschalten",
+      "noRepos": "Noch keine Studierenden haben diese Aufgabe angenommen, daher gibt es keine Repositories zum Ändern.",
+      "progress": "{{processed}} von {{total}} aktualisiert",
+      "resultHeadline": "Funktionen bei {{count}} von {{total}} Repositories aktualisiert.",
+      "resultHeadlineThrottled": "{{count}} von {{total}} Repositories aktualisiert, bevor GitHub die Anfrage drosselte – erneut ausführen, um den Rest abzuschließen.",
+      "subtitle_one": "Gilt für {{count}} Studierende bzw. Studierenden, die diese Aufgabe angenommen hat.",
+      "subtitle_other": "Gilt für {{count}} Studierende, die diese Aufgabe angenommen haben.",
+      "title": "Repository-Funktionen festlegen",
+      "titleEmptyRoster": "Noch keine Studierenden haben angenommen",
+      "warning_one": "Dadurch werden die ausgewählten Funktionen im Repository von {{count}} Studierenden bzw. Studierendem geändert. Funktionen mit „Unverändert lassen“ werden nicht angetastet. Bestehende Repository-Inhalte sind nicht betroffen.",
+      "warning_other": "Dadurch werden die ausgewählten Funktionen in den Repositories von {{count}} Studierenden geändert. Funktionen mit „Unverändert lassen“ werden nicht angetastet. Bestehende Repository-Inhalte sind nicht betroffen.",
+      "working": "Repositories werden aktualisiert"
+    },
+    "downloadAll": {
+      "assemblyError": "Jede Abgabe wurde heruntergeladen, aber das kombinierte ZIP war zu groß, um im Browser zusammengestellt zu werden. Versuche, nach Abschnitt zu filtern und in kleineren Chargen herunterzuladen.",
+      "confirmBody_one": "Dadurch wird die neueste Abgabe der <b>{{count}}</b> studierenden Person heruntergeladen, die <b>{{name}}</b> abgegeben hat, gebündelt in einem einzigen ZIP.",
+      "confirmBody_other": "Dadurch werden die neuesten Abgaben der <b>{{count}}</b> Studierenden heruntergeladen, die <b>{{name}}</b> abgegeben haben, gebündelt in einem einzigen ZIP.",
+      "confirmHint": "Es läuft in deinem Browser, ein Repository nach dem anderen, daher kann es bei einer großen Klasse eine Weile dauern. Lass diesen Tab geöffnet, bis es abgeschlossen ist.",
+      "confirmLabel_one": "Abgabe herunterladen",
+      "confirmLabel_other": "Abgaben herunterladen",
+      "emptyHint": "Die studierende Person hat die Aufgabe angenommen, aber noch keine Arbeit gepusht, daher gibt es keine Abgabe zum Einschließen.",
+      "emptyTitle": "Diese Repositories hatten nichts zum Herunterladen:",
+      "failedHint": "Dies ist oft ein vorübergehender GitHub-Fehler – führe die Aktion erneut aus, um es noch einmal zu versuchen.",
+      "failedTitle": "Diese Abgaben konnten nicht heruntergeladen werden:",
+      "largeClassWarning": "Dadurch werden {{count}} Abgaben heruntergeladen und das kombinierte ZIP in deinem Browser erstellt, was viel Speicher benötigen kann und bei einer sehr großen Klasse langsam sein oder fehlschlagen kann. Erwäge, zuerst nach Abschnitt zu filtern.",
+      "menuLabel": "Alle Abgaben herunterladen",
+      "nothingDownloaded": "Es wurde keine Datei heruntergeladen – keine der ausgewählten Studierenden hatte eine Abgabe zum Abrufen.",
+      "runError": "Der Download konnte nicht abgeschlossen werden. Bitte versuche es erneut.",
+      "running": "Wird heruntergeladen… {{done}} von {{total}}",
+      "summaryDownloaded_one": "{{count}} Abgabe heruntergeladen",
+      "summaryDownloaded_other": "{{count}} Abgaben heruntergeladen",
+      "summaryEmpty_one": "{{count}} Repository war leer (übersprungen)",
+      "summaryEmpty_other": "{{count}} Repositories waren leer (übersprungen)",
+      "summaryFailed_one": "{{count}} Abgabe fehlgeschlagen",
+      "summaryFailed_other": "{{count}} Abgaben fehlgeschlagen",
+      "summaryLead": "Verarbeitung von <b>{{total}}</b> Abgaben abgeschlossen.",
+      "summarySaved_one": "{{count}} Abgabe im von dir gewählten Ordner gespeichert",
+      "summarySaved_other": "{{count}} Abgaben im von dir gewählten Ordner gespeichert",
+      "title": "Neueste Abgabe jeder studierenden Person herunterladen",
+      "titleDisabled": "Noch keine Abgaben zum Herunterladen"
+    },
+    "lock": {
+      "lockDescription": "Dadurch wird <assignment>{{assignment}}</assignment> für alle Studierenden geschlossen – auch für jene, die bereits angenommen haben – auf der Annahmeseite, in der Aufgabenliste, in der Abgabeansicht und in der CLI. Bei einem privaten Template wird auch der Lesezugriff des Studierenden-Teams auf dieses Template entfernt (der Zugriff des Personals bleibt unberührt). Bestehende Studierenden-Repositories werden nicht gelöscht.",
+      "lockLabel": "Aufgabe sperren",
+      "lockSuccess": "Aufgabe gesperrt.",
+      "lockTitle": "Diese Aufgabe für Studierende schließen und bei einem privaten Template den Lesezugriff des Studierenden-Teams darauf entfernen",
+      "lockTitleModal": "Aufgabe sperren?",
+      "unlockDescription": "Dadurch wird <assignment>{{assignment}}</assignment> wieder für Studierende geöffnet. Bei einem privaten Template wird der Lesezugriff des Studierenden-Teams auf dieses Template wiederhergestellt, damit Studierende erneut annehmen können.",
+      "unlockLabel": "Aufgabe entsperren",
+      "unlockSuccess": "Aufgabe entsperrt.",
+      "unlockTitle": "Diese Aufgabe wieder für Studierende öffnen und den Zugriff auf private Templates wiederherstellen",
+      "unlockTitleModal": "Aufgabe entsperren?"
+    },
+    "lockedNotice": "Diese Aufgabe ist gesperrt. Studierende können sie nicht annehmen oder öffnen, und wenn sie ein privates Template verwendet, wurde der Zugriff des Studierenden-Teams auf dieses Template entfernt. Bestehende Repositories und deren Abgaben sind nicht betroffen. Entsperre sie über das Aktionsmenü (oder die Aufgabenliste), um sie wieder zu öffnen.",
+    "manageModal": {
+      "accepted": "Angenommen",
+      "access": "Zugriff",
+      "accessDescription": "Rolle und Mitwirkende der studierenden Person bearbeiten",
+      "collaborators_one": "{{count}} Mitwirkende(r)",
+      "collaborators_other": "{{count}} Mitwirkende",
+      "commitDescription": "Neuesten Commit auf GitHub öffnen",
+      "detailsDescription": "Autograder-Ergebnis auf GitHub öffnen",
+      "downloadDescription": "Abgabe als ZIP-Archiv speichern",
+      "lastPush": "Letzter Push",
+      "membersDescription": "Mitglieder der Gruppe anzeigen und verwalten",
+      "open": "Abgabe verwalten",
+      "openAria": "Abgabe von {{owner}} verwalten",
+      "regradeDescription": "Autograder auf dem neuesten Commit erneut ausführen",
+      "reviewDescription": "Feedback-Pull-Request öffnen"
+    },
+    "rowDownload": {
+      "aria": "Abgabe von {{owner}} herunterladen",
+      "error": "Die Abgabe von {{owner}} konnte nicht heruntergeladen werden. Bitte versuche es erneut.",
+      "nothingToDownload": "{{owner}} hat noch keine Abgabe zum Herunterladen.",
+      "title": "Diese Abgabe herunterladen"
     }
   },
   "orgMembers": {
@@ -2093,7 +2294,8 @@
           "rateLimited": "GitHub-Ratenbegrenzung erreicht – warten Sie einen Moment und versuchen Sie es erneut.",
           "forbidden": "Sie haben keine Berechtigung, die Mitarbeitenden dieses Repositorys zu ändern.",
           "notFound": "Benutzername nicht gefunden oder kein Mitglied der GitHub-Organisation.",
-          "conflict": "Bereits Mitarbeiter/in oder die Anfrage wurde von GitHub abgelehnt."
+          "conflict": "Bereits Mitarbeiter/in oder die Anfrage wurde von GitHub abgelehnt.",
+          "httpStatus": "GitHub hat einen Fehler zurückgegeben (HTTP {{status}})."
         },
         "error": {
           "addAndRemove": "Einige Mitarbeitende konnten nicht hinzugefügt oder entfernt werden.{{removedNote}} Prüfen Sie die hervorgehobenen Benutzernamen und speichern Sie erneut, um es nochmals zu versuchen.{{suffix}}",
@@ -2138,6 +2340,21 @@
         "uniqueHint": "Muss innerhalb dieses Kurses eindeutig sein.",
         "thisClassroomOption": "{{classroom}} (dieser Kurs)",
         "description": "Kopiere eine vorhandene Aufgabe in {{org}} in den Kursraum <classroom>{{classroom}}</classroom>. Name, Vorlage, Tests, Laufzeit, Fälligkeitsdatum und andere Einstellungen werden kopiert; Repositories und Bewertungen der Lernenden nicht."
+      },
+      "repoAccess": {
+        "adminWarning": "Lege die Rolle jeder Mitwirkenden bzw. jedes Mitwirkenden fest oder füge Mitwirkende hinzu und entferne sie. <b>Admin</b> erlaubt einer bzw. einem Mitwirkenden, Repository-Einstellungen und, bei einem privaten Repository, dessen Sichtbarkeit zu ändern.",
+        "loading": "Mitwirkende werden geladen",
+        "needsAdmin": "Du benötigst Admin-Zugriff auf dieses Repository, um seine Mitwirkenden zu ändern.",
+        "newRole": "Rolle für die neue Mitwirkende bzw. den neuen Mitwirkenden",
+        "notApplied": "GitHub hat die bestehende Rolle beibehalten ({{effective}}) – eine Repository-Erstellerin bzw. ein Repository-Ersteller kann nicht unter Admin herabgestuft werden. Bitte die Studierende bzw. den Studierenden, den eigenen Zugriff zu verringern, oder übertrage die Repository-Eigentümerschaft.",
+        "removeUser": "{{username}} entfernen",
+        "roleFor": "Rolle für {{username}}",
+        "save": "Zugriff aktualisieren",
+        "saveError": "Einige Änderungen konnten nicht gespeichert werden. Prüfe die hervorgehobenen Mitwirkenden und speichere erneut, um es noch einmal zu versuchen.{{suffix}}",
+        "saved": "Zugriff aktualisiert!",
+        "studentBadge": "Studierende(r)",
+        "title": "Repository-Zugriff verwalten",
+        "viewRepoNamed": "Repository {{name}} anzeigen"
       }
     }
   },
@@ -2308,6 +2525,14 @@
     "page": {
       "heading": "Einstellungen",
       "subheading": "Einstellungen für diesen Browser. Nichts hiervon wird mit deinen Organisationen geteilt."
+    },
+    "serviceTokens": {
+      "empty": "Noch keine Organisationen mit eingerichtetem Classroom 50.",
+      "expires": "Läuft ab {{date}}",
+      "heading": "Service-Tokens verwalten",
+      "loading": "Deine Organisationen werden geprüft…",
+      "manage": "Verwalten",
+      "subheading": "Service-Token-Status über jede Organisation hinweg, die dir gehört. Wechsle ein Token, bevor es abläuft, damit die nächtliche Punkteerfassung weiterläuft."
     }
   },
   "pagesErrors": {
@@ -2321,5 +2546,168 @@
     "manifestInvalidShape": "Die veröffentlichte Aufgabenliste dieses Klassenzimmers ist fehlerhaft. Bitte deine Lehrkraft, die Classroom-50-Konfiguration zu prüfen.",
     "manifestVersionUnsupported": "Dieses Klassenzimmer verwendet ein neueres Aufgabenformat (v{{version}}), als diese Version von Classroom 50 unterstützt. Lade die Seite neu oder bitte deine Lehrkraft, Classroom 50 zu aktualisieren.",
     "notPublished": "{{label}} ist noch nicht veröffentlicht. Bitte deine Lehrkraft zu bestätigen, dass die Datei im Konfigurations-Repo vorhanden ist und dass der Veröffentlichungs-Workflow ausgeführt wurde."
+  },
+  "migration": {
+    "access": {
+      "explain": "Die Aufgaben, die du importierst, stammen aus der Organisation „{{org}}“ auf GitHub, aber Classroom 50 ist noch nicht berechtigt, deren Repositories zu lesen. Erteile unten den Zugriff und prüfe dann erneut – es kann nichts importiert werden, bis dies gelöst ist.",
+      "headline": "Classroom 50 benötigt Zugriff auf „{{org}}“",
+      "recheck": "Zugriff erneut prüfen",
+      "recheckHint": "Klicke nach dem Erteilen des Zugriffs, um fortzufahren.",
+      "rechecking": "Wird erneut geprüft…",
+      "step1Body": "Öffne die Classroom-50-App in deinen GitHub-Einstellungen und erteile ihr Zugriff auf die Organisation „{{org}}“. Das ist normalerweise alles, was nötig ist.",
+      "step1Button": "Classroom-50-App-Einstellungen öffnen",
+      "step1Title": "Zugriff auf deiner Seite für autorisierte Apps erteilen",
+      "step2Body": "Falls du den Zugriff zuvor verweigert hast oder deine Organisation eine Genehmigung durch eine Eigentümerin bzw. einen Eigentümer verlangt, fordere den Zugriff über die Drittanbieter-Anwendungsrichtlinie der Organisation „{{org}}“ an oder genehmige ihn. Eine Organisationseigentümerin bzw. ein Organisationseigentümer muss ihn möglicherweise genehmigen.",
+      "step2Button": "Anwendungsrichtlinie von „{{org}}“ öffnen",
+      "step2Title": "Falls das nicht funktioniert, verwende die Richtlinienseite der Organisation",
+      "title": "Zugriff erteilen, um fortzufahren"
+    },
+    "blocker": {
+      "dir_exists": "Eine Klasse namens „{{shortName}}“ existiert bereits in dieser Organisation. Wähle einen anderen Kurznamen, um fortzufahren.",
+      "needs_org_setup": "„{{org}}“ ist noch nicht für Classroom 50 eingerichtet – führe zuerst die Organisationseinrichtung aus und versuche es dann erneut.",
+      "source_org_access": "Classroom 50 kann die Starter-Repositories in „{{org}}“ nicht lesen – der App wurde kein Zugriff auf diese Organisation erteilt."
+    },
+    "confirm": {
+      "back": "Zurück",
+      "columnSource": "Quelle (GitHub Classroom)",
+      "columnTarget": "Ziel (Classroom 50)",
+      "fromLine": "Aufgaben werden aus <b>{{source}}</b> ({{org}}) in GitHub Classroom importiert.",
+      "fromLineNoName": "Aufgaben werden aus <b>{{source}}</b> in GitHub Classroom importiert.",
+      "importButton": "{{count}} Aufgabe(n) importieren",
+      "importing": "Import wird gestartet…",
+      "loading": "Kursraumdaten werden abgerufen…",
+      "modalCancel": "Abbrechen",
+      "modalConfirm": "Ja, importieren",
+      "modalConfirmQuestion": "Dies lässt sich nicht leicht rückgängig machen. Fortfahren?",
+      "modalReuseNote_one": "1 Aufgabe verwendet ein bestehendes Template-Repository erneut.",
+      "modalReuseNote_other": "{{count}} Aufgaben verwenden bestehende Template-Repositories erneut.",
+      "modalSkipNote_one": "1 Aufgabe wird übersprungen und nicht importiert.",
+      "modalSkipNote_other": "{{count}} Aufgaben werden übersprungen und nicht importiert.",
+      "modalSummary_one": "Dadurch wird die Klasse „{{shortName}}“ in {{org}} erstellt, ein GitHub-Team hinzugefügt und 1 Aufgaben-Repository kopiert.",
+      "modalSummary_other": "Dadurch wird die Klasse „{{shortName}}“ in {{org}} erstellt, GitHub-Teams hinzugefügt und {{count}} Aufgaben-Repositories kopiert.",
+      "modalTitle": "Dieser Schritt lässt sich schwer rückgängig machen",
+      "name": "Name der neuen Klasse",
+      "nameHelp": "Der Anzeigename für die in deiner Classroom-50-Organisation erstellte Klasse – wird dir und den Studierenden angezeigt. Er kann dem Namen des Quell-Kursraums entsprechen oder frei gewählt werden. Standardmäßig wird der Quellname verwendet.",
+      "noneSelected": "Keine Aufgaben ausgewählt – wähle mindestens eine zum Importieren aus oder gehe zurück.",
+      "preflightError": "Die Importvorschau konnte nicht erstellt werden.",
+      "shortName": "Neue Klassen-ID (Kurzname)",
+      "shortNameHelp": "Die URL-sichere Kennung für die Klasse in deiner Zielorganisation (z. B. cs50-fall). Sie wird zum Konfigurationsordner und zu den GitHub-Teamnamen und stellt das Präfix jedes Studierenden-Repositorys dar, daher kann sie später nicht mehr geändert werden. Wird automatisch aus dem Namen des Quell-Kursraums ausgefüllt; bearbeite sie, wenn du eine andere ID möchtest.",
+      "suffix": "Suffix für Template-Repository",
+      "suffixHelp": "Optionaler Text, der an jeden kopierten Template-Repository-Namen angehängt wird (z. B. wird aus hw1 dann hw1-f26). Verwende ihn nur, wenn ein Repository mit dem Namen der Aufgabe bereits in dieser Organisation existiert und der Import sonst kollidieren würde. In den meisten Fällen leer lassen.",
+      "suffixPlaceholder": "optional",
+      "term": "Zeitraum",
+      "termHelp": "Optionale Bezeichnung für den Zeitraum, in dem diese Klasse läuft (z. B. Fall-2026). Wird bei der Klasse angezeigt und in deren Einstellungen gespeichert; hat keine Auswirkung auf Repository- oder Teamnamen.",
+      "termPlaceholder": "z. B. Fall-2026",
+      "title": "Überprüfe, was importiert wird",
+      "updating": "Vorschau wird aktualisiert…"
+    },
+    "documentTitle": "Aus GitHub Classroom importieren",
+    "entryButton": "Aus GitHub Classroom importieren",
+    "error": {
+      "assignmentInaccessible": "Auf die Aufgabe {{id}} kann nicht zugegriffen werden – du musst deren GitHub Classroom verwalten.",
+      "classroomInaccessible": "Auf den Kursraum {{id}} kann mit deinem Konto nicht zugegriffen werden – du musst dafür GitHub-Classroom-Admin sein.",
+      "classroomNameEmpty": "Der Kursraumname ist leer – gib einen Kurznamen ausdrücklich ein.",
+      "githubSaid": "(GitHub: {{status}} {{message}})",
+      "multipleClassrooms": "Mehrere Kursräume in der Organisation „{{org}}“ gefunden – wähle einen anhand der ID aus: {{ids}}.",
+      "noClassroomInOrg": "Kein Kursraum in der Organisation „{{org}}“ gefunden – vergewissere dich, dass du dort einen verwaltest.",
+      "noClassroomInOrgHidden": "Kein Kursraum in der Organisation „{{org}}“ gefunden (archivierte Kursräume sind ausgeblendet) – vergewissere dich, dass du dort einen verwaltest.",
+      "noClassrooms": "Auf keine GitHub Classrooms kann mit deinem Konto zugegriffen werden – vergewissere dich, dass du einen verwaltest.",
+      "shortNameInvalid": "„{{shortName}}“ ist kein gültiger Kurzname – er muss {{description}}. Gib einen ausdrücklich ein.",
+      "shortNameInvalidFrom": "Aus „{{rawName}}“ konnte kein gültiger Kurzname abgeleitet werden (ergab „{{shortName}}“) – er muss {{description}}. Gib einen ausdrücklich ein.",
+      "shortNameNotCanonical": "Der Kurzname „{{shortName}}“ kann kein GitHub-Team stützen – entferne aufeinanderfolgende oder abschließende Bindestriche (GitHub würde den Team-Slug umschreiben und so Mitgliedschaft und Template-Berechtigungen zerstören).",
+      "sourceEmpty": "Gib eine numerische Kursraum-ID oder ein Organisations-Login ein, aus dem importiert werden soll.",
+      "targetRepoCollision": "Ein Repository namens „{{repo}}“ existiert bereits und ist kein Template – wähle ein anderes Template-Suffix und versuche es erneut. {{detail}}",
+      "templateSourceAccess": "Das Starter-Repository „{{fullName}}“ kann nicht gelesen werden – genehmige die Classroom-50-App für die Organisation „{{org}}“ und versuche es dann erneut. {{detail}}"
+    },
+    "execute": {
+      "error": "Der Import konnte nicht abgeschlossen werden.",
+      "summaryComplete": "Import abgeschlossen.",
+      "summaryCounts": "{{generated}} generiert, {{reused}} wiederverwendet, {{skipped}} übersprungen.",
+      "summaryPartial": "Import abgeschlossen, wobei einige Aufgaben übersprungen wurden.",
+      "viewClass": "Neue Klasse öffnen"
+    },
+    "gate": {
+      "body": "„{{org}}“ ist noch keine Classroom-50-Organisation. Führe die einmalige Einrichtung aus und komm dann zurück, um zu importieren.",
+      "checkError": "Der Einrichtungsstatus der Organisation konnte nicht geprüft werden.",
+      "checkOrgAccess": "App-Zugriff für diese Organisation prüfen",
+      "checking": "Organisation wird geprüft…",
+      "setupButton": "Zur Organisationseinrichtung",
+      "title": "Richte zuerst diese Organisation ein"
+    },
+    "item": {
+      "assignmentBadge": "Aufgabe",
+      "branchLabel": "Branch",
+      "deadlineLabel": "Frist",
+      "emptyRepo": "Leeres Repository (nur Autograde-Shim)",
+      "feedbackLabel": "Feedback-PR",
+      "groupSizeLabel": "Maximale Gruppengröße",
+      "no": "Deaktiviert",
+      "noSource": "Kein Quell-Repository",
+      "none": "Keine",
+      "private": "Privat",
+      "public": "Öffentlich",
+      "repoLabel": "Repository",
+      "sourcePanel": "Quelle (GitHub Classroom)",
+      "targetPanel": "Ziel (Classroom 50)",
+      "typeGroup": "Gruppe",
+      "typeIndividual": "Einzeln",
+      "typeLabel": "Typ",
+      "visibilityLabel": "Sichtbarkeit",
+      "willImport": "Importieren",
+      "willSkip": "Überspringen",
+      "yes": "Aktiviert"
+    },
+    "missingOrg": "Diese Seite benötigt eine Organisation in der URL.",
+    "reason": {
+      "badStarter": "Das Starter-Repository „{{fullName}}“ hat einen unerwarteten Namen.",
+      "copyFailed": "Das Template konnte nicht kopiert werden: {{message}}",
+      "deselected": "Nicht ausgewählt – wird nicht importiert.",
+      "invalidMode": "Nicht unterstützter Aufgabentyp „{{type}}“.",
+      "invalidSlug": "Der Aufgaben-Slug „{{slug}}“ ist kein gültiger Repository-Name.",
+      "sourceNotAccessible": "Auf das Starter-Repository „{{fullName}}“ kann mit deinem Konto nicht zugegriffen werden.",
+      "sourceNotTemplate": "Das Starter-Repository „{{fullName}}“ ist kein Template – aktiviere „Template repository“ darauf und versuche es erneut.",
+      "sourceOrgAccess": "Classroom 50 ist für die Organisation „{{org}}“ nicht berechtigt, daher kann deren Starter-Repository nicht kopiert werden.",
+      "targetCollision": "Ein Repository namens „{{name}}“ existiert bereits in {{org}} und ist kein Template. Lege ein Template-Suffix fest, um die Kollision zu vermeiden."
+    },
+    "select": {
+      "archivedTag": "archiviert",
+      "body": "Dies sind die GitHub Classrooms, die dein Konto verwalten kann.",
+      "empty": "Auf keine GitHub Classrooms kann mit deinem Konto zugegriffen werden. Vergewissere dich, dass du unter classroom.github.com einen verwaltest.",
+      "loadError": "Deine GitHub Classrooms konnten nicht geladen werden.",
+      "orgLine": "Organisation: {{org}}",
+      "retry": "Erneut versuchen",
+      "showArchived": "Archivierte Kursräume anzeigen",
+      "title": "Wähle einen GitHub Classroom zum Importieren"
+    },
+    "status": {
+      "generated": "Importiert",
+      "pending": "Ausstehend",
+      "reused": "Wiederverwendet",
+      "running": "Wird bearbeitet…",
+      "skipped": "Übersprungen",
+      "willImport": "Wird importiert",
+      "willReuse": "Wird wiederverwendet",
+      "willSkip": "Wird übersprungen"
+    },
+    "steps": {
+      "confirm": "Überprüfen",
+      "execute": "Importieren",
+      "select": "Kursraum wählen"
+    },
+    "subtitle": "Bringe einen bestehenden GitHub Classroom – seine Aufgaben und Starter-Repositories – als neue Klasse in diese Organisation. Du überprüfst und bestätigst alles, bevor etwas erstellt wird.",
+    "title": "Aus GitHub Classroom importieren"
+  },
+  "serviceTokenHealth": {
+    "chip": {
+      "checking": "Token wird geprüft…",
+      "expired": "Token abgelaufen",
+      "expiringSoon": "Token läuft bald ab",
+      "expiryUntracked": "Ablauf nicht erfasst",
+      "missing": "Kein Service-Token",
+      "rotateAria": "Service-Token für {{org}} prüfen",
+      "unknown": "Token-Status unbekannt"
+    },
+    "summary_one": "{{count}} Organisation benötigt eine Service-Token-Prüfung.",
+    "summary_other": "{{count}} Organisationen benötigen eine Service-Token-Prüfung."
   }
 }

@@ -22,7 +22,8 @@
       "range": "{{from}}–{{to}} z {{total}}",
       "show": "Pokaż",
       "showAria": "Wierszy na stronę"
-    }
+    },
+    "linkToSection": "Link do sekcji {{section}}"
   },
   "notFound": {
     "title": "Nie znaleziono strony",
@@ -568,7 +569,8 @@
       "hidden": "Ukryto {{org}} na stronie głównej.",
       "hide": "Ukryj na stronie głównej",
       "moreActions": "Więcej działań dla {{org}}",
-      "undoHide": "Cofnij"
+      "undoHide": "Cofnij",
+      "manageToken": "Zarządzaj tokenem"
     },
     "newOrg": {
       "allSetUp": "Wszystkie widoczne dla nas organizacje są już skonfigurowane.",
@@ -729,7 +731,9 @@
         "releaseAssetsInvalidBasename": "{{basename}} nie jest bezpieczną nazwą pliku wydania lub jest zastrzeżona.",
         "releaseAssetsInvalidPath": "{{path}} nie jest dokładną ścieżką pliku względem obszaru roboczego.",
         "releaseAssetsTooLarge": "Ścieżki plików wydania rozwiązania mogą łącznie liczyć maksymalnie {{max}} bajtów UTF-8 (8 KiB); obecnie {{bytes}}.",
-        "releaseAssetsTooMany": "Wybierz maksymalnie {{max}} plików wydania rozwiązania (obecnie {{count}})."
+        "releaseAssetsTooMany": "Wybierz maksymalnie {{max}} plików wydania rozwiązania (obecnie {{count}}).",
+        "setupTimeoutRange": "Limit czasu konfiguracji musi wynosić 0 lub być liczbą całkowitą sekund od 1 do {{max}}.",
+        "studentPermissionInvalid": "Dostęp ucznia do repozytorium musi być jednym z: pull, triage, push, maintain lub admin."
       },
       "allowedFilesTip": "Uporządkowane wzorce w stylu {{gitignore}}, jeden w wierszu, określające, które pliki należą do zgłoszenia (decyduje ostatnie dopasowanie, {{bang}} ponownie dołącza). Np. {{star}}, a następnie {{example}} zezwala tylko na {{result}}. Puste pole zezwala na każdy plik.",
       "containerUserTip": "Użytkownik, jako który uruchamiany jest kontener. Ustaw root, jeśli checkout kończy się błędem uprawnień. GitHub Actions uruchamia kroki kontenera jako użytkownik hosta runnera, więc obraz non-root często nie może zapisywać w obszarze roboczym.",
@@ -754,7 +758,7 @@
         "versionTip": "Wersja {{language}} do zainstalowania (przez akcję setup-{{language}}). Pozostaw puste, aby ją pominąć. Możesz wpisać dowolną wersję, którą akceptuje akcja setup.",
         "selfHostedDisabled": "Ignorowane na runnerze self-hosted — używa on własnych, wcześniej przygotowanych narzędzi i pakietów. Zamiast tego udostępnij je w obrazie runnera."
       },
-      "setupCommandTip": "Polecenie uruchamiane raz przed oceną, na przykład w celu kompilacji. Jest dodawane jako wiodący krok autooceny o wartości 0 punktów o nazwie „setup”. Niezerowy kod wyjścia oznacza niepowodzenie uruchomienia.",
+      "setupCommandTip": "Uruchamiane raz przed pozostałymi testami, na przykład aby skompilować lub zainstalować zależności. Niezerowy kod wyjścia lub przekroczenie limitu czasu ustawia status autooceny na „niepowodzenie” bez zmiany wyniku liczbowego; kolejne testy nadal się wykonują.",
       "detailsSection": "Szczegóły",
       "dueDateTz": "Godziny są podawane w Twojej lokalnej strefie czasowej ({{tz}}).",
       "optional": "opcjonalne",
@@ -771,7 +775,53 @@
       "releaseAssetCount_other": "{{count}} plików wydania",
       "releaseAssets": "Pliki wydania rozwiązania",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
-      "releaseAssetsTip": "Jedna dokładna ścieżka pliku względem obszaru roboczego w każdym wierszu; ścieżki są dokładne, nie są wzorcami glob, i mogą łącznie liczyć maksymalnie 8 KiB tekstu UTF-8. Pliki są zbierane po ocenieniu i dołączane zarówno przy ocenach zaliczonych, jak i niezaliczonych; brakujące pliki są pomijane. Nazwy plików wydania mogą zawierać tylko litery ASCII, cyfry, kropki, podkreślenia i myślniki oraz nie mogą zaczynać się ani kończyć kropką, ani zawierać kolejnych kropek."
+      "releaseAssetsTip": "Jedna dokładna ścieżka pliku względem obszaru roboczego w każdym wierszu; ścieżki są dokładne, nie są wzorcami glob, i mogą łącznie liczyć maksymalnie 8 KiB tekstu UTF-8. Pliki są zbierane po ocenieniu i dołączane zarówno przy ocenach zaliczonych, jak i niezaliczonych; brakujące pliki są pomijane. Nazwy plików wydania mogą zawierać tylko litery ASCII, cyfry, kropki, podkreślenia i myślniki oraz nie mogą zaczynać się ani kończyć kropką, ani zawierać kolejnych kropek.",
+      "availableFrom": "Data udostępnienia ({{tz}})",
+      "availableFromTz": "Godziny podano w Twojej lokalnej strefie czasowej ({{tz}}).",
+      "repoFeatures": {
+        "choices": {
+          "inherit": "Dziedzicz z szablonu",
+          "inheritLoading": "Dziedzicz z szablonu (sprawdzanie…)",
+          "inheritOff": "Dziedzicz z szablonu (obecnie wyłączone)",
+          "inheritOn": "Dziedzicz z szablonu (obecnie włączone)",
+          "off": "Wyłączone",
+          "on": "Włączone"
+        },
+        "heading": "Funkcje repozytorium",
+        "help": "Określa, czy każde repozytorium ucznia ma włączone Wiki, Zgłoszenia, Projekty i Pull requesty. Stosowane, gdy uczeń akceptuje zadanie (tylko nowe repozytoria); aby zmienić już utworzone repozytoria, użyj dziennika ocen. Dziedziczenie z prywatnego szablonu kopiuje też jego zawartość Wiki/Zgłoszeń/Projektów, więc trzymaj klucze odpowiedzi z dala od szablonu, z którego dziedziczysz.",
+        "issues": {
+          "label": "Zgłoszenia"
+        },
+        "overrideWarning": "Dotyczy repozytoriów tworzonych od teraz; te, które uczniowie już zaakceptowali, nie są zmieniane. „Dziedzicz” podąża za szablonem w chwili akceptacji (istniejące repozytoria nie zmieniają się, gdy szablon zostanie później zmodyfikowany). Aby zaktualizować istniejące repozytoria, użyj zbiorczej akcji funkcji repozytorium na stronie przesłanych rozwiązań.",
+        "projects": {
+          "label": "Projekty"
+        },
+        "pull_requests": {
+          "label": "Pull requesty"
+        },
+        "refresh": "Odśwież ustawienia szablonu",
+        "wiki": {
+          "label": "Wiki"
+        }
+      },
+      "setAvailableFrom": "Ustaw datę udostępnienia",
+      "setAvailableFromTip": "Zadania są domyślnie ukryte na stronie zadań ucznia — uczniowie mogą je zaakceptować tylko za pomocą linku z zaproszeniem. Ustaw datę udostępnienia, aby po jej nadejściu zadanie pojawiło się na liście dla wszystkich. Uczniowie, którzy już je zaakceptowali, zawsze je widzą. Steruje to tylko wyświetlaniem na liście, a nie dostępem.",
+      "setupTimeout": "Limit czasu konfiguracji (sekundy)",
+      "setupTimeoutTip": "Nowe polecenia konfiguracji zaczynają od {{default}} sekund. Ustaw 0, aby użyć domyślnych 10 sekund runnera, lub wybierz liczbę całkowitą od 1 do {{max}}.",
+      "studentPermission": {
+        "default": "Domyślnie ({{level}})",
+        "groupHelp": "Członkowie grupy dołączają z co najmniej poziomem administratora, aby właściciel grupy mógł dodawać kolegów z zespołu. Dotyczy repozytoriów tworzonych od teraz; aby zmienić istniejące, użyj dziennika ocen.",
+        "help": "Rola przyznawana każdemu uczniowi w jego własnym repozytorium zadania w chwili akceptacji. Domyślnie to Zapis (push). Wybierz Administrator, aby uczniowie mogli zarządzać ustawieniami repozytorium i włączyć GitHub Pages. Dotyczy uczniów, którzy akceptują od teraz; aby zmienić już utworzone repozytoria, użyj dziennika ocen.",
+        "label": "Dostęp ucznia do repozytorium",
+        "learnMore": "Dowiedz się więcej",
+        "levels": {
+          "admin": "Administrator",
+          "maintain": "Utrzymywanie",
+          "pull": "Odczyt (pull)",
+          "push": "Zapis (push)",
+          "triage": "Segregacja"
+        }
+      }
     },
     "autograder": {
       "heading": "Testy autooceny",
@@ -841,7 +891,26 @@
       "deleteCancel": "Zachowaj zadanie",
       "reuseTitle": "Użyj ponownie w innej klasie",
       "reuseAria": "Użyj zadania ponownie w innej klasie",
-      "deleteDescription": "Spowoduje to usunięcie zadania <assignment>{{assignment}}</assignment> z klasy <classroom>{{classroom}}</classroom>. Repozytoria zadań uczniów nie zostaną usunięte."
+      "deleteDescription": "Spowoduje to usunięcie zadania <assignment>{{assignment}}</assignment> z klasy <classroom>{{classroom}}</classroom>. Repozytoria zadań uczniów nie zostaną usunięte.",
+      "colReleaseDate": "Data udostępnienia",
+      "linkOnlyTitle": "Ukryte na liście uczniów do czasu nadejścia daty udostępnienia; do tego czasu mogą je zaakceptować tylko za pomocą linku z zaproszeniem. Uczniowie, którzy już je zaakceptowali, nadal je widzą.",
+      "lockAria": "Zablokuj {{name}}",
+      "lockCancel": "Anuluj",
+      "lockConfirm": "Zablokuj zadanie",
+      "lockDescription": "Zamyka to zadanie <assignment>{{assignment}}</assignment> dla każdego ucznia — w tym tych, którzy już je zaakceptowali — na stronie akceptacji, liście zadań, w widoku przesłanych rozwiązań oraz w CLI. Jeśli korzysta z prywatnego szablonu, odczyt zespołu uczniów do tego szablonu również zostaje usunięty (dostęp personelu nie zmienia się). Istniejące repozytoria uczniów nie są usuwane.",
+      "lockSuccess": "Zablokowano {{name}}.",
+      "lockTitle": "Zablokuj zadanie",
+      "lockTitleModal": "Zablokować zadanie?",
+      "lockedBadge": "Zablokowane",
+      "lockedBadgeTitle": "Zablokowane: uczniowie nie mają dostępu do tego zadania ani nie mogą go zaakceptować. W przypadku prywatnego szablonu dostęp do odczytu zespołu uczniów jest usuwany na czas blokady.",
+      "releaseNotSet": "Nie ustawiono · tylko przez link",
+      "scheduled": "Udostępnienie {{date}}",
+      "unlockAria": "Odblokuj {{name}}",
+      "unlockConfirm": "Odblokuj zadanie",
+      "unlockDescription": "Ponownie otwiera zadanie <assignment>{{assignment}}</assignment> dla uczniów. Jeśli korzysta z prywatnego szablonu, przywracany jest odczyt zespołu uczniów do tego szablonu, aby uczniowie mogli ponownie je zaakceptować.",
+      "unlockSuccess": "Odblokowano {{name}}.",
+      "unlockTitle": "Odblokuj zadanie",
+      "unlockTitleModal": "Odblokować zadanie?"
     },
     "template": {
       "label": "Repozytorium szablonu",
@@ -851,7 +920,7 @@
       "fallbackOrg": "Twoja organizacja",
       "notVisible": "{{owner}}/{{repo}} nie jest dla Ciebie widoczne. Ustaw je jako publiczne lub skopiuj do {{org}}.",
       "notTemplate": "{{owner}}/{{repo}} nie jest repozytorium szablonu. Włącz to w Ustawieniach repozytorium.",
-      "restricted": "{{owner}} zablokował dostęp do {{repo}} (HTTP 403). Często wynika to z ograniczenia aplikacji zewnętrznych — właściciel może potrzebować zatwierdzić Classroom 50 dla organizacji lub autoryzować Twoje uprawnienie OAuth dla {{owner}} (Ustawienia organizacji → Dostęp zewnętrzny). Może to być też inna przyczyna błędu 403; zobacz komunikat GitHub poniżej.",
+      "restricted": "{{owner}} zablokował dostęp do {{repo}} (HTTP 403) — prawdopodobnie ograniczenie aplikacji zewnętrznej. Spróbuj kolejno:",
       "unknown": "Nie udało się teraz zweryfikować {{owner}}/{{repo}}. Zostanie sprawdzone ponownie, gdy uczniowie zaakceptują zadanie.",
       "privateOutOfOrg": "{{owner}}/{{repo}} jest prywatne i poza {{org}}. Ustaw je jako publiczne lub skopiuj do {{org}}.",
       "rateLimited": "Osiągnięto limit zapytań GitHuba. Spróbuj ponownie za chwilę.",
@@ -890,11 +959,17 @@
       "okPublic": "Publiczny szablon w {{owner}}, gałąź <branch>{{branch}}</branch>. Uczniowie mają do niego dostęp.",
       "okPublicInOrg": "Publiczny szablon, gałąź <branch>{{branch}}</branch>. Uczniowie mają do niego dostęp.",
       "okVerify": "Dostępny w {{owner}} (gałąź <branch>{{branch}}</branch>). Jeśli {{owner}} ogranicza aplikacje zewnętrzne, uczniowie nie skopiują go, dopóki właściciel nie zatwierdzi Classroom 50.",
-      "privateForkCrossOrg": "{{owner}}/{{repo}} to prywatny fork {{parent}} w innej organizacji (gałąź <branch>{{branch}}</branch>). Prywatne forki między organizacjami są zawodne jako szablony — kopiowanie zawodzi, gdy prywatny upstream jest niedostępny dla Classroom 50. Zamiast tego użyj świeżego (nie będącego forkiem) repozytorium szablonu: utwórz nowe repozytorium i skopiuj do niego zawartość forka.",
+      "privateForkCrossOrg": "{{owner}}/{{repo}} to prywatny fork {{parent}} (gałąź <branch>{{branch}}</branch>). <important>Ważne: {{parentOrg}} musi utrzymać zatwierdzenie aplikacji Classroom 50 — jeśli to zatwierdzenie kiedykolwiek zostanie cofnięte, uczniowie nie zdołają zaakceptować zadania (HTTP 403).</important> Aby uniknąć zależności od {{parentOrg}}, użyj świeżego (niebędącego forkiem) repozytorium: utwórz nowe repozytorium i skopiuj do niego zawartość forka.",
       "privateForkInOrg": "{{owner}}/{{repo}} to prywatny fork {{parent}} (gałąź <branch>{{branch}}</branch>). Upstream znajduje się w tej organizacji, więc kopiowanie powinno działać — ale świeże (nie będące forkiem) repozytorium szablonu jest bardziej przewidywalne, jeśli przyjęcie się nie powiedzie.",
-      "privateForkNoParent": "{{owner}}/{{repo}} to prywatny fork (gałąź <branch>{{branch}}</branch>). Prywatne forki między organizacjami są zawodne jako szablony — kopiowanie zawodzi, gdy prywatny upstream jest niedostępny dla Classroom 50. Zamiast tego użyj świeżego (nie będącego forkiem) repozytorium szablonu: utwórz nowe repozytorium i skopiuj do niego zawartość forka.",
+      "privateForkNoParent": "{{owner}}/{{repo}} to prywatny fork (gałąź <branch>{{branch}}</branch>). <important>Ważne: organizacja źródłowa forka musi utrzymać zatwierdzenie aplikacji Classroom 50 — jeśli to zatwierdzenie kiedykolwiek zostanie cofnięte, uczniowie nie zdołają zaakceptować zadania (HTTP 403).</important> Aby uniknąć zależności od organizacji źródłowej, użyj świeżego (niebędącego forkiem) repozytorium: utwórz nowe repozytorium i skopiuj do niego zawartość forka.",
       "privateHasAccess": "Prywatny szablon w {{owner}} (gałąź <branch>{{branch}}</branch>). Zespół klasy ma już dostęp do odczytu — uczniowie mogą go skopiować.",
-      "privateWillGrant": "Prywatny szablon w {{owner}} (gałąź <branch>{{branch}}</branch>). Zespół klasy nie ma jeszcze dostępu; zostanie on dodany automatycznie przy tworzeniu zadania, aby uczniowie mogli go skopiować."
+      "privateWillGrant": "Prywatny szablon w {{owner}} (gałąź <branch>{{branch}}</branch>). Zespół klasy nie ma jeszcze dostępu; zostanie on dodany automatycznie przy tworzeniu zadania, aby uczniowie mogli go skopiować.",
+      "recheckAccess": "Sprawdź dostęp ponownie",
+      "recheckingAccess": "Ponowne sprawdzanie…",
+      "restrictedItemApprove": "Zatwierdź aplikację Classroom 50 dla {{owner}} (Ustawienia organizacji → Dostęp aplikacji zewnętrznych).",
+      "restrictedItemFork": "Jeśli {{repo}} jest forkiem, zatwierdź Classroom 50 również w organizacji źródłowej forka — dostęp do prywatnego forka podlega polityce organizacji źródłowej.",
+      "restrictedItemOther": "W przeciwnym razie może to być inny błąd 403; zobacz komunikat GitHub poniżej.",
+      "viewTemplateRepo": "Otwórz {{owner}}/{{repo}} na GitHub"
     },
     "toolbar": {
       "clear": "Wyczyść",
@@ -965,7 +1040,9 @@
           "listLabel": "Widok listy"
         }
       },
-      "viewSubmission": "Zobacz moją pracę"
+      "viewSubmission": "Zobacz moją pracę",
+      "linkOnlyBody": "Zadania w tej klasie otwiera się za pomocą linku z zaproszeniem udostępnionego przez nauczyciela. Otwórz ten link, aby zaakceptować zadanie; pojawi się ono wtedy tutaj obok tych, które nauczyciel udostępnił wszystkim.",
+      "linkOnlyTitle": "Otwórz link z zaproszeniem, aby zacząć"
     },
     "archivedNotice": "Ta klasa jest zarchiwizowana — tworzenie nowych zadań i przyjmowanie ich przez uczniów jest wyłączone. Przywróć ją z archiwum w <settingsLink>Ustawieniach klasy</settingsLink>, aby wprowadzać zmiany.",
     "studentViewAll": "Zobacz wszystkie zadania klasy <classroom>{{classroom}}</classroom>."
@@ -1093,37 +1170,38 @@
     },
     "serviceToken": {
       "title": "Token serwisowy",
-      "infoAria": "Czym jest token serwisowy?",
-      "statusPresent": "Token serwisowy jest już ustawiony",
-      "statusMissing": "Nie ustawiono jeszcze tokenu serwisowego",
-      "statusUnknown": "Nie udało się sprawdzić tokenu serwisowego",
-      "replaceNote": "Zapisanie poniżej zastąpi istniejący token (aktualizacja). Stary token zostanie nadpisany w miejscu.",
-      "hideConfig": "Ukryj konfigurację tokenu",
-      "updateOrReplace": "Zaktualizuj lub zastąp token",
+      "statusPresent": "Token ustawiony",
+      "statusMissing": "Nie ustawiono tokena usługowego",
       "expiryLabel": "Wygaśnięcie tokenu",
       "days": "dni",
       "expiresOn": "Wygasa {{date}}",
-      "enterRange": "Podaj {{min}}–{{max}} dni",
-      "validRange": "Poprawny zakres to {{min}}–{{max}} dni (maksimum GitHuba).",
-      "patDescription": "Token serwisowy do zbierania wyników i ponownego oceniania w Classroom 50. Contents: odczyt i zapis + Actions: odczyt i zapis + Administration: odczyt i zapis + Members: odczyt w organizacji {{org}}",
-      "generateOnGitHub": "Wygeneruj token na GitHubie",
-      "beforeGenerating": "Na stronie GitHuba, przed wygenerowaniem tokenu:",
-      "rotateNote": "Token wygasa po okresie ustawionym powyżej. Po wygaśnięciu przepływy zbierania wyników i ponownej oceny będą kończyć się niepowodzeniem, dopóki nie wygenerujesz nowego tokenu i nie zapiszesz go tutaj ponownie — ustaw więc przypomnienie o jego rotacji przed tym terminem.",
-      "pasteBelow": "Po wygenerowaniu tokenu na GitHubie skopiuj go i wklej poniżej.",
-      "enterNewLabel": "Podaj nowy token serwisowy",
-      "enterLabel": "Podaj token serwisowy",
-      "placeholder": "Podaj token (np. github_pat_123...)",
+      "patDescription": "Token usługowy do zbierania wyników i ponownego oceniania Classroom 50 w organizacji {{org}}",
+      "generateOnGitHub": "Wygeneruj nowy token dostępu",
+      "placeholder": "github_pat_…",
       "saveError": "Nie udało się zweryfikować ani zapisać tokenu.",
-      "savedUpdated": "Token serwisowy sprawdzony i zaktualizowany.",
-      "savedNew": "Token serwisowy sprawdzony i zapisany.",
       "validating": "Weryfikowanie…",
-      "updateButton": "Zaktualizuj token serwisowy",
-      "saveButton": "Zapisz token serwisowy",
-      "generateHint": "Otwiera formularz tokenu GitHub z wstępnie wypełnioną nazwą, właścicielem zasobu, datą wygaśnięcia oraz uprawnieniami <permissions>Contents: Read and write + Actions: Read and write + Administration: Read and write + Members: Read</permissions>.",
-      "info": "Classroom 50 potrzebuje tokenu serwisowego, precyzyjnego osobistego tokenu dostępu (PAT) z uprawnieniami do odczytu i zapisu w repozytoriach organizacji GitHub Twojej klasy. Jest on przechowywany jako sekret <secret>CLASSROOM50_SERVICE_TOKEN</secret> w repozytorium konfiguracji <repo>classroom50</repo>, gdzie workflow zbierania wyników używa go do odczytu przesłanych rozwiązań uczniów, a workflow ponownego oceniania — do ponownego uruchamiania workflowów autogradingu uczniów.",
-      "permissions": "W sekcji <field>Permissions</field> potwierdź <perm>Contents: Read and write</perm>, <perm>Actions: Read and write</perm>, <perm>Administration: Read and write</perm> oraz <perm>Members: Read</perm> (Metadata: Read jest dołączane automatycznie.) <note>Members: Read to uprawnienie organizacji — osobna sekcja pojawiająca się, gdy właścicielem zasobu jest organizacja.</note> <note>Read zbiera wyniki; write pozwala workflowowi ponownego oceniania ponownie uruchamiać workflowy autogradingu uczniów; Members: Read pozwala zbieraniu wylistować zespół klasy.</note>",
-      "repoAccess": "Ustaw <field>Repository access</field> na <value>All repositories</value>. <note>„Only select repositories” pominie repozytoria uczniów utworzone później i zepsuje zbieranie wyników.</note>",
-      "validateHint": "Sprawdzimy poprawność tokenu przed zapisaniem. Upewnij się, że przy jego tworzeniu wybrano <value>All repositories</value>."
+      "saveButton": "Zapisz token",
+      "cancelRename": "Anuluj",
+      "checking": "Sprawdzanie…",
+      "expiryRange": "Podaj {{min}}–{{max}} dni",
+      "expiryUntrackedHint": "Data wygaśnięcia tego tokena nie jest śledzona. Ustaw nowy token, aby Classroom 50 mógł ostrzec Cię przed jego wygaśnięciem.",
+      "generateHelp": "Otwiera formularz tokena GitHub z wstępnie wypełnioną nazwą, terminem wygaśnięcia i wymaganymi zakresami. Ustaw dostęp do repozytoriów na All repositories.",
+      "help": "Precyzyjny token GitHub, który pozwala Classroom 50 zbierać wyniki i ponownie oceniać w repozytoriach uczniów. Przechowywany jako sekret w Twoim repozytorium konfiguracji classroom50.",
+      "learnMore": "Dowiedz się więcej o tokenach usługowych",
+      "nameHelp": "Nazwa powinna odpowiadać temu, jak ten token pojawia się na Twojej liście osobistych tokenów dostępu GitHub. Classroom 50 używa jej wyłącznie jako etykiety; zmiana nazwy tutaj nie zmienia nazwy tokena na GitHub.",
+      "nameRowLabel": "Nazwa:",
+      "pasteHelp": "Wklej token wygenerowany na GitHub. Classroom 50 zweryfikuje go przed zapisaniem.",
+      "pasteLabel": "Wklej token",
+      "rename": "Zmień nazwę tokena",
+      "rotateButton": "Ustaw nowy token",
+      "saveName": "Zapisz nazwę",
+      "saved": "Token usługowy zapisany.",
+      "savedNoMetadata": "Token usługowy zapisany, ale nie udało się zapisać jego terminu wygaśnięcia i nazwy — wskaźnik stanu może pokazywać „nie śledzono wygaśnięcia”, dopóki nie zapiszesz ponownie.",
+      "setButton": "Ustaw token",
+      "setModalSubtitle": "Wygeneruj precyzyjny token na GitHub, a następnie wklej go tutaj, aby go zapisać.",
+      "setModalTitle": "Ustaw token usługowy",
+      "step1Label": "Wygeneruj token na GitHub",
+      "step2Label": "Token dostępu GitHub"
     },
     "audit": {
       "title": "Zasady organizacji",
@@ -1305,20 +1383,20 @@
       "budgetHardStop": "Ustawiono twardy limit budżetu 0 USD — płatne minuty zablokowane.",
       "budgetManage": "Zarządzaj budżetami",
       "budgetNone": "Nie ustawiono budżetu wydatków.",
-      "confirmBody": "Zgłoszenia uczniów nie będą oceniane, dopóki nie wznowisz oceniania. Nowe pull requesty z opinią nadal otwierają się, gdy uczniowie akceptują zadania, a istniejące nadal pokazują najnowsze zmiany — ale w trakcie wstrzymania zgłoszenia nie otrzymują statusów autograde ani feedback-pr. Repozytorium konfiguracyjne classroom50 działa dalej. Odwracalne w dowolnym momencie.",
+      "confirmBody": "Zatrzymuje to wszystkie przepływy pracy w repozytoriach uczniów, nie tylko autoocenę, więc każde CI uruchamiane przez uczniów również się zatrzymuje. Przesłane rozwiązania nie są oceniane i nie otrzymują kontroli autooceny ani feedback-pr, dopóki nie wznowisz. Pull requesty z opinią nadal otwierają się, gdy uczniowie akceptują zadanie, i nadal pokazują nowe pushe.",
       "confirmButton": "Wstrzymaj autograding",
       "confirmTitle": "Wstrzymać autograding dla całej organizacji?",
       "description": "Wstrzymaj autograding w całej organizacji, aby zatrzymać wydatki na Actions. Zarządzanie kursem działa dalej.",
       "disabledNotice": "Actions są wyłączone dla całej organizacji, więc nic się nie uruchamia. Uruchom ponownie konfigurację organizacji lub włącz Actions w serwisie GitHub.",
       "loading": "Sprawdzanie stanu…",
       "openSettings": "Otwórz ustawienia Actions",
-      "pausedNotice": "Wstrzymane — zmiany wysyłane przez uczniów nie są oceniane, więc zgłoszenia nie otrzymują statusów autograde ani feedback-pr. Nowe pull requesty z opinią nadal otwierają się, gdy uczniowie akceptują zadania, a istniejące nadal pokazują najnowsze zmiany. Ponowne uruchomienie konfiguracji organizacji nie wznowi oceniania, dopóki tego nie wyłączysz.",
+      "pausedNotice": "Wszystkie przepływy pracy w repozytoriach uczniów są zatrzymane, nie tylko autoocena, więc każde CI uruchamiane przez uczniów również jest zatrzymane. Przesłane rozwiązania nie są oceniane i nie otrzymują kontroli autooceny ani feedback-pr. Pull requesty z opinią nadal otwierają się, gdy uczniowie akceptują zadanie, i nadal pokazują nowe pushe. Ponowne uruchomienie konfiguracji organizacji nie wznowi oceniania, dopóki tego nie wyłączysz.",
       "statusActive": "Autograding włączony",
       "statusDisabled": "Actions wyłączone",
       "statusPaused": "Autograding wstrzymany",
       "title": "GitHub Actions",
       "toggleFailed": "Nie udało się zaktualizować uprawnień Actions: {{message}}",
-      "toggleHint": "Włączenie tego zatrzymuje ocenianie pushów uczniów (brak minut Actions). Repozytorium konfiguracji classroom50 działa dalej. Wyłącz, aby wznowić.",
+      "toggleHint": "Wstrzymanie zatrzymuje wszystkie przepływy pracy w repozytoriach uczniów, nie tylko autoocenę. Każde CI uruchamiane przez uczniów również się zatrzymuje i nie zużywają się minuty Actions. Wyłącz, aby wznowić.",
       "toggleLabel": "Wstrzymaj autograding dla wszystkich repozytoriów uczniów",
       "unknownNotice": "Nie udało się odczytać uprawnień Actions tej organizacji — możesz nie mieć uprawnień właściciela lub kontroluje je polityka enterprise.",
       "usageCost": "{{amount}} USD naliczone w tym miesiącu.",
@@ -1525,7 +1603,10 @@
     "archiveBody": "Zarchiwizuj klasę <classroom>{{classroom}}</classroom>: zniknie z domyślnej listy klas i przestanie przyjmować nowe zadania oraz uczniów. Jej lista uczniów i zadania zostaną zachowane, a później możesz ją przywrócić z archiwum.",
     "deleteClassroomBody": "Spowoduje to usunięcie klasy <classroom>{{classroom}}</classroom> z organizacji <org>{{org}}</org>. Repozytoria zadań uczniów nie zostaną usunięte.",
     "settingsSubtitle": "Konfiguracja klasy <classroom>{{classroom}}</classroom>.",
-    "unarchiveBody": "Przywróć klasę <classroom>{{classroom}}</classroom> do aktywności: wróci na domyślną listę klas i będzie mogła ponownie przyjmować nowe zadania oraz uczniów."
+    "unarchiveBody": "Przywróć klasę <classroom>{{classroom}}</classroom> do aktywności: wróci na domyślną listę klas i będzie mogła ponownie przyjmować nowe zadania oraz uczniów.",
+    "newButton": {
+      "moreOptions": "Więcej opcji"
+    }
   },
   "accept": {
     "githubUser": "Użytkownik GitHub",
@@ -1560,7 +1641,7 @@
       "assignment": "Wyszukiwanie zadania",
       "autograder": "Rozpoznawanie autogradera",
       "repo": "Tworzenie Twojego repozytorium",
-      "access": "Przyznawanie Ci dostępu",
+      "access": "Ustawianie dostępu do Twojego repozytorium",
       "setup": "Konfigurowanie autooceniania",
       "membership": "Potwierdzanie Twojej przynależności do klasy",
       "feedback": "Otwieranie pull requesta z opinią"
@@ -1585,15 +1666,16 @@
       "inOrg": "Nie udało się skopiować prywatnego szablonu {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Poproś nauczyciela o ponowne uruchomienie konfiguracji zadania, a następnie zaakceptuj ponownie.",
       "outOfOrg": "Nie udało się skopiować szablonu {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Zwykle dzieje się tak dlatego, że organizacja {{owner}} ogranicza aplikacje innych firm — poproś nauczyciela o zatwierdzenie aplikacji Classroom 50 dla {{owner}} (lub o upublicznienie szablonu), a następnie zaakceptuj ponownie.",
       "orgRepoCreationDenied": "Organizacja {{org}} może nie zezwalać członkom na tworzenie prywatnych repozytoriów, więc nie udało się utworzyć Twojego repozytorium (HTTP {{status}}). Poproś nauczyciela o włączenie tej opcji, a następnie zaakceptuj zadanie ponownie.",
-      "orgRepoCreationDeniedStep": "Organizacja {{org}} nie pozwoliła na utworzenie Twojego repozytorium (HTTP {{status}})."
+      "orgRepoCreationDeniedStep": "Organizacja {{org}} nie pozwoliła na utworzenie Twojego repozytorium (HTTP {{status}}).",
+      "forkParentRestricted": "Nie udało się skopiować szablonu {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Ten szablon jest forkiem repozytorium w organizacji {{parentOwner}}, a kopiowanie forka podlega ograniczeniom aplikacji zewnętrznych tej organizacji. Poproś nauczyciela o zatwierdzenie aplikacji Classroom 50 dla {{parentOwner}} lub o użycie świeżego (niebędącego forkiem) repozytorium szablonu, a następnie zaakceptuj ponownie.",
+      "forkParentRestrictedStep": "{{parentOwner}} nie zatwierdził aplikacji Classroom 50 dla źródłowego repozytorium forka (HTTP {{status}})."
     },
     "errors": {
       "emptyRepoWithTemplate": "Zadanie „{{assignmentSlug}}” ustawia jednocześnie puste repozytorium i szablon, co jest nieprawidłowe. Poproś nauczyciela o ponowne uruchomienie konfiguracji zadania.",
-      "founderAccessMismatch": "Twoje repozytorium {{owner}}/{{repo}} zostało utworzone, ale GitHub zgłasza Twój poziom dostępu jako „{{effective}}” (rola „{{role}}”) zamiast „{{permission}}”. Poproś nauczyciela o ustawienie dostępu {{username}} na „{{permission}}”.",
       "incoherentMode": "Zadanie „{{slug}}” ma rozmiar grupy {{maxGroupSize}}, ale jest skonfigurowane jako „{{mode}}”, więc jego opublikowane ustawienia są niespójne. Poproś nauczyciela o ponowne uruchomienie konfiguracji zadania."
     },
     "stepActions": {
-      "access": "Twoje repozytorium {{org}}/{{repo}} zostało utworzone, ale dodanie Ciebie ({{username}}) jako współpracownika nie powiodło się. Zwykle oznacza to, że Twoja nazwa użytkownika GitHub uległa zmianie lub opuścił(a)eś organizację {{org}}. Upewnij się, że jesteś członkiem {{org}}, a następnie użyj opcji „Uruchom ponownie konfigurację”.",
+      "access": "Twoje repozytorium {{org}}/{{repo}} zostało utworzone, ale ustawienie Twojego dostępu ({{username}}) nie powiodło się. Zwykle oznacza to, że zmieniła się Twoja nazwa użytkownika GitHub lub opuściłeś organizację {{org}}. Potwierdź, że jesteś członkiem organizacji {{org}}, a następnie użyj opcji „Uruchom konfigurację ponownie”.",
       "account": "Nie udało się odczytać Twojego konta GitHub. Wyloguj się i zaloguj ponownie, a następnie zaakceptuj zadanie jeszcze raz.",
       "assignment": "Nie udało się wczytać zadania „{{assignmentSlug}}” dla {{org}}/{{classroom}}. Sprawdź link lub poproś nauczyciela o potwierdzenie, że zadanie zostało opublikowane.",
       "autograder": "Nie udało się ustalić autogradera dla „{{assignmentSlug}}”. Poproś nauczyciela o potwierdzenie, że został opublikowany, a następnie zaakceptuj zadanie ponownie.",
@@ -1602,7 +1684,7 @@
       "setup": "Twoje repozytorium {{org}}/{{repo}} istnieje, ale zapisanie plików konfiguracyjnych do gałęzi „{{branch}}” nie powiodło się. Może być ono nadal inicjowane. Odczekaj chwilę, a następnie użyj opcji „Uruchom ponownie konfigurację”."
     },
     "stepDone": {
-      "access": "Przyznano Ci dostęp do repozytorium",
+      "access": "Ustawiono dostęp do Twojego repozytorium",
       "account": "Sprawdzono Twoje konto GitHub",
       "assignment": "Znaleziono zadanie {{assignmentSlug}}",
       "autograder": "Ustalono autograder",
@@ -1622,6 +1704,17 @@
       "rateLimited": "{{label}} osiągnęło limit szybkości GitHub. Odczekaj chwilę, a następnie spróbuj zaakceptować zadanie ponownie.",
       "unauthorized": "{{label}} nie powiodło się, ponieważ Twoja sesja GitHub wygasła (HTTP 401). Wyloguj się i zaloguj ponownie, a następnie zaakceptuj zadanie ponownie.",
       "unexpected": "{{label}} nieoczekiwanie nie powiodło się. Można to bezpiecznie ponowić."
+    },
+    "locked": {
+      "badge": "Zablokowane",
+      "body": "Nauczyciel zablokował zadanie <assignment>{{assignment}}</assignment>, więc nie można go teraz zaakceptować. Sprawdź później lub poproś nauczyciela o odblokowanie.",
+      "title": "To zadanie jest zablokowane"
+    },
+    "notEnrolled": {
+      "badge": "Niedostępne",
+      "body": "Jeśli uważasz, że to pomyłka, zapytaj nauczyciela.",
+      "error": "To zadanie nie jest dla Ciebie dostępne. Jeśli uważasz, że to pomyłka, zapytaj nauczyciela.",
+      "title": "To zadanie nie jest dla Ciebie dostępne"
     }
   },
   "submissions": {
@@ -1753,7 +1846,6 @@
       "lateHistoryTitle": "Wypchnięto po upływie terminu.",
       "gradedAt": "Oceniono {{date}}",
       "gradedAtTitle": "Kiedy autograder ostatnio (ponownie) ocenił to rozwiązanie. Ponowne ocenianie aktualizuje tę datę bez zmiany czasu przesłania.",
-      "membersAria": "Zobacz i zarządzaj członkami grupy",
       "members": "Członkowie",
       "openRepoLabel": "Otwórz repozytorium {{repo}}",
       "viewRepo": "Zobacz repozytorium",
@@ -1762,7 +1854,6 @@
       "noCommit": "Brak commita",
       "viewDetails": "Zobacz szczegóły autogradera",
       "details": "Szczegóły",
-      "noDetailsLabel": "Brak szczegółów autogradera",
       "noDetails": "Brak szczegółów",
       "notSubmitted": "Nieprzesłane",
       "submittedBy": "przez {{name}}",
@@ -1786,7 +1877,9 @@
       "pendingGradeTitle": "Przesłano — ocena nie została jeszcze zebrana. Uruchom „Synchronizuj rozwiązania teraz” lub poczekaj na nocne zbieranie.",
       "resolvingNonSubmitters": "Sprawdzanie, kto jeszcze nie przesłał rozwiązania…",
       "staleCount": "Nowe",
-      "staleCountTitle": "Ten uczeń wypchnął więcej rozwiązań, niż zostało ocenionych. Uruchom „Synchronizuj rozwiązania teraz”, aby ocenić i przyznać punkty za najnowsze."
+      "staleCountTitle": "Ten uczeń wypchnął więcej rozwiązań, niż zostało ocenionych. Uruchom „Synchronizuj rozwiązania teraz”, aby ocenić i przyznać punkty za najnowsze.",
+      "manageAccess": "Zarządzaj dostępem do repozytorium",
+      "manageAccessAria": "Zarządzaj dostępem do repozytorium dla {{owner}}"
     },
     "reviewModal": {
       "errorTitle": "Nie udało się sprawdzić PR z opinią",
@@ -1852,7 +1945,8 @@
         "title": "Prześlij pracę",
         "unsafePath": "Pominięto „{{name}}” — jego ścieżka jest niedozwolona."
       },
-      "notAccepted": "Nie przyjąłeś(-aś) jeszcze tego zadania. <acceptLink>Przyjmij je</acceptLink>, aby uzyskać swoje repozytorium, a następnie wypchnij pracę do oceny."
+      "notAccepted": "Nie przyjąłeś(-aś) jeszcze tego zadania. <acceptLink>Przyjmij je</acceptLink>, aby uzyskać swoje repozytorium, a następnie wypchnij pracę do oceny.",
+      "locked": "To zadanie zostało zablokowane przez nauczyciela i nie jest teraz dostępne. Sprawdź później lub poproś nauczyciela o odblokowanie."
     },
     "viewSourceRepo": "Zobacz szablon",
     "menu": {
@@ -1913,6 +2007,113 @@
       "repair": "Napraw pull request z opinią",
       "repairing": "Naprawianie…",
       "repoNotFound": "Nie udało się znaleźć repozytorium {{repo}} — uczeń mógł jeszcze nie zaakceptować zadania."
+    },
+    "bulkAccess": {
+      "apply": "Zastosuj do wszystkich",
+      "deferredDetail": "Pominięto — uruchom ponownie, aby zaktualizować.",
+      "deferredSection_one": "{{count}} repozytorium nie zostało zaktualizowane",
+      "deferredSection_other": "{{count}} repozytoriów nie zostało zaktualizowanych",
+      "failedSection_one": "{{count}} repozytorium nie mogło zostać zaktualizowane",
+      "failedSection_other": "{{count}} repozytoriów nie mogło zostać zaktualizowanych",
+      "menuLabel": "Zaktualizuj dostęp ucznia do repozytorium",
+      "menuTitle": "Zmień rolę każdego ucznia w jego własnym repozytorium",
+      "noRepos": "Żaden uczeń nie zaakceptował jeszcze tego zadania, więc nie ma repozytoriów do zmiany.",
+      "progress": "Zaktualizowano {{processed}} z {{total}}",
+      "resultHeadline": "Ustawiono {{count}} z {{total}} uczniów na poziom {{level}}.",
+      "resultHeadlineThrottled": "Ustawiono {{count}} z {{total}} uczniów na poziom {{level}}, zanim GitHub ograniczył żądanie — uruchom ponownie, aby dokończyć resztę.",
+      "roleLabel": "Rola w repozytorium",
+      "subtitle_one": "Dotyczy {{count}} ucznia, który zaakceptował to zadanie.",
+      "subtitle_other": "Dotyczy {{count}} uczniów, którzy zaakceptowali to zadanie.",
+      "title": "Ustaw dostęp ucznia do repozytorium",
+      "titleEmptyRoster": "Żaden uczeń jeszcze nie zaakceptował",
+      "warning_one": "Ustawia to rolę {{count}} ucznia w jego własnym repozytorium na {{level}}. Administrator pozwala mu zmieniać ustawienia repozytorium, a w prywatnym repozytorium — jego widoczność. Istniejący współpracownicy nie są w inny sposób zmieniani.",
+      "warning_other": "Ustawia to role {{count}} uczniów w ich własnych repozytoriach na {{level}}. Administrator pozwala im zmieniać ustawienia repozytorium, a w prywatnym repozytorium — jego widoczność. Istniejący współpracownicy nie są w inny sposób zmieniani.",
+      "working": "Aktualizowanie repozytoriów"
+    },
+    "bulkFeatures": {
+      "apply": "Zastosuj do wszystkich",
+      "deferredDetail": "Pominięto — uruchom ponownie, aby zaktualizować.",
+      "deferredSection_one": "{{count}} repozytorium nie zostało zaktualizowane",
+      "deferredSection_other": "{{count}} repozytoriów nie zostało zaktualizowanych",
+      "failedSection_one": "{{count}} repozytorium nie mogło zostać zaktualizowane",
+      "failedSection_other": "{{count}} repozytoriów nie mogło zostać zaktualizowanych",
+      "keep": "Pozostaw bez zmian",
+      "menuLabel": "Zaktualizuj funkcje repozytorium",
+      "menuTitle": "Włącz lub wyłącz Zgłoszenia, Wiki, Projekty lub Pull requesty we wszystkich repozytoriach uczniów",
+      "noRepos": "Żaden uczeń nie zaakceptował jeszcze tego zadania, więc nie ma repozytoriów do zmiany.",
+      "progress": "Zaktualizowano {{processed}} z {{total}}",
+      "resultHeadline": "Zaktualizowano funkcje w {{count}} z {{total}} repozytoriów.",
+      "resultHeadlineThrottled": "Zaktualizowano {{count}} z {{total}} repozytoriów, zanim GitHub ograniczył żądanie — uruchom ponownie, aby dokończyć resztę.",
+      "subtitle_one": "Dotyczy {{count}} ucznia, który zaakceptował to zadanie.",
+      "subtitle_other": "Dotyczy {{count}} uczniów, którzy zaakceptowali to zadanie.",
+      "title": "Ustaw funkcje repozytorium",
+      "titleEmptyRoster": "Żaden uczeń jeszcze nie zaakceptował",
+      "warning_one": "Zmienia to wybrane funkcje w repozytorium {{count}} ucznia. Funkcje „Pozostaw bez zmian” nie są ruszane. Istniejąca zawartość repozytorium nie jest zmieniana.",
+      "warning_other": "Zmienia to wybrane funkcje w repozytoriach {{count}} uczniów. Funkcje „Pozostaw bez zmian” nie są ruszane. Istniejąca zawartość repozytorium nie jest zmieniana.",
+      "working": "Aktualizowanie repozytoriów"
+    },
+    "downloadAll": {
+      "assemblyError": "Pobrano wszystkie przesłane rozwiązania, ale połączony plik zip był zbyt duży, aby złożyć go w przeglądarce. Spróbuj filtrować według sekcji i pobierać mniejszymi partiami.",
+      "confirmBody_one": "Spowoduje to pobranie najnowszego rozwiązania dla <b>{{count}}</b> ucznia, który przesłał <b>{{name}}</b>, w jednym pliku zip.",
+      "confirmBody_other": "Spowoduje to pobranie najnowszych rozwiązań dla <b>{{count}}</b> uczniów, którzy przesłali <b>{{name}}</b>, w jednym pliku zip.",
+      "confirmHint": "Działa z Twojej przeglądarki, po jednym repozytorium na raz, więc dla dużej klasy może to chwilę potrwać. Nie zamykaj tej karty, dopóki się nie zakończy.",
+      "confirmLabel_one": "Pobierz rozwiązanie",
+      "confirmLabel_other": "Pobierz rozwiązania",
+      "emptyHint": "Uczeń zaakceptował zadanie, ale nie wypchnął jeszcze żadnej pracy, więc nie ma rozwiązania do dołączenia.",
+      "emptyTitle": "Te repozytoria nie zawierały nic do pobrania:",
+      "failedHint": "Często jest to przejściowy błąd GitHub — uruchom akcję ponownie, aby spróbować jeszcze raz.",
+      "failedTitle": "Nie udało się pobrać tych rozwiązań:",
+      "largeClassWarning": "Spowoduje to pobranie {{count}} rozwiązań i zbudowanie połączonego pliku zip w Twojej przeglądarce, co może zużyć dużo pamięci i być wolne lub zakończyć się niepowodzeniem przy bardzo dużej klasie. Rozważ najpierw filtrowanie według sekcji.",
+      "menuLabel": "Pobierz wszystkie rozwiązania",
+      "nothingDownloaded": "Nie pobrano żadnego pliku — żaden z wybranych uczniów nie miał rozwiązania do pobrania.",
+      "runError": "Nie udało się ukończyć pobierania. Spróbuj ponownie.",
+      "running": "Pobieranie… {{done}} z {{total}}",
+      "summaryDownloaded_one": "Pobrano {{count}} rozwiązanie",
+      "summaryDownloaded_other": "Pobrano {{count}} rozwiązań",
+      "summaryEmpty_one": "{{count}} repozytorium było puste (pominięto)",
+      "summaryEmpty_other": "{{count}} repozytoriów było pustych (pominięto)",
+      "summaryFailed_one": "{{count}} rozwiązanie nie powiodło się",
+      "summaryFailed_other": "{{count}} rozwiązań nie powiodło się",
+      "summaryLead": "Zakończono przetwarzanie <b>{{total}}</b> rozwiązań.",
+      "summarySaved_one": "{{count}} rozwiązanie zapisano w wybranym folderze",
+      "summarySaved_other": "{{count}} rozwiązań zapisano w wybranym folderze",
+      "title": "Pobierz najnowsze rozwiązanie każdego ucznia",
+      "titleDisabled": "Brak rozwiązań do pobrania"
+    },
+    "lock": {
+      "lockDescription": "Zamyka to zadanie <assignment>{{assignment}}</assignment> dla każdego ucznia — w tym tych, którzy już je zaakceptowali — na stronie akceptacji, liście zadań, w widoku przesłanych rozwiązań oraz w CLI. Jeśli korzysta z prywatnego szablonu, odczyt zespołu uczniów do tego szablonu również zostaje usunięty (dostęp personelu nie zmienia się). Istniejące repozytoria uczniów nie są usuwane.",
+      "lockLabel": "Zablokuj zadanie",
+      "lockSuccess": "Zadanie zablokowane.",
+      "lockTitle": "Zamknij to zadanie dla uczniów, a w przypadku prywatnego szablonu usuń odczyt zespołu uczniów do niego",
+      "lockTitleModal": "Zablokować zadanie?",
+      "unlockDescription": "Ponownie otwiera zadanie <assignment>{{assignment}}</assignment> dla uczniów. Jeśli korzysta z prywatnego szablonu, przywracany jest odczyt zespołu uczniów do tego szablonu, aby uczniowie mogli ponownie je zaakceptować.",
+      "unlockLabel": "Odblokuj zadanie",
+      "unlockSuccess": "Zadanie odblokowane.",
+      "unlockTitle": "Ponownie otwórz to zadanie dla uczniów i przywróć dostęp do prywatnego szablonu",
+      "unlockTitleModal": "Odblokować zadanie?"
+    },
+    "lockedNotice": "To zadanie jest zablokowane. Uczniowie nie mogą go zaakceptować ani otworzyć, a jeśli korzysta z prywatnego szablonu, dostęp zespołu uczniów do tego szablonu został usunięty. Istniejące repozytoria i ich przesłane rozwiązania pozostają bez zmian. Odblokuj je z menu Akcje (lub z listy zadań), aby ponownie je otworzyć.",
+    "manageModal": {
+      "accepted": "Zaakceptowano",
+      "access": "Dostęp",
+      "accessDescription": "Edytuj rolę ucznia i współpracowników",
+      "collaborators_one": "{{count}} współpracownik",
+      "collaborators_other": "{{count}} współpracowników",
+      "commitDescription": "Otwórz najnowszy commit na GitHub",
+      "detailsDescription": "Otwórz wynik autooceny na GitHub",
+      "downloadDescription": "Zapisz rozwiązanie jako archiwum zip",
+      "lastPush": "Ostatni push",
+      "membersDescription": "Wyświetl i zarządzaj członkami grupy",
+      "open": "Zarządzaj rozwiązaniem",
+      "openAria": "Zarządzaj rozwiązaniem użytkownika {{owner}}",
+      "regradeDescription": "Uruchom autoocenę ponownie na najnowszym commicie",
+      "reviewDescription": "Otwórz pull request z opinią"
+    },
+    "rowDownload": {
+      "aria": "Pobierz rozwiązanie użytkownika {{owner}}",
+      "error": "Nie udało się pobrać rozwiązania użytkownika {{owner}}. Spróbuj ponownie.",
+      "nothingToDownload": "{{owner}} nie ma jeszcze rozwiązania do pobrania.",
+      "title": "Pobierz to rozwiązanie"
     }
   },
   "orgMembers": {
@@ -2095,7 +2296,8 @@
           "rateLimited": "Osiągnięto limit żądań GitHub — odczekaj chwilę i spróbuj ponownie.",
           "forbidden": "Nie masz uprawnień do zmiany współpracowników w tym repozytorium.",
           "notFound": "Nie znaleziono nazwy użytkownika lub nie jest członkiem organizacji GitHub.",
-          "conflict": "Już jest współpracownikiem albo żądanie zostało odrzucone przez GitHub."
+          "conflict": "Już jest współpracownikiem albo żądanie zostało odrzucone przez GitHub.",
+          "httpStatus": "GitHub zwrócił błąd (HTTP {{status}})."
         },
         "error": {
           "addAndRemove": "Nie udało się dodać lub usunąć niektórych współpracowników.{{removedNote}} Sprawdź podświetlone nazwy użytkowników i zapisz ponownie, aby spróbować jeszcze raz.{{suffix}}",
@@ -2140,6 +2342,21 @@
         "uniqueHint": "Musi być unikalny w obrębie tych zajęć.",
         "thisClassroomOption": "{{classroom}} (ta klasa)",
         "description": "Skopiuj istniejące zadanie z {{org}} do klasy <classroom>{{classroom}}</classroom>. Nazwa, szablon, testy, środowisko uruchomieniowe, termin oraz inne ustawienia są kopiowane; repozytoria uczniów i wyniki nie."
+      },
+      "repoAccess": {
+        "adminWarning": "Ustaw rolę każdego współpracownika lub dodawaj i usuwaj współpracowników. <b>Administrator</b> pozwala współpracownikowi zmieniać ustawienia repozytorium, a w prywatnym repozytorium — jego widoczność.",
+        "loading": "Wczytywanie współpracowników",
+        "needsAdmin": "Aby zmieniać współpracowników tego repozytorium, potrzebujesz dostępu administratora.",
+        "newRole": "Rola nowego współpracownika",
+        "notApplied": "GitHub zachował istniejącą rolę ({{effective}}) — twórca repozytorium nie może zostać zdegradowany poniżej poziomu administratora. Poproś ucznia o obniżenie własnego dostępu lub przenieś własność repozytorium.",
+        "removeUser": "Usuń {{username}}",
+        "roleFor": "Rola dla {{username}}",
+        "save": "Zaktualizuj dostęp",
+        "saveError": "Niektórych zmian nie udało się zapisać. Sprawdź wyróżnionych współpracowników i ponownie kliknij Zapisz, aby spróbować jeszcze raz.{{suffix}}",
+        "saved": "Dostęp zaktualizowany!",
+        "studentBadge": "Uczeń",
+        "title": "Zarządzaj dostępem do repozytorium",
+        "viewRepoNamed": "Wyświetl repozytorium {{name}}"
       }
     }
   },
@@ -2310,6 +2527,14 @@
     "page": {
       "heading": "Ustawienia",
       "subheading": "Preferencje dla tej przeglądarki. Nic tutaj nie jest udostępniane Twoim organizacjom."
+    },
+    "serviceTokens": {
+      "empty": "Brak organizacji ze skonfigurowanym Classroom 50.",
+      "expires": "Wygasa {{date}}",
+      "heading": "Zarządzaj tokenami usługowymi",
+      "loading": "Sprawdzanie Twoich organizacji…",
+      "manage": "Zarządzaj",
+      "subheading": "Stan tokenów usługowych we wszystkich organizacjach, których jesteś właścicielem. Wymień token, zanim wygaśnie, aby nocne zbieranie wyników działało bez przerwy."
     }
   },
   "pagesErrors": {
@@ -2323,5 +2548,168 @@
     "manifestInvalidShape": "Opublikowana lista zadań tej klasy jest nieprawidłowa. Poproś nauczyciela o sprawdzenie konfiguracji Classroom 50.",
     "manifestVersionUnsupported": "Ta klasa używa nowszego formatu zadań (v{{version}}) niż obsługuje ta kopia Classroom 50. Odśwież stronę lub poproś nauczyciela o zaktualizowanie Classroom 50.",
     "notPublished": "{{label}} nie zostało jeszcze opublikowane. Poproś nauczyciela o potwierdzenie, że plik istnieje w repozytorium konfiguracyjnym i że proces publikowania został uruchomiony."
+  },
+  "migration": {
+    "access": {
+      "explain": "Zadania, które importujesz, pochodzą z organizacji „{{org}}” na GitHub, ale Classroom 50 nie ma jeszcze uprawnień do odczytu jej repozytoriów. Przyznaj dostęp poniżej, a następnie sprawdź ponownie — nic nie można zaimportować, dopóki to nie zostanie rozwiązane.",
+      "headline": "Classroom 50 potrzebuje dostępu do „{{org}}”",
+      "recheck": "Sprawdź dostęp ponownie",
+      "recheckHint": "Kliknij po przyznaniu dostępu, aby kontynuować.",
+      "rechecking": "Ponowne sprawdzanie…",
+      "step1Body": "Otwórz aplikację Classroom 50 w ustawieniach GitHub i przyznaj jej dostęp do organizacji „{{org}}”. Zwykle to wystarcza.",
+      "step1Button": "Otwórz ustawienia aplikacji Classroom 50",
+      "step1Title": "Przyznaj dostęp na stronie autoryzowanych aplikacji",
+      "step2Body": "Jeśli wcześniej odmówiłeś dostępu lub Twoja organizacja wymaga zatwierdzenia przez właściciela, poproś o dostęp lub zatwierdź go w polityce aplikacji zewnętrznych organizacji „{{org}}”. Może być konieczne zatwierdzenie przez właściciela organizacji.",
+      "step2Button": "Otwórz politykę aplikacji „{{org}}”",
+      "step2Title": "Jeśli to nie zadziała, użyj strony polityki organizacji",
+      "title": "Przyznaj dostęp, aby kontynuować"
+    },
+    "blocker": {
+      "dir_exists": "Klasa o nazwie „{{shortName}}” już istnieje w tej organizacji. Wybierz inną krótką nazwę, aby kontynuować.",
+      "needs_org_setup": "„{{org}}” nie jest jeszcze skonfigurowana pod Classroom 50 — najpierw uruchom konfigurację organizacji, a następnie spróbuj ponownie.",
+      "source_org_access": "Classroom 50 nie może odczytać repozytoriów startowych w „{{org}}” — aplikacja nie otrzymała dostępu do tej organizacji."
+    },
+    "confirm": {
+      "back": "Wstecz",
+      "columnSource": "Źródło (GitHub Classroom)",
+      "columnTarget": "Cel (Classroom 50)",
+      "fromLine": "Importowanie zadań z <b>{{source}}</b> ({{org}}) w GitHub Classroom.",
+      "fromLineNoName": "Importowanie zadań z <b>{{source}}</b> w GitHub Classroom.",
+      "importButton": "Importuj {{count}} zadań",
+      "importing": "Rozpoczynanie importu…",
+      "loading": "Pobieranie danych klasy…",
+      "modalCancel": "Anuluj",
+      "modalConfirm": "Tak, importuj",
+      "modalConfirmQuestion": "Tego nie można łatwo cofnąć. Kontynuować?",
+      "modalReuseNote_one": "1 zadanie użyje ponownie istniejącego repozytorium szablonu.",
+      "modalReuseNote_other": "{{count}} zadań użyje ponownie istniejących repozytoriów szablonów.",
+      "modalSkipNote_one": "1 zadanie zostanie pominięte i nie zostanie zaimportowane.",
+      "modalSkipNote_other": "{{count}} zadania zostaną pominięte i nie zostaną zaimportowane.",
+      "modalSummary_one": "Spowoduje to utworzenie klasy „{{shortName}}” w {{org}}, dodanie zespołu GitHub i skopiowanie 1 repozytorium zadania.",
+      "modalSummary_other": "Spowoduje to utworzenie klasy „{{shortName}}” w {{org}}, dodanie zespołów GitHub i skopiowanie {{count}} repozytoriów zadań.",
+      "modalTitle": "Ten krok trudno cofnąć",
+      "name": "Nazwa nowej klasy",
+      "nameHelp": "Wyświetlana nazwa klasy utworzonej w Twojej organizacji Classroom 50 — widoczna dla Ciebie i uczniów. Może być taka sama jak nazwa klasy źródłowej lub dowolna inna. Domyślnie przyjmuje nazwę źródłową.",
+      "noneSelected": "Nie wybrano żadnych zadań — zaznacz przynajmniej jedno do importu lub wróć.",
+      "preflightError": "Nie udało się zbudować podglądu importu.",
+      "shortName": "Identyfikator nowej klasy (krótka nazwa)",
+      "shortNameHelp": "Bezpieczny dla adresu URL identyfikator klasy w organizacji docelowej (np. cs50-fall). Staje się folderem konfiguracji oraz nazwami zespołów GitHub i poprzedza nazwę każdego repozytorium ucznia, więc nie można go później zmienić. Wypełniany automatycznie na podstawie nazwy klasy źródłowej; edytuj go, jeśli chcesz inny identyfikator.",
+      "suffix": "Sufiks repozytorium szablonu",
+      "suffixHelp": "Opcjonalny tekst dołączany do nazwy każdego kopiowanego repozytorium szablonu (np. hw1 staje się hw1-f26). Używaj go tylko wtedy, gdy repozytorium o nazwie zadania już istnieje w tej organizacji i import w przeciwnym razie doprowadziłby do kolizji. W większości przypadków pozostaw puste.",
+      "suffixPlaceholder": "opcjonalnie",
+      "term": "Semestr",
+      "termHelp": "Opcjonalna etykieta określająca, kiedy odbywa się ta klasa (np. Fall-2026). Wyświetlana przy klasie i przechowywana w jej ustawieniach; nie wpływa na nazwy repozytoriów ani zespołów.",
+      "termPlaceholder": "np. Fall-2026",
+      "title": "Sprawdź, co zostanie zaimportowane",
+      "updating": "Aktualizowanie podglądu…"
+    },
+    "documentTitle": "Importuj z GitHub Classroom",
+    "entryButton": "Importuj z GitHub Classroom",
+    "error": {
+      "assignmentInaccessible": "Zadanie {{id}} jest niedostępne — musisz być administratorem jego GitHub Classroom.",
+      "classroomInaccessible": "Klasa {{id}} jest niedostępna dla Twojego konta — musisz być jej administratorem w GitHub Classroom.",
+      "classroomNameEmpty": "Nazwa klasy jest pusta — podaj krótką nazwę bezpośrednio.",
+      "githubSaid": "(GitHub: {{status}} {{message}})",
+      "multipleClassrooms": "Znaleziono wiele klas w organizacji „{{org}}” — wybierz jedną po identyfikatorze: {{ids}}.",
+      "noClassroomInOrg": "Nie znaleziono klasy w organizacji „{{org}}” — potwierdź, że nią administrujesz.",
+      "noClassroomInOrgHidden": "Nie znaleziono klasy w organizacji „{{org}}” (zarchiwizowane klasy są ukryte) — potwierdź, że nią administrujesz.",
+      "noClassrooms": "Twoje konto nie ma dostępu do żadnej klasy GitHub Classroom — potwierdź, że jedną z nich administrujesz.",
+      "shortNameInvalid": "„{{shortName}}” nie jest prawidłową krótką nazwą — musi być {{description}}. Podaj ją bezpośrednio.",
+      "shortNameInvalidFrom": "Nie udało się wyprowadzić prawidłowej krótkiej nazwy z „{{rawName}}” (otrzymano „{{shortName}}”) — musi być {{description}}. Podaj ją bezpośrednio.",
+      "shortNameNotCanonical": "Krótka nazwa „{{shortName}}” nie może stanowić podstawy zespołu GitHub — usuń kolejne lub końcowe łączniki (GitHub przepisałby slug zespołu, psując członkostwo i uprawnienia do szablonów).",
+      "sourceEmpty": "Podaj liczbowy identyfikator klasy lub login organizacji, z której chcesz importować.",
+      "targetRepoCollision": "Repozytorium o nazwie „{{repo}}” już istnieje i nie jest szablonem — wybierz inny sufiks szablonu i spróbuj ponownie. {{detail}}",
+      "templateSourceAccess": "Nie można odczytać repozytorium startowego „{{fullName}}” — zatwierdź aplikację Classroom 50 dla organizacji „{{org}}”, a następnie spróbuj ponownie. {{detail}}"
+    },
+    "execute": {
+      "error": "Nie udało się ukończyć importu.",
+      "summaryComplete": "Import ukończony.",
+      "summaryCounts": "{{generated}} wygenerowanych, {{reused}} użytych ponownie, {{skipped}} pominiętych.",
+      "summaryPartial": "Import zakończony z pominięciem niektórych zadań.",
+      "viewClass": "Otwórz nową klasę"
+    },
+    "gate": {
+      "body": "„{{org}}” nie jest jeszcze organizacją Classroom 50. Uruchom jednorazową konfigurację, a następnie wróć, aby zaimportować.",
+      "checkError": "Nie udało się sprawdzić stanu konfiguracji organizacji.",
+      "checkOrgAccess": "Sprawdź dostęp aplikacji do tej organizacji",
+      "checking": "Sprawdzanie organizacji…",
+      "setupButton": "Przejdź do konfiguracji organizacji",
+      "title": "Najpierw skonfiguruj tę organizację"
+    },
+    "item": {
+      "assignmentBadge": "Zadanie",
+      "branchLabel": "Gałąź",
+      "deadlineLabel": "Termin",
+      "emptyRepo": "Puste repozytorium (tylko podkładka autooceny)",
+      "feedbackLabel": "Pull request z opinią",
+      "groupSizeLabel": "Maks. rozmiar grupy",
+      "no": "Wyłączone",
+      "noSource": "Brak repozytorium źródłowego",
+      "none": "Brak",
+      "private": "Prywatne",
+      "public": "Publiczne",
+      "repoLabel": "Repozytorium",
+      "sourcePanel": "Źródło (GitHub Classroom)",
+      "targetPanel": "Cel (Classroom 50)",
+      "typeGroup": "Grupowe",
+      "typeIndividual": "Indywidualne",
+      "typeLabel": "Typ",
+      "visibilityLabel": "Widoczność",
+      "willImport": "Importuj",
+      "willSkip": "Pomiń",
+      "yes": "Włączone"
+    },
+    "missingOrg": "Ta strona wymaga organizacji w adresie URL.",
+    "reason": {
+      "badStarter": "Repozytorium startowe „{{fullName}}” ma nieoczekiwaną nazwę.",
+      "copyFailed": "Nie udało się skopiować szablonu: {{message}}",
+      "deselected": "Odznaczone — nie zostanie zaimportowane.",
+      "invalidMode": "Nieobsługiwany typ zadania „{{type}}”.",
+      "invalidSlug": "Slug zadania „{{slug}}” nie jest prawidłową nazwą repozytorium.",
+      "sourceNotAccessible": "Repozytorium startowe „{{fullName}}” jest niedostępne dla Twojego konta.",
+      "sourceNotTemplate": "Repozytorium startowe „{{fullName}}” nie jest szablonem — włącz na nim opcję „Template repository” i spróbuj ponownie.",
+      "sourceOrgAccess": "Classroom 50 nie ma uprawnień do organizacji „{{org}}”, więc jej repozytorium startowe nie może zostać skopiowane.",
+      "targetCollision": "Repozytorium o nazwie „{{name}}” już istnieje w {{org}} i nie jest szablonem. Ustaw sufiks szablonu, aby uniknąć kolizji."
+    },
+    "select": {
+      "archivedTag": "zarchiwizowane",
+      "body": "To są klasy GitHub Classroom, którymi może administrować Twoje konto.",
+      "empty": "Twoje konto nie ma dostępu do żadnej klasy GitHub Classroom. Potwierdź, że administrujesz jedną z nich na classroom.github.com.",
+      "loadError": "Nie udało się wczytać Twoich klas GitHub Classroom.",
+      "orgLine": "Organizacja: {{org}}",
+      "retry": "Ponów",
+      "showArchived": "Pokaż zarchiwizowane klasy",
+      "title": "Wybierz klasę GitHub Classroom do zaimportowania"
+    },
+    "status": {
+      "generated": "Zaimportowano",
+      "pending": "Oczekuje",
+      "reused": "Użyto ponownie",
+      "running": "Trwa praca…",
+      "skipped": "Pominięto",
+      "willImport": "Zostanie zaimportowane",
+      "willReuse": "Zostanie użyte ponownie",
+      "willSkip": "Zostanie pominięte"
+    },
+    "steps": {
+      "confirm": "Sprawdź",
+      "execute": "Importuj",
+      "select": "Wybierz klasę"
+    },
+    "subtitle": "Przenieś istniejącą klasę GitHub Classroom — jej zadania i repozytoria startowe — do tej organizacji jako nową klasę. Zanim cokolwiek zostanie utworzone, sprawdzisz i potwierdzisz wszystkie szczegóły.",
+    "title": "Importuj z GitHub Classroom"
+  },
+  "serviceTokenHealth": {
+    "chip": {
+      "checking": "Sprawdzanie tokena…",
+      "expired": "Token wygasł",
+      "expiringSoon": "Token wkrótce wygaśnie",
+      "expiryUntracked": "Nie śledzono wygaśnięcia",
+      "missing": "Brak tokena usługowego",
+      "rotateAria": "Sprawdź token usługowy dla {{org}}",
+      "unknown": "Nieznany stan tokena"
+    },
+    "summary_one": "{{count}} organizacja wymaga sprawdzenia tokena usługowego.",
+    "summary_other": "{{count}} organizacji wymaga sprawdzenia tokena usługowego."
   }
 }
