@@ -120,7 +120,6 @@
     "aboutDialogDescription": "Informations de version et de compilation de cette application.",
     "aboutVersion": "Version",
     "aboutCommit": "Commit",
-    "aboutBuilt": "Compilé le",
     "aboutSupportTitle": "Commentaires et assistance",
     "aboutReportIssue": "Signaler un problème",
     "aboutReportIssueHint": "Vous avez trouvé un bug ou souhaitez proposer une fonctionnalité ?",
@@ -133,7 +132,11 @@
     "aboutDiagnosticsCopied": "Copié",
     "envDev": "Dév",
     "envIndicator": "Exécution en environnement {{env}} — ce n'est pas le site de production.",
-    "envPreview": "Aperçu"
+    "envPreview": "Aperçu",
+    "aboutViewAccessibility": "Voir les informations d'accessibilité",
+    "accessibility": "Accessibilité",
+    "backToApp": "Retour à l'application",
+    "signIn": "Se connecter"
   },
   "auth": {
     "signInTitle": "Se connecter",
@@ -142,7 +145,6 @@
     "signInWithGitHub": "Se connecter avec GitHub",
     "otherSignInMethods": "Autres méthodes de connexion",
     "useDeviceCode": "Utiliser plutôt un code d'appareil",
-    "usePersonalAccessToken": "Utiliser un jeton d'accès personnel",
     "footerTagline": "Gérez les devoirs et les rendus via GitHub.",
     "visitDocs": "Consulter la documentation de Classroom 50",
     "signedInConfirmed": "Connecté - votre session est active",
@@ -163,12 +165,9 @@
     "missingScopesBody_other": "Cette application a besoin des portées <scopes>{{scopes}}</scopes>. Certaines actions peuvent échouer tant qu'elles ne sont pas accordées.",
     "reauthorize": "Réautoriser",
     "reauthorizeHint": "Si la réautorisation ne résout pas le problème, un propriétaire de l'organisation devra peut-être approuver l'application dans les paramètres de politique OAuth de l'organisation.",
-    "patTitle": "Se connecter avec un jeton d'accès personnel",
-    "patInstructions": "Collez un jeton d'accès personnel GitHub (classique) pour vous connecter directement, sans le proxy OAuth. Le jeton doit avoir ces portées cochées :",
-    "patCreateTokenLink": "Créer un jeton avec ces portées présélectionnées",
-    "patFineGrainedNote": "Les jetons à granularité fine ne sont pas pris en charge — utilisez un jeton classique.",
+    "patCreateTokenLink": "Créer un jeton classique",
     "patTokenLabel": "Jeton d'accès personnel",
-    "patStorageNote": "Le jeton est stocké dans le stockage local de ce navigateur, comme les jetons des autres méthodes de connexion.",
+    "patStorageNote": "Le jeton est stocké dans le stockage local de ce navigateur, comme pour les autres méthodes de connexion.",
     "patSubmit": "Se connecter avec le jeton",
     "patCancel": "Annuler",
     "errorNetwork": "Erreur réseau lors de l'accès à {{target}} ; il est peut-être indisponible ou inaccessible.",
@@ -183,9 +182,25 @@
     "errorDeviceExpired": "Le code d'appareil a expiré. Veuillez réessayer.",
     "errorDeviceDeclined": "Vous avez refusé la demande d'autorisation.",
     "errorDeviceNoToken": "Le point de terminaison du jeton n'a renvoyé ni access_token ni erreur.",
-    "errorPatFineGrained": "Cela ressemble à un jeton à granularité fine, qui ne peut pas être vérifié. Utilisez un jeton classique avec les portées indiquées ci-dessus.",
     "errorPatMissingScopes": "Il manque à ce jeton des portées requises : {{scopes}}. Ajoutez-les et réessayez.",
-    "errorPatRejected401": "Ce jeton a été rejeté par GitHub (401). Vérifiez qu'il est valide et non expiré."
+    "errorPatRejected401": "Ce jeton a été rejeté par GitHub (401). Vérifiez qu'il est valide et non expiré.",
+    "accessibility": "Accessibilité",
+    "otherSignInMethodsHint": "Utilisez un code d'appareil sur une machine sans navigateur, ou un jeton d'accès personnel pour vous connecter sans le proxy OAuth.",
+    "patClassicIntro": "Un jeton classique fonctionne pour toutes les organisations que vous possédez.",
+    "patFineGrainedIntro": "Saisissez l'organisation que ce jeton doit gérer. Elle devient le propriétaire de ressource du jeton.",
+    "patFineGrainedLink": "Créer un jeton à portée restreinte",
+    "patFineGrainedNeedsOrg": "Saisissez votre organisation ci-dessus pour créer un jeton correspondant.",
+    "patFineGrainedOrgLabel": "Identifiant de l'organisation",
+    "patFineGrainedOrgPlaceholder": "votre-organisation",
+    "patFineGrainedWarning": "Un jeton à portée restreinte ne fonctionne qu'avec une seule organisation. Les devoirs à modèle inter-organisations échoueront, et certains accès ne peuvent pas être vérifiés en amont ; réglez donc l'accès aux dépôts sur Tous les dépôts sur la page du jeton.",
+    "patPasteInstruction": "Copiez le jeton que GitHub vous affiche (il n'est montré qu'une seule fois), puis collez-le ci-dessous.",
+    "patPermissionsHelp": "Le bouton ouvre la page de jeton de GitHub avec les permissions dont Classroom 50 a besoin déjà sélectionnées. Réglez le propriétaire de ressource sur votre organisation et l'accès aux dépôts sur Tous les dépôts.",
+    "patScopesHelp": "Le bouton ouvre la page de jeton de GitHub avec les portées dont Classroom 50 a besoin déjà sélectionnées. Vous pouvez les vérifier là avant de générer.",
+    "patTitleClassic": "Se connecter avec un jeton d'accès personnel classique",
+    "patTitleFineGrained": "Se connecter avec un jeton d'accès personnel à portée restreinte",
+    "sessionExpired": "Votre session a expiré — reconnectez-vous pour continuer.",
+    "usePersonalAccessTokenClassic": "Utiliser un jeton d'accès personnel (classique)",
+    "usePersonalAccessTokenFineGrained": "Utiliser un jeton d'accès personnel (à portée restreinte)"
   },
   "documentTitle": {
     "assignments": "Devoirs",
@@ -551,7 +566,8 @@
     "errorRegistry": "Impossible de charger les langues disponibles. Réessayez.",
     "errorGeneric": "Impossible d'installer le pack de langue.",
     "updatedToast_one": "Le pack de langue {{list}} a été mis à jour avec les dernières traductions.",
-    "updatedToast_other": "{{count}} packs de langue ({{list}}) ont été mis à jour avec les dernières traductions."
+    "updatedToast_other": "{{count}} packs de langue ({{list}}) ont été mis à jour avec les dernières traductions.",
+    "urlLabel": "Importer un pack de langue depuis une URL"
   },
   "validation": {
     "githubOrEmailRequired": "Saisissez un nom d'utilisateur GitHub ou une adresse e-mail.",
@@ -648,7 +664,8 @@
       "hide": "Masquer de l'accueil",
       "moreActions": "Plus d'actions pour {{org}}",
       "undoHide": "Annuler",
-      "manageToken": "Gérer le jeton"
+      "manageToken": "Gérer le jeton",
+      "openAria": "Ouvrir {{org}}"
     },
     "invites": {
       "summary_one": "Vous avez {{count}} invitation en attente",
@@ -757,7 +774,6 @@
     "goToAssignments": "Aller aux devoirs",
     "form": {
       "detailsSection": "Détails",
-      "settingsSection": "Paramètres",
       "optional": "facultatif",
       "name": "Nom du devoir",
       "namePlaceholder": "p. ex. Devoir sur les boucles",
@@ -778,10 +794,7 @@
       "maxGroupSizeTitle": "Doit être un nombre entier compris entre {{min}} et {{max}}",
       "feedbackPr": "Pull request de retour",
       "feedbackPrHelp": "Ouvre une pull request par dépôt pour une relecture en ligne de chaque rendu.",
-      "feedbackPrEmptyRepoHelp": "Indisponible pour les dépôts vides — il n'y a aucun commit de départ pour établir une comparaison.",
-      "emptyRepo": "Dépôt vide",
-      "emptyRepoHelp": "Crée le dépôt de chaque élève entièrement vide : aucun fichier de départ, aucune correction automatique, aucune pull request de retour. Pour les devoirs où les élèves construisent tout à partir de zéro, y compris leurs propres GitHub Actions. Ce choix est définitif pour le devoir.",
-      "emptyRepoLocked": "Impossible de le modifier après la création.",
+      "feedbackPrEmptyRepoHelp": "Non disponible pour les dépôts vides. Il n'y a aucun commit de départ pour établir une comparaison.",
       "advanced": "Paramètres avancés",
       "advancedHelp": "Paramètres facultatifs de notation et d'exécution. Les champs vides utilisent leurs valeurs par défaut documentées.",
       "dockerImage": "Image Docker",
@@ -854,7 +867,10 @@
         "releaseAssetsDuplicatePath": "{{path}} est répertorié plusieurs fois ; chaque chemin de fichier de release doit être unique.",
         "releaseAssetsDuplicateBasename": "{{basename}} serait téléversé plusieurs fois ; les noms de fichiers de release doivent être uniques.",
         "setupTimeoutRange": "Le délai de configuration doit être 0 ou un nombre entier de secondes de 1 à {{max}}.",
-        "studentPermissionInvalid": "L'accès au dépôt de l'étudiant doit être l'un des suivants : pull, triage, push, maintain ou admin."
+        "studentPermissionInvalid": "L'accès au dépôt de l'étudiant doit être l'un des suivants : pull, triage, push, maintain ou admin.",
+        "gradingMaxPointsInvalid": "Le nombre de points maximum doit être un entier d'au moins {{min}}.",
+        "gradingModeInvalid": "La notation doit être « off », « auto » ou « manual ».",
+        "submissionModeInvalid": "Le déclencheur de correction automatique doit être « every-push » ou « tag »."
       },
       "availableFrom": "Date de publication ({{tz}})",
       "availableFromTz": "Les heures sont indiquées dans votre fuseau horaire local ({{tz}}).",
@@ -869,11 +885,10 @@
           "on": "Activé"
         },
         "heading": "Fonctionnalités du dépôt",
-        "help": "Indique si chaque dépôt d'étudiant a les Wikis, Issues, Projects et Pull requests activés. Appliqué lorsqu'un étudiant accepte (nouveaux dépôts seulement) ; utilisez le carnet de notes pour modifier les dépôts déjà créés. Hériter d'un modèle privé copie aussi son contenu Wiki/Issues/Projects, alors ne laissez pas de corrigés dans un modèle dont vous héritez.",
+        "help": "Indique si chaque dépôt d'étudiant a les wikis, les issues, les projets et les pull requests activés.",
         "issues": {
           "label": "Issues"
         },
-        "overrideWarning": "S'applique aux dépôts créés à partir de maintenant ; ceux que les étudiants ont déjà acceptés ne sont pas modifiés. Avec un modèle, la valeur par défaut suit le modèle au moment de l'acceptation (les dépôts existants ne dérivent pas lorsque le modèle change plus tard) ; sans modèle, la valeur par défaut laisse en place les valeurs par défaut de dépôt de GitHub. Pour mettre à jour les dépôts existants, utilisez l'action groupée de fonctionnalités de dépôt sur la page des soumissions.",
         "projects": {
           "label": "Projects"
         },
@@ -883,7 +898,12 @@
         "refresh": "Actualiser les paramètres du modèle",
         "wiki": {
           "label": "Wiki"
-        }
+        },
+        "helpExisting": "Les changements s'appliquent aux dépôts créés à partir de maintenant. Pour mettre à jour ceux déjà acceptés par les étudiants, utilisez le carnet de notes.",
+        "overrideExisting": "Pour mettre à jour les dépôts déjà acceptés par les étudiants, utilisez l'action groupée sur les fonctionnalités de dépôt de la page des rendus.",
+        "overrideNoTemplate": "Par défaut, les valeurs par défaut de GitHub pour les dépôts sont conservées.",
+        "overrideTemplate": "Par défaut, les réglages du modèle sont suivis lorsqu'un étudiant accepte. Les dépôts existants ne changeront pas si vous modifiez le modèle plus tard.",
+        "templateContentWarning": "Hériter d'un modèle privé copie aussi le contenu de son wiki, de ses issues et de ses projets ; gardez donc les corrigés hors d'un modèle dont vous héritez."
       },
       "setAvailableFrom": "Définir une date de publication",
       "setAvailableFromTip": "Les devoirs sont masqués de la page des devoirs des étudiants par défaut — les étudiants ne peuvent l'accepter que via le lien d'invitation. Définissez une date de publication pour le lister pour tout le monde une fois la date passée. Les étudiants qui l'ont déjà accepté le voient toujours. Cela contrôle uniquement l'affichage, pas l'accès.",
@@ -902,6 +922,94 @@
           "push": "Écriture (push)",
           "triage": "Triage"
         }
+      },
+      "addReadme": {
+        "helpOff": "Crée un dépôt vide sans commit initial. La correction automatique et la PR de retour ne sont pas disponibles avant le premier commit de l'étudiant.",
+        "helpOn": "Initialise chaque dépôt avec un README.md, créant un commit initial pour que les branches, les pull requests et la PR de retour fonctionnent.",
+        "label": "Ajouter un README"
+      },
+      "autograding": {
+        "choices": {
+          "built-in": {
+            "help": "Ajoute le shim du correcteur automatique intégré, puis configure l'environnement d'exécution et les tests déclaratifs ci-dessous.",
+            "label": "Utiliser le correcteur automatique intégré"
+          },
+          "none": {
+            "help": "Aucun shim de correcteur automatique n'est ajouté. Avec un modèle, fournissez votre propre workflow dans le modèle (il doit publier un fichier result.json sur la release du rendu). Sans modèle, le dépôt n'a tout simplement aucun correcteur automatique.",
+            "label": "Ne pas utiliser le correcteur automatique intégré"
+          }
+        },
+        "label": "Correction automatique",
+        "lockedHelp": "L'utilisation ou non du correcteur automatique intégré ne peut pas être modifiée après la création : les dépôts déjà acceptés par les étudiants ne sont pas reprovisionnés.",
+        "modeLabel": "Correcteur automatique intégré",
+        "notAutogradedNote": "Les options de correction automatique ne s'appliquent que lorsque ce devoir est réglé sur « Corrigé automatiquement » dans la section Rendu et notation ci-dessus. Choisissez Corrigé automatiquement pour configurer le correcteur automatique."
+      },
+      "copyAbout": {
+        "help": "Copie le champ « À propos » (sa description) du modèle sur chaque dépôt d'étudiant. GitHub ne le copie pas automatiquement. Cela s'applique aux étudiants qui acceptent à partir de maintenant ; les dépôts déjà créés ne sont pas modifiés.",
+        "label": "Copier « À propos » depuis le modèle"
+      },
+      "copyTopics": {
+        "help": "Copie les sujets du modèle sur chaque dépôt d'étudiant. GitHub ne les copie pas automatiquement. Cela s'applique aux étudiants qui acceptent à partir de maintenant ; les dépôts déjà créés ne sont pas modifiés.",
+        "label": "Copier les sujets depuis le modèle"
+      },
+      "grading": {
+        "autoNote": "Ce devoir est corrigé automatiquement. Configurez le correcteur automatique dans la section Correction automatique ci-dessous. Que vous utilisiez le correcteur automatique intégré ou fournissiez votre propre workflow, il doit publier un fichier result.json sur la release du rendu — c'est ce fichier que l'application lit pour afficher les scores.",
+        "choices": {
+          "auto": "Corrigé automatiquement",
+          "manual": "Manuel (saisir les scores à la main)",
+          "off": "Non noté"
+        },
+        "editWarning": "Le mode de notation ne peut pas être modifié après la création : les scores déjà enregistrés dans l'ancien mode seraient mal interprétés. Créez plutôt un nouveau devoir sous un slug différent.",
+        "help": "Comment ce devoir est noté. « Corrigé automatiquement » exécute le correcteur automatique que vous configurez ci-dessous. « Manuel » vous permet de saisir le score de chaque étudiant à la main sur la page des rendus. « Non noté » n'enregistre aucun score. Ne peut pas être modifié après la création du devoir.",
+        "label": "Notation",
+        "maxPoints": {
+          "help": "Nombre total de points disponibles pour ce devoir manuel. Utilisé pour afficher le score de chaque étudiant sur le maximum.",
+          "label": "Points maximum"
+        }
+      },
+      "includeAllBranches": {
+        "help": "Copie chaque branche et son historique depuis le modèle, pas seulement la branche par défaut. Cela s'applique aux étudiants qui acceptent à partir de maintenant ; les dépôts déjà créés ne sont pas modifiés.",
+        "label": "Inclure toutes les branches"
+      },
+      "repoSource": {
+        "label": "Commencer avec un modèle",
+        "lockedHelp": "La source du dépôt ne peut pas être modifiée après la création : les dépôts déjà acceptés par les étudiants ne sont pas reprovisionnés.",
+        "none": {
+          "help": "Crée un dépôt neuf pour chaque étudiant.",
+          "label": "Aucun modèle"
+        },
+        "template": {
+          "help": "Génère le dépôt de chaque étudiant à partir d'un modèle que vous fournissez.",
+          "label": "Dépôt modèle"
+        }
+      },
+      "repositorySetupSection": "Configuration du dépôt",
+      "scheduleSection": "Planning",
+      "sectionStatus": {
+        "configured": "Configuré",
+        "default": "Par défaut",
+        "error": "Nécessite votre attention"
+      },
+      "submissionMode": {
+        "choices": {
+          "everyPush": "Chaque push sur la branche par défaut",
+          "tag": "Un commit étiqueté"
+        },
+        "editWarning": "Modifier ceci n'affecte que les dépôts créés à partir de maintenant. Les dépôts déjà acceptés par les étudiants conservent l'ancien réglage jusqu'à ce que vous les mettiez à jour — utilisez « Mettre à jour les déclencheurs de correction automatique » sur la page des rendus ou gh teacher assignment submission-mode. Les étudiants doivent faire un pull après la mise à jour.",
+        "help": "« Chaque push sur la branche par défaut » comptabilise chaque push (hors commit de départ). « Un commit étiqueté » ne comptabilise que les commits étiquetés — un étudiant soumet avec gh student submit ou en poussant une étiquette, de sorte que les pushes ordinaires ne consomment aucune minute d'Actions.",
+        "label": "Type de rendu"
+      },
+      "submissionSection": "Rendu et notation",
+      "submissionSectionHelp": "Définit ce qui compte comme un rendu pour ce devoir — quand le correcteur automatique s'exécute et quelles étiquettes un étudiant peut pousser pour soumettre.",
+      "submissionTags": {
+        "commaHint": "Mettez une étiquette par ligne, pas une liste séparée par des virgules — une virgule ferait partie du nom de l'étiquette et sera rejetée.",
+        "help": "Noms d'étiquettes facultatifs (un par ligne) dont les commits comptent aussi — par ex. phase1, phase2. Des motifs comme v* correspondent à une famille d'étiquettes. Laissez vide pour aucune.",
+        "label": "Étiquettes de rendu",
+        "wildcardCaution": "Un motif large comme v* correspond à toutes les étiquettes qu'un étudiant pousse, y compris les étiquettes de release sans rapport. Préférez des noms exacts comme phase1."
+      },
+      "submissions": {
+        "heading": "Rendus",
+        "help": "Comment la page des rendus détecte et comptabilise le travail de chaque étudiant. Le correcteur automatique utilise la même définition."
       }
     },
     "autograder": {
@@ -978,7 +1086,7 @@
       "lockAria": "Verrouiller {{name}}",
       "lockCancel": "Annuler",
       "lockConfirm": "Verrouiller le devoir",
-      "lockDescription": "Cela ferme <assignment>{{assignment}}</assignment> pour tous les étudiants — y compris ceux qui l'ont déjà accepté — sur la page d'acceptation, la liste des devoirs, la vue de soumission et l'interface en ligne de commande. S'il utilise un modèle privé, l'accès en lecture de l'équipe étudiante à ce modèle est également retiré (l'accès du personnel n'est pas affecté). Les dépôts d'étudiants existants ne sont pas supprimés.",
+      "lockDescription": "Cela verrouille <assignment>{{assignment}}</assignment> pour tous les étudiants — y compris ceux qui l'ont déjà accepté — sur la page d'acceptation, la liste des devoirs, la vue de rendu et la CLI. S'il utilise un modèle privé, l'accès en lecture de l'équipe étudiante sur ce modèle est également retiré (l'accès du personnel n'est pas affecté). Les dépôts existants des étudiants ne sont pas supprimés.",
       "lockSuccess": "{{name}} verrouillé.",
       "lockTitle": "Verrouiller le devoir",
       "lockTitleModal": "Verrouiller le devoir ?",
@@ -991,7 +1099,8 @@
       "unlockDescription": "Cela rouvre <assignment>{{assignment}}</assignment> aux étudiants. S'il utilise un modèle privé, l'accès en lecture de l'équipe étudiante à ce modèle est rétabli afin que les étudiants puissent l'accepter à nouveau.",
       "unlockSuccess": "{{name}} déverrouillé.",
       "unlockTitle": "Déverrouiller le devoir",
-      "unlockTitleModal": "Déverrouiller le devoir ?"
+      "unlockTitleModal": "Déverrouiller le devoir ?",
+      "openSubmissionsAria": "Ouvrir les rendus de {{name}}"
     },
     "toolbar": {
       "searchPlaceholder": "Rechercher des devoirs…",
@@ -1075,7 +1184,8 @@
       "restrictedItemApprove": "Approuvez Classroom 50 pour {{owner}} (Paramètres de l'organisation → Accès des tiers).",
       "restrictedItemFork": "Si {{repo}} est un fork, approuvez aussi Classroom 50 dans l'organisation en amont du fork — l'accès d'un fork privé suit la politique de l'organisation en amont.",
       "restrictedItemOther": "Sinon, il peut s'agir d'un autre 403 ; voyez le message de GitHub ci-dessous.",
-      "viewTemplateRepo": "Ouvrir {{owner}}/{{repo}} sur GitHub"
+      "viewTemplateRepo": "Ouvrir {{owner}}/{{repo}} sur GitHub",
+      "emptyTemplate": "{{owner}}/{{repo}} est un modèle mais ne contient aucun commit. Ajoutez au moins un commit (par ex. un README), puis réessayez."
     }
   },
   "published": {
@@ -1478,7 +1588,7 @@
   },
   "offline": {
     "title": "Vous êtes hors ligne",
-    "body": "Classroom 50 fonctionne avec des données en direct de GitHub, il a donc besoin d'une connexion. Cette bannière disparaît automatiquement dès que vous êtes de nouveau en ligne."
+    "body": "Cet appareil n'est pas connecté à Internet. Classroom 50 a besoin d'une connexion active pour fonctionner. Cette bannière disparaît automatiquement une fois que vous êtes de nouveau en ligne."
   },
   "githubStatus": {
     "title": "GitHub rencontre peut-être des problèmes",
@@ -1705,7 +1815,8 @@
     },
     "newButton": {
       "moreOptions": "Plus d'options"
-    }
+    },
+    "viewAssignmentsAria": "Voir les devoirs de {{classroom}}"
   },
   "accept": {
     "githubUser": "Utilisateur GitHub",
@@ -1771,7 +1882,9 @@
     },
     "errors": {
       "emptyRepoWithTemplate": "Le devoir « {{assignmentSlug}} » définit à la fois un dépôt vide et un modèle, ce qui n'est pas valide. Demandez à votre enseignant de relancer la configuration du devoir.",
-      "incoherentMode": "Le devoir « {{slug}} » a une taille de groupe de {{maxGroupSize}} mais est configuré comme « {{mode}} », de sorte que ses paramètres publiés sont incohérents. Demandez à votre enseignant de relancer la configuration du devoir."
+      "incoherentMode": "Le devoir « {{slug}} » a une taille de groupe de {{maxGroupSize}} mais est configuré comme « {{mode}} », de sorte que ses paramètres publiés sont incohérents. Demandez à votre enseignant de relancer la configuration du devoir.",
+      "initShimInvalidCombo": "Le devoir « {{assignmentSlug}} » combine le réglage correcteur-automatique-intégré-sur-dépôt-vide avec un modèle, un dépôt vide ou l'absence de correcteur automatique intégré, ce qui n'est pas valide. Demandez à votre enseignant de relancer la configuration du devoir.",
+      "noAutograderWithEmptyRepo": "Le devoir « {{assignmentSlug}} » définit à la fois l'absence de correcteur automatique intégré et un dépôt vide, ce qui n'est pas valide. Demandez à votre enseignant de relancer la configuration du devoir."
     },
     "stepActions": {
       "access": "Votre dépôt {{org}}/{{repo}} a été créé, mais l'attribution de votre accès ({{username}}) a échoué. Cela signifie généralement que votre nom d'utilisateur GitHub a changé ou que vous avez quitté {{org}}. Vérifiez que vous êtes membre de {{org}}, puis utilisez « Relancer la configuration ».",
@@ -1814,6 +1927,11 @@
       "body": "Demandez à votre enseignant si vous pensez qu'il s'agit d'une erreur.",
       "error": "Ce devoir ne vous est pas accessible. Demandez à votre enseignant si vous pensez qu'il s'agit d'une erreur.",
       "title": "Ce devoir ne vous est pas accessible"
+    },
+    "closed": {
+      "badge": "Fermé",
+      "body": "Votre enseignant a fermé <assignment>{{assignment}}</assignment> aux nouveaux rendus ; il n'est donc pas possible de l'accepter pour l'instant. Demandez à votre enseignant de le rouvrir si vous pensez qu'il s'agit d'une erreur.",
+      "title": "Les rendus sont fermés"
     }
   },
   "submissions": {
@@ -1902,7 +2020,8 @@
       "manageRoster": "Gérer la liste",
       "shareWithCount_one": "Partagé avec <count>{{count}} étudiant</count> pouvant accepter ce devoir.",
       "shareWithCount_other": "Partagé avec <count>{{count}} étudiants</count> pouvant accepter ce devoir.",
-      "warnNoStudents": "Aucun étudiant ne peut encore accepter ce lien dans la classe <classroom>{{classroom}}</classroom>. Ajoutez d'abord des étudiants à la liste et invitez-les à l'organisation."
+      "warnNoStudents": "Aucun étudiant ne peut encore accepter ce lien dans la classe <classroom>{{classroom}}</classroom>. Ajoutez d'abord des étudiants à la liste et invitez-les à l'organisation.",
+      "copied": "Copié"
     },
     "stats": {
       "submitted": "Rendu",
@@ -2001,7 +2120,9 @@
       "reviewAria": "Ouvrir la pull request de retour",
       "fullHistory": "Ouvrez le <repoLink>dépôt</repoLink> pour l'historique complet des commits.",
       "manageAccess": "Gérer l'accès au dépôt",
-      "manageAccessAria": "Gérer l'accès au dépôt pour {{owner}}"
+      "manageAccessAria": "Gérer l'accès au dépôt pour {{owner}}",
+      "overridden": "Manuel",
+      "overriddenTitle": "Ce score a été défini à la main et ne sera pas modifié par la correction automatique tant que la substitution n'est pas effacée."
     },
     "reviewModal": {
       "errorTitle": "Impossible de vérifier la présence d'une PR de retour",
@@ -2180,10 +2301,10 @@
       "titleDisabled": "Aucune soumission à télécharger pour l'instant"
     },
     "lock": {
-      "lockDescription": "Cela ferme <assignment>{{assignment}}</assignment> pour tous les étudiants — y compris ceux qui l'ont déjà accepté — sur la page d'acceptation, la liste des devoirs, la vue de soumission et l'interface en ligne de commande. S'il utilise un modèle privé, l'accès en lecture de l'équipe étudiante à ce modèle est également retiré (l'accès du personnel n'est pas affecté). Les dépôts d'étudiants existants ne sont pas supprimés.",
+      "lockDescription": "Cela verrouille <assignment>{{assignment}}</assignment> pour tous les étudiants — y compris ceux qui l'ont déjà accepté — sur la page d'acceptation, la liste des devoirs, la vue de rendu et la CLI. S'il utilise un modèle privé, l'accès en lecture de l'équipe étudiante sur ce modèle est également retiré (l'accès du personnel n'est pas affecté). Les dépôts existants des étudiants ne sont pas supprimés.",
       "lockLabel": "Verrouiller le devoir",
       "lockSuccess": "Devoir verrouillé.",
-      "lockTitle": "Fermer ce devoir aux étudiants et, pour un modèle privé, retirer l'accès en lecture de l'équipe étudiante",
+      "lockTitle": "Verrouiller ce devoir pour que les étudiants ne puissent pas y accéder ni l'accepter et, pour un modèle privé, retirer l'accès en lecture de l'équipe étudiante",
       "lockTitleModal": "Verrouiller le devoir ?",
       "unlockDescription": "Cela rouvre <assignment>{{assignment}}</assignment> aux étudiants. S'il utilise un modèle privé, l'accès en lecture de l'équipe étudiante à ce modèle est rétabli afin que les étudiants puissent l'accepter à nouveau.",
       "unlockLabel": "Déverrouiller le devoir",
@@ -2206,13 +2327,167 @@
       "open": "Gérer la soumission",
       "openAria": "Gérer la soumission de {{owner}}",
       "regradeDescription": "Réexécuter l'auto-évaluateur sur le dernier commit",
-      "reviewDescription": "Ouvrir la pull request de retour"
+      "reviewDescription": "Ouvrir la pull request de retour",
+      "autograding": "Correction automatique",
+      "autogradingEnabled": "Activée",
+      "autogradingPaused": "En pause",
+      "autogradingPausedByGitHub": "Mise en pause par GitHub"
     },
     "rowDownload": {
       "aria": "Télécharger la soumission de {{owner}}",
       "error": "Impossible de télécharger la soumission de {{owner}}. Veuillez réessayer.",
       "nothingToDownload": "{{owner}} n'a pas encore de soumission à télécharger.",
       "title": "Télécharger cette soumission"
+    },
+    "bulkAutograde": {
+      "deferredDetail": "Ignoré — relancez pour modifier.",
+      "deferredSection_one": "{{count}} dépôt n'a pas été traité",
+      "deferredSection_other": "{{count}} dépôts n'ont pas été traités",
+      "failedSection_one": "{{count}} dépôt n'a pas pu être modifié",
+      "failedSection_other": "{{count}} dépôts n'ont pas pu être modifiés",
+      "noRepos": "Aucun étudiant n'a encore accepté ce devoir ; il n'y a donc aucun dépôt à modifier.",
+      "notGradableDetail": "Aucun workflow de correction automatique n'existe — rien à modifier.",
+      "notGradableSection_one": "{{count}} dépôt n'a pas de workflow de correction automatique",
+      "notGradableSection_other": "{{count}} dépôts n'ont pas de workflow de correction automatique",
+      "pauseApply": "Tout mettre en pause",
+      "pauseMenuLabel": "Mettre la correction automatique en pause",
+      "pauseMenuTitle": "Désactiver le workflow de correction automatique dans chaque dépôt d'étudiant accepté",
+      "pauseResultHeadline": "Correction automatique mise en pause sur {{done}} dépôts sur {{total}}.",
+      "pauseSubtitle_one": "Désactive la correction automatique sur le dépôt de {{count}} étudiant.",
+      "pauseSubtitle_other": "Désactive la correction automatique sur les dépôts de {{count}} étudiants.",
+      "pauseTitle": "Mettre la correction automatique en pause",
+      "pauseTitleEmptyRoster": "Aucun étudiant n'a encore accepté",
+      "pauseWarning_one": "Cela désactive le workflow de correction automatique dans le dépôt de {{count}} étudiant. Aucun fichier n'est modifié, et vous pouvez reprendre la correction automatique à tout moment.",
+      "pauseWarning_other": "Cela désactive le workflow de correction automatique dans les dépôts de {{count}} étudiants. Aucun fichier n'est modifié, et vous pouvez reprendre la correction automatique à tout moment.",
+      "progress": "{{processed}} traités sur {{total}}",
+      "resumeApply": "Tout reprendre",
+      "resumeMenuLabel": "Reprendre la correction automatique",
+      "resumeMenuTitle": "Réactiver le workflow de correction automatique dans chaque dépôt d'étudiant accepté",
+      "resumeResultHeadline": "Correction automatique reprise sur {{done}} dépôts sur {{total}}.",
+      "resumeSubtitle_one": "Réactive la correction automatique sur le dépôt de {{count}} étudiant.",
+      "resumeSubtitle_other": "Réactive la correction automatique sur les dépôts de {{count}} étudiants.",
+      "resumeTitle": "Reprendre la correction automatique",
+      "resumeTitleEmptyRoster": "Aucun étudiant n'a encore accepté",
+      "resumeWarning_one": "Cela réactive le workflow de correction automatique dans le dépôt de {{count}} étudiant.",
+      "resumeWarning_other": "Cela réactive le workflow de correction automatique dans les dépôts de {{count}} étudiants.",
+      "working": "Mise à jour des dépôts"
+    },
+    "bulkTrigger": {
+      "apply": "Tout mettre à jour",
+      "deferredDetail": "Ignoré — relancez pour mettre à jour.",
+      "deferredSection_one": "{{count}} dépôt n'a pas été traité",
+      "deferredSection_other": "{{count}} dépôts n'ont pas été traités",
+      "failedSection_one": "{{count}} dépôt n'a pas pu être mis à jour",
+      "failedSection_other": "{{count}} dépôts n'ont pas pu être mis à jour",
+      "menuLabel": "Mettre à jour les déclencheurs de correction automatique",
+      "menuTitle": "Réécrire le workflow de correction automatique de chaque dépôt d'étudiant pour correspondre au réglage de déclencheur du devoir",
+      "noRepos": "Aucun étudiant n'a encore accepté ce devoir ; il n'y a donc aucun dépôt à mettre à jour.",
+      "notAcceptedDetail": "Aucun dépôt n'existe — rien à mettre à jour.",
+      "notAcceptedSection_one": "{{count}} étudiant n'a pas encore accepté",
+      "notAcceptedSection_other": "{{count}} étudiants n'ont pas encore accepté",
+      "progress": "{{processed}} traités sur {{total}}",
+      "repullReminder": "Dites aux étudiants d'exécuter git pull — les clones réalisés avant ce changement entreront en conflit lors de leur prochain push.",
+      "resultHeadline": "Mis à jour {{updated}} dépôts sur {{total}} ({{current}} déjà à jour).",
+      "scopeDetail": "Votre autorisation GitHub ne peut pas modifier les fichiers de workflow. Déconnectez-vous et reconnectez-vous, puis relancez.",
+      "scopeSection_one": "{{count}} dépôt nécessite un jeton avec la portée workflow",
+      "scopeSection_other": "{{count}} dépôts nécessitent un jeton avec la portée workflow",
+      "subtitle_one": "Règle le déclencheur de correction automatique sur « {{mode}} » sur le dépôt de {{count}} étudiant.",
+      "subtitle_other": "Règle le déclencheur de correction automatique sur « {{mode}} » sur les dépôts de {{count}} étudiants.",
+      "title": "Mettre à jour les déclencheurs de correction automatique",
+      "titleEmptyRoster": "Aucun étudiant n'a encore accepté",
+      "unrecognizedSection_one": "{{count}} dépôt a été ignoré (workflow non reconnu)",
+      "unrecognizedSection_other": "{{count}} dépôts ont été ignorés (workflow non reconnu)",
+      "warning_one": "Cela valide une modification du workflow de correction automatique dans le dépôt de {{count}} étudiant. Le commit est marqué afin de ne pas déclencher de correction. Les dépôts dont le workflow a été modifié à la main sont signalés et laissés intacts. Les étudiants doivent ensuite faire un pull — les clones réalisés avant ce changement entreront en conflit lors de leur prochain push.",
+      "warning_other": "Cela valide une modification du workflow de correction automatique dans les dépôts de {{count}} étudiants. Le commit est marqué afin de ne pas déclencher de correction. Les dépôts dont le workflow a été modifié à la main sont signalés et laissés intacts. Les étudiants doivent ensuite faire un pull — les clones réalisés avant ce changement entreront en conflit lors de leur prochain push.",
+      "working": "Mise à jour des dépôts"
+    },
+    "closeSubmission": {
+      "apply": "Fermer les rendus",
+      "deferredDetail": "Ignoré — relancez pour mettre à jour.",
+      "deferredSection_one": "{{count}} dépôt n'a pas été mis à jour",
+      "deferredSection_other": "{{count}} dépôts n'ont pas été mis à jour",
+      "failedSection_one": "{{count}} dépôt n'a pas pu être mis à jour",
+      "failedSection_other": "{{count}} dépôts n'ont pas pu être mis à jour",
+      "finishApply": "Terminer la fermeture",
+      "finishHint": "Les rendus sont fermés aux nouvelles acceptations, mais certains dépôts ne sont pas encore en lecture seule. Terminez la fermeture pour ne réessayer que ceux-là — cela ne rouvre pas les rendus.",
+      "flagError": "La fenêtre de rendu n'a pas pu être mise à jour ; aucun dépôt n'a donc été modifié. Réessayez.",
+      "menuLabel": "Fermer les rendus",
+      "menuTitle": "Fermer la fenêtre de rendu : bloquer les nouvelles acceptations et mettre le dépôt de chaque étudiant en lecture seule",
+      "noRepos": "Aucun étudiant n'a encore accepté ce devoir. La fermeture bloque tout de même les nouvelles acceptations.",
+      "progress": "{{processed}} mis à jour sur {{total}}",
+      "reopenApply": "Rouvrir les rendus",
+      "reopenLabel": "Rouvrir les rendus",
+      "reopenMenuTitle": "Rouvrir la fenêtre de rendu : autoriser les nouvelles acceptations et rétablir l'accès en écriture",
+      "reopenResultHeadline": "Accès en écriture rétabli pour {{count}} dépôts sur {{total}}.",
+      "reopenResultHeadlineThrottled": "Accès en écriture rétabli pour {{count}} dépôts sur {{total}} avant que GitHub ne limite le débit de la requête — relancez pour terminer le reste.",
+      "reopenSubtitle_one": "Autorise les nouvelles acceptations et rétablit l'accès en écriture pour le dépôt de {{count}} étudiant.",
+      "reopenSubtitle_other": "Autorise les nouvelles acceptations et rétablit l'accès en écriture pour les dépôts de {{count}} étudiants.",
+      "reopenTitle": "Rouvrir les rendus",
+      "reopenWarning_one": "Cela autorise de nouveau les acceptations et rétablit l'accès en écriture pour le dépôt de {{count}} étudiant.",
+      "reopenWarning_other": "Cela autorise de nouveau les acceptations et rétablit l'accès en écriture pour les dépôts de {{count}} étudiants.",
+      "resultHeadline": "{{count}} dépôts sur {{total}} mis en lecture seule.",
+      "resultHeadlineThrottled": "{{count}} dépôts sur {{total}} mis en lecture seule avant que GitHub ne limite le débit de la requête — relancez pour terminer le reste.",
+      "statusBadge": {
+        "closed": "Fermé"
+      },
+      "subtitle_one": "Bloque les nouvelles acceptations et met le dépôt de {{count}} étudiant en lecture seule.",
+      "subtitle_other": "Bloque les nouvelles acceptations et met les dépôts de {{count}} étudiants en lecture seule.",
+      "title": "Fermer les rendus",
+      "warning_one": "Cela empêche tout nouvel étudiant d'accepter et règle le rôle de {{count}} étudiant sur son propre dépôt sur lecture (pull). Le travail existant est préservé mais devient en lecture seule jusqu'à la réouverture.",
+      "warning_other": "Cela empêche tout nouvel étudiant d'accepter et règle le rôle de {{count}} étudiants sur leurs propres dépôts sur lecture (pull). Le travail existant est préservé mais devient en lecture seule jusqu'à la réouverture.",
+      "working": "Mise à jour des dépôts"
+    },
+    "closedNotice": "Les rendus sont fermés. Les nouveaux étudiants ne peuvent pas accepter ce devoir. Lorsque vous fermez depuis ici, les dépôts des étudiants ayant accepté sont mis en lecture seule ; le travail existant est préservé. Rouvrez depuis le menu Actions pour autoriser de nouveau les rendus.",
+    "manualGrade": {
+      "add": "Ajouter une note",
+      "addLabel": "Ajouter une note pour {{name}}",
+      "edit": "Modifier la note",
+      "editLabel": "Modifier la note de {{name}}",
+      "inputLabel": "Score pour {{name}}",
+      "notGraded": "Non noté",
+      "range": "Le score doit être un entier de 0 à {{max}}.",
+      "required": "Saisissez un score pour enregistrer.",
+      "saveError": "Impossible d'enregistrer la note. Vérifiez votre connexion et réessayez."
+    },
+    "migrateTracking": {
+      "apply": "Migrer la configuration",
+      "bannerAction": "Migrer la configuration",
+      "bannerText": "La configuration de cette classe utilise un format plus ancien. Migrez-la vers le schéma le plus récent pour activer les fonctionnalités les plus récentes des devoirs et des rendus.",
+      "error": "Les devoirs n'ont pas pu être mis à jour. Réessayez.",
+      "resultHeadline_one": "{{count}} devoir migré.",
+      "resultHeadline_other": "{{count}} devoirs migrés.",
+      "subtitle": "Mettez à jour les devoirs de cette classe vers le schéma de configuration le plus récent.",
+      "title": "Migrer la configuration de la classe",
+      "warning": "Cela enregistre explicitement les réglages de chaque devoir afin que chaque outil les lise de la même manière et que les fonctionnalités les plus récentes (comme le suivi des rendus en direct) soient activées. Cela ne modifie aucune note, échéance ni accès d'étudiant, et vous pouvez continuer à travailler comme avant.",
+      "working": "Mise à jour des devoirs"
+    },
+    "noAutograderNote": "Ce devoir n'a pas de correction automatique intégrée — l'enseignant fournit sa propre CI dans le modèle. Les scores intégrés et le regrade sont désactivés ; le tableau ci-dessous indique qui a accepté. La pull request de retour fonctionne toujours lorsqu'elle est activée.",
+    "rowAutograde": {
+      "outcome": {
+        "failed": "Impossible de changer l'état de la correction automatique — réessayez.",
+        "notGradable": "Ce dépôt n'a pas de workflow de correction automatique — rien à modifier.",
+        "paused": "Correction automatique mise en pause pour ce dépôt.",
+        "resumed": "Correction automatique reprise pour ce dépôt."
+      },
+      "pauseAria": "Mettre la correction automatique en pause pour {{repo}}",
+      "pauseDescription": "Désactiver le workflow de correction automatique de ce dépôt. Le fichier de workflow est laissé intact et la correction peut être reprise à tout moment.",
+      "pauseTitle": "Mettre la correction automatique en pause",
+      "resumeAria": "Reprendre la correction automatique pour {{repo}}",
+      "resumeDescription": "Réactiver le workflow de correction automatique de ce dépôt pour que les pushes soient de nouveau notés.",
+      "resumeTitle": "Reprendre la correction automatique"
+    },
+    "rowTrigger": {
+      "aria": "Mettre à jour le déclencheur de correction automatique sur {{repo}}",
+      "description": "Réécrire le workflow de correction automatique de ce dépôt pour correspondre au réglage de déclencheur du devoir.",
+      "outcome": {
+        "current": "Déjà à jour — aucune modification nécessaire.",
+        "failed": "Impossible de mettre à jour le workflow — réessayez.",
+        "missingWorkflowScope": "Votre autorisation GitHub ne peut pas modifier les fichiers de workflow. Déconnectez-vous et reconnectez-vous, puis réessayez.",
+        "notAccepted": "Aucun dépôt n'existe encore — rien à mettre à jour.",
+        "unrecognized": "Ignoré : le workflow de ce dépôt a été modifié et ne peut pas être mis à jour automatiquement.",
+        "updated": "Déclencheur de correction automatique mis à jour. L'étudiant doit faire un pull avant son prochain push."
+      },
+      "title": "Mettre à jour le déclencheur de correction automatique"
     }
   },
   "orgActivity": {
@@ -2401,7 +2676,8 @@
       "orgRepoCreation": {
         "action": "Paramètres de l'organisation",
         "master": "<org>{{org}}</org> n'autorise pas les membres à créer des dépôts, de sorte qu'aucun élève ne peut accepter un devoir. Relancez la configuration de l'organisation, ou autorisez la création de dépôts privés (et non publics) sous <memberPrivileges>Member privileges</memberPrivileges>. Une politique d'entreprise peut remplacer ce paramètre.",
-        "private": "<org>{{org}}</org> n'autorise pas les membres à créer des dépôts privés, de sorte qu'aucun élève ne peut accepter un devoir. Relancez la configuration de l'organisation, ou autorisez la création de dépôts privés (et non publics) sous <memberPrivileges>Member privileges</memberPrivileges>. Une politique d'entreprise peut remplacer ce paramètre."
+        "private": "<org>{{org}}</org> n'autorise pas les membres à créer des dépôts privés, de sorte qu'aucun élève ne peut accepter un devoir. Relancez la configuration de l'organisation, ou autorisez la création de dépôts privés (et non publics) sous <memberPrivileges>Member privileges</memberPrivileges>. Une politique d'entreprise peut remplacer ce paramètre.",
+        "memberPrivilegesLabel": "Privilèges des membres (ouvre les paramètres de l'organisation GitHub dans un nouvel onglet)"
       }
     },
     "confirmModal": {
@@ -2535,6 +2811,38 @@
       "loading": "Vérification de vos organisations…",
       "manage": "Gérer",
       "subheading": "État des jetons de service dans chaque organisation dont vous êtes propriétaire. Renouvelez un jeton avant son expiration pour que la collecte nocturne des notes continue de fonctionner."
+    },
+    "appearance": {
+      "dark": "Sombre",
+      "darkHint": "Toujours utiliser le thème sombre.",
+      "groupAria": "Préférence de thème",
+      "heading": "Apparence",
+      "light": "Clair",
+      "lightHint": "Toujours utiliser le thème clair.",
+      "subheading": "Choisissez un thème clair ou sombre, ou suivez le réglage de votre appareil.",
+      "system": "Système",
+      "systemHint": "Suivre le réglage clair/sombre de votre appareil."
+    },
+    "groups": {
+      "organizations": "Organisations",
+      "organizationsDescription": "Gérez vos organisations et votre page d'accueil.",
+      "preferences": "Préférences",
+      "preferencesDescription": "Paramètres d'affichage et d'interaction pour ce navigateur."
+    },
+    "language": {
+      "heading": "Langue",
+      "subheading": "Changez de langue ou installez un pack de langue traduit."
+    },
+    "motion": {
+      "groupAria": "Préférence d'animation",
+      "heading": "Animations",
+      "off": "Désactivées",
+      "offHint": "Désactiver toutes les animations.",
+      "on": "Activées",
+      "onHint": "Toujours animer.",
+      "subheading": "Contrôlez les animations de l'interface, telles que les transitions de page, les menus et autres effets animés.",
+      "system": "Système",
+      "systemHint": "Suivre le réglage de réduction des animations de votre appareil."
     }
   },
   "pagesErrors": {
@@ -2711,5 +3019,129 @@
     },
     "summary_one": "{{count}} organisation nécessite une vérification du jeton de service.",
     "summary_other": "{{count}} organisations nécessitent une vérification du jeton de service."
+  },
+  "accessibility": {
+    "col": {
+      "description": "Premier plan / surface",
+      "floor": "Minimum",
+      "pair": "Paire",
+      "preview": "Aperçu",
+      "ratio": "Ratio",
+      "status": "État"
+    },
+    "criteria": {
+      "aboutHeading": "À propos de cet audit",
+      "bodyText": "Texte courant ≥ {{body}}:1",
+      "generated": "Généré le {{generated}}",
+      "largeText": "Texte de grande taille ≥ {{large}}:1",
+      "marginHeading": "Marge de sécurité recommandée",
+      "marginWhy": "Nous maintenons chaque paire légèrement au-dessus du minimum WCAG — une marge qui absorbe l'anticrénelage, le rendu subpixel et les futurs ajustements de palette. C'est une recommandation, pas une exigence de conformité.",
+      "nonText": "Éléments non textuels (composants d'interface) ≥ {{nonText}}:1",
+      "standardText": "WCAG 2.2 — 1.4.6 Contraste (amélioré, AAA) pour le texte, 1.4.11 Contraste des éléments non textuels pour les composants d'interface.",
+      "thresholdsHeading": "Minimums requis (seuil WCAG) :"
+    },
+    "detail": {
+      "background": "Arrière-plan (surface)",
+      "foreground": "Premier plan (texte)",
+      "minimum": "Minimum WCAG ({{floor}}:1)",
+      "ratio": "Ratio de contraste",
+      "sampleBody": "Portez ce vieux whisky au juge blond qui fume.",
+      "sampleHeading": "Exemple de texte"
+    },
+    "downloads": {
+      "contrastDesc": "Ratios de contraste par paire pour chaque couleur auditée, dans les deux thèmes.",
+      "contrastTitle": "Audit du contraste des couleurs",
+      "fullDesc": "Le VPAT et l'audit du contraste des couleurs dans un seul document.",
+      "fullTitle": "Rapport complet",
+      "heading": "Rapports",
+      "markdownAction": "Markdown",
+      "pdfAction": "PDF",
+      "vpatWcagDesc": "Rapport de conformité en matière d'accessibilité selon WCAG 2.2 (VPAT 2.5Rev).",
+      "vpatWcagTitle": "VPAT — édition WCAG"
+    },
+    "legend": {
+      "exempt": "hors du champ WCAG (décoratif / désactivé)",
+      "fail": "en dessous du minimum WCAG",
+      "heading": "Légende",
+      "pass": "satisfait au minimum WCAG",
+      "passMargin": "satisfait, mais en dessous de la marge recommandée (l'icône d'information affiche les chiffres)"
+    },
+    "loadError": "Impossible de charger le rapport d'audit du contraste.",
+    "marginInfo": "{{ratio}}:1 satisfait au minimum WCAG de {{floor}}:1, mais reste en dessous de notre cible recommandée de {{margin}}:1 — toujours conforme, avec moins de marge.",
+    "nav": {
+      "contrast": "Contraste des couleurs",
+      "downloads": "Rapports",
+      "statement": "Déclaration",
+      "vpat": "Conformité"
+    },
+    "pageSubtitle": "Comment l'application web Classroom 50 se conforme au niveau AA de WCAG 2.2, vérifié automatiquement à chaque build.",
+    "pageTitle": "Accessibilité",
+    "preview": {
+      "open": "Voir les détails de la couleur",
+      "openFor": "Voir les détails de la couleur pour {{pair}}"
+    },
+    "print": {
+      "belowMargin": "(en dessous des {{margin}}:1 recommandés)",
+      "colColors": "Couleurs (pp / af)",
+      "contrastMeta": "Ratios de contraste WCAG par paire pour chaque couleur auditée, dans les deux thèmes. Généré le {{date}}.",
+      "contrastTitle": "Audit du contraste des couleurs",
+      "reportMeta": "Norme : WCAG {{standard}}, niveau cible {{target}}. Date du rapport : {{date}}.",
+      "reportTitle": "Rapport de conformité en matière d'accessibilité — {{product}}",
+      "vpatSummary": "Résumé ({{total}} critères applicables) : {{supports}} Pris en charge, {{partially}} Partiellement pris en charge, {{doesNotSupport}} Non pris en charge, {{notApplicable}} Non applicable, {{notEvaluated}} Non évalué."
+    },
+    "statement": {
+      "feedback": "Vous avez trouvé quelque chose de difficile à utiliser ? Merci de",
+      "feedbackHeading": "Faites-nous part de vos retours",
+      "feedbackLink": "signaler un problème d'accessibilité",
+      "heading": "Déclaration d'accessibilité",
+      "intro": "Nous voulons que tout le monde puisse utiliser Classroom 50, y compris les personnes qui utilisent un clavier, un lecteur d'écran ou d'autres technologies d'assistance.",
+      "limitations": "Quelques critères sont marqués « Partiellement pris en charge » dans le rapport de conformité, chacun accompagné d'une note sur ce qu'il reste à faire. Nous les corrigeons au fur et à mesure de l'avancement des travaux.",
+      "limitationsHeading": "Limitations connues",
+      "target": "Nous visons le niveau AA de WCAG 2.2. Le contraste des couleurs est vérifié à chaque build ; le reste est vérifié manuellement au clavier et au lecteur d'écran. Le rapport de conformité indique où nous en sommes pour chaque critère.",
+      "targetHeading": "Où nous en sommes",
+      "updated": "Dernière révision le {{date}}."
+    },
+    "status": {
+      "exempt": "Exempté",
+      "fail": "Échec",
+      "pass": "Réussite"
+    },
+    "summaryFail": "{{failures}} paire(s) de couleurs sont en dessous du seuil de contraste WCAG.",
+    "summaryPass": "Les {{total}} paires de couleurs auditées satisfont toutes à leur seuil de contraste WCAG.",
+    "summaryPassMargin_one": "Les {{total}} paires de couleurs auditées satisfont toutes à leur seuil de contraste WCAG. {{count}} satisfait mais reste en dessous de notre marge de sécurité recommandée.",
+    "summaryPassMargin_other": "Les {{total}} paires de couleurs auditées satisfont toutes à leur seuil de contraste WCAG. {{count}} satisfont mais restent en dessous de notre marge de sécurité recommandée.",
+    "title": "Audit du contraste des couleurs",
+    "vpat": {
+      "clearFilter": "Effacer le filtre",
+      "col": {
+        "assessed": "Évalué",
+        "conformance": "Conformité",
+        "criterion": "Critère",
+        "level": "Niveau",
+        "remarks": "Remarques"
+      },
+      "empty": "Aucun critère ne correspond à ce filtre.",
+      "filterAll": "Tous les états",
+      "filterAria": "Filtrer par état de conformité",
+      "filterLabel": "État",
+      "generated": "Date du rapport {{generated}}",
+      "heading": "Rapport de conformité (VPAT)",
+      "loadError": "Impossible de charger le rapport de conformité.",
+      "principleTabsAria": "Principe WCAG",
+      "searchAria": "Rechercher des critères de conformité",
+      "searchPlaceholder": "Rechercher des critères…",
+      "sort": {
+        "criterion": "Critère",
+        "status": "Conformité"
+      },
+      "sortBy": "Trier par",
+      "status": {
+        "doesNotSupport": "Non pris en charge",
+        "notApplicable": "Non applicable",
+        "notEvaluated": "Non évalué",
+        "partially": "Partiellement pris en charge",
+        "supports": "Pris en charge"
+      }
+    }
   }
 }

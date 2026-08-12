@@ -81,7 +81,6 @@
     "about": "關於",
     "aboutAskQuestion": "提出問題",
     "aboutAskQuestionHint": "向社群尋求協助。",
-    "aboutBuilt": "建置時間",
     "aboutCommit": "提交",
     "aboutDialogDescription": "本應用程式的建置與版本資訊。",
     "aboutDialogTitle": "Classroom 50",
@@ -104,7 +103,11 @@
     "viewAsHeadTa": "首席助教",
     "envDev": "開發",
     "envIndicator": "執行於 {{env}} 環境 — 並非正式網站。",
-    "envPreview": "預覽"
+    "envPreview": "預覽",
+    "aboutViewAccessibility": "檢視無障礙資訊",
+    "accessibility": "無障礙",
+    "backToApp": "返回應用程式",
+    "signIn": "登入"
   },
   "auth": {
     "signInTitle": "登入",
@@ -140,23 +143,35 @@
     "errorNetwork": "連線至 {{target}} 時發生網路錯誤，可能已停止服務或無法連線。",
     "errorNetworkProxyTarget": "Cloudflare Worker 代理伺服器",
     "errorOffline": "您似乎已離線。請檢查連線後再試一次——登入需要網路連線。",
-    "errorPatFineGrained": "這看起來是 fine-grained token，無法驗證。請改用具備上列權限範圍的 classic token。",
     "errorPatMissingScopes": "此 token 缺少必要的權限範圍：{{scopes}}。請新增後再試一次。",
     "errorPatRejected401": "此 token 被 GitHub 拒絕（401）。請確認它有效且未過期。",
     "errorStateMismatch": "狀態不符——可能為 CSRF。請重新登入。",
     "offlineHold": "您目前離線。正在等待連線以還原您的工作階段……",
     "otherSignInMethods": "其他登入方式",
     "patCancel": "取消",
-    "patCreateTokenLink": "建立已預先選取這些權限範圍的 token",
-    "patFineGrainedNote": "不支援 fine-grained token——請使用 classic token。",
-    "patInstructions": "貼上 GitHub 個人存取權杖（classic）即可直接登入，無需經過 OAuth 代理。此 token 必須勾選以下權限範圍：",
-    "patStorageNote": "此 token 儲存在本瀏覽器的 local storage 中，與其他登入方式取得的 token 相同。",
+    "patCreateTokenLink": "建立傳統權杖",
+    "patStorageNote": "與其他登入方式一樣，權杖儲存在此瀏覽器的本機儲存空間中。",
     "patSubmit": "使用 token 登入",
-    "patTitle": "使用個人存取權杖登入",
     "patTokenLabel": "個人存取權杖",
-    "usePersonalAccessToken": "改用個人存取權杖",
     "validationStuck": "仍在嘗試連線 GitHub 以驗證你的工作階段。這通常是暫時性的 GitHub、網路或瀏覽器擴充功能問題。請重試，或重新登入以重新開始。",
-    "validationStuckSignIn": "重新登入"
+    "validationStuckSignIn": "重新登入",
+    "accessibility": "無障礙",
+    "otherSignInMethodsHint": "在沒有瀏覽器的機器上使用裝置代碼，或使用個人存取權杖以在不透過 OAuth 代理的情況下登入。",
+    "patClassicIntro": "傳統權杖適用於你擁有的每個組織。",
+    "patFineGrainedIntro": "輸入此權杖應管理的組織。它會成為權杖的資源擁有者。",
+    "patFineGrainedLink": "建立精細權限權杖",
+    "patFineGrainedNeedsOrg": "在上方輸入你的組織以為其建立權杖。",
+    "patFineGrainedOrgLabel": "組織登入名稱",
+    "patFineGrainedOrgPlaceholder": "your-organization",
+    "patFineGrainedWarning": "精細權限權杖僅適用於單一組織。跨組織的範本作業會失敗，且某些存取權限無法事先驗證，因此請在權杖頁面將「Repository access」設為「All repositories」。",
+    "patPasteInstruction": "複製 GitHub 顯示給你的權杖（只會顯示一次），然後貼到下方。",
+    "patPermissionsHelp": "此按鈕會開啟 GitHub 的權杖頁面，並已選好 Classroom 50 所需的權限。請將資源擁有者設為你的組織，並將「Repository access」設為「All repositories」。",
+    "patScopesHelp": "此按鈕會開啟 GitHub 的權杖頁面，並已選好 Classroom 50 所需的範圍。你可以在產生前於該處檢視它們。",
+    "patTitleClassic": "使用傳統個人存取權杖登入",
+    "patTitleFineGrained": "使用精細權限個人存取權杖登入",
+    "sessionExpired": "你的工作階段已過期——請重新登入以繼續。",
+    "usePersonalAccessTokenClassic": "改用個人存取權杖（傳統）",
+    "usePersonalAccessTokenFineGrained": "改用個人存取權杖（精細權限）"
   },
   "documentTitle": {
     "assignments": "作業",
@@ -522,7 +537,8 @@
     "activeHint": "選擇已安裝的語言，或選取標示 ⬇ 的語言以下載並安裝。",
     "optionDownload": "⬇ {{language}}",
     "sourceRegistry": "登錄檔",
-    "sourceUser": "由您載入"
+    "sourceUser": "由您載入",
+    "urlLabel": "從網址匯入語言包"
   },
   "validation": {
     "githubOrEmailRequired": "請輸入 GitHub 使用者名稱或電子郵件。",
@@ -571,7 +587,8 @@
       "hide": "從首頁隱藏",
       "moreActions": "{{org}} 的更多操作",
       "undoHide": "復原",
-      "manageToken": "管理權杖"
+      "manageToken": "管理權杖",
+      "openAria": "開啟 {{org}}"
     },
     "newOrg": {
       "allSetUp": "我們能看到的所有組織都已設定完成。",
@@ -734,7 +751,10 @@
         "releaseAssetsTooLarge": "提交發佈檔案路徑合計最多可有 {{max}} 個 UTF-8 位元組（8 KiB）；目前為 {{bytes}}。",
         "releaseAssetsTooMany": "最多選擇 {{max}} 個提交發佈檔案（目前有 {{count}} 個）。",
         "setupTimeoutRange": "設定逾時必須為 0，或 1 到 {{max}} 之間的整數秒。",
-        "studentPermissionInvalid": "學生儲存庫存取權必須為 pull、triage、push、maintain 或 admin 其中之一。"
+        "studentPermissionInvalid": "學生儲存庫存取權必須為 pull、triage、push、maintain 或 admin 其中之一。",
+        "gradingMaxPointsInvalid": "滿分必須是至少 {{min}} 的整數。",
+        "gradingModeInvalid": "評分必須是「off」、「auto」或「manual」。",
+        "submissionModeInvalid": "自動評分觸發條件必須是「every-push」或「tag」。"
       },
       "allowedFilesTip": "採用 {{gitignore}} 樣式的有序模式，每行一個，用來定義哪些檔案屬於一份繳交（最後符合者優先，{{bang}} 可重新納入）。例如先寫 {{star}} 再寫 {{example}}，就只允許 {{result}}。留空則允許所有檔案。",
       "containerUserTip": "容器執行時所使用的使用者。若簽出（checkout）因權限錯誤而失敗，請設為 root。GitHub Actions 會以主機 runner 的使用者身分執行容器步驟，因此非 root 映像檔往往無法寫入工作區。",
@@ -765,12 +785,8 @@
       "optional": "選填",
       "setDueDate": "設定截止日期",
       "setDueDateTip": "關閉表示此作業沒有截止期限。開啟後可選擇日期與時間；學生會將其視為截止日期。",
-      "settingsSection": "設定",
       "slugEditHelp": "此代稱是作業存放庫名稱的一部分，建立後便無法變更。",
-      "emptyRepo": "空白儲存庫",
-      "emptyRepoHelp": "為每位學生建立完全空白的儲存庫：沒有起始檔案、沒有自動評分、沒有回饋 pull request。適用於學生從零開始建構一切（包括自己的 GitHub Actions）的作業。此選擇在作業建立後無法變更。",
-      "emptyRepoLocked": "建立後無法變更。",
-      "feedbackPrEmptyRepoHelp": "空白儲存庫無法使用——因為沒有起始 commit 可用於比對差異。",
+      "feedbackPrEmptyRepoHelp": "空儲存庫無法使用。沒有起始提交可供比對差異。",
       "passThresholdUnit": "% 的最高分為及格標準",
       "releaseAssetCount_one": "{{count}} 個發佈檔案",
       "releaseAssetCount_other": "{{count}} 個發佈檔案",
@@ -790,11 +806,10 @@
           "on": "開啟"
         },
         "heading": "儲存庫功能",
-        "help": "決定每個學生儲存庫是否啟用 Wiki、Issues、Projects 與 Pull requests。於學生接受時套用（僅限新儲存庫）；若要變更已建立的儲存庫，請使用成績簿。繼承私人範本時也會複製其 Wiki／Issues／Projects 內容，因此請勿在你要繼承的範本中放入解答。",
+        "help": "每個學生儲存庫是否啟用 Wiki、Issues、Projects 與 Pull requests。",
         "issues": {
           "label": "Issues"
         },
-        "overrideWarning": "套用於此後建立的儲存庫；學生已接受的儲存庫不會變更。使用範本時，預設值在接受當下依照範本（範本日後變更時，既有儲存庫不會隨之改變）；未使用範本時，預設值會沿用 GitHub 本身的儲存庫預設值。若要更新既有儲存庫，請在提交頁面使用批次儲存庫功能操作。",
         "projects": {
           "label": "Projects"
         },
@@ -804,7 +819,12 @@
         "refresh": "重新整理範本設定",
         "wiki": {
           "label": "Wiki"
-        }
+        },
+        "helpExisting": "變更適用於自此之後建立的儲存庫。若要更新學生已接受的儲存庫，請使用成績簿。",
+        "overrideExisting": "若要更新學生已接受的儲存庫，請使用提交頁面上的批次儲存庫功能操作。",
+        "overrideNoTemplate": "預設值沿用 GitHub 自己的儲存庫預設設定。",
+        "overrideTemplate": "當學生接受時，預設值會沿用範本的設定。若你之後更新範本，既有的儲存庫不會改變。",
+        "templateContentWarning": "繼承私人範本也會複製其 Wiki、Issues 與 Projects 的內容，因此請勿在你所繼承的範本中放入解答金鑰。"
       },
       "setAvailableFrom": "設定發布日期",
       "setAvailableFromTip": "作業預設會從學生作業頁面隱藏——學生只能透過邀請連結接受。設定發布日期後，日期一過即會向所有人列出。已接受的學生一律看得到。此設定僅控制列出與否，不影響存取權限。",
@@ -823,6 +843,94 @@
           "push": "Write（push）",
           "triage": "Triage"
         }
+      },
+      "addReadme": {
+        "helpOff": "建立沒有初始提交的空儲存庫。在學生的第一次提交之前，無法使用自動評分與回饋 PR。",
+        "helpOn": "為每個儲存庫初始化一個 README.md，並建立初始提交，讓分支、拉取請求與回饋 PR 能正常運作。",
+        "label": "新增 README"
+      },
+      "autograding": {
+        "choices": {
+          "built-in": {
+            "help": "提交內建自動評分器的墊片，然後在下方設定執行環境與宣告式測試。",
+            "label": "使用內建自動評分器"
+          },
+          "none": {
+            "help": "不提交任何自動評分器墊片。若使用範本，請在範本中提供你自己的工作流程（它必須在提交發行版上發布 result.json 資產）。若不使用範本，儲存庫則單純沒有自動評分器。",
+            "label": "不使用內建自動評分器"
+          }
+        },
+        "label": "自動評分",
+        "lockedHelp": "是否使用內建自動評分器在建立後無法變更：學生已接受的儲存庫不會重新配置。",
+        "modeLabel": "內建自動評分器",
+        "notAutogradedNote": "只有當此作業在上方的「提交與評分」區段設為「自動評分」時，自動評分選項才會生效。將評分方式改為「自動評分」以設定自動評分器。"
+      },
+      "copyAbout": {
+        "help": "將範本的「關於」（其描述）複製到每個學生儲存庫。GitHub 不會自動複製它。此設定適用於自此之後接受的學生；已建立的儲存庫不會變更。",
+        "label": "從範本複製「關於」"
+      },
+      "copyTopics": {
+        "help": "將範本的主題複製到每個學生儲存庫。GitHub 不會自動複製它們。此設定適用於自此之後接受的學生；已建立的儲存庫不會變更。",
+        "label": "從範本複製主題"
+      },
+      "grading": {
+        "autoNote": "此作業為自動評分。請在下方的「自動評分」區段設定自動評分器。無論你使用內建自動評分器或提供自己的工作流程，它都必須在提交發行版上發布 result.json 資產——應用程式讀取該檔案來顯示分數。",
+        "choices": {
+          "auto": "自動評分",
+          "manual": "手動（手動輸入分數）",
+          "off": "不評分"
+        },
+        "editWarning": "評分模式在建立後無法變更：以舊模式記錄的分數會被誤讀。請改用不同的 slug 建立新作業。",
+        "help": "此作業的評分方式。「自動評分」會執行你在下方設定的自動評分器。「手動」讓你在提交頁面上逐一手動輸入每位學生的分數。「不評分」則不記錄任何分數。作業建立後無法變更。",
+        "label": "評分",
+        "maxPoints": {
+          "help": "此手動作業可得的總分。用於顯示每位學生在滿分中的得分。",
+          "label": "滿分"
+        }
+      },
+      "includeAllBranches": {
+        "help": "從範本複製每個分支及其歷史記錄，而不只是預設分支。此設定適用於自此之後接受的學生；已建立的儲存庫不會變更。",
+        "label": "包含所有分支"
+      },
+      "repoSource": {
+        "label": "從範本開始",
+        "lockedHelp": "儲存庫來源在建立後無法變更：學生已接受的儲存庫不會重新配置。",
+        "none": {
+          "help": "為每位學生建立一個全新的儲存庫。",
+          "label": "無範本"
+        },
+        "template": {
+          "help": "從你提供的範本產生每位學生的儲存庫。",
+          "label": "範本儲存庫"
+        }
+      },
+      "repositorySetupSection": "儲存庫設定",
+      "scheduleSection": "排程",
+      "sectionStatus": {
+        "configured": "已設定",
+        "default": "預設",
+        "error": "需要注意"
+      },
+      "submissionMode": {
+        "choices": {
+          "everyPush": "推送到預設分支的每一次推送",
+          "tag": "已標籤的提交"
+        },
+        "editWarning": "變更此設定只會影響自此之後建立的儲存庫。學生已接受的儲存庫會保留舊設定，直到你更新它們——請使用提交頁面上的「更新自動評分觸發條件」或 gh teacher assignment submission-mode。學生在更新後必須執行 pull。",
+        "help": "「推送到預設分支的每一次推送」會計入每一次推送（起始提交除外）。「已標籤的提交」只計入已標籤的提交——學生以 gh student submit 或推送標籤來提交，因此一般的推送不會耗用 Actions 分鐘數。",
+        "label": "提交類型"
+      },
+      "submissionSection": "提交與評分",
+      "submissionSectionHelp": "定義此作業中什麼算作一次提交——自動評分器何時執行，以及學生可推送哪些標籤來提交。",
+      "submissionTags": {
+        "commaHint": "每行放一個標籤，不要用逗號分隔的清單——逗號會成為標籤名稱的一部分而遭拒絕。",
+        "help": "選填的標籤名稱（每行一個），其提交也會被計入——例如 phase1、phase2。像 v* 這樣的模式會比對一整組標籤。留空則不設定。",
+        "label": "提交標籤",
+        "wildcardCaution": "像 v* 這樣廣泛的模式會比對學生推送的每個標籤，包括無關的發行標籤。建議使用像 phase1 這樣的確切名稱。"
+      },
+      "submissions": {
+        "heading": "提交",
+        "help": "提交頁面如何偵測與計算每位學生的作品。自動評分器使用相同的定義。"
       }
     },
     "autograder": {
@@ -899,7 +1007,7 @@
       "lockAria": "鎖定 {{name}}",
       "lockCancel": "取消",
       "lockConfirm": "鎖定作業",
-      "lockDescription": "這會在接受頁面、作業列表、提交檢視與 CLI 中，將 <assignment>{{assignment}}</assignment> 對所有學生關閉——包括已接受的學生。若使用私人範本，學生團隊對該範本的讀取權限也會被移除（不影響教職員的存取權）。既有的學生儲存庫不會被刪除。",
+      "lockDescription": "這會對每位學生鎖定 <assignment>{{assignment}}</assignment>——包括已經接受的學生——涵蓋接受頁面、作業清單、提交檢視與 CLI。若它使用私人範本，學生團隊對該範本的讀取權限也會被移除（不影響教職員權限）。既有的學生儲存庫不會被刪除。",
       "lockSuccess": "已鎖定 {{name}}。",
       "lockTitle": "鎖定作業",
       "lockTitleModal": "要鎖定作業嗎？",
@@ -912,7 +1020,8 @@
       "unlockDescription": "這會將 <assignment>{{assignment}}</assignment> 重新對學生開放。若使用私人範本，學生團隊對該範本的讀取權限會被還原，讓學生可再次接受。",
       "unlockSuccess": "已解除鎖定 {{name}}。",
       "unlockTitle": "解除鎖定作業",
-      "unlockTitleModal": "要解除鎖定作業嗎？"
+      "unlockTitleModal": "要解除鎖定作業嗎？",
+      "openSubmissionsAria": "開啟 {{name}} 的提交"
     },
     "template": {
       "label": "範本儲存庫",
@@ -971,7 +1080,8 @@
       "restrictedItemApprove": "為 {{owner}} 核准 Classroom 50（組織設定 → 第三方存取）。",
       "restrictedItemFork": "若 {{repo}} 是分支，也請在該分支的上游組織核准 Classroom 50——私人分支的存取權取決於上游組織的政策。",
       "restrictedItemOther": "否則可能是其他 403；請參閱下方 GitHub 的訊息。",
-      "viewTemplateRepo": "在 GitHub 上開啟 {{owner}}/{{repo}}"
+      "viewTemplateRepo": "在 GitHub 上開啟 {{owner}}/{{repo}}",
+      "emptyTemplate": "{{owner}}/{{repo}} 是範本，但沒有任何提交。請至少新增一個提交（例如 README），然後重試。"
     },
     "toolbar": {
       "clear": "清除",
@@ -1608,7 +1718,8 @@
     "unarchiveBody": "將 <classroom>{{classroom}}</classroom> 恢復為使用中：它會回到預設課程清單，並可再次接受新作業與學生。",
     "newButton": {
       "moreOptions": "更多選項"
-    }
+    },
+    "viewAssignmentsAria": "檢視 {{classroom}} 的作業"
   },
   "accept": {
     "githubUser": "GitHub 使用者",
@@ -1674,7 +1785,9 @@
     },
     "errors": {
       "emptyRepoWithTemplate": "作業「{{assignmentSlug}}」同時設定了空白儲存庫與範本，這是無效的組合。請你的老師重新執行作業設定。",
-      "incoherentMode": "作業「{{slug}}」的群組人數為 {{maxGroupSize}}，卻被設定為「{{mode}}」，因此其發佈設定不一致。請你的老師重新執行作業設定。"
+      "incoherentMode": "作業「{{slug}}」的群組人數為 {{maxGroupSize}}，卻被設定為「{{mode}}」，因此其發佈設定不一致。請你的老師重新執行作業設定。",
+      "initShimInvalidCombo": "作業「{{assignmentSlug}}」將內建自動評分套用於空儲存庫的設定，與範本、空儲存庫或未使用內建自動評分器混合在一起，這是無效的組合。請請老師重新執行作業設定。",
+      "noAutograderWithEmptyRepo": "作業「{{assignmentSlug}}」同時設定為不使用內建自動評分器且使用空儲存庫，這是無效的組合。請請老師重新執行作業設定。"
     },
     "stepActions": {
       "access": "已建立你的儲存庫 {{org}}/{{repo}}，但設定你（{{username}}）的存取權限失敗。這通常表示你的 GitHub 使用者名稱已變更，或你已離開 {{org}}。請確認你是 {{org}} 的成員，然後使用「重新執行設定」。",
@@ -1717,6 +1830,11 @@
       "body": "如果你認為這是錯誤，請詢問你的老師。",
       "error": "此作業目前無法讓你使用。如果你認為這是錯誤，請詢問你的老師。",
       "title": "此作業目前無法讓你使用"
+    },
+    "closed": {
+      "badge": "已關閉",
+      "body": "你的老師已關閉 <assignment>{{assignment}}</assignment> 的新提交，因此目前無法接受此作業。如果你認為這是錯誤，請請老師重新開放。",
+      "title": "提交已關閉"
     }
   },
   "submissions": {
@@ -1782,7 +1900,8 @@
       "manageRoster": "管理名冊",
       "shareWithCount_one": "與可接受此作業的 <count>{{count}} 位學生</count>分享。",
       "shareWithCount_other": "與可接受此作業的 <count>{{count}} 位學生</count>分享。",
-      "warnNoStudents": "目前 <classroom>{{classroom}}</classroom> 中還沒有學生能接受此連結。請先將學生加入名冊並邀請他們加入組織。"
+      "warnNoStudents": "目前 <classroom>{{classroom}}</classroom> 中還沒有學生能接受此連結。請先將學生加入名冊並邀請他們加入組織。",
+      "copied": "已複製"
     },
     "stats": {
       "submitted": "已繳交",
@@ -1881,7 +2000,9 @@
       "staleCount": "新",
       "staleCountTitle": "這位學生推送的提交多於已評分的數量。執行「立即同步提交」以對最新的內容評分並計分。",
       "manageAccess": "管理儲存庫存取權",
-      "manageAccessAria": "管理 {{owner}} 的儲存庫存取權"
+      "manageAccessAria": "管理 {{owner}} 的儲存庫存取權",
+      "overridden": "手動",
+      "overriddenTitle": "此分數為手動設定，在清除覆寫之前不會被自動評分變更。"
     },
     "reviewModal": {
       "errorTitle": "無法檢查是否有回饋 PR",
@@ -2083,10 +2204,10 @@
       "titleDisabled": "尚無可下載的提交"
     },
     "lock": {
-      "lockDescription": "這會在接受頁面、作業列表、提交檢視與 CLI 中，將 <assignment>{{assignment}}</assignment> 對所有學生關閉——包括已接受的學生。若使用私人範本，學生團隊對該範本的讀取權限也會被移除（不影響教職員的存取權）。既有的學生儲存庫不會被刪除。",
+      "lockDescription": "這會對每位學生鎖定 <assignment>{{assignment}}</assignment>——包括已經接受的學生——涵蓋接受頁面、作業清單、提交檢視與 CLI。若它使用私人範本，學生團隊對該範本的讀取權限也會被移除（不影響教職員權限）。既有的學生儲存庫不會被刪除。",
       "lockLabel": "鎖定作業",
       "lockSuccess": "作業已鎖定。",
-      "lockTitle": "將此作業對學生關閉，並在使用私人範本時移除學生團隊對其的讀取權限",
+      "lockTitle": "鎖定此作業，讓學生無法存取或接受它；若使用私人範本，並移除學生團隊對它的讀取權限",
       "lockTitleModal": "要鎖定作業嗎？",
       "unlockDescription": "這會將 <assignment>{{assignment}}</assignment> 重新對學生開放。若使用私人範本，學生團隊對該範本的讀取權限會被還原，讓學生可再次接受。",
       "unlockLabel": "解除鎖定作業",
@@ -2109,13 +2230,167 @@
       "open": "管理提交",
       "openAria": "管理 {{owner}} 的提交",
       "regradeDescription": "對最新的 commit 重新執行自動評分",
-      "reviewDescription": "開啟 feedback pull request"
+      "reviewDescription": "開啟 feedback pull request",
+      "autograding": "自動評分",
+      "autogradingEnabled": "已啟用",
+      "autogradingPaused": "已暫停",
+      "autogradingPausedByGitHub": "已被 GitHub 暫停"
     },
     "rowDownload": {
       "aria": "下載 {{owner}} 的提交",
       "error": "無法下載 {{owner}} 的提交。請再試一次。",
       "nothingToDownload": "{{owner}} 尚無可下載的提交。",
       "title": "下載此提交"
+    },
+    "bulkAutograde": {
+      "deferredDetail": "已略過——重新執行以變更。",
+      "deferredSection_one": "有 {{count}} 個儲存庫未被處理",
+      "deferredSection_other": "有 {{count}} 個儲存庫未被處理",
+      "failedSection_one": "有 {{count}} 個儲存庫無法變更",
+      "failedSection_other": "有 {{count}} 個儲存庫無法變更",
+      "noRepos": "尚未有學生接受此作業，因此沒有可變更的儲存庫。",
+      "notGradableDetail": "沒有自動評分工作流程——沒有可變更的項目。",
+      "notGradableSection_one": "有 {{count}} 個儲存庫沒有自動評分工作流程",
+      "notGradableSection_other": "有 {{count}} 個儲存庫沒有自動評分工作流程",
+      "pauseApply": "全部暫停",
+      "pauseMenuLabel": "暫停自動評分",
+      "pauseMenuTitle": "停用每個已接受學生儲存庫中的自動評分工作流程",
+      "pauseResultHeadline": "已暫停 {{total}} 個儲存庫中 {{done}} 個的自動評分。",
+      "pauseSubtitle_one": "停用 {{count}} 位學生儲存庫的自動評分。",
+      "pauseSubtitle_other": "停用 {{count}} 位學生儲存庫的自動評分。",
+      "pauseTitle": "暫停自動評分",
+      "pauseTitleEmptyRoster": "尚未有學生接受",
+      "pauseWarning_one": "這會停用 {{count}} 位學生儲存庫中的自動評分工作流程。不會變更任何檔案，且你可隨時恢復自動評分。",
+      "pauseWarning_other": "這會停用 {{count}} 位學生儲存庫中的自動評分工作流程。不會變更任何檔案，且你可隨時恢復自動評分。",
+      "progress": "已處理 {{total}} 個中的 {{processed}} 個",
+      "resumeApply": "全部恢復",
+      "resumeMenuLabel": "恢復自動評分",
+      "resumeMenuTitle": "重新啟用每個已接受學生儲存庫中的自動評分工作流程",
+      "resumeResultHeadline": "已恢復 {{total}} 個儲存庫中 {{done}} 個的自動評分。",
+      "resumeSubtitle_one": "重新啟用 {{count}} 位學生儲存庫的自動評分。",
+      "resumeSubtitle_other": "重新啟用 {{count}} 位學生儲存庫的自動評分。",
+      "resumeTitle": "恢復自動評分",
+      "resumeTitleEmptyRoster": "尚未有學生接受",
+      "resumeWarning_one": "這會重新啟用 {{count}} 位學生儲存庫中的自動評分工作流程。",
+      "resumeWarning_other": "這會重新啟用 {{count}} 位學生儲存庫中的自動評分工作流程。",
+      "working": "正在更新儲存庫"
+    },
+    "bulkTrigger": {
+      "apply": "全部更新",
+      "deferredDetail": "已略過——重新執行以更新。",
+      "deferredSection_one": "有 {{count}} 個儲存庫未被處理",
+      "deferredSection_other": "有 {{count}} 個儲存庫未被處理",
+      "failedSection_one": "有 {{count}} 個儲存庫無法更新",
+      "failedSection_other": "有 {{count}} 個儲存庫無法更新",
+      "menuLabel": "更新自動評分觸發條件",
+      "menuTitle": "重寫每個學生儲存庫的自動評分工作流程，以符合作業的觸發條件設定",
+      "noRepos": "尚未有學生接受此作業，因此沒有可更新的儲存庫。",
+      "notAcceptedDetail": "不存在儲存庫——沒有可更新的項目。",
+      "notAcceptedSection_one": "有 {{count}} 位學生尚未接受",
+      "notAcceptedSection_other": "有 {{count}} 位學生尚未接受",
+      "progress": "已處理 {{total}} 個中的 {{processed}} 個",
+      "repullReminder": "請學生執行 git pull——在此變更之前建立的複製會在下一次推送時發生衝突。",
+      "resultHeadline": "已更新 {{total}} 個儲存庫中的 {{updated}} 個（{{current}} 個已是最新）。",
+      "scopeDetail": "你的 GitHub 授權無法修改工作流程檔案。請登出後再重新登入，然後重新執行。",
+      "scopeSection_one": "有 {{count}} 個儲存庫需要具備 workflow 範圍的權杖",
+      "scopeSection_other": "有 {{count}} 個儲存庫需要具備 workflow 範圍的權杖",
+      "subtitle_one": "將 {{count}} 位學生儲存庫的自動評分觸發條件設為「{{mode}}」。",
+      "subtitle_other": "將 {{count}} 位學生儲存庫的自動評分觸發條件設為「{{mode}}」。",
+      "title": "更新自動評分觸發條件",
+      "titleEmptyRoster": "尚未有學生接受",
+      "unrecognizedSection_one": "有 {{count}} 個儲存庫被略過（無法辨識工作流程）",
+      "unrecognizedSection_other": "有 {{count}} 個儲存庫被略過（無法辨識工作流程）",
+      "warning_one": "這會對 {{count}} 位學生儲存庫中的自動評分工作流程提交變更。該提交已標記，因此不會觸發評分。工作流程曾被手動編輯的儲存庫會被回報並保持原狀。學生之後必須執行 pull——在此變更之前建立的複製會在下一次推送時發生衝突。",
+      "warning_other": "這會對 {{count}} 位學生儲存庫中的自動評分工作流程提交變更。該提交已標記，因此不會觸發評分。工作流程曾被手動編輯的儲存庫會被回報並保持原狀。學生之後必須執行 pull——在此變更之前建立的複製會在下一次推送時發生衝突。",
+      "working": "正在更新儲存庫"
+    },
+    "closeSubmission": {
+      "apply": "關閉提交",
+      "deferredDetail": "已略過——重新執行以更新。",
+      "deferredSection_one": "有 {{count}} 個儲存庫未被更新",
+      "deferredSection_other": "有 {{count}} 個儲存庫未被更新",
+      "failedSection_one": "有 {{count}} 個儲存庫無法更新",
+      "failedSection_other": "有 {{count}} 個儲存庫無法更新",
+      "finishApply": "完成關閉",
+      "finishHint": "提交已對新的接受關閉，但有些儲存庫尚未設為唯讀。完成關閉即可僅重試這些儲存庫——這不會重新開放提交。",
+      "flagError": "無法更新提交視窗，因此沒有變更任何儲存庫。請再試一次。",
+      "menuLabel": "關閉提交",
+      "menuTitle": "關閉提交視窗：阻止新的接受，並將每位學生的儲存庫設為唯讀",
+      "noRepos": "尚未有學生接受此作業。關閉仍會阻止新的接受。",
+      "progress": "已更新 {{total}} 個中的 {{processed}} 個",
+      "reopenApply": "重新開放提交",
+      "reopenLabel": "重新開放提交",
+      "reopenMenuTitle": "重新開放提交視窗：允許新的接受並恢復寫入權限",
+      "reopenResultHeadline": "已恢復 {{total}} 個儲存庫中 {{count}} 個的寫入權限。",
+      "reopenResultHeadlineThrottled": "在 GitHub 對請求進行速率限制之前，已恢復 {{total}} 個儲存庫中 {{count}} 個的寫入權限——請重新執行以完成其餘部分。",
+      "reopenSubtitle_one": "允許新的接受並恢復 {{count}} 位學生儲存庫的寫入權限。",
+      "reopenSubtitle_other": "允許新的接受並恢復 {{count}} 位學生儲存庫的寫入權限。",
+      "reopenTitle": "重新開放提交",
+      "reopenWarning_one": "這會再次允許新的接受，並恢復 {{count}} 位學生儲存庫的寫入權限。",
+      "reopenWarning_other": "這會再次允許新的接受，並恢復 {{count}} 位學生儲存庫的寫入權限。",
+      "resultHeadline": "已將 {{total}} 個儲存庫中的 {{count}} 個設為唯讀。",
+      "resultHeadlineThrottled": "在 GitHub 對請求進行速率限制之前，已將 {{total}} 個儲存庫中的 {{count}} 個設為唯讀——請重新執行以完成其餘部分。",
+      "statusBadge": {
+        "closed": "已關閉"
+      },
+      "subtitle_one": "阻止新的接受，並將 {{count}} 位學生的儲存庫設為唯讀。",
+      "subtitle_other": "阻止新的接受，並將 {{count}} 位學生的儲存庫設為唯讀。",
+      "title": "關閉提交",
+      "warning_one": "這會阻止任何新學生接受，並將 {{count}} 位學生在自己儲存庫上的角色設為讀取（pull）。既有作品會保留，但在你重新開放前變為唯讀。",
+      "warning_other": "這會阻止任何新學生接受，並將 {{count}} 位學生在自己儲存庫上的角色設為讀取（pull）。既有作品會保留，但在你重新開放前變為唯讀。",
+      "working": "正在更新儲存庫"
+    },
+    "closedNotice": "提交已關閉。新學生無法接受此作業。當你從此處關閉時，已接受學生的儲存庫會設為唯讀；既有作品會保留。從「動作」選單重新開放即可再次允許提交。",
+    "manualGrade": {
+      "add": "新增分數",
+      "addLabel": "為 {{name}} 新增分數",
+      "edit": "編輯分數",
+      "editLabel": "編輯 {{name}} 的分數",
+      "inputLabel": "{{name}} 的分數",
+      "notGraded": "未評分",
+      "range": "分數必須是 0 到 {{max}} 之間的整數。",
+      "required": "請輸入分數以儲存。",
+      "saveError": "無法儲存分數。請檢查你的連線後再試一次。"
+    },
+    "migrateTracking": {
+      "apply": "遷移設定",
+      "bannerAction": "遷移設定",
+      "bannerText": "此教室的設定使用較舊的格式。請將它遷移到最新的結構描述，以啟用最新的作業與提交功能。",
+      "error": "無法更新作業。請再試一次。",
+      "resultHeadline_one": "已遷移 {{count}} 個作業。",
+      "resultHeadline_other": "已遷移 {{count}} 個作業。",
+      "subtitle": "將此教室的作業更新為最新的設定結構描述。",
+      "title": "遷移教室設定",
+      "warning": "這會明確記錄每個作業的設定，讓每個工具以相同方式讀取它們，並啟用最新功能（例如即時提交追蹤）。它不會變更任何成績、截止日期或學生的存取權限，你也可以照常繼續作業。",
+      "working": "正在更新作業"
+    },
+    "noAutograderNote": "此作業沒有內建自動評分——老師在範本中提供自己的 CI。內建分數與重新評分已停用；下方表格會顯示誰已接受。啟用時回饋拉取請求仍可運作。",
+    "rowAutograde": {
+      "outcome": {
+        "failed": "無法變更自動評分狀態——請再試一次。",
+        "notGradable": "此儲存庫沒有自動評分工作流程——沒有可變更的項目。",
+        "paused": "已暫停此儲存庫的自動評分。",
+        "resumed": "已恢復此儲存庫的自動評分。"
+      },
+      "pauseAria": "暫停 {{repo}} 的自動評分",
+      "pauseDescription": "停用此儲存庫的自動評分工作流程。工作流程檔案保持不變，且可隨時恢復評分。",
+      "pauseTitle": "暫停自動評分",
+      "resumeAria": "恢復 {{repo}} 的自動評分",
+      "resumeDescription": "重新啟用此儲存庫的自動評分工作流程，讓推送再次被評分。",
+      "resumeTitle": "恢復自動評分"
+    },
+    "rowTrigger": {
+      "aria": "更新 {{repo}} 的自動評分觸發條件",
+      "description": "重寫此儲存庫的自動評分工作流程，以符合作業的觸發條件設定。",
+      "outcome": {
+        "current": "已是最新——無需變更。",
+        "failed": "無法更新工作流程——請再試一次。",
+        "missingWorkflowScope": "你的 GitHub 授權無法修改工作流程檔案。請登出後再重新登入，然後重試。",
+        "notAccepted": "尚未有儲存庫存在——沒有可更新的項目。",
+        "unrecognized": "已略過：此儲存庫的工作流程已被修改，無法自動更新。",
+        "updated": "已更新自動評分觸發條件。學生必須在下一次推送前執行 pull。"
+      },
+      "title": "更新自動評分觸發條件"
     }
   },
   "orgMembers": {
@@ -2248,7 +2523,8 @@
       "orgRepoCreation": {
         "action": "組織設定",
         "master": "<org>{{org}}</org> 不允許成員建立儲存庫，因此沒有任何學生能接受作業。請重新執行組織設定，或在 <memberPrivileges>成員權限</memberPrivileges> 下允許建立私有（而非公開）儲存庫。企業原則可能會覆寫此設定。",
-        "private": "<org>{{org}}</org> 不允許成員建立私有儲存庫，因此沒有任何學生能接受作業。請重新執行組織設定，或在 <memberPrivileges>成員權限</memberPrivileges> 下允許建立私有（而非公開）儲存庫。企業原則可能會覆寫此設定。"
+        "private": "<org>{{org}}</org> 不允許成員建立私有儲存庫，因此沒有任何學生能接受作業。請重新執行組織設定，或在 <memberPrivileges>成員權限</memberPrivileges> 下允許建立私有（而非公開）儲存庫。企業原則可能會覆寫此設定。",
+        "memberPrivilegesLabel": "成員權限（在新分頁中開啟 GitHub 組織設定）"
       }
     },
     "confirmModal": {
@@ -2441,7 +2717,7 @@
     "title": "Classroom 50 有新版本可用"
   },
   "offline": {
-    "body": "Classroom 50 使用來自 GitHub 的即時資料，因此需要網路連線。恢復連線後，此橫幅會自動消失。",
+    "body": "此裝置未連接網際網路。Classroom 50 需要即時連線才能運作。恢復連線後，此橫幅會自動消失。",
     "title": "您目前離線"
   },
   "orgActivity": {
@@ -2535,6 +2811,38 @@
       "loading": "正在檢查你的組織…",
       "manage": "管理",
       "subheading": "你所擁有的每個組織的服務權杖狀態。請在權杖到期前輪換，讓每晚的分數收集能持續執行。"
+    },
+    "appearance": {
+      "dark": "深色",
+      "darkHint": "一律使用深色主題。",
+      "groupAria": "主題偏好設定",
+      "heading": "外觀",
+      "light": "淺色",
+      "lightHint": "一律使用淺色主題。",
+      "subheading": "選擇淺色或深色主題，或跟隨你裝置的設定。",
+      "system": "系統",
+      "systemHint": "跟隨你裝置的淺色／深色設定。"
+    },
+    "groups": {
+      "organizations": "組織",
+      "organizationsDescription": "管理你的組織與首頁。",
+      "preferences": "偏好設定",
+      "preferencesDescription": "此瀏覽器的顯示與互動設定。"
+    },
+    "language": {
+      "heading": "語言",
+      "subheading": "切換語言或安裝已翻譯的語言包。"
+    },
+    "motion": {
+      "groupAria": "動畫偏好設定",
+      "heading": "動畫",
+      "off": "關閉",
+      "offHint": "關閉所有動畫。",
+      "on": "開啟",
+      "onHint": "一律使用動畫。",
+      "subheading": "控制介面動態效果，例如頁面轉場、選單與其他動畫效果。",
+      "system": "系統",
+      "systemHint": "跟隨你裝置的減少動態效果設定。"
     }
   },
   "pagesErrors": {
@@ -2711,5 +3019,129 @@
     },
     "summary_one": "{{count}} 個組織需要進行服務權杖檢查。",
     "summary_other": "{{count}} 個組織需要進行服務權杖檢查。"
+  },
+  "accessibility": {
+    "col": {
+      "description": "前景／表面",
+      "floor": "最低值",
+      "pair": "配對",
+      "preview": "預覽",
+      "ratio": "比值",
+      "status": "狀態"
+    },
+    "criteria": {
+      "aboutHeading": "關於此稽核",
+      "bodyText": "內文文字 ≥ {{body}}:1",
+      "generated": "產生於 {{generated}}",
+      "largeText": "大型文字 ≥ {{large}}:1",
+      "marginHeading": "建議的安全裕度",
+      "marginWhy": "我們讓每個配對略高於 WCAG 最低值——這個緩衝空間可吸收反鋸齒、次像素渲染以及未來的色盤微調。這只是建議，並非符合標準所必需。",
+      "nonText": "非文字（UI 元件）≥ {{nonText}}:1",
+      "standardText": "WCAG 2.2——文字適用 1.4.6 對比（增強，AAA），UI 元件適用 1.4.11 非文字對比。",
+      "thresholdsHeading": "必要的最低值（WCAG 下限）："
+    },
+    "detail": {
+      "background": "背景（表面）",
+      "foreground": "前景（文字）",
+      "minimum": "WCAG 最低值（{{floor}}:1）",
+      "ratio": "對比比值",
+      "sampleBody": "敏捷的棕色狐狸跳過懶惰的狗。",
+      "sampleHeading": "範例文字"
+    },
+    "downloads": {
+      "contrastDesc": "兩種主題中每個受稽核色彩的逐配對對比比值。",
+      "contrastTitle": "色彩對比稽核",
+      "fullDesc": "將 VPAT 與色彩對比稽核合併於一份文件中。",
+      "fullTitle": "完整報告",
+      "heading": "報告",
+      "markdownAction": "Markdown",
+      "pdfAction": "PDF",
+      "vpatWcagDesc": "依 WCAG 2.2（VPAT 2.5Rev）製作的無障礙符合性報告。",
+      "vpatWcagTitle": "VPAT——WCAG 版"
+    },
+    "legend": {
+      "exempt": "不在 WCAG 範圍內（裝飾性／已停用）",
+      "fail": "低於 WCAG 最低值",
+      "heading": "圖例",
+      "pass": "符合 WCAG 最低值",
+      "passMargin": "通過，但低於建議裕度（資訊圖示會顯示數值）"
+    },
+    "loadError": "無法載入對比稽核報告。",
+    "marginInfo": "{{ratio}}:1 符合 {{floor}}:1 的 WCAG 最低值，但低於我們建議的 {{margin}}:1 目標——仍算通過，只是緩衝空間較少。",
+    "nav": {
+      "contrast": "色彩對比",
+      "downloads": "報告",
+      "statement": "聲明",
+      "vpat": "符合性"
+    },
+    "pageSubtitle": "Classroom 50 網頁應用程式如何符合 WCAG 2.2 AA 級標準，並在每次建置時自動檢查。",
+    "pageTitle": "無障礙",
+    "preview": {
+      "open": "檢視色彩細節",
+      "openFor": "檢視 {{pair}} 的色彩細節"
+    },
+    "print": {
+      "belowMargin": "（低於建議的 {{margin}}:1）",
+      "colColors": "色彩（前景／背景）",
+      "contrastMeta": "兩種主題中每個受稽核色彩的逐配對 WCAG 對比比值。產生於 {{date}}。",
+      "contrastTitle": "色彩對比稽核",
+      "reportMeta": "標準：WCAG {{standard}}，目標級別 {{target}}。報告日期：{{date}}。",
+      "reportTitle": "無障礙符合性報告——{{product}}",
+      "vpatSummary": "摘要（{{total}} 項適用準則）：{{supports}} 項支援、{{partially}} 項部分支援、{{doesNotSupport}} 項不支援、{{notApplicable}} 項不適用、{{notEvaluated}} 項未評估。"
+    },
+    "statement": {
+      "feedback": "發現難以使用的地方嗎？請",
+      "feedbackHeading": "給我們回饋",
+      "feedbackLink": "開立無障礙問題",
+      "heading": "無障礙聲明",
+      "intro": "我們希望每個人都能使用 Classroom 50，包括使用鍵盤、螢幕閱讀器或其他輔助技術的人。",
+      "limitations": "在符合性報告中，有少數準則標示為「部分支援」，每項都附有待辦事項說明。我們會隨著開發進度逐一修正。",
+      "limitationsHeading": "已知限制",
+      "target": "我們的目標是符合 WCAG 2.2 AA 級。色彩對比在每次建置時檢查；其餘部分則以鍵盤與螢幕閱讀器手動檢查。符合性報告列出我們在每項準則上的狀態。",
+      "targetHeading": "我們的達成狀況",
+      "updated": "最後檢視於 {{date}}。"
+    },
+    "status": {
+      "exempt": "豁免",
+      "fail": "不通過",
+      "pass": "通過"
+    },
+    "summaryFail": "有 {{failures}} 個色彩配對低於 WCAG 對比下限。",
+    "summaryPass": "全部 {{total}} 個受稽核色彩配對都符合其 WCAG 對比下限。",
+    "summaryPassMargin_one": "全部 {{total}} 個受稽核色彩配對都符合其 WCAG 對比下限。有 {{count}} 個通過，但低於我們建議的安全裕度。",
+    "summaryPassMargin_other": "全部 {{total}} 個受稽核色彩配對都符合其 WCAG 對比下限。有 {{count}} 個通過，但低於我們建議的安全裕度。",
+    "title": "色彩對比稽核",
+    "vpat": {
+      "clearFilter": "清除篩選",
+      "col": {
+        "assessed": "已評估",
+        "conformance": "符合性",
+        "criterion": "準則",
+        "level": "級別",
+        "remarks": "備註"
+      },
+      "empty": "沒有準則符合此篩選條件。",
+      "filterAll": "所有狀態",
+      "filterAria": "依符合性狀態篩選",
+      "filterLabel": "狀態",
+      "generated": "報告日期 {{generated}}",
+      "heading": "符合性報告（VPAT）",
+      "loadError": "無法載入符合性報告。",
+      "principleTabsAria": "WCAG 原則",
+      "searchAria": "搜尋符合性準則",
+      "searchPlaceholder": "搜尋準則…",
+      "sort": {
+        "criterion": "準則",
+        "status": "符合性"
+      },
+      "sortBy": "排序方式",
+      "status": {
+        "doesNotSupport": "不支援",
+        "notApplicable": "不適用",
+        "notEvaluated": "未評估",
+        "partially": "部分支援",
+        "supports": "支援"
+      }
+    }
   }
 }

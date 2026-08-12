@@ -81,7 +81,6 @@
     "about": "Sobre",
     "aboutAskQuestion": "Fazer uma pergunta",
     "aboutAskQuestionHint": "Obtenha ajuda da comunidade.",
-    "aboutBuilt": "Compilado em",
     "aboutCommit": "Commit",
     "aboutDialogDescription": "Informações de compilação e versão deste aplicativo.",
     "aboutDialogTitle": "Classroom 50",
@@ -104,7 +103,11 @@
     "viewAsHeadTa": "Monitor-chefe",
     "envDev": "Dev",
     "envIndicator": "Executando em {{env}} — não é o site de produção.",
-    "envPreview": "Preview"
+    "envPreview": "Preview",
+    "aboutViewAccessibility": "Ver informações de acessibilidade",
+    "accessibility": "Acessibilidade",
+    "backToApp": "Voltar ao aplicativo",
+    "signIn": "Entrar"
   },
   "auth": {
     "signInTitle": "Entrar",
@@ -140,23 +143,35 @@
     "errorNetwork": "Erro de rede ao acessar {{target}}; pode estar fora do ar ou inacessível.",
     "errorNetworkProxyTarget": "o proxy do Cloudflare Worker",
     "errorOffline": "Você parece estar offline. Verifique sua conexão e tente novamente — entrar requer uma conexão de rede.",
-    "errorPatFineGrained": "Isso parece ser um token de granularidade fina, que não pode ser verificado. Use um token clássico com os escopos listados acima.",
     "errorPatMissingScopes": "Esse token não tem os escopos necessários: {{scopes}}. Adicione-os e tente novamente.",
     "errorPatRejected401": "Esse token foi rejeitado pelo GitHub (401). Verifique se é válido e se não expirou.",
     "errorStateMismatch": "Divergência de state -- possível CSRF. Tente entrar novamente.",
     "offlineHold": "Você está offline. Aguardando uma conexão para restaurar sua sessão…",
     "otherSignInMethods": "Outros métodos de entrada",
     "patCancel": "Cancelar",
-    "patCreateTokenLink": "Criar um token com esses escopos pré-selecionados",
-    "patFineGrainedNote": "Tokens de granularidade fina não são suportados — use um token clássico.",
-    "patInstructions": "Cole um token de acesso pessoal do GitHub (clássico) para entrar diretamente, sem o proxy OAuth. O token precisa ter estes escopos marcados:",
-    "patStorageNote": "O token é armazenado no armazenamento local deste navegador, assim como os tokens dos outros métodos de entrada.",
+    "patCreateTokenLink": "Criar um token clássico",
+    "patStorageNote": "O token é armazenado no armazenamento local deste navegador, como nos outros métodos de login.",
     "patSubmit": "Entrar com o token",
-    "patTitle": "Entrar com um token de acesso pessoal",
     "patTokenLabel": "Token de acesso pessoal",
-    "usePersonalAccessToken": "Usar um token de acesso pessoal",
     "validationStuck": "Ainda tentando alcançar o GitHub para verificar sua sessão. Isso geralmente é um problema temporário do GitHub, da rede ou de uma extensão do navegador. Tente novamente ou faça login de novo para começar do zero.",
-    "validationStuckSignIn": "Fazer login novamente"
+    "validationStuckSignIn": "Fazer login novamente",
+    "accessibility": "Acessibilidade",
+    "otherSignInMethodsHint": "Use um código de dispositivo em uma máquina sem navegador, ou um token de acesso pessoal para entrar sem o proxy OAuth.",
+    "patClassicIntro": "Um token clássico funciona em todas as organizações que você possui.",
+    "patFineGrainedIntro": "Informe a organização que este token deve gerenciar. Ela se torna o proprietário do recurso do token.",
+    "patFineGrainedLink": "Criar um token de granularidade fina",
+    "patFineGrainedNeedsOrg": "Informe sua organização acima para criar um token para ela.",
+    "patFineGrainedOrgLabel": "Login da organização",
+    "patFineGrainedOrgPlaceholder": "sua-organizacao",
+    "patFineGrainedWarning": "Um token de granularidade fina funciona apenas com uma organização. Atividades com modelo entre organizações vão falhar, e alguns acessos não podem ser verificados de antemão, portanto defina Repository access como All repositories na página do token.",
+    "patPasteInstruction": "Copie o token que o GitHub mostra (ele só é exibido uma vez) e cole-o abaixo.",
+    "patPermissionsHelp": "O botão abre a página de token do GitHub com as permissões de que o Classroom 50 precisa já selecionadas. Defina o proprietário do recurso como sua organização e Repository access como All repositories.",
+    "patScopesHelp": "O botão abre a página de token do GitHub com os escopos de que o Classroom 50 precisa já selecionados. Você pode revisá-los ali antes de gerar.",
+    "patTitleClassic": "Entrar com um token de acesso pessoal clássico",
+    "patTitleFineGrained": "Entrar com um token de acesso pessoal de granularidade fina",
+    "sessionExpired": "Sua sessão expirou — entre novamente para continuar.",
+    "usePersonalAccessTokenClassic": "Usar um token de acesso pessoal (clássico)",
+    "usePersonalAccessTokenFineGrained": "Usar um token de acesso pessoal (granularidade fina)"
   },
   "documentTitle": {
     "assignments": "Atividades",
@@ -522,7 +537,8 @@
     "activeHint": "Escolha um idioma instalado ou selecione um marcado com ⬇ para baixá-lo e instalá-lo.",
     "optionDownload": "⬇ {{language}}",
     "sourceRegistry": "Registro",
-    "sourceUser": "Carregado por você"
+    "sourceUser": "Carregado por você",
+    "urlLabel": "Importar um pacote de idioma de uma URL"
   },
   "validation": {
     "githubOrEmailRequired": "Informe um nome de usuário do GitHub ou um e-mail.",
@@ -571,7 +587,8 @@
       "hide": "Ocultar da página inicial",
       "moreActions": "Mais ações para {{org}}",
       "undoHide": "Desfazer",
-      "manageToken": "Gerenciar token"
+      "manageToken": "Gerenciar token",
+      "openAria": "Abrir {{org}}"
     },
     "newOrg": {
       "allSetUp": "Todas as organizações que conseguimos ver já estão configuradas.",
@@ -734,7 +751,10 @@
         "releaseAssetsTooLarge": "Os caminhos dos arquivos de release da entrega podem totalizar no máximo {{max}} bytes UTF-8 (8 KiB); atualmente são {{bytes}}.",
         "releaseAssetsTooMany": "Escolha no máximo {{max}} arquivos de release da entrega (atualmente {{count}}).",
         "setupTimeoutRange": "O tempo limite da configuração deve ser 0 ou um número inteiro de segundos de 1 a {{max}}.",
-        "studentPermissionInvalid": "O acesso do aluno ao repositório deve ser um destes: pull, triage, push, maintain ou admin."
+        "studentPermissionInvalid": "O acesso do aluno ao repositório deve ser um destes: pull, triage, push, maintain ou admin.",
+        "gradingMaxPointsInvalid": "A pontuação máxima deve ser um número inteiro de pelo menos {{min}}.",
+        "gradingModeInvalid": "A correção deve ser \"off\", \"auto\" ou \"manual\".",
+        "submissionModeInvalid": "O gatilho de autocorreção deve ser \"every-push\" ou \"tag\"."
       },
       "allowedFilesTip": "Padrões ordenados no estilo {{gitignore}}, um por linha, definindo quais arquivos pertencem a uma submissão (a última correspondência prevalece, {{bang}} reinclui). Ex.: {{star}} e depois {{example}} permite apenas {{result}}. Em branco, permite todos os arquivos.",
       "containerUserTip": "O usuário com o qual o contêiner é executado. Defina root se o checkout falhar com um erro de permissão. O GitHub Actions executa as etapas do contêiner como o usuário do runner host, então uma imagem non-root muitas vezes não consegue gravar no workspace.",
@@ -765,12 +785,8 @@
       "optional": "opcional",
       "setDueDate": "Definir uma data de entrega",
       "setDueDateTip": "Desativado significa que a atividade não tem prazo. Ative para escolher uma data e hora; os alunos a veem como a data de entrega.",
-      "settingsSection": "Configurações",
       "slugEditHelp": "O slug faz parte dos nomes dos repositórios da atividade e não pode ser alterado após a criação.",
-      "emptyRepo": "Repositório vazio",
-      "emptyRepoHelp": "Cria o repositório de cada estudante totalmente vazio: sem arquivos iniciais, sem correção automática, sem pull request de feedback. Para tarefas em que os estudantes constroem tudo do zero, incluindo suas próprias GitHub Actions. Essa escolha é permanente para a tarefa.",
-      "emptyRepoLocked": "Não pode ser alterado após a criação.",
-      "feedbackPrEmptyRepoHelp": "Indisponível para repositórios vazios — não há commit inicial para comparar as diferenças.",
+      "feedbackPrEmptyRepoHelp": "Indisponível para repositórios vazios. Não há commit inicial para comparar.",
       "passThresholdUnit": "% da pontuação máxima para aprovar",
       "releaseAssetCount_one": "{{count}} arquivo de release",
       "releaseAssetCount_other": "{{count}} arquivos de release",
@@ -790,11 +806,10 @@
           "on": "Ativado"
         },
         "heading": "Recursos do repositório",
-        "help": "Se cada repositório de aluno tem Wikis, Issues, Projects e Pull requests habilitados. Aplicado quando um aluno aceita a atividade (apenas repositórios novos); use o diário de notas para alterar repositórios já criados. Herdar de um modelo privado também copia o conteúdo de Wiki/Issues/Projects dele, então mantenha gabaritos fora de um modelo do qual você herda.",
+        "help": "Se cada repositório de aluno tem Wikis, Issues, Projects e Pull requests habilitados.",
         "issues": {
           "label": "Issues"
         },
-        "overrideWarning": "Aplica-se aos repositórios criados a partir de agora; os que os alunos já aceitaram não são alterados. Com um modelo, o padrão segue o modelo no momento da aceitação (repositórios existentes não mudam quando o modelo é alterado depois); sem um modelo, o padrão mantém os próprios padrões de repositório do GitHub. Para atualizar repositórios existentes, use a ação em massa de recursos de repositório na página de envios.",
         "projects": {
           "label": "Projects"
         },
@@ -804,7 +819,12 @@
         "refresh": "Atualizar configurações do modelo",
         "wiki": {
           "label": "Wiki"
-        }
+        },
+        "helpExisting": "As alterações se aplicam aos repositórios criados a partir de agora. Para atualizar os que os alunos já aceitaram, use o diário de notas.",
+        "overrideExisting": "Para atualizar os repositórios que os alunos já aceitaram, use a ação em massa de recursos de repositório na página de submissões.",
+        "overrideNoTemplate": "O padrão mantém os próprios padrões de repositório do GitHub.",
+        "overrideTemplate": "O padrão segue as configurações do modelo quando um aluno aceita. Os repositórios existentes não mudam se você atualizar o modelo depois.",
+        "templateContentWarning": "Herdar um modelo privado também copia o conteúdo do seu Wiki, Issues e Projects, portanto mantenha os gabaritos fora de um modelo do qual você herda."
       },
       "setAvailableFrom": "Definir uma data de liberação",
       "setAvailableFromTip": "As atividades ficam ocultas na página de atividades dos alunos por padrão — os alunos só podem aceitá-la pelo link de convite. Defina uma data de liberação para listá-la para todos assim que a data passar. Alunos que já aceitaram sempre a veem. Isso controla apenas a listagem, não o acesso.",
@@ -823,6 +843,94 @@
           "push": "Escrita (push)",
           "triage": "Triagem"
         }
+      },
+      "addReadme": {
+        "helpOff": "Cria um repositório vazio sem commit inicial. A autocorreção e o PR de Feedback ficam indisponíveis até o primeiro commit do aluno.",
+        "helpOn": "Inicializa cada repositório com um README.md, criando um commit inicial para que branches, pull requests e o PR de Feedback funcionem.",
+        "label": "Adicionar um README"
+      },
+      "autograding": {
+        "choices": {
+          "built-in": {
+            "help": "Faz o commit do shim do autocorretor integrado e, em seguida, configure o ambiente de execução e os testes declarativos abaixo.",
+            "label": "Usar o autocorretor integrado"
+          },
+          "none": {
+            "help": "Nenhum shim de autocorretor é enviado. Com um modelo, forneça seu próprio workflow no modelo (ele deve publicar um recurso result.json na release de submissão). Sem um modelo, o repositório simplesmente não tem autocorretor.",
+            "label": "Não usar o autocorretor integrado"
+          }
+        },
+        "label": "Autocorreção",
+        "lockedHelp": "O uso ou não do autocorretor integrado não pode ser alterado após a criação: os repositórios que os alunos já aceitaram não são reprovisionados.",
+        "modeLabel": "Autocorretor integrado",
+        "notAutogradedNote": "As opções de autocorreção só se aplicam quando esta atividade está definida como \"Autocorrigida\" na seção Submissão e correção acima. Altere a opção de correção para Autocorrigida para configurar o autocorretor."
+      },
+      "copyAbout": {
+        "help": "Copia o Sobre do modelo (sua descrição) para cada repositório de aluno. O GitHub não copia isso automaticamente. Isto se aplica aos alunos que aceitarem a partir de agora; os repositórios já criados não são alterados.",
+        "label": "Copiar Sobre do modelo"
+      },
+      "copyTopics": {
+        "help": "Copia os tópicos do modelo para cada repositório de aluno. O GitHub não os copia automaticamente. Isto se aplica aos alunos que aceitarem a partir de agora; os repositórios já criados não são alterados.",
+        "label": "Copiar tópicos do modelo"
+      },
+      "grading": {
+        "autoNote": "Esta atividade é autocorrigida. Configure o autocorretor na seção Autocorreção abaixo. Independentemente de você usar o autocorretor integrado ou fornecer seu próprio workflow, ele deve publicar um recurso result.json na release de submissão — é esse arquivo que o aplicativo lê para exibir as notas.",
+        "choices": {
+          "auto": "Autocorrigida",
+          "manual": "Manual (inserir notas à mão)",
+          "off": "Não corrigida"
+        },
+        "editWarning": "O modo de correção não pode ser alterado após a criação: as notas já registradas no modo anterior seriam interpretadas incorretamente. Em vez disso, crie uma nova atividade com um slug diferente.",
+        "help": "Como esta atividade é corrigida. \"Autocorrigida\" executa o autocorretor que você configura abaixo. \"Manual\" permite inserir a nota de cada aluno à mão na página de submissões. \"Não corrigida\" não registra nenhuma nota. Não pode ser alterado após a criação da atividade.",
+        "label": "Correção",
+        "maxPoints": {
+          "help": "Total de pontos disponíveis para esta atividade manual. Usado para exibir a nota de cada aluno em relação ao máximo.",
+          "label": "Pontuação máxima"
+        }
+      },
+      "includeAllBranches": {
+        "help": "Copia todas as branches e seus históricos do modelo, não apenas a branch padrão. Isto se aplica aos alunos que aceitarem a partir de agora; os repositórios já criados não são alterados.",
+        "label": "Incluir todas as branches"
+      },
+      "repoSource": {
+        "label": "Começar com um modelo",
+        "lockedHelp": "A origem do repositório não pode ser alterada após a criação: os repositórios que os alunos já aceitaram não são reprovisionados.",
+        "none": {
+          "help": "Cria um repositório novo para cada aluno.",
+          "label": "Sem modelo"
+        },
+        "template": {
+          "help": "Gera o repositório de cada aluno a partir de um modelo que você fornece.",
+          "label": "Repositório modelo"
+        }
+      },
+      "repositorySetupSection": "Configuração do repositório",
+      "scheduleSection": "Cronograma",
+      "sectionStatus": {
+        "configured": "Configurado",
+        "default": "Padrão",
+        "error": "Requer atenção"
+      },
+      "submissionMode": {
+        "choices": {
+          "everyPush": "Cada push para a branch padrão",
+          "tag": "Um commit com tag"
+        },
+        "editWarning": "Alterar isto só afeta os repositórios criados a partir de agora. Os repositórios que os alunos já aceitaram mantêm a configuração antiga até que você os atualize — use \"Atualizar gatilhos de autocorreção\" na página de submissões ou gh teacher assignment submission-mode. Os alunos precisam fazer pull após a atualização.",
+        "help": "\"Cada push para a branch padrão\" conta cada push (exceto o commit inicial). \"Um commit com tag\" conta apenas commits com tag — o aluno submete com gh student submit ou fazendo push de uma tag, de modo que pushes comuns não consomem minutos do Actions.",
+        "label": "Tipo de submissão"
+      },
+      "submissionSection": "Submissão e correção",
+      "submissionSectionHelp": "Defina o que conta como uma submissão para esta atividade — quando o autocorretor é executado e quais tags um aluno pode enviar para submeter.",
+      "submissionTags": {
+        "commaHint": "Coloque uma tag por linha, não uma lista separada por vírgulas — uma vírgula se torna parte do nome da tag e será rejeitada.",
+        "help": "Nomes de tags opcionais (um por linha) cujos commits também contam — por exemplo, phase1, phase2. Padrões como v* correspondem a uma família de tags. Deixe em branco para nenhum.",
+        "label": "Tags de submissão",
+        "wildcardCaution": "Um padrão amplo como v* corresponde a todas as tags que um aluno envia, incluindo tags de release não relacionadas. Prefira nomes exatos como phase1."
+      },
+      "submissions": {
+        "heading": "Submissões",
+        "help": "Como a página de submissões detecta e conta o trabalho de cada aluno. O autocorretor usa a mesma definição."
       }
     },
     "autograder": {
@@ -899,7 +1007,7 @@
       "lockAria": "Bloquear {{name}}",
       "lockCancel": "Cancelar",
       "lockConfirm": "Bloquear atividade",
-      "lockDescription": "Isso fecha <assignment>{{assignment}}</assignment> para todos os alunos — incluindo os que já aceitaram — na página de aceitação, na lista de atividades, na visualização de envios e na CLI. Se ela usa um modelo privado, o acesso de leitura da equipe de alunos a esse modelo também é removido (o acesso da equipe pedagógica não é afetado). Os repositórios de alunos existentes não são excluídos.",
+      "lockDescription": "Isto bloqueia <assignment>{{assignment}}</assignment> para todos os alunos — inclusive os que já aceitaram — na página de aceitação, na lista de atividades, na visualização de submissão e na CLI. Se ela usar um modelo privado, o acesso de leitura da equipe de alunos a esse modelo também é removido (o acesso da equipe não é afetado). Os repositórios de alunos existentes não são excluídos.",
       "lockSuccess": "{{name}} bloqueada.",
       "lockTitle": "Bloquear atividade",
       "lockTitleModal": "Bloquear atividade?",
@@ -912,7 +1020,8 @@
       "unlockDescription": "Isso reabre <assignment>{{assignment}}</assignment> para os alunos. Se ela usa um modelo privado, o acesso de leitura da equipe de alunos a esse modelo é restaurado para que os alunos possam aceitá-la novamente.",
       "unlockSuccess": "{{name}} desbloqueada.",
       "unlockTitle": "Desbloquear atividade",
-      "unlockTitleModal": "Desbloquear atividade?"
+      "unlockTitleModal": "Desbloquear atividade?",
+      "openSubmissionsAria": "Abrir submissões de {{name}}"
     },
     "template": {
       "label": "Repositório de template",
@@ -971,7 +1080,8 @@
       "restrictedItemApprove": "Aprovar o Classroom 50 para {{owner}} (Configurações da organização → Acesso de terceiros).",
       "restrictedItemFork": "Se {{repo}} for um fork, aprove o Classroom 50 também na organização upstream do fork — o acesso de um fork privado segue a política da organização upstream.",
       "restrictedItemOther": "Caso contrário, pode ser um 403 diferente; veja a mensagem do GitHub abaixo.",
-      "viewTemplateRepo": "Abrir {{owner}}/{{repo}} no GitHub"
+      "viewTemplateRepo": "Abrir {{owner}}/{{repo}} no GitHub",
+      "emptyTemplate": "{{owner}}/{{repo}} é um modelo, mas não tem commits. Adicione pelo menos um commit (por exemplo, um README) e tente novamente."
     },
     "toolbar": {
       "clear": "Limpar",
@@ -1608,7 +1718,8 @@
     "unarchiveBody": "Restaurar <classroom>{{classroom}}</classroom> para ativa: ela volta à lista padrão de turmas e pode aceitar novas atividades e alunos novamente.",
     "newButton": {
       "moreOptions": "Mais opções"
-    }
+    },
+    "viewAssignmentsAria": "Ver atividades de {{classroom}}"
   },
   "accept": {
     "githubUser": "Usuário do GitHub",
@@ -1674,7 +1785,9 @@
     },
     "errors": {
       "emptyRepoWithTemplate": "A tarefa \"{{assignmentSlug}}\" define ao mesmo tempo um repositório vazio e um modelo, o que não é válido. Peça ao seu professor para executar novamente a configuração da tarefa.",
-      "incoherentMode": "A tarefa \"{{slug}}\" tem um tamanho de grupo de {{maxGroupSize}}, mas está configurada como \"{{mode}}\", então suas configurações publicadas são inconsistentes. Peça ao seu professor para executar novamente a configuração da tarefa."
+      "incoherentMode": "A tarefa \"{{slug}}\" tem um tamanho de grupo de {{maxGroupSize}}, mas está configurada como \"{{mode}}\", então suas configurações publicadas são inconsistentes. Peça ao seu professor para executar novamente a configuração da tarefa.",
+      "initShimInvalidCombo": "A atividade \"{{assignmentSlug}}\" combina a configuração de autocorretor integrado em repositório vazio com um modelo, um repositório vazio ou nenhum autocorretor integrado, o que não é válido. Peça ao seu professor para executar novamente a configuração da atividade.",
+      "noAutograderWithEmptyRepo": "A atividade \"{{assignmentSlug}}\" define ao mesmo tempo nenhum autocorretor integrado e um repositório vazio, o que não é válido. Peça ao seu professor para executar novamente a configuração da atividade."
     },
     "stepActions": {
       "access": "Seu repositório {{org}}/{{repo}} foi criado, mas a definição do seu acesso ({{username}}) a ele falhou. Isso geralmente significa que seu nome de usuário do GitHub mudou ou que você saiu de {{org}}. Confirme que você é membro de {{org}} e use \"Executar configuração novamente\".",
@@ -1717,6 +1830,11 @@
       "body": "Fale com seu professor se você acha que isso é um engano.",
       "error": "Esta atividade não está disponível para você. Fale com seu professor se você acha que isso é um engano.",
       "title": "Esta atividade não está disponível para você"
+    },
+    "closed": {
+      "badge": "Encerrada",
+      "body": "Seu professor encerrou <assignment>{{assignment}}</assignment> para novas submissões, então ela não pode ser aceita no momento. Peça ao seu professor para reabri-la se você acha que isso é um engano.",
+      "title": "As submissões estão encerradas"
     }
   },
   "submissions": {
@@ -1782,7 +1900,8 @@
       "manageRoster": "Gerenciar participantes",
       "shareWithCount_one": "Compartilhando com <count>{{count}} estudante</count> que pode aceitar esta tarefa.",
       "shareWithCount_other": "Compartilhando com <count>{{count}} estudantes</count> que podem aceitar esta tarefa.",
-      "warnNoStudents": "Nenhum estudante pode aceitar este link em <classroom>{{classroom}}</classroom> ainda. Adicione estudantes à lista de participantes e convide-os para a organização primeiro."
+      "warnNoStudents": "Nenhum estudante pode aceitar este link em <classroom>{{classroom}}</classroom> ainda. Adicione estudantes à lista de participantes e convide-os para a organização primeiro.",
+      "copied": "Copiado"
     },
     "stats": {
       "submitted": "Entregues",
@@ -1881,7 +2000,9 @@
       "staleCount": "Novo",
       "staleCountTitle": "Este aluno enviou mais entregas do que foram corrigidas. Execute \"Sincronizar entregas agora\" para corrigir e pontuar as mais recentes.",
       "manageAccess": "Gerenciar acesso ao repositório",
-      "manageAccessAria": "Gerenciar acesso ao repositório de {{owner}}"
+      "manageAccessAria": "Gerenciar acesso ao repositório de {{owner}}",
+      "overridden": "Manual",
+      "overriddenTitle": "Esta nota foi definida à mão e não será alterada pela autocorreção até que a substituição seja removida."
     },
     "reviewModal": {
       "errorTitle": "Não foi possível verificar um PR de feedback",
@@ -2083,10 +2204,10 @@
       "titleDisabled": "Nenhum envio para baixar ainda"
     },
     "lock": {
-      "lockDescription": "Isso fecha <assignment>{{assignment}}</assignment> para todos os alunos — incluindo os que já aceitaram — na página de aceitação, na lista de atividades, na visualização de envios e na CLI. Se ela usa um modelo privado, o acesso de leitura da equipe de alunos a esse modelo também é removido (o acesso da equipe pedagógica não é afetado). Os repositórios de alunos existentes não são excluídos.",
+      "lockDescription": "Isto bloqueia <assignment>{{assignment}}</assignment> para todos os alunos — inclusive os que já aceitaram — na página de aceitação, na lista de atividades, na visualização de submissão e na CLI. Se ela usar um modelo privado, o acesso de leitura da equipe de alunos a esse modelo também é removido (o acesso da equipe não é afetado). Os repositórios de alunos existentes não são excluídos.",
       "lockLabel": "Bloquear atividade",
       "lockSuccess": "Atividade bloqueada.",
-      "lockTitle": "Fechar esta atividade para os alunos e, no caso de um modelo privado, remover o acesso de leitura da equipe de alunos a ele",
+      "lockTitle": "Bloquear esta atividade para que os alunos não possam acessá-la ou aceitá-la e, no caso de um modelo privado, remover o acesso de leitura da equipe de alunos a ele",
       "lockTitleModal": "Bloquear atividade?",
       "unlockDescription": "Isso reabre <assignment>{{assignment}}</assignment> para os alunos. Se ela usa um modelo privado, o acesso de leitura da equipe de alunos a esse modelo é restaurado para que os alunos possam aceitá-la novamente.",
       "unlockLabel": "Desbloquear atividade",
@@ -2109,13 +2230,167 @@
       "open": "Gerenciar envio",
       "openAria": "Gerenciar o envio de {{owner}}",
       "regradeDescription": "Executar a autocorreção novamente no commit mais recente",
-      "reviewDescription": "Abrir a pull request de feedback"
+      "reviewDescription": "Abrir a pull request de feedback",
+      "autograding": "Autocorreção",
+      "autogradingEnabled": "Habilitada",
+      "autogradingPaused": "Pausada",
+      "autogradingPausedByGitHub": "Pausada pelo GitHub"
     },
     "rowDownload": {
       "aria": "Baixar o envio de {{owner}}",
       "error": "Não foi possível baixar o envio de {{owner}}. Tente novamente.",
       "nothingToDownload": "{{owner}} ainda não tem envio para baixar.",
       "title": "Baixar este envio"
+    },
+    "bulkAutograde": {
+      "deferredDetail": "Ignorado — execute novamente para alterar.",
+      "deferredSection_one": "{{count}} repositório não foi processado",
+      "deferredSection_other": "{{count}} repositórios não foram processados",
+      "failedSection_one": "{{count}} repositório não pôde ser alterado",
+      "failedSection_other": "{{count}} repositórios não puderam ser alterados",
+      "noRepos": "Nenhum aluno aceitou esta atividade ainda, então não há repositórios para alterar.",
+      "notGradableDetail": "Não existe workflow de autocorreção — nada a alterar.",
+      "notGradableSection_one": "{{count}} repositório não tem workflow de autocorreção",
+      "notGradableSection_other": "{{count}} repositórios não têm workflow de autocorreção",
+      "pauseApply": "Pausar todas",
+      "pauseMenuLabel": "Pausar autocorreção",
+      "pauseMenuTitle": "Desativar o workflow de autocorreção em todos os repositórios de alunos que aceitaram",
+      "pauseResultHeadline": "Autocorreção pausada em {{done}} de {{total}} repositórios.",
+      "pauseSubtitle_one": "Desativa a autocorreção no repositório de {{count}} aluno.",
+      "pauseSubtitle_other": "Desativa a autocorreção nos repositórios de {{count}} alunos.",
+      "pauseTitle": "Pausar autocorreção",
+      "pauseTitleEmptyRoster": "Nenhum aluno aceitou ainda",
+      "pauseWarning_one": "Isto desativa o workflow de autocorreção no repositório de {{count}} aluno. Nenhum arquivo é alterado, e você pode retomar a autocorreção a qualquer momento.",
+      "pauseWarning_other": "Isto desativa o workflow de autocorreção nos repositórios de {{count}} alunos. Nenhum arquivo é alterado, e você pode retomar a autocorreção a qualquer momento.",
+      "progress": "Processados {{processed}} de {{total}}",
+      "resumeApply": "Retomar todas",
+      "resumeMenuLabel": "Retomar autocorreção",
+      "resumeMenuTitle": "Reativar o workflow de autocorreção em todos os repositórios de alunos que aceitaram",
+      "resumeResultHeadline": "Autocorreção retomada em {{done}} de {{total}} repositórios.",
+      "resumeSubtitle_one": "Reativa a autocorreção no repositório de {{count}} aluno.",
+      "resumeSubtitle_other": "Reativa a autocorreção nos repositórios de {{count}} alunos.",
+      "resumeTitle": "Retomar autocorreção",
+      "resumeTitleEmptyRoster": "Nenhum aluno aceitou ainda",
+      "resumeWarning_one": "Isto reativa o workflow de autocorreção no repositório de {{count}} aluno.",
+      "resumeWarning_other": "Isto reativa o workflow de autocorreção nos repositórios de {{count}} alunos.",
+      "working": "Atualizando repositórios"
+    },
+    "bulkTrigger": {
+      "apply": "Atualizar todas",
+      "deferredDetail": "Ignorado — execute novamente para atualizar.",
+      "deferredSection_one": "{{count}} repositório não foi processado",
+      "deferredSection_other": "{{count}} repositórios não foram processados",
+      "failedSection_one": "{{count}} repositório não pôde ser atualizado",
+      "failedSection_other": "{{count}} repositórios não puderam ser atualizados",
+      "menuLabel": "Atualizar gatilhos de autocorreção",
+      "menuTitle": "Reescrever o workflow de autocorreção de cada repositório de aluno para corresponder à configuração de gatilho da atividade",
+      "noRepos": "Nenhum aluno aceitou esta atividade ainda, então não há repositórios para atualizar.",
+      "notAcceptedDetail": "Não existe repositório — nada a atualizar.",
+      "notAcceptedSection_one": "{{count}} aluno ainda não aceitou",
+      "notAcceptedSection_other": "{{count}} alunos ainda não aceitaram",
+      "progress": "Processados {{processed}} de {{total}}",
+      "repullReminder": "Diga aos alunos para executarem git pull — clones feitos antes desta alteração vão gerar conflito no próximo push.",
+      "resultHeadline": "Atualizados {{updated}} de {{total}} repositórios ({{current}} já atualizados).",
+      "scopeDetail": "Sua autorização do GitHub não pode modificar arquivos de workflow. Saia e entre novamente e, em seguida, execute novamente.",
+      "scopeSection_one": "{{count}} repositório precisa de um token com o escopo de workflow",
+      "scopeSection_other": "{{count}} repositórios precisam de um token com o escopo de workflow",
+      "subtitle_one": "Define o gatilho de autocorreção como \"{{mode}}\" no repositório de {{count}} aluno.",
+      "subtitle_other": "Define o gatilho de autocorreção como \"{{mode}}\" nos repositórios de {{count}} alunos.",
+      "title": "Atualizar gatilhos de autocorreção",
+      "titleEmptyRoster": "Nenhum aluno aceitou ainda",
+      "unrecognizedSection_one": "{{count}} repositório foi ignorado (workflow não reconhecido)",
+      "unrecognizedSection_other": "{{count}} repositórios foram ignorados (workflow não reconhecido)",
+      "warning_one": "Isto faz o commit de uma alteração no workflow de autocorreção no repositório de {{count}} aluno. O commit é marcado para não disparar a correção. Os repositórios cujo workflow foi editado manualmente são reportados e mantidos intactos. Os alunos precisam fazer pull depois — clones feitos antes desta alteração vão gerar conflito no próximo push.",
+      "warning_other": "Isto faz o commit de uma alteração no workflow de autocorreção nos repositórios de {{count}} alunos. O commit é marcado para não disparar a correção. Os repositórios cujo workflow foi editado manualmente são reportados e mantidos intactos. Os alunos precisam fazer pull depois — clones feitos antes desta alteração vão gerar conflito no próximo push.",
+      "working": "Atualizando repositórios"
+    },
+    "closeSubmission": {
+      "apply": "Encerrar submissão",
+      "deferredDetail": "Ignorado — execute novamente para atualizar.",
+      "deferredSection_one": "{{count}} repositório não foi atualizado",
+      "deferredSection_other": "{{count}} repositórios não foram atualizados",
+      "failedSection_one": "{{count}} repositório não pôde ser atualizado",
+      "failedSection_other": "{{count}} repositórios não puderam ser atualizados",
+      "finishApply": "Concluir encerramento",
+      "finishHint": "A submissão está encerrada para novas aceitações, mas alguns repositórios ainda não estão somente leitura. Conclua o encerramento para repetir apenas esses — isso não reabre a submissão.",
+      "flagError": "Não foi possível atualizar a janela de submissão, então nenhum repositório foi alterado. Tente novamente.",
+      "menuLabel": "Encerrar submissão",
+      "menuTitle": "Encerrar a janela de submissão: bloquear novas aceitações e definir o repositório de cada aluno como somente leitura",
+      "noRepos": "Nenhum aluno aceitou esta atividade ainda. O encerramento ainda bloqueia novas aceitações.",
+      "progress": "Atualizados {{processed}} de {{total}}",
+      "reopenApply": "Reabrir submissão",
+      "reopenLabel": "Reabrir submissão",
+      "reopenMenuTitle": "Reabrir a janela de submissão: permitir novas aceitações e restaurar o acesso de escrita",
+      "reopenResultHeadline": "Acesso de escrita restaurado para {{count}} de {{total}} repositórios.",
+      "reopenResultHeadlineThrottled": "Acesso de escrita restaurado para {{count}} de {{total}} repositórios antes de o GitHub limitar a requisição por taxa — execute novamente para concluir o restante.",
+      "reopenSubtitle_one": "Permite novas aceitações e restaura o acesso de escrita ao repositório de {{count}} aluno.",
+      "reopenSubtitle_other": "Permite novas aceitações e restaura o acesso de escrita aos repositórios de {{count}} alunos.",
+      "reopenTitle": "Reabrir submissão",
+      "reopenWarning_one": "Isto permite novas aceitações novamente e restaura o acesso de escrita ao repositório de {{count}} aluno.",
+      "reopenWarning_other": "Isto permite novas aceitações novamente e restaura o acesso de escrita aos repositórios de {{count}} alunos.",
+      "resultHeadline": "Definidos {{count}} de {{total}} repositórios como somente leitura.",
+      "resultHeadlineThrottled": "Definidos {{count}} de {{total}} repositórios como somente leitura antes de o GitHub limitar a requisição por taxa — execute novamente para concluir o restante.",
+      "statusBadge": {
+        "closed": "Encerrada"
+      },
+      "subtitle_one": "Bloqueia novas aceitações e define o repositório de {{count}} aluno como somente leitura.",
+      "subtitle_other": "Bloqueia novas aceitações e define os repositórios de {{count}} alunos como somente leitura.",
+      "title": "Encerrar submissão",
+      "warning_one": "Isto bloqueia qualquer novo aluno de aceitar e define o papel de {{count}} aluno no próprio repositório como leitura (pull). O trabalho existente é preservado, mas fica somente leitura até você reabrir.",
+      "warning_other": "Isto bloqueia qualquer novo aluno de aceitar e define os papéis de {{count}} alunos nos próprios repositórios como leitura (pull). O trabalho existente é preservado, mas fica somente leitura até você reabrir.",
+      "working": "Atualizando repositórios"
+    },
+    "closedNotice": "As submissões estão encerradas. Novos alunos não podem aceitar esta atividade. Quando você encerra por aqui, os repositórios dos alunos que aceitaram são definidos como somente leitura; o trabalho existente é preservado. Reabra pelo menu Ações para permitir submissões novamente.",
+    "manualGrade": {
+      "add": "Adicionar nota",
+      "addLabel": "Adicionar nota para {{name}}",
+      "edit": "Editar nota",
+      "editLabel": "Editar nota de {{name}}",
+      "inputLabel": "Nota de {{name}}",
+      "notGraded": "Não corrigida",
+      "range": "A nota deve ser um número inteiro de 0 a {{max}}.",
+      "required": "Informe uma nota para salvar.",
+      "saveError": "Não foi possível salvar a nota. Verifique sua conexão e tente novamente."
+    },
+    "migrateTracking": {
+      "apply": "Migrar configuração",
+      "bannerAction": "Migrar configuração",
+      "bannerText": "A configuração desta turma usa um formato mais antigo. Migre-a para o esquema mais recente para habilitar os recursos mais novos de atividades e submissões.",
+      "error": "Não foi possível atualizar as atividades. Tente novamente.",
+      "resultHeadline_one": "Migrada {{count}} atividade.",
+      "resultHeadline_other": "Migradas {{count}} atividades.",
+      "subtitle": "Atualize as atividades desta turma para o esquema de configuração mais recente.",
+      "title": "Migrar configuração da turma",
+      "warning": "Isto registra as configurações de cada atividade de forma explícita, para que todas as ferramentas as leiam da mesma maneira e os recursos mais novos (como o acompanhamento de submissões em tempo real) sejam habilitados. Não altera nenhuma nota, prazo ou acesso de aluno, e você pode continuar trabalhando como antes.",
+      "working": "Atualizando atividades"
+    },
+    "noAutograderNote": "Esta atividade não tem autocorreção integrada — o professor fornece sua própria CI no modelo. As notas integradas e a recorreção estão desativadas; a tabela abaixo mostra quem aceitou. O pull request de feedback ainda funciona quando habilitado.",
+    "rowAutograde": {
+      "outcome": {
+        "failed": "Não foi possível alterar o estado da autocorreção — tente novamente.",
+        "notGradable": "Este repositório não tem workflow de autocorreção — nada a alterar.",
+        "paused": "Autocorreção pausada para este repositório.",
+        "resumed": "Autocorreção retomada para este repositório."
+      },
+      "pauseAria": "Pausar autocorreção de {{repo}}",
+      "pauseDescription": "Desativar o workflow de autocorreção deste repositório. O arquivo de workflow permanece inalterado e a correção pode ser retomada a qualquer momento.",
+      "pauseTitle": "Pausar autocorreção",
+      "resumeAria": "Retomar autocorreção de {{repo}}",
+      "resumeDescription": "Reativar o workflow de autocorreção deste repositório para que os pushes voltem a ser corrigidos.",
+      "resumeTitle": "Retomar autocorreção"
+    },
+    "rowTrigger": {
+      "aria": "Atualizar o gatilho de autocorreção em {{repo}}",
+      "description": "Reescrever o workflow de autocorreção deste repositório para corresponder à configuração de gatilho da atividade.",
+      "outcome": {
+        "current": "Já está atualizado — nenhuma alteração necessária.",
+        "failed": "Não foi possível atualizar o workflow — tente novamente.",
+        "missingWorkflowScope": "Sua autorização do GitHub não pode modificar arquivos de workflow. Saia e entre novamente e, em seguida, tente de novo.",
+        "notAccepted": "Ainda não existe repositório — nada a atualizar.",
+        "unrecognized": "Ignorado: o workflow deste repositório foi modificado e não pode ser atualizado automaticamente.",
+        "updated": "Gatilho de autocorreção atualizado. O aluno precisa fazer pull antes do próximo push."
+      },
+      "title": "Atualizar gatilho de autocorreção"
     }
   },
   "orgMembers": {
@@ -2248,7 +2523,8 @@
       "orgRepoCreation": {
         "action": "Configurações da organização",
         "master": "<org>{{org}}</org> não permite que membros criem repositórios, então nenhum aluno pode aceitar uma tarefa. Execute novamente a configuração da organização ou permita a criação de repositórios privados (não públicos) em <memberPrivileges>Privilégios de membros</memberPrivileges>. Uma política empresarial pode substituir essa configuração.",
-        "private": "<org>{{org}}</org> não permite que membros criem repositórios privados, então nenhum aluno pode aceitar uma tarefa. Execute novamente a configuração da organização ou permita a criação de repositórios privados (não públicos) em <memberPrivileges>Privilégios de membros</memberPrivileges>. Uma política empresarial pode substituir essa configuração."
+        "private": "<org>{{org}}</org> não permite que membros criem repositórios privados, então nenhum aluno pode aceitar uma tarefa. Execute novamente a configuração da organização ou permita a criação de repositórios privados (não públicos) em <memberPrivileges>Privilégios de membros</memberPrivileges>. Uma política empresarial pode substituir essa configuração.",
+        "memberPrivilegesLabel": "Privilégios de membros (abre as configurações da organização no GitHub em uma nova aba)"
       }
     },
     "confirmModal": {
@@ -2441,7 +2717,7 @@
     "title": "Uma nova versão do Classroom 50 está disponível"
   },
   "offline": {
-    "body": "O Classroom 50 funciona com dados em tempo real do GitHub, portanto precisa de conexão. Este aviso desaparece automaticamente quando você voltar a ficar on-line.",
+    "body": "Este dispositivo não está conectado à internet. O Classroom 50 precisa de uma conexão ativa para funcionar. Este aviso desaparece automaticamente quando você voltar a ficar on-line.",
     "title": "Você está offline"
   },
   "orgActivity": {
@@ -2535,6 +2811,38 @@
       "loading": "Verificando suas organizações…",
       "manage": "Gerenciar",
       "subheading": "Status do token de serviço em todas as organizações que você é proprietário. Rotacione um token antes de ele expirar para que a coleta noturna de notas continue funcionando."
+    },
+    "appearance": {
+      "dark": "Escuro",
+      "darkHint": "Sempre usar o tema escuro.",
+      "groupAria": "Preferência de tema",
+      "heading": "Aparência",
+      "light": "Claro",
+      "lightHint": "Sempre usar o tema claro.",
+      "subheading": "Escolha um tema claro ou escuro, ou siga a configuração do seu dispositivo.",
+      "system": "Sistema",
+      "systemHint": "Seguir a configuração de claro/escuro do seu dispositivo."
+    },
+    "groups": {
+      "organizations": "Organizações",
+      "organizationsDescription": "Gerencie suas organizações e sua página inicial.",
+      "preferences": "Preferências",
+      "preferencesDescription": "Configurações de exibição e interação para este navegador."
+    },
+    "language": {
+      "heading": "Idioma",
+      "subheading": "Troque de idioma ou instale um pacote de idioma traduzido."
+    },
+    "motion": {
+      "groupAria": "Preferência de animação",
+      "heading": "Animações",
+      "off": "Desligado",
+      "offHint": "Desativar todas as animações.",
+      "on": "Ligado",
+      "onHint": "Sempre animar.",
+      "subheading": "Controle o movimento da interface, como transições de página, menus e outros efeitos animados.",
+      "system": "Sistema",
+      "systemHint": "Seguir a configuração de redução de movimento do seu dispositivo."
     }
   },
   "pagesErrors": {
@@ -2711,5 +3019,129 @@
     },
     "summary_one": "{{count}} organização precisa de uma verificação de token de serviço.",
     "summary_other": "{{count}} organizações precisam de uma verificação de token de serviço."
+  },
+  "accessibility": {
+    "col": {
+      "description": "Primeiro plano / superfície",
+      "floor": "Mínimo",
+      "pair": "Par",
+      "preview": "Prévia",
+      "ratio": "Razão",
+      "status": "Status"
+    },
+    "criteria": {
+      "aboutHeading": "Sobre esta auditoria",
+      "bodyText": "Texto de corpo ≥ {{body}}:1",
+      "generated": "Gerado em {{generated}}",
+      "largeText": "Texto grande ≥ {{large}}:1",
+      "marginHeading": "Margem de segurança recomendada",
+      "marginWhy": "Mantemos cada par um pouco acima do mínimo do WCAG — uma folga que absorve o anti-serrilhamento, a renderização de subpixels e futuros ajustes de paleta. É uma recomendação, não um requisito de conformidade.",
+      "nonText": "Não textual (componentes de interface) ≥ {{nonText}}:1",
+      "standardText": "WCAG 2.2 — 1.4.6 Contraste (Aprimorado, AAA) para texto, 1.4.11 Contraste de conteúdo não textual para componentes de interface.",
+      "thresholdsHeading": "Mínimos exigidos (piso do WCAG):"
+    },
+    "detail": {
+      "background": "Plano de fundo (superfície)",
+      "foreground": "Primeiro plano (texto)",
+      "minimum": "Mínimo do WCAG ({{floor}}:1)",
+      "ratio": "Razão de contraste",
+      "sampleBody": "Um pequeno jabuti xereta viu dez cegonhas felizes.",
+      "sampleHeading": "Texto de exemplo"
+    },
+    "downloads": {
+      "contrastDesc": "Razões de contraste por par para cada cor auditada, nos dois temas.",
+      "contrastTitle": "Auditoria de contraste de cores",
+      "fullDesc": "O VPAT e a auditoria de contraste de cores em um único documento.",
+      "fullTitle": "Relatório completo",
+      "heading": "Relatórios",
+      "markdownAction": "Markdown",
+      "pdfAction": "PDF",
+      "vpatWcagDesc": "Relatório de Conformidade de Acessibilidade em relação ao WCAG 2.2 (VPAT 2.5Rev).",
+      "vpatWcagTitle": "VPAT — edição WCAG"
+    },
+    "legend": {
+      "exempt": "fora do escopo do WCAG (decorativo / desativado)",
+      "fail": "abaixo do mínimo do WCAG",
+      "heading": "Legenda",
+      "pass": "atende ao mínimo do WCAG",
+      "passMargin": "aprovado, mas abaixo da margem recomendada (o ícone de informação mostra os números)"
+    },
+    "loadError": "Não foi possível carregar o relatório de auditoria de contraste.",
+    "marginInfo": "{{ratio}}:1 atende ao mínimo do WCAG de {{floor}}:1, mas está abaixo do nosso alvo recomendado de {{margin}}:1 — ainda é aprovado, com menos folga.",
+    "nav": {
+      "contrast": "Contraste de cores",
+      "downloads": "Relatórios",
+      "statement": "Declaração",
+      "vpat": "Conformidade"
+    },
+    "pageSubtitle": "Como o aplicativo web do Classroom 50 está em conformidade com o WCAG 2.2 Nível AA, verificado automaticamente a cada build.",
+    "pageTitle": "Acessibilidade",
+    "preview": {
+      "open": "Ver detalhes da cor",
+      "openFor": "Ver detalhes da cor de {{pair}}"
+    },
+    "print": {
+      "belowMargin": "(abaixo dos {{margin}}:1 recomendados)",
+      "colColors": "Cores (frente / fundo)",
+      "contrastMeta": "Razões de contraste WCAG por par para cada cor auditada, nos dois temas. Gerado em {{date}}.",
+      "contrastTitle": "Auditoria de contraste de cores",
+      "reportMeta": "Padrão: WCAG {{standard}}, Nível alvo {{target}}. Data do relatório: {{date}}.",
+      "reportTitle": "Relatório de Conformidade de Acessibilidade — {{product}}",
+      "vpatSummary": "Resumo ({{total}} critérios aplicáveis): {{supports}} Atende, {{partially}} Atende parcialmente, {{doesNotSupport}} Não atende, {{notApplicable}} Não aplicável, {{notEvaluated}} Não avaliado."
+    },
+    "statement": {
+      "feedback": "Encontrou algo difícil de usar? Por favor,",
+      "feedbackHeading": "Envie seu feedback",
+      "feedbackLink": "abra uma issue de acessibilidade",
+      "heading": "Declaração de acessibilidade",
+      "intro": "Queremos que todos possam usar o Classroom 50, incluindo pessoas que usam teclado, leitor de tela ou outras tecnologias assistivas.",
+      "limitations": "Alguns critérios estão marcados como \"Atende parcialmente\" no relatório de conformidade, cada um com uma nota sobre o que ainda falta fazer. Corrigimos esses itens conforme o trabalho avança.",
+      "limitationsHeading": "Limitações conhecidas",
+      "target": "Nosso objetivo é atender ao WCAG 2.2 Nível AA. O contraste de cores é verificado a cada build; o restante é verificado manualmente com teclado e leitor de tela. O relatório de conformidade lista nossa situação em cada critério.",
+      "targetHeading": "Como nos saímos",
+      "updated": "Última revisão em {{date}}."
+    },
+    "status": {
+      "exempt": "Isento",
+      "fail": "Reprovado",
+      "pass": "Aprovado"
+    },
+    "summaryFail": "{{failures}} par(es) de cores estão abaixo do piso de contraste do WCAG.",
+    "summaryPass": "Todos os {{total}} pares de cores auditados atendem ao seu piso de contraste do WCAG.",
+    "summaryPassMargin_one": "Todos os {{total}} pares de cores auditados atendem ao seu piso de contraste do WCAG. {{count}} é aprovado, mas fica abaixo da nossa margem de segurança recomendada.",
+    "summaryPassMargin_other": "Todos os {{total}} pares de cores auditados atendem ao seu piso de contraste do WCAG. {{count}} são aprovados, mas ficam abaixo da nossa margem de segurança recomendada.",
+    "title": "Auditoria de contraste de cores",
+    "vpat": {
+      "clearFilter": "Limpar filtro",
+      "col": {
+        "assessed": "Avaliado",
+        "conformance": "Conformidade",
+        "criterion": "Critério",
+        "level": "Nível",
+        "remarks": "Observações"
+      },
+      "empty": "Nenhum critério corresponde a este filtro.",
+      "filterAll": "Todos os status",
+      "filterAria": "Filtrar por status de conformidade",
+      "filterLabel": "Status",
+      "generated": "Data do relatório: {{generated}}",
+      "heading": "Relatório de conformidade (VPAT)",
+      "loadError": "Não foi possível carregar o relatório de conformidade.",
+      "principleTabsAria": "Princípio do WCAG",
+      "searchAria": "Pesquisar critérios de conformidade",
+      "searchPlaceholder": "Pesquisar critérios…",
+      "sort": {
+        "criterion": "Critério",
+        "status": "Conformidade"
+      },
+      "sortBy": "Ordenar por",
+      "status": {
+        "doesNotSupport": "Não atende",
+        "notApplicable": "Não aplicável",
+        "notEvaluated": "Não avaliado",
+        "partially": "Atende parcialmente",
+        "supports": "Atende"
+      }
+    }
   }
 }
