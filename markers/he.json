@@ -1,4 +1,128 @@
 {
+  "accessibility": {
+    "title": "Color contrast audit",
+    "pageTitle": "Accessibility",
+    "pageSubtitle": "How the Classroom 50 web app conforms to WCAG 2.2 Level AA, checked automatically on every build.",
+    "nav": {
+      "contrast": "Color contrast",
+      "vpat": "Conformance",
+      "statement": "Statement",
+      "downloads": "Reports"
+    },
+    "statement": {
+      "heading": "Accessibility statement",
+      "intro": "We want everyone to be able to use Classroom 50, including people who use a keyboard, a screen reader, or other assistive technology.",
+      "targetHeading": "How we measure up",
+      "target": "We aim to meet WCAG 2.2 Level AA. Color contrast is checked on every build; the rest is checked by hand with a keyboard and a screen reader. The conformance report lists where we stand on each criterion.",
+      "limitationsHeading": "Known limitations",
+      "limitations": "A few criteria are marked \"Partially Supports\" in the conformance report, each with a note on what's left to do. We fix these as work lands.",
+      "feedbackHeading": "Give us feedback",
+      "feedback": "Found something hard to use? Please",
+      "feedbackLink": "open an accessibility issue",
+      "updated": "Last reviewed {{date}}."
+    },
+    "downloads": {
+      "heading": "Reports",
+      "markdownAction": "Markdown",
+      "pdfAction": "PDF",
+      "vpatWcagTitle": "VPAT — WCAG edition",
+      "vpatWcagDesc": "Accessibility Conformance Report against WCAG 2.2 (VPAT 2.5Rev).",
+      "contrastTitle": "Color contrast audit",
+      "contrastDesc": "Per-pair contrast ratios for every audited color, both themes.",
+      "fullTitle": "Full report",
+      "fullDesc": "The VPAT and the color contrast audit in one document."
+    },
+    "print": {
+      "reportTitle": "Accessibility Conformance Report — {{product}}",
+      "reportMeta": "Standard: WCAG {{standard}}, target Level {{target}}. Report date: {{date}}.",
+      "vpatSummary": "Summary ({{total}} applicable criteria): {{supports}} Supports, {{partially}} Partially Supports, {{doesNotSupport}} Does Not Support, {{notApplicable}} Not Applicable, {{notEvaluated}} Not Evaluated.",
+      "contrastTitle": "Color contrast audit",
+      "contrastMeta": "Per-pair WCAG contrast ratios for every audited color, both themes. Generated {{date}}.",
+      "colColors": "Colors (fg / bg)",
+      "belowMargin": "(below {{margin}}:1 recommended)"
+    },
+    "loadError": "Couldn't load the contrast audit report.",
+    "summaryPass": "All {{total}} audited color pairs meet their WCAG contrast floor.",
+    "summaryPassMargin_one": "All {{total}} audited color pairs meet their WCAG contrast floor. {{count}} passes but sits below our recommended safety margin.",
+    "summaryPassMargin_other": "All {{total}} audited color pairs meet their WCAG contrast floor. {{count}} pass but sit below our recommended safety margin.",
+    "summaryFail": "{{failures}} color pair(s) are below the WCAG contrast floor.",
+    "criteria": {
+      "aboutHeading": "About this audit",
+      "standardText": "WCAG 2.2 — 1.4.6 Contrast (Enhanced, AAA) for text, 1.4.11 Non-text Contrast for UI components.",
+      "thresholdsHeading": "Required minimums (WCAG floor):",
+      "bodyText": "Body text ≥ {{body}}:1",
+      "largeText": "Large text ≥ {{large}}:1",
+      "nonText": "Non-text (UI components) ≥ {{nonText}}:1",
+      "marginHeading": "Recommended safety margin",
+      "marginWhy": "We hold each pair a little above the WCAG minimum — headroom that absorbs anti-aliasing, sub-pixel rendering, and future palette tweaks. It's a recommendation, not required for conformance.",
+      "generated": "Generated {{generated}}"
+    },
+    "col": {
+      "pair": "Pair",
+      "description": "Foreground / surface",
+      "preview": "Preview",
+      "ratio": "Ratio",
+      "floor": "Minimum",
+      "status": "Status"
+    },
+    "preview": {
+      "open": "View color details",
+      "openFor": "View color details for {{pair}}"
+    },
+    "detail": {
+      "foreground": "Foreground (text)",
+      "background": "Background (surface)",
+      "sampleHeading": "Sample text",
+      "sampleBody": "The quick brown fox jumps over the lazy dog.",
+      "ratio": "Contrast ratio",
+      "minimum": "WCAG minimum ({{floor}}:1)"
+    },
+    "status": {
+      "pass": "Pass",
+      "fail": "Fail",
+      "exempt": "Exempt"
+    },
+    "marginInfo": "{{ratio}}:1 meets the {{floor}}:1 WCAG minimum, but is below our recommended {{margin}}:1 target — still a pass, with less headroom.",
+    "legend": {
+      "heading": "Legend",
+      "pass": "meets the WCAG minimum",
+      "passMargin": "passes, but below the recommended margin (info icon shows the numbers)",
+      "fail": "below the WCAG minimum",
+      "exempt": "outside WCAG scope (decorative / disabled)"
+    },
+    "vpat": {
+      "heading": "Conformance report (VPAT)",
+      "loadError": "Couldn't load the conformance report.",
+      "generated": "Report date {{generated}}",
+      "principleTabsAria": "WCAG principle",
+      "searchPlaceholder": "Search criteria…",
+      "searchAria": "Search conformance criteria",
+      "filterLabel": "Status",
+      "filterAll": "All statuses",
+      "filterAria": "Filter by conformance status",
+      "empty": "No criteria match this filter.",
+      "clearFilter": "Clear filter",
+      "sortBy": "Sort by",
+      "sort": {
+        "criterion": "Criterion",
+        "status": "Conformance"
+      },
+      "col": {
+        "criterion": "Criterion",
+        "level": "Level",
+        "conformance": "Conformance",
+        "assessed": "Assessed",
+        "remarks": "Remarks"
+      },
+      "status": {
+        "supports": "Supports",
+        "partially": "Partially Supports",
+        "doesNotSupport": "Does Not Support",
+        "notApplicable": "Not Applicable",
+        "notEvaluated": "Not Evaluated"
+      }
+    }
+  },
   "actionsBanner": {
     "totalActions_one": "{{count}} action",
     "totalActions_other": "{{count}} actions",
@@ -269,16 +393,19 @@
     "signOut": "Sign out",
     "about": "About",
     "docs": "Docs",
+    "accessibility": "Accessibility",
+    "backToApp": "Back to app",
+    "signIn": "Sign in",
     "aboutDialogTitle": "Classroom 50",
     "aboutDialogDescription": "Build and version information for this app.",
     "aboutVersion": "Version",
     "aboutCommit": "Commit",
-    "aboutBuilt": "Built",
     "aboutSupportTitle": "Feedback and support",
     "aboutReportIssue": "Report an issue",
     "aboutReportIssueHint": "Found a bug or have a feature request?",
     "aboutAskQuestion": "Ask a question",
     "aboutAskQuestionHint": "Get help from the community.",
+    "aboutViewAccessibility": "View accessibility info",
     "aboutDiagnosticsTitle": "Diagnostics",
     "aboutDiagnosticsHint": "Copy technical details to include in a bug report or support thread. No data is sent anywhere; it only fills your clipboard.",
     "aboutDiagnosticsShow": "Show diagnostics",
@@ -291,10 +418,13 @@
     "exchangingCode": "Exchanging code for access token...",
     "signInWithGitHub": "Sign in with GitHub",
     "otherSignInMethods": "Other sign-in methods",
+    "otherSignInMethodsHint": "Use a device code on a machine without a browser, or a personal access token to sign in without the OAuth proxy.",
     "useDeviceCode": "Use a device code instead",
-    "usePersonalAccessToken": "Use a personal access token",
+    "usePersonalAccessTokenClassic": "Use a personal access token (classic)",
+    "usePersonalAccessTokenFineGrained": "Use a personal access token (fine-grained)",
     "footerTagline": "Manage assignments and submissions via GitHub.",
     "visitDocs": "Visit Classroom 50's docs",
+    "accessibility": "Accessibility",
     "signedInConfirmed": "Signed in - your session is active",
     "verifyingSession": "Verifying your session...",
     "profileUnavailable": "Profile unavailable",
@@ -313,18 +443,28 @@
     "missingScopesBody_other": "This app needs the scopes <scopes>{{scopes}}</scopes>. Some actions may fail until they are granted.",
     "reauthorize": "Re-authorize",
     "reauthorizeHint": "If re-authorizing doesn't clear this, an organization owner may need to approve the app in the org's OAuth policy settings.",
-    "patTitle": "Sign in with a personal access token",
-    "patInstructions": "Paste a GitHub personal access token (classic) to sign in directly, without the OAuth proxy. The token must have these scopes checked:",
-    "patCreateTokenLink": "Create a token with these scopes pre-selected",
-    "patFineGrainedNote": "Fine-grained tokens aren't supported — use a classic token.",
+    "patTitleClassic": "Sign in with a classic personal access token",
+    "patTitleFineGrained": "Sign in with a fine-grained personal access token",
+    "patClassicIntro": "A classic token works across every organization you own.",
+    "patCreateTokenLink": "Create a classic token",
+    "patScopesHelp": "The button opens GitHub's token page with the scopes Classroom 50 needs already selected. You can review them there before generating.",
+    "patFineGrainedIntro": "Enter the organization this token should manage. It becomes the token's resource owner.",
+    "patFineGrainedOrgLabel": "Organization login",
+    "patFineGrainedOrgPlaceholder": "your-organization",
+    "patFineGrainedWarning": "A fine-grained token works with one organization only. Cross-organization template assignments will fail, and some access can't be verified up front, so set Repository access to All repositories on the token page.",
+    "patPermissionsHelp": "The button opens GitHub's token page with the permissions Classroom 50 needs already selected. Set the resource owner to your organization and Repository access to All repositories.",
+    "patFineGrainedLink": "Create a fine-grained token",
+    "patFineGrainedNeedsOrg": "Enter your organization above to create a token for it.",
     "patTokenLabel": "Personal access token",
-    "patStorageNote": "The token is stored in this browser's local storage, the same as tokens from the other sign-in methods.",
+    "patPasteInstruction": "Copy the token GitHub shows you (it's only displayed once), then paste it below.",
+    "patStorageNote": "The token is stored in this browser's local storage, like the other sign-in methods.",
     "patSubmit": "Sign in with token",
     "patCancel": "Cancel",
     "errorNetwork": "Network error reaching {{target}}; it may be down or unreachable.",
     "errorNetworkProxyTarget": "the Cloudflare Worker proxy",
     "errorOffline": "You appear to be offline. Check your connection and try again — signing in needs a network connection.",
     "offlineHold": "You're offline. Waiting for a connection to restore your session…",
+    "sessionExpired": "Your session expired — sign in again to continue.",
     "validationStuck": "Still trying to reach GitHub to verify your session. This is usually a temporary GitHub, network, or browser-extension issue. Retry, or sign in again to start fresh.",
     "validationStuckSignIn": "Sign in again",
     "errorStateMismatch": "State mismatch -- possible CSRF. Please try signing in again.",
@@ -333,7 +473,6 @@
     "errorDeviceExpired": "Device code expired. Please try again.",
     "errorDeviceDeclined": "You declined the authorization request.",
     "errorDeviceNoToken": "Token endpoint returned no access_token and no error.",
-    "errorPatFineGrained": "That looks like a fine-grained token, which can't be verified. Use a classic token with the scopes listed above.",
     "errorPatMissingScopes": "That token is missing required scopes: {{scopes}}. Add them and try again.",
     "errorPatRejected401": "That token was rejected by GitHub (401). Check it's valid and not expired."
   },
@@ -689,6 +828,7 @@
     "codeOptionalLabel": "Language code (optional)",
     "uploadFile": "Upload JSON file",
     "urlPlaceholder": "…or paste a URL",
+    "urlLabel": "Import a language pack from a URL",
     "fetch": "Fetch",
     "removePack": "Remove {{code}} language pack",
     "previewTitle": "Preview: {{code}}",
@@ -792,6 +932,7 @@
       "noAccessBadge": "No <code>classroom50</code> access",
       "planTitlePaid": "GitHub plan — Classroom 50 can be set up on Team and Enterprise plans",
       "open": "Open",
+      "openAria": "Open {{org}}",
       "updatedAgo": "Updated {{when}}",
       "moreActions": "More actions for {{org}}",
       "hide": "Hide from home",
@@ -846,6 +987,12 @@
       "heading": "Settings",
       "subheading": "Preferences for this browser. Nothing here is shared with your organizations."
     },
+    "groups": {
+      "preferences": "Preferences",
+      "preferencesDescription": "Display and interaction settings for this browser.",
+      "organizations": "Organizations",
+      "organizationsDescription": "Manage your organizations and home page."
+    },
     "hiddenOrgs": {
       "heading": "Hidden organizations",
       "subheading": "Organizations you've hidden from your home page. Unhide one to show it again.",
@@ -859,6 +1006,32 @@
       "empty": "No organizations with Classroom 50 set up yet.",
       "expires": "Expires {{date}}",
       "manage": "Manage"
+    },
+    "motion": {
+      "heading": "Animations",
+      "subheading": "Control interface motion such as page transitions, menus, and other animated effects.",
+      "system": "System",
+      "systemHint": "Follow your device's reduce-motion setting.",
+      "on": "On",
+      "onHint": "Always animate.",
+      "off": "Off",
+      "offHint": "Turn off all animations.",
+      "groupAria": "Animation preference"
+    },
+    "appearance": {
+      "heading": "Appearance",
+      "subheading": "Choose a light or dark theme, or follow your device's setting.",
+      "system": "System",
+      "systemHint": "Follow your device's light/dark setting.",
+      "light": "Light",
+      "lightHint": "Always use the light theme.",
+      "dark": "Dark",
+      "darkHint": "Always use the dark theme.",
+      "groupAria": "Theme preference"
+    },
+    "language": {
+      "heading": "Language",
+      "subheading": "Switch languages or install a translated language pack."
     }
   },
   "assignments": {
@@ -927,7 +1100,15 @@
     "goToAssignments": "Go to assignments",
     "form": {
       "detailsSection": "Details",
-      "settingsSection": "Settings",
+      "repositorySetupSection": "Repository setup",
+      "submissionSection": "Submission and grading",
+      "submissionSectionHelp": "Define what counts as a submission for this assignment — when the autograder runs and which tags a student can push to submit.",
+      "scheduleSection": "Schedule",
+      "sectionStatus": {
+        "error": "Needs attention",
+        "configured": "Configured",
+        "default": "Default"
+      },
       "optional": "optional",
       "name": "Assignment name",
       "namePlaceholder": "e.g., Loops Assignment",
@@ -943,19 +1124,45 @@
       "dueDateTz": "Times are in your local timezone ({{tz}}).",
       "availableFrom": "Release date ({{tz}})",
       "setAvailableFrom": "Set a release date",
-      "setAvailableFromTip": "Assignments are hidden from the student assignments page by default \u2014 students can only accept via the invite link. Set a release date to list it for everyone once the date passes. Students who already accepted always see it. This controls listing only, not access.",
+      "setAvailableFromTip": "Assignments are hidden from the student assignments page by default — students can only accept via the invite link. Set a release date to list it for everyone once the date passes. Students who already accepted always see it. This controls listing only, not access.",
       "availableFromTz": "Times are in your local timezone ({{tz}}).",
       "type": "Assignment type",
       "typeIndividual": "Individual",
       "typeGroup": "Group project",
       "maxGroupSize": "Max group size",
       "maxGroupSizeTitle": "Must be a whole number between {{min}} and {{max}}",
+      "repoSource": {
+        "label": "Start with a template",
+        "lockedHelp": "The repository source can't be changed after creation: repositories students already accepted are not re-provisioned.",
+        "none": {
+          "label": "No template",
+          "help": "Create a fresh repository for each student."
+        },
+        "template": {
+          "label": "Template repository",
+          "help": "Generate each student's repository from a template you provide."
+        }
+      },
+      "addReadme": {
+        "label": "Add a README",
+        "helpOn": "Initialize each repository with a README.md, creating an initial commit so branches, pull requests, and the Feedback PR work.",
+        "helpOff": "Create an empty repository with no initial commit. Autograding and the Feedback PR are unavailable until the student's first commit."
+      },
+      "includeAllBranches": {
+        "label": "Include all branches",
+        "help": "Copy every branch and its history from the template, not just the default branch. This applies to students who accept from now on; repositories already created are not changed."
+      },
+      "copyAbout": {
+        "label": "Copy About from template",
+        "help": "Copy the template's About (its description) onto each student repository. GitHub does not copy it automatically. This applies to students who accept from now on; repositories already created are not changed."
+      },
+      "copyTopics": {
+        "label": "Copy topics from template",
+        "help": "Copy the template's topics onto each student repository. GitHub does not copy them automatically. This applies to students who accept from now on; repositories already created are not changed."
+      },
       "feedbackPr": "Feedback pull request",
       "feedbackPrHelp": "Open a pull request per repo for inline review of each submission.",
-      "feedbackPrEmptyRepoHelp": "Unavailable for empty repositories — there is no starter commit to diff against.",
-      "emptyRepo": "Empty repository",
-      "emptyRepoHelp": "Create each student's repository completely empty: no starter files, no autograding, no feedback pull request. For assignments where students build everything from scratch, including their own GitHub Actions. This choice is permanent for the assignment.",
-      "emptyRepoLocked": "It can't be changed after creation.",
+      "feedbackPrEmptyRepoHelp": "Unavailable for empty repositories. There is no starter commit to diff against.",
       "studentPermission": {
         "label": "Student repo access",
         "learnMore": "Learn more",
@@ -970,11 +1177,65 @@
           "admin": "Admin"
         }
       },
+      "autograding": {
+        "label": "Autograding",
+        "notAutogradedNote": "Autograding options apply only when this assignment is set to \"Autograded\" in the Submission and grading section above. Change the grading choice to Autograded to configure the autograder.",
+        "modeLabel": "Built-in autograder",
+        "lockedHelp": "Whether the built-in autograder is used can't be changed after creation: repositories students already accepted are not re-provisioned.",
+        "choices": {
+          "none": {
+            "label": "Do not use the built-in autograder",
+            "help": "No autograder shim is committed. With a template, supply your own workflow in the template (it must publish a result.json asset on the submission release). Without a template, the repository simply has no autograder."
+          },
+          "built-in": {
+            "label": "Use the built-in autograder",
+            "help": "Commit the built-in autograder shim, then configure the runtime and declarative tests below."
+          }
+        }
+      },
+      "grading": {
+        "label": "Grading",
+        "help": "How this assignment is graded. \"Autograded\" runs the autograder you configure below. \"Manual\" lets you enter each student's score by hand on the submissions page. \"Not graded\" records no score. Can't be changed after the assignment is created.",
+        "editWarning": "The grading mode can't be changed after creation: scores already recorded under the old mode would be misread. Create a new assignment under a different slug instead.",
+        "autoNote": "This assignment is autograded. Configure the autograder in the Autograding section below. Whether you use the built-in autograder or supply your own workflow, it must publish a result.json asset on the submission release — that file is what the app reads to show scores.",
+        "choices": {
+          "off": "Not graded",
+          "auto": "Autograded",
+          "manual": "Manual (enter scores by hand)"
+        },
+        "maxPoints": {
+          "label": "Max points",
+          "help": "Total points available for this manual assignment. Used to show each student's score out of the maximum."
+        }
+      },
+      "submissions": {
+        "heading": "Submissions",
+        "help": "How the submissions page detects and counts each student's work. The autograder uses the same definition."
+      },
+      "submissionMode": {
+        "label": "Submission type",
+        "help": "\"Every push to the default branch\" counts each push (other than the starting commit). \"A tagged commit\" counts only tagged commits — a student submits with gh student submit or by pushing a tag, so ordinary pushes cost no Actions minutes.",
+        "editWarning": "Changing this only affects repositories created from now on. Repositories students already accepted keep the old setting until you update them — use \"Update autograding triggers\" on the submissions page or gh teacher assignment submission-mode. Students must pull after the update.",
+        "choices": {
+          "everyPush": "Every push to the default branch",
+          "tag": "A tagged commit"
+        }
+      },
+      "submissionTags": {
+        "label": "Submission tags",
+        "help": "Optional tag names (one per line) whose commits also count — e.g. phase1, phase2. Patterns like v* match a family of tags. Leave empty for none.",
+        "wildcardCaution": "A broad pattern like v* matches every tag a student pushes, including unrelated release tags. Prefer exact names like phase1.",
+        "commaHint": "Put one tag per line, not a comma-separated list — a comma becomes part of the tag name and will be rejected."
+      },
       "repoFeatures": {
         "heading": "Repository features",
         "refresh": "Refresh template settings",
-        "help": "Whether each student repository has Wikis, Issues, Projects, and Pull requests enabled. Applied when a student accepts (new repositories only); use the gradebook to change repositories already created. Inheriting a private template also copies its Wiki/Issues/Projects content, so keep answer keys out of a template you inherit from.",
-        "overrideWarning": "Applies to repositories created from now on; ones students already accepted aren't changed. With a template, the default follows the template at accept time (existing repositories don't drift when the template changes later); without a template, the default leaves GitHub's own repository defaults in place. To update existing repositories, use the bulk repository-features action on the submissions page.",
+        "help": "Whether each student repository has Wikis, Issues, Projects, and Pull requests enabled.",
+        "helpExisting": "Changes apply to repositories created from now on. To update ones students already accepted, use the gradebook.",
+        "templateContentWarning": "Inheriting a private template also copies its Wiki, Issues, and Projects content, so keep answer keys out of a template you inherit from.",
+        "overrideTemplate": "The default follows the template's settings when a student accepts. Existing repositories won't change if you update the template later.",
+        "overrideNoTemplate": "The default keeps GitHub's own repository defaults.",
+        "overrideExisting": "To update repositories students already accepted, use the bulk repository-features action on the submissions page.",
         "choices": {
           "default": "Default (GitHub default)",
           "inherit": "Inherit from template",
@@ -984,10 +1245,18 @@
           "on": "On",
           "off": "Off"
         },
-        "issues": { "label": "Issues" },
-        "wiki": { "label": "Wiki" },
-        "projects": { "label": "Projects" },
-        "pull_requests": { "label": "Pull requests" }
+        "issues": {
+          "label": "Issues"
+        },
+        "wiki": {
+          "label": "Wiki"
+        },
+        "projects": {
+          "label": "Projects"
+        },
+        "pull_requests": {
+          "label": "Pull requests"
+        }
       },
       "advanced": "Advanced settings",
       "advancedHelp": "Optional grading and runtime settings. Blank fields use their documented defaults.",
@@ -1058,6 +1327,9 @@
         "setupTimeoutRange": "Setup timeout must be 0 or a whole number of seconds from 1 through {{max}}.",
         "passThresholdRange": "Pass threshold must be a whole number between {{min}} and {{max}}.",
         "studentPermissionInvalid": "Student repo access must be one of pull, triage, push, maintain, or admin.",
+        "submissionModeInvalid": "Autograding trigger must be \"every-push\" or \"tag\".",
+        "gradingModeInvalid": "Grading must be \"off\", \"auto\", or \"manual\".",
+        "gradingMaxPointsInvalid": "Max points must be a whole number of at least {{min}}.",
         "releaseAssetsTooMany": "Choose at most {{max}} submission release files (currently {{count}}).",
         "releaseAssetsTooLarge": "Submission release file paths may total at most {{max}} UTF-8 bytes (8 KiB); currently {{bytes}}.",
         "releaseAssetsInvalidPath": "{{path}} is not an exact workspace-relative file path.",
@@ -1132,6 +1404,7 @@
       "groupsSubmitted_other": "{{count}} groups submitted",
       "editAssignment": "Edit assignment",
       "viewAssignment": "View assignment",
+      "openSubmissionsAria": "Open {{name}} submissions",
       "deleteAria": "Delete {{name}}",
       "deleteTitle": "Delete assignment?",
       "deleteDescription": "This will remove the <assignment>{{assignment}}</assignment> assignment from the <classroom>{{classroom}}</classroom> classroom. Student assignment repositories will not be deleted.",
@@ -1147,7 +1420,7 @@
       "unlockAria": "Unlock {{name}}",
       "lockTitleModal": "Lock assignment?",
       "unlockTitleModal": "Unlock assignment?",
-      "lockDescription": "This closes <assignment>{{assignment}}</assignment> to every student — including those who already accepted — on the accept page, the assignments list, the submission view, and the CLI. If it uses a private template, the student team's read on that template is removed too (staff access is unaffected). Existing student repositories are not deleted.",
+      "lockDescription": "This locks <assignment>{{assignment}}</assignment> to every student — including those who already accepted — on the accept page, the assignments list, the submission view, and the CLI. If it uses a private template, the student team's read on that template is removed too (staff access is unaffected). Existing student repositories are not deleted.",
       "unlockDescription": "This reopens <assignment>{{assignment}}</assignment> to students. If it uses a private template, the student team's read on that template is restored so students can accept again.",
       "lockConfirm": "Lock assignment",
       "unlockConfirm": "Unlock assignment",
@@ -1196,6 +1469,7 @@
       "okVerify": "Reachable in {{owner}} (branch <branch>{{branch}}</branch>). If {{owner}} restricts third-party apps, students can't copy it until an owner approves Classroom 50.",
       "notVisible": "{{owner}}/{{repo}} isn't visible to you. Make it public or copy it into {{org}}.",
       "notTemplate": "{{owner}}/{{repo}} isn't a template repo. Enable it in the repo's Settings.",
+      "emptyTemplate": "{{owner}}/{{repo}} is a template but has no commits. Add at least one commit (e.g. a README), then retry.",
       "restricted": "{{owner}} blocked access to {{repo}} (HTTP 403) — likely a third-party app restriction. Try, in order:",
       "restrictedItemApprove": "Approve Classroom 50 for {{owner}} (Org settings → Third-party access).",
       "restrictedItemFork": "If {{repo}} is a fork, approve Classroom 50 on the fork's upstream org too — a private fork's access follows the upstream org's policy.",
@@ -1429,7 +1703,7 @@
       "step2Label": "GitHub Access Token",
       "expiryLabel": "Token expiry",
       "days": "days",
-      "expiryRange": "Enter {{min}}\u2013{{max}} days",
+      "expiryRange": "Enter {{min}}–{{max}} days",
       "generateOnGitHub": "Generate new access token",
       "generateHelp": "Opens GitHub's token form with the name, expiry, and required scopes pre-filled. Set Repository access to All repositories.",
       "learnMore": "Learn about service tokens",
@@ -1441,7 +1715,7 @@
       "saveButton": "Save token",
       "saveError": "Could not validate or save the token.",
       "saved": "Service token saved.",
-      "savedNoMetadata": "Service token saved, but its expiry and name couldn't be recorded — the health chip may show \u201Cexpiry not tracked\u201D until you save again."
+      "savedNoMetadata": "Service token saved, but its expiry and name couldn't be recorded — the health chip may show “expiry not tracked” until you save again."
     },
     "audit": {
       "detail": {
@@ -1653,7 +1927,7 @@
   },
   "offline": {
     "title": "You're offline",
-    "body": "Classroom 50 works with live data from GitHub, so it needs a connection. This banner clears automatically when you're back online."
+    "body": "This device isn't connected to the internet. Classroom 50 needs a live connection to work. This banner clears automatically once you're back online."
   },
   "githubStatus": {
     "title": "GitHub may be having problems",
@@ -1721,6 +1995,7 @@
     "studentCount_other": "{{count}} students",
     "noStudents": "No students",
     "viewAssignments": "View assignments",
+    "viewAssignmentsAria": "View assignments for {{classroom}}",
     "githubOrganization": "GitHub organization",
     "myClasses": "My classrooms",
     "myAssignments": "My assignments",
@@ -1939,6 +2214,11 @@
       "title": "This assignment is locked",
       "body": "Your teacher has locked <assignment>{{assignment}}</assignment>, so it can't be accepted right now. Check back later or ask your teacher to unlock it."
     },
+    "closed": {
+      "badge": "Closed",
+      "title": "Submissions are closed",
+      "body": "Your teacher has closed <assignment>{{assignment}}</assignment> to new submissions, so it can't be accepted right now. Ask your teacher to reopen it if you think this is a mistake."
+    },
     "notEnrolled": {
       "badge": "Unavailable",
       "title": "This assignment isn't available to you",
@@ -1988,6 +2268,8 @@
     },
     "errors": {
       "emptyRepoWithTemplate": "Assignment \"{{assignmentSlug}}\" sets both an empty repository and a template, which isn't valid. Ask your teacher to re-run assignment setup.",
+      "noAutograderWithEmptyRepo": "Assignment \"{{assignmentSlug}}\" sets both no built-in autograder and an empty repository, which isn't valid. Ask your teacher to re-run assignment setup.",
+      "initShimInvalidCombo": "Assignment \"{{assignmentSlug}}\" combines the built-in-autograder-on-an-empty-repo setting with a template, an empty repository, or no built-in autograder, which isn't valid. Ask your teacher to re-run assignment setup.",
       "incoherentMode": "Assignment \"{{slug}}\" has a group size of {{maxGroupSize}} but is set up as \"{{mode}}\", so its published settings are inconsistent. Ask your teacher to re-run assignment setup."
     },
     "progress": {
@@ -2012,15 +2294,17 @@
     "downloadCsv": "Download scores (CSV)",
     "viewSourceRepo": "View template",
     "emptyRepoNote": "This assignment uses empty repositories — autograding, scores, and the feedback pull request are disabled. Students create and push their own work; the table below shows who has accepted.",
+    "noAutograderNote": "This assignment has no built-in autograding — the teacher supplies their own CI in the template. Built-in scores and regrading are disabled; the table below shows who has accepted. The feedback pull request still works when enabled.",
     "lockedNotice": "This assignment is locked. Students can't accept or open it, and if it uses a private template the student team's access to that template has been removed. Existing repositories and their submissions are unaffected. Unlock it from the Actions menu (or the assignments list) to reopen it.",
+    "closedNotice": "Submissions are closed. New students can't accept this assignment. When you close from here, accepted students' repositories are set to read-only; existing work is preserved. Reopen it from the Actions menu to allow submissions again.",
     "lock": {
       "lockLabel": "Lock assignment",
       "unlockLabel": "Unlock assignment",
-      "lockTitle": "Close this assignment to students and, for a private template, remove the student team's read on it",
+      "lockTitle": "Lock this assignment so students can't access or accept it, and, for a private template, remove the student team's read on it",
       "unlockTitle": "Reopen this assignment to students and restore private-template access",
       "lockTitleModal": "Lock assignment?",
       "unlockTitleModal": "Unlock assignment?",
-      "lockDescription": "This closes <assignment>{{assignment}}</assignment> to every student — including those who already accepted — on the accept page, the assignments list, the submission view, and the CLI. If it uses a private template, the student team's read on that template is removed too (staff access is unaffected). Existing student repositories are not deleted.",
+      "lockDescription": "This locks <assignment>{{assignment}}</assignment> to every student — including those who already accepted — on the accept page, the assignments list, the submission view, and the CLI. If it uses a private template, the student team's read on that template is removed too (staff access is unaffected). Existing student repositories are not deleted.",
       "unlockDescription": "This reopens <assignment>{{assignment}}</assignment> to students. If it uses a private template, the student team's read on that template is restored so students can accept again.",
       "lockSuccess": "Assignment locked.",
       "unlockSuccess": "Assignment unlocked."
@@ -2098,6 +2382,7 @@
       "unlistedNote": "This classroom uses an unlisted URL, so the link includes the access key — treat it like a shared password and send the full link as-is.",
       "copyLink": "Copy accept link",
       "copyCli": "Copy CLI command",
+      "copied": "Copied",
       "preferCli": "Prefer the command line?",
       "warnNoStudents": "No students can accept this link in <classroom>{{classroom}}</classroom> yet. Add students to the roster and invite them to the organization first.",
       "shareWithCount_one": "Sharing with <count>{{count}} student</count> who can accept this assignment.",
@@ -2193,6 +2478,8 @@
       "loading": "Loading submissions…",
       "pendingGrade": "Pending",
       "pendingGradeTitle": "Submitted — grade not yet collected. Run \"Sync submissions now\" or wait for the nightly collection.",
+      "overridden": "Manual",
+      "overriddenTitle": "This score was set by hand and won't be changed by autograding until the override is cleared.",
       "notSubmitted": "Not submitted",
       "acceptedAwaiting": "Accepted · awaiting submission",
       "notAccepted": "Not accepted",
@@ -2202,6 +2489,17 @@
       "review": "Review",
       "reviewAria": "Open feedback pull request",
       "fullHistory": "Open the <repoLink>repository</repoLink> for the full commit history."
+    },
+    "manualGrade": {
+      "notGraded": "Not graded",
+      "add": "Add grade",
+      "edit": "Edit grade",
+      "addLabel": "Add grade for {{name}}",
+      "editLabel": "Edit grade for {{name}}",
+      "inputLabel": "Score for {{name}}",
+      "required": "Enter a score to save.",
+      "range": "Score must be a whole number from 0 to {{max}}.",
+      "saveError": "Couldn't save the grade. Check your connection and try again."
     },
     "reviewModal": {
       "errorTitle": "Couldn't check for a feedback PR",
@@ -2296,6 +2594,54 @@
       "deferredSection_other": "{{count}} repositories were not updated",
       "deferredDetail": "Skipped — re-run to update."
     },
+    "closeSubmission": {
+      "menuLabel": "Close submission",
+      "reopenLabel": "Reopen submission",
+      "menuTitle": "Close the submission window: block new accepts and set every student's repository to read-only",
+      "reopenMenuTitle": "Reopen the submission window: allow new accepts and restore write access",
+      "title": "Close submission",
+      "reopenTitle": "Reopen submission",
+      "subtitle_one": "Blocks new accepts and sets {{count}} student's repository to read-only.",
+      "subtitle_other": "Blocks new accepts and sets {{count}} students' repositories to read-only.",
+      "reopenSubtitle_one": "Allows new accepts and restores write access for {{count}} student's repository.",
+      "reopenSubtitle_other": "Allows new accepts and restores write access for {{count}} students' repositories.",
+      "noRepos": "No students have accepted this assignment yet. Closing still blocks new accepts.",
+      "warning_one": "This blocks any new student from accepting and sets {{count}} student's role on their own repository to read (pull). Existing work is preserved but becomes read-only until you reopen.",
+      "warning_other": "This blocks any new student from accepting and sets {{count}} students' roles on their own repositories to read (pull). Existing work is preserved but becomes read-only until you reopen.",
+      "reopenWarning_one": "This allows new accepts again and restores write access for {{count}} student's repository.",
+      "reopenWarning_other": "This allows new accepts again and restores write access for {{count}} students' repositories.",
+      "apply": "Close submission",
+      "reopenApply": "Reopen submission",
+      "finishHint": "The submission is closed to new accepts, but some repositories are not yet read-only. Finish closing to retry only those — this does not reopen the submission.",
+      "finishApply": "Finish closing",
+      "flagError": "The submission window could not be updated, so no repositories were changed. Try again.",
+      "working": "Updating repositories",
+      "progress": "Updated {{processed}} of {{total}}",
+      "resultHeadline": "Set {{count}} of {{total}} repositories to read-only.",
+      "resultHeadlineThrottled": "Set {{count}} of {{total}} repositories to read-only before GitHub rate-limited the request — re-run to finish the rest.",
+      "reopenResultHeadline": "Restored write access for {{count}} of {{total}} repositories.",
+      "reopenResultHeadlineThrottled": "Restored write access for {{count}} of {{total}} repositories before GitHub rate-limited the request — re-run to finish the rest.",
+      "failedSection_one": "{{count}} repository could not be updated",
+      "failedSection_other": "{{count}} repositories could not be updated",
+      "deferredSection_one": "{{count}} repository was not updated",
+      "deferredSection_other": "{{count}} repositories were not updated",
+      "deferredDetail": "Skipped — re-run to update.",
+      "statusBadge": {
+        "closed": "Closed"
+      }
+    },
+    "migrateTracking": {
+      "bannerText": "This classroom's configuration uses an older format. Migrate it to the latest schema to enable the newest assignment and submissions features.",
+      "bannerAction": "Migrate configuration",
+      "title": "Migrate classroom configuration",
+      "subtitle": "Update this classroom's assignments to the latest configuration schema.",
+      "warning": "This records each assignment's settings explicitly so every tool reads them the same way and the newest features (such as live submission tracking) are enabled. It does not change any grade, deadline, or student's access, and you can keep working as before.",
+      "apply": "Migrate configuration",
+      "working": "Updating assignments",
+      "resultHeadline_one": "Migrated {{count}} assignment.",
+      "resultHeadline_other": "Migrated {{count}} assignments.",
+      "error": "The assignments could not be updated. Try again."
+    },
     "bulkFeatures": {
       "menuLabel": "Update repository features",
       "menuTitle": "Turn Issues, Wiki, Projects, or Pull requests on or off across every student repository",
@@ -2317,6 +2663,95 @@
       "deferredSection_one": "{{count}} repository was not updated",
       "deferredSection_other": "{{count}} repositories were not updated",
       "deferredDetail": "Skipped — re-run to update."
+    },
+    "bulkTrigger": {
+      "menuLabel": "Update autograding triggers",
+      "menuTitle": "Rewrite each student repository's autograding workflow to match the assignment's trigger setting",
+      "titleEmptyRoster": "No students have accepted yet",
+      "title": "Update autograding triggers",
+      "subtitle_one": "Sets the autograding trigger to \"{{mode}}\" on {{count}} student's repository.",
+      "subtitle_other": "Sets the autograding trigger to \"{{mode}}\" on {{count}} students' repositories.",
+      "noRepos": "No students have accepted this assignment yet, so there are no repositories to update.",
+      "warning_one": "This commits a change to the autograding workflow in {{count}} student's repository. The commit is marked so it doesn't trigger grading. Repositories whose workflow was hand-edited are reported and left untouched. Students must pull afterward — clones made before this change will conflict on their next push.",
+      "warning_other": "This commits a change to the autograding workflow in {{count}} students' repositories. The commit is marked so it doesn't trigger grading. Repositories whose workflow was hand-edited are reported and left untouched. Students must pull afterward — clones made before this change will conflict on their next push.",
+      "apply": "Update all",
+      "working": "Updating repositories",
+      "progress": "Processed {{processed}} of {{total}}",
+      "resultHeadline": "Updated {{updated}} of {{total}} repositories ({{current}} already current).",
+      "repullReminder": "Tell students to run git pull — clones made before this change will conflict on their next push.",
+      "scopeSection_one": "{{count}} repository needs a token with the workflow scope",
+      "scopeSection_other": "{{count}} repositories need a token with the workflow scope",
+      "scopeDetail": "Your GitHub authorization can't modify workflow files. Sign out and back in, then re-run.",
+      "failedSection_one": "{{count}} repository could not be updated",
+      "failedSection_other": "{{count}} repositories could not be updated",
+      "unrecognizedSection_one": "{{count}} repository was skipped (workflow not recognized)",
+      "unrecognizedSection_other": "{{count}} repositories were skipped (workflow not recognized)",
+      "deferredSection_one": "{{count}} repository was not processed",
+      "deferredSection_other": "{{count}} repositories were not processed",
+      "deferredDetail": "Skipped — re-run to update.",
+      "notAcceptedSection_one": "{{count}} student has not accepted yet",
+      "notAcceptedSection_other": "{{count}} students have not accepted yet",
+      "notAcceptedDetail": "No repository exists — nothing to update."
+    },
+    "rowTrigger": {
+      "title": "Update autograding trigger",
+      "description": "Rewrite this repository's autograding workflow to match the assignment's trigger setting.",
+      "aria": "Update the autograding trigger on {{repo}}",
+      "outcome": {
+        "updated": "Autograding trigger updated. The student must pull before their next push.",
+        "current": "Already up to date — no change needed.",
+        "unrecognized": "Skipped: this repository's workflow was modified and can't be updated automatically.",
+        "notAccepted": "No repository exists yet — nothing to update.",
+        "missingWorkflowScope": "Your GitHub authorization can't modify workflow files. Sign out and back in, then retry.",
+        "failed": "Could not update the workflow — try again."
+      }
+    },
+    "rowAutograde": {
+      "pauseTitle": "Pause autograding",
+      "pauseDescription": "Disable this repository's autograding workflow. The workflow file is left unchanged and grading can be resumed anytime.",
+      "pauseAria": "Pause autograding for {{repo}}",
+      "resumeTitle": "Resume autograding",
+      "resumeDescription": "Re-enable this repository's autograding workflow so pushes are graded again.",
+      "resumeAria": "Resume autograding for {{repo}}",
+      "outcome": {
+        "paused": "Autograding paused for this repository.",
+        "resumed": "Autograding resumed for this repository.",
+        "notGradable": "This repository has no autograding workflow — nothing to change.",
+        "failed": "Could not change the autograding state — try again."
+      }
+    },
+    "bulkAutograde": {
+      "pauseMenuLabel": "Pause autograding",
+      "pauseMenuTitle": "Disable the autograding workflow in every accepted student repository",
+      "pauseTitleEmptyRoster": "No students have accepted yet",
+      "resumeMenuLabel": "Resume autograding",
+      "resumeMenuTitle": "Re-enable the autograding workflow in every accepted student repository",
+      "resumeTitleEmptyRoster": "No students have accepted yet",
+      "pauseTitle": "Pause autograding",
+      "resumeTitle": "Resume autograding",
+      "pauseSubtitle_one": "Disables autograding on {{count}} student's repository.",
+      "pauseSubtitle_other": "Disables autograding on {{count}} students' repositories.",
+      "resumeSubtitle_one": "Re-enables autograding on {{count}} student's repository.",
+      "resumeSubtitle_other": "Re-enables autograding on {{count}} students' repositories.",
+      "noRepos": "No students have accepted this assignment yet, so there are no repositories to change.",
+      "pauseWarning_one": "This disables the autograding workflow in {{count}} student's repository. No files are changed, and you can resume autograding anytime.",
+      "pauseWarning_other": "This disables the autograding workflow in {{count}} students' repositories. No files are changed, and you can resume autograding anytime.",
+      "resumeWarning_one": "This re-enables the autograding workflow in {{count}} student's repository.",
+      "resumeWarning_other": "This re-enables the autograding workflow in {{count}} students' repositories.",
+      "pauseApply": "Pause all",
+      "resumeApply": "Resume all",
+      "working": "Updating repositories",
+      "progress": "Processed {{processed}} of {{total}}",
+      "pauseResultHeadline": "Paused autograding on {{done}} of {{total}} repositories.",
+      "resumeResultHeadline": "Resumed autograding on {{done}} of {{total}} repositories.",
+      "failedSection_one": "{{count}} repository could not be changed",
+      "failedSection_other": "{{count}} repositories could not be changed",
+      "deferredSection_one": "{{count}} repository was not processed",
+      "deferredSection_other": "{{count}} repositories were not processed",
+      "deferredDetail": "Skipped — re-run to change.",
+      "notGradableSection_one": "{{count}} repository has no autograding workflow",
+      "notGradableSection_other": "{{count}} repositories have no autograding workflow",
+      "notGradableDetail": "No autograding workflow exists — nothing to change."
     },
     "rowRegrade": {
       "title": "Regrade this submission",
@@ -2343,6 +2778,10 @@
       "accepted": "Accepted",
       "lastPush": "Last push",
       "access": "Access",
+      "autograding": "Autograding",
+      "autogradingEnabled": "Enabled",
+      "autogradingPaused": "Paused",
+      "autogradingPausedByGitHub": "Paused by GitHub",
       "collaborators_one": "{{count}} collaborator",
       "collaborators_other": "{{count}} collaborators",
       "commitDescription": "Open the latest commit on GitHub",
@@ -2588,6 +3027,7 @@
       "orgRepoCreation": {
         "master": "<org>{{org}}</org> doesn't allow members to create repositories, so no student can accept an assignment. Re-run organization setup, or allow private (not public) repository creation under <memberPrivileges>Member privileges</memberPrivileges>. An enterprise policy can override this setting.",
         "private": "<org>{{org}}</org> doesn't allow members to create private repositories, so no student can accept an assignment. Re-run organization setup, or allow private (not public) repository creation under <memberPrivileges>Member privileges</memberPrivileges>. An enterprise policy can override this setting.",
+        "memberPrivilegesLabel": "Member privileges (opens GitHub organization settings in a new tab)",
         "action": "Organization settings"
       }
     },

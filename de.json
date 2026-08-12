@@ -81,7 +81,6 @@
     "about": "Über",
     "aboutAskQuestion": "Eine Frage stellen",
     "aboutAskQuestionHint": "Hol dir Hilfe aus der Community.",
-    "aboutBuilt": "Erstellt",
     "aboutCommit": "Commit",
     "aboutDialogDescription": "Build- und Versionsinformationen zu dieser App.",
     "aboutDialogTitle": "Classroom 50",
@@ -104,7 +103,11 @@
     "viewAsHeadTa": "Leitende TA",
     "envDev": "Dev",
     "envIndicator": "Läuft in {{env}} — nicht die Produktivumgebung.",
-    "envPreview": "Vorschau"
+    "envPreview": "Vorschau",
+    "aboutViewAccessibility": "Barrierefreiheitsinfos anzeigen",
+    "accessibility": "Barrierefreiheit",
+    "backToApp": "Zurück zur App",
+    "signIn": "Anmelden"
   },
   "auth": {
     "signInTitle": "Anmelden",
@@ -140,23 +143,35 @@
     "errorNetwork": "Netzwerkfehler beim Erreichen von {{target}}; es ist möglicherweise ausgefallen oder nicht erreichbar.",
     "errorNetworkProxyTarget": "der Cloudflare-Worker-Proxy",
     "errorOffline": "Du scheinst offline zu sein. Prüfe deine Verbindung und versuche es erneut – für die Anmeldung wird eine Netzwerkverbindung benötigt.",
-    "errorPatFineGrained": "Das sieht nach einem fein abgestuften Token (fine-grained) aus, das nicht verifiziert werden kann. Verwende ein klassisches Token mit den oben aufgeführten Scopes.",
     "errorPatMissingScopes": "Diesem Token fehlen erforderliche Scopes: {{scopes}}. Füge sie hinzu und versuche es erneut.",
     "errorPatRejected401": "Dieses Token wurde von GitHub abgelehnt (401). Prüfe, ob es gültig und nicht abgelaufen ist.",
     "errorStateMismatch": "State-Abweichung – möglicherweise CSRF. Bitte versuche erneut, dich anzumelden.",
     "offlineHold": "Du bist offline. Es wird auf eine Verbindung gewartet, um deine Sitzung wiederherzustellen…",
     "otherSignInMethods": "Andere Anmeldemethoden",
     "patCancel": "Abbrechen",
-    "patCreateTokenLink": "Ein Token mit diesen vorausgewählten Scopes erstellen",
-    "patFineGrainedNote": "Fein abgestufte Tokens werden nicht unterstützt – verwende ein klassisches Token.",
-    "patInstructions": "Füge ein persönliches GitHub-Zugriffstoken (klassisch) ein, um dich direkt anzumelden, ohne den OAuth-Proxy. Beim Token müssen diese Scopes angehakt sein:",
-    "patStorageNote": "Das Token wird im lokalen Speicher dieses Browsers gespeichert, genauso wie Tokens der anderen Anmeldemethoden.",
+    "patCreateTokenLink": "Klassisches Token erstellen",
+    "patStorageNote": "Das Token wird wie bei den anderen Anmeldemethoden im lokalen Speicher dieses Browsers abgelegt.",
     "patSubmit": "Mit Token anmelden",
-    "patTitle": "Mit einem persönlichen Zugriffstoken anmelden",
     "patTokenLabel": "Persönliches Zugriffstoken",
-    "usePersonalAccessToken": "Ein persönliches Zugriffstoken verwenden",
     "validationStuck": "Es wird weiterhin versucht, GitHub zu erreichen, um deine Sitzung zu überprüfen. Das ist meist ein vorübergehendes Problem mit GitHub, dem Netzwerk oder einer Browsererweiterung. Versuche es erneut oder melde dich neu an, um von vorn zu beginnen.",
-    "validationStuckSignIn": "Erneut anmelden"
+    "validationStuckSignIn": "Erneut anmelden",
+    "accessibility": "Barrierefreiheit",
+    "otherSignInMethodsHint": "Verwende einen Gerätecode auf einem Rechner ohne Browser oder ein persönliches Zugriffstoken, um dich ohne den OAuth-Proxy anzumelden.",
+    "patClassicIntro": "Ein klassisches Token funktioniert über alle Organisationen, die dir gehören.",
+    "patFineGrainedIntro": "Gib die Organisation ein, die dieses Token verwalten soll. Sie wird zum Ressourcenbesitzer des Tokens.",
+    "patFineGrainedLink": "Feingranulares Token erstellen",
+    "patFineGrainedNeedsOrg": "Gib oben deine Organisation ein, um ein Token dafür zu erstellen.",
+    "patFineGrainedOrgLabel": "Organisations-Login",
+    "patFineGrainedOrgPlaceholder": "deine-organisation",
+    "patFineGrainedWarning": "Ein feingranulares Token funktioniert nur mit einer Organisation. Organisationsübergreifende Vorlagenaufgaben schlagen fehl, und einige Zugriffe können nicht im Voraus überprüft werden, setze daher auf der Token-Seite den Repository-Zugriff auf „All repositories“.",
+    "patPasteInstruction": "Kopiere das Token, das GitHub dir anzeigt (es wird nur einmal angezeigt), und füge es dann unten ein.",
+    "patPermissionsHelp": "Die Schaltfläche öffnet GitHubs Token-Seite mit den bereits ausgewählten Berechtigungen, die Classroom 50 benötigt. Setze den Ressourcenbesitzer auf deine Organisation und den Repository-Zugriff auf „All repositories“.",
+    "patScopesHelp": "Die Schaltfläche öffnet GitHubs Token-Seite mit den bereits ausgewählten Scopes, die Classroom 50 benötigt. Du kannst sie dort vor dem Erzeugen überprüfen.",
+    "patTitleClassic": "Mit einem klassischen persönlichen Zugriffstoken anmelden",
+    "patTitleFineGrained": "Mit einem feingranularen persönlichen Zugriffstoken anmelden",
+    "sessionExpired": "Deine Sitzung ist abgelaufen – melde dich erneut an, um fortzufahren.",
+    "usePersonalAccessTokenClassic": "Ein persönliches Zugriffstoken (klassisch) verwenden",
+    "usePersonalAccessTokenFineGrained": "Ein persönliches Zugriffstoken (feingranular) verwenden"
   },
   "documentTitle": {
     "assignments": "Aufgaben",
@@ -522,7 +537,8 @@
     "activeHint": "Wähle eine installierte Sprache oder eine mit ⬇ markierte, um sie herunterzuladen und zu installieren.",
     "optionDownload": "⬇ {{language}}",
     "sourceRegistry": "Registry",
-    "sourceUser": "Von dir geladen"
+    "sourceUser": "Von dir geladen",
+    "urlLabel": "Ein Sprachpaket von einer URL importieren"
   },
   "validation": {
     "githubOrEmailRequired": "Gib einen GitHub-Benutzernamen oder eine E-Mail-Adresse ein.",
@@ -571,7 +587,8 @@
       "hide": "Von Startseite ausblenden",
       "moreActions": "Weitere Aktionen für {{org}}",
       "undoHide": "Rückgängig",
-      "manageToken": "Token verwalten"
+      "manageToken": "Token verwalten",
+      "openAria": "{{org}} öffnen"
     },
     "newOrg": {
       "allSetUp": "Alle für uns sichtbaren Organisationen sind bereits eingerichtet.",
@@ -734,7 +751,10 @@
         "releaseAssetsTooLarge": "Die Release-Dateipfade der Abgabe dürfen insgesamt höchstens {{max}} UTF-8-Bytes (8 KiB) umfassen; aktuell {{bytes}}.",
         "releaseAssetsTooMany": "Wähle höchstens {{max}} Release-Dateien für die Abgabe aus (aktuell {{count}}).",
         "setupTimeoutRange": "Das Setup-Timeout muss 0 oder eine ganze Zahl von Sekunden von 1 bis {{max}} sein.",
-        "studentPermissionInvalid": "Der Repository-Zugriff für Lernende muss einer der Werte pull, triage, push, maintain oder admin sein."
+        "studentPermissionInvalid": "Der Repository-Zugriff für Lernende muss einer der Werte pull, triage, push, maintain oder admin sein.",
+        "gradingMaxPointsInvalid": "Maximalpunkte müssen eine ganze Zahl von mindestens {{min}} sein.",
+        "gradingModeInvalid": "Die Bewertung muss „off“, „auto“ oder „manual“ sein.",
+        "submissionModeInvalid": "Der Auslöser für die automatische Bewertung muss „every-push“ oder „tag“ sein."
       },
       "allowedFilesTip": "Geordnete Muster im {{gitignore}}-Stil, eines pro Zeile, die festlegen, welche Dateien zu einer Abgabe gehören (der letzte Treffer gewinnt, {{bang}} schließt wieder ein). Z. B. {{star}} und dann {{example}} erlaubt nur {{result}}. Leer erlaubt jede Datei.",
       "containerUserTip": "Der Benutzer, unter dem der Container läuft. Setze root, wenn der Checkout mit einem Berechtigungsfehler fehlschlägt. GitHub Actions führt Container-Schritte als Benutzer des Host-Runners aus, sodass ein Nicht-Root-Image oft nicht in den Arbeitsbereich schreiben kann.",
@@ -765,12 +785,8 @@
       "optional": "optional",
       "setDueDate": "Abgabetermin festlegen",
       "setDueDateTip": "Aus bedeutet, dass die Aufgabe keine Frist hat. Aktiviere die Option, um Datum und Uhrzeit auszuwählen; Studierende sehen dies als Abgabetermin.",
-      "settingsSection": "Einstellungen",
       "slugEditHelp": "Der Slug ist Teil der Repository-Namen der Aufgabe und kann nach der Erstellung nicht mehr geändert werden.",
-      "emptyRepo": "Leeres Repository",
-      "emptyRepoHelp": "Erstelle das Repository jeder studierenden Person völlig leer: keine Startdateien, kein Autograding, keine Feedback-Pull-Request. Für Aufgaben, bei denen die Studierenden alles von Grund auf selbst aufbauen, einschließlich eigener GitHub Actions. Diese Wahl ist für die Aufgabe dauerhaft.",
-      "emptyRepoLocked": "Kann nach der Erstellung nicht mehr geändert werden.",
-      "feedbackPrEmptyRepoHelp": "Für leere Repositorys nicht verfügbar — es gibt keinen Start-Commit zum Vergleichen.",
+      "feedbackPrEmptyRepoHelp": "Für leere Repositories nicht verfügbar. Es gibt keinen Ausgangs-Commit, gegen den ein Diff erstellt werden könnte.",
       "passThresholdUnit": "% der Höchstpunktzahl zum Bestehen",
       "releaseAssetCount_one": "{{count}} Release-Datei",
       "releaseAssetCount_other": "{{count}} Release-Dateien",
@@ -790,11 +806,10 @@
           "on": "An"
         },
         "heading": "Repository-Funktionen",
-        "help": "Ob in jedem Repository der Lernenden Wikis, Issues, Projects und Pull Requests aktiviert sind. Wird angewendet, wenn eine lernende Person die Aufgabe annimmt (nur neue Repositorys); nutze das Notenbuch, um bereits erstellte Repositorys zu ändern. Beim Übernehmen einer privaten Vorlage werden auch deren Wiki-/Issues-/Projects-Inhalte kopiert – halte daher Lösungsschlüssel aus einer Vorlage heraus, von der du erbst.",
+        "help": "Ob jedes Repository der Studierenden Wikis, Issues, Projects und Pull Requests aktiviert hat.",
         "issues": {
           "label": "Issues"
         },
-        "overrideWarning": "Gilt für ab jetzt erstellte Repositorys; bereits von Lernenden angenommene werden nicht geändert. Mit einer Vorlage folgt der Standard beim Annehmen der Vorlage (bestehende Repositorys ändern sich nicht, wenn die Vorlage später angepasst wird); ohne Vorlage bleiben GitHubs eigene Repository-Standards bestehen. Um bestehende Repositorys zu aktualisieren, nutze die Sammelaktion für Repository-Funktionen auf der Abgabenseite.",
         "projects": {
           "label": "Projects"
         },
@@ -804,7 +819,12 @@
         "refresh": "Vorlageneinstellungen aktualisieren",
         "wiki": {
           "label": "Wiki"
-        }
+        },
+        "helpExisting": "Änderungen gelten für ab jetzt erstellte Repositories. Um bereits von Studierenden angenommene zu aktualisieren, verwende das Notenbuch.",
+        "overrideExisting": "Um Repositories zu aktualisieren, die Studierende bereits angenommen haben, verwende die Sammelaktion für Repository-Funktionen auf der Abgabenseite.",
+        "overrideNoTemplate": "Die Standardeinstellung behält GitHubs eigene Repository-Standardeinstellungen bei.",
+        "overrideTemplate": "Die Standardeinstellung folgt den Einstellungen der Vorlage, wenn eine studierende Person annimmt. Vorhandene Repositories ändern sich nicht, wenn du die Vorlage später aktualisierst.",
+        "templateContentWarning": "Das Erben einer privaten Vorlage kopiert auch deren Wiki-, Issues- und Projects-Inhalte, halte also Lösungsschlüssel aus einer Vorlage heraus, von der du erbst."
       },
       "setAvailableFrom": "Freigabedatum festlegen",
       "setAvailableFromTip": "Aufgaben sind standardmäßig auf der Aufgabenseite der Lernenden ausgeblendet – Lernende können sie nur über den Einladungslink annehmen. Lege ein Freigabedatum fest, um sie nach Ablauf des Datums für alle aufzulisten. Lernende, die bereits angenommen haben, sehen sie immer. Dies steuert nur die Auflistung, nicht den Zugriff.",
@@ -823,6 +843,94 @@
           "push": "Schreiben (Push)",
           "triage": "Triage"
         }
+      },
+      "addReadme": {
+        "helpOff": "Erstelle ein leeres Repository ohne ersten Commit. Automatische Bewertung und der Feedback-PR sind erst nach dem ersten Commit der studierenden Person verfügbar.",
+        "helpOn": "Initialisiere jedes Repository mit einer README.md und erstelle einen ersten Commit, damit Branches, Pull Requests und der Feedback-PR funktionieren.",
+        "label": "README hinzufügen"
+      },
+      "autograding": {
+        "choices": {
+          "built-in": {
+            "help": "Committe den integrierten Autograder-Shim und konfiguriere dann unten die Laufzeitumgebung und die deklarativen Tests.",
+            "label": "Integrierten Autograder verwenden"
+          },
+          "none": {
+            "help": "Es wird kein Autograder-Shim committet. Mit einer Vorlage stellst du deinen eigenen Workflow in der Vorlage bereit (er muss ein result.json-Asset am Abgabe-Release veröffentlichen). Ohne Vorlage hat das Repository einfach keinen Autograder.",
+            "label": "Integrierten Autograder nicht verwenden"
+          }
+        },
+        "label": "Automatische Bewertung",
+        "lockedHelp": "Ob der integrierte Autograder verwendet wird, kann nach der Erstellung nicht mehr geändert werden: Repositories, die bereits von Studierenden angenommen wurden, werden nicht neu bereitgestellt.",
+        "modeLabel": "Integrierter Autograder",
+        "notAutogradedNote": "Die Optionen zur automatischen Bewertung gelten nur, wenn diese Aufgabe im Abschnitt „Abgabe und Bewertung“ oben auf „Automatisch bewertet“ eingestellt ist. Ändere die Bewertungsauswahl auf „Automatisch bewertet“, um den Autograder zu konfigurieren."
+      },
+      "copyAbout": {
+        "help": "Kopiere die „Info“ der Vorlage (ihre Beschreibung) in jedes Repository der Studierenden. GitHub kopiert sie nicht automatisch. Dies gilt für Studierende, die ab jetzt annehmen; bereits erstellte Repositories werden nicht geändert.",
+        "label": "Info aus Vorlage kopieren"
+      },
+      "copyTopics": {
+        "help": "Kopiere die Themen der Vorlage in jedes Repository der Studierenden. GitHub kopiert sie nicht automatisch. Dies gilt für Studierende, die ab jetzt annehmen; bereits erstellte Repositories werden nicht geändert.",
+        "label": "Themen aus Vorlage kopieren"
+      },
+      "grading": {
+        "autoNote": "Diese Aufgabe wird automatisch bewertet. Konfiguriere den Autograder im Abschnitt „Automatische Bewertung“ unten. Ob du den integrierten Autograder verwendest oder deinen eigenen Workflow bereitstellst, er muss ein result.json-Asset am Abgabe-Release veröffentlichen – diese Datei liest die App, um Punktzahlen anzuzeigen.",
+        "choices": {
+          "auto": "Automatisch bewertet",
+          "manual": "Manuell (Punktzahlen von Hand eingeben)",
+          "off": "Nicht bewertet"
+        },
+        "editWarning": "Der Bewertungsmodus kann nach der Erstellung nicht mehr geändert werden: Bereits im alten Modus erfasste Punktzahlen würden falsch interpretiert. Erstelle stattdessen eine neue Aufgabe unter einem anderen Slug.",
+        "help": "Wie diese Aufgabe bewertet wird. „Automatisch bewertet“ führt den unten konfigurierten Autograder aus. „Manuell“ ermöglicht es dir, die Punktzahl jeder studierenden Person auf der Abgabenseite von Hand einzugeben. „Nicht bewertet“ erfasst keine Punktzahl. Kann nach der Erstellung der Aufgabe nicht mehr geändert werden.",
+        "label": "Bewertung",
+        "maxPoints": {
+          "help": "Insgesamt für diese manuelle Aufgabe verfügbare Punkte. Wird verwendet, um die Punktzahl jeder studierenden Person im Verhältnis zum Maximum anzuzeigen.",
+          "label": "Maximalpunkte"
+        }
+      },
+      "includeAllBranches": {
+        "help": "Kopiere jeden Branch und seine Historie aus der Vorlage, nicht nur den Standard-Branch. Dies gilt für Studierende, die ab jetzt annehmen; bereits erstellte Repositories werden nicht geändert.",
+        "label": "Alle Branches einbeziehen"
+      },
+      "repoSource": {
+        "label": "Mit einer Vorlage beginnen",
+        "lockedHelp": "Die Repository-Quelle kann nach der Erstellung nicht mehr geändert werden: Repositories, die bereits von Studierenden angenommen wurden, werden nicht neu bereitgestellt.",
+        "none": {
+          "help": "Erstelle für jede studierende Person ein neues Repository.",
+          "label": "Keine Vorlage"
+        },
+        "template": {
+          "help": "Erzeuge das Repository jeder studierenden Person aus einer von dir bereitgestellten Vorlage.",
+          "label": "Vorlagen-Repository"
+        }
+      },
+      "repositorySetupSection": "Repository-Einrichtung",
+      "scheduleSection": "Zeitplan",
+      "sectionStatus": {
+        "configured": "Konfiguriert",
+        "default": "Standard",
+        "error": "Erfordert Aufmerksamkeit"
+      },
+      "submissionMode": {
+        "choices": {
+          "everyPush": "Jeder Push auf den Standard-Branch",
+          "tag": "Ein getaggter Commit"
+        },
+        "editWarning": "Diese Änderung wirkt sich nur auf ab jetzt erstellte Repositories aus. Repositories, die Studierende bereits angenommen haben, behalten die alte Einstellung bei, bis du sie aktualisierst – verwende „Auslöser für automatische Bewertung aktualisieren“ auf der Abgabenseite oder gh teacher assignment submission-mode. Studierende müssen nach der Aktualisierung einen Pull ausführen.",
+        "help": "„Jeder Push auf den Standard-Branch“ zählt jeden Push (außer dem Ausgangs-Commit). „Ein getaggter Commit“ zählt nur getaggte Commits – eine studierende Person reicht mit gh student submit oder durch Pushen eines Tags ein, sodass gewöhnliche Pushes keine Actions-Minuten kosten.",
+        "label": "Abgabetyp"
+      },
+      "submissionSection": "Abgabe und Bewertung",
+      "submissionSectionHelp": "Lege fest, was als Abgabe für diese Aufgabe zählt – wann der Autograder läuft und welche Tags eine studierende Person zum Abgeben pushen kann.",
+      "submissionTags": {
+        "commaHint": "Setze einen Tag pro Zeile, keine kommagetrennte Liste – ein Komma wird Teil des Tag-Namens und wird abgelehnt.",
+        "help": "Optionale Tag-Namen (einer pro Zeile), deren Commits ebenfalls zählen – z. B. phase1, phase2. Muster wie v* passen auf eine Familie von Tags. Leer lassen für keine.",
+        "label": "Abgabe-Tags",
+        "wildcardCaution": "Ein weites Muster wie v* passt auf jeden Tag, den eine studierende Person pusht, einschließlich unabhängiger Release-Tags. Bevorzuge genaue Namen wie phase1."
+      },
+      "submissions": {
+        "heading": "Abgaben",
+        "help": "Wie die Abgabenseite die Arbeit jeder studierenden Person erkennt und zählt. Der Autograder verwendet dieselbe Definition."
       }
     },
     "autograder": {
@@ -899,7 +1007,7 @@
       "lockAria": "{{name}} sperren",
       "lockCancel": "Abbrechen",
       "lockConfirm": "Aufgabe sperren",
-      "lockDescription": "Dies schließt <assignment>{{assignment}}</assignment> für alle Lernenden – auch für die, die bereits angenommen haben – auf der Annahmeseite, in der Aufgabenliste, in der Abgabenansicht und in der CLI. Wenn eine private Vorlage verwendet wird, wird auch der Lesezugriff des Lernenden-Teams auf diese Vorlage entfernt (der Zugriff des Personals bleibt unberührt). Bestehende Lernenden-Repositorys werden nicht gelöscht.",
+      "lockDescription": "Dies sperrt <assignment>{{assignment}}</assignment> für jede studierende Person – auch für die, die bereits angenommen haben – auf der Annahmeseite, in der Aufgabenliste, in der Abgabeansicht und in der CLI. Wenn eine private Vorlage verwendet wird, wird auch der Lesezugriff des Studierenden-Teams auf diese Vorlage entfernt (der Zugriff des Personals bleibt unberührt). Bestehende Repositories der Studierenden werden nicht gelöscht.",
       "lockSuccess": "{{name}} gesperrt.",
       "lockTitle": "Aufgabe sperren",
       "lockTitleModal": "Aufgabe sperren?",
@@ -912,7 +1020,8 @@
       "unlockDescription": "Dies öffnet <assignment>{{assignment}}</assignment> wieder für Lernende. Wenn eine private Vorlage verwendet wird, wird der Lesezugriff des Lernenden-Teams auf diese Vorlage wiederhergestellt, damit Lernende erneut annehmen können.",
       "unlockSuccess": "{{name}} entsperrt.",
       "unlockTitle": "Aufgabe entsperren",
-      "unlockTitleModal": "Aufgabe entsperren?"
+      "unlockTitleModal": "Aufgabe entsperren?",
+      "openSubmissionsAria": "Abgaben von {{name}} öffnen"
     },
     "template": {
       "label": "Vorlagen-Repository",
@@ -971,7 +1080,8 @@
       "restrictedItemApprove": "Genehmige Classroom 50 für {{owner}} (Org-Einstellungen → Drittanbieter-Zugriff).",
       "restrictedItemFork": "Wenn {{repo}} ein Fork ist, genehmige Classroom 50 auch für die Upstream-Organisation des Forks – der Zugriff eines privaten Forks folgt der Richtlinie der Upstream-Organisation.",
       "restrictedItemOther": "Andernfalls kann es sich um einen anderen 403 handeln; siehe die Meldung von GitHub unten.",
-      "viewTemplateRepo": "{{owner}}/{{repo}} auf GitHub öffnen"
+      "viewTemplateRepo": "{{owner}}/{{repo}} auf GitHub öffnen",
+      "emptyTemplate": "{{owner}}/{{repo}} ist eine Vorlage, hat aber keine Commits. Füge mindestens einen Commit hinzu (z. B. eine README) und versuche es dann erneut."
     },
     "toolbar": {
       "clear": "Zurücksetzen",
@@ -1608,7 +1718,8 @@
     "unarchiveBody": "Setze <classroom>{{classroom}}</classroom> wieder auf aktiv: Der Kursraum erscheint wieder in der Standard-Kursraumliste und kann erneut neue Aufgaben und Lernende annehmen.",
     "newButton": {
       "moreOptions": "Weitere Optionen"
-    }
+    },
+    "viewAssignmentsAria": "Aufgaben für {{classroom}} anzeigen"
   },
   "accept": {
     "githubUser": "GitHub-Benutzer",
@@ -1674,7 +1785,9 @@
     },
     "errors": {
       "emptyRepoWithTemplate": "Die Aufgabe „{{assignmentSlug}}“ legt sowohl ein leeres Repository als auch eine Vorlage fest, was nicht zulässig ist. Bitte deine Lehrkraft, die Aufgaben-Einrichtung erneut auszuführen.",
-      "incoherentMode": "Die Aufgabe „{{slug}}“ hat eine Gruppengröße von {{maxGroupSize}}, ist aber als „{{mode}}“ eingerichtet, sodass ihre veröffentlichten Einstellungen widersprüchlich sind. Bitte deine Lehrkraft, die Aufgaben-Einrichtung erneut auszuführen."
+      "incoherentMode": "Die Aufgabe „{{slug}}“ hat eine Gruppengröße von {{maxGroupSize}}, ist aber als „{{mode}}“ eingerichtet, sodass ihre veröffentlichten Einstellungen widersprüchlich sind. Bitte deine Lehrkraft, die Aufgaben-Einrichtung erneut auszuführen.",
+      "initShimInvalidCombo": "Die Aufgabe „{{assignmentSlug}}“ kombiniert die Einstellung „integrierter Autograder auf einem leeren Repository“ mit einer Vorlage, einem leeren Repository oder ohne integrierten Autograder, was nicht zulässig ist. Bitte deine Lehrkraft, die Aufgabeneinrichtung erneut auszuführen.",
+      "noAutograderWithEmptyRepo": "Die Aufgabe „{{assignmentSlug}}“ legt sowohl keinen integrierten Autograder als auch ein leeres Repository fest, was nicht zulässig ist. Bitte deine Lehrkraft, die Aufgabeneinrichtung erneut auszuführen."
     },
     "stepActions": {
       "access": "Dein Repository {{org}}/{{repo}} wurde erstellt, aber das Festlegen deiner Zugriffsrechte ({{username}}) darauf ist fehlgeschlagen. Das bedeutet meist, dass sich dein GitHub-Benutzername geändert hat oder du {{org}} verlassen hast. Vergewissere dich, dass du Mitglied von {{org}} bist, und nutze dann „Setup erneut ausführen“.",
@@ -1717,6 +1830,11 @@
       "body": "Frage deine Lehrkraft, wenn du glaubst, dass dies ein Fehler ist.",
       "error": "Diese Aufgabe ist für dich nicht verfügbar. Frage deine Lehrkraft, wenn du glaubst, dass dies ein Fehler ist.",
       "title": "Diese Aufgabe ist für dich nicht verfügbar"
+    },
+    "closed": {
+      "badge": "Geschlossen",
+      "body": "Deine Lehrkraft hat <assignment>{{assignment}}</assignment> für neue Abgaben geschlossen, sodass die Aufgabe im Moment nicht angenommen werden kann. Bitte deine Lehrkraft, sie wieder zu öffnen, falls du glaubst, dass es sich um einen Fehler handelt.",
+      "title": "Abgaben sind geschlossen"
     }
   },
   "submissions": {
@@ -1782,7 +1900,8 @@
       "manageRoster": "Kursliste verwalten",
       "shareWithCount_one": "Wird mit <count>{{count}} Lernenden</count> geteilt, die diese Aufgabe annehmen können.",
       "shareWithCount_other": "Wird mit <count>{{count}} Lernenden</count> geteilt, die diese Aufgabe annehmen können.",
-      "warnNoStudents": "In <classroom>{{classroom}}</classroom> kann noch niemand diesen Link annehmen. Füge zuerst Lernende zur Kursliste hinzu und lade sie in die Organisation ein."
+      "warnNoStudents": "In <classroom>{{classroom}}</classroom> kann noch niemand diesen Link annehmen. Füge zuerst Lernende zur Kursliste hinzu und lade sie in die Organisation ein.",
+      "copied": "Kopiert"
     },
     "stats": {
       "submitted": "Abgegeben",
@@ -1881,7 +2000,9 @@
       "staleCount": "Neu",
       "staleCountTitle": "Diese lernende Person hat mehr Abgaben gepusht, als bewertet wurden. Führe „Abgaben jetzt synchronisieren“ aus, um die neuesten zu bewerten und zu benoten.",
       "manageAccess": "Repository-Zugriff verwalten",
-      "manageAccessAria": "Repository-Zugriff für {{owner}} verwalten"
+      "manageAccessAria": "Repository-Zugriff für {{owner}} verwalten",
+      "overridden": "Manuell",
+      "overriddenTitle": "Diese Punktzahl wurde von Hand gesetzt und wird von der automatischen Bewertung nicht geändert, bis die Überschreibung aufgehoben wird."
     },
     "reviewModal": {
       "errorTitle": "Es konnte nicht nach einem Feedback-PR gesucht werden",
@@ -2083,10 +2204,10 @@
       "titleDisabled": "Noch keine Abgaben zum Herunterladen"
     },
     "lock": {
-      "lockDescription": "Dies schließt <assignment>{{assignment}}</assignment> für alle Lernenden – auch für die, die bereits angenommen haben – auf der Annahmeseite, in der Aufgabenliste, in der Abgabenansicht und in der CLI. Wenn eine private Vorlage verwendet wird, wird auch der Lesezugriff des Lernenden-Teams auf diese Vorlage entfernt (der Zugriff des Personals bleibt unberührt). Bestehende Lernenden-Repositorys werden nicht gelöscht.",
+      "lockDescription": "Dies sperrt <assignment>{{assignment}}</assignment> für jede studierende Person – auch für die, die bereits angenommen haben – auf der Annahmeseite, in der Aufgabenliste, in der Abgabeansicht und in der CLI. Wenn eine private Vorlage verwendet wird, wird auch der Lesezugriff des Studierenden-Teams auf diese Vorlage entfernt (der Zugriff des Personals bleibt unberührt). Bestehende Repositories der Studierenden werden nicht gelöscht.",
       "lockLabel": "Aufgabe sperren",
       "lockSuccess": "Aufgabe gesperrt.",
-      "lockTitle": "Diese Aufgabe für Lernende schließen und bei einer privaten Vorlage den Lesezugriff des Lernenden-Teams darauf entfernen",
+      "lockTitle": "Diese Aufgabe sperren, damit Studierende nicht darauf zugreifen oder sie annehmen können, und bei einer privaten Vorlage den Lesezugriff des Studierenden-Teams darauf entfernen",
       "lockTitleModal": "Aufgabe sperren?",
       "unlockDescription": "Dies öffnet <assignment>{{assignment}}</assignment> wieder für Lernende. Wenn eine private Vorlage verwendet wird, wird der Lesezugriff des Lernenden-Teams auf diese Vorlage wiederhergestellt, damit Lernende erneut annehmen können.",
       "unlockLabel": "Aufgabe entsperren",
@@ -2109,13 +2230,167 @@
       "open": "Abgabe verwalten",
       "openAria": "Abgabe von {{owner}} verwalten",
       "regradeDescription": "Den Autograder auf dem neuesten Commit erneut ausführen",
-      "reviewDescription": "Den Feedback-Pull-Request öffnen"
+      "reviewDescription": "Den Feedback-Pull-Request öffnen",
+      "autograding": "Automatische Bewertung",
+      "autogradingEnabled": "Aktiviert",
+      "autogradingPaused": "Pausiert",
+      "autogradingPausedByGitHub": "Von GitHub pausiert"
     },
     "rowDownload": {
       "aria": "Abgabe von {{owner}} herunterladen",
       "error": "Die Abgabe von {{owner}} konnte nicht heruntergeladen werden. Bitte versuche es erneut.",
       "nothingToDownload": "{{owner}} hat noch keine Abgabe zum Herunterladen.",
       "title": "Diese Abgabe herunterladen"
+    },
+    "bulkAutograde": {
+      "deferredDetail": "Übersprungen – erneut ausführen, um zu ändern.",
+      "deferredSection_one": "{{count}} Repository wurde nicht verarbeitet",
+      "deferredSection_other": "{{count}} Repositories wurden nicht verarbeitet",
+      "failedSection_one": "{{count}} Repository konnte nicht geändert werden",
+      "failedSection_other": "{{count}} Repositories konnten nicht geändert werden",
+      "noRepos": "Noch keine Studierenden haben diese Aufgabe angenommen, es gibt also keine Repositories zum Ändern.",
+      "notGradableDetail": "Kein Workflow zur automatischen Bewertung vorhanden – nichts zu ändern.",
+      "notGradableSection_one": "{{count}} Repository hat keinen Workflow zur automatischen Bewertung",
+      "notGradableSection_other": "{{count}} Repositories haben keinen Workflow zur automatischen Bewertung",
+      "pauseApply": "Alle pausieren",
+      "pauseMenuLabel": "Automatische Bewertung pausieren",
+      "pauseMenuTitle": "Den Workflow zur automatischen Bewertung in jedem angenommenen Studierenden-Repository deaktivieren",
+      "pauseResultHeadline": "Automatische Bewertung bei {{done}} von {{total}} Repositories pausiert.",
+      "pauseSubtitle_one": "Deaktiviert die automatische Bewertung im Repository von {{count}} studierenden Person.",
+      "pauseSubtitle_other": "Deaktiviert die automatische Bewertung in den Repositories von {{count}} Studierenden.",
+      "pauseTitle": "Automatische Bewertung pausieren",
+      "pauseTitleEmptyRoster": "Noch keine Studierenden haben angenommen",
+      "pauseWarning_one": "Dies deaktiviert den Workflow zur automatischen Bewertung im Repository von {{count}} studierenden Person. Es werden keine Dateien geändert, und du kannst die automatische Bewertung jederzeit fortsetzen.",
+      "pauseWarning_other": "Dies deaktiviert den Workflow zur automatischen Bewertung in den Repositories von {{count}} Studierenden. Es werden keine Dateien geändert, und du kannst die automatische Bewertung jederzeit fortsetzen.",
+      "progress": "{{processed}} von {{total}} verarbeitet",
+      "resumeApply": "Alle fortsetzen",
+      "resumeMenuLabel": "Automatische Bewertung fortsetzen",
+      "resumeMenuTitle": "Den Workflow zur automatischen Bewertung in jedem angenommenen Studierenden-Repository wieder aktivieren",
+      "resumeResultHeadline": "Automatische Bewertung bei {{done}} von {{total}} Repositories fortgesetzt.",
+      "resumeSubtitle_one": "Aktiviert die automatische Bewertung im Repository von {{count}} studierenden Person wieder.",
+      "resumeSubtitle_other": "Aktiviert die automatische Bewertung in den Repositories von {{count}} Studierenden wieder.",
+      "resumeTitle": "Automatische Bewertung fortsetzen",
+      "resumeTitleEmptyRoster": "Noch keine Studierenden haben angenommen",
+      "resumeWarning_one": "Dies aktiviert den Workflow zur automatischen Bewertung im Repository von {{count}} studierenden Person wieder.",
+      "resumeWarning_other": "Dies aktiviert den Workflow zur automatischen Bewertung in den Repositories von {{count}} Studierenden wieder.",
+      "working": "Repositories werden aktualisiert"
+    },
+    "bulkTrigger": {
+      "apply": "Alle aktualisieren",
+      "deferredDetail": "Übersprungen – erneut ausführen, um zu aktualisieren.",
+      "deferredSection_one": "{{count}} Repository wurde nicht verarbeitet",
+      "deferredSection_other": "{{count}} Repositories wurden nicht verarbeitet",
+      "failedSection_one": "{{count}} Repository konnte nicht aktualisiert werden",
+      "failedSection_other": "{{count}} Repositories konnten nicht aktualisiert werden",
+      "menuLabel": "Auslöser für automatische Bewertung aktualisieren",
+      "menuTitle": "Den Workflow zur automatischen Bewertung jedes Studierenden-Repositorys neu schreiben, damit er der Auslösereinstellung der Aufgabe entspricht",
+      "noRepos": "Noch keine Studierenden haben diese Aufgabe angenommen, es gibt also keine Repositories zum Aktualisieren.",
+      "notAcceptedDetail": "Kein Repository vorhanden – nichts zu aktualisieren.",
+      "notAcceptedSection_one": "{{count}} studierende Person hat noch nicht angenommen",
+      "notAcceptedSection_other": "{{count}} Studierende haben noch nicht angenommen",
+      "progress": "{{processed}} von {{total}} verarbeitet",
+      "repullReminder": "Fordere die Studierenden auf, git pull auszuführen – vor dieser Änderung erstellte Klone führen bei ihrem nächsten Push zu Konflikten.",
+      "resultHeadline": "{{updated}} von {{total}} Repositories aktualisiert ({{current}} bereits aktuell).",
+      "scopeDetail": "Deine GitHub-Autorisierung kann keine Workflow-Dateien ändern. Melde dich ab und wieder an und führe es dann erneut aus.",
+      "scopeSection_one": "{{count}} Repository benötigt ein Token mit dem Workflow-Scope",
+      "scopeSection_other": "{{count}} Repositories benötigen ein Token mit dem Workflow-Scope",
+      "subtitle_one": "Setzt den Auslöser für die automatische Bewertung im Repository von {{count}} studierenden Person auf „{{mode}}“.",
+      "subtitle_other": "Setzt den Auslöser für die automatische Bewertung in den Repositories von {{count}} Studierenden auf „{{mode}}“.",
+      "title": "Auslöser für automatische Bewertung aktualisieren",
+      "titleEmptyRoster": "Noch keine Studierenden haben angenommen",
+      "unrecognizedSection_one": "{{count}} Repository wurde übersprungen (Workflow nicht erkannt)",
+      "unrecognizedSection_other": "{{count}} Repositories wurden übersprungen (Workflow nicht erkannt)",
+      "warning_one": "Dies committet eine Änderung am Workflow zur automatischen Bewertung im Repository von {{count}} studierenden Person. Der Commit ist so markiert, dass er keine Bewertung auslöst. Repositories, deren Workflow von Hand bearbeitet wurde, werden gemeldet und unverändert gelassen. Studierende müssen danach einen Pull ausführen – vor dieser Änderung erstellte Klone führen bei ihrem nächsten Push zu Konflikten.",
+      "warning_other": "Dies committet eine Änderung am Workflow zur automatischen Bewertung in den Repositories von {{count}} Studierenden. Der Commit ist so markiert, dass er keine Bewertung auslöst. Repositories, deren Workflow von Hand bearbeitet wurde, werden gemeldet und unverändert gelassen. Studierende müssen danach einen Pull ausführen – vor dieser Änderung erstellte Klone führen bei ihrem nächsten Push zu Konflikten.",
+      "working": "Repositories werden aktualisiert"
+    },
+    "closeSubmission": {
+      "apply": "Abgabe schließen",
+      "deferredDetail": "Übersprungen – erneut ausführen, um zu aktualisieren.",
+      "deferredSection_one": "{{count}} Repository wurde nicht aktualisiert",
+      "deferredSection_other": "{{count}} Repositories wurden nicht aktualisiert",
+      "failedSection_one": "{{count}} Repository konnte nicht aktualisiert werden",
+      "failedSection_other": "{{count}} Repositories konnten nicht aktualisiert werden",
+      "finishApply": "Schließen abschließen",
+      "finishHint": "Die Abgabe ist für neue Annahmen geschlossen, aber einige Repositories sind noch nicht schreibgeschützt. Schließe das Schließen ab, um nur diese erneut zu versuchen – die Abgabe wird dadurch nicht wieder geöffnet.",
+      "flagError": "Das Abgabefenster konnte nicht aktualisiert werden, daher wurden keine Repositories geändert. Versuche es erneut.",
+      "menuLabel": "Abgabe schließen",
+      "menuTitle": "Das Abgabefenster schließen: neue Annahmen blockieren und jedes Studierenden-Repository auf schreibgeschützt setzen",
+      "noRepos": "Noch keine Studierenden haben diese Aufgabe angenommen. Das Schließen blockiert dennoch neue Annahmen.",
+      "progress": "{{processed}} von {{total}} aktualisiert",
+      "reopenApply": "Abgabe wieder öffnen",
+      "reopenLabel": "Abgabe wieder öffnen",
+      "reopenMenuTitle": "Das Abgabefenster wieder öffnen: neue Annahmen erlauben und Schreibzugriff wiederherstellen",
+      "reopenResultHeadline": "Schreibzugriff für {{count}} von {{total}} Repositories wiederhergestellt.",
+      "reopenResultHeadlineThrottled": "Schreibzugriff für {{count}} von {{total}} Repositories wiederhergestellt, bevor GitHub die Anfrage per Ratenbegrenzung stoppte – erneut ausführen, um den Rest abzuschließen.",
+      "reopenSubtitle_one": "Erlaubt neue Annahmen und stellt den Schreibzugriff für das Repository von {{count}} studierenden Person wieder her.",
+      "reopenSubtitle_other": "Erlaubt neue Annahmen und stellt den Schreibzugriff für die Repositories von {{count}} Studierenden wieder her.",
+      "reopenTitle": "Abgabe wieder öffnen",
+      "reopenWarning_one": "Dies erlaubt wieder neue Annahmen und stellt den Schreibzugriff für das Repository von {{count}} studierenden Person wieder her.",
+      "reopenWarning_other": "Dies erlaubt wieder neue Annahmen und stellt den Schreibzugriff für die Repositories von {{count}} Studierenden wieder her.",
+      "resultHeadline": "{{count}} von {{total}} Repositories auf schreibgeschützt gesetzt.",
+      "resultHeadlineThrottled": "{{count}} von {{total}} Repositories auf schreibgeschützt gesetzt, bevor GitHub die Anfrage per Ratenbegrenzung stoppte – erneut ausführen, um den Rest abzuschließen.",
+      "statusBadge": {
+        "closed": "Geschlossen"
+      },
+      "subtitle_one": "Blockiert neue Annahmen und setzt das Repository von {{count}} studierenden Person auf schreibgeschützt.",
+      "subtitle_other": "Blockiert neue Annahmen und setzt die Repositories von {{count}} Studierenden auf schreibgeschützt.",
+      "title": "Abgabe schließen",
+      "warning_one": "Dies verhindert, dass eine neue studierende Person annimmt, und setzt die Rolle von {{count}} studierenden Person in ihrem eigenen Repository auf Lesen (Pull). Bestehende Arbeit bleibt erhalten, wird aber schreibgeschützt, bis du wieder öffnest.",
+      "warning_other": "Dies verhindert, dass neue Studierende annehmen, und setzt die Rollen von {{count}} Studierenden in ihren eigenen Repositories auf Lesen (Pull). Bestehende Arbeit bleibt erhalten, wird aber schreibgeschützt, bis du wieder öffnest.",
+      "working": "Repositories werden aktualisiert"
+    },
+    "closedNotice": "Abgaben sind geschlossen. Neue Studierende können diese Aufgabe nicht annehmen. Wenn du hier schließt, werden die Repositories der Studierenden, die angenommen haben, schreibgeschützt gesetzt; bestehende Arbeit bleibt erhalten. Öffne sie über das Aktionsmenü wieder, um Abgaben erneut zuzulassen.",
+    "manualGrade": {
+      "add": "Note hinzufügen",
+      "addLabel": "Note für {{name}} hinzufügen",
+      "edit": "Note bearbeiten",
+      "editLabel": "Note für {{name}} bearbeiten",
+      "inputLabel": "Punktzahl für {{name}}",
+      "notGraded": "Nicht bewertet",
+      "range": "Die Punktzahl muss eine ganze Zahl von 0 bis {{max}} sein.",
+      "required": "Gib eine Punktzahl ein, um zu speichern.",
+      "saveError": "Die Note konnte nicht gespeichert werden. Prüfe deine Verbindung und versuche es erneut."
+    },
+    "migrateTracking": {
+      "apply": "Konfiguration migrieren",
+      "bannerAction": "Konfiguration migrieren",
+      "bannerText": "Die Konfiguration dieses Kurses verwendet ein älteres Format. Migriere sie zum neuesten Schema, um die neuesten Aufgaben- und Abgabefunktionen zu aktivieren.",
+      "error": "Die Aufgaben konnten nicht aktualisiert werden. Versuche es erneut.",
+      "resultHeadline_one": "{{count}} Aufgabe migriert.",
+      "resultHeadline_other": "{{count}} Aufgaben migriert.",
+      "subtitle": "Aktualisiere die Aufgaben dieses Kurses auf das neueste Konfigurationsschema.",
+      "title": "Kurskonfiguration migrieren",
+      "warning": "Dies erfasst die Einstellungen jeder Aufgabe explizit, sodass jedes Werkzeug sie gleich liest und die neuesten Funktionen (etwa die Live-Abgabeverfolgung) aktiviert werden. Es ändert keine Note, keine Frist und keinen Zugriff einer studierenden Person, und du kannst wie zuvor weiterarbeiten.",
+      "working": "Aufgaben werden aktualisiert"
+    },
+    "noAutograderNote": "Diese Aufgabe hat keine integrierte automatische Bewertung – die Lehrkraft stellt ihre eigene CI in der Vorlage bereit. Integrierte Punktzahlen und Neubewertung sind deaktiviert; die Tabelle unten zeigt, wer angenommen hat. Der Feedback-Pull-Request funktioniert weiterhin, wenn er aktiviert ist.",
+    "rowAutograde": {
+      "outcome": {
+        "failed": "Der Status der automatischen Bewertung konnte nicht geändert werden – versuche es erneut.",
+        "notGradable": "Dieses Repository hat keinen Workflow zur automatischen Bewertung – nichts zu ändern.",
+        "paused": "Automatische Bewertung für dieses Repository pausiert.",
+        "resumed": "Automatische Bewertung für dieses Repository fortgesetzt."
+      },
+      "pauseAria": "Automatische Bewertung für {{repo}} pausieren",
+      "pauseDescription": "Deaktiviere den Workflow zur automatischen Bewertung dieses Repositorys. Die Workflow-Datei bleibt unverändert und die Bewertung kann jederzeit fortgesetzt werden.",
+      "pauseTitle": "Automatische Bewertung pausieren",
+      "resumeAria": "Automatische Bewertung für {{repo}} fortsetzen",
+      "resumeDescription": "Aktiviere den Workflow zur automatischen Bewertung dieses Repositorys wieder, damit Pushes erneut bewertet werden.",
+      "resumeTitle": "Automatische Bewertung fortsetzen"
+    },
+    "rowTrigger": {
+      "aria": "Den Auslöser für die automatische Bewertung bei {{repo}} aktualisieren",
+      "description": "Den Workflow zur automatischen Bewertung dieses Repositorys neu schreiben, damit er der Auslösereinstellung der Aufgabe entspricht.",
+      "outcome": {
+        "current": "Bereits aktuell – keine Änderung nötig.",
+        "failed": "Der Workflow konnte nicht aktualisiert werden – versuche es erneut.",
+        "missingWorkflowScope": "Deine GitHub-Autorisierung kann keine Workflow-Dateien ändern. Melde dich ab und wieder an und versuche es dann erneut.",
+        "notAccepted": "Es existiert noch kein Repository – nichts zu aktualisieren.",
+        "unrecognized": "Übersprungen: Der Workflow dieses Repositorys wurde geändert und kann nicht automatisch aktualisiert werden.",
+        "updated": "Auslöser für die automatische Bewertung aktualisiert. Die studierende Person muss vor ihrem nächsten Push einen Pull ausführen."
+      },
+      "title": "Auslöser für automatische Bewertung aktualisieren"
     }
   },
   "orgMembers": {
@@ -2248,7 +2523,8 @@
       "orgRepoCreation": {
         "action": "Organisationseinstellungen",
         "master": "<org>{{org}}</org> erlaubt Mitgliedern nicht, Repositorys zu erstellen, sodass keine·r Studierende·r eine Aufgabe annehmen kann. Führe die Organisationseinrichtung erneut aus oder erlaube die Erstellung privater (nicht öffentlicher) Repositorys unter <memberPrivileges>Mitgliederberechtigungen</memberPrivileges>. Eine Enterprise-Richtlinie kann diese Einstellung überschreiben.",
-        "private": "<org>{{org}}</org> erlaubt Mitgliedern nicht, private Repositorys zu erstellen, sodass keine·r Studierende·r eine Aufgabe annehmen kann. Führe die Organisationseinrichtung erneut aus oder erlaube die Erstellung privater (nicht öffentlicher) Repositorys unter <memberPrivileges>Mitgliederberechtigungen</memberPrivileges>. Eine Enterprise-Richtlinie kann diese Einstellung überschreiben."
+        "private": "<org>{{org}}</org> erlaubt Mitgliedern nicht, private Repositorys zu erstellen, sodass keine·r Studierende·r eine Aufgabe annehmen kann. Führe die Organisationseinrichtung erneut aus oder erlaube die Erstellung privater (nicht öffentlicher) Repositorys unter <memberPrivileges>Mitgliederberechtigungen</memberPrivileges>. Eine Enterprise-Richtlinie kann diese Einstellung überschreiben.",
+        "memberPrivilegesLabel": "Mitgliederberechtigungen (öffnet die GitHub-Organisationseinstellungen in einem neuen Tab)"
       }
     },
     "confirmModal": {
@@ -2441,7 +2717,7 @@
     "title": "Eine neue Version von Classroom 50 ist verfügbar"
   },
   "offline": {
-    "body": "Classroom 50 arbeitet mit Live-Daten von GitHub und benötigt daher eine Verbindung. Dieses Banner verschwindet automatisch, sobald du wieder online bist.",
+    "body": "Dieses Gerät ist nicht mit dem Internet verbunden. Classroom 50 benötigt eine aktive Verbindung, um zu funktionieren. Dieser Hinweis verschwindet automatisch, sobald du wieder online bist.",
     "title": "Du bist offline"
   },
   "orgActivity": {
@@ -2535,6 +2811,38 @@
       "loading": "Deine Organisationen werden geprüft …",
       "manage": "Verwalten",
       "subheading": "Service-Token-Status über jede Organisation hinweg, deren Inhaber:in du bist. Erneuere ein Token, bevor es abläuft, damit die nächtliche Punktesammlung weiterläuft."
+    },
+    "appearance": {
+      "dark": "Dunkel",
+      "darkHint": "Immer das dunkle Design verwenden.",
+      "groupAria": "Design-Einstellung",
+      "heading": "Darstellung",
+      "light": "Hell",
+      "lightHint": "Immer das helle Design verwenden.",
+      "subheading": "Wähle ein helles oder dunkles Design oder folge der Einstellung deines Geräts.",
+      "system": "System",
+      "systemHint": "Der Hell-/Dunkel-Einstellung deines Geräts folgen."
+    },
+    "groups": {
+      "organizations": "Organisationen",
+      "organizationsDescription": "Verwalte deine Organisationen und deine Startseite.",
+      "preferences": "Einstellungen",
+      "preferencesDescription": "Anzeige- und Interaktionseinstellungen für diesen Browser."
+    },
+    "language": {
+      "heading": "Sprache",
+      "subheading": "Wechsle die Sprache oder installiere ein übersetztes Sprachpaket."
+    },
+    "motion": {
+      "groupAria": "Animationseinstellung",
+      "heading": "Animationen",
+      "off": "Aus",
+      "offHint": "Alle Animationen deaktivieren.",
+      "on": "An",
+      "onHint": "Immer animieren.",
+      "subheading": "Steuere Bewegungen der Oberfläche wie Seitenübergänge, Menüs und andere animierte Effekte.",
+      "system": "System",
+      "systemHint": "Der Einstellung „Bewegung reduzieren“ deines Geräts folgen."
     }
   },
   "pagesErrors": {
@@ -2711,5 +3019,129 @@
     },
     "summary_one": "{{count}} Organisation benötigt eine Service-Token-Prüfung.",
     "summary_other": "{{count}} Organisationen benötigen eine Service-Token-Prüfung."
+  },
+  "accessibility": {
+    "col": {
+      "description": "Vordergrund / Fläche",
+      "floor": "Minimum",
+      "pair": "Paar",
+      "preview": "Vorschau",
+      "ratio": "Verhältnis",
+      "status": "Status"
+    },
+    "criteria": {
+      "aboutHeading": "Über diese Prüfung",
+      "bodyText": "Fließtext ≥ {{body}}:1",
+      "generated": "Erstellt am {{generated}}",
+      "largeText": "Großer Text ≥ {{large}}:1",
+      "marginHeading": "Empfohlener Sicherheitsspielraum",
+      "marginWhy": "Wir halten jedes Paar etwas über dem WCAG-Minimum – ein Spielraum, der Kantenglättung, Subpixel-Rendering und künftige Palettenanpassungen abfängt. Es ist eine Empfehlung, keine Voraussetzung für die Konformität.",
+      "nonText": "Nicht-Text (UI-Komponenten) ≥ {{nonText}}:1",
+      "standardText": "WCAG 2.2 – 1.4.6 Kontrast (Erweitert, AAA) für Text, 1.4.11 Nicht-Text-Kontrast für UI-Komponenten.",
+      "thresholdsHeading": "Erforderliche Mindestwerte (WCAG-Untergrenze):"
+    },
+    "detail": {
+      "background": "Hintergrund (Fläche)",
+      "foreground": "Vordergrund (Text)",
+      "minimum": "WCAG-Minimum ({{floor}}:1)",
+      "ratio": "Kontrastverhältnis",
+      "sampleBody": "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.",
+      "sampleHeading": "Beispieltext"
+    },
+    "downloads": {
+      "contrastDesc": "Kontrastverhältnisse für jedes geprüfte Farbpaar in beiden Designs.",
+      "contrastTitle": "Farbkontrastprüfung",
+      "fullDesc": "Der VPAT und die Farbkontrastprüfung in einem Dokument.",
+      "fullTitle": "Vollständiger Bericht",
+      "heading": "Berichte",
+      "markdownAction": "Markdown",
+      "pdfAction": "PDF",
+      "vpatWcagDesc": "Barrierefreiheits-Konformitätsbericht nach WCAG 2.2 (VPAT 2.5Rev).",
+      "vpatWcagTitle": "VPAT – WCAG-Ausgabe"
+    },
+    "legend": {
+      "exempt": "außerhalb des WCAG-Umfangs (dekorativ / deaktiviert)",
+      "fail": "unter dem WCAG-Minimum",
+      "heading": "Legende",
+      "pass": "erfüllt das WCAG-Minimum",
+      "passMargin": "bestanden, aber unter dem empfohlenen Spielraum (das Info-Symbol zeigt die Zahlen)"
+    },
+    "loadError": "Der Kontrastprüfbericht konnte nicht geladen werden.",
+    "marginInfo": "{{ratio}}:1 erfüllt das WCAG-Minimum von {{floor}}:1, liegt aber unter unserem empfohlenen Ziel von {{margin}}:1 – weiterhin bestanden, mit weniger Spielraum.",
+    "nav": {
+      "contrast": "Farbkontrast",
+      "downloads": "Berichte",
+      "statement": "Erklärung",
+      "vpat": "Konformität"
+    },
+    "pageSubtitle": "Wie die Classroom-50-Web-App die WCAG 2.2 Stufe AA erfüllt, bei jedem Build automatisch geprüft.",
+    "pageTitle": "Barrierefreiheit",
+    "preview": {
+      "open": "Farbdetails anzeigen",
+      "openFor": "Farbdetails für {{pair}} anzeigen"
+    },
+    "print": {
+      "belowMargin": "(unter empfohlenem {{margin}}:1)",
+      "colColors": "Farben (Vg / Hg)",
+      "contrastMeta": "WCAG-Kontrastverhältnisse für jedes geprüfte Farbpaar in beiden Designs. Erstellt am {{date}}.",
+      "contrastTitle": "Farbkontrastprüfung",
+      "reportMeta": "Standard: WCAG {{standard}}, Ziel Stufe {{target}}. Berichtsdatum: {{date}}.",
+      "reportTitle": "Barrierefreiheits-Konformitätsbericht – {{product}}",
+      "vpatSummary": "Zusammenfassung ({{total}} zutreffende Kriterien): {{supports}} Unterstützt, {{partially}} Teilweise unterstützt, {{doesNotSupport}} Nicht unterstützt, {{notApplicable}} Nicht zutreffend, {{notEvaluated}} Nicht bewertet."
+    },
+    "statement": {
+      "feedback": "Etwas schwer zu bedienen gefunden? Bitte",
+      "feedbackHeading": "Gib uns Feedback",
+      "feedbackLink": "ein Barrierefreiheitsproblem melden",
+      "heading": "Erklärung zur Barrierefreiheit",
+      "intro": "Wir möchten, dass alle Classroom 50 nutzen können, auch Menschen, die eine Tastatur, einen Screenreader oder andere assistive Technologien verwenden.",
+      "limitations": "Einige Kriterien sind im Konformitätsbericht als „Teilweise unterstützt“ gekennzeichnet, jeweils mit einem Hinweis, was noch zu tun ist. Wir beheben diese, sobald die Arbeit erledigt ist.",
+      "limitationsHeading": "Bekannte Einschränkungen",
+      "target": "Wir streben WCAG 2.2 Stufe AA an. Der Farbkontrast wird bei jedem Build geprüft; der Rest wird manuell mit einer Tastatur und einem Screenreader geprüft. Der Konformitätsbericht führt auf, wo wir bei jedem Kriterium stehen.",
+      "targetHeading": "Wie wir abschneiden",
+      "updated": "Zuletzt überprüft am {{date}}."
+    },
+    "status": {
+      "exempt": "Ausgenommen",
+      "fail": "Nicht bestanden",
+      "pass": "Bestanden"
+    },
+    "summaryFail": "{{failures}} Farbpaar(e) liegen unter der WCAG-Kontrastuntergrenze.",
+    "summaryPass": "Alle {{total}} geprüften Farbpaare erfüllen ihre WCAG-Kontrastuntergrenze.",
+    "summaryPassMargin_one": "Alle {{total}} geprüften Farbpaare erfüllen ihre WCAG-Kontrastuntergrenze. {{count}} besteht, liegt aber unter unserem empfohlenen Sicherheitsspielraum.",
+    "summaryPassMargin_other": "Alle {{total}} geprüften Farbpaare erfüllen ihre WCAG-Kontrastuntergrenze. {{count}} bestehen, liegen aber unter unserem empfohlenen Sicherheitsspielraum.",
+    "title": "Farbkontrastprüfung",
+    "vpat": {
+      "clearFilter": "Filter zurücksetzen",
+      "col": {
+        "assessed": "Bewertet",
+        "conformance": "Konformität",
+        "criterion": "Kriterium",
+        "level": "Stufe",
+        "remarks": "Anmerkungen"
+      },
+      "empty": "Keine Kriterien entsprechen diesem Filter.",
+      "filterAll": "Alle Status",
+      "filterAria": "Nach Konformitätsstatus filtern",
+      "filterLabel": "Status",
+      "generated": "Berichtsdatum {{generated}}",
+      "heading": "Konformitätsbericht (VPAT)",
+      "loadError": "Der Konformitätsbericht konnte nicht geladen werden.",
+      "principleTabsAria": "WCAG-Prinzip",
+      "searchAria": "Konformitätskriterien durchsuchen",
+      "searchPlaceholder": "Kriterien durchsuchen…",
+      "sort": {
+        "criterion": "Kriterium",
+        "status": "Konformität"
+      },
+      "sortBy": "Sortieren nach",
+      "status": {
+        "doesNotSupport": "Nicht unterstützt",
+        "notApplicable": "Nicht zutreffend",
+        "notEvaluated": "Nicht bewertet",
+        "partially": "Teilweise unterstützt",
+        "supports": "Unterstützt"
+      }
+    }
   }
 }

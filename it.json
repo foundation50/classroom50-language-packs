@@ -81,7 +81,6 @@
     "about": "Informazioni",
     "aboutAskQuestion": "Fai una domanda",
     "aboutAskQuestionHint": "Ricevi aiuto dalla community.",
-    "aboutBuilt": "Compilato",
     "aboutCommit": "Commit",
     "aboutDialogDescription": "Informazioni sulla build e sulla versione di questa app.",
     "aboutDialogTitle": "Classroom 50",
@@ -104,7 +103,11 @@
     "viewAsHeadTa": "Assistente capo",
     "envDev": "Sviluppo",
     "envIndicator": "In esecuzione in {{env}} — non è il sito di produzione.",
-    "envPreview": "Anteprima"
+    "envPreview": "Anteprima",
+    "aboutViewAccessibility": "Visualizza informazioni sull'accessibilità",
+    "accessibility": "Accessibilità",
+    "backToApp": "Torna all'app",
+    "signIn": "Accedi"
   },
   "auth": {
     "signInTitle": "Accedi",
@@ -140,23 +143,35 @@
     "errorNetwork": "Errore di rete nel raggiungere {{target}}; potrebbe essere inattivo o irraggiungibile.",
     "errorNetworkProxyTarget": "il proxy Cloudflare Worker",
     "errorOffline": "Sembri essere offline. Controlla la connessione e riprova — l'accesso richiede una connessione di rete.",
-    "errorPatFineGrained": "Questo sembra un token fine-grained, che non può essere verificato. Usa un token classic con gli ambiti elencati sopra.",
     "errorPatMissingScopes": "A questo token mancano gli ambiti richiesti: {{scopes}}. Aggiungili e riprova.",
     "errorPatRejected401": "Questo token è stato rifiutato da GitHub (401). Verifica che sia valido e non scaduto.",
     "errorStateMismatch": "Discrepanza dello stato -- possibile CSRF. Prova ad accedere di nuovo.",
     "offlineHold": "Sei offline. In attesa di una connessione per ripristinare la tua sessione…",
     "otherSignInMethods": "Altri metodi di accesso",
     "patCancel": "Annulla",
-    "patCreateTokenLink": "Crea un token con questi ambiti preselezionati",
-    "patFineGrainedNote": "I token fine-grained non sono supportati — usa un token classic.",
-    "patInstructions": "Incolla un personal access token (classic) di GitHub per accedere direttamente, senza il proxy OAuth. Il token deve avere selezionati questi ambiti:",
-    "patStorageNote": "Il token viene memorizzato nella memoria locale di questo browser, come i token degli altri metodi di accesso.",
+    "patCreateTokenLink": "Crea un token classico",
+    "patStorageNote": "Il token viene memorizzato nella memoria locale di questo browser, come gli altri metodi di accesso.",
     "patSubmit": "Accedi con il token",
-    "patTitle": "Accedi con un personal access token",
     "patTokenLabel": "Personal access token",
-    "usePersonalAccessToken": "Usa un personal access token",
     "validationStuck": "Sto ancora cercando di raggiungere GitHub per verificare la tua sessione. Di solito è un problema temporaneo di GitHub, della rete o di un'estensione del browser. Riprova oppure accedi di nuovo per ripartire da zero.",
-    "validationStuckSignIn": "Accedi di nuovo"
+    "validationStuckSignIn": "Accedi di nuovo",
+    "accessibility": "Accessibilità",
+    "otherSignInMethodsHint": "Usa un codice dispositivo su una macchina senza browser, o un token di accesso personale per accedere senza il proxy OAuth.",
+    "patClassicIntro": "Un token classico funziona con tutte le organizzazioni di cui sei proprietario.",
+    "patFineGrainedIntro": "Inserisci l'organizzazione che questo token dovrebbe gestire. Diventa il proprietario delle risorse del token.",
+    "patFineGrainedLink": "Crea un token a granularità fine",
+    "patFineGrainedNeedsOrg": "Inserisci la tua organizzazione qui sopra per creare un token per essa.",
+    "patFineGrainedOrgLabel": "Login dell'organizzazione",
+    "patFineGrainedOrgPlaceholder": "tua-organizzazione",
+    "patFineGrainedWarning": "Un token a granularità fine funziona con una sola organizzazione. I compiti con template tra organizzazioni non funzioneranno, e alcuni accessi non possono essere verificati in anticipo, quindi imposta l'accesso ai repository su Tutti i repository nella pagina del token.",
+    "patPasteInstruction": "Copia il token che GitHub ti mostra (viene visualizzato solo una volta), poi incollalo qui sotto.",
+    "patPermissionsHelp": "Il pulsante apre la pagina del token di GitHub con i permessi di cui Classroom 50 ha bisogno già selezionati. Imposta il proprietario delle risorse sulla tua organizzazione e l'accesso ai repository su Tutti i repository.",
+    "patScopesHelp": "Il pulsante apre la pagina del token di GitHub con gli scope di cui Classroom 50 ha bisogno già selezionati. Puoi rivederli lì prima di generarlo.",
+    "patTitleClassic": "Accedi con un token di accesso personale classico",
+    "patTitleFineGrained": "Accedi con un token di accesso personale a granularità fine",
+    "sessionExpired": "La tua sessione è scaduta — accedi di nuovo per continuare.",
+    "usePersonalAccessTokenClassic": "Usa un token di accesso personale (classico)",
+    "usePersonalAccessTokenFineGrained": "Usa un token di accesso personale (a granularità fine)"
   },
   "documentTitle": {
     "assignments": "Compiti",
@@ -522,7 +537,8 @@
     "activeHint": "Scegli una lingua installata o selezionane una contrassegnata con ⬇ per scaricarla e installarla.",
     "optionDownload": "⬇ {{language}}",
     "sourceRegistry": "Registro",
-    "sourceUser": "Caricata da te"
+    "sourceUser": "Caricata da te",
+    "urlLabel": "Importa un pacchetto lingua da un URL"
   },
   "validation": {
     "githubOrEmailRequired": "Inserisci un nome utente GitHub o un'email.",
@@ -571,7 +587,8 @@
       "hide": "Nascondi dalla home",
       "moreActions": "Altre azioni per {{org}}",
       "undoHide": "Annulla",
-      "manageToken": "Gestisci token"
+      "manageToken": "Gestisci token",
+      "openAria": "Apri {{org}}"
     },
     "newOrg": {
       "allSetUp": "Tutte le organizzazioni che possiamo vedere sono già configurate.",
@@ -734,7 +751,10 @@
         "releaseAssetsTooLarge": "I percorsi dei file di release della consegna possono totalizzare al massimo {{max}} byte UTF-8 (8 KiB); attualmente {{bytes}}.",
         "releaseAssetsTooMany": "Scegli al massimo {{max}} file di release della consegna (attualmente {{count}}).",
         "setupTimeoutRange": "Il timeout di configurazione deve essere 0 o un numero intero di secondi da 1 a {{max}}.",
-        "studentPermissionInvalid": "L'accesso al repository dello studente deve essere uno tra pull, triage, push, maintain o admin."
+        "studentPermissionInvalid": "L'accesso al repository dello studente deve essere uno tra pull, triage, push, maintain o admin.",
+        "gradingMaxPointsInvalid": "I punti massimi devono essere un numero intero di almeno {{min}}.",
+        "gradingModeInvalid": "La valutazione deve essere \"off\", \"auto\" o \"manual\".",
+        "submissionModeInvalid": "Il trigger di autovalutazione deve essere \"every-push\" o \"tag\"."
       },
       "allowedFilesTip": "Pattern ordinati in stile {{gitignore}}, uno per riga, che definiscono quali file appartengono a una consegna (vince l'ultima corrispondenza, {{bang}} reinclude). Es. {{star}} seguito da {{example}} consente solo {{result}}. Se lasciato vuoto, consente ogni file.",
       "containerUserTip": "L'utente con cui viene eseguito il container. Imposta root se il checkout fallisce con un errore di permessi. GitHub Actions esegue i passaggi del container con l'utente del runner host, quindi un'immagine non-root spesso non può scrivere nel workspace.",
@@ -765,12 +785,8 @@
       "optional": "facoltativo",
       "setDueDate": "Imposta una scadenza",
       "setDueDateTip": "Se disattivata, il compito non ha scadenza. Attivala per scegliere data e ora; gli studenti la vedranno come data di consegna.",
-      "settingsSection": "Impostazioni",
       "slugEditHelp": "Lo slug fa parte dei nomi dei repository del compito e non può essere modificato dopo la creazione.",
-      "emptyRepo": "Repository vuoto",
-      "emptyRepoHelp": "Crea il repository di ogni studente completamente vuoto: nessun file iniziale, nessuna correzione automatica, nessuna pull request di feedback. Per compiti in cui gli studenti costruiscono tutto da zero, incluse le proprie GitHub Actions. Questa scelta è definitiva per il compito.",
-      "emptyRepoLocked": "Non può essere modificata dopo la creazione.",
-      "feedbackPrEmptyRepoHelp": "Non disponibile per i repository vuoti — non c'è alcun commit iniziale con cui confrontare.",
+      "feedbackPrEmptyRepoHelp": "Non disponibile per i repository vuoti. Non c'è alcun commit iniziale con cui confrontare le differenze.",
       "passThresholdUnit": "% del punteggio massimo per superare",
       "releaseAssetCount_one": "{{count}} file di release",
       "releaseAssetCount_other": "{{count}} file di release",
@@ -790,11 +806,10 @@
           "on": "Attivo"
         },
         "heading": "Funzionalità del repository",
-        "help": "Se ogni repository dello studente ha Wiki, Issue, Progetti e Pull request abilitati. Applicato quando uno studente accetta (solo per i nuovi repository); usa il registro dei voti per modificare i repository già creati. Ereditare un template privato ne copia anche i contenuti di Wiki/Issue/Progetti, quindi tieni le soluzioni fuori da un template da cui erediti.",
+        "help": "Se ogni repository degli studenti ha Wiki, Issue, Progetti e Pull request abilitati.",
         "issues": {
           "label": "Issue"
         },
-        "overrideWarning": "Si applica ai repository creati d'ora in poi; quelli che gli studenti hanno già accettato non vengono modificati. Con un template, il valore predefinito segue il template al momento dell'accettazione (i repository esistenti non cambiano quando il template cambia in seguito); senza un template, il valore predefinito lascia in vigore i valori predefiniti del repository di GitHub. Per aggiornare i repository esistenti, usa l'azione collettiva sulle funzionalità dei repository nella pagina delle consegne.",
         "projects": {
           "label": "Progetti"
         },
@@ -804,7 +819,12 @@
         "refresh": "Aggiorna le impostazioni del template",
         "wiki": {
           "label": "Wiki"
-        }
+        },
+        "helpExisting": "Le modifiche si applicano ai repository creati d'ora in poi. Per aggiornare quelli già accettati dagli studenti, usa il registro dei voti.",
+        "overrideExisting": "Per aggiornare i repository già accettati dagli studenti, usa l'azione in blocco sulle funzionalità del repository nella pagina delle consegne.",
+        "overrideNoTemplate": "L'impostazione predefinita mantiene i valori predefiniti dei repository di GitHub.",
+        "overrideTemplate": "L'impostazione predefinita segue le impostazioni del template quando uno studente accetta. I repository esistenti non cambieranno se aggiorni il template in seguito.",
+        "templateContentWarning": "Ereditare un template privato copia anche i contenuti di Wiki, Issue e Progetti, quindi tieni le soluzioni fuori da un template da cui erediti."
       },
       "setAvailableFrom": "Imposta una data di rilascio",
       "setAvailableFromTip": "I compiti sono nascosti dalla pagina dei compiti dello studente per impostazione predefinita — gli studenti possono accettarli solo tramite il link di invito. Imposta una data di rilascio per elencarlo a tutti una volta trascorsa la data. Gli studenti che hanno già accettato lo vedono sempre. Questo controlla solo l'elenco, non l'accesso.",
@@ -823,6 +843,94 @@
           "push": "Scrittura (push)",
           "triage": "Triage"
         }
+      },
+      "addReadme": {
+        "helpOff": "Crea un repository vuoto senza commit iniziale. L'autovalutazione e la PR di feedback non sono disponibili fino al primo commit dello studente.",
+        "helpOn": "Inizializza ogni repository con un README.md, creando un commit iniziale in modo che branch, pull request e la PR di feedback funzionino.",
+        "label": "Aggiungi un README"
+      },
+      "autograding": {
+        "choices": {
+          "built-in": {
+            "help": "Effettua il commit dello shim dell'autovalutatore integrato, poi configura il runtime e i test dichiarativi qui sotto.",
+            "label": "Usa l'autovalutatore integrato"
+          },
+          "none": {
+            "help": "Non viene effettuato il commit di alcuno shim dell'autovalutatore. Con un template, fornisci il tuo workflow nel template (deve pubblicare un asset result.json nella release di consegna). Senza un template, il repository semplicemente non ha alcun autovalutatore.",
+            "label": "Non usare l'autovalutatore integrato"
+          }
+        },
+        "label": "Autovalutazione",
+        "lockedHelp": "Se viene usato l'autovalutatore integrato non può essere modificato dopo la creazione: i repository già accettati dagli studenti non vengono riprovisionati.",
+        "modeLabel": "Autovalutatore integrato",
+        "notAutogradedNote": "Le opzioni di autovalutazione si applicano solo quando questo compito è impostato su \"Autovalutato\" nella sezione Consegna e valutazione sopra. Cambia la scelta di valutazione in Autovalutato per configurare l'autovalutatore."
+      },
+      "copyAbout": {
+        "help": "Copia l'About del template (la sua descrizione) su ogni repository degli studenti. GitHub non lo copia automaticamente. Questo si applica agli studenti che accettano d'ora in poi; i repository già creati non vengono modificati.",
+        "label": "Copia l'About dal template"
+      },
+      "copyTopics": {
+        "help": "Copia i topic del template su ogni repository degli studenti. GitHub non li copia automaticamente. Questo si applica agli studenti che accettano d'ora in poi; i repository già creati non vengono modificati.",
+        "label": "Copia i topic dal template"
+      },
+      "grading": {
+        "autoNote": "Questo compito è autovalutato. Configura l'autovalutatore nella sezione Autovalutazione qui sotto. Che tu usi l'autovalutatore integrato o fornisca il tuo workflow, deve pubblicare un asset result.json nella release di consegna — è quel file che l'app legge per mostrare i punteggi.",
+        "choices": {
+          "auto": "Autovalutato",
+          "manual": "Manuale (inserisci i punteggi a mano)",
+          "off": "Non valutato"
+        },
+        "editWarning": "La modalità di valutazione non può essere modificata dopo la creazione: i punteggi già registrati con la vecchia modalità verrebbero interpretati in modo errato. Crea invece un nuovo compito con uno slug diverso.",
+        "help": "Come viene valutato questo compito. \"Autovalutato\" esegue l'autovalutatore che configuri qui sotto. \"Manuale\" ti consente di inserire il punteggio di ogni studente a mano nella pagina delle consegne. \"Non valutato\" non registra alcun punteggio. Non può essere modificato dopo la creazione del compito.",
+        "label": "Valutazione",
+        "maxPoints": {
+          "help": "Punti totali disponibili per questo compito manuale. Usato per mostrare il punteggio di ogni studente sul massimo.",
+          "label": "Punti massimi"
+        }
+      },
+      "includeAllBranches": {
+        "help": "Copia ogni branch e la sua cronologia dal template, non solo il branch predefinito. Questo si applica agli studenti che accettano d'ora in poi; i repository già creati non vengono modificati.",
+        "label": "Includi tutti i branch"
+      },
+      "repoSource": {
+        "label": "Parti da un template",
+        "lockedHelp": "L'origine del repository non può essere modificata dopo la creazione: i repository già accettati dagli studenti non vengono riprovisionati.",
+        "none": {
+          "help": "Crea un nuovo repository per ogni studente.",
+          "label": "Nessun template"
+        },
+        "template": {
+          "help": "Genera il repository di ogni studente da un template che fornisci.",
+          "label": "Repository template"
+        }
+      },
+      "repositorySetupSection": "Configurazione del repository",
+      "scheduleSection": "Pianificazione",
+      "sectionStatus": {
+        "configured": "Configurato",
+        "default": "Predefinito",
+        "error": "Richiede attenzione"
+      },
+      "submissionMode": {
+        "choices": {
+          "everyPush": "Ogni push sul branch predefinito",
+          "tag": "Un commit con tag"
+        },
+        "editWarning": "Modificare questo influisce solo sui repository creati d'ora in poi. I repository già accettati dagli studenti mantengono la vecchia impostazione finché non li aggiorni — usa \"Aggiorna i trigger di autovalutazione\" nella pagina delle consegne o gh teacher assignment submission-mode. Gli studenti devono fare pull dopo l'aggiornamento.",
+        "help": "\"Ogni push sul branch predefinito\" conta ogni push (diverso dal commit iniziale). \"Un commit con tag\" conta solo i commit con tag — uno studente consegna con gh student submit o facendo il push di un tag, quindi i push ordinari non consumano minuti di Actions.",
+        "label": "Tipo di consegna"
+      },
+      "submissionSection": "Consegna e valutazione",
+      "submissionSectionHelp": "Definisci cosa conta come consegna per questo compito — quando viene eseguito l'autovalutatore e quali tag uno studente può fare il push per consegnare.",
+      "submissionTags": {
+        "commaHint": "Metti un tag per riga, non un elenco separato da virgole — una virgola diventa parte del nome del tag e verrà rifiutata.",
+        "help": "Nomi di tag opzionali (uno per riga) i cui commit contano anch'essi — ad es. phase1, phase2. Pattern come v* corrispondono a una famiglia di tag. Lascia vuoto per nessuno.",
+        "label": "Tag di consegna",
+        "wildcardCaution": "Un pattern ampio come v* corrisponde a ogni tag di cui uno studente fa il push, inclusi tag di release non correlati. Preferisci nomi esatti come phase1."
+      },
+      "submissions": {
+        "heading": "Consegne",
+        "help": "Come la pagina delle consegne rileva e conta il lavoro di ogni studente. L'autovalutatore usa la stessa definizione."
       }
     },
     "autograder": {
@@ -899,7 +1007,7 @@
       "lockAria": "Blocca {{name}}",
       "lockCancel": "Annulla",
       "lockConfirm": "Blocca compito",
-      "lockDescription": "Questo chiude <assignment>{{assignment}}</assignment> a ogni studente — inclusi quelli che hanno già accettato — nella pagina di accettazione, nell'elenco dei compiti, nella vista delle consegne e nella CLI. Se usa un template privato, viene rimosso anche l'accesso in lettura del team studenti su quel template (l'accesso dello staff non è interessato). I repository esistenti degli studenti non vengono eliminati.",
+      "lockDescription": "Questo blocca <assignment>{{assignment}}</assignment> per ogni studente — inclusi quelli che l'hanno già accettata — nella pagina di accettazione, nell'elenco dei compiti, nella vista della consegna e nella CLI. Se usa un template privato, viene rimosso anche l'accesso in lettura del team degli studenti su quel template (l'accesso dello staff non è interessato). I repository degli studenti esistenti non vengono eliminati.",
       "lockSuccess": "{{name}} bloccato.",
       "lockTitle": "Blocca compito",
       "lockTitleModal": "Bloccare il compito?",
@@ -912,7 +1020,8 @@
       "unlockDescription": "Questo riapre <assignment>{{assignment}}</assignment> agli studenti. Se usa un template privato, viene ripristinato l'accesso in lettura del team studenti su quel template, così gli studenti possono accettarlo di nuovo.",
       "unlockSuccess": "{{name}} sbloccato.",
       "unlockTitle": "Sblocca compito",
-      "unlockTitleModal": "Sbloccare il compito?"
+      "unlockTitleModal": "Sbloccare il compito?",
+      "openSubmissionsAria": "Apri le consegne di {{name}}"
     },
     "template": {
       "label": "Repository template",
@@ -971,7 +1080,8 @@
       "restrictedItemApprove": "Approva Classroom 50 per {{owner}} (Impostazioni org → Accesso di terze parti).",
       "restrictedItemFork": "Se {{repo}} è un fork, approva Classroom 50 anche sull'organizzazione upstream del fork — l'accesso di un fork privato segue la policy dell'organizzazione upstream.",
       "restrictedItemOther": "Altrimenti potrebbe essere un 403 diverso; vedi il messaggio di GitHub qui sotto.",
-      "viewTemplateRepo": "Apri {{owner}}/{{repo}} su GitHub"
+      "viewTemplateRepo": "Apri {{owner}}/{{repo}} su GitHub",
+      "emptyTemplate": "{{owner}}/{{repo}} è un template ma non ha commit. Aggiungi almeno un commit (ad es. un README), poi riprova."
     },
     "toolbar": {
       "clear": "Cancella",
@@ -1608,7 +1718,8 @@
     "unarchiveBody": "Ripristina <classroom>{{classroom}}</classroom> come attiva: torna nell'elenco predefinito delle classi e può di nuovo accettare nuovi compiti e studenti.",
     "newButton": {
       "moreOptions": "Altre opzioni"
-    }
+    },
+    "viewAssignmentsAria": "Visualizza i compiti per {{classroom}}"
   },
   "accept": {
     "githubUser": "Utente GitHub",
@@ -1674,7 +1785,9 @@
     },
     "errors": {
       "emptyRepoWithTemplate": "Il compito \"{{assignmentSlug}}\" imposta sia un repository vuoto sia un template, il che non è valido. Chiedi al tuo insegnante di rieseguire la configurazione del compito.",
-      "incoherentMode": "Il compito \"{{slug}}\" ha una dimensione di gruppo di {{maxGroupSize}} ma è configurato come \"{{mode}}\", quindi le sue impostazioni pubblicate sono incoerenti. Chiedi al tuo insegnante di rieseguire la configurazione del compito."
+      "incoherentMode": "Il compito \"{{slug}}\" ha una dimensione di gruppo di {{maxGroupSize}} ma è configurato come \"{{mode}}\", quindi le sue impostazioni pubblicate sono incoerenti. Chiedi al tuo insegnante di rieseguire la configurazione del compito.",
+      "initShimInvalidCombo": "Il compito \"{{assignmentSlug}}\" combina l'impostazione dell'autovalutatore integrato su un repository vuoto con un template, un repository vuoto o l'assenza di autovalutatore integrato, il che non è valido. Chiedi al tuo insegnante di rieseguire la configurazione del compito.",
+      "noAutograderWithEmptyRepo": "Il compito \"{{assignmentSlug}}\" imposta sia l'assenza di autovalutatore integrato sia un repository vuoto, il che non è valido. Chiedi al tuo insegnante di rieseguire la configurazione del compito."
     },
     "stepActions": {
       "access": "Il tuo repository {{org}}/{{repo}} è stato creato, ma l'impostazione del tuo accesso ({{username}}) non è riuscita. Di solito questo significa che il tuo nome utente GitHub è cambiato o che hai lasciato {{org}}. Verifica di essere membro di {{org}}, poi usa \"Riesegui la configurazione\".",
@@ -1717,6 +1830,11 @@
       "body": "Chiedi al tuo docente se pensi che si tratti di un errore.",
       "error": "Questo compito non è disponibile per te. Chiedi al tuo docente se pensi che si tratti di un errore.",
       "title": "Questo compito non è disponibile per te"
+    },
+    "closed": {
+      "badge": "Chiusa",
+      "body": "Il tuo insegnante ha chiuso <assignment>{{assignment}}</assignment> a nuove consegne, quindi al momento non può essere accettata. Chiedi al tuo insegnante di riaprirla se pensi che si tratti di un errore.",
+      "title": "Le consegne sono chiuse"
     }
   },
   "submissions": {
@@ -1782,7 +1900,8 @@
       "manageRoster": "Gestisci elenco",
       "shareWithCount_one": "Condivisione con <count>{{count}} studente</count> che può accettare questa assegnazione.",
       "shareWithCount_other": "Condivisione con <count>{{count}} studenti</count> che possono accettare questa assegnazione.",
-      "warnNoStudents": "Nessuno studente può ancora accettare questo link in <classroom>{{classroom}}</classroom>. Prima aggiungi studenti all'elenco e invitali all'organizzazione."
+      "warnNoStudents": "Nessuno studente può ancora accettare questo link in <classroom>{{classroom}}</classroom>. Prima aggiungi studenti all'elenco e invitali all'organizzazione.",
+      "copied": "Copiato"
     },
     "stats": {
       "submitted": "Consegnati",
@@ -1881,7 +2000,9 @@
       "staleCount": "Nuovo",
       "staleCountTitle": "Questo studente ha inviato più consegne di quelle valutate. Esegui \"Sincronizza consegne ora\" per valutare e assegnare un punteggio alle più recenti.",
       "manageAccess": "Gestisci l'accesso al repository",
-      "manageAccessAria": "Gestisci l'accesso al repository per {{owner}}"
+      "manageAccessAria": "Gestisci l'accesso al repository per {{owner}}",
+      "overridden": "Manuale",
+      "overriddenTitle": "Questo punteggio è stato impostato a mano e non verrà modificato dall'autovalutazione finché la sovrascrittura non viene rimossa."
     },
     "reviewModal": {
       "errorTitle": "Impossibile verificare la presenza di una PR di feedback",
@@ -2083,10 +2204,10 @@
       "titleDisabled": "Nessuna consegna ancora da scaricare"
     },
     "lock": {
-      "lockDescription": "Questo chiude <assignment>{{assignment}}</assignment> a ogni studente — inclusi quelli che hanno già accettato — nella pagina di accettazione, nell'elenco dei compiti, nella vista delle consegne e nella CLI. Se usa un template privato, viene rimosso anche l'accesso in lettura del team studenti su quel template (l'accesso dello staff non è interessato). I repository esistenti degli studenti non vengono eliminati.",
+      "lockDescription": "Questo blocca <assignment>{{assignment}}</assignment> per ogni studente — inclusi quelli che l'hanno già accettata — nella pagina di accettazione, nell'elenco dei compiti, nella vista della consegna e nella CLI. Se usa un template privato, viene rimosso anche l'accesso in lettura del team degli studenti su quel template (l'accesso dello staff non è interessato). I repository degli studenti esistenti non vengono eliminati.",
       "lockLabel": "Blocca compito",
       "lockSuccess": "Compito bloccato.",
-      "lockTitle": "Chiudi questo compito agli studenti e, per un template privato, rimuovi l'accesso in lettura del team studenti su di esso",
+      "lockTitle": "Blocca questo compito in modo che gli studenti non possano accedervi o accettarlo e, per un template privato, rimuovi l'accesso in lettura del team degli studenti su di esso",
       "lockTitleModal": "Bloccare il compito?",
       "unlockDescription": "Questo riapre <assignment>{{assignment}}</assignment> agli studenti. Se usa un template privato, viene ripristinato l'accesso in lettura del team studenti su quel template, così gli studenti possono accettarlo di nuovo.",
       "unlockLabel": "Sblocca compito",
@@ -2109,13 +2230,167 @@
       "open": "Gestisci consegna",
       "openAria": "Gestisci la consegna di {{owner}}",
       "regradeDescription": "Riesegui l'autovalutazione sull'ultimo commit",
-      "reviewDescription": "Apri la pull request di feedback"
+      "reviewDescription": "Apri la pull request di feedback",
+      "autograding": "Autovalutazione",
+      "autogradingEnabled": "Abilitata",
+      "autogradingPaused": "In pausa",
+      "autogradingPausedByGitHub": "Messa in pausa da GitHub"
     },
     "rowDownload": {
       "aria": "Scarica la consegna di {{owner}}",
       "error": "Non è stato possibile scaricare la consegna di {{owner}}. Riprova.",
       "nothingToDownload": "{{owner}} non ha ancora una consegna da scaricare.",
       "title": "Scarica questa consegna"
+    },
+    "bulkAutograde": {
+      "deferredDetail": "Ignorato — riesegui per modificare.",
+      "deferredSection_one": "{{count}} repository non è stato elaborato",
+      "deferredSection_other": "{{count}} repository non sono stati elaborati",
+      "failedSection_one": "{{count}} repository non è stato modificato",
+      "failedSection_other": "{{count}} repository non sono stati modificati",
+      "noRepos": "Nessuno studente ha ancora accettato questo compito, quindi non ci sono repository da modificare.",
+      "notGradableDetail": "Non esiste alcun workflow di autovalutazione — niente da modificare.",
+      "notGradableSection_one": "{{count}} repository non ha alcun workflow di autovalutazione",
+      "notGradableSection_other": "{{count}} repository non hanno alcun workflow di autovalutazione",
+      "pauseApply": "Metti in pausa tutti",
+      "pauseMenuLabel": "Metti in pausa l'autovalutazione",
+      "pauseMenuTitle": "Disabilita il workflow di autovalutazione in ogni repository accettato dagli studenti",
+      "pauseResultHeadline": "Autovalutazione messa in pausa su {{done}} di {{total}} repository.",
+      "pauseSubtitle_one": "Disabilita l'autovalutazione sul repository di {{count}} studente.",
+      "pauseSubtitle_other": "Disabilita l'autovalutazione sui repository di {{count}} studenti.",
+      "pauseTitle": "Metti in pausa l'autovalutazione",
+      "pauseTitleEmptyRoster": "Nessuno studente ha ancora accettato",
+      "pauseWarning_one": "Questo disabilita il workflow di autovalutazione nel repository di {{count}} studente. Nessun file viene modificato, e puoi riprendere l'autovalutazione in qualsiasi momento.",
+      "pauseWarning_other": "Questo disabilita il workflow di autovalutazione nei repository di {{count}} studenti. Nessun file viene modificato, e puoi riprendere l'autovalutazione in qualsiasi momento.",
+      "progress": "Elaborati {{processed}} di {{total}}",
+      "resumeApply": "Riprendi tutti",
+      "resumeMenuLabel": "Riprendi l'autovalutazione",
+      "resumeMenuTitle": "Riabilita il workflow di autovalutazione in ogni repository accettato dagli studenti",
+      "resumeResultHeadline": "Autovalutazione ripresa su {{done}} di {{total}} repository.",
+      "resumeSubtitle_one": "Riabilita l'autovalutazione sul repository di {{count}} studente.",
+      "resumeSubtitle_other": "Riabilita l'autovalutazione sui repository di {{count}} studenti.",
+      "resumeTitle": "Riprendi l'autovalutazione",
+      "resumeTitleEmptyRoster": "Nessuno studente ha ancora accettato",
+      "resumeWarning_one": "Questo riabilita il workflow di autovalutazione nel repository di {{count}} studente.",
+      "resumeWarning_other": "Questo riabilita il workflow di autovalutazione nei repository di {{count}} studenti.",
+      "working": "Aggiornamento dei repository"
+    },
+    "bulkTrigger": {
+      "apply": "Aggiorna tutti",
+      "deferredDetail": "Ignorato — riesegui per aggiornare.",
+      "deferredSection_one": "{{count}} repository non è stato elaborato",
+      "deferredSection_other": "{{count}} repository non sono stati elaborati",
+      "failedSection_one": "{{count}} repository non è stato aggiornato",
+      "failedSection_other": "{{count}} repository non sono stati aggiornati",
+      "menuLabel": "Aggiorna i trigger di autovalutazione",
+      "menuTitle": "Riscrivi il workflow di autovalutazione di ogni repository degli studenti per corrispondere all'impostazione del trigger del compito",
+      "noRepos": "Nessuno studente ha ancora accettato questo compito, quindi non ci sono repository da aggiornare.",
+      "notAcceptedDetail": "Non esiste alcun repository — niente da aggiornare.",
+      "notAcceptedSection_one": "{{count}} studente non ha ancora accettato",
+      "notAcceptedSection_other": "{{count}} studenti non hanno ancora accettato",
+      "progress": "Elaborati {{processed}} di {{total}}",
+      "repullReminder": "Di' agli studenti di eseguire git pull — i cloni fatti prima di questa modifica andranno in conflitto al loro prossimo push.",
+      "resultHeadline": "Aggiornati {{updated}} di {{total}} repository ({{current}} già aggiornati).",
+      "scopeDetail": "La tua autorizzazione GitHub non può modificare i file di workflow. Esci e accedi di nuovo, poi riesegui.",
+      "scopeSection_one": "{{count}} repository richiede un token con lo scope workflow",
+      "scopeSection_other": "{{count}} repository richiedono un token con lo scope workflow",
+      "subtitle_one": "Imposta il trigger di autovalutazione su \"{{mode}}\" sul repository di {{count}} studente.",
+      "subtitle_other": "Imposta il trigger di autovalutazione su \"{{mode}}\" sui repository di {{count}} studenti.",
+      "title": "Aggiorna i trigger di autovalutazione",
+      "titleEmptyRoster": "Nessuno studente ha ancora accettato",
+      "unrecognizedSection_one": "{{count}} repository è stato ignorato (workflow non riconosciuto)",
+      "unrecognizedSection_other": "{{count}} repository sono stati ignorati (workflow non riconosciuto)",
+      "warning_one": "Questo effettua il commit di una modifica al workflow di autovalutazione nel repository di {{count}} studente. Il commit è contrassegnato in modo da non attivare la valutazione. I repository il cui workflow è stato modificato a mano vengono segnalati e lasciati intatti. Gli studenti devono fare pull dopo — i cloni fatti prima di questa modifica andranno in conflitto al loro prossimo push.",
+      "warning_other": "Questo effettua il commit di una modifica al workflow di autovalutazione nei repository di {{count}} studenti. Il commit è contrassegnato in modo da non attivare la valutazione. I repository il cui workflow è stato modificato a mano vengono segnalati e lasciati intatti. Gli studenti devono fare pull dopo — i cloni fatti prima di questa modifica andranno in conflitto al loro prossimo push.",
+      "working": "Aggiornamento dei repository"
+    },
+    "closeSubmission": {
+      "apply": "Chiudi la consegna",
+      "deferredDetail": "Ignorato — riesegui per aggiornare.",
+      "deferredSection_one": "{{count}} repository non è stato aggiornato",
+      "deferredSection_other": "{{count}} repository non sono stati aggiornati",
+      "failedSection_one": "{{count}} repository non è stato aggiornato",
+      "failedSection_other": "{{count}} repository non sono stati aggiornati",
+      "finishApply": "Completa la chiusura",
+      "finishHint": "La consegna è chiusa a nuove accettazioni, ma alcuni repository non sono ancora in sola lettura. Completa la chiusura per riprovare solo quelli — questo non riapre la consegna.",
+      "flagError": "La finestra di consegna non è stata aggiornata, quindi nessun repository è stato modificato. Riprova.",
+      "menuLabel": "Chiudi la consegna",
+      "menuTitle": "Chiudi la finestra di consegna: blocca le nuove accettazioni e imposta il repository di ogni studente in sola lettura",
+      "noRepos": "Nessuno studente ha ancora accettato questo compito. La chiusura blocca comunque le nuove accettazioni.",
+      "progress": "Aggiornati {{processed}} di {{total}}",
+      "reopenApply": "Riapri la consegna",
+      "reopenLabel": "Riapri la consegna",
+      "reopenMenuTitle": "Riapri la finestra di consegna: consenti nuove accettazioni e ripristina l'accesso in scrittura",
+      "reopenResultHeadline": "Accesso in scrittura ripristinato per {{count}} di {{total}} repository.",
+      "reopenResultHeadlineThrottled": "Accesso in scrittura ripristinato per {{count}} di {{total}} repository prima che GitHub limitasse la richiesta — riesegui per completare il resto.",
+      "reopenSubtitle_one": "Consente nuove accettazioni e ripristina l'accesso in scrittura per il repository di {{count}} studente.",
+      "reopenSubtitle_other": "Consente nuove accettazioni e ripristina l'accesso in scrittura per i repository di {{count}} studenti.",
+      "reopenTitle": "Riapri la consegna",
+      "reopenWarning_one": "Questo consente di nuovo nuove accettazioni e ripristina l'accesso in scrittura per il repository di {{count}} studente.",
+      "reopenWarning_other": "Questo consente di nuovo nuove accettazioni e ripristina l'accesso in scrittura per i repository di {{count}} studenti.",
+      "resultHeadline": "Impostati {{count}} di {{total}} repository in sola lettura.",
+      "resultHeadlineThrottled": "Impostati {{count}} di {{total}} repository in sola lettura prima che GitHub limitasse la richiesta — riesegui per completare il resto.",
+      "statusBadge": {
+        "closed": "Chiusa"
+      },
+      "subtitle_one": "Blocca le nuove accettazioni e imposta il repository di {{count}} studente in sola lettura.",
+      "subtitle_other": "Blocca le nuove accettazioni e imposta i repository di {{count}} studenti in sola lettura.",
+      "title": "Chiudi la consegna",
+      "warning_one": "Questo impedisce a qualsiasi nuovo studente di accettare e imposta il ruolo di {{count}} studente sul proprio repository su lettura (pull). Il lavoro esistente viene preservato ma diventa di sola lettura finché non riapri.",
+      "warning_other": "Questo impedisce a qualsiasi nuovo studente di accettare e imposta i ruoli di {{count}} studenti sui propri repository su lettura (pull). Il lavoro esistente viene preservato ma diventa di sola lettura finché non riapri.",
+      "working": "Aggiornamento dei repository"
+    },
+    "closedNotice": "Le consegne sono chiuse. I nuovi studenti non possono accettare questo compito. Quando chiudi da qui, i repository degli studenti che hanno accettato vengono impostati in sola lettura; il lavoro esistente viene preservato. Riaprila dal menu Azioni per consentire di nuovo le consegne.",
+    "manualGrade": {
+      "add": "Aggiungi voto",
+      "addLabel": "Aggiungi voto per {{name}}",
+      "edit": "Modifica voto",
+      "editLabel": "Modifica voto per {{name}}",
+      "inputLabel": "Punteggio per {{name}}",
+      "notGraded": "Non valutato",
+      "range": "Il punteggio deve essere un numero intero da 0 a {{max}}.",
+      "required": "Inserisci un punteggio per salvare.",
+      "saveError": "Impossibile salvare il voto. Controlla la tua connessione e riprova."
+    },
+    "migrateTracking": {
+      "apply": "Migra la configurazione",
+      "bannerAction": "Migra la configurazione",
+      "bannerText": "La configurazione di questa classe usa un formato meno recente. Migrala allo schema più recente per abilitare le nuove funzionalità dei compiti e delle consegne.",
+      "error": "Non è stato possibile aggiornare i compiti. Riprova.",
+      "resultHeadline_one": "Migrato {{count}} compito.",
+      "resultHeadline_other": "Migrati {{count}} compiti.",
+      "subtitle": "Aggiorna i compiti di questa classe allo schema di configurazione più recente.",
+      "title": "Migra la configurazione della classe",
+      "warning": "Questo registra le impostazioni di ogni compito in modo esplicito, così ogni strumento le legge allo stesso modo e le funzionalità più recenti (come il monitoraggio delle consegne in tempo reale) vengono abilitate. Non modifica alcun voto, scadenza o accesso degli studenti, e puoi continuare a lavorare come prima.",
+      "working": "Aggiornamento dei compiti"
+    },
+    "noAutograderNote": "Questo compito non ha l'autovalutazione integrata — l'insegnante fornisce la propria CI nel template. I punteggi integrati e la rivalutazione sono disabilitati; la tabella qui sotto mostra chi ha accettato. La pull request di feedback funziona comunque quando è abilitata.",
+    "rowAutograde": {
+      "outcome": {
+        "failed": "Non è stato possibile modificare lo stato dell'autovalutazione — riprova.",
+        "notGradable": "Questo repository non ha alcun workflow di autovalutazione — niente da modificare.",
+        "paused": "Autovalutazione messa in pausa per questo repository.",
+        "resumed": "Autovalutazione ripresa per questo repository."
+      },
+      "pauseAria": "Metti in pausa l'autovalutazione per {{repo}}",
+      "pauseDescription": "Disabilita il workflow di autovalutazione di questo repository. Il file del workflow rimane invariato e la valutazione può essere ripresa in qualsiasi momento.",
+      "pauseTitle": "Metti in pausa l'autovalutazione",
+      "resumeAria": "Riprendi l'autovalutazione per {{repo}}",
+      "resumeDescription": "Riabilita il workflow di autovalutazione di questo repository così i push vengono valutati di nuovo.",
+      "resumeTitle": "Riprendi l'autovalutazione"
+    },
+    "rowTrigger": {
+      "aria": "Aggiorna il trigger di autovalutazione su {{repo}}",
+      "description": "Riscrivi il workflow di autovalutazione di questo repository per corrispondere all'impostazione del trigger del compito.",
+      "outcome": {
+        "current": "Già aggiornato — nessuna modifica necessaria.",
+        "failed": "Non è stato possibile aggiornare il workflow — riprova.",
+        "missingWorkflowScope": "La tua autorizzazione GitHub non può modificare i file di workflow. Esci e accedi di nuovo, poi riprova.",
+        "notAccepted": "Non esiste ancora alcun repository — niente da aggiornare.",
+        "unrecognized": "Ignorato: il workflow di questo repository è stato modificato e non può essere aggiornato automaticamente.",
+        "updated": "Trigger di autovalutazione aggiornato. Lo studente deve fare pull prima del suo prossimo push."
+      },
+      "title": "Aggiorna il trigger di autovalutazione"
     }
   },
   "orgMembers": {
@@ -2248,7 +2523,8 @@
       "orgRepoCreation": {
         "action": "Impostazioni dell'organizzazione",
         "master": "<org>{{org}}</org> non consente ai membri di creare repository, quindi nessuno studente può accettare un compito. Riesegui la configurazione dell'organizzazione, oppure consenti la creazione di repository privati (non pubblici) sotto <memberPrivileges>Privilegi dei membri</memberPrivileges>. Una policy enterprise può prevalere su questa impostazione.",
-        "private": "<org>{{org}}</org> non consente ai membri di creare repository privati, quindi nessuno studente può accettare un compito. Riesegui la configurazione dell'organizzazione, oppure consenti la creazione di repository privati (non pubblici) sotto <memberPrivileges>Privilegi dei membri</memberPrivileges>. Una policy enterprise può prevalere su questa impostazione."
+        "private": "<org>{{org}}</org> non consente ai membri di creare repository privati, quindi nessuno studente può accettare un compito. Riesegui la configurazione dell'organizzazione, oppure consenti la creazione di repository privati (non pubblici) sotto <memberPrivileges>Privilegi dei membri</memberPrivileges>. Una policy enterprise può prevalere su questa impostazione.",
+        "memberPrivilegesLabel": "Privilegi dei membri (apre le impostazioni dell'organizzazione GitHub in una nuova scheda)"
       }
     },
     "confirmModal": {
@@ -2441,7 +2717,7 @@
     "title": "È disponibile una nuova versione di Classroom 50"
   },
   "offline": {
-    "body": "Classroom 50 funziona con dati in tempo reale da GitHub, quindi ha bisogno di una connessione. Questo avviso scompare automaticamente quando torni online.",
+    "body": "Questo dispositivo non è connesso a internet. Classroom 50 ha bisogno di una connessione attiva per funzionare. Questo banner scompare automaticamente una volta tornato online.",
     "title": "Sei offline"
   },
   "orgActivity": {
@@ -2535,6 +2811,38 @@
       "loading": "Verifica delle tue organizzazioni…",
       "manage": "Gestisci",
       "subheading": "Stato dei token di servizio in ogni organizzazione di cui sei proprietario. Ruota un token prima che scada, così la raccolta notturna dei punteggi continua a funzionare."
+    },
+    "appearance": {
+      "dark": "Scuro",
+      "darkHint": "Usa sempre il tema scuro.",
+      "groupAria": "Preferenza del tema",
+      "heading": "Aspetto",
+      "light": "Chiaro",
+      "lightHint": "Usa sempre il tema chiaro.",
+      "subheading": "Scegli un tema chiaro o scuro, oppure segui l'impostazione del tuo dispositivo.",
+      "system": "Sistema",
+      "systemHint": "Segui l'impostazione chiaro/scuro del tuo dispositivo."
+    },
+    "groups": {
+      "organizations": "Organizzazioni",
+      "organizationsDescription": "Gestisci le tue organizzazioni e la tua home page.",
+      "preferences": "Preferenze",
+      "preferencesDescription": "Impostazioni di visualizzazione e interazione per questo browser."
+    },
+    "language": {
+      "heading": "Lingua",
+      "subheading": "Cambia lingua o installa un pacchetto lingua tradotto."
+    },
+    "motion": {
+      "groupAria": "Preferenza delle animazioni",
+      "heading": "Animazioni",
+      "off": "Disattivate",
+      "offHint": "Disattiva tutte le animazioni.",
+      "on": "Attivate",
+      "onHint": "Anima sempre.",
+      "subheading": "Controlla il movimento dell'interfaccia come le transizioni di pagina, i menu e altri effetti animati.",
+      "system": "Sistema",
+      "systemHint": "Segui l'impostazione di riduzione del movimento del tuo dispositivo."
     }
   },
   "pagesErrors": {
@@ -2711,5 +3019,129 @@
     },
     "summary_one": "{{count}} organizzazione necessita di un controllo del token di servizio.",
     "summary_other": "{{count}} organizzazioni necessitano di un controllo del token di servizio."
+  },
+  "accessibility": {
+    "col": {
+      "description": "Primo piano / superficie",
+      "floor": "Minimo",
+      "pair": "Coppia",
+      "preview": "Anteprima",
+      "ratio": "Rapporto",
+      "status": "Stato"
+    },
+    "criteria": {
+      "aboutHeading": "Informazioni su questo controllo",
+      "bodyText": "Testo del corpo ≥ {{body}}:1",
+      "generated": "Generato il {{generated}}",
+      "largeText": "Testo grande ≥ {{large}}:1",
+      "marginHeading": "Margine di sicurezza consigliato",
+      "marginWhy": "Manteniamo ogni coppia un po' al di sopra del minimo WCAG — un margine che assorbe l'anti-aliasing, il rendering sub-pixel e future modifiche alla palette. È una raccomandazione, non richiesta per la conformità.",
+      "nonText": "Non testuale (componenti dell'interfaccia) ≥ {{nonText}}:1",
+      "standardText": "WCAG 2.2 — 1.4.6 Contrasto (Avanzato, AAA) per il testo, 1.4.11 Contrasto non testuale per i componenti dell'interfaccia.",
+      "thresholdsHeading": "Minimi richiesti (soglia WCAG):"
+    },
+    "detail": {
+      "background": "Sfondo (superficie)",
+      "foreground": "Primo piano (testo)",
+      "minimum": "Minimo WCAG ({{floor}}:1)",
+      "ratio": "Rapporto di contrasto",
+      "sampleBody": "Ma la volpe, col suo balzo, ha raggiunto il quieto Fido.",
+      "sampleHeading": "Testo di esempio"
+    },
+    "downloads": {
+      "contrastDesc": "Rapporti di contrasto per ogni coppia di colori sottoposti a controllo, in entrambi i temi.",
+      "contrastTitle": "Controllo del contrasto dei colori",
+      "fullDesc": "Il VPAT e il controllo del contrasto dei colori in un unico documento.",
+      "fullTitle": "Report completo",
+      "heading": "Report",
+      "markdownAction": "Markdown",
+      "pdfAction": "PDF",
+      "vpatWcagDesc": "Report di conformità all'accessibilità rispetto a WCAG 2.2 (VPAT 2.5Rev).",
+      "vpatWcagTitle": "VPAT — edizione WCAG"
+    },
+    "legend": {
+      "exempt": "fuori dall'ambito WCAG (decorativo / disabilitato)",
+      "fail": "al di sotto del minimo WCAG",
+      "heading": "Legenda",
+      "pass": "soddisfa il minimo WCAG",
+      "passMargin": "supera, ma al di sotto del margine consigliato (l'icona informativa mostra i valori)"
+    },
+    "loadError": "Impossibile caricare il report del controllo del contrasto.",
+    "marginInfo": "{{ratio}}:1 soddisfa il minimo WCAG di {{floor}}:1, ma è al di sotto del nostro obiettivo consigliato di {{margin}}:1 — comunque un superamento, con meno margine.",
+    "nav": {
+      "contrast": "Contrasto dei colori",
+      "downloads": "Report",
+      "statement": "Dichiarazione",
+      "vpat": "Conformità"
+    },
+    "pageSubtitle": "Come l'app web di Classroom 50 è conforme al livello AA delle WCAG 2.2, verificato automaticamente ad ogni build.",
+    "pageTitle": "Accessibilità",
+    "preview": {
+      "open": "Visualizza i dettagli del colore",
+      "openFor": "Visualizza i dettagli del colore per {{pair}}"
+    },
+    "print": {
+      "belowMargin": "(al di sotto di {{margin}}:1 consigliato)",
+      "colColors": "Colori (primo piano / sfondo)",
+      "contrastMeta": "Rapporti di contrasto WCAG per ogni coppia di colori sottoposti a controllo, in entrambi i temi. Generato il {{date}}.",
+      "contrastTitle": "Controllo del contrasto dei colori",
+      "reportMeta": "Standard: WCAG {{standard}}, livello obiettivo {{target}}. Data del report: {{date}}.",
+      "reportTitle": "Report di conformità all'accessibilità — {{product}}",
+      "vpatSummary": "Riepilogo ({{total}} criteri applicabili): {{supports}} Supportati, {{partially}} Parzialmente supportati, {{doesNotSupport}} Non supportati, {{notApplicable}} Non applicabili, {{notEvaluated}} Non valutati."
+    },
+    "statement": {
+      "feedback": "Hai trovato qualcosa di difficile da usare? Per favore",
+      "feedbackHeading": "Inviaci un feedback",
+      "feedbackLink": "apri una segnalazione di accessibilità",
+      "heading": "Dichiarazione di accessibilità",
+      "intro": "Vogliamo che tutti possano usare Classroom 50, incluse le persone che usano una tastiera, uno screen reader o altre tecnologie assistive.",
+      "limitations": "Alcuni criteri sono contrassegnati come \"Parzialmente supportati\" nel report di conformità, ciascuno con una nota su cosa resta da fare. Li risolviamo man mano che il lavoro procede.",
+      "limitationsHeading": "Limitazioni note",
+      "target": "Puntiamo a soddisfare il livello AA delle WCAG 2.2. Il contrasto dei colori viene verificato ad ogni build; il resto viene verificato manualmente con una tastiera e uno screen reader. Il report di conformità elenca la nostra posizione su ciascun criterio.",
+      "targetHeading": "Come ci posizioniamo",
+      "updated": "Ultima revisione il {{date}}."
+    },
+    "status": {
+      "exempt": "Esente",
+      "fail": "Non superato",
+      "pass": "Superato"
+    },
+    "summaryFail": "{{failures}} coppie di colori sono al di sotto della soglia di contrasto WCAG.",
+    "summaryPass": "Tutte le {{total}} coppie di colori sottoposte a controllo soddisfano la loro soglia di contrasto WCAG.",
+    "summaryPassMargin_one": "Tutte le {{total}} coppie di colori sottoposte a controllo soddisfano la loro soglia di contrasto WCAG. {{count}} supera, ma resta al di sotto del margine di sicurezza consigliato.",
+    "summaryPassMargin_other": "Tutte le {{total}} coppie di colori sottoposte a controllo soddisfano la loro soglia di contrasto WCAG. {{count}} superano, ma restano al di sotto del margine di sicurezza consigliato.",
+    "title": "Controllo del contrasto dei colori",
+    "vpat": {
+      "clearFilter": "Cancella filtro",
+      "col": {
+        "assessed": "Valutato",
+        "conformance": "Conformità",
+        "criterion": "Criterio",
+        "level": "Livello",
+        "remarks": "Osservazioni"
+      },
+      "empty": "Nessun criterio corrisponde a questo filtro.",
+      "filterAll": "Tutti gli stati",
+      "filterAria": "Filtra per stato di conformità",
+      "filterLabel": "Stato",
+      "generated": "Data del report {{generated}}",
+      "heading": "Report di conformità (VPAT)",
+      "loadError": "Impossibile caricare il report di conformità.",
+      "principleTabsAria": "Principio WCAG",
+      "searchAria": "Cerca criteri di conformità",
+      "searchPlaceholder": "Cerca criteri…",
+      "sort": {
+        "criterion": "Criterio",
+        "status": "Conformità"
+      },
+      "sortBy": "Ordina per",
+      "status": {
+        "doesNotSupport": "Non supportato",
+        "notApplicable": "Non applicabile",
+        "notEvaluated": "Non valutato",
+        "partially": "Parzialmente supportato",
+        "supports": "Supportato"
+      }
+    }
   }
 }

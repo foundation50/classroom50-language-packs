@@ -81,7 +81,6 @@
     "about": "Névjegy",
     "aboutAskQuestion": "Kérdés feltevése",
     "aboutAskQuestionHint": "Kérj segítséget a közösségtől.",
-    "aboutBuilt": "Build",
     "aboutCommit": "Commit",
     "aboutDialogDescription": "Az alkalmazás build- és verzióinformációi.",
     "aboutDialogTitle": "Classroom 50",
@@ -104,7 +103,11 @@
     "viewAsHeadTa": "Vezető gyakorlatvezető",
     "envDev": "Fejlesztői",
     "envIndicator": "{{env}} környezetben fut — nem az éles oldal.",
-    "envPreview": "Előnézet"
+    "envPreview": "Előnézet",
+    "aboutViewAccessibility": "Akadálymentességi információk megtekintése",
+    "accessibility": "Akadálymentesség",
+    "backToApp": "Vissza az alkalmazáshoz",
+    "signIn": "Bejelentkezés"
   },
   "auth": {
     "signInTitle": "Bejelentkezés",
@@ -140,23 +143,35 @@
     "errorNetwork": "Hálózati hiba a(z) {{target}} elérésekor; lehet, hogy nem működik vagy nem elérhető.",
     "errorNetworkProxyTarget": "a Cloudflare Worker proxy",
     "errorOffline": "Úgy tűnik, offline vagy. Ellenőrizd a kapcsolatot, és próbáld újra — a bejelentkezéshez hálózati kapcsolat szükséges.",
-    "errorPatFineGrained": "Ez finomhangolt (fine-grained) tokennek tűnik, amelyet nem lehet ellenőrizni. Használj klasszikus tokent a fent felsorolt jogosultságokkal.",
     "errorPatMissingScopes": "Ebből a tokenből hiányoznak a szükséges jogosultságok: {{scopes}}. Add hozzá őket, és próbáld újra.",
     "errorPatRejected401": "A GitHub elutasította ezt a tokent (401). Ellenőrizd, hogy érvényes-e és nem járt-e le.",
     "errorStateMismatch": "Állapoteltérés – lehetséges CSRF. Kérjük, próbálj újra bejelentkezni.",
     "offlineHold": "Offline vagy. Várakozás a kapcsolatra a munkameneted helyreállításához…",
     "otherSignInMethods": "Egyéb bejelentkezési módok",
     "patCancel": "Mégse",
-    "patCreateTokenLink": "Token létrehozása ezekkel a jogosultságokkal előre kiválasztva",
-    "patFineGrainedNote": "A finomhangolt tokenek nem támogatottak — használj klasszikus tokent.",
-    "patInstructions": "Illessz be egy GitHub személyes hozzáférési tokent (klasszikus), hogy közvetlenül, az OAuth proxy nélkül jelentkezz be. A tokennek az alábbi jogosultságokkal kell rendelkeznie:",
-    "patStorageNote": "A token ennek a böngészőnek a helyi tárolójában marad, ugyanúgy, mint a többi bejelentkezési mód tokenjei.",
+    "patCreateTokenLink": "Klasszikus token létrehozása",
+    "patStorageNote": "A token ennek a böngészőnek a helyi tárolójában tárolódik, akárcsak a többi bejelentkezési módnál.",
     "patSubmit": "Bejelentkezés tokennel",
-    "patTitle": "Bejelentkezés személyes hozzáférési tokennel",
     "patTokenLabel": "Személyes hozzáférési token",
-    "usePersonalAccessToken": "Személyes hozzáférési token használata",
     "validationStuck": "Még mindig próbáljuk elérni a GitHubot a munkameneted ellenőrzéséhez. Ez általában átmeneti GitHub-, hálózati vagy böngészőbővítmény-probléma. Próbáld újra, vagy jelentkezz be újra a tiszta kezdéshez.",
-    "validationStuckSignIn": "Bejelentkezés újra"
+    "validationStuckSignIn": "Bejelentkezés újra",
+    "accessibility": "Akadálymentesség",
+    "otherSignInMethodsHint": "Használj eszközkódot böngésző nélküli gépen, vagy személyes hozzáférési tokent az OAuth-proxy nélküli bejelentkezéshez.",
+    "patClassicIntro": "A klasszikus token minden szervezeteddel működik, amelynek tulajdonosa vagy.",
+    "patFineGrainedIntro": "Add meg a szervezetet, amelyet ennek a tokennek kezelnie kell. Ez lesz a token erőforrás-tulajdonosa.",
+    "patFineGrainedLink": "Finomhangolt token létrehozása",
+    "patFineGrainedNeedsOrg": "Add meg fentebb a szervezetedet, hogy tokent hozhass létre hozzá.",
+    "patFineGrainedOrgLabel": "Szervezet azonosítója",
+    "patFineGrainedOrgPlaceholder": "your-organization",
+    "patFineGrainedWarning": "A finomhangolt token csak egyetlen szervezettel működik. A szervezetek közötti sablonfeladatok meghiúsulnak, és egyes hozzáféréseket nem lehet előre ellenőrizni, ezért állítsd a Repository access értékét All repositories-ra a token oldalán.",
+    "patPasteInstruction": "Másold ki a tokent, amit a GitHub megmutat (csak egyszer jelenik meg), majd illeszd be alább.",
+    "patPermissionsHelp": "A gomb megnyitja a GitHub token oldalát a Classroom 50 által igényelt jogosultságokkal előre kiválasztva. Állítsd az erőforrás-tulajdonost a szervezetedre, a Repository access értékét pedig All repositories-ra.",
+    "patScopesHelp": "A gomb megnyitja a GitHub token oldalát a Classroom 50 által igényelt hatókörökkel előre kiválasztva. Ott átnézheted őket a generálás előtt.",
+    "patTitleClassic": "Bejelentkezés klasszikus személyes hozzáférési tokennel",
+    "patTitleFineGrained": "Bejelentkezés finomhangolt személyes hozzáférési tokennel",
+    "sessionExpired": "A munkameneted lejárt – a folytatáshoz jelentkezz be újra.",
+    "usePersonalAccessTokenClassic": "Személyes hozzáférési token használata (klasszikus)",
+    "usePersonalAccessTokenFineGrained": "Személyes hozzáférési token használata (finomhangolt)"
   },
   "documentTitle": {
     "assignments": "Feladatok",
@@ -522,7 +537,8 @@
     "activeHint": "Válassz egy telepített nyelvet, vagy jelölj ki egy ⬇ jellel megjelölt nyelvet a letöltéshez és telepítéshez.",
     "optionDownload": "⬇ {{language}}",
     "sourceRegistry": "Regiszter",
-    "sourceUser": "Általad betöltve"
+    "sourceUser": "Általad betöltve",
+    "urlLabel": "Nyelvi csomag importálása URL-ről"
   },
   "validation": {
     "githubOrEmailRequired": "Adjon meg egy GitHub-felhasználónevet vagy egy e-mail-címet.",
@@ -571,7 +587,8 @@
       "hide": "Elrejtés a kezdőlapról",
       "moreActions": "További műveletek a(z) {{org}} számára",
       "undoHide": "Visszavonás",
-      "manageToken": "Token kezelése"
+      "manageToken": "Token kezelése",
+      "openAria": "{{org}} megnyitása"
     },
     "newOrg": {
       "allSetUp": "Minden látható szervezet már be van állítva.",
@@ -734,7 +751,10 @@
         "releaseAssetsTooLarge": "A beadási kiadási fájlok elérési útjai összesen legfeljebb {{max}} UTF-8 bájtot (8 KiB) tehetnek ki; jelenleg {{bytes}}.",
         "releaseAssetsTooMany": "Legfeljebb {{max}} beadási kiadási fájlt válassz (jelenleg {{count}}).",
         "setupTimeoutRange": "A beállítási időtúllépésnek 0-nak vagy egy 1 és {{max}} közötti egész másodpercértéknek kell lennie.",
-        "studentPermissionInvalid": "A diák tárolóhozzáférésének a következők egyikének kell lennie: pull, triage, push, maintain vagy admin."
+        "studentPermissionInvalid": "A diák tárolóhozzáférésének a következők egyikének kell lennie: pull, triage, push, maintain vagy admin.",
+        "gradingMaxPointsInvalid": "A maximális pontszámnak legalább {{min}} egész számnak kell lennie.",
+        "gradingModeInvalid": "Az értékelésnek „off”, „auto” vagy „manual” értékűnek kell lennie.",
+        "submissionModeInvalid": "Az automata értékelési triggernek „every-push” vagy „tag” értékűnek kell lennie."
       },
       "allowedFilesTip": "Sorrendbe rendezett, {{gitignore}} stílusú minták, soronként egy, amelyek meghatározzák, mely fájlok tartoznak egy beadáshoz (az utolsó egyezés érvényesül, a {{bang}} újra hozzáadja). Pl. {{star}}, majd {{example}} csak a {{result}} fájlt engedélyezi. Üresen hagyva minden fájlt engedélyez.",
       "containerUserTip": "A felhasználó, amelynek nevében a konténer fut. Állítsd root-ra, ha a checkout jogosultsági hibával hiúsul meg. A GitHub Actions a konténer lépéseit a gazdafuttató felhasználójaként futtatja, így egy nem root image gyakran nem tud írni a munkaterületre.",
@@ -765,12 +785,8 @@
       "optional": "opcionális",
       "setDueDate": "Határidő beállítása",
       "setDueDateTip": "Kikapcsolva a feladatnak nincs határideje. Kapcsold be dátum és időpont kiválasztásához; a hallgatók ezt látják határidőként.",
-      "settingsSection": "Beállítások",
       "slugEditHelp": "A slug a feladat tárolóneveinek része, és a létrehozás után nem módosítható.",
-      "emptyRepo": "Üres tároló",
-      "emptyRepoHelp": "Minden diák tárolóját teljesen üresen hozza létre: nincsenek kiinduló fájlok, automatikus értékelés vagy visszajelzési pull request. Olyan feladatokhoz, ahol a diákok mindent a nulláról építenek fel, beleértve a saját GitHub Actions-üket is. Ez a választás a feladatnál végleges.",
-      "emptyRepoLocked": "Létrehozás után nem módosítható.",
-      "feedbackPrEmptyRepoHelp": "Üres tárolóknál nem elérhető — nincs kiinduló commit, amihez viszonyítani lehetne.",
+      "feedbackPrEmptyRepoHelp": "Üres tárolóknál nem érhető el. Nincs kiindulási commit, amivel a különbséget össze lehetne vetni.",
       "passThresholdUnit": "a maximális pontszám %-a az átmenéshez",
       "releaseAssetCount_one": "{{count}} kiadási fájl",
       "releaseAssetCount_other": "{{count}} kiadási fájl",
@@ -790,11 +806,10 @@
           "on": "Be"
         },
         "heading": "Tárolófunkciók",
-        "help": "Az egyes diákok tárolójában engedélyezve vannak-e a wikik, hibajegyek, projektek és pull requestek. A funkció akkor alkalmazódik, amikor egy diák elfogad egy feladatot (csak új tárolóknál); a már létrehozott tárolók módosításához használd az osztályzatnaplót. Egy privát sablon öröklése annak wiki-/hibajegy-/projekt-tartalmát is átmásolja, ezért ne tarts megoldókulcsokat egy sablonban, amelyből öröklesz.",
+        "help": "Az egyes diák tárolókban engedélyezve van-e a Wiki, az Issue-k, a Projektek és a Pull requestek.",
         "issues": {
           "label": "Hibajegyek"
         },
-        "overrideWarning": "A mostantól létrehozott tárolókra vonatkozik; a diákok által korábban elfogadottak nem változnak. Sablon esetén az alapértelmezés az elfogadáskori sablont követi (a meglévő tárolók nem sodródnak el, ha a sablon később változik); sablon nélkül az alapértelmezés a GitHub saját tárolóalapértelmezéseit hagyja érvényben. A meglévő tárolók frissítéséhez használd a tömeges tárolófunkció-műveletet a beadások oldalán.",
         "projects": {
           "label": "Projektek"
         },
@@ -804,7 +819,12 @@
         "refresh": "Sablonbeállítások frissítése",
         "wiki": {
           "label": "Wiki"
-        }
+        },
+        "helpExisting": "A módosítások a mostantól létrehozott tárolókra vonatkoznak. A diákok által már elfogadottak frissítéséhez használd az osztálynaplót.",
+        "overrideExisting": "A diákok által már elfogadott tárolók frissítéséhez használd a tömeges tárolófunkció-műveletet a beadások oldalon.",
+        "overrideNoTemplate": "Az alapértelmezés megtartja a GitHub saját tároló-alapértelmezéseit.",
+        "overrideTemplate": "Az alapértelmezés a sablon beállításait követi, amikor egy diák elfogad. A meglévő tárolók nem változnak, ha később frissíted a sablont.",
+        "templateContentWarning": "Egy privát sablon öröklése annak Wiki-, Issue- és Projekt-tartalmát is átmásolja, ezért tartsd a megoldókulcsokat egy örökölt sablonon kívül."
       },
       "setAvailableFrom": "Közzétételi dátum beállítása",
       "setAvailableFromTip": "A feladatok alapértelmezés szerint rejtve vannak a diákok feladatoldaláról – a diákok csak a meghívólinken keresztül fogadhatják el őket. Állíts be közzétételi dátumot, hogy a dátum letelte után mindenki számára megjelenjen a listában. Azok a diákok, akik már elfogadták, mindig látják. Ez csak a listázást szabályozza, a hozzáférést nem.",
@@ -823,6 +843,94 @@
           "push": "Írás (push)",
           "triage": "Osztályozás"
         }
+      },
+      "addReadme": {
+        "helpOff": "Üres tároló létrehozása kezdeti commit nélkül. Az automata értékelés és a visszajelzési PR csak a diák első commitja után érhető el.",
+        "helpOn": "Minden tároló inicializálása egy README.md fájllal, ami létrehoz egy kezdeti commitot, hogy az ágak, a pull requestek és a visszajelzési PR működjenek.",
+        "label": "README hozzáadása"
+      },
+      "autograding": {
+        "choices": {
+          "built-in": {
+            "help": "Commitold a beépített automata értékelő shimet, majd állítsd be az alábbi futtatókörnyezetet és deklaratív teszteket.",
+            "label": "A beépített automata értékelő használata"
+          },
+          "none": {
+            "help": "Nem kerül automata értékelő shim commitolásra. Sablon esetén saját munkafolyamatot kell megadnod a sablonban (közzé kell tennie egy result.json fájlt a beadási kiadáson). Sablon nélkül a tárolóban egyszerűen nincs automata értékelő.",
+            "label": "Ne használd a beépített automata értékelőt"
+          }
+        },
+        "label": "Automata értékelés",
+        "lockedHelp": "Az, hogy a beépített automata értékelőt használják-e, nem módosítható a létrehozás után: a diákok által már elfogadott tárolók nem kerülnek újra beállításra.",
+        "modeLabel": "Beépített automata értékelő",
+        "notAutogradedNote": "Az automata értékelés beállításai csak akkor érvényesek, ha ez a feladat a fenti Beadás és értékelés szakaszban „Automatikusan értékelt”-re van állítva. Módosítsd az értékelési választást Automatikusan értékeltre az automata értékelő beállításához."
+      },
+      "copyAbout": {
+        "help": "A sablon Névjegyének (leírásának) másolása minden diák tárolójába. A GitHub ezt nem másolja automatikusan. Ez a mostantól elfogadó diákokra vonatkozik; a már létrehozott tárolók nem változnak.",
+        "label": "Névjegy másolása a sablonból"
+      },
+      "copyTopics": {
+        "help": "A sablon témaköreinek másolása minden diák tárolójába. A GitHub ezeket nem másolja automatikusan. Ez a mostantól elfogadó diákokra vonatkozik; a már létrehozott tárolók nem változnak.",
+        "label": "Témakörök másolása a sablonból"
+      },
+      "grading": {
+        "autoNote": "Ez a feladat automatikusan értékelt. Állítsd be az automata értékelőt az alábbi Automata értékelés szakaszban. Akár a beépített automata értékelőt használod, akár saját munkafolyamatot adsz meg, annak közzé kell tennie egy result.json fájlt a beadási kiadáson – ezt a fájlt olvassa az alkalmazás a pontszámok megjelenítéséhez.",
+        "choices": {
+          "auto": "Automatikusan értékelt",
+          "manual": "Kézi (pontszámok kézzel megadva)",
+          "off": "Nem értékelt"
+        },
+        "editWarning": "Az értékelési mód nem módosítható a létrehozás után: a régi módban már rögzített pontszámok félreértelmeződnének. Ehelyett hozz létre egy új feladatot más azonosítóval.",
+        "help": "Hogyan értékeljük ezt a feladatot. Az „Automatikusan értékelt” az alább beállított automata értékelőt futtatja. A „Kézi” lehetővé teszi minden diák pontszámának kézi megadását a beadások oldalon. A „Nem értékelt” nem rögzít pontszámot. A feladat létrehozása után nem módosítható.",
+        "label": "Értékelés",
+        "maxPoints": {
+          "help": "Az ehhez a kézi feladathoz elérhető összpontszám. A diák pontszámának a maximumhoz viszonyított megjelenítésére szolgál.",
+          "label": "Maximális pontszám"
+        }
+      },
+      "includeAllBranches": {
+        "help": "A sablon minden ágának és előzményének másolása, nem csak az alapértelmezett ágé. Ez a mostantól elfogadó diákokra vonatkozik; a már létrehozott tárolók nem változnak.",
+        "label": "Minden ág belefoglalása"
+      },
+      "repoSource": {
+        "label": "Kezdés sablonnal",
+        "lockedHelp": "A tároló forrása nem módosítható a létrehozás után: a diákok által már elfogadott tárolók nem kerülnek újra beállításra.",
+        "none": {
+          "help": "Új tároló létrehozása minden diáknak.",
+          "label": "Nincs sablon"
+        },
+        "template": {
+          "help": "Minden diák tárolójának létrehozása egy általad megadott sablonból.",
+          "label": "Sablon-tároló"
+        }
+      },
+      "repositorySetupSection": "Tárolóbeállítás",
+      "scheduleSection": "Ütemezés",
+      "sectionStatus": {
+        "configured": "Beállítva",
+        "default": "Alapértelmezett",
+        "error": "Figyelmet igényel"
+      },
+      "submissionMode": {
+        "choices": {
+          "everyPush": "Minden push az alapértelmezett ágra",
+          "tag": "Címkézett commit"
+        },
+        "editWarning": "Ennek módosítása csak a mostantól létrehozott tárolókat érinti. A diákok által már elfogadott tárolók a régi beállítást tartják, amíg nem frissíted őket – használd a „Automata értékelési triggerek frissítése” lehetőséget a beadások oldalon, vagy a gh teacher assignment submission-mode parancsot. A diákoknak a frissítés után pullt kell futtatniuk.",
+        "help": "A „Minden push az alapértelmezett ágra” minden pusht számol (a kezdő commiton kívül). A „Címkézett commit” csak a címkézett commitokat számolja – a diák a gh student submit paranccsal vagy egy címke pusholásával ad be, így a hétköznapi pushok nem fogyasztanak Actions-perceket.",
+        "label": "Beadás típusa"
+      },
+      "submissionSection": "Beadás és értékelés",
+      "submissionSectionHelp": "Határozd meg, mi számít beadásnak ennél a feladatnál – mikor fut az automata értékelő, és mely címkéket pusholhat egy diák a beadáshoz.",
+      "submissionTags": {
+        "commaHint": "Soronként egy címkét adj meg, ne vesszővel elválasztott listát – a vessző a címke nevének részévé válik, és el lesz utasítva.",
+        "help": "Opcionális címkenevek (soronként egy), amelyek commitjai szintén számítanak – pl. phase1, phase2. Az olyan minták, mint a v*, egy címkecsalád egészét lefedik. Hagyd üresen, ha nincs ilyen.",
+        "label": "Beadási címkék",
+        "wildcardCaution": "Egy tág minta, mint a v*, minden címkét lefed, amit a diák pushol, beleértve a nem kapcsolódó kiadási címkéket is. Inkább pontos neveket használj, mint a phase1."
+      },
+      "submissions": {
+        "heading": "Beadások",
+        "help": "Hogyan érzékeli és számolja a beadások oldal minden diák munkáját. Az automata értékelő ugyanezt a definíciót használja."
       }
     },
     "autograder": {
@@ -899,7 +1007,7 @@
       "lockAria": "{{name}} zárolása",
       "lockCancel": "Mégse",
       "lockConfirm": "Feladat zárolása",
-      "lockDescription": "Ez lezárja a(z) <assignment>{{assignment}}</assignment> feladatot minden diák elől – beleértve azokat is, akik már elfogadták – az elfogadó oldalon, a feladatlistán, a beadásnézetben és a CLI-ben. Ha privát sablont használ, a diákcsapat olvasási joga is megszűnik azon (a személyzet hozzáférését ez nem érinti). A meglévő diáktárolók nem törlődnek.",
+      "lockDescription": "Ez lezárja a(z) <assignment>{{assignment}}</assignment> feladatot minden diák számára – azokat is beleértve, akik már elfogadták – az elfogadási oldalon, a feladatlistán, a beadási nézetben és a parancssorban. Ha privát sablont használ, a diákcsapat olvasási jogosultsága is megszűnik az adott sablonon (a személyzet hozzáférését ez nem érinti). A meglévő diáktárolók nem törlődnek.",
       "lockSuccess": "{{name}} zárolva.",
       "lockTitle": "Feladat zárolása",
       "lockTitleModal": "Zárolod a feladatot?",
@@ -912,7 +1020,8 @@
       "unlockDescription": "Ez újra megnyitja a(z) <assignment>{{assignment}}</assignment> feladatot a diákok előtt. Ha privát sablont használ, a diákcsapat olvasási joga visszaáll rajta, így a diákok ismét elfogadhatják.",
       "unlockSuccess": "{{name}} feloldva.",
       "unlockTitle": "Feladat feloldása",
-      "unlockTitleModal": "Feloldod a feladatot?"
+      "unlockTitleModal": "Feloldod a feladatot?",
+      "openSubmissionsAria": "{{name}} beadásainak megnyitása"
     },
     "template": {
       "label": "Sablontároló",
@@ -971,7 +1080,8 @@
       "restrictedItemApprove": "Hagyd jóvá a Classroom 50 alkalmazást a(z) {{owner}} számára (Szervezet beállításai → Külső hozzáférés).",
       "restrictedItemFork": "Ha a(z) {{repo}} egy fork, hagyd jóvá a Classroom 50 alkalmazást a fork forrásszervezetében is – egy privát fork hozzáférése a forrásszervezet szabályzatát követi.",
       "restrictedItemOther": "Ellenkező esetben lehet, hogy egy másik 403; lásd a GitHub üzenetét lentebb.",
-      "viewTemplateRepo": "{{owner}}/{{repo}} megnyitása a GitHubon"
+      "viewTemplateRepo": "{{owner}}/{{repo}} megnyitása a GitHubon",
+      "emptyTemplate": "A(z) {{owner}}/{{repo}} sablon, de nincs commitja. Adj hozzá legalább egy commitot (pl. egy README-t), majd próbáld újra."
     },
     "toolbar": {
       "clear": "Törlés",
@@ -1608,7 +1718,8 @@
     "unarchiveBody": "A(z) <classroom>{{classroom}}</classroom> visszaállítása aktív állapotba: visszatér az alapértelmezett osztálylistába, és ismét fogadhat új feladatokat és tanulókat.",
     "newButton": {
       "moreOptions": "További lehetőségek"
-    }
+    },
+    "viewAssignmentsAria": "{{classroom}} feladatainak megtekintése"
   },
   "accept": {
     "githubUser": "GitHub-felhasználó",
@@ -1674,7 +1785,9 @@
     },
     "errors": {
       "emptyRepoWithTemplate": "A(z) „{{assignmentSlug}}” feladat egyszerre állít be üres tárolót és sablont, ami nem érvényes. Kérd meg a tanárodat, hogy futtassa le újra a feladat beállítását.",
-      "incoherentMode": "A(z) „{{slug}}” feladat csoportmérete {{maxGroupSize}}, de „{{mode}}” módra van beállítva, így a közzétett beállításai ellentmondásosak. Kérd meg a tanárodat, hogy futtassa le újra a feladat beállítását."
+      "incoherentMode": "A(z) „{{slug}}” feladat csoportmérete {{maxGroupSize}}, de „{{mode}}” módra van beállítva, így a közzétett beállításai ellentmondásosak. Kérd meg a tanárodat, hogy futtassa le újra a feladat beállítását.",
+      "initShimInvalidCombo": "A(z) „{{assignmentSlug}}” feladat a beépített automata értékelőt üres tárolón kombinálja egy sablonnal, üres tárolóval vagy hiányzó beépített automata értékelővel, ami nem érvényes. Kérd meg a tanárodat, hogy futtassa újra a feladat beállítását.",
+      "noAutograderWithEmptyRepo": "A(z) „{{assignmentSlug}}” feladat egyszerre állítja be a beépített automata értékelő hiányát és az üres tárolót, ami nem érvényes. Kérd meg a tanárodat, hogy futtassa újra a feladat beállítását."
     },
     "stepActions": {
       "access": "A(z) {{org}}/{{repo}} tárolód létrejött, de a hozzáférésed ({{username}}) beállítása nem sikerült. Ez általában azt jelenti, hogy megváltozott a GitHub-felhasználóneved, vagy kiléptél a(z) {{org}} szervezetből. Ellenőrizd, hogy tagja vagy-e a(z) {{org}} szervezetnek, majd használd a „Beállítás újrafuttatása” lehetőséget.",
@@ -1717,6 +1830,11 @@
       "body": "Ha úgy gondolod, hogy ez tévedés, kérdezd meg a tanárodat.",
       "error": "Ez a feladat nem érhető el számodra. Ha úgy gondolod, hogy ez tévedés, kérdezd meg a tanárodat.",
       "title": "Ez a feladat nem érhető el számodra"
+    },
+    "closed": {
+      "badge": "Lezárva",
+      "body": "A tanárod lezárta a(z) <assignment>{{assignment}}</assignment> feladatot új beadások előtt, ezért most nem fogadható el. Kérd meg a tanárodat, hogy nyissa meg újra, ha úgy gondolod, hogy ez tévedés.",
+      "title": "A beadások le vannak zárva"
     }
   },
   "submissions": {
@@ -1782,7 +1900,8 @@
       "manageRoster": "Névsor kezelése",
       "shareWithCount_one": "Megosztás <count>{{count}} diákkal</count>, aki elfogadhatja ezt a feladatot.",
       "shareWithCount_other": "Megosztás <count>{{count}} diákkal</count>, akik elfogadhatják ezt a feladatot.",
-      "warnNoStudents": "Ezt a linket még egyetlen diák sem tudja elfogadni a(z) <classroom>{{classroom}}</classroom> kurzusban. Előbb vegyél fel diákokat a névsorba, és hívd meg őket a szervezetbe."
+      "warnNoStudents": "Ezt a linket még egyetlen diák sem tudja elfogadni a(z) <classroom>{{classroom}}</classroom> kurzusban. Előbb vegyél fel diákokat a névsorba, és hívd meg őket a szervezetbe.",
+      "copied": "Másolva"
     },
     "stats": {
       "submitted": "Beadva",
@@ -1881,7 +2000,9 @@
       "staleCount": "Új",
       "staleCountTitle": "Ez a tanuló több beadást push-olt, mint amennyit értékeltek. Futtasd a „Beadások szinkronizálása most” műveletet a legújabbak értékeléséhez és pontozásához.",
       "manageAccess": "Tárolóhozzáférés kezelése",
-      "manageAccessAria": "{{owner}} tárolóhozzáférésének kezelése"
+      "manageAccessAria": "{{owner}} tárolóhozzáférésének kezelése",
+      "overridden": "Kézi",
+      "overriddenTitle": "Ezt a pontszámot kézzel állították be, és az automata értékelés nem módosítja, amíg a felülbírálás nem törlődik."
     },
     "reviewModal": {
       "errorTitle": "Nem sikerült ellenőrizni a visszajelzési PR-t",
@@ -2083,10 +2204,10 @@
       "titleDisabled": "Még nincs letölthető beadás"
     },
     "lock": {
-      "lockDescription": "Ez lezárja a(z) <assignment>{{assignment}}</assignment> feladatot minden diák elől – beleértve azokat is, akik már elfogadták – az elfogadó oldalon, a feladatlistán, a beadásnézetben és a CLI-ben. Ha privát sablont használ, a diákcsapat olvasási joga is megszűnik azon (a személyzet hozzáférését ez nem érinti). A meglévő diáktárolók nem törlődnek.",
+      "lockDescription": "Ez lezárja a(z) <assignment>{{assignment}}</assignment> feladatot minden diák számára – azokat is beleértve, akik már elfogadták – az elfogadási oldalon, a feladatlistán, a beadási nézetben és a parancssorban. Ha privát sablont használ, a diákcsapat olvasási jogosultsága is megszűnik az adott sablonon (a személyzet hozzáférését ez nem érinti). A meglévő diáktárolók nem törlődnek.",
       "lockLabel": "Feladat zárolása",
       "lockSuccess": "Feladat zárolva.",
-      "lockTitle": "Zárd le ezt a feladatot a diákok elől, és privát sablon esetén vond meg a diákcsapat olvasási jogát rajta",
+      "lockTitle": "Zárd le ezt a feladatot, hogy a diákok ne érhessék el és ne fogadhassák el, és privát sablon esetén szüntesd meg a diákcsapat olvasási jogát rajta",
       "lockTitleModal": "Zárolod a feladatot?",
       "unlockDescription": "Ez újra megnyitja a(z) <assignment>{{assignment}}</assignment> feladatot a diákok előtt. Ha privát sablont használ, a diákcsapat olvasási joga visszaáll rajta, így a diákok ismét elfogadhatják.",
       "unlockLabel": "Feladat feloldása",
@@ -2109,13 +2230,167 @@
       "open": "Beadás kezelése",
       "openAria": "{{owner}} beadásának kezelése",
       "regradeDescription": "Az automatikus értékelő újrafuttatása a legutóbbi commiton",
-      "reviewDescription": "A visszajelzési pull request megnyitása"
+      "reviewDescription": "A visszajelzési pull request megnyitása",
+      "autograding": "Automata értékelés",
+      "autogradingEnabled": "Engedélyezve",
+      "autogradingPaused": "Szüneteltetve",
+      "autogradingPausedByGitHub": "A GitHub által szüneteltetve"
     },
     "rowDownload": {
       "aria": "{{owner}} beadásának letöltése",
       "error": "Nem sikerült letölteni {{owner}} beadását. Kérlek, próbáld újra.",
       "nothingToDownload": "{{owner}} még nem rendelkezik letölthető beadással.",
       "title": "Ennek a beadásnak a letöltése"
+    },
+    "bulkAutograde": {
+      "deferredDetail": "Kihagyva – futtasd újra a módosításhoz.",
+      "deferredSection_one": "{{count}} tároló nem lett feldolgozva",
+      "deferredSection_other": "{{count}} tároló nem lett feldolgozva",
+      "failedSection_one": "{{count}} tárolót nem sikerült módosítani",
+      "failedSection_other": "{{count}} tárolót nem sikerült módosítani",
+      "noRepos": "Ezt a feladatot még egyetlen diák sem fogadta el, így nincs módosítható tároló.",
+      "notGradableDetail": "Nincs automata értékelési munkafolyamat – nincs mit módosítani.",
+      "notGradableSection_one": "{{count}} tárolónak nincs automata értékelési munkafolyamata",
+      "notGradableSection_other": "{{count}} tárolónak nincs automata értékelési munkafolyamata",
+      "pauseApply": "Összes szüneteltetése",
+      "pauseMenuLabel": "Automata értékelés szüneteltetése",
+      "pauseMenuTitle": "Az automata értékelési munkafolyamat letiltása minden elfogadott diáktárolóban",
+      "pauseResultHeadline": "Az automata értékelés szüneteltetve {{done}} / {{total}} tárolóban.",
+      "pauseSubtitle_one": "Letiltja az automata értékelést {{count}} diák tárolójában.",
+      "pauseSubtitle_other": "Letiltja az automata értékelést {{count}} diák tárolójában.",
+      "pauseTitle": "Automata értékelés szüneteltetése",
+      "pauseTitleEmptyRoster": "Még egyetlen diák sem fogadta el",
+      "pauseWarning_one": "Ez letiltja az automata értékelési munkafolyamatot {{count}} diák tárolójában. Egyetlen fájl sem változik, és az automata értékelést bármikor folytathatod.",
+      "pauseWarning_other": "Ez letiltja az automata értékelési munkafolyamatot {{count}} diák tárolójában. Egyetlen fájl sem változik, és az automata értékelést bármikor folytathatod.",
+      "progress": "Feldolgozva: {{processed}} / {{total}}",
+      "resumeApply": "Összes folytatása",
+      "resumeMenuLabel": "Automata értékelés folytatása",
+      "resumeMenuTitle": "Az automata értékelési munkafolyamat újbóli engedélyezése minden elfogadott diáktárolóban",
+      "resumeResultHeadline": "Az automata értékelés folytatva {{done}} / {{total}} tárolóban.",
+      "resumeSubtitle_one": "Újra engedélyezi az automata értékelést {{count}} diák tárolójában.",
+      "resumeSubtitle_other": "Újra engedélyezi az automata értékelést {{count}} diák tárolójában.",
+      "resumeTitle": "Automata értékelés folytatása",
+      "resumeTitleEmptyRoster": "Még egyetlen diák sem fogadta el",
+      "resumeWarning_one": "Ez újra engedélyezi az automata értékelési munkafolyamatot {{count}} diák tárolójában.",
+      "resumeWarning_other": "Ez újra engedélyezi az automata értékelési munkafolyamatot {{count}} diák tárolójában.",
+      "working": "Tárolók frissítése"
+    },
+    "bulkTrigger": {
+      "apply": "Összes frissítése",
+      "deferredDetail": "Kihagyva – futtasd újra a frissítéshez.",
+      "deferredSection_one": "{{count}} tároló nem lett feldolgozva",
+      "deferredSection_other": "{{count}} tároló nem lett feldolgozva",
+      "failedSection_one": "{{count}} tárolót nem sikerült frissíteni",
+      "failedSection_other": "{{count}} tárolót nem sikerült frissíteni",
+      "menuLabel": "Automata értékelési triggerek frissítése",
+      "menuTitle": "Minden diáktároló automata értékelési munkafolyamatának átírása a feladat triggerbeállításához igazítva",
+      "noRepos": "Ezt a feladatot még egyetlen diák sem fogadta el, így nincs frissíthető tároló.",
+      "notAcceptedDetail": "Nem létezik tároló – nincs mit frissíteni.",
+      "notAcceptedSection_one": "{{count}} diák még nem fogadta el",
+      "notAcceptedSection_other": "{{count}} diák még nem fogadta el",
+      "progress": "Feldolgozva: {{processed}} / {{total}}",
+      "repullReminder": "Szólj a diákoknak, hogy futtassanak git pullt – a módosítás előtt készített klónok ütközni fognak a következő pushnál.",
+      "resultHeadline": "Frissítve: {{updated}} / {{total}} tároló ({{current}} már naprakész).",
+      "scopeDetail": "A GitHub-jogosultságod nem tudja módosítani a munkafolyamat-fájlokat. Jelentkezz ki és vissza, majd futtasd újra.",
+      "scopeSection_one": "{{count}} tárolóhoz a workflow hatókörrel rendelkező token szükséges",
+      "scopeSection_other": "{{count}} tárolóhoz a workflow hatókörrel rendelkező token szükséges",
+      "subtitle_one": "Az automata értékelési triggert „{{mode}}” értékre állítja {{count}} diák tárolójában.",
+      "subtitle_other": "Az automata értékelési triggert „{{mode}}” értékre állítja {{count}} diák tárolójában.",
+      "title": "Automata értékelési triggerek frissítése",
+      "titleEmptyRoster": "Még egyetlen diák sem fogadta el",
+      "unrecognizedSection_one": "{{count}} tároló kihagyva (a munkafolyamat nem felismerhető)",
+      "unrecognizedSection_other": "{{count}} tároló kihagyva (a munkafolyamat nem felismerhető)",
+      "warning_one": "Ez módosítást commitol az automata értékelési munkafolyamatba {{count}} diák tárolójában. A commit meg van jelölve, hogy ne indítson értékelést. A kézzel szerkesztett munkafolyamatú tárolók jelentésre kerülnek, és érintetlenül maradnak. A diákoknak utána pullt kell futtatniuk – a módosítás előtt készített klónok ütközni fognak a következő pushnál.",
+      "warning_other": "Ez módosítást commitol az automata értékelési munkafolyamatba {{count}} diák tárolójában. A commit meg van jelölve, hogy ne indítson értékelést. A kézzel szerkesztett munkafolyamatú tárolók jelentésre kerülnek, és érintetlenül maradnak. A diákoknak utána pullt kell futtatniuk – a módosítás előtt készített klónok ütközni fognak a következő pushnál.",
+      "working": "Tárolók frissítése"
+    },
+    "closeSubmission": {
+      "apply": "Beadás lezárása",
+      "deferredDetail": "Kihagyva – futtasd újra a frissítéshez.",
+      "deferredSection_one": "{{count}} tároló nem lett frissítve",
+      "deferredSection_other": "{{count}} tároló nem lett frissítve",
+      "failedSection_one": "{{count}} tárolót nem sikerült frissíteni",
+      "failedSection_other": "{{count}} tárolót nem sikerült frissíteni",
+      "finishApply": "Lezárás befejezése",
+      "finishHint": "A beadás le van zárva új elfogadások előtt, de néhány tároló még nem csak olvasható. A lezárás befejezése csak azokat próbálja újra – ez nem nyitja meg újra a beadást.",
+      "flagError": "A beadási időszakot nem sikerült frissíteni, így egyetlen tároló sem változott. Próbáld újra.",
+      "menuLabel": "Beadás lezárása",
+      "menuTitle": "A beadási időszak lezárása: új elfogadások letiltása és minden diák tárolójának csak olvashatóra állítása",
+      "noRepos": "Ezt a feladatot még egyetlen diák sem fogadta el. A lezárás így is letiltja az új elfogadásokat.",
+      "progress": "Frissítve: {{processed}} / {{total}}",
+      "reopenApply": "Beadás újranyitása",
+      "reopenLabel": "Beadás újranyitása",
+      "reopenMenuTitle": "A beadási időszak újranyitása: új elfogadások engedélyezése és az írási jog visszaállítása",
+      "reopenResultHeadline": "Írási jog visszaállítva {{count}} / {{total}} tárolóban.",
+      "reopenResultHeadlineThrottled": "Írási jog visszaállítva {{count}} / {{total}} tárolóban, mielőtt a GitHub korlátozta a kérést – futtasd újra a többi befejezéséhez.",
+      "reopenSubtitle_one": "Engedélyezi az új elfogadásokat, és visszaállítja az írási jogot {{count}} diák tárolójában.",
+      "reopenSubtitle_other": "Engedélyezi az új elfogadásokat, és visszaállítja az írási jogot {{count}} diák tárolójában.",
+      "reopenTitle": "Beadás újranyitása",
+      "reopenWarning_one": "Ez újra engedélyezi az elfogadásokat, és visszaállítja az írási jogot {{count}} diák tárolójában.",
+      "reopenWarning_other": "Ez újra engedélyezi az elfogadásokat, és visszaállítja az írási jogot {{count}} diák tárolójában.",
+      "resultHeadline": "{{count}} / {{total}} tároló csak olvashatóra állítva.",
+      "resultHeadlineThrottled": "{{count}} / {{total}} tároló csak olvashatóra állítva, mielőtt a GitHub korlátozta a kérést – futtasd újra a többi befejezéséhez.",
+      "statusBadge": {
+        "closed": "Lezárva"
+      },
+      "subtitle_one": "Letiltja az új elfogadásokat, és {{count}} diák tárolóját csak olvashatóra állítja.",
+      "subtitle_other": "Letiltja az új elfogadásokat, és {{count}} diák tárolóját csak olvashatóra állítja.",
+      "title": "Beadás lezárása",
+      "warning_one": "Ez megtiltja bármely új diák elfogadását, és {{count}} diák saját tárolóján a szerepét olvasásra (pull) állítja. A meglévő munka megmarad, de csak olvashatóvá válik, amíg újra meg nem nyitod.",
+      "warning_other": "Ez megtiltja bármely új diák elfogadását, és {{count}} diák saját tárolóján a szerepét olvasásra (pull) állítja. A meglévő munka megmarad, de csak olvashatóvá válik, amíg újra meg nem nyitod.",
+      "working": "Tárolók frissítése"
+    },
+    "closedNotice": "A beadások le vannak zárva. Új diákok nem fogadhatják el ezt a feladatot. Amikor innen zársz le, az elfogadott diákok tárolói csak olvashatóra állnak; a meglévő munka megmarad. Nyisd meg újra a Műveletek menüből a beadások ismételt engedélyezéséhez.",
+    "manualGrade": {
+      "add": "Osztályzat hozzáadása",
+      "addLabel": "Osztályzat hozzáadása: {{name}}",
+      "edit": "Osztályzat szerkesztése",
+      "editLabel": "Osztályzat szerkesztése: {{name}}",
+      "inputLabel": "Pontszám: {{name}}",
+      "notGraded": "Nem értékelt",
+      "range": "A pontszámnak 0 és {{max}} közötti egész számnak kell lennie.",
+      "required": "Add meg a pontszámot a mentéshez.",
+      "saveError": "Nem sikerült menteni az osztályzatot. Ellenőrizd a kapcsolatot, és próbáld újra."
+    },
+    "migrateTracking": {
+      "apply": "Konfiguráció migrálása",
+      "bannerAction": "Konfiguráció migrálása",
+      "bannerText": "Ennek az osztálynak a konfigurációja régebbi formátumot használ. Migráld a legújabb sémára a legújabb feladat- és beadási funkciók engedélyezéséhez.",
+      "error": "A feladatokat nem sikerült frissíteni. Próbáld újra.",
+      "resultHeadline_one": "{{count}} feladat migrálva.",
+      "resultHeadline_other": "{{count}} feladat migrálva.",
+      "subtitle": "Frissítsd ennek az osztálynak a feladatait a legújabb konfigurációs sémára.",
+      "title": "Osztálykonfiguráció migrálása",
+      "warning": "Ez explicit módon rögzíti minden feladat beállításait, hogy minden eszköz azonos módon olvassa őket, és a legújabb funkciók (például az élő beadáskövetés) engedélyezve legyenek. Egyetlen osztályzatot, határidőt vagy diákhozzáférést sem módosít, és a megszokott módon dolgozhatsz tovább.",
+      "working": "Feladatok frissítése"
+    },
+    "noAutograderNote": "Ennek a feladatnak nincs beépített automata értékelése – a tanár saját CI-t ad meg a sablonban. A beépített pontszámok és az újraértékelés le van tiltva; az alábbi táblázat mutatja, ki fogadta el. A visszajelzési pull request továbbra is működik, ha engedélyezve van.",
+    "rowAutograde": {
+      "outcome": {
+        "failed": "Nem sikerült módosítani az automata értékelés állapotát – próbáld újra.",
+        "notGradable": "Ennek a tárolónak nincs automata értékelési munkafolyamata – nincs mit módosítani.",
+        "paused": "Az automata értékelés szüneteltetve ehhez a tárolóhoz.",
+        "resumed": "Az automata értékelés folytatva ehhez a tárolóhoz."
+      },
+      "pauseAria": "Automata értékelés szüneteltetése: {{repo}}",
+      "pauseDescription": "Tiltsd le ennek a tárolónak az automata értékelési munkafolyamatát. A munkafolyamat-fájl változatlan marad, és az értékelés bármikor folytatható.",
+      "pauseTitle": "Automata értékelés szüneteltetése",
+      "resumeAria": "Automata értékelés folytatása: {{repo}}",
+      "resumeDescription": "Engedélyezd újra ennek a tárolónak az automata értékelési munkafolyamatát, hogy a pushok újra értékelve legyenek.",
+      "resumeTitle": "Automata értékelés folytatása"
+    },
+    "rowTrigger": {
+      "aria": "Az automata értékelési trigger frissítése: {{repo}}",
+      "description": "Írd át ennek a tárolónak az automata értékelési munkafolyamatát a feladat triggerbeállításához igazítva.",
+      "outcome": {
+        "current": "Már naprakész – nincs szükség módosításra.",
+        "failed": "Nem sikerült frissíteni a munkafolyamatot – próbáld újra.",
+        "missingWorkflowScope": "A GitHub-jogosultságod nem tudja módosítani a munkafolyamat-fájlokat. Jelentkezz ki és vissza, majd próbáld újra.",
+        "notAccepted": "Még nem létezik tároló – nincs mit frissíteni.",
+        "unrecognized": "Kihagyva: ennek a tárolónak a munkafolyamatát módosították, és nem frissíthető automatikusan.",
+        "updated": "Az automata értékelési trigger frissítve. A diáknak pullt kell futtatnia a következő push előtt."
+      },
+      "title": "Automata értékelési trigger frissítése"
     }
   },
   "orgMembers": {
@@ -2248,7 +2523,8 @@
       "orgRepoCreation": {
         "action": "Szervezeti beállítások",
         "master": "A(z) <org>{{org}}</org> nem engedélyezi a tagoknak tárolók létrehozását, ezért egyetlen diák sem tud feladatot elfogadni. Futtasd újra a szervezet beállítását, vagy engedélyezd a privát (nem nyilvános) tárolók létrehozását a <memberPrivileges>Tagsági jogosultságok</memberPrivileges> alatt. Egy vállalati szabályzat felülbírálhatja ezt a beállítást.",
-        "private": "A(z) <org>{{org}}</org> nem engedélyezi a tagoknak privát tárolók létrehozását, ezért egyetlen diák sem tud feladatot elfogadni. Futtasd újra a szervezet beállítását, vagy engedélyezd a privát (nem nyilvános) tárolók létrehozását a <memberPrivileges>Tagsági jogosultságok</memberPrivileges> alatt. Egy vállalati szabályzat felülbírálhatja ezt a beállítást."
+        "private": "A(z) <org>{{org}}</org> nem engedélyezi a tagoknak privát tárolók létrehozását, ezért egyetlen diák sem tud feladatot elfogadni. Futtasd újra a szervezet beállítását, vagy engedélyezd a privát (nem nyilvános) tárolók létrehozását a <memberPrivileges>Tagsági jogosultságok</memberPrivileges> alatt. Egy vállalati szabályzat felülbírálhatja ezt a beállítást.",
+        "memberPrivilegesLabel": "Tagsági jogosultságok (megnyitja a GitHub szervezeti beállításait egy új lapon)"
       }
     },
     "confirmModal": {
@@ -2441,7 +2717,7 @@
     "title": "Elérhető a Classroom 50 új verziója"
   },
   "offline": {
-    "body": "A Classroom 50 a GitHub élő adataival dolgozik, ezért kapcsolatra van szüksége. Ez a sáv automatikusan eltűnik, amint ismét online vagy.",
+    "body": "Ez az eszköz nincs csatlakoztatva az internethez. A Classroom 50-nek élő kapcsolatra van szüksége a működéshez. Ez a sáv automatikusan eltűnik, amint újra online vagy.",
     "title": "Offline vagy"
   },
   "orgActivity": {
@@ -2535,6 +2811,38 @@
       "loading": "A szervezeteid ellenőrzése…",
       "manage": "Kezelés",
       "subheading": "A szolgáltatási tokenek állapota minden általad birtokolt szervezetben. Cseréld le a tokent a lejárata előtt, hogy az éjszakai pontszámbegyűjtés tovább fusson."
+    },
+    "appearance": {
+      "dark": "Sötét",
+      "darkHint": "Mindig a sötét témát használja.",
+      "groupAria": "Témabeállítás",
+      "heading": "Megjelenés",
+      "light": "Világos",
+      "lightHint": "Mindig a világos témát használja.",
+      "subheading": "Válassz világos vagy sötét témát, vagy kövesd az eszköz beállítását.",
+      "system": "Rendszer",
+      "systemHint": "Az eszköz világos/sötét beállítását követi."
+    },
+    "groups": {
+      "organizations": "Szervezetek",
+      "organizationsDescription": "Kezeld a szervezeteidet és a kezdőlapodat.",
+      "preferences": "Beállítások",
+      "preferencesDescription": "Megjelenítési és interakciós beállítások ehhez a böngészőhöz."
+    },
+    "language": {
+      "heading": "Nyelv",
+      "subheading": "Válts nyelvet, vagy telepíts lefordított nyelvi csomagot."
+    },
+    "motion": {
+      "groupAria": "Animációs beállítás",
+      "heading": "Animációk",
+      "off": "Ki",
+      "offHint": "Minden animáció kikapcsolása.",
+      "on": "Be",
+      "onHint": "Mindig animáljon.",
+      "subheading": "Szabályozd a felület mozgását, például az oldalátmeneteket, menüket és egyéb animált effekteket.",
+      "system": "Rendszer",
+      "systemHint": "Az eszköz mozgáscsökkentési beállítását követi."
     }
   },
   "pagesErrors": {
@@ -2711,5 +3019,129 @@
     },
     "summary_one": "{{count}} szervezet szolgáltatásitoken-ellenőrzést igényel.",
     "summary_other": "{{count}} szervezet szolgáltatásitoken-ellenőrzést igényel."
+  },
+  "accessibility": {
+    "col": {
+      "description": "Előtér / felület",
+      "floor": "Minimum",
+      "pair": "Pár",
+      "preview": "Előnézet",
+      "ratio": "Arány",
+      "status": "Állapot"
+    },
+    "criteria": {
+      "aboutHeading": "Erről az auditról",
+      "bodyText": "Törzsszöveg ≥ {{body}}:1",
+      "generated": "Létrehozva: {{generated}}",
+      "largeText": "Nagy szöveg ≥ {{large}}:1",
+      "marginHeading": "Ajánlott biztonsági ráhagyás",
+      "marginWhy": "Minden párt kicsit a WCAG-minimum fölött tartunk – ez a ráhagyás elnyeli az élsimítást, a szubpixeles megjelenítést és a jövőbeli palettafinomításokat. Ez ajánlás, nem a megfelelőség feltétele.",
+      "nonText": "Nem szöveges (felületi elemek) ≥ {{nonText}}:1",
+      "standardText": "WCAG 2.2 – 1.4.6 Kontraszt (fokozott, AAA) szövegre, 1.4.11 Nem szöveges kontraszt a felületi elemekre.",
+      "thresholdsHeading": "Kötelező minimumok (WCAG-alsó határ):"
+    },
+    "detail": {
+      "background": "Háttér (felület)",
+      "foreground": "Előtér (szöveg)",
+      "minimum": "WCAG-minimum ({{floor}}:1)",
+      "ratio": "Kontrasztarány",
+      "sampleBody": "Jó fát ültet be minden korláttal így közeleg a nyugalom.",
+      "sampleHeading": "Mintaszöveg"
+    },
+    "downloads": {
+      "contrastDesc": "Páronkénti kontrasztarányok minden auditált színre, mindkét témában.",
+      "contrastTitle": "Színkontraszt-audit",
+      "fullDesc": "A VPAT és a színkontraszt-audit egyetlen dokumentumban.",
+      "fullTitle": "Teljes jelentés",
+      "heading": "Jelentések",
+      "markdownAction": "Markdown",
+      "pdfAction": "PDF",
+      "vpatWcagDesc": "Akadálymentességi megfelelőségi jelentés a WCAG 2.2 alapján (VPAT 2.5Rev).",
+      "vpatWcagTitle": "VPAT – WCAG kiadás"
+    },
+    "legend": {
+      "exempt": "a WCAG hatókörén kívül (dekoratív / letiltott)",
+      "fail": "a WCAG-minimum alatt",
+      "heading": "Jelmagyarázat",
+      "pass": "eléri a WCAG-minimumot",
+      "passMargin": "megfelel, de az ajánlott ráhagyás alatt (az info ikon mutatja a számokat)"
+    },
+    "loadError": "Nem sikerült betölteni a kontraszt-audit jelentést.",
+    "marginInfo": "A(z) {{ratio}}:1 eléri a(z) {{floor}}:1 WCAG-minimumot, de az ajánlott {{margin}}:1 célértékünk alatt van – még mindig megfelel, csak kevesebb ráhagyással.",
+    "nav": {
+      "contrast": "Színkontraszt",
+      "downloads": "Jelentések",
+      "statement": "Nyilatkozat",
+      "vpat": "Megfelelőség"
+    },
+    "pageSubtitle": "Hogyan felel meg a Classroom 50 webalkalmazás a WCAG 2.2 AA szintjének, minden build során automatikusan ellenőrizve.",
+    "pageTitle": "Akadálymentesség",
+    "preview": {
+      "open": "Színrészletek megtekintése",
+      "openFor": "Színrészletek megtekintése: {{pair}}"
+    },
+    "print": {
+      "belowMargin": "(az ajánlott {{margin}}:1 alatt)",
+      "colColors": "Színek (előtér / háttér)",
+      "contrastMeta": "Páronkénti WCAG-kontrasztarányok minden auditált színre, mindkét témában. Létrehozva: {{date}}.",
+      "contrastTitle": "Színkontraszt-audit",
+      "reportMeta": "Szabvány: WCAG {{standard}}, cél szint: {{target}}. Jelentés dátuma: {{date}}.",
+      "reportTitle": "Akadálymentességi megfelelőségi jelentés – {{product}}",
+      "vpatSummary": "Összefoglaló ({{total}} alkalmazható kritérium): {{supports}} Támogatja, {{partially}} Részben támogatja, {{doesNotSupport}} Nem támogatja, {{notApplicable}} Nem alkalmazható, {{notEvaluated}} Nem értékelt."
+    },
+    "statement": {
+      "feedback": "Nehezen használható valami? Kérjük,",
+      "feedbackHeading": "Küldj visszajelzést",
+      "feedbackLink": "nyiss akadálymentességi hibajegyet",
+      "heading": "Akadálymentességi nyilatkozat",
+      "intro": "Azt szeretnénk, hogy mindenki használhassa a Classroom 50-et, beleértve azokat is, akik billentyűzetet, képernyőolvasót vagy más segítő technológiát használnak.",
+      "limitations": "Néhány kritérium a megfelelőségi jelentésben „Részben támogatja” jelöléssel szerepel, mindegyiknél feltüntetve, hogy mi van még hátra. Ezeket a munka előrehaladtával javítjuk.",
+      "limitationsHeading": "Ismert korlátok",
+      "target": "A WCAG 2.2 AA szintjét célozzuk meg. A színkontrasztot minden build során ellenőrizzük; a többit kézzel, billentyűzettel és képernyőolvasóval. A megfelelőségi jelentés felsorolja, hol tartunk az egyes kritériumoknál.",
+      "targetHeading": "Hogyan teljesítünk",
+      "updated": "Utoljára ellenőrizve: {{date}}."
+    },
+    "status": {
+      "exempt": "Kivétel",
+      "fail": "Nem felel meg",
+      "pass": "Megfelel"
+    },
+    "summaryFail": "{{failures}} színpár a WCAG-kontraszt alsó határa alatt van.",
+    "summaryPass": "Mind a(z) {{total}} auditált színpár eléri a WCAG-kontraszt alsó határát.",
+    "summaryPassMargin_one": "Mind a(z) {{total}} auditált színpár eléri a WCAG-kontraszt alsó határát. {{count}} megfelel, de az ajánlott biztonsági ráhagyás alatt van.",
+    "summaryPassMargin_other": "Mind a(z) {{total}} auditált színpár eléri a WCAG-kontraszt alsó határát. {{count}} megfelel, de az ajánlott biztonsági ráhagyás alatt van.",
+    "title": "Színkontraszt-audit",
+    "vpat": {
+      "clearFilter": "Szűrő törlése",
+      "col": {
+        "assessed": "Értékelve",
+        "conformance": "Megfelelőség",
+        "criterion": "Kritérium",
+        "level": "Szint",
+        "remarks": "Megjegyzések"
+      },
+      "empty": "Egyetlen kritérium sem felel meg ennek a szűrőnek.",
+      "filterAll": "Minden állapot",
+      "filterAria": "Szűrés megfelelőségi állapot szerint",
+      "filterLabel": "Állapot",
+      "generated": "Jelentés dátuma: {{generated}}",
+      "heading": "Megfelelőségi jelentés (VPAT)",
+      "loadError": "Nem sikerült betölteni a megfelelőségi jelentést.",
+      "principleTabsAria": "WCAG-alapelv",
+      "searchAria": "Megfelelőségi kritériumok keresése",
+      "searchPlaceholder": "Kritériumok keresése…",
+      "sort": {
+        "criterion": "Kritérium",
+        "status": "Megfelelőség"
+      },
+      "sortBy": "Rendezés",
+      "status": {
+        "doesNotSupport": "Nem támogatja",
+        "notApplicable": "Nem alkalmazható",
+        "notEvaluated": "Nem értékelt",
+        "partially": "Részben támogatja",
+        "supports": "Támogatja"
+      }
+    }
   }
 }
