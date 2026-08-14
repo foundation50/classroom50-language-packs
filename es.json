@@ -861,9 +861,9 @@
           }
         },
         "label": "Autocalificación",
-        "lockedHelp": "El uso del autocalificador integrado no se puede cambiar después de la creación: los repositorios que los estudiantes ya aceptaron no se vuelven a aprovisionar.",
         "modeLabel": "Autocalificador integrado",
-        "notAutogradedNote": "Las opciones de autocalificación solo se aplican cuando esta tarea está establecida como «Autocalificada» en la sección Entrega y calificación de arriba. Cambia la opción de calificación a Autocalificada para configurar el autocalificador."
+        "notAutogradedNote": "Las opciones de autocalificación solo se aplican cuando esta tarea está establecida como «Autocalificada» en la sección Entrega y calificación de arriba. Cambia la opción de calificación a Autocalificada para configurar el autocalificador.",
+        "editHelp": "Cambiar el autocalificador integrado solo afecta a los repositorios que los estudiantes acepten de ahora en adelante. Los repositorios ya aceptados conservan su configuración original: tendrás que conciliar cualquier diferencia por tu cuenta."
       },
       "copyAbout": {
         "help": "Copia el «Acerca de» de la plantilla (su descripción) en cada repositorio de estudiante. GitHub no lo copia automáticamente. Esto se aplica a los estudiantes que acepten a partir de ahora; los repositorios ya creados no se modifican.",
@@ -880,8 +880,7 @@
           "manual": "Manual (introducir puntuaciones a mano)",
           "off": "Sin calificar"
         },
-        "editWarning": "El modo de calificación no se puede cambiar después de la creación: las puntuaciones ya registradas con el modo anterior se interpretarían mal. En su lugar, crea una nueva tarea con un slug diferente.",
-        "help": "Cómo se califica esta tarea. «Autocalificada» ejecuta el autocalificador que configures más abajo. «Manual» te permite introducir la puntuación de cada estudiante a mano en la página de entregas. «Sin calificar» no registra ninguna puntuación. No se puede cambiar después de crear la tarea.",
+        "help": "Cómo se califica esta tarea. «Autocalificada» ejecuta el autocalificador que configures a continuación. «Manual» te permite introducir la puntuación de cada estudiante a mano en la página de entregas. «Sin calificar» no registra ninguna puntuación.",
         "label": "Calificación",
         "maxPoints": {
           "help": "Total de puntos disponibles para esta tarea manual. Se usa para mostrar la puntuación de cada estudiante sobre el máximo.",
@@ -894,7 +893,6 @@
       },
       "repoSource": {
         "label": "Empezar con una plantilla",
-        "lockedHelp": "El origen del repositorio no se puede cambiar después de la creación: los repositorios que los estudiantes ya aceptaron no se vuelven a aprovisionar.",
         "none": {
           "help": "Crea un repositorio nuevo para cada estudiante.",
           "label": "Sin plantilla"
@@ -902,15 +900,11 @@
         "template": {
           "help": "Genera el repositorio de cada estudiante a partir de una plantilla que proporciones.",
           "label": "Repositorio de plantilla"
-        }
+        },
+        "editHelp": "Cambiar el origen del repositorio solo afecta a los repositorios que los estudiantes acepten de ahora en adelante. Los repositorios ya aceptados conservan su contenido inicial original: tendrás que conciliar cualquier diferencia por tu cuenta."
       },
       "repositorySetupSection": "Configuración del repositorio",
       "scheduleSection": "Programación",
-      "sectionStatus": {
-        "configured": "Configurado",
-        "default": "Predeterminado",
-        "error": "Requiere atención"
-      },
       "submissionMode": {
         "choices": {
           "everyPush": "Cada push a la rama predeterminada",
@@ -931,7 +925,11 @@
       "submissions": {
         "heading": "Entregas",
         "help": "Cómo la página de entregas detecta y cuenta el trabajo de cada estudiante. El autocalificador usa la misma definición."
-      }
+      },
+      "discardChanges": "Descartar cambios",
+      "reset": "Restablecer",
+      "resetSection": "Restablecer esta sección a su configuración predeterminada",
+      "typeLockedHelp": "No se puede cambiar después de la creación: cambiarlo invalidaría las entregas existentes."
     },
     "autograder": {
       "heading": "Pruebas de autocalificación",
@@ -1273,7 +1271,14 @@
     "collaboratorsHint_one": "Añade o elimina colaboradores de este repositorio de la tarea. Esta tarea admite hasta <count>{{count}}</count> estudiante además del propietario del grupo.",
     "collaboratorsHint_other": "Añade o elimina colaboradores de este repositorio de la tarea. Esta tarea admite hasta <count>{{count}}</count> estudiantes además del propietario del grupo.",
     "individual": "Esta es una tarea individual: no hay configuración de grupo que gestionar. Consulta tu <submissionLink>entrega y los resultados del autocorrector</submissionLink>.",
-    "notAccepted": "¡Todavía no tienes esta tarea! ¿Necesitas <acceptLink>aceptarla</acceptLink> primero?"
+    "notAccepted": "¡Todavía no tienes esta tarea! ¿Necesitas <acceptLink>aceptarla</acceptLink> primero?",
+    "provisioningConfirm": {
+      "body_one": "{{count}} estudiante ya ha aceptado esta tarea. Este cambio solo afecta a los repositorios aceptados de ahora en adelante: el {{count}} repositorio existente conserva su código inicial y su configuración originales. Si desactivas la calificación automática, las ejecuciones de autocalificación de esos repositorios empezarán a fallar y saldrán del cuaderno de calificaciones; si cambias el modo de calificación, las puntuaciones registradas con el modo anterior pueden interpretarse de otra manera. Tendrás que conciliar cualquier inconsistencia por tu cuenta.",
+      "body_other": "{{count}} estudiantes ya han aceptado esta tarea. Este cambio solo afecta a los repositorios aceptados de ahora en adelante: los {{count}} repositorios existentes conservan su código inicial y su configuración originales. Si desactivas la calificación automática, las ejecuciones de autocalificación de esos repositorios empezarán a fallar y saldrán del cuaderno de calificaciones; si cambias el modo de calificación, las puntuaciones registradas con el modo anterior pueden interpretarse de otra manera. Tendrás que conciliar cualquier inconsistencia por tu cuenta.",
+      "cancel": "Cancelar",
+      "confirm": "Guardar cambios de todos modos",
+      "title": "¿Cambiar la configuración de aprovisionamiento después de que los estudiantes aceptaron?"
+    }
   },
   "orgSettings": {
     "page": {
@@ -1870,7 +1875,8 @@
       "statusFailed": "La ejecución de la recopilación no se completó correctamente.",
       "statusFailedWithReason": "No se pudo iniciar la recopilación: {{reason}}",
       "statusFailedHint": "Puedes comprobarla o iniciarla manualmente en GitHub.",
-      "statusTimeout": "Sigue en ejecución tras un rato. Comprueba su progreso en GitHub o actualiza esta página cuando termine."
+      "statusTimeout": "Sigue en ejecución tras un rato. Comprueba su progreso en GitHub o actualiza esta página cuando termine.",
+      "workflowOutdated": "No se pudo recopilar esta tarea: el flujo de trabajo Collect Scores del repositorio de configuración classroom50 de esta organización está desactualizado. Actualiza los flujos de trabajo de la organización (aparece un aviso de actualización cuando hay una versión más reciente disponible) e inténtalo de nuevo."
     },
     "regradeAll": {
       "label": "Recalificar todo",
@@ -1958,26 +1964,18 @@
       "colLastSubmitted": "Última entrega",
       "colActions": "Acciones",
       "openGroupRepo": "Abrir el repositorio compartido del grupo",
-      "hideSubmissions": "Ocultar entregas",
-      "showSubmissions": "Mostrar todas las entregas",
-      "submissionCount_one": "{{count}} entrega",
-      "submissionCount_other": "{{count}} entregas",
       "late": "Con retraso",
       "lateRowTitle": "La última entrega se subió después de la fecha límite.",
-      "lateHistoryTitle": "Subida después de la fecha límite.",
       "gradedAt": "Calificada {{date}}",
       "gradedAtTitle": "Cuándo el autocalificador (re)calificó por última vez esta entrega. La recalificación actualiza esto sin cambiar la fecha de entrega.",
       "members": "Miembros",
       "openRepoLabel": "Abrir el repositorio {{repo}}",
       "viewRepo": "Ver repositorio",
       "viewCommit": "Ver último commit",
-      "commit": "Commit",
       "noCommit": "Aún no hay commit",
       "viewDetails": "Ver detalles del autocalificador",
-      "details": "Detalles",
       "noDetails": "Aún no hay detalles",
       "notSubmitted": "Sin entregar",
-      "submittedBy": "por {{name}}",
       "review": "Revisar",
       "reviewAria": "Abrir la pull request de comentarios",
       "acceptedAwaiting": "Aceptada · a la espera de la entrega",
@@ -1990,7 +1988,6 @@
       "noGroupTitle": "Este estudiante no está acreditado en el repositorio de ningún grupo que haya entregado. La pertenencia al grupo se lee de los colaboradores de cada repositorio en el momento de la recopilación, así que un estudiante que nunca se unió a un grupo —o cuya pertenencia al grupo no se pudo leer en la última recopilación— aparece aquí. Abre los repositorios de grupo para confirmarlo antes de calificar.",
       "notAccepted": "No aceptada",
       "noGradingTitle": "La autocalificación está desactivada para esta tarea",
-      "fullHistory": "Abre el <repoLink>repositorio</repoLink> para ver el historial completo de commits.",
       "liveLatest": "Último push {{date}} · aún sin calificar",
       "liveLatestTitle": "Se hizo push de una entrega más reciente tras la última recopilación, así que todavía no está calificada. Ejecuta «Sincronizar entregas ahora» para corregirla y puntuarla.",
       "loading": "Cargando entregas…",
@@ -2002,7 +1999,10 @@
       "manageAccess": "Gestionar el acceso al repositorio",
       "manageAccessAria": "Gestionar el acceso al repositorio de {{owner}}",
       "overridden": "Manual",
-      "overriddenTitle": "Esta puntuación se estableció a mano y la autocalificación no la cambiará hasta que se borre la anulación."
+      "overriddenTitle": "Esta puntuación se estableció a mano y la autocalificación no la cambiará hasta que se borre la anulación.",
+      "notCollectedYet": "Aún no recopilada",
+      "notCollectedYetTitle": "Este estudiante ha enviado trabajo que aún no se ha recopilado, por lo que no hay una hora de entrega registrada. Ejecuta «Sincronizar entregas ahora» para recopilarlo.",
+      "viewSubmissionsTitle": "Ver entregas"
     },
     "reviewModal": {
       "errorTitle": "No se pudo comprobar si hay una PR de comentarios",
@@ -2024,15 +2024,9 @@
       "confirmBody2": "La corrección se ejecuta en segundo plano y puede tardar unos minutos; usa <collectLabel>{{collectLabel}}</collectLabel> después para obtener la nueva puntuación."
     },
     "student": {
-      "submittedAt": "Entregada {{date}}",
-      "viewGrade": "Ver calificación",
-      "unavailable": "No disponible",
       "modeGroup": "Grupo",
       "modeIndividual": "Individual",
       "loadError": "No se pudieron cargar tus entregas.",
-      "noGradedYet": "Todavía no hay ninguna entrega calificada. Haz push a tu repositorio de la tarea desde la línea de comandos y el autocorrector publicará tu resultado aquí.",
-      "openMyRepo": "Abrir mi repositorio",
-      "releasesIntro": "Cada entrega abre su release calificada en GitHub, con tu calificación y los resultados por prueba.",
       "fallbackTitle": "Entrega",
       "missingParams": "Falta información de la clase o de la tarea.",
       "descriptionLabel": "Detalles de la tarea",
@@ -2042,7 +2036,11 @@
         "step1": "Clona tu repositorio de la tarea (una vez):",
         "step2": "Desde dentro del repositorio, entrega tu trabajo para su calificación:",
         "title": "Enviar desde la línea de comandos",
-        "intro": "Envía tu trabajo para su calificación desde una terminal."
+        "intro": "Envía tu trabajo para su calificación desde una terminal.",
+        "copyMilestone": "Copiar el comando de etiqueta de hito",
+        "milestoneStep": "O envía una etiqueta de hito que tu profesor haya configurado (por ejemplo, {{tags}}):",
+        "tagIntro": "Esta tarea se califica por etiquetas. Confirma y envía tu trabajo, luego envía una etiqueta para presentarlo a calificación.",
+        "tagStep2": "Desde dentro del repositorio, entrega tu trabajo: esto envía una etiqueta de entrega que activa la calificación:"
       },
       "upload": {
         "addFiles": "Añadir archivos",
@@ -2069,7 +2067,11 @@
         "unsafePath": "Se omitió «{{name}}»: su ruta no está permitida."
       },
       "notAccepted": "Aún no has aceptado esta tarea. <acceptLink>Acéptala</acceptLink> para obtener tu repositorio y luego haz push de tu trabajo para que se corrija.",
-      "locked": "Esta tarea está bloqueada por tu profesor y no está disponible en este momento. Vuelve más tarde o pídele a tu profesor que la desbloquee."
+      "locked": "Esta tarea está bloqueada por tu profesor y no está disponible en este momento. Vuelve más tarde o pídele a tu profesor que la desbloquee.",
+      "detailsTitle": "Tus entregas",
+      "notSubmittedYet": "Aún no entregada",
+      "submittedAwaitingGrading": "Entregada — pendiente de calificación",
+      "tableCaption": "Tu entrega para esta tarea"
     },
     "viewSourceRepo": "Ver plantilla",
     "menu": {
@@ -2080,7 +2082,6 @@
     "metrics": {
       "title": "Métricas de entregas"
     },
-    "emptyRepoNote": "Esta tarea usa repositorios vacíos: la autocalificación, las puntuaciones y el pull request de comentarios están desactivados. Los estudiantes crean y suben su propio trabajo; la tabla de abajo muestra quién la ha aceptado.",
     "freshness": {
       "collected": "Datos de entregas sincronizados {{when}}",
       "neverCollected": "Datos de entregas aún no sincronizados",
@@ -2341,17 +2342,6 @@
       "working": "Actualizando repositorios"
     },
     "closedNotice": "Las entregas están cerradas. Los estudiantes nuevos no pueden aceptar esta tarea. Cuando cierras desde aquí, los repositorios de los estudiantes que aceptaron se establecen como de solo lectura; el trabajo existente se conserva. Reábrela desde el menú Acciones para volver a permitir entregas.",
-    "manualGrade": {
-      "add": "Añadir calificación",
-      "addLabel": "Añadir calificación para {{name}}",
-      "edit": "Editar calificación",
-      "editLabel": "Editar calificación para {{name}}",
-      "inputLabel": "Puntuación para {{name}}",
-      "notGraded": "Sin calificar",
-      "range": "La puntuación debe ser un número entero de 0 a {{max}}.",
-      "required": "Introduce una puntuación para guardar.",
-      "saveError": "No se pudo guardar la calificación. Comprueba tu conexión y vuelve a intentarlo."
-    },
     "migrateTracking": {
       "apply": "Migrar la configuración",
       "bannerAction": "Migrar la configuración",
@@ -2364,7 +2354,6 @@
       "warning": "Esto registra la configuración de cada tarea de forma explícita para que todas las herramientas la lean igual y se habiliten las funciones más nuevas (como el seguimiento de entregas en vivo). No cambia ninguna calificación, fecha límite ni el acceso de ningún estudiante, y puedes seguir trabajando como antes.",
       "working": "Actualizando tareas"
     },
-    "noAutograderNote": "Esta tarea no tiene autocalificación integrada: el docente proporciona su propia CI en la plantilla. Las puntuaciones integradas y la recalificación están deshabilitadas; la tabla de abajo muestra quién ha aceptado. La solicitud de incorporación de cambios de comentarios sigue funcionando cuando está habilitada.",
     "rowAutograde": {
       "outcome": {
         "failed": "No se pudo cambiar el estado de autocalificación: vuelve a intentarlo.",
@@ -2391,6 +2380,64 @@
         "updated": "Disparador de autocalificación actualizado. El estudiante debe hacer pull antes de su próximo push."
       },
       "title": "Actualizar disparador de autocalificación"
+    },
+    "details": {
+      "emptyEveryPush": "Aún no hay pushes a la rama predeterminada. El repositorio sigue existiendo: ábrelo para ver el código.",
+      "emptyLinkDefaultBranch": "Ver repositorio",
+      "emptyLinkTags": "Ver etiquetas",
+      "emptyTag": "Aún no hay entregas etiquetadas. El repositorio sigue existiendo: abre sus etiquetas para ver las entregas a medida que llegan.",
+      "pushEntry": "Push n.º {{number}}",
+      "tagEntry": "Entrega n.º {{number}}",
+      "unavailable": "No disponible",
+      "viewCommit": "Ver commit",
+      "viewGrade": "Ver calificación",
+      "viewRepository": "Ver repositorio",
+      "viewSubmissions": "Ver entregas",
+      "viewTag": "Ver etiqueta"
+    },
+    "grading": {
+      "badgeBuiltIn": "Autocalificada",
+      "badgeEmptyRepo": "Sin calificación automática",
+      "badgeNoAutograder": "Sin autocalificación integrada",
+      "titleEmptyRepo": "Esta tarea usa repositorios vacíos: la calificación automática, las puntuaciones y la solicitud de incorporación de comentarios están desactivadas. La tabla muestra quién ha aceptado.",
+      "titleNoAutograder": "El profesor proporciona su propia CI en la plantilla. Las puntuaciones integradas y la recalificación están desactivadas; la solicitud de incorporación de comentarios sigue funcionando cuando está habilitada."
+    },
+    "scoreOverride": {
+      "add": "Añadir calificación",
+      "addLabel": "Añadir calificación para {{name}}",
+      "clear": "Quitar anulación",
+      "clearError": "No se pudo quitar la anulación. Comprueba tu conexión e inténtalo de nuevo.",
+      "clearLabel": "Quitar la anulación de puntuación de {{name}}",
+      "currentAutograded": "Puntuación autocalificada",
+      "descriptionAuto": "Introduce una puntuación para {{name}} para anular el resultado autocalificado. La puntuación autocalificada se conserva y se restaura si quitas la anulación.",
+      "descriptionManual": "Introduce una puntuación para {{name}}. Se guarda en el cuaderno de calificaciones y la calificación automática no la cambiará.",
+      "edit": "Editar calificación",
+      "editLabel": "Editar calificación de {{name}}",
+      "inputLabel": "Puntuación",
+      "maxHint": "Esta entrega aún no se ha autocalificado, así que introduce el total de puntos sobre el que se califica.",
+      "maxLabel": "Sobre (puntos máximos)",
+      "maxRange": "Los puntos máximos deben ser un número entero de al menos 1.",
+      "maxRequired": "Introduce los puntos máximos para guardar.",
+      "notGraded": "Sin calificar",
+      "override": "Anular puntuación",
+      "overrideLabel": "Anular la puntuación de {{name}}",
+      "range": "La puntuación debe ser un número entero de 0 a {{max}}.",
+      "required": "Introduce una puntuación para guardar.",
+      "save": "Guardar",
+      "saveError": "No se pudo guardar la calificación. Comprueba tu conexión e inténtalo de nuevo.",
+      "titleAdd": "Añadir calificación",
+      "titleEdit": "Editar calificación",
+      "titleOverride": "Anular puntuación"
+    },
+    "type": {
+      "badgeEveryPush": "Cada push a la rama predeterminada cuenta",
+      "badgeTag": "Entregada por etiqueta",
+      "countEveryPush_one": "{{count}} push a la rama predeterminada",
+      "countEveryPush_other": "{{count}} pushes a la rama predeterminada",
+      "countTag_one": "{{count}} entrega etiquetada",
+      "countTag_other": "{{count}} entregas etiquetadas",
+      "tagGroupCount_one": "{{pattern}} · {{count}} etiqueta",
+      "tagGroupCount_other": "{{pattern}} · {{count}} etiquetas"
     }
   },
   "orgMembers": {

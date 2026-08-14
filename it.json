@@ -861,9 +861,9 @@
           }
         },
         "label": "Autovalutazione",
-        "lockedHelp": "Se viene usato l'autovalutatore integrato non può essere modificato dopo la creazione: i repository già accettati dagli studenti non vengono riprovisionati.",
         "modeLabel": "Autovalutatore integrato",
-        "notAutogradedNote": "Le opzioni di autovalutazione si applicano solo quando questo compito è impostato su \"Autovalutato\" nella sezione Consegna e valutazione sopra. Cambia la scelta di valutazione in Autovalutato per configurare l'autovalutatore."
+        "notAutogradedNote": "Le opzioni di autovalutazione si applicano solo quando questo compito è impostato su \"Autovalutato\" nella sezione Consegna e valutazione sopra. Cambia la scelta di valutazione in Autovalutato per configurare l'autovalutatore.",
+        "editHelp": "La modifica del correttore automatico integrato interessa solo i repository che gli studenti accettano d'ora in poi. I repository già accettati mantengono la configurazione originale — dovrai riconciliare tu stesso eventuali differenze."
       },
       "copyAbout": {
         "help": "Copia l'About del template (la sua descrizione) su ogni repository degli studenti. GitHub non lo copia automaticamente. Questo si applica agli studenti che accettano d'ora in poi; i repository già creati non vengono modificati.",
@@ -880,8 +880,7 @@
           "manual": "Manuale (inserisci i punteggi a mano)",
           "off": "Non valutato"
         },
-        "editWarning": "La modalità di valutazione non può essere modificata dopo la creazione: i punteggi già registrati con la vecchia modalità verrebbero interpretati in modo errato. Crea invece un nuovo compito con uno slug diverso.",
-        "help": "Come viene valutato questo compito. \"Autovalutato\" esegue l'autovalutatore che configuri qui sotto. \"Manuale\" ti consente di inserire il punteggio di ogni studente a mano nella pagina delle consegne. \"Non valutato\" non registra alcun punteggio. Non può essere modificato dopo la creazione del compito.",
+        "help": "Come viene valutata questa consegna. \"Corretta automaticamente\" esegue il correttore che configuri qui sotto. \"Manuale\" ti permette di inserire a mano il punteggio di ogni studente nella pagina delle consegne. \"Non valutata\" non registra alcun punteggio.",
         "label": "Valutazione",
         "maxPoints": {
           "help": "Punti totali disponibili per questo compito manuale. Usato per mostrare il punteggio di ogni studente sul massimo.",
@@ -894,7 +893,6 @@
       },
       "repoSource": {
         "label": "Parti da un template",
-        "lockedHelp": "L'origine del repository non può essere modificata dopo la creazione: i repository già accettati dagli studenti non vengono riprovisionati.",
         "none": {
           "help": "Crea un nuovo repository per ogni studente.",
           "label": "Nessun template"
@@ -902,15 +900,11 @@
         "template": {
           "help": "Genera il repository di ogni studente da un template che fornisci.",
           "label": "Repository template"
-        }
+        },
+        "editHelp": "La modifica della sorgente del repository interessa solo i repository che gli studenti accettano d'ora in poi. I repository già accettati mantengono il contenuto di partenza originale — dovrai riconciliare tu stesso eventuali differenze."
       },
       "repositorySetupSection": "Configurazione del repository",
       "scheduleSection": "Pianificazione",
-      "sectionStatus": {
-        "configured": "Configurato",
-        "default": "Predefinito",
-        "error": "Richiede attenzione"
-      },
       "submissionMode": {
         "choices": {
           "everyPush": "Ogni push sul branch predefinito",
@@ -931,7 +925,11 @@
       "submissions": {
         "heading": "Consegne",
         "help": "Come la pagina delle consegne rileva e conta il lavoro di ogni studente. L'autovalutatore usa la stessa definizione."
-      }
+      },
+      "discardChanges": "Annulla le modifiche",
+      "reset": "Reimposta",
+      "resetSection": "Reimposta questa sezione alle impostazioni predefinite",
+      "typeLockedHelp": "Non modificabile dopo la creazione — cambiarlo invaliderebbe le consegne esistenti."
     },
     "autograder": {
       "heading": "Test di correzione automatica",
@@ -1273,7 +1271,14 @@
     "collaboratorsHint_one": "Aggiungi o rimuovi collaboratori per il repository di questo compito. Questo compito consente fino a <count>{{count}}</count> studente oltre al proprietario del gruppo.",
     "collaboratorsHint_other": "Aggiungi o rimuovi collaboratori per il repository di questo compito. Questo compito consente fino a <count>{{count}}</count> studenti oltre al proprietario del gruppo.",
     "individual": "Questo è un compito individuale: non ci sono impostazioni di gruppo da gestire. Visualizza la tua <submissionLink>consegna e i risultati dell'autovalutatore</submissionLink>.",
-    "notAccepted": "Non hai ancora questo compito! Devi prima <acceptLink>accettarlo</acceptLink>?"
+    "notAccepted": "Non hai ancora questo compito! Devi prima <acceptLink>accettarlo</acceptLink>?",
+    "provisioningConfirm": {
+      "body_one": "{{count}} studente ha già accettato questa consegna. Questa modifica interessa solo i repository accettati d'ora in poi — il {{count}} repository esistente mantiene il codice di partenza e la configurazione originali. Se disattivi la correzione automatica, le esecuzioni di correzione di quei repository iniziano a fallire e vengono escluse dal registro valutazioni; se cambi la modalità di valutazione, i punteggi registrati con la modalità precedente potrebbero risultare diversi. Dovrai riconciliare tu stesso eventuali incongruenze.",
+      "body_other": "{{count}} studenti hanno già accettato questa consegna. Questa modifica interessa solo i repository accettati d'ora in poi — i {{count}} repository esistenti mantengono il codice di partenza e la configurazione originali. Se disattivi la correzione automatica, le esecuzioni di correzione di quei repository iniziano a fallire e vengono escluse dal registro valutazioni; se cambi la modalità di valutazione, i punteggi registrati con la modalità precedente potrebbero risultare diversi. Dovrai riconciliare tu stesso eventuali incongruenze.",
+      "cancel": "Annulla",
+      "confirm": "Salva comunque le modifiche",
+      "title": "Modificare le impostazioni di provisioning dopo che gli studenti hanno accettato?"
+    }
   },
   "orgSettings": {
     "page": {
@@ -1870,7 +1875,8 @@
       "statusFailed": "L'esecuzione della raccolta non è stata completata correttamente.",
       "statusFailedWithReason": "Impossibile avviare la raccolta: {{reason}}",
       "statusFailedHint": "Puoi verificarla o avviarla manualmente su GitHub.",
-      "statusTimeout": "Ancora in esecuzione dopo un po'. Controlla i progressi su GitHub oppure aggiorna questa pagina al termine."
+      "statusTimeout": "Ancora in esecuzione dopo un po'. Controlla i progressi su GitHub oppure aggiorna questa pagina al termine.",
+      "workflowOutdated": "Impossibile raccogliere questa consegna: il workflow Collect Scores nel repository di configurazione classroom50 di questa organizzazione non è aggiornato. Aggiorna i workflow dell'organizzazione (compare un banner di aggiornamento quando è disponibile una versione più recente), poi riprova."
     },
     "regradeAll": {
       "label": "Rivaluta tutto",
@@ -1958,26 +1964,18 @@
       "colLastSubmitted": "Ultima consegna",
       "colActions": "Azioni",
       "openGroupRepo": "Apri il repository condiviso del gruppo",
-      "hideSubmissions": "Nascondi le consegne",
-      "showSubmissions": "Mostra tutte le consegne",
-      "submissionCount_one": "{{count}} consegna",
-      "submissionCount_other": "{{count}} consegne",
       "late": "In ritardo",
       "lateRowTitle": "L'ultima consegna è stata inviata dopo la scadenza.",
-      "lateHistoryTitle": "Inviata dopo la scadenza.",
       "gradedAt": "Valutata {{date}}",
       "gradedAtTitle": "Quando l'autovalutatore ha valutato (o rivalutato) l'ultima volta questa consegna. La rivalutazione aggiorna questo dato senza modificare la data di consegna.",
       "members": "Membri",
       "openRepoLabel": "Apri il repository {{repo}}",
       "viewRepo": "Visualizza repository",
       "viewCommit": "Visualizza l'ultimo commit",
-      "commit": "Commit",
       "noCommit": "Nessun commit ancora",
       "viewDetails": "Visualizza i dettagli dell'autovalutatore",
-      "details": "Dettagli",
       "noDetails": "Nessun dettaglio ancora",
       "notSubmitted": "Non consegnata",
-      "submittedBy": "di {{name}}",
       "review": "Rivedi",
       "reviewAria": "Apri la pull request di feedback",
       "acceptedAwaiting": "Accettato · in attesa di consegna",
@@ -1990,7 +1988,6 @@
       "noGroupTitle": "Questo studente non è accreditato nel repository di alcun gruppo che ha consegnato. L'appartenenza al gruppo viene letta dai collaboratori di ciascun repository al momento della raccolta, quindi uno studente che non si è mai unito a un gruppo — o la cui appartenenza al gruppo non è stata letta nell'ultima raccolta — appare qui. Apri i repository dei gruppi per verificare prima di valutare.",
       "notAccepted": "Non accettato",
       "noGradingTitle": "La correzione automatica è disabilitata per questo compito",
-      "fullHistory": "Apri il <repoLink>repository</repoLink> per la cronologia completa dei commit.",
       "liveLatest": "Ultimo push {{date}} · non ancora valutato",
       "liveLatestTitle": "Una consegna più recente è stata inviata dopo l'ultima raccolta, quindi non è ancora valutata. Esegui \"Sincronizza consegne ora\" per valutarla e assegnarle un punteggio.",
       "loading": "Caricamento delle consegne…",
@@ -2002,7 +1999,10 @@
       "manageAccess": "Gestisci l'accesso al repository",
       "manageAccessAria": "Gestisci l'accesso al repository per {{owner}}",
       "overridden": "Manuale",
-      "overriddenTitle": "Questo punteggio è stato impostato a mano e non verrà modificato dall'autovalutazione finché la sovrascrittura non viene rimossa."
+      "overriddenTitle": "Questo punteggio è stato impostato a mano e non verrà modificato dall'autovalutazione finché la sovrascrittura non viene rimossa.",
+      "notCollectedYet": "Non ancora raccolto",
+      "notCollectedYetTitle": "Questo studente ha inviato lavoro non ancora raccolto, quindi non c'è un orario di consegna registrato. Esegui \"Sincronizza le consegne ora\" per raccoglierlo.",
+      "viewSubmissionsTitle": "Visualizza consegne"
     },
     "reviewModal": {
       "errorTitle": "Impossibile verificare la presenza di una PR di feedback",
@@ -2024,15 +2024,9 @@
       "confirmBody2": "La valutazione viene eseguita in background e può richiedere qualche minuto; usa <collectLabel>{{collectLabel}}</collectLabel> in seguito per recuperare il nuovo punteggio."
     },
     "student": {
-      "submittedAt": "Consegnata {{date}}",
-      "viewGrade": "Visualizza voto",
-      "unavailable": "Non disponibile",
       "modeGroup": "Gruppo",
       "modeIndividual": "Individuale",
       "loadError": "Impossibile caricare le tue consegne.",
-      "noGradedYet": "Nessuna consegna valutata ancora. Fai push nel tuo repository del compito dalla riga di comando e l'autograder pubblicherà qui il tuo risultato.",
-      "openMyRepo": "Apri il mio repository",
-      "releasesIntro": "Ogni consegna apre la sua release valutata su GitHub, con il tuo punteggio e i risultati per singolo test.",
       "fallbackTitle": "Consegna",
       "missingParams": "Mancano le informazioni sulla classe o sul compito.",
       "descriptionLabel": "Dettagli del compito",
@@ -2042,7 +2036,11 @@
         "step1": "Clona il repository del compito (una volta sola):",
         "step2": "All'interno del repository, consegna il tuo lavoro per la correzione:",
         "title": "Consegna dalla riga di comando",
-        "intro": "Consegna il tuo lavoro per la valutazione da un terminale."
+        "intro": "Consegna il tuo lavoro per la valutazione da un terminale.",
+        "copyMilestone": "Copia il comando del tag di milestone",
+        "milestoneStep": "Oppure invia un tag di milestone impostato dall'insegnante (ad esempio, {{tags}}):",
+        "tagIntro": "Questa consegna viene valutata sui tag. Effettua il commit e il push del tuo lavoro, poi invia un tag per consegnarlo alla valutazione.",
+        "tagStep2": "All'interno del repository, consegna il tuo lavoro — questo invia un tag di consegna che attiva la valutazione:"
       },
       "upload": {
         "addFiles": "Aggiungi file",
@@ -2069,7 +2067,11 @@
         "unsafePath": "Ignorato \"{{name}}\" — il suo percorso non è consentito."
       },
       "notAccepted": "Non hai ancora accettato questo compito. <acceptLink>Accettalo</acceptLink> per ottenere il tuo repository, poi effettua il push del tuo lavoro per farlo valutare.",
-      "locked": "Questo compito è bloccato dal tuo docente e al momento non è disponibile. Riprova più tardi o chiedi al tuo docente di sbloccarlo."
+      "locked": "Questo compito è bloccato dal tuo docente e al momento non è disponibile. Riprova più tardi o chiedi al tuo docente di sbloccarlo.",
+      "detailsTitle": "Le tue consegne",
+      "notSubmittedYet": "Non ancora consegnato",
+      "submittedAwaitingGrading": "Consegnato — in attesa di valutazione",
+      "tableCaption": "La tua consegna per questa consegna"
     },
     "viewSourceRepo": "Visualizza template",
     "menu": {
@@ -2080,7 +2082,6 @@
     "metrics": {
       "title": "Metriche delle consegne"
     },
-    "emptyRepoNote": "Questo compito usa repository vuoti — la correzione automatica, i punteggi e la pull request di feedback sono disabilitati. Gli studenti creano e caricano il proprio lavoro; la tabella qui sotto mostra chi ha accettato.",
     "freshness": {
       "collected": "Dati delle consegne sincronizzati {{when}}",
       "neverCollected": "Dati delle consegne non ancora sincronizzati",
@@ -2341,17 +2342,6 @@
       "working": "Aggiornamento dei repository"
     },
     "closedNotice": "Le consegne sono chiuse. I nuovi studenti non possono accettare questo compito. Quando chiudi da qui, i repository degli studenti che hanno accettato vengono impostati in sola lettura; il lavoro esistente viene preservato. Riaprila dal menu Azioni per consentire di nuovo le consegne.",
-    "manualGrade": {
-      "add": "Aggiungi voto",
-      "addLabel": "Aggiungi voto per {{name}}",
-      "edit": "Modifica voto",
-      "editLabel": "Modifica voto per {{name}}",
-      "inputLabel": "Punteggio per {{name}}",
-      "notGraded": "Non valutato",
-      "range": "Il punteggio deve essere un numero intero da 0 a {{max}}.",
-      "required": "Inserisci un punteggio per salvare.",
-      "saveError": "Impossibile salvare il voto. Controlla la tua connessione e riprova."
-    },
     "migrateTracking": {
       "apply": "Migra la configurazione",
       "bannerAction": "Migra la configurazione",
@@ -2364,7 +2354,6 @@
       "warning": "Questo registra le impostazioni di ogni compito in modo esplicito, così ogni strumento le legge allo stesso modo e le funzionalità più recenti (come il monitoraggio delle consegne in tempo reale) vengono abilitate. Non modifica alcun voto, scadenza o accesso degli studenti, e puoi continuare a lavorare come prima.",
       "working": "Aggiornamento dei compiti"
     },
-    "noAutograderNote": "Questo compito non ha l'autovalutazione integrata — l'insegnante fornisce la propria CI nel template. I punteggi integrati e la rivalutazione sono disabilitati; la tabella qui sotto mostra chi ha accettato. La pull request di feedback funziona comunque quando è abilitata.",
     "rowAutograde": {
       "outcome": {
         "failed": "Non è stato possibile modificare lo stato dell'autovalutazione — riprova.",
@@ -2391,6 +2380,64 @@
         "updated": "Trigger di autovalutazione aggiornato. Lo studente deve fare pull prima del suo prossimo push."
       },
       "title": "Aggiorna il trigger di autovalutazione"
+    },
+    "details": {
+      "emptyEveryPush": "Ancora nessun push sul branch predefinito. Il repository esiste comunque — aprilo per vedere il codice.",
+      "emptyLinkDefaultBranch": "Visualizza repository",
+      "emptyLinkTags": "Visualizza tag",
+      "emptyTag": "Ancora nessuna consegna con tag. Il repository esiste comunque — apri i suoi tag per vedere le consegne man mano che arrivano.",
+      "pushEntry": "Push n. {{number}}",
+      "tagEntry": "Consegna n. {{number}}",
+      "unavailable": "Non disponibile",
+      "viewCommit": "Visualizza commit",
+      "viewGrade": "Visualizza valutazione",
+      "viewRepository": "Visualizza repository",
+      "viewSubmissions": "Visualizza consegne",
+      "viewTag": "Visualizza tag"
+    },
+    "grading": {
+      "badgeBuiltIn": "Corretta automaticamente",
+      "badgeEmptyRepo": "Nessuna correzione automatica",
+      "badgeNoAutograder": "Nessuna correzione automatica integrata",
+      "titleEmptyRepo": "Questa consegna usa repository vuoti — correzione automatica, punteggi e pull request di feedback sono disattivati. La tabella mostra chi ha accettato.",
+      "titleNoAutograder": "L'insegnante fornisce la propria CI nel template. Punteggi integrati e ricorrezione sono disattivati; la pull request di feedback funziona comunque quando è abilitata."
+    },
+    "scoreOverride": {
+      "add": "Aggiungi valutazione",
+      "addLabel": "Aggiungi valutazione per {{name}}",
+      "clear": "Rimuovi override",
+      "clearError": "Impossibile rimuovere l'override. Controlla la connessione e riprova.",
+      "clearLabel": "Rimuovi l'override del punteggio per {{name}}",
+      "currentAutograded": "Punteggio automatico",
+      "descriptionAuto": "Inserisci un punteggio per {{name}} per sovrascrivere il risultato automatico. Il punteggio automatico viene conservato e ripristinato se rimuovi l'override.",
+      "descriptionManual": "Inserisci un punteggio per {{name}}. Viene salvato nel registro valutazioni e non verrà modificato dalla correzione automatica.",
+      "edit": "Modifica valutazione",
+      "editLabel": "Modifica valutazione per {{name}}",
+      "inputLabel": "Punteggio",
+      "maxHint": "Questa consegna non è ancora stata corretta automaticamente, quindi inserisci il totale dei punti su cui è calcolata.",
+      "maxLabel": "Su (punti massimi)",
+      "maxRange": "I punti massimi devono essere un numero intero di almeno 1.",
+      "maxRequired": "Inserisci i punti massimi per salvare.",
+      "notGraded": "Non valutata",
+      "override": "Sovrascrivi punteggio",
+      "overrideLabel": "Sovrascrivi il punteggio per {{name}}",
+      "range": "Il punteggio deve essere un numero intero da 0 a {{max}}.",
+      "required": "Inserisci un punteggio per salvare.",
+      "save": "Salva",
+      "saveError": "Impossibile salvare la valutazione. Controlla la connessione e riprova.",
+      "titleAdd": "Aggiungi valutazione",
+      "titleEdit": "Modifica valutazione",
+      "titleOverride": "Sovrascrivi punteggio"
+    },
+    "type": {
+      "badgeEveryPush": "Ogni push sul branch predefinito conta",
+      "badgeTag": "Consegnato tramite tag",
+      "countEveryPush_one": "{{count}} push sul branch predefinito",
+      "countEveryPush_other": "{{count}} push sul branch predefinito",
+      "countTag_one": "{{count}} consegna con tag",
+      "countTag_other": "{{count}} consegne con tag",
+      "tagGroupCount_one": "{{pattern}} · {{count}} tag",
+      "tagGroupCount_other": "{{pattern}} · {{count}} tag"
     }
   },
   "orgMembers": {

@@ -863,9 +863,9 @@
           }
         },
         "label": "Autoocenianie",
-        "lockedHelp": "To, czy używany jest wbudowany autograder, nie może być zmienione po utworzeniu: repozytoria, które uczniowie już zaakceptowali, nie są ponownie provisionowane.",
         "modeLabel": "Wbudowany autograder",
-        "notAutogradedNote": "Opcje autoceniania mają zastosowanie tylko wtedy, gdy to zadanie jest ustawione jako „Automatycznie oceniane” w sekcji Zgłoszenie i ocenianie powyżej. Zmień wybór oceniania na Automatycznie oceniane, aby skonfigurować autograder."
+        "notAutogradedNote": "Opcje autoceniania mają zastosowanie tylko wtedy, gdy to zadanie jest ustawione jako „Automatycznie oceniane” w sekcji Zgłoszenie i ocenianie powyżej. Zmień wybór oceniania na Automatycznie oceniane, aby skonfigurować autograder.",
+        "editHelp": "Zmiana wbudowanego autogradera dotyczy tylko repozytoriów, które uczniowie zaakceptują od tej chwili. Repozytoria już zaakceptowane zachowują swoją oryginalną konfigurację — wszelkie różnice będziesz musiał(a) uzgodnić samodzielnie."
       },
       "copyAbout": {
         "help": "Skopiuj sekcję About szablonu (jego opis) do każdego repozytorium ucznia. GitHub nie kopiuje jej automatycznie. Dotyczy to uczniów, którzy zaakceptują od teraz; już utworzone repozytoria nie są zmieniane.",
@@ -882,8 +882,7 @@
           "manual": "Ręcznie (wprowadzaj wyniki ręcznie)",
           "off": "Nieoceniane"
         },
-        "editWarning": "Tryb oceniania nie może być zmieniony po utworzeniu: wyniki już zapisane w starym trybie zostałyby błędnie odczytane. Zamiast tego utwórz nowe zadanie pod innym slugiem.",
-        "help": "Jak to zadanie jest oceniane. „Automatycznie oceniane” uruchamia autograder, który skonfigurujesz poniżej. „Ręcznie” pozwala wprowadzić wynik każdego ucznia ręcznie na stronie zgłoszeń. „Nieoceniane” nie zapisuje żadnego wyniku. Nie można zmienić po utworzeniu zadania.",
+        "help": "Sposób oceniania tego zadania. „Autoocenianie” uruchamia autograder skonfigurowany poniżej. „Ręczne” pozwala wpisać wynik każdego ucznia ręcznie na stronie zgłoszeń. „Bez oceny” nie zapisuje żadnego wyniku.",
         "label": "Ocenianie",
         "maxPoints": {
           "help": "Łączna liczba punktów dostępnych dla tego ręcznego zadania. Używana do pokazania wyniku każdego ucznia w stosunku do maksimum.",
@@ -896,7 +895,6 @@
       },
       "repoSource": {
         "label": "Zacznij od szablonu",
-        "lockedHelp": "Źródło repozytorium nie może być zmienione po utworzeniu: repozytoria, które uczniowie już zaakceptowali, nie są ponownie provisionowane.",
         "none": {
           "help": "Utwórz nowe repozytorium dla każdego ucznia.",
           "label": "Bez szablonu"
@@ -904,15 +902,11 @@
         "template": {
           "help": "Wygeneruj repozytorium każdego ucznia z dostarczonego przez Ciebie szablonu.",
           "label": "Repozytorium szablonu"
-        }
+        },
+        "editHelp": "Zmiana źródła repozytorium dotyczy tylko repozytoriów, które uczniowie zaakceptują od tej chwili. Repozytoria już zaakceptowane zachowują swoją oryginalną zawartość startową — wszelkie różnice będziesz musiał(a) uzgodnić samodzielnie."
       },
       "repositorySetupSection": "Konfiguracja repozytorium",
       "scheduleSection": "Harmonogram",
-      "sectionStatus": {
-        "configured": "Skonfigurowano",
-        "default": "Domyślne",
-        "error": "Wymaga uwagi"
-      },
       "submissionMode": {
         "choices": {
           "everyPush": "Każdy push do gałęzi domyślnej",
@@ -933,7 +927,11 @@
       "submissions": {
         "heading": "Zgłoszenia",
         "help": "Jak strona zgłoszeń wykrywa i liczy pracę każdego ucznia. Autograder używa tej samej definicji."
-      }
+      },
+      "discardChanges": "Odrzuć zmiany",
+      "reset": "Przywróć",
+      "resetSection": "Przywróć tę sekcję do ustawień domyślnych",
+      "typeLockedHelp": "Nie można zmienić po utworzeniu — przełączenie unieważniłoby istniejące zgłoszenia."
     },
     "autograder": {
       "heading": "Testy autooceny",
@@ -1275,7 +1273,14 @@
     "collaboratorsHint_one": "Dodaj lub usuń współpracowników w repozytorium tego zadania. To zadanie dopuszcza maksymalnie <count>{{count}}</count> ucznia oprócz właściciela grupy.",
     "collaboratorsHint_other": "Dodaj lub usuń współpracowników w repozytorium tego zadania. To zadanie dopuszcza maksymalnie <count>{{count}}</count> uczniów oprócz właściciela grupy.",
     "individual": "To jest zadanie indywidualne — nie ma ustawień grupy do zarządzania. Zobacz swoje <submissionLink>przesłane rozwiązanie i wyniki autograderа</submissionLink>.",
-    "notAccepted": "Nie masz jeszcze tego zadania! Może musisz najpierw je <acceptLink>przyjąć</acceptLink>?"
+    "notAccepted": "Nie masz jeszcze tego zadania! Może musisz najpierw je <acceptLink>przyjąć</acceptLink>?",
+    "provisioningConfirm": {
+      "body_one": "{{count}} student już zaakceptował to zadanie. Ta zmiana dotyczy tylko repozytoriów zaakceptowanych od tej chwili — {{count}} istniejące repozytorium zachowuje swój oryginalny kod startowy i konfigurację. Jeśli wyłączysz autograding, uruchomienia autogradera w tych repozytoriach zaczną się nie powodzić i wypadną z dziennika ocen; jeśli zmienisz tryb oceniania, wyniki zapisane w starym trybie mogą być odczytywane inaczej. Wszelkie niespójności będziesz musiał(a) uzgodnić samodzielnie.",
+      "body_other": "{{count}} uczniów już zaakceptowało to zadanie. Ta zmiana dotyczy tylko repozytoriów zaakceptowanych od tej chwili — {{count}} istniejące repozytoria zachowują swój oryginalny kod startowy i konfigurację. Jeśli wyłączysz autograding, uruchomienia autogradera w tych repozytoriach zaczną się nie powodzić i wypadną z dziennika ocen; jeśli zmienisz tryb oceniania, wyniki zapisane w starym trybie mogą być odczytywane inaczej. Wszelkie niespójności będziesz musiał(a) uzgodnić samodzielnie.",
+      "cancel": "Anuluj",
+      "confirm": "Mimo to zapisz zmiany",
+      "title": "Zmienić ustawienia udostępniania po zaakceptowaniu przez uczniów?"
+    }
   },
   "orgSettings": {
     "page": {
@@ -1872,7 +1877,8 @@
       "statusFailed": "Przebieg zbierania nie zakończył się pomyślnie.",
       "statusFailedWithReason": "Nie udało się rozpocząć zbierania: {{reason}}",
       "statusFailedHint": "Możesz sprawdzić lub uruchomić je ręcznie w serwisie GitHub.",
-      "statusTimeout": "Nadal trwa po dłuższym czasie. Sprawdź postęp w serwisie GitHub lub odśwież tę stronę po zakończeniu."
+      "statusTimeout": "Nadal trwa po dłuższym czasie. Sprawdź postęp w serwisie GitHub lub odśwież tę stronę po zakończeniu.",
+      "workflowOutdated": "Nie udało się zebrać wyników tego zadania: przepływ pracy Collect Scores w repozytorium konfiguracyjnym classroom50 tej organizacji jest nieaktualny. Zaktualizuj przepływy pracy organizacji (baner aktualizacji pojawia się, gdy dostępna jest nowsza wersja), a następnie spróbuj ponownie."
     },
     "regradeAll": {
       "label": "Oceń wszystko ponownie",
@@ -1960,26 +1966,18 @@
       "colLastSubmitted": "Ostatnio oddane",
       "colActions": "Akcje",
       "openGroupRepo": "Otwórz wspólne repozytorium grupy",
-      "hideSubmissions": "Ukryj rozwiązania",
-      "showSubmissions": "Pokaż wszystkie rozwiązania",
-      "submissionCount_one": "{{count}} praca",
-      "submissionCount_other": "{{count}} prac",
       "late": "Po terminie",
       "lateRowTitle": "Najnowsze rozwiązanie zostało wypchnięte po upływie terminu.",
-      "lateHistoryTitle": "Wypchnięto po upływie terminu.",
       "gradedAt": "Oceniono {{date}}",
       "gradedAtTitle": "Kiedy autograder ostatnio (ponownie) ocenił to rozwiązanie. Ponowne ocenianie aktualizuje tę datę bez zmiany czasu przesłania.",
       "members": "Członkowie",
       "openRepoLabel": "Otwórz repozytorium {{repo}}",
       "viewRepo": "Zobacz repozytorium",
       "viewCommit": "Zobacz najnowszy commit",
-      "commit": "Commit",
       "noCommit": "Brak commita",
       "viewDetails": "Zobacz szczegóły autogradera",
-      "details": "Szczegóły",
       "noDetails": "Brak szczegółów",
       "notSubmitted": "Nieprzesłane",
-      "submittedBy": "przez {{name}}",
       "review": "Recenzja",
       "reviewAria": "Otwórz pull request z opinią",
       "acceptedAwaiting": "Zaakceptowano · oczekiwanie na zgłoszenie",
@@ -1992,7 +1990,6 @@
       "noGroupTitle": "Ten uczestnik nie jest zaliczony w żadnym repozytorium grupy, która zgłosiła pracę. Przynależność do grupy jest odczytywana ze współpracowników każdego repozytorium podczas zbierania, więc uczestnik, który nigdy nie dołączył do grupy — lub którego przynależności do grupy nie udało się odczytać podczas ostatniego zbierania — pojawia się tutaj. Otwórz repozytoria grupy, aby potwierdzić przed oceną.",
       "notAccepted": "Nie zaakceptowano",
       "noGradingTitle": "Autoocena jest wyłączona dla tego zadania",
-      "fullHistory": "Otwórz <repoLink>repozytorium</repoLink>, aby zobaczyć pełną historię commitów.",
       "liveLatest": "Ostatni push {{date}} · jeszcze nieoceniony",
       "liveLatestTitle": "Nowsze rozwiązanie zostało wypchnięte po ostatnim zbieraniu, więc nie jest jeszcze ocenione. Uruchom „Synchronizuj rozwiązania teraz”, aby je ocenić i przyznać punkty.",
       "loading": "Ładowanie rozwiązań…",
@@ -2004,7 +2001,10 @@
       "manageAccess": "Zarządzaj dostępem do repozytorium",
       "manageAccessAria": "Zarządzaj dostępem do repozytorium dla {{owner}}",
       "overridden": "Ręcznie",
-      "overriddenTitle": "Ten wynik został ustawiony ręcznie i nie zostanie zmieniony przez autoocenianie, dopóki nadpisanie nie zostanie usunięte."
+      "overriddenTitle": "Ten wynik został ustawiony ręcznie i nie zostanie zmieniony przez autoocenianie, dopóki nadpisanie nie zostanie usunięte.",
+      "notCollectedYet": "Jeszcze niezebrane",
+      "notCollectedYetTitle": "Ten uczeń wypchnął pracę, która nie została jeszcze zebrana, więc nie ma zapisanego czasu zgłoszenia. Uruchom „Synchronizuj zgłoszenia teraz”, aby ją zebrać.",
+      "viewSubmissionsTitle": "Wyświetl zgłoszenia"
     },
     "reviewModal": {
       "errorTitle": "Nie udało się sprawdzić PR z opinią",
@@ -2026,15 +2026,9 @@
       "confirmBody2": "Ocenianie odbywa się w tle i może potrwać kilka minut; następnie użyj <collectLabel>{{collectLabel}}</collectLabel>, aby pobrać nowy wynik."
     },
     "student": {
-      "submittedAt": "Przesłano {{date}}",
-      "viewGrade": "Zobacz ocenę",
-      "unavailable": "Niedostępne",
       "modeGroup": "Grupowe",
       "modeIndividual": "Indywidualne",
       "loadError": "Nie udało się wczytać Twoich rozwiązań.",
-      "noGradedYet": "Brak jeszcze ocenionego zgłoszenia. Wyślij zmiany do repozytorium zadania z wiersza poleceń, a autograder opublikuje tutaj Twój wynik.",
-      "openMyRepo": "Otwórz moje repozytorium",
-      "releasesIntro": "Każde rozwiązanie otwiera swoje ocenione wydanie w serwisie GitHub, wraz z Twoim wynikiem i rezultatami poszczególnych testów.",
       "fallbackTitle": "Rozwiązanie",
       "missingParams": "Brak informacji o klasie lub zadaniu.",
       "descriptionLabel": "Szczegóły zadania",
@@ -2044,7 +2038,11 @@
         "step1": "Sklonuj repozytorium zadania (jednorazowo):",
         "step2": "Wewnątrz repozytorium oddaj swoją pracę do oceny:",
         "title": "Prześlij z wiersza poleceń",
-        "intro": "Prześlij swoją pracę do oceny z terminala."
+        "intro": "Prześlij swoją pracę do oceny z terminala.",
+        "copyMilestone": "Kopiuj polecenie tagu kamienia milowego",
+        "milestoneStep": "Lub wypchnij tag kamienia milowego skonfigurowany przez nauczyciela (na przykład {{tags}}):",
+        "tagIntro": "To zadanie jest oceniane na podstawie tagów. Zatwierdź i wypchnij swoją pracę, a następnie wypchnij tag, aby zgłosić ją do oceny.",
+        "tagStep2": "Z wnętrza repozytorium zgłoś swoją pracę — spowoduje to wypchnięcie tagu zgłoszenia, który uruchamia ocenianie:"
       },
       "upload": {
         "addFiles": "Dodaj pliki",
@@ -2071,7 +2069,11 @@
         "unsafePath": "Pominięto „{{name}}” — jego ścieżka jest niedozwolona."
       },
       "notAccepted": "Nie przyjąłeś(-aś) jeszcze tego zadania. <acceptLink>Przyjmij je</acceptLink>, aby uzyskać swoje repozytorium, a następnie wypchnij pracę do oceny.",
-      "locked": "To zadanie zostało zablokowane przez nauczyciela i nie jest teraz dostępne. Sprawdź później lub poproś nauczyciela o odblokowanie."
+      "locked": "To zadanie zostało zablokowane przez nauczyciela i nie jest teraz dostępne. Sprawdź później lub poproś nauczyciela o odblokowanie.",
+      "detailsTitle": "Twoje zgłoszenia",
+      "notSubmittedYet": "Jeszcze nie zgłoszono",
+      "submittedAwaitingGrading": "Zgłoszono — oczekuje na ocenę",
+      "tableCaption": "Twoje zgłoszenie do tego zadania"
     },
     "viewSourceRepo": "Zobacz szablon",
     "menu": {
@@ -2082,7 +2084,6 @@
     "metrics": {
       "title": "Metryki zgłoszeń"
     },
-    "emptyRepoNote": "To zadanie używa pustych repozytoriów — autoocena, wyniki i pull request z opinią są wyłączone. Uczniowie tworzą i wysyłają własną pracę; tabela poniżej pokazuje, kto zaakceptował.",
     "freshness": {
       "collected": "Dane rozwiązań zsynchronizowano {{when}}",
       "neverCollected": "Dane rozwiązań nie zostały jeszcze zsynchronizowane",
@@ -2343,17 +2344,6 @@
       "working": "Aktualizowanie repozytoriów"
     },
     "closedNotice": "Zgłoszenia są zamknięte. Nowi uczniowie nie mogą zaakceptować tego zadania. Gdy zamkniesz stąd, repozytoria zaakceptowanych uczniów są ustawiane jako tylko do odczytu; istniejąca praca jest zachowana. Otwórz ponownie z menu Akcje, aby ponownie zezwolić na zgłoszenia.",
-    "manualGrade": {
-      "add": "Dodaj ocenę",
-      "addLabel": "Dodaj ocenę dla {{name}}",
-      "edit": "Edytuj ocenę",
-      "editLabel": "Edytuj ocenę dla {{name}}",
-      "inputLabel": "Wynik dla {{name}}",
-      "notGraded": "Nieocenione",
-      "range": "Wynik musi być liczbą całkowitą od 0 do {{max}}.",
-      "required": "Wprowadź wynik, aby zapisać.",
-      "saveError": "Nie udało się zapisać oceny. Sprawdź połączenie i spróbuj ponownie."
-    },
     "migrateTracking": {
       "apply": "Migruj konfigurację",
       "bannerAction": "Migruj konfigurację",
@@ -2366,7 +2356,6 @@
       "warning": "To zapisuje ustawienia każdego zadania jawnie, aby każde narzędzie odczytywało je tak samo i aby były włączone najnowsze funkcje (takie jak śledzenie zgłoszeń na żywo). Nie zmienia to żadnej oceny, terminu ani dostępu ucznia, i możesz pracować dalej jak wcześniej.",
       "working": "Aktualizowanie zadań"
     },
-    "noAutograderNote": "To zadanie nie ma wbudowanego autoceniania — nauczyciel dostarcza własne CI w szablonie. Wbudowane wyniki i ponowne ocenianie są wyłączone; poniższa tabela pokazuje, kto zaakceptował. Pull request z opinią nadal działa, gdy jest włączony.",
     "rowAutograde": {
       "outcome": {
         "failed": "Nie udało się zmienić stanu autoceniania — spróbuj ponownie.",
@@ -2393,6 +2382,64 @@
         "updated": "Wyzwalacz autoceniania zaktualizowany. Uczeń musi wykonać pull przed następnym pushem."
       },
       "title": "Aktualizuj wyzwalacz autoceniania"
+    },
+    "details": {
+      "emptyEveryPush": "Brak jeszcze wypchnięć do gałęzi domyślnej. Repozytorium nadal istnieje — otwórz je, aby zobaczyć kod.",
+      "emptyLinkDefaultBranch": "Wyświetl repozytorium",
+      "emptyLinkTags": "Wyświetl tagi",
+      "emptyTag": "Brak jeszcze otagowanych zgłoszeń. Repozytorium nadal istnieje — otwórz jego tagi, aby zobaczyć zgłoszenia w miarę ich napływania.",
+      "pushEntry": "Wypchnięcie nr {{number}}",
+      "tagEntry": "Zgłoszenie nr {{number}}",
+      "unavailable": "Niedostępne",
+      "viewCommit": "Wyświetl commit",
+      "viewGrade": "Wyświetl ocenę",
+      "viewRepository": "Wyświetl repozytorium",
+      "viewSubmissions": "Wyświetl zgłoszenia",
+      "viewTag": "Wyświetl tag"
+    },
+    "grading": {
+      "badgeBuiltIn": "Autooceniane",
+      "badgeEmptyRepo": "Brak autooceniania",
+      "badgeNoAutograder": "Brak wbudowanego autooceniania",
+      "titleEmptyRepo": "To zadanie używa pustych repozytoriów — autoocenianie, wyniki i pull request z opinią są wyłączone. Tabela pokazuje, kto zaakceptował.",
+      "titleNoAutograder": "Nauczyciel dostarcza własne CI w szablonie. Wbudowane wyniki i ponowne ocenianie są wyłączone; pull request z opinią nadal działa, gdy jest włączony."
+    },
+    "scoreOverride": {
+      "add": "Dodaj ocenę",
+      "addLabel": "Dodaj ocenę dla {{name}}",
+      "clear": "Wyczyść nadpisanie",
+      "clearError": "Nie udało się wyczyścić nadpisania. Sprawdź połączenie i spróbuj ponownie.",
+      "clearLabel": "Wyczyść nadpisanie wyniku dla {{name}}",
+      "currentAutograded": "Wynik autooceniania",
+      "descriptionAuto": "Wpisz wynik dla {{name}}, aby nadpisać wynik autooceniania. Wynik autooceniania jest zachowywany i przywracany po wyczyszczeniu nadpisania.",
+      "descriptionManual": "Wpisz wynik dla {{name}}. Zostanie zapisany w dzienniku ocen i nie będzie zmieniany przez autoocenianie.",
+      "edit": "Edytuj ocenę",
+      "editLabel": "Edytuj ocenę dla {{name}}",
+      "inputLabel": "Wynik",
+      "maxHint": "To zgłoszenie nie zostało jeszcze automatycznie ocenione, więc wpisz łączną liczbę punktów, na które jest oceniane.",
+      "maxLabel": "Na ile (maksymalna liczba punktów)",
+      "maxRange": "Maksymalna liczba punktów musi być liczbą całkowitą co najmniej 1.",
+      "maxRequired": "Wpisz maksymalną liczbę punktów, aby zapisać.",
+      "notGraded": "Bez oceny",
+      "override": "Nadpisz wynik",
+      "overrideLabel": "Nadpisz wynik dla {{name}}",
+      "range": "Wynik musi być liczbą całkowitą od 0 do {{max}}.",
+      "required": "Wpisz wynik, aby zapisać.",
+      "save": "Zapisz",
+      "saveError": "Nie udało się zapisać oceny. Sprawdź połączenie i spróbuj ponownie.",
+      "titleAdd": "Dodaj ocenę",
+      "titleEdit": "Edytuj ocenę",
+      "titleOverride": "Nadpisz wynik"
+    },
+    "type": {
+      "badgeEveryPush": "Liczy się każde wypchnięcie do gałęzi domyślnej",
+      "badgeTag": "Zgłaszane tagiem",
+      "countEveryPush_one": "{{count}} wypchnięcie do gałęzi domyślnej",
+      "countEveryPush_other": "{{count}} wypchnięć do gałęzi domyślnej",
+      "countTag_one": "{{count}} otagowane zgłoszenie",
+      "countTag_other": "{{count}} otagowanych zgłoszeń",
+      "tagGroupCount_one": "{{pattern}} · {{count}} tag",
+      "tagGroupCount_other": "{{pattern}} · {{count}} tagów"
     }
   },
   "orgMembers": {

@@ -861,9 +861,9 @@
           }
         },
         "label": "Automata értékelés",
-        "lockedHelp": "Az, hogy a beépített automata értékelőt használják-e, nem módosítható a létrehozás után: a diákok által már elfogadott tárolók nem kerülnek újra beállításra.",
         "modeLabel": "Beépített automata értékelő",
-        "notAutogradedNote": "Az automata értékelés beállításai csak akkor érvényesek, ha ez a feladat a fenti Beadás és értékelés szakaszban „Automatikusan értékelt”-re van állítva. Módosítsd az értékelési választást Automatikusan értékeltre az automata értékelő beállításához."
+        "notAutogradedNote": "Az automata értékelés beállításai csak akkor érvényesek, ha ez a feladat a fenti Beadás és értékelés szakaszban „Automatikusan értékelt”-re van állítva. Módosítsd az értékelési választást Automatikusan értékeltre az automata értékelő beállításához.",
+        "editHelp": "A beépített automatikus értékelő módosítása csak a mostantól elfogadott tárolókat érinti. A már elfogadott tárolók megtartják az eredeti beállításukat — az eltéréseket neked kell rendezned."
       },
       "copyAbout": {
         "help": "A sablon Névjegyének (leírásának) másolása minden diák tárolójába. A GitHub ezt nem másolja automatikusan. Ez a mostantól elfogadó diákokra vonatkozik; a már létrehozott tárolók nem változnak.",
@@ -880,8 +880,7 @@
           "manual": "Kézi (pontszámok kézzel megadva)",
           "off": "Nem értékelt"
         },
-        "editWarning": "Az értékelési mód nem módosítható a létrehozás után: a régi módban már rögzített pontszámok félreértelmeződnének. Ehelyett hozz létre egy új feladatot más azonosítóval.",
-        "help": "Hogyan értékeljük ezt a feladatot. Az „Automatikusan értékelt” az alább beállított automata értékelőt futtatja. A „Kézi” lehetővé teszi minden diák pontszámának kézi megadását a beadások oldalon. A „Nem értékelt” nem rögzít pontszámot. A feladat létrehozása után nem módosítható.",
+        "help": "Hogyan értékelődik ez a feladat. Az „Automatikusan értékelt” lefuttatja az alább beállított automatikus értékelőt. A „Kézi” lehetővé teszi, hogy minden diák pontszámát kézzel add meg a beadások oldalon. A „Nincs értékelve” nem rögzít pontszámot.",
         "label": "Értékelés",
         "maxPoints": {
           "help": "Az ehhez a kézi feladathoz elérhető összpontszám. A diák pontszámának a maximumhoz viszonyított megjelenítésére szolgál.",
@@ -894,7 +893,6 @@
       },
       "repoSource": {
         "label": "Kezdés sablonnal",
-        "lockedHelp": "A tároló forrása nem módosítható a létrehozás után: a diákok által már elfogadott tárolók nem kerülnek újra beállításra.",
         "none": {
           "help": "Új tároló létrehozása minden diáknak.",
           "label": "Nincs sablon"
@@ -902,15 +900,11 @@
         "template": {
           "help": "Minden diák tárolójának létrehozása egy általad megadott sablonból.",
           "label": "Sablon-tároló"
-        }
+        },
+        "editHelp": "A tároló forrásának módosítása csak a mostantól elfogadott tárolókat érinti. A már elfogadott tárolók megtartják az eredeti kiinduló tartalmukat — az eltéréseket neked kell rendezned."
       },
       "repositorySetupSection": "Tárolóbeállítás",
       "scheduleSection": "Ütemezés",
-      "sectionStatus": {
-        "configured": "Beállítva",
-        "default": "Alapértelmezett",
-        "error": "Figyelmet igényel"
-      },
       "submissionMode": {
         "choices": {
           "everyPush": "Minden push az alapértelmezett ágra",
@@ -931,7 +925,11 @@
       "submissions": {
         "heading": "Beadások",
         "help": "Hogyan érzékeli és számolja a beadások oldal minden diák munkáját. Az automata értékelő ugyanezt a definíciót használja."
-      }
+      },
+      "discardChanges": "Módosítások elvetése",
+      "reset": "Visszaállítás",
+      "resetSection": "Ennek a szakasznak a visszaállítása az alapértelmezett beállításokra",
+      "typeLockedHelp": "Létrehozás után nem módosítható — a megváltoztatása érvénytelenítené a meglévő beadásokat."
     },
     "autograder": {
       "heading": "Automatikus értékelési tesztek",
@@ -1273,7 +1271,14 @@
     "collaboratorsHint_one": "Ehhez a feladat-adattárhoz közreműködők adhatók hozzá vagy távolíthatók el. Ez a feladat a csoport tulajdonosán felül legfeljebb <count>{{count}}</count> tanulót engedélyez.",
     "collaboratorsHint_other": "Ehhez a feladat-adattárhoz közreműködők adhatók hozzá vagy távolíthatók el. Ez a feladat a csoport tulajdonosán felül legfeljebb <count>{{count}}</count> tanulót engedélyez.",
     "individual": "Ez egyéni feladat — nincsenek kezelendő csoportbeállítások. Tekintsd meg a <submissionLink>beadásodat és az automatikus értékelés eredményeit</submissionLink>.",
-    "notAccepted": "Ez a feladat még nincs nálad! Lehet, hogy előbb <acceptLink>el kell fogadnod</acceptLink>?"
+    "notAccepted": "Ez a feladat még nincs nálad! Lehet, hogy előbb <acceptLink>el kell fogadnod</acceptLink>?",
+    "provisioningConfirm": {
+      "body_one": "{{count}} diák már elfogadta ezt a feladatot. Ez a változtatás csak a mostantól elfogadott tárolókat érinti — a meglévő {{count}} tároló megtartja az eredeti kiinduló kódját és beállítását. Ha kikapcsolod az automatikus értékelést, ezeknek a tárolóknak az automatikus értékelési futásai elkezdenek meghiúsulni, és kiesnek az osztálykönyvből; ha megváltoztatod az értékelési módot, a régi módban rögzített pontszámok másképp jelenhetnek meg. Az esetleges eltéréseket neked kell rendezned.",
+      "body_other": "{{count}} diák már elfogadta ezt a feladatot. Ez a változtatás csak a mostantól elfogadott tárolókat érinti — a meglévő {{count}} tároló megtartja az eredeti kiinduló kódját és beállítását. Ha kikapcsolod az automatikus értékelést, ezeknek a tárolóknak az automatikus értékelési futásai elkezdenek meghiúsulni, és kiesnek az osztálykönyvből; ha megváltoztatod az értékelési módot, a régi módban rögzített pontszámok másképp jelenhetnek meg. Az esetleges eltéréseket neked kell rendezned.",
+      "cancel": "Mégse",
+      "confirm": "Mentés ennek ellenére",
+      "title": "Módosítod a kiosztási beállításokat, miután a diákok már elfogadták?"
+    }
   },
   "orgSettings": {
     "page": {
@@ -1870,7 +1875,8 @@
       "statusFailed": "A gyűjtési futtatás nem fejeződött be sikeresen.",
       "statusFailedWithReason": "Nem sikerült elindítani a gyűjtést: {{reason}}",
       "statusFailedHint": "A GitHubon kézzel ellenőrizheted vagy elindíthatod.",
-      "statusTimeout": "Egy idő után még mindig fut. Ellenőrizd az állapotát a GitHubon, vagy frissítsd ezt az oldalt, ha befejeződött."
+      "statusTimeout": "Egy idő után még mindig fut. Ellenőrizd az állapotát a GitHubon, vagy frissítsd ezt az oldalt, ha befejeződött.",
+      "workflowOutdated": "Nem sikerült begyűjteni ezt a feladatot: a szervezet classroom50 konfigurációs tárolójában lévő Collect Scores munkafolyamat elavult. Frissítsd a szervezet munkafolyamatait (frissítési szalag jelenik meg, ha újabb verzió érhető el), majd próbáld újra."
     },
     "regradeAll": {
       "label": "Összes újraértékelése",
@@ -1958,26 +1964,18 @@
       "colLastSubmitted": "Utolsó beadás",
       "colActions": "Műveletek",
       "openGroupRepo": "A közös csoportrepó megnyitása",
-      "hideSubmissions": "Beadványok elrejtése",
-      "showSubmissions": "Minden beadvány megjelenítése",
-      "submissionCount_one": "{{count}} beadás",
-      "submissionCount_other": "{{count}} beadás",
       "late": "Késett",
       "lateRowTitle": "A legutóbbi beadványt a határidő után küldték be.",
-      "lateHistoryTitle": "A határidő után beküldve.",
       "gradedAt": "Értékelve: {{date}}",
       "gradedAtTitle": "Amikor az automatikus értékelő utoljára (újra)értékelte ezt a beadványt. Az újraértékelés ezt frissíti a beadási idő megváltoztatása nélkül.",
       "members": "Tagok",
       "openRepoLabel": "A(z) {{repo}} repó megnyitása",
       "viewRepo": "Repó megtekintése",
       "viewCommit": "Legutóbbi commit megtekintése",
-      "commit": "Commit",
       "noCommit": "Még nincs commit",
       "viewDetails": "Az automatikus értékelő részleteinek megtekintése",
-      "details": "Részletek",
       "noDetails": "Még nincsenek részletek",
       "notSubmitted": "Nincs beadva",
-      "submittedBy": "beküldte: {{name}}",
       "review": "Áttekintés",
       "reviewAria": "Visszajelzési pull request megnyitása",
       "acceptedAwaiting": "Elfogadva · beadásra vár",
@@ -1990,7 +1988,6 @@
       "noGroupTitle": "Ez a diák egyetlen beadó csoport tárolójában sincs beszámítva. A csoporttagság minden tároló közreműködőiből olvasódik ki a begyűjtéskor, így az a diák jelenik meg itt, aki soha nem csatlakozott csoporthoz — vagy akinek a csoporttagságát nem sikerült kiolvasni a legutóbbi begyűjtéskor. Az osztályozás előtt nyisd meg a csoportok tárolóit az ellenőrzéshez.",
       "notAccepted": "Nincs elfogadva",
       "noGradingTitle": "Az automatikus értékelés le van tiltva ennél a feladatnál",
-      "fullHistory": "Nyisd meg az <repoLink>adattárat</repoLink> a teljes commit-előzményekhez.",
       "liveLatest": "Legutóbbi push: {{date}} · még nincs értékelve",
       "liveLatestTitle": "Egy újabb beadás lett push-olva a legutóbbi gyűjtés után, így az még nincs értékelve. Futtasd a „Beadások szinkronizálása most” műveletet az értékeléséhez és pontozásához.",
       "loading": "Beadások betöltése…",
@@ -2002,7 +1999,10 @@
       "manageAccess": "Tárolóhozzáférés kezelése",
       "manageAccessAria": "{{owner}} tárolóhozzáférésének kezelése",
       "overridden": "Kézi",
-      "overriddenTitle": "Ezt a pontszámot kézzel állították be, és az automata értékelés nem módosítja, amíg a felülbírálás nem törlődik."
+      "overriddenTitle": "Ezt a pontszámot kézzel állították be, és az automata értékelés nem módosítja, amíg a felülbírálás nem törlődik.",
+      "notCollectedYet": "Még nincs begyűjtve",
+      "notCollectedYetTitle": "Ez a diák olyan munkát pusholt, amelyet még nem gyűjtöttek be, ezért nincs rögzített beadási időpont. Futtasd a „Beadások szinkronizálása most” műveletet a begyűjtéshez.",
+      "viewSubmissionsTitle": "Beadások megtekintése"
     },
     "reviewModal": {
       "errorTitle": "Nem sikerült ellenőrizni a visszajelzési PR-t",
@@ -2024,15 +2024,9 @@
       "confirmBody2": "Az értékelés a háttérben fut, és néhány percig is eltarthat; utána a(z) <collectLabel>{{collectLabel}}</collectLabel> gombbal töltheted le az új pontszámot."
     },
     "student": {
-      "submittedAt": "Beadva: {{date}}",
-      "viewGrade": "Osztályzat megtekintése",
-      "unavailable": "Nem elérhető",
       "modeGroup": "Csoportos",
       "modeIndividual": "Egyéni",
       "loadError": "Nem sikerült betölteni a beadványaidat.",
-      "noGradedYet": "Még nincs értékelt beadás. Tölts fel a feladattárolódba a parancssorból, és az automatikus értékelő itt közzéteszi az eredményedet.",
-      "openMyRepo": "A repóm megnyitása",
-      "releasesIntro": "Minden beadvány megnyitja az értékelt kiadását a GitHubon, a pontszámoddal és a tesztenkénti eredményekkel.",
       "fallbackTitle": "Beadvány",
       "missingParams": "Hiányzó tanterem- vagy feladatinformáció.",
       "descriptionLabel": "Feladat részletei",
@@ -2042,7 +2036,11 @@
         "step1": "Klónozd a feladat tárolóját (egyszer):",
         "step2": "A tárolón belülről add be a munkádat értékelésre:",
         "title": "Beadás a parancssorból",
-        "intro": "Add be a munkádat értékelésre egy terminálból."
+        "intro": "Add be a munkádat értékelésre egy terminálból.",
+        "copyMilestone": "Mérföldkő-címke parancs másolása",
+        "milestoneStep": "Vagy pushold a tanárod által beállított mérföldkő-címkét (például: {{tags}}):",
+        "tagIntro": "Ezt a feladatot címkék alapján értékelik. Commitold és pushold a munkádat, majd pushold egy címkét a beadáshoz.",
+        "tagStep2": "A tárolón belülről add be a munkádat — ez egy beadási címkét pushol, ami elindítja az értékelést:"
       },
       "upload": {
         "addFiles": "Fájlok hozzáadása",
@@ -2069,7 +2067,11 @@
         "unsafePath": "Kihagyva: „{{name}}” — az útvonala nem engedélyezett."
       },
       "notAccepted": "Ezt a feladatot még nem fogadtad el. <acceptLink>Fogadd el</acceptLink>, hogy megkapd az adattáradat, majd push-old a munkádat az értékeléshez.",
-      "locked": "Ezt a feladatot a tanárod zárolta, és jelenleg nem érhető el. Nézz vissza később, vagy kérd meg a tanárodat, hogy oldja fel."
+      "locked": "Ezt a feladatot a tanárod zárolta, és jelenleg nem érhető el. Nézz vissza később, vagy kérd meg a tanárodat, hogy oldja fel.",
+      "detailsTitle": "A beadásaid",
+      "notSubmittedYet": "Még nem adtad be",
+      "submittedAwaitingGrading": "Beadva — értékelésre vár",
+      "tableCaption": "A beadásod ehhez a feladathoz"
     },
     "viewSourceRepo": "Sablon megtekintése",
     "menu": {
@@ -2080,7 +2082,6 @@
     "metrics": {
       "title": "Beadási mutatók"
     },
-    "emptyRepoNote": "Ez a feladat üres tárolókat használ — az automatikus értékelés, a pontszámok és a visszajelzési pull request le van tiltva. A diákok maguk hozzák létre és töltik fel a munkájukat; az alábbi táblázat mutatja, ki fogadta el.",
     "freshness": {
       "collected": "Beadási adatok szinkronizálva: {{when}}",
       "neverCollected": "A beadási adatok még nincsenek szinkronizálva",
@@ -2341,17 +2342,6 @@
       "working": "Tárolók frissítése"
     },
     "closedNotice": "A beadások le vannak zárva. Új diákok nem fogadhatják el ezt a feladatot. Amikor innen zársz le, az elfogadott diákok tárolói csak olvashatóra állnak; a meglévő munka megmarad. Nyisd meg újra a Műveletek menüből a beadások ismételt engedélyezéséhez.",
-    "manualGrade": {
-      "add": "Osztályzat hozzáadása",
-      "addLabel": "Osztályzat hozzáadása: {{name}}",
-      "edit": "Osztályzat szerkesztése",
-      "editLabel": "Osztályzat szerkesztése: {{name}}",
-      "inputLabel": "Pontszám: {{name}}",
-      "notGraded": "Nem értékelt",
-      "range": "A pontszámnak 0 és {{max}} közötti egész számnak kell lennie.",
-      "required": "Add meg a pontszámot a mentéshez.",
-      "saveError": "Nem sikerült menteni az osztályzatot. Ellenőrizd a kapcsolatot, és próbáld újra."
-    },
     "migrateTracking": {
       "apply": "Konfiguráció migrálása",
       "bannerAction": "Konfiguráció migrálása",
@@ -2364,7 +2354,6 @@
       "warning": "Ez explicit módon rögzíti minden feladat beállításait, hogy minden eszköz azonos módon olvassa őket, és a legújabb funkciók (például az élő beadáskövetés) engedélyezve legyenek. Egyetlen osztályzatot, határidőt vagy diákhozzáférést sem módosít, és a megszokott módon dolgozhatsz tovább.",
       "working": "Feladatok frissítése"
     },
-    "noAutograderNote": "Ennek a feladatnak nincs beépített automata értékelése – a tanár saját CI-t ad meg a sablonban. A beépített pontszámok és az újraértékelés le van tiltva; az alábbi táblázat mutatja, ki fogadta el. A visszajelzési pull request továbbra is működik, ha engedélyezve van.",
     "rowAutograde": {
       "outcome": {
         "failed": "Nem sikerült módosítani az automata értékelés állapotát – próbáld újra.",
@@ -2391,6 +2380,64 @@
         "updated": "Az automata értékelési trigger frissítve. A diáknak pullt kell futtatnia a következő push előtt."
       },
       "title": "Automata értékelési trigger frissítése"
+    },
+    "details": {
+      "emptyEveryPush": "Még nem történt push az alapértelmezett ágra. A tároló még létezik — nyisd meg a kód megtekintéséhez.",
+      "emptyLinkDefaultBranch": "Tároló megtekintése",
+      "emptyLinkTags": "Címkék megtekintése",
+      "emptyTag": "Még nincs címkézett beadás. A tároló még létezik — nyisd meg a címkéit, hogy lásd a beérkező beadásokat.",
+      "pushEntry": "{{number}}. push",
+      "tagEntry": "{{number}}. beadás",
+      "unavailable": "Nem elérhető",
+      "viewCommit": "Commit megtekintése",
+      "viewGrade": "Értékelés megtekintése",
+      "viewRepository": "Tároló megtekintése",
+      "viewSubmissions": "Beadások megtekintése",
+      "viewTag": "Címke megtekintése"
+    },
+    "grading": {
+      "badgeBuiltIn": "Automatikusan értékelt",
+      "badgeEmptyRepo": "Nincs automatikus értékelés",
+      "badgeNoAutograder": "Nincs beépített automatikus értékelés",
+      "titleEmptyRepo": "Ez a feladat üres tárolókat használ — az automatikus értékelés, a pontszámok és a visszajelzési pull request le van tiltva. A táblázat azt mutatja, ki fogadta el.",
+      "titleNoAutograder": "A tanár saját CI-t biztosít a sablonban. A beépített pontszámok és az újraértékelés le van tiltva; a visszajelzési pull request továbbra is működik, ha engedélyezve van."
+    },
+    "scoreOverride": {
+      "add": "Értékelés hozzáadása",
+      "addLabel": "Értékelés hozzáadása {{name}} részére",
+      "clear": "Felülbírálás törlése",
+      "clearError": "Nem sikerült törölni a felülbírálást. Ellenőrizd a kapcsolatot, és próbáld újra.",
+      "clearLabel": "A pontszám-felülbírálás törlése {{name}} részére",
+      "currentAutograded": "Automatikusan értékelt pontszám",
+      "descriptionAuto": "Adj meg pontszámot {{name}} részére az automatikusan értékelt eredmény felülbírálásához. Az automatikusan értékelt pontszám megmarad, és visszaáll, ha törlöd a felülbírálást.",
+      "descriptionManual": "Adj meg pontszámot {{name}} részére. Az osztálykönyvbe mentődik, és az automatikus értékelés nem módosítja.",
+      "edit": "Értékelés szerkesztése",
+      "editLabel": "Értékelés szerkesztése {{name}} részére",
+      "inputLabel": "Pontszám",
+      "maxHint": "Ezt a beadást még nem értékelte automatikusan, ezért add meg, hogy hány pontból van.",
+      "maxLabel": "Ebből (maximális pontszám)",
+      "maxRange": "A maximális pontszámnak legalább 1 egész számnak kell lennie.",
+      "maxRequired": "Add meg a maximális pontszámot a mentéshez.",
+      "notGraded": "Nincs értékelve",
+      "override": "Pontszám felülbírálása",
+      "overrideLabel": "Pontszám felülbírálása {{name}} részére",
+      "range": "A pontszámnak 0 és {{max}} közötti egész számnak kell lennie.",
+      "required": "Adj meg egy pontszámot a mentéshez.",
+      "save": "Mentés",
+      "saveError": "Nem sikerült menteni az értékelést. Ellenőrizd a kapcsolatot, és próbáld újra.",
+      "titleAdd": "Értékelés hozzáadása",
+      "titleEdit": "Értékelés szerkesztése",
+      "titleOverride": "Pontszám felülbírálása"
+    },
+    "type": {
+      "badgeEveryPush": "Az alapértelmezett ágra történő minden push számít",
+      "badgeTag": "Címkével beadva",
+      "countEveryPush_one": "{{count}} push az alapértelmezett ágra",
+      "countEveryPush_other": "{{count}} push az alapértelmezett ágra",
+      "countTag_one": "{{count}} címkézett beadás",
+      "countTag_other": "{{count}} címkézett beadás",
+      "tagGroupCount_one": "{{pattern}} · {{count}} címke",
+      "tagGroupCount_other": "{{pattern}} · {{count}} címke"
     }
   },
   "orgMembers": {

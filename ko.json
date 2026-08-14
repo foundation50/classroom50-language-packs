@@ -861,9 +861,9 @@
           }
         },
         "label": "자동 채점",
-        "lockedHelp": "내장 자동 채점기 사용 여부는 생성 후 변경할 수 없습니다: 학생이 이미 수락한 저장소는 다시 프로비저닝되지 않습니다.",
         "modeLabel": "내장 자동 채점기",
-        "notAutogradedNote": "자동 채점 옵션은 위의 제출 및 채점 섹션에서 이 과제가 \"자동 채점\"으로 설정된 경우에만 적용됩니다. 자동 채점기를 구성하려면 채점 방식을 자동 채점으로 변경하세요."
+        "notAutogradedNote": "자동 채점 옵션은 위의 제출 및 채점 섹션에서 이 과제가 \"자동 채점\"으로 설정된 경우에만 적용됩니다. 자동 채점기를 구성하려면 채점 방식을 자동 채점으로 변경하세요.",
+        "editHelp": "내장 자동 채점기를 변경해도 지금부터 학생이 수락하는 저장소에만 영향을 줍니다. 이미 수락한 저장소는 원래 설정을 유지하므로 — 차이는 직접 조정해야 합니다."
       },
       "copyAbout": {
         "help": "템플릿의 소개(설명)를 각 학생 저장소에 복사합니다. GitHub는 자동으로 복사하지 않습니다. 지금부터 수락하는 학생에게 적용되며, 이미 생성된 저장소는 변경되지 않습니다.",
@@ -880,8 +880,7 @@
           "manual": "수동(점수 직접 입력)",
           "off": "채점 안 함"
         },
-        "editWarning": "채점 방식은 생성 후 변경할 수 없습니다: 이전 방식으로 이미 기록된 점수가 잘못 해석됩니다. 대신 다른 슬러그로 새 과제를 만드세요.",
-        "help": "이 과제를 채점하는 방식입니다. \"자동 채점\"은 아래에서 구성한 자동 채점기를 실행합니다. \"수동\"은 제출 페이지에서 각 학생의 점수를 직접 입력할 수 있습니다. \"채점 안 함\"은 점수를 기록하지 않습니다. 과제 생성 후에는 변경할 수 없습니다.",
+        "help": "이 과제를 어떻게 채점할지 설정합니다. \"자동 채점\"은 아래에서 구성한 자동 채점기를 실행합니다. \"수동\"은 제출 페이지에서 각 학생의 점수를 직접 입력할 수 있게 합니다. \"채점 안 함\"은 점수를 기록하지 않습니다.",
         "label": "채점",
         "maxPoints": {
           "help": "이 수동 과제에서 받을 수 있는 총 점수입니다. 각 학생의 점수를 만점 대비로 표시하는 데 사용됩니다.",
@@ -894,7 +893,6 @@
       },
       "repoSource": {
         "label": "템플릿으로 시작",
-        "lockedHelp": "저장소 소스는 생성 후 변경할 수 없습니다: 학생이 이미 수락한 저장소는 다시 프로비저닝되지 않습니다.",
         "none": {
           "help": "각 학생을 위해 새 저장소를 만듭니다.",
           "label": "템플릿 없음"
@@ -902,15 +900,11 @@
         "template": {
           "help": "제공하는 템플릿에서 각 학생의 저장소를 생성합니다.",
           "label": "템플릿 저장소"
-        }
+        },
+        "editHelp": "저장소 소스를 변경해도 지금부터 학생이 수락하는 저장소에만 영향을 줍니다. 이미 수락한 저장소는 원래 시작 콘텐츠를 유지하므로 — 차이는 직접 조정해야 합니다."
       },
       "repositorySetupSection": "저장소 설정",
       "scheduleSection": "일정",
-      "sectionStatus": {
-        "configured": "구성됨",
-        "default": "기본값",
-        "error": "확인 필요"
-      },
       "submissionMode": {
         "choices": {
           "everyPush": "기본 브랜치로의 모든 푸시",
@@ -931,7 +925,11 @@
       "submissions": {
         "heading": "제출물",
         "help": "제출 페이지가 각 학생의 작업을 감지하고 계산하는 방식입니다. 자동 채점기는 동일한 정의를 사용합니다."
-      }
+      },
+      "discardChanges": "변경 사항 취소",
+      "reset": "초기화",
+      "resetSection": "이 섹션을 기본 설정으로 초기화",
+      "typeLockedHelp": "생성 후에는 변경할 수 없습니다 — 변경하면 기존 제출이 무효화됩니다."
     },
     "autograder": {
       "heading": "자동 채점 테스트",
@@ -1273,7 +1271,14 @@
     "collaboratorsHint_one": "이 과제 저장소의 공동 작업자를 추가하거나 제거합니다. 이 과제는 그룹 소유자 외에 최대 <count>{{count}}</count>명의 학생을 허용합니다.",
     "collaboratorsHint_other": "이 과제 저장소의 공동 작업자를 추가하거나 제거합니다. 이 과제는 그룹 소유자 외에 최대 <count>{{count}}</count>명의 학생을 허용합니다.",
     "individual": "개별 과제입니다 — 관리할 그룹 설정이 없습니다. <submissionLink>제출물 및 자동 채점 결과</submissionLink>를 확인하세요.",
-    "notAccepted": "아직 이 과제를 수락하지 않았습니다! 먼저 <acceptLink>수락</acceptLink>해야 하나요?"
+    "notAccepted": "아직 이 과제를 수락하지 않았습니다! 먼저 <acceptLink>수락</acceptLink>해야 하나요?",
+    "provisioningConfirm": {
+      "body_one": "이미 {{count}}명의 학생이 이 과제를 수락했습니다. 이 변경은 지금부터 수락하는 저장소에만 적용됩니다 — 기존의 {{count}}개 저장소는 원래의 시작 코드와 설정을 유지합니다. 자동 채점을 끄면 해당 저장소의 자동 채점 실행이 실패하기 시작하며 성적부에서 제외됩니다. 채점 방식을 변경하면 이전 방식으로 기록된 점수가 다르게 표시될 수 있습니다. 불일치는 직접 조정해야 합니다.",
+      "body_other": "이미 {{count}}명의 학생이 이 과제를 수락했습니다. 이 변경은 지금부터 수락하는 저장소에만 적용됩니다 — 기존의 {{count}}개 저장소는 원래의 시작 코드와 설정을 유지합니다. 자동 채점을 끄면 해당 저장소의 자동 채점 실행이 실패하기 시작하며 성적부에서 제외됩니다. 채점 방식을 변경하면 이전 방식으로 기록된 점수가 다르게 표시될 수 있습니다. 불일치는 직접 조정해야 합니다.",
+      "cancel": "취소",
+      "confirm": "그래도 변경 사항 저장",
+      "title": "학생이 수락한 후 프로비저닝 설정을 변경하시겠습니까?"
+    }
   },
   "orgSettings": {
     "page": {
@@ -1870,7 +1875,8 @@
       "statusFailed": "수집 실행이 정상적으로 완료되지 않았습니다.",
       "statusFailedWithReason": "수집을 시작할 수 없습니다: {{reason}}",
       "statusFailedHint": "GitHub에서 직접 확인하거나 수동으로 실행할 수 있습니다.",
-      "statusTimeout": "한동안 여전히 실행 중입니다. GitHub에서 진행 상황을 확인하거나, 완료된 후 이 페이지를 새로 고치세요."
+      "statusTimeout": "한동안 여전히 실행 중입니다. GitHub에서 진행 상황을 확인하거나, 완료된 후 이 페이지를 새로 고치세요.",
+      "workflowOutdated": "이 과제를 수집할 수 없습니다: 이 조직의 classroom50 구성 저장소에 있는 Collect Scores 워크플로가 오래되었습니다. 조직의 워크플로를 업데이트한 후(더 최신 버전이 있으면 업데이트 배너가 표시됩니다) 다시 시도하세요."
     },
     "regradeAll": {
       "label": "전체 재채점",
@@ -1958,26 +1964,18 @@
       "colLastSubmitted": "마지막 제출",
       "colActions": "작업",
       "openGroupRepo": "공유 그룹 저장소 열기",
-      "hideSubmissions": "제출물 숨기기",
-      "showSubmissions": "모든 제출물 보기",
-      "submissionCount_one": "제출물 {{count}}개",
-      "submissionCount_other": "제출물 {{count}}개",
       "late": "지각",
       "lateRowTitle": "최신 제출물이 마감 이후에 푸시되었습니다.",
-      "lateHistoryTitle": "마감 이후에 푸시됨.",
       "gradedAt": "채점됨 {{date}}",
       "gradedAtTitle": "자동 채점기가 이 제출물을 마지막으로 (재)채점한 시각입니다. 재채점은 제출 시각을 변경하지 않고 이 값만 업데이트합니다.",
       "members": "구성원",
       "openRepoLabel": "저장소 {{repo}} 열기",
       "viewRepo": "저장소 보기",
       "viewCommit": "최신 커밋 보기",
-      "commit": "커밋",
       "noCommit": "아직 커밋 없음",
       "viewDetails": "자동 채점기 세부 정보 보기",
-      "details": "세부 정보",
       "noDetails": "아직 세부 정보 없음",
       "notSubmitted": "미제출",
-      "submittedBy": "제출자: {{name}}",
       "review": "리뷰",
       "reviewAria": "피드백 풀 리퀘스트 열기",
       "acceptedAwaiting": "수락함 · 제출 대기 중",
@@ -1990,7 +1988,6 @@
       "noGroupTitle": "이 학생은 제출한 어떤 그룹의 저장소에도 인정되어 있지 않습니다. 그룹 구성원은 수집 시점에 각 저장소의 협업자에서 읽으므로, 그룹에 참여한 적이 없거나 마지막 수집에서 그룹 구성원을 읽을 수 없었던 학생이 여기에 표시됩니다. 채점하기 전에 그룹 저장소를 열어 확인하세요.",
       "notAccepted": "수락하지 않음",
       "noGradingTitle": "이 과제는 자동 채점이 비활성화되어 있습니다",
-      "fullHistory": "전체 커밋 기록은 <repoLink>저장소</repoLink>를 여세요.",
       "liveLatest": "최신 푸시 {{date}} · 아직 채점되지 않음",
       "liveLatestTitle": "마지막 수집 이후 더 새로운 제출물이 푸시되어 아직 채점되지 않았습니다. \"지금 제출물 동기화\"를 실행하여 채점하고 점수를 매기세요.",
       "loading": "제출물 로드 중…",
@@ -2002,7 +1999,10 @@
       "manageAccess": "저장소 액세스 관리",
       "manageAccessAria": "{{owner}}의 저장소 액세스 관리",
       "overridden": "수동",
-      "overriddenTitle": "이 점수는 직접 설정되었으며 재정의가 지워질 때까지 자동 채점으로 변경되지 않습니다."
+      "overriddenTitle": "이 점수는 직접 설정되었으며 재정의가 지워질 때까지 자동 채점으로 변경되지 않습니다.",
+      "notCollectedYet": "아직 수집되지 않음",
+      "notCollectedYetTitle": "이 학생은 아직 수집되지 않은 작업을 푸시했으므로 기록된 제출 시간이 없습니다. \"지금 제출 동기화\"를 실행하여 수집하세요.",
+      "viewSubmissionsTitle": "제출 보기"
     },
     "reviewModal": {
       "errorTitle": "피드백 PR을 확인할 수 없습니다",
@@ -2024,15 +2024,9 @@
       "confirmBody2": "채점은 백그라운드에서 실행되며 몇 분이 걸릴 수 있습니다. 이후 <collectLabel>{{collectLabel}}</collectLabel>을(를) 사용하여 새 점수를 가져오세요."
     },
     "student": {
-      "submittedAt": "제출됨 {{date}}",
-      "viewGrade": "성적 보기",
-      "unavailable": "사용 불가",
       "modeGroup": "그룹",
       "modeIndividual": "개인",
       "loadError": "제출물을 불러올 수 없습니다.",
-      "noGradedYet": "아직 채점된 제출물이 없습니다. 명령줄에서 과제 저장소로 푸시하면 자동 채점기가 결과를 여기에 게시합니다.",
-      "openMyRepo": "내 저장소 열기",
-      "releasesIntro": "각 제출물은 GitHub에서 채점된 릴리스를 열어 점수와 테스트별 결과를 보여줍니다.",
       "fallbackTitle": "제출물",
       "missingParams": "강의실 또는 과제 정보가 누락되었습니다.",
       "descriptionLabel": "과제 세부 정보",
@@ -2042,7 +2036,11 @@
         "step1": "과제 저장소를 클론하세요 (한 번만):",
         "step2": "저장소 내부에서 채점을 위해 작업을 제출하세요:",
         "title": "명령줄에서 제출하기",
-        "intro": "터미널에서 채점을 위한 작업물을 제출하세요."
+        "intro": "터미널에서 채점을 위한 작업물을 제출하세요.",
+        "copyMilestone": "마일스톤 태그 명령 복사",
+        "milestoneStep": "또는 교사가 설정한 마일스톤 태그를 푸시하세요(예: {{tags}}):",
+        "tagIntro": "이 과제는 태그로 채점됩니다. 작업을 커밋하고 푸시한 다음, 태그를 푸시하여 채점을 위해 제출하세요.",
+        "tagStep2": "저장소 안에서 작업을 제출하세요 — 이렇게 하면 채점을 트리거하는 제출 태그가 푸시됩니다:"
       },
       "upload": {
         "addFiles": "파일 추가",
@@ -2069,7 +2067,11 @@
         "unsafePath": "\"{{name}}\"을(를) 건너뛰었습니다 — 해당 경로는 허용되지 않습니다."
       },
       "notAccepted": "아직 이 과제를 수락하지 않았습니다. 저장소를 받으려면 <acceptLink>수락</acceptLink>한 다음 작업을 푸시하여 채점받으세요.",
-      "locked": "이 과제는 선생님이 잠갔으며 지금은 이용할 수 없습니다. 나중에 다시 확인하거나 선생님에게 잠금을 해제해 달라고 요청하세요."
+      "locked": "이 과제는 선생님이 잠갔으며 지금은 이용할 수 없습니다. 나중에 다시 확인하거나 선생님에게 잠금을 해제해 달라고 요청하세요.",
+      "detailsTitle": "내 제출",
+      "notSubmittedYet": "아직 제출하지 않음",
+      "submittedAwaitingGrading": "제출됨 — 채점 대기 중",
+      "tableCaption": "이 과제에 대한 내 제출"
     },
     "viewSourceRepo": "템플릿 보기",
     "menu": {
@@ -2080,7 +2082,6 @@
     "metrics": {
       "title": "제출 지표"
     },
-    "emptyRepoNote": "이 과제는 빈 저장소를 사용합니다 — 자동 채점, 점수, 피드백 풀 리퀘스트가 비활성화되어 있습니다. 학생이 직접 작업을 만들고 푸시합니다. 아래 표에는 수락한 사람이 표시됩니다.",
     "freshness": {
       "collected": "제출물 데이터가 {{when}}에 동기화됨",
       "neverCollected": "제출물 데이터가 아직 동기화되지 않음",
@@ -2341,17 +2342,6 @@
       "working": "저장소 업데이트 중"
     },
     "closedNotice": "제출이 마감되었습니다. 새 학생은 이 과제를 수락할 수 없습니다. 여기서 마감하면 수락한 학생의 저장소가 읽기 전용으로 설정됩니다; 기존 작업은 보존됩니다. 다시 제출을 허용하려면 작업 메뉴에서 다시 여세요.",
-    "manualGrade": {
-      "add": "점수 추가",
-      "addLabel": "{{name}}의 점수 추가",
-      "edit": "점수 편집",
-      "editLabel": "{{name}}의 점수 편집",
-      "inputLabel": "{{name}}의 점수",
-      "notGraded": "채점 안 됨",
-      "range": "점수는 0에서 {{max}}까지의 정수여야 합니다.",
-      "required": "저장하려면 점수를 입력하세요.",
-      "saveError": "점수를 저장할 수 없습니다. 연결을 확인하고 다시 시도하세요."
-    },
     "migrateTracking": {
       "apply": "구성 마이그레이션",
       "bannerAction": "구성 마이그레이션",
@@ -2364,7 +2354,6 @@
       "warning": "이렇게 하면 각 과제의 설정이 명시적으로 기록되어 모든 도구가 동일하게 읽고 최신 기능(예: 실시간 제출 추적)이 활성화됩니다. 어떤 점수, 마감일, 학생의 접근도 변경하지 않으며 이전과 같이 계속 작업할 수 있습니다.",
       "working": "과제 업데이트 중"
     },
-    "noAutograderNote": "이 과제에는 내장 자동 채점이 없습니다 — 선생님이 템플릿에 자체 CI를 제공합니다. 내장 점수와 재채점은 비활성화됩니다; 아래 표는 누가 수락했는지 보여줍니다. 피드백 풀 리퀘스트는 활성화된 경우 계속 작동합니다.",
     "rowAutograde": {
       "outcome": {
         "failed": "자동 채점 상태를 변경할 수 없었습니다 — 다시 시도하세요.",
@@ -2391,6 +2380,64 @@
         "updated": "자동 채점 트리거가 업데이트되었습니다. 학생은 다음 푸시 전에 pull해야 합니다."
       },
       "title": "자동 채점 트리거 업데이트"
+    },
+    "details": {
+      "emptyEveryPush": "기본 브랜치에 아직 푸시가 없습니다. 저장소는 여전히 존재합니다 — 열어서 코드를 확인하세요.",
+      "emptyLinkDefaultBranch": "저장소 보기",
+      "emptyLinkTags": "태그 보기",
+      "emptyTag": "아직 태그가 붙은 제출이 없습니다. 저장소는 여전히 존재합니다 — 태그를 열어 제출이 들어오는 대로 확인하세요.",
+      "pushEntry": "푸시 #{{number}}",
+      "tagEntry": "제출 #{{number}}",
+      "unavailable": "사용 불가",
+      "viewCommit": "커밋 보기",
+      "viewGrade": "채점 결과 보기",
+      "viewRepository": "저장소 보기",
+      "viewSubmissions": "제출 보기",
+      "viewTag": "태그 보기"
+    },
+    "grading": {
+      "badgeBuiltIn": "자동 채점",
+      "badgeEmptyRepo": "자동 채점 없음",
+      "badgeNoAutograder": "내장 자동 채점 없음",
+      "titleEmptyRepo": "이 과제는 빈 저장소를 사용합니다 — 자동 채점, 점수, 피드백 풀 리퀘스트가 비활성화됩니다. 표에는 누가 수락했는지 표시됩니다.",
+      "titleNoAutograder": "교사가 템플릿에 자체 CI를 제공합니다. 내장 점수와 재채점은 비활성화되지만, 활성화된 경우 피드백 풀 리퀘스트는 여전히 작동합니다."
+    },
+    "scoreOverride": {
+      "add": "채점 추가",
+      "addLabel": "{{name}}의 채점 추가",
+      "clear": "재정의 지우기",
+      "clearError": "재정의를 지울 수 없습니다. 연결을 확인하고 다시 시도하세요.",
+      "clearLabel": "{{name}}의 점수 재정의 지우기",
+      "currentAutograded": "자동 채점 점수",
+      "descriptionAuto": "{{name}}의 자동 채점 결과를 재정의할 점수를 입력하세요. 자동 채점 점수는 보존되며 재정의를 지우면 복원됩니다.",
+      "descriptionManual": "{{name}}의 점수를 입력하세요. 성적부에 저장되며 자동 채점으로 변경되지 않습니다.",
+      "edit": "채점 편집",
+      "editLabel": "{{name}}의 채점 편집",
+      "inputLabel": "점수",
+      "maxHint": "이 제출은 아직 자동 채점되지 않았으므로, 만점을 입력하세요.",
+      "maxLabel": "만점",
+      "maxRange": "만점은 최소 1 이상의 정수여야 합니다.",
+      "maxRequired": "저장하려면 만점을 입력하세요.",
+      "notGraded": "채점 안 됨",
+      "override": "점수 재정의",
+      "overrideLabel": "{{name}}의 점수 재정의",
+      "range": "점수는 0부터 {{max}}까지의 정수여야 합니다.",
+      "required": "저장하려면 점수를 입력하세요.",
+      "save": "저장",
+      "saveError": "채점을 저장할 수 없습니다. 연결을 확인하고 다시 시도하세요.",
+      "titleAdd": "채점 추가",
+      "titleEdit": "채점 편집",
+      "titleOverride": "점수 재정의"
+    },
+    "type": {
+      "badgeEveryPush": "기본 브랜치에 대한 모든 푸시가 집계됨",
+      "badgeTag": "태그로 제출됨",
+      "countEveryPush_one": "기본 브랜치에 대한 푸시 {{count}}회",
+      "countEveryPush_other": "기본 브랜치에 대한 푸시 {{count}}회",
+      "countTag_one": "태그가 붙은 제출 {{count}}개",
+      "countTag_other": "태그가 붙은 제출 {{count}}개",
+      "tagGroupCount_one": "{{pattern}} · 태그 {{count}}개",
+      "tagGroupCount_other": "{{pattern}} · 태그 {{count}}개"
     }
   },
   "orgMembers": {
