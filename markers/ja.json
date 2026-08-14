@@ -1104,11 +1104,9 @@
       "submissionSection": "Submission and grading",
       "submissionSectionHelp": "Define what counts as a submission for this assignment — when the autograder runs and which tags a student can push to submit.",
       "scheduleSection": "Schedule",
-      "sectionStatus": {
-        "error": "Needs attention",
-        "configured": "Configured",
-        "default": "Default"
-      },
+      "reset": "Reset",
+      "resetSection": "Reset this section to its default settings",
+      "discardChanges": "Discard changes",
       "optional": "optional",
       "name": "Assignment name",
       "namePlaceholder": "e.g., Loops Assignment",
@@ -1129,11 +1127,12 @@
       "type": "Assignment type",
       "typeIndividual": "Individual",
       "typeGroup": "Group project",
+      "typeLockedHelp": "Can't be changed after creation — switching it would invalidate existing submissions.",
       "maxGroupSize": "Max group size",
       "maxGroupSizeTitle": "Must be a whole number between {{min}} and {{max}}",
       "repoSource": {
         "label": "Start with a template",
-        "lockedHelp": "The repository source can't be changed after creation: repositories students already accepted are not re-provisioned.",
+        "editHelp": "Changing the repository source only affects repositories students accept from now on. Repositories already accepted keep their original starter content — you'll need to reconcile any difference yourself.",
         "none": {
           "label": "No template",
           "help": "Create a fresh repository for each student."
@@ -1181,7 +1180,7 @@
         "label": "Autograding",
         "notAutogradedNote": "Autograding options apply only when this assignment is set to \"Autograded\" in the Submission and grading section above. Change the grading choice to Autograded to configure the autograder.",
         "modeLabel": "Built-in autograder",
-        "lockedHelp": "Whether the built-in autograder is used can't be changed after creation: repositories students already accepted are not re-provisioned.",
+        "editHelp": "Changing the built-in autograder only affects repositories students accept from now on. Repositories already accepted keep their original setup — you'll need to reconcile any difference yourself.",
         "choices": {
           "none": {
             "label": "Do not use the built-in autograder",
@@ -1195,8 +1194,7 @@
       },
       "grading": {
         "label": "Grading",
-        "help": "How this assignment is graded. \"Autograded\" runs the autograder you configure below. \"Manual\" lets you enter each student's score by hand on the submissions page. \"Not graded\" records no score. Can't be changed after the assignment is created.",
-        "editWarning": "The grading mode can't be changed after creation: scores already recorded under the old mode would be misread. Create a new assignment under a different slug instead.",
+        "help": "How this assignment is graded. \"Autograded\" runs the autograder you configure below. \"Manual\" lets you enter each student's score by hand on the submissions page. \"Not graded\" records no score.",
         "autoNote": "This assignment is autograded. Configure the autograder in the Autograding section below. Whether you use the built-in autograder or supply your own workflow, it must publish a result.json asset on the submission release — that file is what the app reads to show scores.",
         "choices": {
           "off": "Not graded",
@@ -1662,7 +1660,14 @@
     "viewRepository": "View repository",
     "collaboratorsHint_one": "Add or remove collaborators for this assignment repository. This assignment allows up to <count>{{count}}</count> student in addition to the group owner.",
     "collaboratorsHint_other": "Add or remove collaborators for this assignment repository. This assignment allows up to <count>{{count}}</count> students in addition to the group owner.",
-    "manageCollaborators": "Manage collaborators"
+    "manageCollaborators": "Manage collaborators",
+    "provisioningConfirm": {
+      "title": "Change provisioning settings after students accepted?",
+      "body_one": "{{count}} student has already accepted this assignment. This change only affects repositories accepted from now on — the {{count}} existing repository keeps its original starter code and setup. If you turn off autograding, those repositories' autograde runs start failing and drop out of the gradebook; if you change the grading mode, scores recorded under the old mode may read differently. You'll need to reconcile any inconsistency yourself.",
+      "body_other": "{{count}} students have already accepted this assignment. This change only affects repositories accepted from now on — the {{count}} existing repositories keep their original starter code and setup. If you turn off autograding, those repositories' autograde runs start failing and drop out of the gradebook; if you change the grading mode, scores recorded under the old mode may read differently. You'll need to reconcile any inconsistency yourself.",
+      "confirm": "Save changes anyway",
+      "cancel": "Cancel"
+    }
   },
   "serviceTokenHealth": {
     "summary_one": "{{count}} organization needs a service-token check.",
@@ -2289,12 +2294,41 @@
     "missingParams": "Missing organization, classroom, or assignment in the URL.",
     "dueDate": "Due {{date}}",
     "noDueDate": "No due date",
+    "type": {
+      "badgeEveryPush": "Every push to the default branch counts",
+      "badgeTag": "Submitted by tag",
+      "countEveryPush_one": "{{count}} push to the default branch",
+      "countEveryPush_other": "{{count}} pushes to the default branch",
+      "countTag_one": "{{count}} tagged submission",
+      "countTag_other": "{{count}} tagged submissions",
+      "tagGroupCount_one": "{{pattern}} · {{count}} tag",
+      "tagGroupCount_other": "{{pattern}} · {{count}} tags"
+    },
+    "grading": {
+      "badgeBuiltIn": "Autograded",
+      "badgeNoAutograder": "No built-in autograding",
+      "titleNoAutograder": "The teacher supplies their own CI in the template. Built-in scores and regrading are disabled; the feedback pull request still works when enabled.",
+      "badgeEmptyRepo": "No autograding",
+      "titleEmptyRepo": "This assignment uses empty repositories — autograding, scores, and the feedback pull request are disabled. The table shows who has accepted."
+    },
+    "details": {
+      "viewRepository": "View repository",
+      "viewSubmissions": "View submissions",
+      "viewTag": "View tag",
+      "viewCommit": "View commit",
+      "viewGrade": "View grade",
+      "unavailable": "Unavailable",
+      "pushEntry": "Push #{{number}}",
+      "tagEntry": "Submission #{{number}}",
+      "emptyEveryPush": "No pushes to the default branch yet. The repository still exists — open it to see the code.",
+      "emptyTag": "No tagged submissions yet. The repository still exists — open its tags to see submissions as they arrive.",
+      "emptyLinkDefaultBranch": "View repository",
+      "emptyLinkTags": "View tags"
+    },
     "lateBadge_one": "{{count}} late",
     "lateBadge_other": "{{count}} late",
     "downloadCsv": "Download scores (CSV)",
     "viewSourceRepo": "View template",
-    "emptyRepoNote": "This assignment uses empty repositories — autograding, scores, and the feedback pull request are disabled. Students create and push their own work; the table below shows who has accepted.",
-    "noAutograderNote": "This assignment has no built-in autograding — the teacher supplies their own CI in the template. Built-in scores and regrading are disabled; the table below shows who has accepted. The feedback pull request still works when enabled.",
     "lockedNotice": "This assignment is locked. Students can't accept or open it, and if it uses a private template the student team's access to that template has been removed. Existing repositories and their submissions are unaffected. Unlock it from the Actions menu (or the assignments list) to reopen it.",
     "closedNotice": "Submissions are closed. New students can't accept this assignment. When you close from here, accepted students' repositories are set to read-only; existing work is preserved. Reopen it from the Actions menu to allow submissions again.",
     "lock": {
@@ -2356,6 +2390,7 @@
       "statusFailed": "The collection run did not complete successfully.",
       "statusFailedWithReason": "Could not start collection: {{reason}}",
       "statusFailedHint": "You can check or trigger it manually on GitHub.",
+      "workflowOutdated": "Could not collect this assignment: the Collect Scores workflow in this organization's classroom50 config repo is out of date. Update the org's workflows (an update banner appears when a newer version is available), then try again.",
       "statusTimeout": "Still running after a while. Check its progress on GitHub, or refresh this page once it finishes."
     },
     "regradeAll": {
@@ -2449,29 +2484,25 @@
       "emptyFilteredBody": "Try a different search or clear the filters to see everyone.",
       "emptyClearFilters": "Clear filters",
       "openGroupRepo": "Open the shared group repository",
-      "hideSubmissions": "Hide submissions",
-      "showSubmissions": "Show all submissions",
-      "submissionCount_one": "{{count}} submission",
-      "submissionCount_other": "{{count}} submissions",
+      "viewSubmissionsTitle": "View submissions",
       "staleCount": "New",
       "staleCountTitle": "This student has pushed more submissions than have been graded. Run \"Sync submissions now\" to grade and score the newest.",
       "late": "Late",
       "lateRowTitle": "The latest submission was pushed after the deadline.",
-      "lateHistoryTitle": "Pushed after the deadline.",
       "gradedAt": "Graded {{date}}",
       "gradedAtTitle": "When the autograder last (re-)graded this submission. Regrading updates this without changing the submission time.",
       "liveLatest": "Latest push {{date}} · not yet graded",
       "liveLatestTitle": "A newer submission was pushed after the last collection, so it isn't graded yet. Run \"Sync submissions now\" to grade and score it.",
+      "notCollectedYet": "Not yet collected",
+      "notCollectedYetTitle": "This student has pushed work that hasn't been collected yet, so there's no recorded submission time. Run \"Sync submissions now\" to collect it.",
       "members": "Members",
       "openRepoLabel": "Open repository {{repo}}",
       "viewRepo": "View repo",
       "manageAccess": "Manage repository access",
       "manageAccessAria": "Manage repository access for {{owner}}",
       "viewCommit": "View latest commit",
-      "commit": "Commit",
       "noCommit": "No commit yet",
       "viewDetails": "View autograder details",
-      "details": "Details",
       "noDetails": "No details yet",
       "noGradingTitle": "Autograding is disabled for this assignment",
       "resolvingNonSubmitters": "Checking who hasn't submitted yet…",
@@ -2485,21 +2516,35 @@
       "notAccepted": "Not accepted",
       "noGroup": "Not in a credited group",
       "noGroupTitle": "This student isn't credited on any submitting group's repo. Group membership is read from each repo's collaborators at collection time, so a student who never joined a group — or whose group's membership couldn't be read on the last collection — appears here. Open the group repos to confirm before grading.",
-      "submittedBy": "by {{name}}",
       "review": "Review",
-      "reviewAria": "Open feedback pull request",
-      "fullHistory": "Open the <repoLink>repository</repoLink> for the full commit history."
+      "reviewAria": "Open feedback pull request"
     },
-    "manualGrade": {
+    "scoreOverride": {
       "notGraded": "Not graded",
       "add": "Add grade",
       "edit": "Edit grade",
+      "override": "Override score",
       "addLabel": "Add grade for {{name}}",
       "editLabel": "Edit grade for {{name}}",
-      "inputLabel": "Score for {{name}}",
+      "overrideLabel": "Override score for {{name}}",
+      "titleAdd": "Add grade",
+      "titleEdit": "Edit grade",
+      "titleOverride": "Override score",
+      "descriptionManual": "Enter a score for {{name}}. It's saved to the gradebook and won't be changed by autograding.",
+      "descriptionAuto": "Enter a score for {{name}} to override the autograded result. The autograded score is preserved and restored if you clear the override.",
+      "inputLabel": "Score",
+      "maxLabel": "Out of (max points)",
+      "maxHint": "This submission hasn't been autograded yet, so enter the total points it's out of.",
+      "maxRequired": "Enter the max points to save.",
+      "maxRange": "Max points must be a whole number of at least 1.",
+      "currentAutograded": "Autograded score",
       "required": "Enter a score to save.",
       "range": "Score must be a whole number from 0 to {{max}}.",
-      "saveError": "Couldn't save the grade. Check your connection and try again."
+      "save": "Save",
+      "clear": "Clear override",
+      "clearLabel": "Clear the score override for {{name}}",
+      "saveError": "Couldn't save the grade. Check your connection and try again.",
+      "clearError": "Couldn't clear the override. Check your connection and try again."
     },
     "reviewModal": {
       "errorTitle": "Couldn't check for a feedback PR",
@@ -2793,24 +2838,27 @@
       "membersDescription": "View and manage the group's members"
     },
     "student": {
-      "submittedAt": "Submitted {{date}}",
       "descriptionLabel": "Assignment details",
-      "viewGrade": "View grade",
-      "unavailable": "Unavailable",
       "modeGroup": "Group",
       "modeIndividual": "Individual",
+      "detailsTitle": "Your submissions",
+      "tableCaption": "Your submission for this assignment",
+      "notSubmittedYet": "Not submitted yet",
+      "submittedAwaitingGrading": "Submitted — awaiting grading",
       "loadError": "Could not load your submissions.",
       "notAccepted": "You haven't accepted this assignment yet. <acceptLink>Accept it</acceptLink> to get your repository, then push your work to be graded.",
       "locked": "This assignment is locked by your teacher and isn't available right now. Check back later or ask your teacher to unlock it.",
-      "noGradedYet": "No graded submission yet. Push to your assignment repository from the command line and the autograder will publish your result here.",
-      "openMyRepo": "Open my repository",
       "submitGuide": {
         "title": "Submit from the command line",
         "intro": "Submit your work for grading from a terminal.",
         "step1": "Clone your assignment repository (once):",
         "step2": "From inside the repository, submit your work for grading:",
         "copyClone": "Copy clone command",
-        "copySubmit": "Copy submit command"
+        "copySubmit": "Copy submit command",
+        "tagIntro": "This assignment is graded on tags. Commit and push your work, then push a tag to submit it for grading.",
+        "tagStep2": "From inside the repository, submit your work — this pushes a submission tag that triggers grading:",
+        "milestoneStep": "Or push a milestone tag your teacher set up (for example, {{tags}}):",
+        "copyMilestone": "Copy milestone tag command"
       },
       "upload": {
         "open": "Upload submission",
@@ -2836,7 +2884,6 @@
         "unsafePath": "Skipped \"{{name}}\" — its path isn't allowed.",
         "reservedPath": "Skipped \"{{path}}\" — that path is managed by Classroom 50 and can't be uploaded."
       },
-      "releasesIntro": "Each submission opens its graded release on GitHub, with your score and per-test results.",
       "fallbackTitle": "Submission",
       "missingParams": "Missing classroom or assignment information."
     }

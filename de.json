@@ -861,9 +861,9 @@
           }
         },
         "label": "Automatische Bewertung",
-        "lockedHelp": "Ob der integrierte Autograder verwendet wird, kann nach der Erstellung nicht mehr geändert werden: Repositories, die bereits von Studierenden angenommen wurden, werden nicht neu bereitgestellt.",
         "modeLabel": "Integrierter Autograder",
-        "notAutogradedNote": "Die Optionen zur automatischen Bewertung gelten nur, wenn diese Aufgabe im Abschnitt „Abgabe und Bewertung“ oben auf „Automatisch bewertet“ eingestellt ist. Ändere die Bewertungsauswahl auf „Automatisch bewertet“, um den Autograder zu konfigurieren."
+        "notAutogradedNote": "Die Optionen zur automatischen Bewertung gelten nur, wenn diese Aufgabe im Abschnitt „Abgabe und Bewertung“ oben auf „Automatisch bewertet“ eingestellt ist. Ändere die Bewertungsauswahl auf „Automatisch bewertet“, um den Autograder zu konfigurieren.",
+        "editHelp": "Eine Änderung des integrierten Autograders wirkt sich nur auf Repositorys aus, die Teilnehmende ab jetzt annehmen. Bereits angenommene Repositorys behalten ihre ursprüngliche Einrichtung — etwaige Unterschiede müssen Sie selbst abgleichen."
       },
       "copyAbout": {
         "help": "Kopiere die „Info“ der Vorlage (ihre Beschreibung) in jedes Repository der Studierenden. GitHub kopiert sie nicht automatisch. Dies gilt für Studierende, die ab jetzt annehmen; bereits erstellte Repositories werden nicht geändert.",
@@ -880,8 +880,7 @@
           "manual": "Manuell (Punktzahlen von Hand eingeben)",
           "off": "Nicht bewertet"
         },
-        "editWarning": "Der Bewertungsmodus kann nach der Erstellung nicht mehr geändert werden: Bereits im alten Modus erfasste Punktzahlen würden falsch interpretiert. Erstelle stattdessen eine neue Aufgabe unter einem anderen Slug.",
-        "help": "Wie diese Aufgabe bewertet wird. „Automatisch bewertet“ führt den unten konfigurierten Autograder aus. „Manuell“ ermöglicht es dir, die Punktzahl jeder studierenden Person auf der Abgabenseite von Hand einzugeben. „Nicht bewertet“ erfasst keine Punktzahl. Kann nach der Erstellung der Aufgabe nicht mehr geändert werden.",
+        "help": "Wie diese Aufgabe bewertet wird. „Automatisch bewertet“ führt den unten konfigurierten Autograder aus. „Manuell“ ermöglicht es Ihnen, die Punktzahl jeder/jedes Teilnehmenden von Hand auf der Abgabenseite einzugeben. „Nicht bewertet“ erfasst keine Punktzahl.",
         "label": "Bewertung",
         "maxPoints": {
           "help": "Insgesamt für diese manuelle Aufgabe verfügbare Punkte. Wird verwendet, um die Punktzahl jeder studierenden Person im Verhältnis zum Maximum anzuzeigen.",
@@ -894,7 +893,6 @@
       },
       "repoSource": {
         "label": "Mit einer Vorlage beginnen",
-        "lockedHelp": "Die Repository-Quelle kann nach der Erstellung nicht mehr geändert werden: Repositories, die bereits von Studierenden angenommen wurden, werden nicht neu bereitgestellt.",
         "none": {
           "help": "Erstelle für jede studierende Person ein neues Repository.",
           "label": "Keine Vorlage"
@@ -902,15 +900,11 @@
         "template": {
           "help": "Erzeuge das Repository jeder studierenden Person aus einer von dir bereitgestellten Vorlage.",
           "label": "Vorlagen-Repository"
-        }
+        },
+        "editHelp": "Eine Änderung der Repository-Quelle wirkt sich nur auf Repositorys aus, die Teilnehmende ab jetzt annehmen. Bereits angenommene Repositorys behalten ihren ursprünglichen Startinhalt — etwaige Unterschiede müssen Sie selbst abgleichen."
       },
       "repositorySetupSection": "Repository-Einrichtung",
       "scheduleSection": "Zeitplan",
-      "sectionStatus": {
-        "configured": "Konfiguriert",
-        "default": "Standard",
-        "error": "Erfordert Aufmerksamkeit"
-      },
       "submissionMode": {
         "choices": {
           "everyPush": "Jeder Push auf den Standard-Branch",
@@ -931,7 +925,11 @@
       "submissions": {
         "heading": "Abgaben",
         "help": "Wie die Abgabenseite die Arbeit jeder studierenden Person erkennt und zählt. Der Autograder verwendet dieselbe Definition."
-      }
+      },
+      "discardChanges": "Änderungen verwerfen",
+      "reset": "Zurücksetzen",
+      "resetSection": "Diesen Abschnitt auf die Standardeinstellungen zurücksetzen",
+      "typeLockedHelp": "Nach der Erstellung nicht mehr änderbar — ein Wechsel würde bestehende Abgaben ungültig machen."
     },
     "autograder": {
       "heading": "Autograding-Tests",
@@ -1273,7 +1271,14 @@
     "collaboratorsHint_one": "Füge Mitarbeitende für dieses Aufgaben-Repository hinzu oder entferne sie. Diese Aufgabe erlaubt zusätzlich zur Gruppenbesitzerin bzw. zum Gruppenbesitzer bis zu <count>{{count}}</count> lernende Person.",
     "collaboratorsHint_other": "Füge Mitarbeitende für dieses Aufgaben-Repository hinzu oder entferne sie. Diese Aufgabe erlaubt zusätzlich zur Gruppenbesitzerin bzw. zum Gruppenbesitzer bis zu <count>{{count}}</count> Lernende.",
     "individual": "Dies ist eine Einzelaufgabe – es gibt keine Gruppeneinstellungen zu verwalten. Sieh dir deine <submissionLink>Abgabe und Autograder-Ergebnisse</submissionLink> an.",
-    "notAccepted": "Du hast diese Aufgabe noch nicht! Musst du sie zuerst <acceptLink>annehmen</acceptLink>?"
+    "notAccepted": "Du hast diese Aufgabe noch nicht! Musst du sie zuerst <acceptLink>annehmen</acceptLink>?",
+    "provisioningConfirm": {
+      "body_one": "{{count}} Teilnehmer/in hat diese Aufgabe bereits angenommen. Diese Änderung betrifft nur Repositorys, die ab jetzt angenommen werden — das {{count}} vorhandene Repository behält seinen ursprünglichen Startcode und seine Einrichtung. Wenn Sie die automatische Bewertung ausschalten, beginnen die Autograde-Läufe dieser Repositorys zu scheitern und fallen aus dem Notenbuch heraus; wenn Sie den Bewertungsmodus ändern, werden im alten Modus erfasste Punktzahlen möglicherweise anders gelesen. Sie müssen etwaige Inkonsistenzen selbst abgleichen.",
+      "body_other": "{{count}} Teilnehmende haben diese Aufgabe bereits angenommen. Diese Änderung betrifft nur Repositorys, die ab jetzt angenommen werden — die {{count}} vorhandenen Repositorys behalten ihren ursprünglichen Startcode und ihre Einrichtung. Wenn Sie die automatische Bewertung ausschalten, beginnen die Autograde-Läufe dieser Repositorys zu scheitern und fallen aus dem Notenbuch heraus; wenn Sie den Bewertungsmodus ändern, werden im alten Modus erfasste Punktzahlen möglicherweise anders gelesen. Sie müssen etwaige Inkonsistenzen selbst abgleichen.",
+      "cancel": "Abbrechen",
+      "confirm": "Änderungen trotzdem speichern",
+      "title": "Bereitstellungseinstellungen ändern, nachdem Teilnehmende angenommen haben?"
+    }
   },
   "orgSettings": {
     "page": {
@@ -1870,7 +1875,8 @@
       "statusFailed": "Die Erfassung wurde nicht erfolgreich abgeschlossen.",
       "statusFailedWithReason": "Erfassung konnte nicht gestartet werden: {{reason}}",
       "statusFailedHint": "Du kannst sie auf GitHub prüfen oder manuell auslösen.",
-      "statusTimeout": "Läuft nach einiger Zeit noch immer. Prüfe den Fortschritt auf GitHub oder aktualisiere diese Seite, sobald die Erfassung abgeschlossen ist."
+      "statusTimeout": "Läuft nach einiger Zeit noch immer. Prüfe den Fortschritt auf GitHub oder aktualisiere diese Seite, sobald die Erfassung abgeschlossen ist.",
+      "workflowOutdated": "Diese Aufgabe konnte nicht eingesammelt werden: Der Collect-Scores-Workflow im classroom50-Konfigurationsrepository dieser Organisation ist veraltet. Aktualisieren Sie die Workflows der Organisation (ein Aktualisierungsbanner erscheint, sobald eine neuere Version verfügbar ist) und versuchen Sie es erneut."
     },
     "regradeAll": {
       "label": "Alle neu bewerten",
@@ -1958,26 +1964,18 @@
       "colLastSubmitted": "Zuletzt abgegeben",
       "colActions": "Aktionen",
       "openGroupRepo": "Das gemeinsame Gruppen-Repository öffnen",
-      "hideSubmissions": "Abgaben ausblenden",
-      "showSubmissions": "Alle Abgaben anzeigen",
-      "submissionCount_one": "{{count}} Abgabe",
-      "submissionCount_other": "{{count}} Abgaben",
       "late": "Verspätet",
       "lateRowTitle": "Die letzte Abgabe wurde nach der Frist gepusht.",
-      "lateHistoryTitle": "Nach der Frist gepusht.",
       "gradedAt": "Bewertet {{date}}",
       "gradedAtTitle": "Wann der Autograder diese Abgabe zuletzt (neu) bewertet hat. Eine Neubewertung aktualisiert dies, ohne die Abgabezeit zu ändern.",
       "members": "Mitglieder",
       "openRepoLabel": "Repository {{repo}} öffnen",
       "viewRepo": "Repository anzeigen",
       "viewCommit": "Letzten Commit anzeigen",
-      "commit": "Commit",
       "noCommit": "Noch kein Commit",
       "viewDetails": "Autograder-Details anzeigen",
-      "details": "Details",
       "noDetails": "Noch keine Details",
       "notSubmitted": "Nicht abgegeben",
-      "submittedBy": "von {{name}}",
       "review": "Prüfen",
       "reviewAria": "Feedback-Pull-Request öffnen",
       "acceptedAwaiting": "Angenommen · Abgabe ausstehend",
@@ -1990,7 +1988,6 @@
       "noGroupTitle": "Dieser Lernende ist keinem Repo einer abgebenden Gruppe angerechnet. Die Gruppenmitgliedschaft wird beim Einsammeln aus den Mitwirkenden jedes Repos gelesen, daher erscheint hier jemand, der nie einer Gruppe beigetreten ist – oder dessen Gruppenmitgliedschaft beim letzten Einsammeln nicht gelesen werden konnte. Öffne die Gruppen-Repos, um dies vor der Bewertung zu bestätigen.",
       "notAccepted": "Nicht angenommen",
       "noGradingTitle": "Autograding ist für diese Aufgabe deaktiviert",
-      "fullHistory": "Öffne das <repoLink>Repository</repoLink> für den vollständigen Commit-Verlauf.",
       "liveLatest": "Letzter Push {{date}} · noch nicht bewertet",
       "liveLatestTitle": "Eine neuere Abgabe wurde nach der letzten Sammlung gepusht und ist daher noch nicht bewertet. Führe „Abgaben jetzt synchronisieren“ aus, um sie zu bewerten und zu benoten.",
       "loading": "Abgaben werden geladen…",
@@ -2002,7 +1999,10 @@
       "manageAccess": "Repository-Zugriff verwalten",
       "manageAccessAria": "Repository-Zugriff für {{owner}} verwalten",
       "overridden": "Manuell",
-      "overriddenTitle": "Diese Punktzahl wurde von Hand gesetzt und wird von der automatischen Bewertung nicht geändert, bis die Überschreibung aufgehoben wird."
+      "overriddenTitle": "Diese Punktzahl wurde von Hand gesetzt und wird von der automatischen Bewertung nicht geändert, bis die Überschreibung aufgehoben wird.",
+      "notCollectedYet": "Noch nicht eingesammelt",
+      "notCollectedYetTitle": "Diese/r Teilnehmende hat Arbeit gepusht, die noch nicht eingesammelt wurde, daher gibt es keinen erfassten Abgabezeitpunkt. Führen Sie „Abgaben jetzt synchronisieren“ aus, um sie einzusammeln.",
+      "viewSubmissionsTitle": "Abgaben ansehen"
     },
     "reviewModal": {
       "errorTitle": "Es konnte nicht nach einem Feedback-PR gesucht werden",
@@ -2024,15 +2024,9 @@
       "confirmBody2": "Die Bewertung läuft im Hintergrund und kann einige Minuten dauern; verwende danach <collectLabel>{{collectLabel}}</collectLabel>, um die neue Bewertung abzurufen."
     },
     "student": {
-      "submittedAt": "Abgegeben {{date}}",
-      "viewGrade": "Bewertung anzeigen",
-      "unavailable": "Nicht verfügbar",
       "modeGroup": "Gruppe",
       "modeIndividual": "Einzeln",
       "loadError": "Deine Abgaben konnten nicht geladen werden.",
-      "noGradedYet": "Noch keine bewertete Abgabe. Pushe von der Kommandozeile aus zu deinem Aufgaben-Repository, und der Autograder veröffentlicht dein Ergebnis hier.",
-      "openMyRepo": "Mein Repository öffnen",
-      "releasesIntro": "Jede Abgabe öffnet ihr bewertetes Release auf GitHub, mit deiner Bewertung und den Ergebnissen pro Test.",
       "fallbackTitle": "Abgabe",
       "missingParams": "Classroom- oder Aufgabeninformationen fehlen.",
       "descriptionLabel": "Aufgabendetails",
@@ -2042,7 +2036,11 @@
         "step1": "Klone dein Aufgaben-Repository (einmalig):",
         "step2": "Reiche deine Arbeit aus dem Repository heraus zur Bewertung ein:",
         "title": "Über die Kommandozeile einreichen",
-        "intro": "Reiche deine Arbeit über ein Terminal zur Bewertung ein."
+        "intro": "Reiche deine Arbeit über ein Terminal zur Bewertung ein.",
+        "copyMilestone": "Meilenstein-Tag-Befehl kopieren",
+        "milestoneStep": "Oder pushen Sie einen von Ihrer Lehrkraft eingerichteten Meilenstein-Tag (zum Beispiel {{tags}}):",
+        "tagIntro": "Diese Aufgabe wird anhand von Tags bewertet. Committen und pushen Sie Ihre Arbeit und pushen Sie dann einen Tag, um sie zur Bewertung einzureichen.",
+        "tagStep2": "Reichen Sie Ihre Arbeit aus dem Repository heraus ein — dies pusht einen Abgabe-Tag, der die Bewertung auslöst:"
       },
       "upload": {
         "addFiles": "Dateien hinzufügen",
@@ -2069,7 +2067,11 @@
         "unsafePath": "„{{name}}“ übersprungen — dieser Pfad ist nicht zulässig."
       },
       "notAccepted": "Du hast diese Aufgabe noch nicht angenommen. <acceptLink>Nimm sie an</acceptLink>, um dein Repository zu erhalten, und pushe dann deine Arbeit, um sie bewerten zu lassen.",
-      "locked": "Diese Aufgabe wurde von deiner Lehrkraft gesperrt und ist derzeit nicht verfügbar. Schau später noch einmal vorbei oder bitte deine Lehrkraft, sie zu entsperren."
+      "locked": "Diese Aufgabe wurde von deiner Lehrkraft gesperrt und ist derzeit nicht verfügbar. Schau später noch einmal vorbei oder bitte deine Lehrkraft, sie zu entsperren.",
+      "detailsTitle": "Ihre Abgaben",
+      "notSubmittedYet": "Noch nicht abgegeben",
+      "submittedAwaitingGrading": "Abgegeben — Bewertung ausstehend",
+      "tableCaption": "Ihre Abgabe für diese Aufgabe"
     },
     "viewSourceRepo": "Vorlage anzeigen",
     "menu": {
@@ -2080,7 +2082,6 @@
     "metrics": {
       "title": "Abgabekennzahlen"
     },
-    "emptyRepoNote": "Diese Aufgabe verwendet leere Repositorys — Autograding, Punkte und die Feedback-Pull-Request sind deaktiviert. Die Studierenden erstellen und pushen ihre eigene Arbeit; die Tabelle unten zeigt, wer angenommen hat.",
     "freshness": {
       "collected": "Abgabedaten synchronisiert {{when}}",
       "neverCollected": "Abgabedaten noch nicht synchronisiert",
@@ -2341,17 +2342,6 @@
       "working": "Repositories werden aktualisiert"
     },
     "closedNotice": "Abgaben sind geschlossen. Neue Studierende können diese Aufgabe nicht annehmen. Wenn du hier schließt, werden die Repositories der Studierenden, die angenommen haben, schreibgeschützt gesetzt; bestehende Arbeit bleibt erhalten. Öffne sie über das Aktionsmenü wieder, um Abgaben erneut zuzulassen.",
-    "manualGrade": {
-      "add": "Note hinzufügen",
-      "addLabel": "Note für {{name}} hinzufügen",
-      "edit": "Note bearbeiten",
-      "editLabel": "Note für {{name}} bearbeiten",
-      "inputLabel": "Punktzahl für {{name}}",
-      "notGraded": "Nicht bewertet",
-      "range": "Die Punktzahl muss eine ganze Zahl von 0 bis {{max}} sein.",
-      "required": "Gib eine Punktzahl ein, um zu speichern.",
-      "saveError": "Die Note konnte nicht gespeichert werden. Prüfe deine Verbindung und versuche es erneut."
-    },
     "migrateTracking": {
       "apply": "Konfiguration migrieren",
       "bannerAction": "Konfiguration migrieren",
@@ -2364,7 +2354,6 @@
       "warning": "Dies erfasst die Einstellungen jeder Aufgabe explizit, sodass jedes Werkzeug sie gleich liest und die neuesten Funktionen (etwa die Live-Abgabeverfolgung) aktiviert werden. Es ändert keine Note, keine Frist und keinen Zugriff einer studierenden Person, und du kannst wie zuvor weiterarbeiten.",
       "working": "Aufgaben werden aktualisiert"
     },
-    "noAutograderNote": "Diese Aufgabe hat keine integrierte automatische Bewertung – die Lehrkraft stellt ihre eigene CI in der Vorlage bereit. Integrierte Punktzahlen und Neubewertung sind deaktiviert; die Tabelle unten zeigt, wer angenommen hat. Der Feedback-Pull-Request funktioniert weiterhin, wenn er aktiviert ist.",
     "rowAutograde": {
       "outcome": {
         "failed": "Der Status der automatischen Bewertung konnte nicht geändert werden – versuche es erneut.",
@@ -2391,6 +2380,64 @@
         "updated": "Auslöser für die automatische Bewertung aktualisiert. Die studierende Person muss vor ihrem nächsten Push einen Pull ausführen."
       },
       "title": "Auslöser für automatische Bewertung aktualisieren"
+    },
+    "details": {
+      "emptyEveryPush": "Noch keine Pushes auf den Standard-Branch. Das Repository existiert weiterhin — öffnen Sie es, um den Code zu sehen.",
+      "emptyLinkDefaultBranch": "Repository ansehen",
+      "emptyLinkTags": "Tags ansehen",
+      "emptyTag": "Noch keine mit Tag versehenen Abgaben. Das Repository existiert weiterhin — öffnen Sie seine Tags, um Abgaben zu sehen, sobald sie eintreffen.",
+      "pushEntry": "Push #{{number}}",
+      "tagEntry": "Abgabe #{{number}}",
+      "unavailable": "Nicht verfügbar",
+      "viewCommit": "Commit ansehen",
+      "viewGrade": "Bewertung ansehen",
+      "viewRepository": "Repository ansehen",
+      "viewSubmissions": "Abgaben ansehen",
+      "viewTag": "Tag ansehen"
+    },
+    "grading": {
+      "badgeBuiltIn": "Automatisch bewertet",
+      "badgeEmptyRepo": "Keine automatische Bewertung",
+      "badgeNoAutograder": "Keine integrierte automatische Bewertung",
+      "titleEmptyRepo": "Diese Aufgabe verwendet leere Repositorys — automatische Bewertung, Punktzahlen und die Feedback-Pull-Request sind deaktiviert. Die Tabelle zeigt, wer angenommen hat.",
+      "titleNoAutograder": "Die Lehrkraft stellt eine eigene CI im Template bereit. Integrierte Punktzahlen und Neubewertung sind deaktiviert; die Feedback-Pull-Request funktioniert weiterhin, sofern aktiviert."
+    },
+    "scoreOverride": {
+      "add": "Bewertung hinzufügen",
+      "addLabel": "Bewertung für {{name}} hinzufügen",
+      "clear": "Überschreibung aufheben",
+      "clearError": "Die Überschreibung konnte nicht aufgehoben werden. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+      "clearLabel": "Punktzahl-Überschreibung für {{name}} aufheben",
+      "currentAutograded": "Automatisch bewertete Punktzahl",
+      "descriptionAuto": "Geben Sie eine Punktzahl für {{name}} ein, um das automatisch bewertete Ergebnis zu überschreiben. Die automatisch bewertete Punktzahl bleibt erhalten und wird wiederhergestellt, wenn Sie die Überschreibung aufheben.",
+      "descriptionManual": "Geben Sie eine Punktzahl für {{name}} ein. Sie wird im Notenbuch gespeichert und von der automatischen Bewertung nicht verändert.",
+      "edit": "Bewertung bearbeiten",
+      "editLabel": "Bewertung für {{name}} bearbeiten",
+      "inputLabel": "Punktzahl",
+      "maxHint": "Diese Abgabe wurde noch nicht automatisch bewertet, geben Sie daher die Gesamtpunktzahl ein, aus der sie besteht.",
+      "maxLabel": "Von (Höchstpunktzahl)",
+      "maxRange": "Die Höchstpunktzahl muss eine ganze Zahl von mindestens 1 sein.",
+      "maxRequired": "Geben Sie die Höchstpunktzahl ein, um zu speichern.",
+      "notGraded": "Nicht bewertet",
+      "override": "Punktzahl überschreiben",
+      "overrideLabel": "Punktzahl für {{name}} überschreiben",
+      "range": "Die Punktzahl muss eine ganze Zahl von 0 bis {{max}} sein.",
+      "required": "Geben Sie eine Punktzahl ein, um zu speichern.",
+      "save": "Speichern",
+      "saveError": "Die Bewertung konnte nicht gespeichert werden. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+      "titleAdd": "Bewertung hinzufügen",
+      "titleEdit": "Bewertung bearbeiten",
+      "titleOverride": "Punktzahl überschreiben"
+    },
+    "type": {
+      "badgeEveryPush": "Jeder Push auf den Standard-Branch zählt",
+      "badgeTag": "Per Tag eingereicht",
+      "countEveryPush_one": "{{count}} Push auf den Standard-Branch",
+      "countEveryPush_other": "{{count}} Pushes auf den Standard-Branch",
+      "countTag_one": "{{count}} mit Tag versehene Abgabe",
+      "countTag_other": "{{count}} mit Tag versehene Abgaben",
+      "tagGroupCount_one": "{{pattern}} · {{count}} Tag",
+      "tagGroupCount_other": "{{pattern}} · {{count}} Tags"
     }
   },
   "orgMembers": {

@@ -863,9 +863,9 @@
           }
         },
         "label": "Automatické hodnocení",
-        "lockedHelp": "Zda se používá vestavěný autograder, nelze po vytvoření změnit: repozitáře, které studenti již přijali, se znovu nevytvářejí.",
         "modeLabel": "Vestavěný autograder",
-        "notAutogradedNote": "Možnosti automatického hodnocení platí pouze tehdy, když je tato úloha nastavena na „Automaticky hodnoceno“ v části Odevzdávání a hodnocení výše. Chcete-li autograder nakonfigurovat, změňte volbu hodnocení na Automaticky hodnoceno."
+        "notAutogradedNote": "Možnosti automatického hodnocení platí pouze tehdy, když je tato úloha nastavena na „Automaticky hodnoceno“ v části Odevzdávání a hodnocení výše. Chcete-li autograder nakonfigurovat, změňte volbu hodnocení na Automaticky hodnoceno.",
+        "editHelp": "Změna vestavěného autograderu se dotkne pouze repozitářů, které studenti přijmou od této chvíle. Již přijaté repozitáře si ponechají své původní nastavení — případné rozdíly si budete muset vyřešit sami."
       },
       "copyAbout": {
         "help": "Zkopírovat pole About šablony (její popis) do každého studentského repozitáře. GitHub jej nekopíruje automaticky. Platí pro studenty, kteří přijmou od nynějška; již vytvořené repozitáře se nemění.",
@@ -882,8 +882,7 @@
           "manual": "Ručně (skóre zadávejte ručně)",
           "off": "Nehodnoceno"
         },
-        "editWarning": "Režim hodnocení nelze po vytvoření změnit: skóre již zaznamenaná ve starém režimu by byla nesprávně interpretována. Vytvořte místo toho novou úlohu pod jiným slugem.",
-        "help": "Jak je tato úloha hodnocena. „Automaticky hodnoceno“ spouští autograder, který níže nakonfigurujete. „Ručně“ umožňuje zadat skóre každého studenta ručně na stránce odevzdání. „Nehodnoceno“ žádné skóre nezaznamenává. Po vytvoření úlohy nelze změnit.",
+        "help": "Jak se tato úloha hodnotí. „Automaticky hodnoceno“ spustí autograder, který nastavíte níže. „Ručně“ vám umožní zadat skóre každého studenta ručně na stránce odevzdání. „Nehodnoceno“ nezaznamená žádné skóre.",
         "label": "Hodnocení",
         "maxPoints": {
           "help": "Celkový počet bodů dostupných pro tuto ručně hodnocenou úlohu. Používá se k zobrazení skóre každého studenta z maxima.",
@@ -896,7 +895,6 @@
       },
       "repoSource": {
         "label": "Začít se šablonou",
-        "lockedHelp": "Zdroj repozitáře nelze po vytvoření změnit: repozitáře, které studenti již přijali, se znovu nevytvářejí.",
         "none": {
           "help": "Vytvořit pro každého studenta nový repozitář.",
           "label": "Bez šablony"
@@ -904,15 +902,11 @@
         "template": {
           "help": "Vygenerovat repozitář každého studenta z šablony, kterou poskytnete.",
           "label": "Repozitář šablony"
-        }
+        },
+        "editHelp": "Změna zdroje repozitáře se dotkne pouze repozitářů, které studenti přijmou od této chvíle. Již přijaté repozitáře si ponechají svůj původní výchozí obsah — případné rozdíly si budete muset vyřešit sami."
       },
       "repositorySetupSection": "Nastavení repozitáře",
       "scheduleSection": "Harmonogram",
-      "sectionStatus": {
-        "configured": "Nakonfigurováno",
-        "default": "Výchozí",
-        "error": "Vyžaduje pozornost"
-      },
       "submissionMode": {
         "choices": {
           "everyPush": "Každý push do výchozí větve",
@@ -933,7 +927,11 @@
       "submissions": {
         "heading": "Odevzdání",
         "help": "Jak stránka odevzdání zjišťuje a počítá práci každého studenta. Autograder používá stejnou definici."
-      }
+      },
+      "discardChanges": "Zahodit změny",
+      "reset": "Obnovit",
+      "resetSection": "Obnovit tuto sekci na výchozí nastavení",
+      "typeLockedHelp": "Po vytvoření nelze změnit — přepnutí by znehodnotilo stávající odevzdání."
     },
     "autograder": {
       "heading": "Testy automatického hodnocení",
@@ -1275,7 +1273,14 @@
     "collaboratorsHint_one": "Přidejte nebo odeberte spolupracovníky pro toto repozitář zadání. Toto zadání umožňuje kromě vlastníka skupiny nejvýše <count>{{count}}</count> studenta.",
     "collaboratorsHint_other": "Přidejte nebo odeberte spolupracovníky pro toto repozitář zadání. Toto zadání umožňuje kromě vlastníka skupiny nejvýše <count>{{count}}</count> studentů.",
     "individual": "Toto je individuální zadání — nejsou zde žádná skupinová nastavení ke správě. Zobrazte si své <submissionLink>odevzdání a výsledky autograderu</submissionLink>.",
-    "notAccepted": "Toto zadání ještě nemáte! Nepotřebujete jej nejprve <acceptLink>přijmout</acceptLink>?"
+    "notAccepted": "Toto zadání ještě nemáte! Nepotřebujete jej nejprve <acceptLink>přijmout</acceptLink>?",
+    "provisioningConfirm": {
+      "body_one": "{{count}} student už tuto úlohu přijal. Tato změna se dotkne pouze repozitářů přijatých od této chvíle — {{count}} stávající repozitář si ponechá svůj původní výchozí kód a nastavení. Pokud vypnete automatické hodnocení, spuštění autograderu u těchto repozitářů začnou selhávat a vypadnou z klasifikace; pokud změníte režim hodnocení, skóre zaznamenané v původním režimu se může zobrazovat jinak. Případné nesrovnalosti si budete muset vyřešit sami.",
+      "body_other": "{{count}} studentů už tuto úlohu přijalo. Tato změna se dotkne pouze repozitářů přijatých od této chvíle — {{count}} stávajících repozitářů si ponechá svůj původní výchozí kód a nastavení. Pokud vypnete automatické hodnocení, spuštění autograderu u těchto repozitářů začnou selhávat a vypadnou z klasifikace; pokud změníte režim hodnocení, skóre zaznamenané v původním režimu se může zobrazovat jinak. Případné nesrovnalosti si budete muset vyřešit sami.",
+      "cancel": "Zrušit",
+      "confirm": "Přesto uložit změny",
+      "title": "Změnit nastavení poskytování poté, co studenti přijali úlohu?"
+    }
   },
   "orgSettings": {
     "page": {
@@ -1873,7 +1878,8 @@
       "statusFailed": "Běh sběru neproběhl úspěšně.",
       "statusFailedWithReason": "Sběr se nepodařilo spustit: {{reason}}",
       "statusFailedHint": "Můžete jej zkontrolovat nebo spustit ručně na GitHubu.",
-      "statusTimeout": "Po delší době stále běží. Zkontrolujte průběh na GitHubu nebo tuto stránku po dokončení obnovte."
+      "statusTimeout": "Po delší době stále běží. Zkontrolujte průběh na GitHubu nebo tuto stránku po dokončení obnovte.",
+      "workflowOutdated": "Nepodařilo se shromáždit tuto úlohu: workflow Collect Scores v konfiguračním repozitáři classroom50 této organizace je zastaralý. Aktualizujte workflow organizace (jakmile je k dispozici novější verze, zobrazí se aktualizační banner) a poté to zkuste znovu."
     },
     "regradeAll": {
       "label": "Přehodnotit vše",
@@ -1961,26 +1967,18 @@
       "colLastSubmitted": "Naposledy odevzdáno",
       "colActions": "Akce",
       "openGroupRepo": "Otevřít sdílený repozitář skupiny",
-      "hideSubmissions": "Skrýt odevzdání",
-      "showSubmissions": "Zobrazit všechna odevzdání",
-      "submissionCount_one": "{{count}} odevzdání",
-      "submissionCount_other": "{{count}} odevzdání",
       "late": "Po termínu",
       "lateRowTitle": "Poslední odevzdání bylo odesláno po termínu.",
-      "lateHistoryTitle": "Odesláno po termínu.",
       "gradedAt": "Ohodnoceno {{date}}",
       "gradedAtTitle": "Kdy autograder toto odevzdání naposledy (pře)hodnotil. Přehodnocení tento údaj aktualizuje, aniž by změnilo čas odevzdání.",
       "members": "Členové",
       "openRepoLabel": "Otevřít repozitář {{repo}}",
       "viewRepo": "Zobrazit repozitář",
       "viewCommit": "Zobrazit poslední commit",
-      "commit": "Commit",
       "noCommit": "Zatím žádný commit",
       "viewDetails": "Zobrazit podrobnosti autograderu",
-      "details": "Podrobnosti",
       "noDetails": "Zatím žádné podrobnosti",
       "notSubmitted": "Neodevzdáno",
-      "submittedBy": "od {{name}}",
       "review": "Zkontrolovat",
       "reviewAria": "Otevřít pull request se zpětnou vazbou",
       "acceptedAwaiting": "Přijato · čeká na odevzdání",
@@ -1993,7 +1991,6 @@
       "noGroupTitle": "Tento student není započítán v repozitáři žádné odevzdávající skupiny. Členství ve skupině se čte ze spolupracovníků každého repozitáře v době sběru, takže student, který se nikdy nepřipojil ke skupině — nebo jehož členství ve skupině nebylo možné při posledním sběru přečíst — se objeví zde. Před hodnocením otevřete repozitáře skupin pro ověření.",
       "notAccepted": "Nepřijato",
       "noGradingTitle": "Automatické hodnocení je pro tuto úlohu vypnuto",
-      "fullHistory": "Otevřete <repoLink>repozitář</repoLink> pro úplnou historii commitů.",
       "liveLatest": "Poslední push {{date}} · zatím neohodnoceno",
       "liveLatestTitle": "Po posledním shromáždění bylo odesláno novější odevzdání, takže ještě není ohodnoceno. Spusťte „Synchronizovat odevzdání nyní“ k jeho ohodnocení a obodování.",
       "loading": "Načítání odevzdání…",
@@ -2005,7 +2002,10 @@
       "manageAccess": "Spravovat přístup k repozitáři",
       "manageAccessAria": "Spravovat přístup k repozitáři pro {{owner}}",
       "overridden": "Ručně",
-      "overriddenTitle": "Toto skóre bylo nastaveno ručně a automatické hodnocení jej nezmění, dokud nebude přepsání zrušeno."
+      "overriddenTitle": "Toto skóre bylo nastaveno ručně a automatické hodnocení jej nezmění, dokud nebude přepsání zrušeno.",
+      "notCollectedYet": "Zatím neshromážděno",
+      "notCollectedYetTitle": "Tento student pushnul práci, která ještě nebyla shromážděna, takže není zaznamenán čas odevzdání. Spusťte „Synchronizovat odevzdání nyní“, aby se shromáždila.",
+      "viewSubmissionsTitle": "Zobrazit odevzdání"
     },
     "reviewModal": {
       "errorTitle": "Nepodařilo se zkontrolovat pull request se zpětnou vazbou",
@@ -2027,15 +2027,9 @@
       "confirmBody2": "Hodnocení běží na pozadí a může trvat několik minut; poté použijte <collectLabel>{{collectLabel}}</collectLabel> k načtení nového skóre."
     },
     "student": {
-      "submittedAt": "Odevzdáno {{date}}",
-      "viewGrade": "Zobrazit hodnocení",
-      "unavailable": "Nedostupné",
       "modeGroup": "Skupinová",
       "modeIndividual": "Individuální",
       "loadError": "Nepodařilo se načíst vaše odevzdání.",
-      "noGradedYet": "Zatím žádná ohodnocená odevzdaná práce. Nahrajte push do repozitáře úlohy z příkazové řádky a autograder zde zveřejní váš výsledek.",
-      "openMyRepo": "Otevřít můj repozitář",
-      "releasesIntro": "Každé odevzdání otevře své ohodnocené vydání na GitHubu s vaším skóre a výsledky jednotlivých testů.",
       "fallbackTitle": "Odevzdání",
       "missingParams": "Chybí informace o učebně nebo úloze.",
       "descriptionLabel": "Podrobnosti úlohy",
@@ -2045,7 +2039,11 @@
         "step1": "Naklonujte si repozitář úlohy (jednou):",
         "step2": "Zevnitř repozitáře odevzdejte svou práci k hodnocení:",
         "title": "Odevzdání z příkazové řádky",
-        "intro": "Odevzdejte svou práci k hodnocení z terminálu."
+        "intro": "Odevzdejte svou práci k hodnocení z terminálu.",
+        "copyMilestone": "Kopírovat příkaz pro milníkový tag",
+        "milestoneStep": "Nebo pushněte milníkový tag, který učitel nastavil (například {{tags}}):",
+        "tagIntro": "Tato úloha se hodnotí podle tagů. Zapište a pushněte svou práci, poté pushněte tag, kterým ji odevzdáte k hodnocení.",
+        "tagStep2": "V repozitáři odevzdejte svou práci — tímto pushnete odevzdací tag, který spustí hodnocení:"
       },
       "upload": {
         "addFiles": "Přidat soubory",
@@ -2072,7 +2070,11 @@
         "unsafePath": "Přeskočeno „{{name}}“ — jeho cesta není povolena."
       },
       "notAccepted": "Toto zadání jste ještě nepřijali. <acceptLink>Přijměte jej</acceptLink>, abyste získali svůj repozitář, a poté odešlete svou práci push k ohodnocení.",
-      "locked": "Tato úloha je uzamčená vaším vyučujícím a nyní není dostupná. Zkuste to později nebo požádejte vyučujícího o odemčení."
+      "locked": "Tato úloha je uzamčená vaším vyučujícím a nyní není dostupná. Zkuste to později nebo požádejte vyučujícího o odemčení.",
+      "detailsTitle": "Vaše odevzdání",
+      "notSubmittedYet": "Zatím neodevzdáno",
+      "submittedAwaitingGrading": "Odevzdáno — čeká na hodnocení",
+      "tableCaption": "Vaše odevzdání pro tuto úlohu"
     },
     "viewSourceRepo": "Zobrazit šablonu",
     "menu": {
@@ -2083,7 +2085,6 @@
     "metrics": {
       "title": "Metriky odevzdání"
     },
-    "emptyRepoNote": "Tato úloha používá prázdné repozitáře — automatické hodnocení, skóre a pull request se zpětnou vazbou jsou vypnuty. Studenti si vytvářejí a nahrávají vlastní práci; tabulka níže ukazuje, kdo úlohu přijal.",
     "freshness": {
       "collected": "Data odevzdání synchronizována {{when}}",
       "neverCollected": "Data odevzdání zatím nesynchronizována",
@@ -2344,17 +2345,6 @@
       "working": "Aktualizace repozitářů"
     },
     "closedNotice": "Odevzdávání je uzavřeno. Noví studenti nemohou tuto úlohu přijmout. Když uzavřete odsud, repozitáře studentů, kteří již přijali, se nastaví jako pouze pro čtení; existující práce je zachována. Znovu ji otevřete z nabídky Akce, chcete-li odevzdávání opět povolit.",
-    "manualGrade": {
-      "add": "Přidat hodnocení",
-      "addLabel": "Přidat hodnocení pro {{name}}",
-      "edit": "Upravit hodnocení",
-      "editLabel": "Upravit hodnocení pro {{name}}",
-      "inputLabel": "Skóre pro {{name}}",
-      "notGraded": "Nehodnoceno",
-      "range": "Skóre musí být celé číslo od 0 do {{max}}.",
-      "required": "Zadejte skóre pro uložení.",
-      "saveError": "Hodnocení se nepodařilo uložit. Zkontrolujte připojení a zkuste to znovu."
-    },
     "migrateTracking": {
       "apply": "Migrovat konfiguraci",
       "bannerAction": "Migrovat konfiguraci",
@@ -2367,7 +2357,6 @@
       "warning": "Tímto se nastavení každé úlohy zaznamená explicitně, aby je všechny nástroje četly stejně a aby se povolily nejnovější funkce (například sledování odevzdání v reálném čase). Nemění to žádnou známku, termín ani přístup studenta a můžete pracovat dál jako dříve.",
       "working": "Aktualizace úloh"
     },
-    "noAutograderNote": "Tato úloha nemá vestavěné automatické hodnocení — vyučující dodává vlastní CI v šabloně. Vestavěná skóre a přehodnocení jsou zakázány; tabulka níže ukazuje, kdo úlohu přijal. Feedback pull request stále funguje, pokud je povolen.",
     "rowAutograde": {
       "outcome": {
         "failed": "Stav automatického hodnocení se nepodařilo změnit — zkuste to znovu.",
@@ -2394,6 +2383,64 @@
         "updated": "Spouštěč automatického hodnocení aktualizován. Student musí před dalším pushem provést pull."
       },
       "title": "Aktualizovat spouštěč automatického hodnocení"
+    },
+    "details": {
+      "emptyEveryPush": "Zatím žádné pushe do výchozí větve. Repozitář stále existuje — otevřete jej a prohlédněte si kód.",
+      "emptyLinkDefaultBranch": "Zobrazit repozitář",
+      "emptyLinkTags": "Zobrazit tagy",
+      "emptyTag": "Zatím žádná otagovaná odevzdání. Repozitář stále existuje — otevřete jeho tagy a sledujte odevzdání, jak přicházejí.",
+      "pushEntry": "Push č. {{number}}",
+      "tagEntry": "Odevzdání č. {{number}}",
+      "unavailable": "Nedostupné",
+      "viewCommit": "Zobrazit commit",
+      "viewGrade": "Zobrazit hodnocení",
+      "viewRepository": "Zobrazit repozitář",
+      "viewSubmissions": "Zobrazit odevzdání",
+      "viewTag": "Zobrazit tag"
+    },
+    "grading": {
+      "badgeBuiltIn": "Automaticky hodnoceno",
+      "badgeEmptyRepo": "Bez automatického hodnocení",
+      "badgeNoAutograder": "Bez vestavěného automatického hodnocení",
+      "titleEmptyRepo": "Tato úloha používá prázdné repozitáře — automatické hodnocení, skóre a pull request se zpětnou vazbou jsou vypnuté. Tabulka ukazuje, kdo úlohu přijal.",
+      "titleNoAutograder": "Učitel dodává v šabloně vlastní CI. Vestavěné skóre a přehodnocení jsou vypnuté; pull request se zpětnou vazbou, pokud je zapnutý, stále funguje."
+    },
+    "scoreOverride": {
+      "add": "Přidat hodnocení",
+      "addLabel": "Přidat hodnocení pro {{name}}",
+      "clear": "Zrušit ruční hodnotu",
+      "clearError": "Nepodařilo se zrušit ruční hodnotu. Zkontrolujte připojení a zkuste to znovu.",
+      "clearLabel": "Zrušit ruční skóre pro {{name}}",
+      "currentAutograded": "Automaticky vypočtené skóre",
+      "descriptionAuto": "Zadejte skóre pro {{name}}, které přepíše automaticky vypočtený výsledek. Automatické skóre se zachová a obnoví, když ruční hodnotu zrušíte.",
+      "descriptionManual": "Zadejte skóre pro {{name}}. Uloží se do klasifikace a automatické hodnocení jej nezmění.",
+      "edit": "Upravit hodnocení",
+      "editLabel": "Upravit hodnocení pro {{name}}",
+      "inputLabel": "Skóre",
+      "maxHint": "Toto odevzdání ještě nebylo automaticky hodnoceno, proto zadejte celkový počet bodů, ze kterých se počítá.",
+      "maxLabel": "Z (maximální počet bodů)",
+      "maxRange": "Maximální počet bodů musí být celé číslo alespoň 1.",
+      "maxRequired": "Pro uložení zadejte maximální počet bodů.",
+      "notGraded": "Nehodnoceno",
+      "override": "Přepsat skóre",
+      "overrideLabel": "Přepsat skóre pro {{name}}",
+      "range": "Skóre musí být celé číslo od 0 do {{max}}.",
+      "required": "Pro uložení zadejte skóre.",
+      "save": "Uložit",
+      "saveError": "Nepodařilo se uložit hodnocení. Zkontrolujte připojení a zkuste to znovu.",
+      "titleAdd": "Přidat hodnocení",
+      "titleEdit": "Upravit hodnocení",
+      "titleOverride": "Přepsat skóre"
+    },
+    "type": {
+      "badgeEveryPush": "Počítá se každý push do výchozí větve",
+      "badgeTag": "Odevzdáno pomocí tagu",
+      "countEveryPush_one": "{{count}} push do výchozí větve",
+      "countEveryPush_other": "{{count}} pushů do výchozí větve",
+      "countTag_one": "{{count}} otagované odevzdání",
+      "countTag_other": "{{count}} otagovaných odevzdání",
+      "tagGroupCount_one": "{{pattern}} · {{count}} tag",
+      "tagGroupCount_other": "{{pattern}} · {{count}} tagů"
     }
   },
   "orgMembers": {

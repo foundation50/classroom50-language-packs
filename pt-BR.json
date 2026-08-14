@@ -861,9 +861,9 @@
           }
         },
         "label": "Autocorreção",
-        "lockedHelp": "O uso ou não do autocorretor integrado não pode ser alterado após a criação: os repositórios que os alunos já aceitaram não são reprovisionados.",
         "modeLabel": "Autocorretor integrado",
-        "notAutogradedNote": "As opções de autocorreção só se aplicam quando esta atividade está definida como \"Autocorrigida\" na seção Submissão e correção acima. Altere a opção de correção para Autocorrigida para configurar o autocorretor."
+        "notAutogradedNote": "As opções de autocorreção só se aplicam quando esta atividade está definida como \"Autocorrigida\" na seção Submissão e correção acima. Altere a opção de correção para Autocorrigida para configurar o autocorretor.",
+        "editHelp": "Alterar a correção automática integrada só afeta os repositórios que os alunos aceitarem de agora em diante. Os repositórios já aceitos mantêm sua configuração original — você mesmo precisará reconciliar qualquer diferença."
       },
       "copyAbout": {
         "help": "Copia o Sobre do modelo (sua descrição) para cada repositório de aluno. O GitHub não copia isso automaticamente. Isto se aplica aos alunos que aceitarem a partir de agora; os repositórios já criados não são alterados.",
@@ -880,8 +880,7 @@
           "manual": "Manual (inserir notas à mão)",
           "off": "Não corrigida"
         },
-        "editWarning": "O modo de correção não pode ser alterado após a criação: as notas já registradas no modo anterior seriam interpretadas incorretamente. Em vez disso, crie uma nova atividade com um slug diferente.",
-        "help": "Como esta atividade é corrigida. \"Autocorrigida\" executa o autocorretor que você configura abaixo. \"Manual\" permite inserir a nota de cada aluno à mão na página de submissões. \"Não corrigida\" não registra nenhuma nota. Não pode ser alterado após a criação da atividade.",
+        "help": "Como esta tarefa é avaliada. \"Corrigida automaticamente\" executa o corretor automático que você configura abaixo. \"Manual\" permite inserir a nota de cada aluno à mão na página de envios. \"Não avaliada\" não registra nenhuma nota.",
         "label": "Correção",
         "maxPoints": {
           "help": "Total de pontos disponíveis para esta atividade manual. Usado para exibir a nota de cada aluno em relação ao máximo.",
@@ -894,7 +893,6 @@
       },
       "repoSource": {
         "label": "Começar com um modelo",
-        "lockedHelp": "A origem do repositório não pode ser alterada após a criação: os repositórios que os alunos já aceitaram não são reprovisionados.",
         "none": {
           "help": "Cria um repositório novo para cada aluno.",
           "label": "Sem modelo"
@@ -902,15 +900,11 @@
         "template": {
           "help": "Gera o repositório de cada aluno a partir de um modelo que você fornece.",
           "label": "Repositório modelo"
-        }
+        },
+        "editHelp": "Alterar a origem do repositório só afeta os repositórios que os alunos aceitarem de agora em diante. Os repositórios já aceitos mantêm seu conteúdo inicial original — você mesmo precisará reconciliar qualquer diferença."
       },
       "repositorySetupSection": "Configuração do repositório",
       "scheduleSection": "Cronograma",
-      "sectionStatus": {
-        "configured": "Configurado",
-        "default": "Padrão",
-        "error": "Requer atenção"
-      },
       "submissionMode": {
         "choices": {
           "everyPush": "Cada push para a branch padrão",
@@ -931,7 +925,11 @@
       "submissions": {
         "heading": "Submissões",
         "help": "Como a página de submissões detecta e conta o trabalho de cada aluno. O autocorretor usa a mesma definição."
-      }
+      },
+      "discardChanges": "Descartar alterações",
+      "reset": "Redefinir",
+      "resetSection": "Redefinir esta seção para as configurações padrão",
+      "typeLockedHelp": "Não pode ser alterado após a criação — mudar isso invalidaria os envios existentes."
     },
     "autograder": {
       "heading": "Testes de correção automática",
@@ -1273,7 +1271,14 @@
     "collaboratorsHint_one": "Adicione ou remova colaboradores deste repositório de atividade. Esta atividade permite até <count>{{count}}</count> aluno além do dono do grupo.",
     "collaboratorsHint_other": "Adicione ou remova colaboradores deste repositório de atividade. Esta atividade permite até <count>{{count}}</count> alunos além do dono do grupo.",
     "individual": "Esta é uma atividade individual — não há configurações de grupo a gerenciar. Veja sua <submissionLink>entrega e os resultados do corretor automático</submissionLink>.",
-    "notAccepted": "Você ainda não tem esta atividade! Você precisa <acceptLink>aceitá-la</acceptLink> primeiro?"
+    "notAccepted": "Você ainda não tem esta atividade! Você precisa <acceptLink>aceitá-la</acceptLink> primeiro?",
+    "provisioningConfirm": {
+      "body_one": "{{count}} aluno já aceitou esta tarefa. Esta alteração só afeta os repositórios aceitos de agora em diante — o {{count}} repositório existente mantém seu código inicial e configuração originais. Se você desativar a correção automática, as execuções de correção automática desses repositórios começarão a falhar e sairão do diário de notas; se você mudar o modo de avaliação, as notas registradas no modo antigo podem ser lidas de forma diferente. Você mesmo precisará reconciliar qualquer inconsistência.",
+      "body_other": "{{count}} alunos já aceitaram esta tarefa. Esta alteração só afeta os repositórios aceitos de agora em diante — os {{count}} repositórios existentes mantêm seu código inicial e configuração originais. Se você desativar a correção automática, as execuções de correção automática desses repositórios começarão a falhar e sairão do diário de notas; se você mudar o modo de avaliação, as notas registradas no modo antigo podem ser lidas de forma diferente. Você mesmo precisará reconciliar qualquer inconsistência.",
+      "cancel": "Cancelar",
+      "confirm": "Salvar alterações mesmo assim",
+      "title": "Alterar configurações de provisionamento após os alunos aceitarem?"
+    }
   },
   "orgSettings": {
     "page": {
@@ -1870,7 +1875,8 @@
       "statusFailed": "A execução da coleta não foi concluída com êxito.",
       "statusFailedWithReason": "Não foi possível iniciar a coleta: {{reason}}",
       "statusFailedHint": "Você pode verificar ou disparar manualmente no GitHub.",
-      "statusTimeout": "Ainda em execução depois de um tempo. Confira o progresso no GitHub ou atualize esta página quando ela terminar."
+      "statusTimeout": "Ainda em execução depois de um tempo. Confira o progresso no GitHub ou atualize esta página quando ela terminar.",
+      "workflowOutdated": "Não foi possível coletar esta tarefa: o fluxo de trabalho Collect Scores no repositório de configuração classroom50 desta organização está desatualizado. Atualize os fluxos de trabalho da organização (um aviso de atualização aparece quando uma versão mais recente está disponível) e tente novamente."
     },
     "regradeAll": {
       "label": "Recorrigir tudo",
@@ -1958,26 +1964,18 @@
       "colLastSubmitted": "Última entrega",
       "colActions": "Ações",
       "openGroupRepo": "Abrir o repositório compartilhado do grupo",
-      "hideSubmissions": "Ocultar entregas",
-      "showSubmissions": "Mostrar todas as entregas",
-      "submissionCount_one": "{{count}} entrega",
-      "submissionCount_other": "{{count}} entregas",
       "late": "Atrasada",
       "lateRowTitle": "A entrega mais recente foi enviada após o prazo.",
-      "lateHistoryTitle": "Enviada após o prazo.",
       "gradedAt": "Corrigida {{date}}",
       "gradedAtTitle": "Quando o autocorretor corrigiu (ou recorrigiu) esta entrega pela última vez. A recorreção atualiza isso sem alterar o horário de entrega.",
       "members": "Integrantes",
       "openRepoLabel": "Abrir o repositório {{repo}}",
       "viewRepo": "Ver repositório",
       "viewCommit": "Ver commit mais recente",
-      "commit": "Commit",
       "noCommit": "Nenhum commit ainda",
       "viewDetails": "Ver detalhes do autocorretor",
-      "details": "Detalhes",
       "noDetails": "Ainda sem detalhes",
       "notSubmitted": "Não entregue",
-      "submittedBy": "por {{name}}",
       "review": "Revisar",
       "reviewAria": "Abrir pull request de feedback",
       "acceptedAwaiting": "Aceita · aguardando envio",
@@ -1990,7 +1988,6 @@
       "noGroupTitle": "Este estudante não está creditado no repositório de nenhum grupo que enviou. A participação no grupo é lida a partir dos colaboradores de cada repositório no momento da coleta, então um estudante que nunca entrou em um grupo — ou cujo grupo não pôde ter a participação lida na última coleta — aparece aqui. Abra os repositórios dos grupos para confirmar antes de dar nota.",
       "notAccepted": "Não aceita",
       "noGradingTitle": "A correção automática está desativada para esta tarefa",
-      "fullHistory": "Abra o <repoLink>repositório</repoLink> para ver o histórico completo de commits.",
       "liveLatest": "Último push {{date}} · ainda não corrigido",
       "liveLatestTitle": "Uma entrega mais recente foi enviada após a última coleta, então ela ainda não foi corrigida. Execute \"Sincronizar entregas agora\" para corrigi-la e pontuá-la.",
       "loading": "Carregando entregas…",
@@ -2002,7 +1999,10 @@
       "manageAccess": "Gerenciar acesso ao repositório",
       "manageAccessAria": "Gerenciar acesso ao repositório de {{owner}}",
       "overridden": "Manual",
-      "overriddenTitle": "Esta nota foi definida à mão e não será alterada pela autocorreção até que a substituição seja removida."
+      "overriddenTitle": "Esta nota foi definida à mão e não será alterada pela autocorreção até que a substituição seja removida.",
+      "notCollectedYet": "Ainda não coletado",
+      "notCollectedYetTitle": "Este aluno enviou trabalho que ainda não foi coletado, então não há horário de envio registrado. Execute \"Sincronizar envios agora\" para coletá-lo.",
+      "viewSubmissionsTitle": "Ver envios"
     },
     "reviewModal": {
       "errorTitle": "Não foi possível verificar um PR de feedback",
@@ -2024,15 +2024,9 @@
       "confirmBody2": "A correção é executada em segundo plano e pode levar alguns minutos; use <collectLabel>{{collectLabel}}</collectLabel> depois para obter a nova pontuação."
     },
     "student": {
-      "submittedAt": "Entregue {{date}}",
-      "viewGrade": "Ver nota",
-      "unavailable": "Indisponível",
       "modeGroup": "Grupo",
       "modeIndividual": "Individual",
       "loadError": "Não foi possível carregar suas entregas.",
-      "noGradedYet": "Nenhum envio corrigido ainda. Faça push para o repositório da sua tarefa pela linha de comando e o autocorretor publicará seu resultado aqui.",
-      "openMyRepo": "Abrir meu repositório",
-      "releasesIntro": "Cada entrega abre a release corrigida no GitHub, com sua nota e os resultados de cada teste.",
       "fallbackTitle": "Entrega",
       "missingParams": "Faltam informações da turma ou da tarefa.",
       "descriptionLabel": "Detalhes da tarefa",
@@ -2042,7 +2036,11 @@
         "step1": "Clone seu repositório da tarefa (uma vez):",
         "step2": "De dentro do repositório, envie seu trabalho para correção:",
         "title": "Enviar pela linha de comando",
-        "intro": "Envie seu trabalho para correção a partir de um terminal."
+        "intro": "Envie seu trabalho para correção a partir de um terminal.",
+        "copyMilestone": "Copiar comando de tag de marco",
+        "milestoneStep": "Ou envie uma tag de marco que seu professor configurou (por exemplo, {{tags}}):",
+        "tagIntro": "Esta tarefa é avaliada por tags. Faça commit e push do seu trabalho e, em seguida, envie uma tag para submetê-lo à avaliação.",
+        "tagStep2": "De dentro do repositório, envie seu trabalho — isso faz o push de uma tag de envio que aciona a avaliação:"
       },
       "upload": {
         "addFiles": "Adicionar arquivos",
@@ -2069,7 +2067,11 @@
         "unsafePath": "\"{{name}}\" ignorado — seu caminho não é permitido."
       },
       "notAccepted": "Você ainda não aceitou esta atividade. <acceptLink>Aceite-a</acceptLink> para obter seu repositório e, em seguida, faça push do seu trabalho para ser corrigido.",
-      "locked": "Esta atividade está bloqueada pelo seu professor e não está disponível no momento. Volte mais tarde ou peça ao seu professor para desbloqueá-la."
+      "locked": "Esta atividade está bloqueada pelo seu professor e não está disponível no momento. Volte mais tarde ou peça ao seu professor para desbloqueá-la.",
+      "detailsTitle": "Seus envios",
+      "notSubmittedYet": "Ainda não enviado",
+      "submittedAwaitingGrading": "Enviado — aguardando avaliação",
+      "tableCaption": "Seu envio para esta tarefa"
     },
     "viewSourceRepo": "Ver modelo",
     "menu": {
@@ -2080,7 +2082,6 @@
     "metrics": {
       "title": "Métricas de envios"
     },
-    "emptyRepoNote": "Esta tarefa usa repositórios vazios — a correção automática, as notas e o pull request de feedback estão desativados. Os estudantes criam e enviam seu próprio trabalho; a tabela abaixo mostra quem aceitou.",
     "freshness": {
       "collected": "Dados de entrega sincronizados {{when}}",
       "neverCollected": "Dados de entrega ainda não sincronizados",
@@ -2341,17 +2342,6 @@
       "working": "Atualizando repositórios"
     },
     "closedNotice": "As submissões estão encerradas. Novos alunos não podem aceitar esta atividade. Quando você encerra por aqui, os repositórios dos alunos que aceitaram são definidos como somente leitura; o trabalho existente é preservado. Reabra pelo menu Ações para permitir submissões novamente.",
-    "manualGrade": {
-      "add": "Adicionar nota",
-      "addLabel": "Adicionar nota para {{name}}",
-      "edit": "Editar nota",
-      "editLabel": "Editar nota de {{name}}",
-      "inputLabel": "Nota de {{name}}",
-      "notGraded": "Não corrigida",
-      "range": "A nota deve ser um número inteiro de 0 a {{max}}.",
-      "required": "Informe uma nota para salvar.",
-      "saveError": "Não foi possível salvar a nota. Verifique sua conexão e tente novamente."
-    },
     "migrateTracking": {
       "apply": "Migrar configuração",
       "bannerAction": "Migrar configuração",
@@ -2364,7 +2354,6 @@
       "warning": "Isto registra as configurações de cada atividade de forma explícita, para que todas as ferramentas as leiam da mesma maneira e os recursos mais novos (como o acompanhamento de submissões em tempo real) sejam habilitados. Não altera nenhuma nota, prazo ou acesso de aluno, e você pode continuar trabalhando como antes.",
       "working": "Atualizando atividades"
     },
-    "noAutograderNote": "Esta atividade não tem autocorreção integrada — o professor fornece sua própria CI no modelo. As notas integradas e a recorreção estão desativadas; a tabela abaixo mostra quem aceitou. O pull request de feedback ainda funciona quando habilitado.",
     "rowAutograde": {
       "outcome": {
         "failed": "Não foi possível alterar o estado da autocorreção — tente novamente.",
@@ -2391,6 +2380,64 @@
         "updated": "Gatilho de autocorreção atualizado. O aluno precisa fazer pull antes do próximo push."
       },
       "title": "Atualizar gatilho de autocorreção"
+    },
+    "details": {
+      "emptyEveryPush": "Nenhum push para a branch padrão ainda. O repositório continua existindo — abra-o para ver o código.",
+      "emptyLinkDefaultBranch": "Ver repositório",
+      "emptyLinkTags": "Ver tags",
+      "emptyTag": "Nenhum envio com tag ainda. O repositório continua existindo — abra suas tags para ver os envios conforme chegam.",
+      "pushEntry": "Push nº {{number}}",
+      "tagEntry": "Envio nº {{number}}",
+      "unavailable": "Indisponível",
+      "viewCommit": "Ver commit",
+      "viewGrade": "Ver nota",
+      "viewRepository": "Ver repositório",
+      "viewSubmissions": "Ver envios",
+      "viewTag": "Ver tag"
+    },
+    "grading": {
+      "badgeBuiltIn": "Corrigida automaticamente",
+      "badgeEmptyRepo": "Sem correção automática",
+      "badgeNoAutograder": "Sem correção automática integrada",
+      "titleEmptyRepo": "Esta tarefa usa repositórios vazios — a correção automática, as notas e o pull request de feedback estão desativados. A tabela mostra quem aceitou.",
+      "titleNoAutograder": "O professor fornece seu próprio CI no template. As notas integradas e a recorreção estão desativadas; o pull request de feedback ainda funciona quando ativado."
+    },
+    "scoreOverride": {
+      "add": "Adicionar nota",
+      "addLabel": "Adicionar nota para {{name}}",
+      "clear": "Limpar substituição",
+      "clearError": "Não foi possível limpar a substituição. Verifique sua conexão e tente novamente.",
+      "clearLabel": "Limpar a substituição de nota de {{name}}",
+      "currentAutograded": "Nota da correção automática",
+      "descriptionAuto": "Insira uma nota para {{name}} para substituir o resultado da correção automática. A nota da correção automática é preservada e restaurada se você limpar a substituição.",
+      "descriptionManual": "Insira uma nota para {{name}}. Ela é salva no diário de notas e não será alterada pela correção automática.",
+      "edit": "Editar nota",
+      "editLabel": "Editar nota de {{name}}",
+      "inputLabel": "Nota",
+      "maxHint": "Este envio ainda não foi corrigido automaticamente, então informe o total de pontos sobre o qual ele é avaliado.",
+      "maxLabel": "De um total de (pontos máximos)",
+      "maxRange": "Os pontos máximos devem ser um número inteiro de pelo menos 1.",
+      "maxRequired": "Informe os pontos máximos para salvar.",
+      "notGraded": "Não avaliado",
+      "override": "Substituir nota",
+      "overrideLabel": "Substituir nota de {{name}}",
+      "range": "A nota deve ser um número inteiro de 0 a {{max}}.",
+      "required": "Insira uma nota para salvar.",
+      "save": "Salvar",
+      "saveError": "Não foi possível salvar a nota. Verifique sua conexão e tente novamente.",
+      "titleAdd": "Adicionar nota",
+      "titleEdit": "Editar nota",
+      "titleOverride": "Substituir nota"
+    },
+    "type": {
+      "badgeEveryPush": "Cada push para a branch padrão conta",
+      "badgeTag": "Enviado por tag",
+      "countEveryPush_one": "{{count}} push para a branch padrão",
+      "countEveryPush_other": "{{count}} pushes para a branch padrão",
+      "countTag_one": "{{count}} envio com tag",
+      "countTag_other": "{{count}} envios com tag",
+      "tagGroupCount_one": "{{pattern}} · {{count}} tag",
+      "tagGroupCount_other": "{{pattern}} · {{count}} tags"
     }
   },
   "orgMembers": {

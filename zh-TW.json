@@ -861,9 +861,9 @@
           }
         },
         "label": "自動評分",
-        "lockedHelp": "是否使用內建自動評分器在建立後無法變更：學生已接受的儲存庫不會重新配置。",
         "modeLabel": "內建自動評分器",
-        "notAutogradedNote": "只有當此作業在上方的「提交與評分」區段設為「自動評分」時，自動評分選項才會生效。將評分方式改為「自動評分」以設定自動評分器。"
+        "notAutogradedNote": "只有當此作業在上方的「提交與評分」區段設為「自動評分」時，自動評分選項才會生效。將評分方式改為「自動評分」以設定自動評分器。",
+        "editHelp": "變更內建自動評分器只會影響之後才接受作業的學生儲存庫。已接受的儲存庫仍保留原本的設定——任何差異都需由你自行協調處理。"
       },
       "copyAbout": {
         "help": "將範本的「關於」（其描述）複製到每個學生儲存庫。GitHub 不會自動複製它。此設定適用於自此之後接受的學生；已建立的儲存庫不會變更。",
@@ -880,8 +880,7 @@
           "manual": "手動（手動輸入分數）",
           "off": "不評分"
         },
-        "editWarning": "評分模式在建立後無法變更：以舊模式記錄的分數會被誤讀。請改用不同的 slug 建立新作業。",
-        "help": "此作業的評分方式。「自動評分」會執行你在下方設定的自動評分器。「手動」讓你在提交頁面上逐一手動輸入每位學生的分數。「不評分」則不記錄任何分數。作業建立後無法變更。",
+        "help": "這份作業如何評分。「自動評分」會執行你在下方設定的自動評分器。「手動」讓你在提交頁面逐一手動輸入每位學生的分數。「不評分」則不記錄任何分數。",
         "label": "評分",
         "maxPoints": {
           "help": "此手動作業可得的總分。用於顯示每位學生在滿分中的得分。",
@@ -894,7 +893,6 @@
       },
       "repoSource": {
         "label": "從範本開始",
-        "lockedHelp": "儲存庫來源在建立後無法變更：學生已接受的儲存庫不會重新配置。",
         "none": {
           "help": "為每位學生建立一個全新的儲存庫。",
           "label": "無範本"
@@ -902,15 +900,11 @@
         "template": {
           "help": "從你提供的範本產生每位學生的儲存庫。",
           "label": "範本儲存庫"
-        }
+        },
+        "editHelp": "變更儲存庫來源只會影響之後才接受作業的學生儲存庫。已接受的儲存庫仍保留原本的初始內容——任何差異都需由你自行協調處理。"
       },
       "repositorySetupSection": "儲存庫設定",
       "scheduleSection": "排程",
-      "sectionStatus": {
-        "configured": "已設定",
-        "default": "預設",
-        "error": "需要注意"
-      },
       "submissionMode": {
         "choices": {
           "everyPush": "推送到預設分支的每一次推送",
@@ -931,7 +925,11 @@
       "submissions": {
         "heading": "提交",
         "help": "提交頁面如何偵測與計算每位學生的作品。自動評分器使用相同的定義。"
-      }
+      },
+      "discardChanges": "捨棄變更",
+      "reset": "重設",
+      "resetSection": "將此區段重設為預設設定",
+      "typeLockedHelp": "建立後即無法變更——切換它會使現有的提交失效。"
     },
     "autograder": {
       "heading": "自動評分測試",
@@ -1273,7 +1271,14 @@
     "collaboratorsHint_one": "為此作業儲存庫新增或移除協作者。除了群組擁有者之外，此作業最多允許 <count>{{count}}</count> 位學生。",
     "collaboratorsHint_other": "為此作業儲存庫新增或移除協作者。除了群組擁有者之外，此作業最多允許 <count>{{count}}</count> 位學生。",
     "individual": "這是個人作業——沒有可管理的群組設定。查看你的<submissionLink>提交內容與自動評分結果</submissionLink>。",
-    "notAccepted": "你尚未領取此作業！你需要先<acceptLink>領取它</acceptLink>嗎？"
+    "notAccepted": "你尚未領取此作業！你需要先<acceptLink>領取它</acceptLink>嗎？",
+    "provisioningConfirm": {
+      "body_one": "已有 {{count}} 位學生接受了這份作業。這項變更只會影響之後才接受的儲存庫——現有的 {{count}} 個儲存庫仍會保留原本的初始程式碼與設定。若你關閉自動評分，這些儲存庫的自動評分執行會開始失敗並從成績簿中消失；若你變更評分方式，以舊方式記錄的分數判讀可能不同。任何不一致都需由你自行協調處理。",
+      "body_other": "已有 {{count}} 位學生接受了這份作業。這項變更只會影響之後才接受的儲存庫——現有的 {{count}} 個儲存庫仍會保留原本的初始程式碼與設定。若你關閉自動評分，這些儲存庫的自動評分執行會開始失敗並從成績簿中消失；若你變更評分方式，以舊方式記錄的分數判讀可能不同。任何不一致都需由你自行協調處理。",
+      "cancel": "取消",
+      "confirm": "仍要儲存變更",
+      "title": "在學生接受後變更佈建設定？"
+    }
   },
   "orgSettings": {
     "page": {
@@ -1870,7 +1875,8 @@
       "statusFailed": "收集執行未能順利完成。",
       "statusFailedWithReason": "無法開始收集：{{reason}}",
       "statusFailedHint": "你可以在 GitHub 上手動檢查或觸發它。",
-      "statusTimeout": "執行一段時間後仍在進行中。請在 GitHub 上查看進度，或在完成後重新整理此頁面。"
+      "statusTimeout": "執行一段時間後仍在進行中。請在 GitHub 上查看進度，或在完成後重新整理此頁面。",
+      "workflowOutdated": "無法收集這份作業：此組織 classroom50 設定儲存庫中的 Collect Scores 工作流程已過時。請更新組織的工作流程（有新版本可用時會顯示更新橫幅），然後再試一次。"
     },
     "regradeAll": {
       "label": "全部重新評分",
@@ -1958,26 +1964,18 @@
       "colLastSubmitted": "最後繳交",
       "colActions": "操作",
       "openGroupRepo": "開啟共用的組別儲存庫",
-      "hideSubmissions": "隱藏繳交內容",
-      "showSubmissions": "顯示所有繳交內容",
-      "submissionCount_one": "{{count}} 次繳交",
-      "submissionCount_other": "{{count}} 次繳交",
       "late": "逾期",
       "lateRowTitle": "最新一次繳交是在截止時間之後推送的。",
-      "lateHistoryTitle": "在截止時間之後推送。",
       "gradedAt": "評分於 {{date}}",
       "gradedAtTitle": "自動評分器上次（重新）評分此繳交的時間。重新評分會更新此時間，但不會改變繳交時間。",
       "members": "成員",
       "openRepoLabel": "開啟儲存庫 {{repo}}",
       "viewRepo": "檢視儲存庫",
       "viewCommit": "檢視最新提交",
-      "commit": "提交",
       "noCommit": "尚無提交",
       "viewDetails": "檢視自動評分器詳細資料",
-      "details": "詳細資料",
       "noDetails": "尚無詳細資料",
       "notSubmitted": "未繳交",
-      "submittedBy": "由 {{name}} 繳交",
       "review": "檢閱",
       "reviewAria": "開啟回饋合併請求",
       "acceptedAwaiting": "已接受 · 等待繳交",
@@ -1990,7 +1988,6 @@
       "noGroupTitle": "此學生未列入任何有繳交的小組儲存庫。小組成員資格是在收集時從各儲存庫的協作者讀取的，因此從未加入小組的學生——或上次收集時無法讀取小組成員資格的學生——會顯示於此。評分前請開啟小組儲存庫確認。",
       "notAccepted": "未接受",
       "noGradingTitle": "此作業已停用自動評分",
-      "fullHistory": "開啟<repoLink>儲存庫</repoLink>以查看完整的提交歷史。",
       "liveLatest": "最新推送 {{date}} · 尚未評分",
       "liveLatestTitle": "在上次收集之後推送了較新的提交，因此尚未評分。執行「立即同步提交」以對其評分並計分。",
       "loading": "載入提交中…",
@@ -2002,7 +1999,10 @@
       "manageAccess": "管理儲存庫存取權",
       "manageAccessAria": "管理 {{owner}} 的儲存庫存取權",
       "overridden": "手動",
-      "overriddenTitle": "此分數為手動設定，在清除覆寫之前不會被自動評分變更。"
+      "overriddenTitle": "此分數為手動設定，在清除覆寫之前不會被自動評分變更。",
+      "notCollectedYet": "尚未收集",
+      "notCollectedYetTitle": "這位學生推送了尚未被收集的作業，因此沒有記錄的提交時間。請執行「立即同步提交」以收集它。",
+      "viewSubmissionsTitle": "檢視提交"
     },
     "reviewModal": {
       "errorTitle": "無法檢查是否有回饋 PR",
@@ -2024,15 +2024,9 @@
       "confirmBody2": "評分在背景執行，可能需要幾分鐘；之後請使用 <collectLabel>{{collectLabel}}</collectLabel> 來取得新分數。"
     },
     "student": {
-      "submittedAt": "繳交於 {{date}}",
-      "viewGrade": "檢視成績",
-      "unavailable": "無法使用",
       "modeGroup": "組別",
       "modeIndividual": "個人",
       "loadError": "無法載入你的繳交內容。",
-      "noGradedYet": "尚無已評分的繳交。請從命令列推送到你的作業儲存庫，自動評分器會在此發佈你的結果。",
-      "openMyRepo": "開啟我的儲存庫",
-      "releasesIntro": "每份繳交都會開啟其在 GitHub 上的已評分發行版，內含你的分數與各測試的結果。",
       "fallbackTitle": "繳交",
       "missingParams": "缺少課程或作業資訊。",
       "descriptionLabel": "作業詳細資料",
@@ -2042,7 +2036,11 @@
         "step1": "複製（clone）你的作業儲存庫（僅需一次）：",
         "step2": "在儲存庫內，繳交你的作品以進行評分：",
         "title": "從命令列繳交",
-        "intro": "從終端機繳交你的作業以進行評分。"
+        "intro": "從終端機繳交你的作業以進行評分。",
+        "copyMilestone": "複製里程碑標籤指令",
+        "milestoneStep": "或推送老師設定的里程碑標籤（例如 {{tags}}）：",
+        "tagIntro": "這份作業以標籤評分。提交並推送你的作業，然後推送一個標籤來送交評分。",
+        "tagStep2": "在儲存庫內送交你的作業——這會推送一個觸發評分的提交標籤："
       },
       "upload": {
         "addFiles": "新增檔案",
@@ -2069,7 +2067,11 @@
         "unsafePath": "已略過「{{name}}」——其路徑不被允許。"
       },
       "notAccepted": "你尚未領取此作業。<acceptLink>領取它</acceptLink>以取得你的儲存庫，然後推送你的作業以進行評分。",
-      "locked": "此作業已被你的老師鎖定，目前無法使用。請稍後再回來查看，或請老師解除鎖定。"
+      "locked": "此作業已被你的老師鎖定，目前無法使用。請稍後再回來查看，或請老師解除鎖定。",
+      "detailsTitle": "你的提交",
+      "notSubmittedYet": "尚未提交",
+      "submittedAwaitingGrading": "已提交——等待評分",
+      "tableCaption": "你這份作業的提交"
     },
     "viewSourceRepo": "查看範本",
     "menu": {
@@ -2080,7 +2082,6 @@
     "metrics": {
       "title": "繳交統計數據"
     },
-    "emptyRepoNote": "此作業使用空白儲存庫——自動評分、分數與回饋 pull request 皆已停用。學生自行建立並推送作品；下表顯示誰已接受作業。",
     "freshness": {
       "collected": "提交資料已於 {{when}} 同步",
       "neverCollected": "提交資料尚未同步",
@@ -2341,17 +2342,6 @@
       "working": "正在更新儲存庫"
     },
     "closedNotice": "提交已關閉。新學生無法接受此作業。當你從此處關閉時，已接受學生的儲存庫會設為唯讀；既有作品會保留。從「動作」選單重新開放即可再次允許提交。",
-    "manualGrade": {
-      "add": "新增分數",
-      "addLabel": "為 {{name}} 新增分數",
-      "edit": "編輯分數",
-      "editLabel": "編輯 {{name}} 的分數",
-      "inputLabel": "{{name}} 的分數",
-      "notGraded": "未評分",
-      "range": "分數必須是 0 到 {{max}} 之間的整數。",
-      "required": "請輸入分數以儲存。",
-      "saveError": "無法儲存分數。請檢查你的連線後再試一次。"
-    },
     "migrateTracking": {
       "apply": "遷移設定",
       "bannerAction": "遷移設定",
@@ -2364,7 +2354,6 @@
       "warning": "這會明確記錄每個作業的設定，讓每個工具以相同方式讀取它們，並啟用最新功能（例如即時提交追蹤）。它不會變更任何成績、截止日期或學生的存取權限，你也可以照常繼續作業。",
       "working": "正在更新作業"
     },
-    "noAutograderNote": "此作業沒有內建自動評分——老師在範本中提供自己的 CI。內建分數與重新評分已停用；下方表格會顯示誰已接受。啟用時回饋拉取請求仍可運作。",
     "rowAutograde": {
       "outcome": {
         "failed": "無法變更自動評分狀態——請再試一次。",
@@ -2391,6 +2380,64 @@
         "updated": "已更新自動評分觸發條件。學生必須在下一次推送前執行 pull。"
       },
       "title": "更新自動評分觸發條件"
+    },
+    "details": {
+      "emptyEveryPush": "尚未有任何推送至預設分支。儲存庫仍然存在——開啟它即可檢視程式碼。",
+      "emptyLinkDefaultBranch": "檢視儲存庫",
+      "emptyLinkTags": "檢視標籤",
+      "emptyTag": "尚未有任何標籤提交。儲存庫仍然存在——開啟其標籤即可檢視陸續送達的提交。",
+      "pushEntry": "推送 #{{number}}",
+      "tagEntry": "提交 #{{number}}",
+      "unavailable": "無法使用",
+      "viewCommit": "檢視提交",
+      "viewGrade": "檢視成績",
+      "viewRepository": "檢視儲存庫",
+      "viewSubmissions": "檢視提交",
+      "viewTag": "檢視標籤"
+    },
+    "grading": {
+      "badgeBuiltIn": "自動評分",
+      "badgeEmptyRepo": "不自動評分",
+      "badgeNoAutograder": "無內建自動評分",
+      "titleEmptyRepo": "這份作業使用空白儲存庫——自動評分、分數與意見回饋 pull request 都已停用。表格僅顯示誰已接受作業。",
+      "titleNoAutograder": "老師在範本中提供自己的 CI。內建分數與重新評分已停用；啟用時意見回饋 pull request 仍可運作。"
+    },
+    "scoreOverride": {
+      "add": "新增成績",
+      "addLabel": "為 {{name}} 新增成績",
+      "clear": "清除覆寫",
+      "clearError": "無法清除覆寫。請檢查你的連線後再試一次。",
+      "clearLabel": "清除 {{name}} 的分數覆寫",
+      "currentAutograded": "自動評分分數",
+      "descriptionAuto": "為 {{name}} 輸入分數以覆寫自動評分結果。自動評分分數會被保留，若你清除覆寫即會還原。",
+      "descriptionManual": "為 {{name}} 輸入分數。它會儲存到成績簿，且不會被自動評分變更。",
+      "edit": "編輯成績",
+      "editLabel": "編輯 {{name}} 的成績",
+      "inputLabel": "分數",
+      "maxHint": "這份提交尚未經過自動評分，因此請輸入其滿分總分。",
+      "maxLabel": "滿分（最高分數）",
+      "maxRange": "滿分必須是至少為 1 的整數。",
+      "maxRequired": "請輸入滿分才能儲存。",
+      "notGraded": "未評分",
+      "override": "覆寫分數",
+      "overrideLabel": "覆寫 {{name}} 的分數",
+      "range": "分數必須是 0 到 {{max}} 之間的整數。",
+      "required": "請輸入分數才能儲存。",
+      "save": "儲存",
+      "saveError": "無法儲存成績。請檢查你的連線後再試一次。",
+      "titleAdd": "新增成績",
+      "titleEdit": "編輯成績",
+      "titleOverride": "覆寫分數"
+    },
+    "type": {
+      "badgeEveryPush": "每次推送至預設分支皆計入",
+      "badgeTag": "以標籤提交",
+      "countEveryPush_one": "{{count}} 次推送至預設分支",
+      "countEveryPush_other": "{{count}} 次推送至預設分支",
+      "countTag_one": "{{count}} 次標籤提交",
+      "countTag_other": "{{count}} 次標籤提交",
+      "tagGroupCount_one": "{{pattern}} · {{count}} 個標籤",
+      "tagGroupCount_other": "{{pattern}} · {{count}} 個標籤"
     }
   },
   "orgMembers": {

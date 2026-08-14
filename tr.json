@@ -940,9 +940,9 @@
           }
         },
         "label": "Otomatik değerlendirme",
-        "lockedHelp": "Yerleşik otomatik değerlendiricinin kullanılıp kullanılmayacağı oluşturmadan sonra değiştirilemez: öğrencilerin daha önce kabul ettiği depolar yeniden hazırlanmaz.",
         "modeLabel": "Yerleşik otomatik değerlendirici",
-        "notAutogradedNote": "Otomatik değerlendirme seçenekleri yalnızca bu ödev yukarıdaki Gönderim ve değerlendirme bölümünde \"Otomatik değerlendirildi\" olarak ayarlandığında geçerlidir. Otomatik değerlendiriciyi yapılandırmak için değerlendirme seçimini Otomatik değerlendirildi olarak değiştirin."
+        "notAutogradedNote": "Otomatik değerlendirme seçenekleri yalnızca bu ödev yukarıdaki Gönderim ve değerlendirme bölümünde \"Otomatik değerlendirildi\" olarak ayarlandığında geçerlidir. Otomatik değerlendiriciyi yapılandırmak için değerlendirme seçimini Otomatik değerlendirildi olarak değiştirin.",
+        "editHelp": "Yerleşik otomatik değerlendiriciyi değiştirmek yalnızca öğrencilerin bundan sonra kabul ettiği depoları etkiler. Zaten kabul edilmiş depolar orijinal kurulumlarını korur — herhangi bir farkı kendiniz gidermeniz gerekir."
       },
       "copyAbout": {
         "help": "Şablonun Hakkında (açıklaması) bilgisini her öğrenci deposuna kopyala. GitHub bunu otomatik kopyalamaz. Bu, bundan sonra kabul eden öğrenciler için geçerlidir; halihazırda oluşturulmuş depolar değişmez.",
@@ -959,8 +959,7 @@
           "manual": "Manuel (puanları elle gir)",
           "off": "Değerlendirilmedi"
         },
-        "editWarning": "Değerlendirme modu oluşturmadan sonra değiştirilemez: eski modda kaydedilmiş puanlar yanlış okunur. Bunun yerine farklı bir kısa adla yeni bir ödev oluşturun.",
-        "help": "Bu ödevin nasıl değerlendirileceği. \"Otomatik değerlendirildi\" aşağıda yapılandırdığınız otomatik değerlendiriciyi çalıştırır. \"Manuel\" her öğrencinin puanını gönderimler sayfasında elle girmenizi sağlar. \"Değerlendirilmedi\" hiçbir puan kaydetmez. Ödev oluşturulduktan sonra değiştirilemez.",
+        "help": "Bu ödevin nasıl değerlendirileceği. \"Otomatik değerlendirilir\" aşağıda yapılandırdığınız otomatik değerlendiriciyi çalıştırır. \"El ile\" her öğrencinin puanını gönderimler sayfasında elle girmenize olanak tanır. \"Değerlendirilmez\" hiçbir puan kaydetmez.",
         "label": "Değerlendirme",
         "maxPoints": {
           "help": "Bu manuel ödev için toplam kullanılabilir puan. Her öğrencinin puanını maksimuma göre göstermek için kullanılır.",
@@ -973,7 +972,6 @@
       },
       "repoSource": {
         "label": "Bir şablonla başla",
-        "lockedHelp": "Depo kaynağı oluşturmadan sonra değiştirilemez: öğrencilerin daha önce kabul ettiği depolar yeniden hazırlanmaz.",
         "none": {
           "help": "Her öğrenci için sıfırdan bir depo oluştur.",
           "label": "Şablon yok"
@@ -981,15 +979,11 @@
         "template": {
           "help": "Her öğrencinin deposunu sağladığınız bir şablondan oluştur.",
           "label": "Şablon deposu"
-        }
+        },
+        "editHelp": "Depo kaynağını değiştirmek yalnızca öğrencilerin bundan sonra kabul ettiği depoları etkiler. Zaten kabul edilmiş depolar orijinal başlangıç içeriğini korur — herhangi bir farkı kendiniz gidermeniz gerekir."
       },
       "repositorySetupSection": "Depo kurulumu",
       "scheduleSection": "Zamanlama",
-      "sectionStatus": {
-        "configured": "Yapılandırıldı",
-        "default": "Varsayılan",
-        "error": "İlgilenilmesi gerekiyor"
-      },
       "submissionMode": {
         "choices": {
           "everyPush": "Varsayılan dala yapılan her push",
@@ -1010,7 +1004,11 @@
       "submissions": {
         "heading": "Gönderimler",
         "help": "Gönderimler sayfasının her öğrencinin çalışmasını nasıl algıladığı ve saydığı. Otomatik değerlendirici aynı tanımı kullanır."
-      }
+      },
+      "discardChanges": "Değişiklikleri iptal et",
+      "reset": "Sıfırla",
+      "resetSection": "Bu bölümü varsayılan ayarlarına sıfırla",
+      "typeLockedHelp": "Oluşturulduktan sonra değiştirilemez — değiştirmek mevcut gönderimleri geçersiz kılar."
     },
     "autograder": {
       "heading": "Otomatik değerlendirme testleri",
@@ -1336,7 +1334,14 @@
     "viewRepository": "Depoyu görüntüle",
     "collaboratorsHint_one": "Bu ödev deposu için katkıda bulunanları ekleyin veya kaldırın. Bu ödev, grup sahibine ek olarak en fazla <count>{{count}}</count> öğrenciye izin verir.",
     "collaboratorsHint_other": "Bu ödev deposu için katkıda bulunanları ekleyin veya kaldırın. Bu ödev, grup sahibine ek olarak en fazla <count>{{count}}</count> öğrenciye izin verir.",
-    "manageCollaborators": "Katkıda bulunanları yönet"
+    "manageCollaborators": "Katkıda bulunanları yönet",
+    "provisioningConfirm": {
+      "body_one": "{{count}} öğrenci bu ödevi zaten kabul etti. Bu değişiklik yalnızca bundan sonra kabul edilen depoları etkiler — mevcut {{count}} depo, orijinal başlangıç kodunu ve kurulumunu korur. Otomatik değerlendirmeyi kapatırsanız, o depoların otomatik değerlendirme çalıştırmaları başarısız olmaya başlar ve not defterinden düşer; değerlendirme modunu değiştirirseniz, eski modda kaydedilmiş puanlar farklı görünebilir. Herhangi bir tutarsızlığı kendiniz gidermeniz gerekir.",
+      "body_other": "{{count}} öğrenci bu ödevi zaten kabul etti. Bu değişiklik yalnızca bundan sonra kabul edilen depoları etkiler — mevcut {{count}} depo, orijinal başlangıç kodunu ve kurulumunu korur. Otomatik değerlendirmeyi kapatırsanız, o depoların otomatik değerlendirme çalıştırmaları başarısız olmaya başlar ve not defterinden düşer; değerlendirme modunu değiştirirseniz, eski modda kaydedilmiş puanlar farklı görünebilir. Herhangi bir tutarsızlığı kendiniz gidermeniz gerekir.",
+      "cancel": "İptal",
+      "confirm": "Yine de değişiklikleri kaydet",
+      "title": "Öğrenciler kabul ettikten sonra hazırlama ayarları değiştirilsin mi?"
+    }
   },
   "orgSettings": {
     "page": {
@@ -1942,7 +1947,6 @@
     "lateBadge_other": "{{count}} geç",
     "downloadCsv": "Puanları indir (CSV)",
     "viewSourceRepo": "Şablonu görüntüle",
-    "emptyRepoNote": "Bu ödev boş depolar kullanır — otomatik değerlendirme, puanlar ve geri bildirim çekme isteği devre dışıdır. Öğrenciler kendi çalışmalarını oluşturup gönderir; aşağıdaki tablo kimlerin kabul ettiğini gösterir.",
     "freshness": {
       "collected": "Teslim verileri {{when}} eşitlendi",
       "neverCollected": "Teslim verileri henüz eşitlenmedi",
@@ -1990,7 +1994,8 @@
       "statusFailed": "Toplama çalıştırması başarıyla tamamlanmadı.",
       "statusFailedWithReason": "Toplama başlatılamadı: {{reason}}",
       "statusFailedHint": "GitHub üzerinde manuel olarak kontrol edebilir veya tetikleyebilirsiniz.",
-      "statusTimeout": "Bir süredir hâlâ çalışıyor. İlerlemesini GitHub'da kontrol edin veya bittiğinde bu sayfayı yenileyin."
+      "statusTimeout": "Bir süredir hâlâ çalışıyor. İlerlemesini GitHub'da kontrol edin veya bittiğinde bu sayfayı yenileyin.",
+      "workflowOutdated": "Bu ödev toplanamadı: bu kuruluşun classroom50 yapılandırma deposundaki Collect Scores iş akışı güncel değil. Kuruluşun iş akışlarını güncelleyin (daha yeni bir sürüm mevcut olduğunda bir güncelleme başlığı görünür), ardından tekrar deneyin."
     },
     "regradeAll": {
       "label": "Tümünü yeniden değerlendir",
@@ -2083,15 +2088,10 @@
       "emptyFilteredBody": "Herkesi görmek için farklı bir arama deneyin veya filtreleri temizleyin.",
       "emptyClearFilters": "Filtreleri temizle",
       "openGroupRepo": "Paylaşılan grup reposunu aç",
-      "hideSubmissions": "Teslimleri gizle",
-      "showSubmissions": "Tüm teslimleri göster",
-      "submissionCount_one": "{{count}} gönderim",
-      "submissionCount_other": "{{count}} gönderim",
       "staleCount": "Yeni",
       "staleCountTitle": "Bu öğrenci, değerlendirilenden daha fazla teslim gönderdi. En yenisini değerlendirip puanlamak için \"Teslimleri şimdi eşitle\"yi çalıştırın.",
       "late": "Geç",
       "lateRowTitle": "En son teslim, son tarihten sonra gönderildi.",
-      "lateHistoryTitle": "Son tarihten sonra gönderildi.",
       "gradedAt": "{{date}} değerlendirildi",
       "gradedAtTitle": "Otomatik değerlendiricinin bu teslimi en son ne zaman (yeniden) değerlendirdiği. Yeniden değerlendirme, teslim zamanını değiştirmeden bunu günceller.",
       "liveLatest": "Son gönderim {{date}} · henüz değerlendirilmedi",
@@ -2100,10 +2100,8 @@
       "openRepoLabel": "{{repo}} reposunu aç",
       "viewRepo": "Repoyu görüntüle",
       "viewCommit": "En son commit'i görüntüle",
-      "commit": "Commit",
       "noCommit": "Henüz commit yok",
       "viewDetails": "Otomatik değerlendirici ayrıntılarını görüntüle",
-      "details": "Ayrıntılar",
       "noDetails": "Henüz ayrıntı yok",
       "noGradingTitle": "Bu ödev için otomatik değerlendirme devre dışı",
       "resolvingNonSubmitters": "Kimlerin henüz teslim etmediği kontrol ediliyor…",
@@ -2115,14 +2113,15 @@
       "notAccepted": "Kabul edilmedi",
       "noGroup": "Kredilendirilmiş bir grupta değil",
       "noGroupTitle": "Bu öğrenci, teslim yapan herhangi bir grubun deposunda kredilendirilmemiş. Grup üyeliği, toplama sırasında her deponun katkı sağlayanlarından okunur; bu nedenle hiçbir gruba katılmamış — ya da grubunun üyeliği son toplamada okunamamış — bir öğrenci burada görünür. Notlandırmadan önce onaylamak için grup depolarını açın.",
-      "submittedBy": "{{name}} tarafından",
       "review": "İncele",
       "reviewAria": "Geri bildirim pull request'ini aç",
-      "fullHistory": "Tam commit geçmişi için <repoLink>repoyu</repoLink> açın.",
       "manageAccess": "Depo erişimini yönet",
       "manageAccessAria": "{{owner}} için depo erişimini yönet",
       "overridden": "Manuel",
-      "overriddenTitle": "Bu puan elle ayarlandı ve geçersiz kılma temizlenene kadar otomatik değerlendirme tarafından değiştirilmez."
+      "overriddenTitle": "Bu puan elle ayarlandı ve geçersiz kılma temizlenene kadar otomatik değerlendirme tarafından değiştirilmez.",
+      "notCollectedYet": "Henüz toplanmadı",
+      "notCollectedYetTitle": "Bu öğrenci henüz toplanmamış çalışma push etti, bu yüzden kayıtlı bir gönderim zamanı yok. Toplamak için \"Gönderimleri şimdi eşitle\"yi çalıştırın.",
+      "viewSubmissionsTitle": "Gönderimleri görüntüle"
     },
     "reviewModal": {
       "errorTitle": "Geri bildirim PR'ı kontrol edilemedi",
@@ -2144,23 +2143,22 @@
       "confirmLabel": "Yeniden değerlendir"
     },
     "student": {
-      "submittedAt": "{{date}} teslim edildi",
       "descriptionLabel": "Ödev ayrıntıları",
-      "viewGrade": "Notu görüntüle",
-      "unavailable": "Kullanılamıyor",
       "modeGroup": "Grup",
       "modeIndividual": "Bireysel",
       "loadError": "Teslimleriniz yüklenemedi.",
       "notAccepted": "Bu ödevi henüz kabul etmediniz. Repolarınızı almak için <acceptLink>kabul edin</acceptLink>, ardından değerlendirilmesi için çalışmanızı gönderin.",
-      "noGradedYet": "Henüz değerlendirilmiş bir gönderim yok. Ödev deponuza komut satırından gönderim yapın; otomatik değerlendirici sonucunuzu burada yayımlayacak.",
-      "openMyRepo": "Repomu aç",
       "submitGuide": {
         "title": "Komut satırından gönder",
         "intro": "Çalışmanızı bir terminalden değerlendirilmek üzere gönderin.",
         "step1": "Ödev deponuzu klonlayın (bir kez):",
         "step2": "Depo içinden çalışmanızı değerlendirilmek üzere gönderin:",
         "copyClone": "Clone komutunu kopyala",
-        "copySubmit": "Gönderme komutunu kopyala"
+        "copySubmit": "Gönderme komutunu kopyala",
+        "copyMilestone": "Aşama etiketi komutunu kopyala",
+        "milestoneStep": "Ya da öğretmeninizin belirlediği bir aşama etiketini push edin (örneğin, {{tags}}):",
+        "tagIntro": "Bu ödev etiketlere göre değerlendirilir. Çalışmanızı commit'leyip push edin, ardından değerlendirilmek üzere göndermek için bir etiket push edin.",
+        "tagStep2": "Deponun içinden çalışmanızı gönderin — bu, değerlendirmeyi tetikleyen bir gönderim etiketi push eder:"
       },
       "upload": {
         "open": "Gönderim yükle",
@@ -2186,10 +2184,13 @@
         "unsafePath": "\"{{name}}\" atlandı — yoluna izin verilmiyor.",
         "reservedPath": "\"{{path}}\" atlandı — bu yol Classroom 50 tarafından yönetilir ve yüklenemez."
       },
-      "releasesIntro": "Her teslim, puanınız ve test bazında sonuçlarınızla birlikte değerlendirilmiş sürümünü GitHub'da açar.",
       "fallbackTitle": "Teslim",
       "missingParams": "Sınıf veya ödev bilgisi eksik.",
-      "locked": "Bu ödev öğretmeniniz tarafından kilitlendi ve şu anda kullanılamıyor. Daha sonra tekrar kontrol edin veya öğretmeninizden kilidi açmasını isteyin."
+      "locked": "Bu ödev öğretmeniniz tarafından kilitlendi ve şu anda kullanılamıyor. Daha sonra tekrar kontrol edin veya öğretmeninizden kilidi açmasını isteyin.",
+      "detailsTitle": "Gönderimleriniz",
+      "notSubmittedYet": "Henüz gönderilmedi",
+      "submittedAwaitingGrading": "Gönderildi — değerlendirme bekleniyor",
+      "tableCaption": "Bu ödev için gönderiminiz"
     },
     "openAllPrs": {
       "blockedHint": "Geri bildirim dalları yanlış işlemeyi (commit) gösteriyor, bu nedenle çekme isteğini açmak boş bir fark gösterir. Bir kuruluş yöneticisinin bu işlemi yeniden çalıştırmadan önce her geri bildirim dalını silmesi gerekir — yalnızca yeniden denemek bunları düzeltmez.",
@@ -2438,17 +2439,6 @@
       "working": "Depolar güncelleniyor"
     },
     "closedNotice": "Gönderimler kapalı. Yeni öğrenciler bu ödevi kabul edemez. Buradan kapattığınızda, kabul etmiş öğrencilerin depoları salt okunur olarak ayarlanır; mevcut çalışma korunur. Gönderimlere yeniden izin vermek için İşlemler menüsünden yeniden açın.",
-    "manualGrade": {
-      "add": "Not ekle",
-      "addLabel": "{{name}} için not ekle",
-      "edit": "Notu düzenle",
-      "editLabel": "{{name}} için notu düzenle",
-      "inputLabel": "{{name}} için puan",
-      "notGraded": "Değerlendirilmedi",
-      "range": "Puan 0 ile {{max}} arasında bir tam sayı olmalıdır.",
-      "required": "Kaydetmek için bir puan girin.",
-      "saveError": "Not kaydedilemedi. Bağlantınızı kontrol edip yeniden deneyin."
-    },
     "migrateTracking": {
       "apply": "Yapılandırmayı taşı",
       "bannerAction": "Yapılandırmayı taşı",
@@ -2461,7 +2451,6 @@
       "warning": "Bu, her ödevin ayarlarını açıkça kaydeder; böylece her araç onları aynı şekilde okur ve en yeni özellikler (canlı gönderim takibi gibi) etkinleşir. Hiçbir notu, teslim tarihini veya öğrencinin erişimini değiştirmez ve eskisi gibi çalışmaya devam edebilirsiniz.",
       "working": "Ödevler güncelleniyor"
     },
-    "noAutograderNote": "Bu ödevin yerleşik otomatik değerlendirmesi yok — öğretmen kendi CI'ını şablonda sağlar. Yerleşik puanlar ve yeniden değerlendirme devre dışıdır; aşağıdaki tablo kimin kabul ettiğini gösterir. Etkinleştirildiğinde geri bildirim çekme isteği yine de çalışır.",
     "rowAutograde": {
       "outcome": {
         "failed": "Otomatik değerlendirme durumu değiştirilemedi — yeniden deneyin.",
@@ -2488,6 +2477,64 @@
         "updated": "Otomatik değerlendirme tetikleyicisi güncellendi. Öğrenci bir sonraki push'undan önce pull yapmalıdır."
       },
       "title": "Otomatik değerlendirme tetikleyicisini güncelle"
+    },
+    "details": {
+      "emptyEveryPush": "Varsayılan dala henüz push yapılmadı. Depo hâlâ var — kodu görmek için açın.",
+      "emptyLinkDefaultBranch": "Depoyu görüntüle",
+      "emptyLinkTags": "Etiketleri görüntüle",
+      "emptyTag": "Henüz etiketli gönderim yok. Depo hâlâ var — gönderimler geldikçe görmek için etiketlerini açın.",
+      "pushEntry": "Push #{{number}}",
+      "tagEntry": "Gönderim #{{number}}",
+      "unavailable": "Kullanılamıyor",
+      "viewCommit": "Commit'i görüntüle",
+      "viewGrade": "Notu görüntüle",
+      "viewRepository": "Depoyu görüntüle",
+      "viewSubmissions": "Gönderimleri görüntüle",
+      "viewTag": "Etiketi görüntüle"
+    },
+    "grading": {
+      "badgeBuiltIn": "Otomatik değerlendirilir",
+      "badgeEmptyRepo": "Otomatik değerlendirme yok",
+      "badgeNoAutograder": "Yerleşik otomatik değerlendirme yok",
+      "titleEmptyRepo": "Bu ödev boş depolar kullanır — otomatik değerlendirme, puanlar ve geri bildirim çekme isteği devre dışıdır. Tablo kimlerin kabul ettiğini gösterir.",
+      "titleNoAutograder": "Öğretmen şablonda kendi CI'sını sağlar. Yerleşik puanlar ve yeniden değerlendirme devre dışıdır; geri bildirim çekme isteği etkinleştirildiğinde yine de çalışır."
+    },
+    "scoreOverride": {
+      "add": "Not ekle",
+      "addLabel": "{{name}} için not ekle",
+      "clear": "Geçersiz kılmayı temizle",
+      "clearError": "Geçersiz kılma temizlenemedi. Bağlantınızı kontrol edip tekrar deneyin.",
+      "clearLabel": "{{name}} için puan geçersiz kılmasını temizle",
+      "currentAutograded": "Otomatik değerlendirilen puan",
+      "descriptionAuto": "Otomatik değerlendirilen sonucu geçersiz kılmak için {{name}} için bir puan girin. Otomatik değerlendirilen puan korunur ve geçersiz kılmayı temizlerseniz geri yüklenir.",
+      "descriptionManual": "{{name}} için bir puan girin. Not defterine kaydedilir ve otomatik değerlendirme tarafından değiştirilmez.",
+      "edit": "Notu düzenle",
+      "editLabel": "{{name}} için notu düzenle",
+      "inputLabel": "Puan",
+      "maxHint": "Bu gönderim henüz otomatik değerlendirilmedi, bu yüzden üzerinden değerlendirileceği toplam puanı girin.",
+      "maxLabel": "Toplam (maksimum puan)",
+      "maxRange": "Maksimum puan en az 1 olan bir tam sayı olmalıdır.",
+      "maxRequired": "Kaydetmek için maksimum puanı girin.",
+      "notGraded": "Değerlendirilmedi",
+      "override": "Puanı geçersiz kıl",
+      "overrideLabel": "{{name}} için puanı geçersiz kıl",
+      "range": "Puan 0 ile {{max}} arasında bir tam sayı olmalıdır.",
+      "required": "Kaydetmek için bir puan girin.",
+      "save": "Kaydet",
+      "saveError": "Not kaydedilemedi. Bağlantınızı kontrol edip tekrar deneyin.",
+      "titleAdd": "Not ekle",
+      "titleEdit": "Notu düzenle",
+      "titleOverride": "Puanı geçersiz kıl"
+    },
+    "type": {
+      "badgeEveryPush": "Varsayılan dala yapılan her push sayılır",
+      "badgeTag": "Etiketle gönderildi",
+      "countEveryPush_one": "Varsayılan dala {{count}} push",
+      "countEveryPush_other": "Varsayılan dala {{count}} push",
+      "countTag_one": "{{count}} etiketli gönderim",
+      "countTag_other": "{{count}} etiketli gönderim",
+      "tagGroupCount_one": "{{pattern}} · {{count}} etiket",
+      "tagGroupCount_other": "{{pattern}} · {{count}} etiket"
     }
   },
   "orgActivity": {

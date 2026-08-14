@@ -940,9 +940,9 @@
           }
         },
         "label": "Correction automatique",
-        "lockedHelp": "L'utilisation ou non du correcteur automatique intégré ne peut pas être modifiée après la création : les dépôts déjà acceptés par les étudiants ne sont pas reprovisionnés.",
         "modeLabel": "Correcteur automatique intégré",
-        "notAutogradedNote": "Les options de correction automatique ne s'appliquent que lorsque ce devoir est réglé sur « Corrigé automatiquement » dans la section Rendu et notation ci-dessus. Choisissez Corrigé automatiquement pour configurer le correcteur automatique."
+        "notAutogradedNote": "Les options de correction automatique ne s'appliquent que lorsque ce devoir est réglé sur « Corrigé automatiquement » dans la section Rendu et notation ci-dessus. Choisissez Corrigé automatiquement pour configurer le correcteur automatique.",
+        "editHelp": "Modifier le correcteur automatique intégré ne concerne que les dépôts que les étudiants acceptent à partir de maintenant. Les dépôts déjà acceptés conservent leur configuration d'origine — il vous appartiendra de résoudre vous-même toute différence."
       },
       "copyAbout": {
         "help": "Copie le champ « À propos » (sa description) du modèle sur chaque dépôt d'étudiant. GitHub ne le copie pas automatiquement. Cela s'applique aux étudiants qui acceptent à partir de maintenant ; les dépôts déjà créés ne sont pas modifiés.",
@@ -959,8 +959,7 @@
           "manual": "Manuel (saisir les scores à la main)",
           "off": "Non noté"
         },
-        "editWarning": "Le mode de notation ne peut pas être modifié après la création : les scores déjà enregistrés dans l'ancien mode seraient mal interprétés. Créez plutôt un nouveau devoir sous un slug différent.",
-        "help": "Comment ce devoir est noté. « Corrigé automatiquement » exécute le correcteur automatique que vous configurez ci-dessous. « Manuel » vous permet de saisir le score de chaque étudiant à la main sur la page des rendus. « Non noté » n'enregistre aucun score. Ne peut pas être modifié après la création du devoir.",
+        "help": "Comment ce devoir est noté. « Corrigé automatiquement » exécute le correcteur automatique que vous configurez ci-dessous. « Manuel » vous permet de saisir à la main la note de chaque étudiant sur la page des rendus. « Non noté » n'enregistre aucune note.",
         "label": "Notation",
         "maxPoints": {
           "help": "Nombre total de points disponibles pour ce devoir manuel. Utilisé pour afficher le score de chaque étudiant sur le maximum.",
@@ -973,7 +972,6 @@
       },
       "repoSource": {
         "label": "Commencer avec un modèle",
-        "lockedHelp": "La source du dépôt ne peut pas être modifiée après la création : les dépôts déjà acceptés par les étudiants ne sont pas reprovisionnés.",
         "none": {
           "help": "Crée un dépôt neuf pour chaque étudiant.",
           "label": "Aucun modèle"
@@ -981,15 +979,11 @@
         "template": {
           "help": "Génère le dépôt de chaque étudiant à partir d'un modèle que vous fournissez.",
           "label": "Dépôt modèle"
-        }
+        },
+        "editHelp": "Modifier la source du dépôt ne concerne que les dépôts que les étudiants acceptent à partir de maintenant. Les dépôts déjà acceptés conservent leur contenu de départ d'origine — il vous appartiendra de résoudre vous-même toute différence."
       },
       "repositorySetupSection": "Configuration du dépôt",
       "scheduleSection": "Planning",
-      "sectionStatus": {
-        "configured": "Configuré",
-        "default": "Par défaut",
-        "error": "Nécessite votre attention"
-      },
       "submissionMode": {
         "choices": {
           "everyPush": "Chaque push sur la branche par défaut",
@@ -1010,7 +1004,11 @@
       "submissions": {
         "heading": "Rendus",
         "help": "Comment la page des rendus détecte et comptabilise le travail de chaque étudiant. Le correcteur automatique utilise la même définition."
-      }
+      },
+      "discardChanges": "Abandonner les modifications",
+      "reset": "Réinitialiser",
+      "resetSection": "Réinitialiser cette section à ses paramètres par défaut",
+      "typeLockedHelp": "Non modifiable après la création — le changer invaliderait les rendus existants."
     },
     "autograder": {
       "heading": "Tests de correction automatique",
@@ -1336,7 +1334,14 @@
     "viewRepository": "Voir le dépôt",
     "collaboratorsHint_one": "Ajoutez ou supprimez des collaborateurs pour ce dépôt de devoir. Ce devoir autorise jusqu'à <count>{{count}}</count> élève en plus du propriétaire du groupe.",
     "collaboratorsHint_other": "Ajoutez ou supprimez des collaborateurs pour ce dépôt de devoir. Ce devoir autorise jusqu'à <count>{{count}}</count> élèves en plus du propriétaire du groupe.",
-    "manageCollaborators": "Gérer les collaborateurs"
+    "manageCollaborators": "Gérer les collaborateurs",
+    "provisioningConfirm": {
+      "body_one": "{{count}} étudiant a déjà accepté ce devoir. Cette modification ne concerne que les dépôts acceptés à partir de maintenant — le {{count}} dépôt existant conserve son code de départ et sa configuration d'origine. Si vous désactivez la correction automatique, les exécutions de correction de ces dépôts commencent à échouer et disparaissent du carnet de notes ; si vous changez le mode de notation, les notes enregistrées dans l'ancien mode peuvent s'afficher différemment. Il vous appartiendra de résoudre vous-même toute incohérence.",
+      "body_other": "{{count}} étudiants ont déjà accepté ce devoir. Cette modification ne concerne que les dépôts acceptés à partir de maintenant — les {{count}} dépôts existants conservent leur code de départ et leur configuration d'origine. Si vous désactivez la correction automatique, les exécutions de correction de ces dépôts commencent à échouer et disparaissent du carnet de notes ; si vous changez le mode de notation, les notes enregistrées dans l'ancien mode peuvent s'afficher différemment. Il vous appartiendra de résoudre vous-même toute incohérence.",
+      "cancel": "Annuler",
+      "confirm": "Enregistrer les modifications malgré tout",
+      "title": "Modifier les paramètres de provisionnement après que des étudiants ont accepté ?"
+    }
   },
   "orgSettings": {
     "page": {
@@ -1942,7 +1947,6 @@
     "lateBadge_other": "{{count}} en retard",
     "downloadCsv": "Télécharger les scores (CSV)",
     "viewSourceRepo": "Voir le modèle",
-    "emptyRepoNote": "Ce devoir utilise des dépôts vides — la correction automatique, les scores et la pull request de retour sont désactivés. Les étudiants créent et poussent leur propre travail ; le tableau ci-dessous indique qui a accepté.",
     "freshness": {
       "collected": "Données de rendu synchronisées {{when}}",
       "neverCollected": "Données de rendu pas encore synchronisées",
@@ -1990,7 +1994,8 @@
       "statusFailed": "L'exécution de la collecte ne s'est pas terminée correctement.",
       "statusFailedWithReason": "Impossible de démarrer la collecte : {{reason}}",
       "statusFailedHint": "Vous pouvez la vérifier ou la déclencher manuellement sur GitHub.",
-      "statusTimeout": "Toujours en cours après un moment. Vérifiez sa progression sur GitHub, ou actualisez cette page une fois terminée."
+      "statusTimeout": "Toujours en cours après un moment. Vérifiez sa progression sur GitHub, ou actualisez cette page une fois terminée.",
+      "workflowOutdated": "Impossible de collecter ce devoir : le workflow Collect Scores dans le dépôt de configuration classroom50 de cette organisation est obsolète. Mettez à jour les workflows de l'organisation (une bannière de mise à jour apparaît lorsqu'une version plus récente est disponible), puis réessayez."
     },
     "regradeAll": {
       "label": "Tout réévaluer",
@@ -2083,15 +2088,10 @@
       "emptyFilteredBody": "Essayez une autre recherche ou effacez les filtres pour voir tout le monde.",
       "emptyClearFilters": "Effacer les filtres",
       "openGroupRepo": "Ouvrir le dépôt de groupe partagé",
-      "hideSubmissions": "Masquer les rendus",
-      "showSubmissions": "Afficher tous les rendus",
-      "submissionCount_one": "{{count}} remise",
-      "submissionCount_other": "{{count}} remises",
       "staleCount": "Nouveau",
       "staleCountTitle": "Cet étudiant a poussé plus de rendus qu'il n'en a été évalué. Lancez « Synchroniser les rendus maintenant » pour évaluer et noter les plus récents.",
       "late": "En retard",
       "lateRowTitle": "Le dernier rendu a été poussé après la date limite.",
-      "lateHistoryTitle": "Poussé après la date limite.",
       "gradedAt": "Évalué le {{date}}",
       "gradedAtTitle": "Date à laquelle l'autograder a (ré)évalué ce rendu pour la dernière fois. La réévaluation met cela à jour sans changer la date de rendu.",
       "liveLatest": "Dernier push {{date}} · pas encore évalué",
@@ -2100,10 +2100,8 @@
       "openRepoLabel": "Ouvrir le dépôt {{repo}}",
       "viewRepo": "Voir le dépôt",
       "viewCommit": "Voir le dernier commit",
-      "commit": "Commit",
       "noCommit": "Aucun commit pour l'instant",
       "viewDetails": "Voir les détails de l'autograder",
-      "details": "Détails",
       "noDetails": "Aucun détail pour l'instant",
       "noGradingTitle": "La correction automatique est désactivée pour ce devoir",
       "resolvingNonSubmitters": "Vérification de qui n'a pas encore rendu…",
@@ -2115,14 +2113,15 @@
       "notAccepted": "Non accepté",
       "noGroup": "Aucun groupe crédité",
       "noGroupTitle": "Cet étudiant n'est crédité sur le dépôt d'aucun groupe ayant soumis. L'appartenance à un groupe est lue depuis les collaborateurs de chaque dépôt au moment de la collecte ; ainsi, un étudiant qui n'a jamais rejoint de groupe — ou dont l'appartenance au groupe n'a pas pu être lue lors de la dernière collecte — apparaît ici. Ouvrez les dépôts de groupe pour vérifier avant de noter.",
-      "submittedBy": "par {{name}}",
       "review": "Réviser",
       "reviewAria": "Ouvrir la pull request de retour",
-      "fullHistory": "Ouvrez le <repoLink>dépôt</repoLink> pour l'historique complet des commits.",
       "manageAccess": "Gérer l'accès au dépôt",
       "manageAccessAria": "Gérer l'accès au dépôt pour {{owner}}",
       "overridden": "Manuel",
-      "overriddenTitle": "Ce score a été défini à la main et ne sera pas modifié par la correction automatique tant que la substitution n'est pas effacée."
+      "overriddenTitle": "Ce score a été défini à la main et ne sera pas modifié par la correction automatique tant que la substitution n'est pas effacée.",
+      "notCollectedYet": "Pas encore collecté",
+      "notCollectedYetTitle": "Cet étudiant a poussé un travail qui n'a pas encore été collecté ; il n'y a donc aucun horaire de rendu enregistré. Exécutez « Synchroniser les rendus maintenant » pour le collecter.",
+      "viewSubmissionsTitle": "Voir les rendus"
     },
     "reviewModal": {
       "errorTitle": "Impossible de vérifier la présence d'une PR de retour",
@@ -2144,23 +2143,22 @@
       "confirmLabel": "Réévaluer"
     },
     "student": {
-      "submittedAt": "Rendu le {{date}}",
       "descriptionLabel": "Détails du devoir",
-      "viewGrade": "Voir la note",
-      "unavailable": "Indisponible",
       "modeGroup": "Groupe",
       "modeIndividual": "Individuel",
       "loadError": "Impossible de charger vos rendus.",
       "notAccepted": "Vous n'avez pas encore accepté ce devoir. <acceptLink>Acceptez-le</acceptLink> pour obtenir votre dépôt, puis poussez votre travail pour qu'il soit évalué.",
-      "noGradedYet": "Aucune soumission évaluée pour l'instant. Poussez vers votre dépôt de devoir depuis la ligne de commande et l'autograder publiera votre résultat ici.",
-      "openMyRepo": "Ouvrir mon dépôt",
       "submitGuide": {
         "title": "Soumettre depuis la ligne de commande",
         "intro": "Soumettez votre travail pour évaluation depuis un terminal.",
         "step1": "Clonez votre dépôt de devoir (une seule fois) :",
         "step2": "Depuis l'intérieur du dépôt, remettez votre travail pour correction :",
         "copyClone": "Copier la commande de clonage",
-        "copySubmit": "Copier la commande de remise"
+        "copySubmit": "Copier la commande de remise",
+        "copyMilestone": "Copier la commande de tag de jalon",
+        "milestoneStep": "Ou poussez un tag de jalon configuré par votre enseignant (par exemple, {{tags}}) :",
+        "tagIntro": "Ce devoir est noté sur les tags. Validez et poussez votre travail, puis poussez un tag pour le soumettre à la notation.",
+        "tagStep2": "Depuis l'intérieur du dépôt, soumettez votre travail — cela pousse un tag de rendu qui déclenche la notation :"
       },
       "upload": {
         "open": "Envoyer une remise",
@@ -2186,10 +2184,13 @@
         "unsafePath": "« {{name}} » ignoré — son chemin n'est pas autorisé.",
         "reservedPath": "« {{path}} » ignoré — ce chemin est géré par Classroom 50 et ne peut pas être téléversé."
       },
-      "releasesIntro": "Chaque rendu ouvre sa version évaluée sur GitHub, avec votre note et les résultats par test.",
       "fallbackTitle": "Rendu",
       "missingParams": "Informations sur le cours ou le devoir manquantes.",
-      "locked": "Ce devoir est verrouillé par votre enseignant et n'est pas disponible pour le moment. Revenez plus tard ou demandez à votre enseignant de le déverrouiller."
+      "locked": "Ce devoir est verrouillé par votre enseignant et n'est pas disponible pour le moment. Revenez plus tard ou demandez à votre enseignant de le déverrouiller.",
+      "detailsTitle": "Vos rendus",
+      "notSubmittedYet": "Pas encore rendu",
+      "submittedAwaitingGrading": "Rendu — en attente de notation",
+      "tableCaption": "Votre rendu pour ce devoir"
     },
     "openAllPrs": {
       "blockedHint": "Leur branche de retour pointe vers le mauvais commit, de sorte que l'ouverture de la PR afficherait une différence vide. Un administrateur de l'organisation doit supprimer chaque branche de retour avant de relancer cette action — réessayer seul ne les corrigera pas.",
@@ -2438,17 +2439,6 @@
       "working": "Mise à jour des dépôts"
     },
     "closedNotice": "Les rendus sont fermés. Les nouveaux étudiants ne peuvent pas accepter ce devoir. Lorsque vous fermez depuis ici, les dépôts des étudiants ayant accepté sont mis en lecture seule ; le travail existant est préservé. Rouvrez depuis le menu Actions pour autoriser de nouveau les rendus.",
-    "manualGrade": {
-      "add": "Ajouter une note",
-      "addLabel": "Ajouter une note pour {{name}}",
-      "edit": "Modifier la note",
-      "editLabel": "Modifier la note de {{name}}",
-      "inputLabel": "Score pour {{name}}",
-      "notGraded": "Non noté",
-      "range": "Le score doit être un entier de 0 à {{max}}.",
-      "required": "Saisissez un score pour enregistrer.",
-      "saveError": "Impossible d'enregistrer la note. Vérifiez votre connexion et réessayez."
-    },
     "migrateTracking": {
       "apply": "Migrer la configuration",
       "bannerAction": "Migrer la configuration",
@@ -2461,7 +2451,6 @@
       "warning": "Cela enregistre explicitement les réglages de chaque devoir afin que chaque outil les lise de la même manière et que les fonctionnalités les plus récentes (comme le suivi des rendus en direct) soient activées. Cela ne modifie aucune note, échéance ni accès d'étudiant, et vous pouvez continuer à travailler comme avant.",
       "working": "Mise à jour des devoirs"
     },
-    "noAutograderNote": "Ce devoir n'a pas de correction automatique intégrée — l'enseignant fournit sa propre CI dans le modèle. Les scores intégrés et le regrade sont désactivés ; le tableau ci-dessous indique qui a accepté. La pull request de retour fonctionne toujours lorsqu'elle est activée.",
     "rowAutograde": {
       "outcome": {
         "failed": "Impossible de changer l'état de la correction automatique — réessayez.",
@@ -2488,6 +2477,64 @@
         "updated": "Déclencheur de correction automatique mis à jour. L'étudiant doit faire un pull avant son prochain push."
       },
       "title": "Mettre à jour le déclencheur de correction automatique"
+    },
+    "details": {
+      "emptyEveryPush": "Aucun push vers la branche par défaut pour l'instant. Le dépôt existe toujours — ouvrez-le pour voir le code.",
+      "emptyLinkDefaultBranch": "Voir le dépôt",
+      "emptyLinkTags": "Voir les tags",
+      "emptyTag": "Aucun rendu par tag pour l'instant. Le dépôt existe toujours — ouvrez ses tags pour voir les rendus au fur et à mesure de leur arrivée.",
+      "pushEntry": "Push nº{{number}}",
+      "tagEntry": "Rendu nº{{number}}",
+      "unavailable": "Indisponible",
+      "viewCommit": "Voir le commit",
+      "viewGrade": "Voir la note",
+      "viewRepository": "Voir le dépôt",
+      "viewSubmissions": "Voir les rendus",
+      "viewTag": "Voir le tag"
+    },
+    "grading": {
+      "badgeBuiltIn": "Corrigé automatiquement",
+      "badgeEmptyRepo": "Aucune correction automatique",
+      "badgeNoAutograder": "Aucune correction automatique intégrée",
+      "titleEmptyRepo": "Ce devoir utilise des dépôts vides — la correction automatique, les notes et la pull request de retour sont désactivées. Le tableau indique qui a accepté.",
+      "titleNoAutograder": "L'enseignant fournit sa propre CI dans le modèle. Les notes intégrées et la nouvelle correction sont désactivées ; la pull request de retour fonctionne toujours si elle est activée."
+    },
+    "scoreOverride": {
+      "add": "Ajouter une note",
+      "addLabel": "Ajouter une note pour {{name}}",
+      "clear": "Effacer la substitution",
+      "clearError": "Impossible d'effacer la substitution. Vérifiez votre connexion et réessayez.",
+      "clearLabel": "Effacer la substitution de note pour {{name}}",
+      "currentAutograded": "Note automatique",
+      "descriptionAuto": "Saisissez une note pour {{name}} afin de remplacer le résultat de la correction automatique. La note automatique est conservée et rétablie si vous effacez la substitution.",
+      "descriptionManual": "Saisissez une note pour {{name}}. Elle est enregistrée dans le carnet de notes et ne sera pas modifiée par la correction automatique.",
+      "edit": "Modifier la note",
+      "editLabel": "Modifier la note pour {{name}}",
+      "inputLabel": "Note",
+      "maxHint": "Ce rendu n'a pas encore été corrigé automatiquement ; saisissez donc le nombre total de points sur lequel il est noté.",
+      "maxLabel": "Sur (nombre maximal de points)",
+      "maxRange": "Le nombre maximal de points doit être un entier d'au moins 1.",
+      "maxRequired": "Saisissez le nombre maximal de points pour enregistrer.",
+      "notGraded": "Non noté",
+      "override": "Substituer la note",
+      "overrideLabel": "Substituer la note pour {{name}}",
+      "range": "La note doit être un entier compris entre 0 et {{max}}.",
+      "required": "Saisissez une note pour enregistrer.",
+      "save": "Enregistrer",
+      "saveError": "Impossible d'enregistrer la note. Vérifiez votre connexion et réessayez.",
+      "titleAdd": "Ajouter une note",
+      "titleEdit": "Modifier la note",
+      "titleOverride": "Substituer la note"
+    },
+    "type": {
+      "badgeEveryPush": "Chaque push vers la branche par défaut compte",
+      "badgeTag": "Rendu par tag",
+      "countEveryPush_one": "{{count}} push vers la branche par défaut",
+      "countEveryPush_other": "{{count}} pushs vers la branche par défaut",
+      "countTag_one": "{{count}} rendu par tag",
+      "countTag_other": "{{count}} rendus par tag",
+      "tagGroupCount_one": "{{pattern}} · {{count}} tag",
+      "tagGroupCount_other": "{{pattern}} · {{count}} tags"
     }
   },
   "orgActivity": {

@@ -861,9 +861,9 @@
           }
         },
         "label": "自动评分",
-        "lockedHelp": "是否使用内置自动评分器在创建后无法更改：学生已接受的仓库不会重新配置。",
         "modeLabel": "内置自动评分器",
-        "notAutogradedNote": "只有当此作业在上方“提交与评分”部分设为“自动评分”时，自动评分选项才生效。请将评分方式改为“自动评分”以配置自动评分器。"
+        "notAutogradedNote": "只有当此作业在上方“提交与评分”部分设为“自动评分”时，自动评分选项才生效。请将评分方式改为“自动评分”以配置自动评分器。",
+        "editHelp": "更改内置自动评分器仅影响此后学生接受的仓库。已接受的仓库将保留其原始设置——你需要自行协调任何差异。"
       },
       "copyAbout": {
         "help": "将模板的“关于”（其描述）复制到每个学生仓库。GitHub 不会自动复制。此设置适用于从现在起接受的学生；已创建的仓库不会改变。",
@@ -880,8 +880,7 @@
           "manual": "手动（人工录入分数）",
           "off": "不评分"
         },
-        "editWarning": "评分模式在创建后无法更改：在旧模式下已记录的分数会被误读。请以不同的 slug 新建一个作业。",
-        "help": "此作业的评分方式。“自动评分”会运行你在下方配置的自动评分器。“手动”允许你在提交页面上逐个人工录入学生分数。“不评分”则不记录分数。作业创建后无法更改。",
+        "help": "此作业的评分方式。“自动评分”会运行你在下方配置的自动评分器。“手动”让你在提交页面手动输入每位学生的分数。“不评分”则不记录任何分数。",
         "label": "评分",
         "maxPoints": {
           "help": "此手动作业的可得总分。用于按满分显示每个学生的分数。",
@@ -894,7 +893,6 @@
       },
       "repoSource": {
         "label": "以模板作为起点",
-        "lockedHelp": "仓库来源在创建后无法更改：学生已接受的仓库不会重新配置。",
         "none": {
           "help": "为每个学生创建一个全新的仓库。",
           "label": "无模板"
@@ -902,15 +900,11 @@
         "template": {
           "help": "根据你提供的模板生成每个学生的仓库。",
           "label": "模板仓库"
-        }
+        },
+        "editHelp": "更改仓库来源仅影响此后学生接受的仓库。已接受的仓库将保留其原始起始内容——你需要自行协调任何差异。"
       },
       "repositorySetupSection": "仓库设置",
       "scheduleSection": "排期",
-      "sectionStatus": {
-        "configured": "已配置",
-        "default": "默认",
-        "error": "需要处理"
-      },
       "submissionMode": {
         "choices": {
           "everyPush": "对默认分支的每次推送",
@@ -931,7 +925,11 @@
       "submissions": {
         "heading": "提交",
         "help": "提交页面如何检测并计算每个学生的作业。自动评分器使用同样的定义。"
-      }
+      },
+      "discardChanges": "放弃更改",
+      "reset": "重置",
+      "resetSection": "将此部分重置为默认设置",
+      "typeLockedHelp": "创建后无法更改——切换它会使现有提交失效。"
     },
     "autograder": {
       "heading": "自动评分测试",
@@ -1273,7 +1271,14 @@
     "collaboratorsHint_one": "为此作业仓库添加或移除协作者。除组长外，此作业最多允许 <count>{{count}}</count> 名学生。",
     "collaboratorsHint_other": "为此作业仓库添加或移除协作者。除组长外，此作业最多允许 <count>{{count}}</count> 名学生。",
     "individual": "这是一项个人作业——没有小组设置可管理。查看你的<submissionLink>提交和自动评分结果</submissionLink>。",
-    "notAccepted": "你还没有这项作业！是否需要先<acceptLink>接受它</acceptLink>？"
+    "notAccepted": "你还没有这项作业！是否需要先<acceptLink>接受它</acceptLink>？",
+    "provisioningConfirm": {
+      "body_one": "已有 {{count}} 名学生接受了此作业。此更改仅影响此后接受的仓库——现有的 {{count}} 个仓库将保留其原始起始代码和设置。如果你关闭自动评分，这些仓库的自动评分运行将开始失败并从成绩册中掉出；如果你更改评分模式，按旧模式记录的分数读数可能会有所不同。你需要自行协调任何不一致之处。",
+      "body_other": "已有 {{count}} 名学生接受了此作业。此更改仅影响此后接受的仓库——现有的 {{count}} 个仓库将保留其原始起始代码和设置。如果你关闭自动评分，这些仓库的自动评分运行将开始失败并从成绩册中掉出；如果你更改评分模式，按旧模式记录的分数读数可能会有所不同。你需要自行协调任何不一致之处。",
+      "cancel": "取消",
+      "confirm": "仍然保存更改",
+      "title": "在学生接受后更改配置设置？"
+    }
   },
   "orgSettings": {
     "page": {
@@ -1870,7 +1875,8 @@
       "statusFailed": "本次收集运行未能成功完成。",
       "statusFailedWithReason": "无法开始收集：{{reason}}",
       "statusFailedHint": "你可以在 GitHub 上手动检查或触发它。",
-      "statusTimeout": "运行了一段时间仍未结束。请在 GitHub 上查看其进度，或等它完成后刷新此页面。"
+      "statusTimeout": "运行了一段时间仍未结束。请在 GitHub 上查看其进度，或等它完成后刷新此页面。",
+      "workflowOutdated": "无法收集此作业：此组织 classroom50 配置仓库中的 Collect Scores 工作流已过期。请更新该组织的工作流（有更新版本时会出现更新横幅），然后重试。"
     },
     "regradeAll": {
       "label": "全部重新评分",
@@ -1958,26 +1964,18 @@
       "colLastSubmitted": "最后提交",
       "colActions": "操作",
       "openGroupRepo": "打开共享的小组仓库",
-      "hideSubmissions": "隐藏提交",
-      "showSubmissions": "显示所有提交",
-      "submissionCount_one": "{{count}} 次提交",
-      "submissionCount_other": "{{count}} 次提交",
       "late": "逾期",
       "lateRowTitle": "最新一次提交是在截止日期之后推送的。",
-      "lateHistoryTitle": "在截止日期之后推送。",
       "gradedAt": "评分于 {{date}}",
       "gradedAtTitle": "自动评分器上次（重新）评分此提交的时间。重新评分会更新此时间，但不改变提交时间。",
       "members": "成员",
       "openRepoLabel": "打开仓库 {{repo}}",
       "viewRepo": "查看仓库",
       "viewCommit": "查看最新提交记录",
-      "commit": "提交记录",
       "noCommit": "尚无提交记录",
       "viewDetails": "查看自动评分器详情",
-      "details": "详情",
       "noDetails": "尚无详情",
       "notSubmitted": "未提交",
-      "submittedBy": "由 {{name}} 提交",
       "review": "评审",
       "reviewAria": "打开反馈拉取请求",
       "acceptedAwaiting": "已接受 · 等待提交",
@@ -1990,7 +1988,6 @@
       "noGroupTitle": "此学生未被记入任何提交小组的仓库。小组成员在收集时读取自各仓库的协作者，因此从未加入小组的学生——或上次收集时无法读取其小组成员的学生——会显示在此处。评分前请打开小组仓库确认。",
       "notAccepted": "未接受",
       "noGradingTitle": "此作业已禁用自动评分",
-      "fullHistory": "打开<repoLink>仓库</repoLink>以查看完整的提交历史。",
       "liveLatest": "最新推送于 {{date}} · 尚未评分",
       "liveLatestTitle": "有一次较新的提交在上次收集之后被推送，因此尚未评分。运行“立即同步提交”以对其评分并计分。",
       "loading": "正在加载提交……",
@@ -2002,7 +1999,10 @@
       "manageAccess": "管理仓库访问权限",
       "manageAccessAria": "管理 {{owner}} 的仓库访问权限",
       "overridden": "手动",
-      "overriddenTitle": "此分数是人工设定的，在清除覆盖之前，自动评分不会更改它。"
+      "overriddenTitle": "此分数是人工设定的，在清除覆盖之前，自动评分不会更改它。",
+      "notCollectedYet": "尚未收集",
+      "notCollectedYetTitle": "该学生已推送尚未收集的工作，因此没有记录的提交时间。运行“立即同步提交”以收集它。",
+      "viewSubmissionsTitle": "查看提交"
     },
     "reviewModal": {
       "errorTitle": "无法检查反馈拉取请求",
@@ -2024,15 +2024,9 @@
       "confirmBody2": "评分在后台运行，可能需要几分钟；之后请使用<collectLabel>{{collectLabel}}</collectLabel>来拉取新分数。"
     },
     "student": {
-      "submittedAt": "提交于 {{date}}",
-      "viewGrade": "查看成绩",
-      "unavailable": "不可用",
       "modeGroup": "小组",
       "modeIndividual": "个人",
       "loadError": "无法加载你的提交。",
-      "noGradedYet": "尚无已评分的提交。请从命令行推送到你的作业仓库，自动评分器会在此发布你的结果。",
-      "openMyRepo": "打开我的仓库",
-      "releasesIntro": "每次提交都会在 GitHub 上打开其已评分的发布版本，其中包含你的分数和每项测试的结果。",
       "fallbackTitle": "提交",
       "missingParams": "缺少课堂或作业信息。",
       "descriptionLabel": "作业详情",
@@ -2042,7 +2036,11 @@
         "step1": "克隆你的作业仓库（仅需一次）：",
         "step2": "在仓库内提交你的作业以进行评分：",
         "title": "从命令行提交",
-        "intro": "从终端提交你的作业以进行评分。"
+        "intro": "从终端提交你的作业以进行评分。",
+        "copyMilestone": "复制里程碑标签命令",
+        "milestoneStep": "或者推送教师设置的里程碑标签（例如 {{tags}}）：",
+        "tagIntro": "此作业按标签评分。提交并推送你的工作，然后推送标签以提交评分。",
+        "tagStep2": "在仓库内提交你的工作——这会推送一个触发评分的提交标签："
       },
       "upload": {
         "addFiles": "添加文件",
@@ -2069,7 +2067,11 @@
         "unsafePath": "已跳过“{{name}}”——其路径不被允许。"
       },
       "notAccepted": "你尚未接受此作业。<acceptLink>接受它</acceptLink>以获取你的仓库，然后推送你的成果以进行评分。",
-      "locked": "此作业已被你的老师锁定，当前不可用。请稍后再来查看，或请老师解锁。"
+      "locked": "此作业已被你的老师锁定，当前不可用。请稍后再来查看，或请老师解锁。",
+      "detailsTitle": "你的提交",
+      "notSubmittedYet": "尚未提交",
+      "submittedAwaitingGrading": "已提交——等待评分",
+      "tableCaption": "你对此作业的提交"
     },
     "viewSourceRepo": "查看模板",
     "menu": {
@@ -2080,7 +2082,6 @@
     "metrics": {
       "title": "提交指标"
     },
-    "emptyRepoNote": "此作业使用空仓库——自动评分、分数和反馈拉取请求均已禁用。学生自行创建并推送作业；下表显示谁已接受。",
     "freshness": {
       "collected": "提交数据已于 {{when}} 同步",
       "neverCollected": "提交数据尚未同步",
@@ -2341,17 +2342,6 @@
       "working": "正在更新仓库"
     },
     "closedNotice": "提交已关闭。新学生无法接受此作业。当你从这里关闭时，已接受学生的仓库会被设为只读；已有作业会被保留。可在“操作”菜单中重新开放，以再次允许提交。",
-    "manualGrade": {
-      "add": "添加分数",
-      "addLabel": "为 {{name}} 添加分数",
-      "edit": "编辑分数",
-      "editLabel": "编辑 {{name}} 的分数",
-      "inputLabel": "{{name}} 的分数",
-      "notGraded": "未评分",
-      "range": "分数必须是 0 到 {{max}} 之间的整数。",
-      "required": "请输入分数以保存。",
-      "saveError": "无法保存分数。请检查你的连接并重试。"
-    },
     "migrateTracking": {
       "apply": "迁移配置",
       "bannerAction": "迁移配置",
@@ -2364,7 +2354,6 @@
       "warning": "这会显式地记录每个作业的设置，使所有工具以相同方式读取它们，并启用最新功能（例如实时提交跟踪）。它不会更改任何分数、截止日期或学生的访问权限，你可以照常继续使用。",
       "working": "正在更新作业"
     },
-    "noAutograderNote": "此作业没有内置自动评分——老师在模板中提供了自己的 CI。内置分数和重新评分已禁用；下表显示了谁已接受。反馈拉取请求在启用时仍可正常工作。",
     "rowAutograde": {
       "outcome": {
         "failed": "无法更改自动评分状态——请重试。",
@@ -2391,6 +2380,64 @@
         "updated": "自动评分触发条件已更新。学生必须在下次推送前执行 pull。"
       },
       "title": "更新自动评分触发条件"
+    },
+    "details": {
+      "emptyEveryPush": "尚无向默认分支的推送。该仓库仍然存在——打开它即可查看代码。",
+      "emptyLinkDefaultBranch": "查看仓库",
+      "emptyLinkTags": "查看标签",
+      "emptyTag": "尚无带标签的提交。该仓库仍然存在——打开其标签即可查看陆续到达的提交。",
+      "pushEntry": "推送 #{{number}}",
+      "tagEntry": "提交 #{{number}}",
+      "unavailable": "不可用",
+      "viewCommit": "查看提交",
+      "viewGrade": "查看成绩",
+      "viewRepository": "查看仓库",
+      "viewSubmissions": "查看提交",
+      "viewTag": "查看标签"
+    },
+    "grading": {
+      "badgeBuiltIn": "自动评分",
+      "badgeEmptyRepo": "无自动评分",
+      "badgeNoAutograder": "无内置自动评分",
+      "titleEmptyRepo": "此作业使用空仓库——自动评分、分数和反馈拉取请求均已禁用。表格显示哪些人已接受。",
+      "titleNoAutograder": "教师在模板中提供自己的 CI。内置分数和重新评分已禁用；启用时反馈拉取请求仍然有效。"
+    },
+    "scoreOverride": {
+      "add": "添加成绩",
+      "addLabel": "为 {{name}} 添加成绩",
+      "clear": "清除覆盖",
+      "clearError": "无法清除覆盖。请检查你的网络连接后重试。",
+      "clearLabel": "清除 {{name}} 的分数覆盖",
+      "currentAutograded": "自动评分分数",
+      "descriptionAuto": "为 {{name}} 输入分数以覆盖自动评分结果。自动评分分数会被保留，清除覆盖后会恢复。",
+      "descriptionManual": "为 {{name}} 输入分数。它将保存到成绩册，且不会被自动评分更改。",
+      "edit": "编辑成绩",
+      "editLabel": "编辑 {{name}} 的成绩",
+      "inputLabel": "分数",
+      "maxHint": "此提交尚未自动评分，因此请输入其满分总分。",
+      "maxLabel": "满分（总分）",
+      "maxRange": "满分必须是至少为 1 的整数。",
+      "maxRequired": "请输入满分以保存。",
+      "notGraded": "未评分",
+      "override": "覆盖分数",
+      "overrideLabel": "覆盖 {{name}} 的分数",
+      "range": "分数必须是 0 到 {{max}} 之间的整数。",
+      "required": "请输入分数以保存。",
+      "save": "保存",
+      "saveError": "无法保存成绩。请检查你的网络连接后重试。",
+      "titleAdd": "添加成绩",
+      "titleEdit": "编辑成绩",
+      "titleOverride": "覆盖分数"
+    },
+    "type": {
+      "badgeEveryPush": "对默认分支的每次推送都计入",
+      "badgeTag": "按标签提交",
+      "countEveryPush_one": "对默认分支的 {{count}} 次推送",
+      "countEveryPush_other": "对默认分支的 {{count}} 次推送",
+      "countTag_one": "{{count}} 次带标签的提交",
+      "countTag_other": "{{count}} 次带标签的提交",
+      "tagGroupCount_one": "{{pattern}} · {{count}} 个标签",
+      "tagGroupCount_other": "{{pattern}} · {{count}} 个标签"
     }
   },
   "orgMembers": {
