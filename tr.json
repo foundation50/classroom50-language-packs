@@ -47,7 +47,9 @@
       "previous": "Önceki sayfa",
       "next": "Sonraki sayfa"
     },
-    "linkToSection": "{{section}} bölümüne bağlantı"
+    "linkToSection": "{{section}} bölümüne bağlantı",
+    "clear": "Temizle",
+    "clearFilter": "Filtreyi temizle"
   },
   "notFound": {
     "title": "Sayfa bulunamadı",
@@ -200,7 +202,17 @@
     "patTitleFineGrained": "İnce ayarlı bir kişisel erişim jetonuyla oturum açın",
     "sessionExpired": "Oturumunuzun süresi doldu — devam etmek için tekrar oturum açın.",
     "usePersonalAccessTokenClassic": "Kişisel erişim jetonu (klasik) kullan",
-    "usePersonalAccessTokenFineGrained": "Kişisel erişim jetonu (ince ayarlı) kullan"
+    "usePersonalAccessTokenFineGrained": "Kişisel erişim jetonu (ince ayarlı) kullan",
+    "elevated": {
+      "body": "Bir organizasyonu sökmek depoları siler. Bu erişimi vermek için tekrar oturum açın. GitHub'da iptal edene kadar Classroom 50 için yetkili kalır.",
+      "browserButton": "Tarayıcıda devam et",
+      "deviceButton": "Cihaz kodu kullan",
+      "deviceHint": "Tarayıcıyla oturum açma bu sayfaya dönemediğinde, örneğin localhost'ta, bir cihaz kodu kullanın.",
+      "revokeBody": "Onsuz bir token almak için tekrar oturum açın. Önceki token'ınız, bu uygulamanın erişimini orada iptal edene kadar GitHub'da geçerli kalır.",
+      "revokeLink": "Bu uygulamanın GitHub'daki erişimini incele",
+      "revokeTitle": "Depoları silme iznini kullanmayı bırak",
+      "title": "Depoları silme izni iste"
+    }
   },
   "documentTitle": {
     "assignments": "Ödevler",
@@ -224,9 +236,9 @@
   },
   "students": {
     "addTitle": "Üye ekle",
-    "addHint": "Bir öğrenciyi ayrıntılarıyla eklemek için bir GitHub kullanıcı adı ya da kuruluş daveti göndermek için bir e-posta girin. E-posta davetleri ad veya şube bilgisi yakalamaz — bunları daha sonra kullanıcı adıyla veya bir liste yükleyerek ekleyin.",
+    "addHint": "Bir öğrenciyi ayrıntılarıyla eklemek için bir GitHub kullanıcı adı girin veya organizasyon daveti göndermek için bir e-posta girin. Bir e-posta daveti, öğrenci kabul edene kadar girdiğiniz adı ve şubeyi bekleyen bir liste satırında tutar.",
     "addRoleLabel": "Rol",
-    "addStaffHint": "Öğretmenler, baş TA'lar ve TA'lar GitHub kullanıcı adıyla eklenir. Öğretmenler ve baş TA'lar sınıf yapılandırma deposuna yazma erişimi alır; TA'lar salt okunur erişim alır. Bir öğretmene kuruluş sahipliği verilir.",
+    "addStaffHint": "Öğretmenler, baş TA'lar ve TA'lar GitHub kullanıcı adıyla eklenir. Öğretmenler ve baş TA'lar classroom50 deposuna yazma erişimi alır; TA'lar salt okunur alır. Bir öğretmene organizasyon sahipliği verilir.",
     "namePlaceholder": "Ad (isteğe bağlı)",
     "usernamePlaceholder": "github-kullanici-adi",
     "emailPlaceholder": "ogrenci@universite.edu (isteğe bağlı)",
@@ -255,7 +267,7 @@
     "copyInviteLinkAria": "Davet bağlantısını kopyala",
     "copied": "Kopyalandı",
     "copy": "Kopyala",
-    "onboardingLinkHint": "Bu katılım bağlantısını e-posta ile davet ettiğiniz öğrencilere gönderin:",
+    "onboardingLinkHint": "Öğrencileri önce listeden davet edin, ardından daveti kabul edip oturum açabilmeleri için bu bağlantıyı onlara e-postayla gönderin:",
     "onboardingLinkAria": "Öğrenci katılım bağlantısı",
     "copyOnboardingLinkAria": "Katılım bağlantısını kopyala",
     "resendMissingId": "{{username}} için davet yeniden gönderilemiyor: GitHub kimliği eksik. Onları listeye yeniden ekleyin.",
@@ -281,7 +293,8 @@
       "colName": "Ad",
       "colSection": "Şube",
       "colRole": "Rol",
-      "empty": "roster.csv dosyasında henüz kimse listelenmemiş."
+      "empty": "roster.csv dosyasında henüz kimse listelenmemiş.",
+      "invitePending": "E-postayla davet edildi — henüz katılmadı"
     },
     "classroomTeamLabel": "Sınıf ekibi",
     "teamNotYet": "Henüz ekipte değil",
@@ -308,11 +321,10 @@
     "failedInviteNotSent": "{{who}} kişisine davet gönderilmedi — tekrar deneyin.",
     "failedInviteNoTarget": "Bu davetin GitHub kullanıcı adı veya e-postası yok, bu yüzden yeniden davet edilemez — kapatın ve kişiyi yeniden ekleyin.",
     "pendingReview": "İncele",
-    "inviteLinksHint": "Öğrencilerin bu sınıfa katılabilmesi için iki bağlantıdan birini onlarla paylaşın.",
+    "inviteLinksHint": "Öğrencileri önce listeden davet edin — GitHub her birine e-postayla bir davet gönderir. Bu bağlantılar kendiliğinden kimseyi eklemez; zaten davet edilmiş bir öğrencinin kabul edip oturum açabilmesi için birini paylaşın.",
     "onboardingLinkLabel": "Sınıf katılım bağlantısı",
     "nativeInviteLabel": "GitHub kuruluş davet bağlantısı",
     "detailTitle": "Üye ayrıntıları",
-    "pendingNoEdit": "Bu öğrenci kuruluşa katıldığında profil ayrıntıları düzenlenebilir.",
     "needsAttentionInOrgHelp": "{{label}} bir kuruluş üyesidir ancak bu sınıfa kayıtlı değildir. Onları burada öğrenci olarak ekleyin — öğretmen veya TA rollerini sınıf Ayarları'nda atayın.",
     "needsAttentionNotInOrgHelp": "{{label}} listede ancak bir kuruluş üyesi değil. Kaydetmek için onları kuruluşa davet edin.",
     "assignRoleAction": "Sınıfa ekle",
@@ -404,9 +416,9 @@
       "malformedInviteId": "roster.csv dosyasında geçersiz github_id."
     },
     "emptyTitle": "Henüz üye yok",
-    "emptyBody": "Yukarıdaki katılım bağlantısını öğrencilerinizle paylaşın veya Ayarlar'dan öğretmen ve TA ekleyin. Kişiler daveti kabul edip oturum açtığında burada görünecektir.",
+    "emptyBody": "Öğrencileri kaydetmek için listeden davet edin (veya Ayarlar'dan öğretmen ve TA ekleyin) — katılım bağlantısı kendiliğinden kimseyi eklemez, yalnızca zaten davet edilmiş bir öğrencinin kabul etmesini sağlar. İnsanlar daveti kabul edip oturum açtığında burada görünürler.",
     "pendingOwnerOnly": "Bekleyen davetler yalnızca kuruluş sahiplerine görünür olduğundan burada gösterilmez. Kayıtlı üyeler (aşağıda) her zaman gösterilir.",
-    "syncRosterTitle": "roster.csv dosyasında eksik olan ekip üyelerini ekle (yalnızca meta veri)",
+    "syncRosterTitle": "roster.csv'yi sınıfın GitHub takımlarından yenile",
     "syncUpToDate": "Liste zaten güncel.",
     "syncAdded_one": "Listeye {{count}} ekip üyesi eklendi.",
     "syncAdded_other": "Listeye {{count}} ekip üyesi eklendi.",
@@ -435,9 +447,9 @@
     "importFailed": "İçe aktarma başarısız oldu",
     "uploadTitle": "Yükle",
     "uploadDropPrompt": "Buraya bir dosya bırakın veya seçmek için tıklayın",
-    "uploadHintAll": "Bir liste CSV'si, bir GitHub kullanıcı adları listesi veya bir e-posta adresleri listesi (her satırda bir tane).",
-    "detectedFormat": "Algılanan biçim",
-    "uploadKindRosterCsv": "Liste CSV'si (username sütunu)",
+    "uploadHintAll": "github_id, kullanıcı adı veya e-posta sütunu içeren bir liste CSV'si — ya da satır başına bir tane GitHub kullanıcı adları veya e-posta adresleri düz listesi. Yalnızca e-postası olan satırlar e-postayla davet edilir.",
+    "detectedFormat": "Dosyayı şu şekilde oku",
+    "uploadKindRosterCsv": "Liste CSV'si",
     "uploadKindUsernameList": "GitHub kullanıcı adları (her satırda bir tane)",
     "uploadKindEmailList": "E-posta adresleri (her satırda bir tane)",
     "chooseFile": "Dosya seç",
@@ -447,19 +459,8 @@
     "nameColumn": "Ad",
     "emailColumn": "E-posta",
     "sectionColumn": "Şube",
-    "noValidUsernames": "Bu dosyada geçerli GitHub kullanıcı adı bulunamadı.",
-    "missingUsernameHeader": "Bu dosyada gerekli olan \"username\" sütunu eksik.",
-    "expectedHeaders": "Bir username sütunu (zorunlu) içeren bir başlık satırı ekleyin, ayrıca şu isteğe bağlı sütunlardan herhangi birini ekleyin: {{headers}}. Ya da her satırda bir GitHub kullanıcı adı bulunan bir metin dosyası yükleyin.",
+    "expectedHeaders": "Bu sütunlardan en az birini içeren bir başlık satırı ekleyin: {{headers}}. Ayrıca first_name, last_name, name, section ve role da ekleyebilirsiniz. Ya da satır başına bir GitHub kullanıcı adı veya e-posta adresi içeren bir metin dosyası yükleyin.",
     "malformedCsv": "Bu dosya CSV olarak ayrıştırılamadı.",
-    "emailsFound_one": "Davet edilecek {{count}} e-posta adresi bulundu.",
-    "emailsFound_other": "Davet edilecek {{count}} e-posta adresi bulundu.",
-    "emailInviteNoRosterNotice": "Bu davetleri göndermek roster.csv dosyasında herhangi bir kayıt oluşturmaz veya değiştirmez. Davet edilenler kabul edene kadar beklemede olarak görünür; adlarını ve şubelerini daha sonra GitHub kullanıcı adına göre ekleyerek veya bir liste yükleyerek kaydedin.",
-    "noValidEmails": "Bu dosyada geçerli e-posta adresi bulunamadı. Her satırda bir e-posta adresi bulunan bir .txt veya .csv dosyası yükleyin.",
-    "emailInviteConfirmOwner": "Öğretmen olarak işaretlenmiş satırların kuruluş SAHİPLERİ olarak davet edileceğini onaylıyorum.",
-    "sendInviteCount_one": "{{count}} davet gönder",
-    "sendInviteCount_other": "{{count}} davet gönder",
-    "emailInvitedCount_one": "{{count}} davet gönderildi.",
-    "emailInvitedCount_other": "{{count}} davet gönderildi.",
     "emailInviteSkippedDetail": "Zaten üye veya zaten davet edilmiş — yeni davet gönderilmedi.",
     "importAndInviteMembers_one": "{{count}} üyeyi içe aktar ve davet et",
     "importAndInviteMembers_other": "{{count}} üyeyi içe aktar ve davet et",
@@ -501,9 +502,6 @@
     "resultRoleChangeFailures": "Başarısız olan rol değişiklikleri",
     "done": "Tamam",
     "chooseAnotherFile": "Başka bir dosya seç",
-    "emailInviteInvalidBlocked_one": "{{count}} satır geçerli bir e-posta adresi değil. Düzeltip yeniden yükleyin veya yukarıdaki biçimi değiştirin.",
-    "emailInviteInvalidBlocked_other": "{{count}} satır geçerli e-posta adresleri değil. Düzeltip yeniden yükleyin veya yukarıdaki biçimi değiştirin.",
-    "emailInviteInvalidRow": "Satır {{line}}: {{value}}",
     "firstNameColumn": "Ad",
     "inviteRosterMalformedId": "{{username}} davet edilemiyor: \"{{githubId}}\" geçerli bir GitHub kimliği değil. roster.csv dosyasındaki github_id hücresini düzeltin.",
     "lastNameColumn": "Soyad",
@@ -533,7 +531,49 @@
       "firstName": "Ad",
       "label": "Ada göre sırala",
       "lastName": "Soyad"
-    }
+    },
+    "dropBadEmail": "Satır {{line}}: <v>{{value}}</v> geçerli bir e-posta adresi değil.",
+    "dropBadUsername": "Satır {{line}}: <v>{{value}}</v> geçerli bir GitHub kullanıcı adı değil.",
+    "dropBadValue": "Satır {{line}}: <v>{{value}}</v> ne bir GitHub kullanıcı adı ne de bir e-posta adresi.",
+    "dropIdLookupCapped": "Satır {{line}}: bu dosyada aynı anda kontrol edilemeyecek kadar çok github_id değeri var, bu yüzden <v>{{value}}</v> aranmadı. github_id sütununu silin ve kullanıcı adı sütununun her satırı tanımlamasına izin verin veya dosyayı bölün.",
+    "dropIdLookupFailed": "Satır {{line}}: github_id <v>{{value}}</v> aramak için GitHub'a ulaşılamadı. Birazdan tekrar deneyin — kullanıcı adı sütununa geri dönmeyeceğiz, çünkü bu yanlış kişiyi davet edebilir.",
+    "dropIncomplete": "Satır {{line}}: GitHub kullanıcı adı, github_id veya e-posta adresi yok.",
+    "dropUnresolvedId": "Satır {{line}}: github_id <v>{{value}}</v> hiçbir GitHub hesabıyla eşleşmiyor. Kullanıcı adı sütununa geri dönmeyeceğiz, çünkü bu yanlış kişiyi davet edebilir.",
+    "emailInviteHint": "Yalnızca e-postayla mı davet ediyorsunuz? Adres hemen listeye girer ve öğrenci katıldığında GitHub hesabıyla eşleştirilir — bunun davet ettiğiniz adres olduğunu, mutlaka GitHub hesaplarındaki e-posta olmadığını unutmayın.",
+    "emailInvitePassFailed": "Liste kaydedildi, ancak e-posta davetleri gönderilemedi: {{message}}. Bunları yeniden denemek için içe aktarmayı tekrar çalıştırın.",
+    "emailInviteRosterNotice": "Davet edilen her adres, dosyadaki herhangi bir ad ve şubeyle birlikte hemen roster.csv'ye eklenir ve öğrenci kabul ettiğinde GitHub hesabıyla eşleştirilir. Davet edilenler o zamana kadar bekliyor olarak görünür.",
+    "importBlockedHint": "Bu satırları düzeltin ve dosyayı tekrar yükleyin. İkinci kez içe aktarmak güvenlidir — sınıfta zaten olan öğrenciler dokunulmadan bırakılır.",
+    "importBlocked_one": "{{count}} satır içe aktarılamıyor, bu yüzden henüz hiçbir şey değiştirilmedi.",
+    "importBlocked_other": "{{count}} satır içe aktarılamıyor, bu yüzden henüz hiçbir şey değiştirilmedi.",
+    "importRetryLookup": "Tekrar kontrol et",
+    "importSkipped_one": "{{count}} satır atlandı: GitHub kullanıcı adı, github_id veya e-posta adresi yok, bu yüzden o öğrenciye henüz ulaşmanın bir yolu yok. Aşağıdaki diğer herkes yine de içe aktarılacak.",
+    "importSkipped_other": "{{count}} satır atlandı: GitHub kullanıcı adı, github_id veya e-posta adresi yok, bu yüzden o öğrencilere henüz ulaşmanın bir yolu yok. Aşağıdaki diğer herkes yine de içe aktarılacak.",
+    "importedAndInvitedCount": "{{added}} öğrenci eklendi ve {{invited}} e-posta daveti gönderildi.",
+    "inviteEmailLocked": "Bu adres, bekleyen daveti tanımlar, bu yüzden burada değiştirilemez. Farklı bir tane kullanmak için bu daveti iptal edin ve yeni adresi davet edin.",
+    "inviteMetadataFailed": "{{email}} için davet hazırlanamadı ({{message}}), bu yüzden hiçbir davet gönderilmedi. Tekrar deneyin; sürekli başarısız oluyorsa mesajda belirtilen kalan takımı silin, sonra tekrar deneyin.",
+    "invitingEmails": "E-posta davetleri gönderiliyor...",
+    "missingIdentityHeader": "Bu dosyada bir öğrenciyi tanımlayan hiçbir sütun yok.",
+    "noRosterRowNoEdit": "Bu kişinin bir liste girdisi olduğunda profil ayrıntıları düzenlenebilir.",
+    "noUsableRows": "Bu dosyada kullanılabilir satır bulunamadı. Her satır bir github_id, bir GitHub kullanıcı adı veya bir e-posta adresi gerektirir.",
+    "preflightConfirmIdentity_one": "{{count}} satırı, github_id'sinin ait olduğu hesabı kullanarak içe aktarmayı onaylıyorum.",
+    "preflightConfirmIdentity_other": "{{count}} satırı, github_id'lerinin ait olduğu hesapları kullanarak içe aktarmayı onaylıyorum.",
+    "preflightIdentityConfirmTitle": "İçe aktarmadan önce bu hesapları kontrol edin",
+    "preflightIdentityDetail": "dosya {{declared}} dedi, kimlik {{id}}",
+    "preflightIdentityHint": "Bu satırlardaki github_id, yanındaki kullanıcı adından farklı bir hesaba ait — genellikle öğrenci GitHub hesabını yeniden adlandırdığı için. Kimliğin ait olduğu hesabı kullanacağız ve listedeki kullanıcı adını düzelteceğiz.",
+    "preflightTeacherEmailNotice_one": "{{count}} kişi daha organizasyon SAHİBİ olarak davet edilecek.",
+    "preflightTeacherEmailNotice_other": "{{count}} kişi daha organizasyon SAHİBİ olarak davet edilecek.",
+    "previewEmailOnRoster": "E-postayla davet et — zaten listede",
+    "previewInviteByEmail": "E-postayla davet et",
+    "previewPreviousUsernameHint": "dosya {{username}} dedi",
+    "resultEmailInvited": "E-postayla davet edildi",
+    "resultEmailInvitesDeferred": "E-posta davetleri ertelendi (hız sınırlı)",
+    "resultEmailInvitesFailed": "E-posta davetleri başarısız oldu",
+    "resultEmailSkipped": "Atlanan e-posta adresleri",
+    "syncMatchedEmails_one": "Davet edilen {{count}} e-posta bir GitHub hesabıyla eşleştirildi.",
+    "syncMatchedEmails_other": "Davet edilen {{count}} e-posta GitHub hesaplarıyla eşleştirildi.",
+    "syncRemovedEmails_one": "Daveti artık bekleyen durumda olmayan {{count}} adres kaldırıldı.",
+    "syncRemovedEmails_other": "Davetleri artık bekleyen durumda olmayan {{count}} adres kaldırıldı.",
+    "syncRosterDone": "Liste güncellendi."
   },
   "language": {
     "baseName": "İngilizce (temel)",
@@ -734,21 +774,17 @@
       "toolbar": {
         "searchPlaceholder": "Ödevlerde ara…",
         "searchAria": "Ödevlerde ara",
-        "statusLabel": "Durum",
         "statusAria": "Duruma göre filtrele",
         "statusAll": "Tümü",
         "statusTodo": "Yapılacak",
         "statusAccepted": "Kabul edildi",
-        "typeLabel": "Tür",
         "typeAria": "Türe göre filtrele",
         "typeAll": "Tüm türler",
         "typeIndividual": "Bireysel",
         "typeGroup": "Grup",
-        "dueLabel": "Son tarih",
         "dueAria": "Son tarihe göre filtrele",
         "dueAll": "Herhangi bir son tarih",
         "dueOverdue": "Gecikmiş",
-        "sortLabel": "Sırala",
         "sortAria": "Ödevleri sırala",
         "sortDueAsc": "En yakın son tarih",
         "sortDueDesc": "En geç son tarih",
@@ -790,7 +826,7 @@
       "descriptionPlaceholder": "Ödevin hedeflerini açıklayın...",
       "dueDate": "Son tarih ({{tz}})",
       "setDueDate": "Teslim tarihi belirle",
-      "setDueDateTip": "Kapalıyken ödevin son teslim tarihi olmaz. Bir tarih ve saat seçmek için açın; öğrenciler bunu teslim tarihi olarak görür.",
+      "setDueDateTip": "Kapalı, ödevin son teslim tarihinin olmadığı anlamına gelir. Bir tarih ve saat seçmek için açın; öğrenciler onu son teslim tarihi olarak görür.",
       "dueDateTz": "Saatler yerel saat diliminizle gösterilir ({{tz}}).",
       "type": "Ödev türü",
       "typeIndividual": "Bireysel",
@@ -798,8 +834,8 @@
       "maxGroupSize": "Maksimum grup boyutu",
       "maxGroupSizeTitle": "{{min}} ile {{max}} arasında bir tam sayı olmalıdır",
       "feedbackPr": "Geri bildirim pull request'i",
-      "feedbackPrHelp": "Her teslimin satır içi incelemesi için depo başına bir pull request açar.",
-      "feedbackPrEmptyRepoHelp": "Boş depolar için kullanılamaz. Karşılaştırılacak bir başlangıç commit'i yoktur.",
+      "feedbackPrHelp": "Her öğrencinin deposunda, çalışmalarına satır içi inceleme ve yorum yapmak için bir çekme isteği açın.",
+      "feedbackPrEmptyRepoHelp": "Boş depolarda kullanılamaz: öğrencinin çalışmasını karşılaştırılacak bir başlangıç commit'i yoktur.",
       "advanced": "Gelişmiş ayarlar",
       "advancedHelp": "İsteğe bağlı notlandırma ve çalışma zamanı ayarları. Boş bırakılan alanlar belgelenmiş varsayılanlarını kullanır.",
       "dockerImage": "Docker imajı",
@@ -821,7 +857,7 @@
       "patternCount_one": "{{count}} desen",
       "patternCount_other": "{{count}} desen",
       "passThresholdToggle": "Geçme eşiği belirle",
-      "passThresholdTip": "Varsayılan olarak kapalı. Açık olduğunda, not defteri gönderimleri aşağıdaki eşiğe göre geçti veya kaldı olarak işaretler (Geçme özeti, puan rozetleri, geçti/kaldı filtresi). Bu yalnızca bir gösterim eşiğidir. Öğrencinin gerçek puanını değiştirmez.",
+      "passThresholdTip": "Varsayılan olarak kapalıdır. Açıkken, gönderiler sayfası gönderileri aşağıdaki eşiğe göre geçti veya kaldı olarak işaretler (Geçme özeti, puan rozetleri, geçti/kaldı filtresi). Bu yalnızca bir görüntüleme eşiğidir. Öğrencinin gerçek puanını değiştirmez.",
       "passThresholdUnit": "% geçmek için gereken maksimum puanın yüzdesi",
       "back": "Geri",
       "saveChanges": "Değişiklikleri kaydet",
@@ -836,10 +872,10 @@
         "selfHostedMatch_one": "Kendi barındırdığınız runner eşleşti ({{names}})",
         "selfHostedMatch_other": "Kendi barındırdığınız runner'lar eşleşti ({{names}})",
         "selfHostedLabels": "Kendi barındırdığınız runner etiketleri",
-        "invalidLabel": "Geçersiz etiket {{labels}} — yalnızca harfler, sayılar, . - _ kullanılabilir.",
-        "noRunnerMatch": "{{labels}} ile eşleşen bir runner yok — yazımı kontrol edin.",
-        "tooMany": "Çok fazla etiket ({{count}}) — en fazla 10.",
-        "cannotVerify": "Doğrulanamıyor — girildiği gibi kullanıldı."
+        "invalidLabel": "Geçersiz etiket {{labels}}: yalnızca harfler, rakamlar, . - _.",
+        "noRunnerMatch": "{{labels}} ile eşleşen runner yok. Yazımı kontrol edin.",
+        "tooMany": "Çok fazla etiket ({{count}}); en fazla 10.",
+        "cannotVerify": "Doğrulanamıyor; girildiği gibi kullanıldı."
       },
       "runtime": {
         "envLegend": "Çalışma zamanı ortamı",
@@ -857,8 +893,8 @@
         "aptTip": "Notlandırmadan önce (apt-get ile) kurulan, virgül veya boşlukla ayrılmış ek Ubuntu paketleri. Küçük harfli Debian paket adları.",
         "aptCount_one": "{{count}} paket",
         "aptCount_other": "{{count}} paket",
-        "runnerContainerError": "\"{{label}}\" bir macOS/Windows çalıştırıcısıdır — bir Docker imajı için Ubuntu (ya da özel/kendi kendine barındırılan) bir çalıştırıcı gerekir.",
-        "selfHostedDisabled": "Kendi barındırdığınız bir çalıştırıcıda yok sayılır — o, kendi önceden hazırlanmış araç zincirlerini ve paketlerini kullanır. Bunları bunun yerine çalıştırıcı imajında sağlayın."
+        "runnerContainerError": "\"{{label}}\" bir macOS/Windows runner'ıdır; bir Docker imajı için Ubuntu (veya özel/self-hosted) runner gerekir.",
+        "selfHostedDisabled": "Kendi araç zincirlerini ve paketlerini kullanan self-hosted bir runner'da yok sayılır. Bunları bunun yerine runner imajında sağlayın."
       },
       "validation": {
         "nameRequired": "Ödev adı zorunludur.",
@@ -881,7 +917,7 @@
       "availableFromTz": "Saatler yerel saat diliminizdedir ({{tz}}).",
       "repoFeatures": {
         "choices": {
-          "default": "Varsayılan (GitHub varsayılanı)",
+          "default": "GitHub varsayılanı",
           "inherit": "Şablondan devral",
           "inheritLoading": "Şablondan devral (kontrol ediliyor…)",
           "inheritOff": "Şablondan devral (şu anda kapalı)",
@@ -904,20 +940,20 @@
         "wiki": {
           "label": "Wiki"
         },
-        "helpExisting": "Değişiklikler bundan sonra oluşturulan depolar için geçerlidir. Öğrencilerin daha önce kabul ettiklerini güncellemek için not defterini kullanın.",
+        "helpExisting": "Değişiklikler bundan sonra oluşturulan depolara uygulanır. Öğrencilerin zaten kabul ettiği depoları güncellemek için gönderiler sayfasını kullanın.",
         "overrideExisting": "Öğrencilerin daha önce kabul ettiği depoları güncellemek için gönderimler sayfasındaki toplu depo özellikleri işlemini kullanın.",
         "overrideNoTemplate": "Varsayılan, GitHub'ın kendi depo varsayılanlarını korur.",
         "overrideTemplate": "Varsayılan, bir öğrenci kabul ettiğinde şablonun ayarlarını izler. Şablonu daha sonra güncellerseniz mevcut depolar değişmez.",
         "templateContentWarning": "Özel bir şablonu miras almak, Wiki, Sorunlar ve Projeler içeriğini de kopyalar; bu nedenle miras aldığınız bir şablonda cevap anahtarlarını tutmayın."
       },
       "setAvailableFrom": "Yayınlanma tarihi belirle",
-      "setAvailableFromTip": "Ödevler varsayılan olarak öğrenci ödevleri sayfasından gizlidir — öğrenciler yalnızca davet bağlantısıyla kabul edebilir. Tarih geçtiğinde herkes için listelemek üzere bir yayınlanma tarihi belirleyin. Zaten kabul etmiş öğrenciler her zaman görür. Bu yalnızca listelemeyi denetler, erişimi değil.",
+      "setAvailableFromTip": "Ödevler varsayılan olarak öğrenci ödevleri sayfasından gizlidir, bu yüzden öğrenciler yalnızca davet bağlantısıyla kabul edebilir. Tarih geçtiğinde herkes için listelemek üzere bir yayınlanma tarihi belirleyin. Zaten kabul eden öğrenciler onu her zaman görür. Bu yalnızca listelemeyi kontrol eder, erişimi değil.",
       "setupTimeout": "Kurulum zaman aşımı (saniye)",
       "setupTimeoutTip": "Yeni kurulum komutları {{default}} saniyeyle başlar. Çalıştırıcının 10 saniyelik varsayılanını kullanmak için 0 girin veya 1 ile {{max}} arasında tam bir sayı seçin.",
       "studentPermission": {
-        "default": "Varsayılan ({{level}})",
-        "groupHelp": "Grup üyeleri, grup sahibinin takım arkadaşları ekleyebilmesi için en az admin ile katılır. Bu, bundan sonra oluşturulan depolara uygulanır; mevcut olanları değiştirmek için not defterini kullanın.",
-        "help": "Her öğrenciye kabul anında kendi ödev deposunda verilen rol. Push (yazma) varsayılandır. Öğrencilerin depo ayarlarını yönetmesine ve GitHub Pages'i etkinleştirmesine izin vermek için Admin seçin. Bu, bundan sonra kabul eden öğrencilere uygulanır; zaten oluşturulmuş depoları değiştirmek için not defterini kullanın.",
+        "default": "Varsayılan: {{level}}",
+        "groupHelp": "Grup üyeleri en az yönetici (admin) düzeyinde katılır, böylece grup sahibi takım arkadaşlarını ekleyebilir. Bu, bundan sonra oluşturulan depolar için geçerlidir; mevcutları değiştirmek için gönderiler sayfasını kullanın.",
+        "help": "Her öğrenciye kabul anında kendi ödev deposunda verilen rol. Yazma (push) varsayılandır. Öğrencilerin depo ayarlarını yönetmesine ve GitHub Pages'i etkinleştirmesine izin vermek için Yönetici'yi seçin. Bu, bundan sonra kabul eden öğrenciler için geçerlidir; zaten oluşturulan depoları değiştirmek için gönderiler sayfasını kullanın.",
         "label": "Öğrenci depo erişimi",
         "learnMore": "Daha fazla bilgi",
         "levels": {
@@ -929,25 +965,23 @@
         }
       },
       "addReadme": {
-        "helpOff": "İlk commit'i olmayan boş bir depo oluştur. Öğrencinin ilk commit'ine kadar otomatik değerlendirme ve Geri Bildirim PR'ı kullanılamaz.",
-        "helpOn": "Her depoyu bir README.md ile başlat ve bir ilk commit oluştur; böylece dallar, çekme istekleri ve Geri Bildirim PR'ı çalışır.",
+        "helpOff": "README olmadan başlayın. Yerleşik otomatik değerlendirici açıkken depolar yine otomatik değerlendirme dosyalarıyla başlar ve normal şekilde değerlendirilir. Kapalıyken depolar tamamen boş olur ve otomatik değerlendirme ile Geri Bildirim PR'si kalıcı olarak kullanılamaz.",
+        "helpOn": "Her depoyu bir README.md ile başlatın. Dalların, çekme isteklerinin (pull request) ve Geri Bildirim PR'sinin çalışmasını sağlayan şey bu ilk commit'tir.",
         "label": "README ekle"
       },
       "autograding": {
         "choices": {
           "built-in": {
-            "help": "Yerleşik otomatik değerlendirici shim'ini commit'le, ardından aşağıda çalışma zamanını ve bildirimsel testleri yapılandır.",
+            "help": "Yerleşik otomatik değerlendiriciyi kurun, ardından testleri ve çalışma ortamını aşağıda ekleyin.",
             "label": "Yerleşik otomatik değerlendiriciyi kullan"
           },
           "none": {
-            "help": "Otomatik değerlendirici shim'i commit'lenmez. Bir şablonla, kendi iş akışınızı şablonda sağlarsınız (gönderim sürümünde bir result.json varlığı yayınlamalıdır). Şablon olmadan, depoda hiçbir otomatik değerlendirici olmaz.",
+            "help": "Bunun yerine kendi GitHub Actions iş akışınızla değerlendirin. Bir şablonla, iş akışını ona ekleyin; şablon yoksa ödevin otomatik değerlendiricisi olmaz.",
             "label": "Yerleşik otomatik değerlendiriciyi kullanma"
           }
         },
-        "label": "Otomatik değerlendirme",
         "modeLabel": "Yerleşik otomatik değerlendirici",
-        "notAutogradedNote": "Otomatik değerlendirme seçenekleri yalnızca bu ödev yukarıdaki Gönderim ve değerlendirme bölümünde \"Otomatik değerlendirildi\" olarak ayarlandığında geçerlidir. Otomatik değerlendiriciyi yapılandırmak için değerlendirme seçimini Otomatik değerlendirildi olarak değiştirin.",
-        "editHelp": "Yerleşik otomatik değerlendiriciyi değiştirmek yalnızca öğrencilerin bundan sonra kabul ettiği depoları etkiler. Zaten kabul edilmiş depolar orijinal kurulumlarını korur — herhangi bir farkı kendiniz gidermeniz gerekir."
+        "editHelp": "Yerleşik otomatik değerlendiriciyi değiştirmek yalnızca öğrencilerin bundan sonra kabul ettiği depoları etkiler. Zaten kabul edilen depolar orijinal kurulumunu korur, bu yüzden mevcut depoları kendiniz güncellemeniz gerekir."
       },
       "copyAbout": {
         "help": "Şablonun Hakkında (açıklaması) bilgisini her öğrenci deposuna kopyala. GitHub bunu otomatik kopyalamaz. Bu, bundan sonra kabul eden öğrenciler için geçerlidir; halihazırda oluşturulmuş depolar değişmez.",
@@ -958,7 +992,6 @@
         "label": "Konuları şablondan kopyala"
       },
       "grading": {
-        "autoNote": "Bu ödev otomatik değerlendiriliyor. Otomatik değerlendiriciyi aşağıdaki Otomatik değerlendirme bölümünde yapılandırın. İster yerleşik otomatik değerlendiriciyi kullanın ister kendi iş akışınızı sağlayın, gönderim sürümünde bir result.json varlığı yayınlamalıdır — uygulamanın puanları göstermek için okuduğu dosya budur.",
         "choices": {
           "auto": "Otomatik değerlendirildi",
           "manual": "Manuel (puanları elle gir)",
@@ -985,7 +1018,7 @@
           "help": "Her öğrencinin deposunu sağladığınız bir şablondan oluştur.",
           "label": "Şablon deposu"
         },
-        "editHelp": "Depo kaynağını değiştirmek yalnızca öğrencilerin bundan sonra kabul ettiği depoları etkiler. Zaten kabul edilmiş depolar orijinal başlangıç içeriğini korur — herhangi bir farkı kendiniz gidermeniz gerekir."
+        "editHelp": "Depo kaynağını değiştirmek yalnızca öğrencilerin bundan sonra kabul ettiği depoları etkiler. Zaten kabul edilen depolar orijinal başlangıç içeriğini korur, bu yüzden mevcut depoları kendiniz güncellemeniz gerekir."
       },
       "repositorySetupSection": "Depo kurulumu",
       "scheduleSection": "Zamanlama",
@@ -994,26 +1027,22 @@
           "everyPush": "Varsayılan dala yapılan her push",
           "tag": "Etiketli bir commit"
         },
-        "editWarning": "Bunu değiştirmek yalnızca bundan sonra oluşturulan depoları etkiler. Öğrencilerin daha önce kabul ettiği depolar, siz güncelleyene kadar eski ayarı korur — gönderimler sayfasındaki \"Otomatik değerlendirme tetikleyicilerini güncelle\" seçeneğini veya gh teacher assignment submission-mode komutunu kullanın. Öğrenciler güncellemeden sonra pull yapmalıdır.",
-        "help": "\"Varsayılan dala yapılan her push\" her push'u sayar (başlangıç commit'i hariç). \"Etiketli bir commit\" yalnızca etiketli commit'leri sayar — öğrenci gh student submit ile veya bir etiket push'layarak gönderir, böylece sıradan push'lar hiç Actions dakikası harcamaz.",
+        "editWarning": "Bunu değiştirmek yalnızca bundan sonra oluşturulan depoları etkiler. Öğrencilerin zaten kabul ettiği depolar, siz güncelleyene kadar eski ayarı korur. Gönderiler sayfasındaki \"Otomatik değerlendirme tetikleyicilerini güncelle\"yi veya gh teacher assignment submission-mode komutunu kullanın. Öğrenciler güncellemeden sonra pull yapmalıdır.",
+        "help": "\"Varsayılan dala her push\" başlangıç commit'inden sonraki her push'u sayar. \"Etiketli bir commit\" yalnızca etiketli commit'leri sayar, böylece sıradan push'lar hiç Actions dakikası kullanmaz; öğrenci bir etiket göndererek veya gh student submit çalıştırarak gönderim yapar.",
         "label": "Gönderim türü"
       },
       "submissionSection": "Gönderim ve değerlendirme",
-      "submissionSectionHelp": "Bu ödev için neyin gönderim sayıldığını tanımlayın — otomatik değerlendiricinin ne zaman çalıştığı ve öğrencinin göndermek için hangi etiketleri push'layabileceği.",
+      "submissionSectionHelp": "Bu ödev için neyin bir gönderim sayılacağını tanımlayın: otomatik değerlendiricinin ne zaman çalışacağı ve öğrencinin gönderim için hangi etiketleri push edebileceği.",
       "submissionTags": {
-        "commaHint": "Virgülle ayrılmış bir liste değil, her satıra bir etiket koyun — virgül, etiket adının bir parçası olur ve reddedilir.",
-        "help": "Commit'leri de sayılan isteğe bağlı etiket adları (her satıra bir tane) — örn. phase1, phase2. v* gibi desenler bir etiket ailesiyle eşleşir. Hiçbiri için boş bırakın.",
+        "commaHint": "Virgülle ayrılmış bir liste değil, satır başına bir etiket koyun. Virgül, etiket adının parçası olur ve reddedilir.",
+        "help": "Commit'leri de sayılan isteğe bağlı etiket adları (satır başına bir tane), ör. phase1, phase2. v* gibi kalıplar bir etiket ailesiyle eşleşir. Hiçbiri için boş bırakın.",
         "label": "Gönderim etiketleri",
         "wildcardCaution": "v* gibi geniş bir desen, öğrencinin push'ladığı her etiketle eşleşir; buna ilgisiz sürüm etiketleri de dahildir. phase1 gibi tam adları tercih edin."
-      },
-      "submissions": {
-        "heading": "Gönderimler",
-        "help": "Gönderimler sayfasının her öğrencinin çalışmasını nasıl algıladığı ve saydığı. Otomatik değerlendirici aynı tanımı kullanır."
       },
       "discardChanges": "Değişiklikleri iptal et",
       "reset": "Sıfırla",
       "resetSection": "Bu bölümü varsayılan ayarlarına sıfırla",
-      "typeLockedHelp": "Oluşturulduktan sonra değiştirilemez — değiştirmek mevcut gönderimleri geçersiz kılar.",
+      "typeLockedHelp": "Oluşturulduktan sonra değiştirilemez. Değiştirmek mevcut gönderimleri geçersiz kılar.",
       "feedbackPrTemplate": {
         "autoEnabled": "Otomatik olarak etkinleştirildi: şablon deposunda bir pull request şablonu bulundu.",
         "checking": "Şablonda bir pull request şablonu olup olmadığı denetleniyor…",
@@ -1036,17 +1065,17 @@
       "testNamePlaceholder": "ör. hello yazdırır",
       "testType": "Test türü",
       "setupCommand": "Kurulum komutu",
-      "setupCommandPlaceholder": "isteğe bağlı — ör. gcc -o hello hello.c",
+      "setupCommandPlaceholder": "isteğe bağlı, ör. gcc -o hello hello.c",
       "runCommand": "Çalıştırma komutu",
       "runCommandPlaceholder": "ör. ./hello veya python3 main.py",
       "input": "Girdi (stdin)",
-      "inputPlaceholder": "isteğe bağlı — komuta stdin üzerinden verilen metin",
+      "inputPlaceholder": "isteğe bağlı: komuta stdin üzerinden verilen metin",
       "expectedOutput": "Beklenen çıktı",
       "expectedOutputPlaceholder": "Beklenen stdout",
       "comparison": "Karşılaştırma",
-      "comparisonIncluded": "İçerir — beklenen değer çıktının herhangi bir yerinde görünür",
-      "comparisonExact": "Tam eşleşme — çıktı beklenene eşittir (çevredeki boşluklar yok sayılır)",
-      "comparisonRegex": "Regex — Python re.search, çok satırlı",
+      "comparisonIncluded": "İçerir: beklenen, çıktının herhangi bir yerinde görünür",
+      "comparisonExact": "Tam: çıktı beklenene eşittir (çevredeki boşluklar yok sayılır)",
+      "comparisonRegex": "Regex: Python re.search, çok satırlı",
       "exitCode": "Gerekli çıkış kodu",
       "exitCodeHint": "Başarılı bir çıkış (0) gerektirmek için boş bırakın.",
       "pythonNote": "Çalıştırma komutu, ödev şablonundaki test dosyalarına karşı pytest'i çağırmalıdır (ör. <code>python3 -m pytest -q</code>). pytest ve pytest-json-report otomatik olarak yüklenir. Puanlar, pytest'in keşfettiği durumlar arasında paylaştırılır.",
@@ -1114,19 +1143,16 @@
     "toolbar": {
       "searchPlaceholder": "Ödevlerde ara…",
       "searchAria": "Ödevlerde ara",
-      "sortLabel": "Sırala",
       "sortAria": "Ödevleri sırala",
       "sortNameAsc": "Ad (A–Z)",
       "sortNameDesc": "Ad (Z–A)",
       "sortDueAsc": "Teslim tarihi (en yakın)",
       "sortDueDesc": "Teslim tarihi (en geç)",
       "sortType": "Tür",
-      "typeLabel": "Tür",
       "typeAria": "Türe göre filtrele",
       "typeAll": "Tüm türler",
       "typeIndividual": "Bireysel",
       "typeGroup": "Grup",
-      "dueLabel": "Teslim",
       "dueAria": "Teslim tarihine göre filtrele",
       "dueAll": "Tüm teslim tarihleri",
       "dueHas": "Teslim tarihi var",
@@ -1139,7 +1165,7 @@
     "template": {
       "label": "Şablon deposu",
       "placeholder": "<owner>/<repo>",
-      "help": "İsteğe bağlı. Öğrenciler bu deponun bir kopyasını alır. Yalnızca otomatik değerlendiriciyi içeren boş bir depo için boş bırakın.",
+      "help": "İsteğe bağlı. Öğrenciler bu deponun bir kopyasını alır. Şablonsuz bir ödev için boş bırakın: öğrenciler bir README ve otomatik değerlendirme dosyalarıyla başlatılmış bir depo alır.",
       "checking": "Şablon erişimi kontrol ediliyor…",
       "fallbackOrg": "kuruluşunuz",
       "privateHasAccess": "{{owner}} içinde özel şablon (dal <branch>{{branch}}</branch>). Sınıf ekibinin zaten okuma erişimi var — öğrenciler kopyalayabilir.",
@@ -1211,7 +1237,7 @@
     "unlistedWarning": "Bu sınıf listelenmemiş bir URL kullanıyor: kaynakları tahmin edilebilir bir yol yerine tahmin edilemeyen bir yolda sunuluyor. Bu, erişim denetimi değil, gizlilik yoluyla korumadır — bağlantı, verileri koruyan tek şeydir; bağlantıya sahip olan herkes dosyayı okuyabilir ve bağlantılar sızabilir (tarayıcı geçmişi, yönlendirenler, arama tarayıcıları). Her ödevin sayfasından, ödev başına kabul bağlantısını veya CLI komutunu (anahtarı içerirler) paylaşın.",
     "banner": {
       "title": "Aşağıdaki her şey internet üzerinden herkese açık olarak sunulur",
-      "body": "classroom50 yapılandırma deponuz özeldir, ancak GitHub Pages sitesi tasarım gereği herkese açıktır — öğrenciler ve otomatik değerlendirici bu dosyaları kimlik doğrulaması yapmadan alır. Yalnızca aşağıdaki izin listesindeki dosyalar yayımlanır; depodaki diğer her şey (kayıt listeniz, dahili sınıf alanları, hizmet belirteci) özel kalır. Bir sınıf, dosyalarını bulmayı zorlaştırmak için listelenmemiş bir URL kullanabilir, ancak bu erişim denetimi değil, gizlilik yoluyla korumadır — dosyalar bağlantıya sahip olan herkes için hâlâ herkese açıktır."
+      "body": "classroom50 deponuz özeldir, ancak GitHub Pages sitesi tasarımı gereği herkese açıktır — öğrenciler ve otomatik değerlendirici bu dosyaları kimlik doğrulaması yapmadan alır. Yalnızca aşağıdaki izin listesindeki dosyalar yayınlanır; depodaki başka her şey (listeniz, dahili sınıf alanları, hizmet token'ı) özel kalır. Bir sınıf, dosyalarını bulmayı zorlaştırmak için listelenmeyen bir URL kullanabilir, ancak bu erişim denetimi değil, gizliliktir — dosyalar bağlantıya sahip herkes için hâlâ herkese açıktır."
     },
     "orgLevel": "Organizasyon düzeyi",
     "orgLevelServed": "<path>{{base}}/</path> kök dizininde sunuluyor.",
@@ -1307,7 +1333,7 @@
     "notAMember": {
       "title": "Henüz üye değilsiniz",
       "body": "Henüz <org>{{org}}</org> organizasyonunun bir üyesi değilsiniz, bu nedenle bu ödevi kabul edemezsiniz. Önce katılmanız gerekir — bir GitHub organizasyon daveti, ödev deponuzu oluşturma erişimi verir.",
-      "instructions": "Öğretmeninizden sizi sınıf listesine eklemesini ve size bir davet göndermesini isteyin (bunu sınıf liste sayfasından yapabilirler). GitHub daveti hesabınıza e-postayla gönderir — kabul edin, ardından burada yeniden kontrol edin. Bir daveti henüz kabul ettiyseniz, GitHub'a yetişmesi için biraz zaman tanıyın.",
+      "instructions": "Öğretmeninizden sizi sınıf listesine eklemesini ve bir davet göndermesini isteyin (bunu sınıf listesi sayfasından yapabilirler). GitHub, daveti hesabınıza e-postayla gönderir — kabul edin, sonra burada tekrar kontrol edin. Bir daveti henüz kabul ettiyseniz, GitHub'ın yetişmesine biraz zaman tanıyın.",
       "checkAgain": "Yeniden kontrol et"
     },
     "generic": {
@@ -1347,8 +1373,8 @@
     "collaboratorsHint_other": "Bu ödev deposu için katkıda bulunanları ekleyin veya kaldırın. Bu ödev, grup sahibine ek olarak en fazla <count>{{count}}</count> öğrenciye izin verir.",
     "manageCollaborators": "Katkıda bulunanları yönet",
     "provisioningConfirm": {
-      "body_one": "{{count}} öğrenci bu ödevi zaten kabul etti. Bu değişiklik yalnızca bundan sonra kabul edilen depoları etkiler — mevcut {{count}} depo, orijinal başlangıç kodunu ve kurulumunu korur. Otomatik değerlendirmeyi kapatırsanız, o depoların otomatik değerlendirme çalıştırmaları başarısız olmaya başlar ve not defterinden düşer; değerlendirme modunu değiştirirseniz, eski modda kaydedilmiş puanlar farklı görünebilir. Herhangi bir tutarsızlığı kendiniz gidermeniz gerekir.",
-      "body_other": "{{count}} öğrenci bu ödevi zaten kabul etti. Bu değişiklik yalnızca bundan sonra kabul edilen depoları etkiler — mevcut {{count}} depo, orijinal başlangıç kodunu ve kurulumunu korur. Otomatik değerlendirmeyi kapatırsanız, o depoların otomatik değerlendirme çalıştırmaları başarısız olmaya başlar ve not defterinden düşer; değerlendirme modunu değiştirirseniz, eski modda kaydedilmiş puanlar farklı görünebilir. Herhangi bir tutarsızlığı kendiniz gidermeniz gerekir.",
+      "body_one": "{{count}} öğrenci bu ödevi zaten kabul etti. Bu değişiklik yalnızca bundan sonra kabul edilen depoları etkiler; mevcut {{count}} depo, orijinal başlangıç kodunu ve kurulumunu korur. Otomatik değerlendirmeyi kapatırsanız o depoların otomatik değerlendirme çalıştırmaları başarısız olmaya başlar ve toplanan puanlardan düşer; değerlendirme modunu değiştirirseniz eski modda kaydedilen puanlar farklı okunabilir. Tutarsızlıkları kendiniz gidermeniz gerekir.",
+      "body_other": "{{count}} öğrenci bu ödevi zaten kabul etti. Bu değişiklik yalnızca bundan sonra kabul edilen depoları etkiler; mevcut {{count}} depo, orijinal başlangıç kodunu ve kurulumunu korur. Otomatik değerlendirmeyi kapatırsanız o depoların otomatik değerlendirme çalıştırmaları başarısız olmaya başlar ve toplanan puanlardan düşer; değerlendirme modunu değiştirirseniz eski modda kaydedilen puanlar farklı okunabilir. Tutarsızlıkları kendiniz gidermeniz gerekir.",
       "cancel": "İptal",
       "confirm": "Yine de değişiklikleri kaydet",
       "title": "Öğrenciler kabul ettikten sonra hazırlama ayarları değiştirilsin mi?"
@@ -1377,7 +1403,7 @@
       "expiryRange": "{{min}}–{{max}} gün girin",
       "expiryUntrackedHint": "Bu belirtecin sona erme tarihi izlenmiyor. Classroom 50'nin sona ermeden önce sizi uyarabilmesi için yeni bir belirteç ayarlayın.",
       "generateHelp": "GitHub'ın belirteç formunu ad, sona erme ve gerekli kapsamlar önceden doldurulmuş olarak açar. Depo erişimini All repositories olarak ayarlayın.",
-      "help": "Classroom 50'nin öğrenci depolarınız genelinde puan toplamasına ve yeniden notlandırmasına olanak tanıyan ince taneli bir GitHub belirteci. classroom50 yapılandırma deponuzda bir gizli olarak saklanır.",
+      "help": "Classroom 50'nin öğrenci depolarınızda puan toplamasını ve yeniden değerlendirme yapmasını sağlayan ince ayrıntılı bir GitHub token'ı. classroom50 deponuzda gizli bir değer olarak saklanır.",
       "learnMore": "Hizmet belirteçleri hakkında bilgi edin",
       "nameHelp": "Ad, bu belirtecin GitHub kişisel erişim belirteçleri listenizde nasıl göründüğüyle eşleşmelidir. Classroom 50 bunu yalnızca bir etiket olarak kullanır; burada yeniden adlandırmak belirteci GitHub'da yeniden adlandırmaz.",
       "nameRowLabel": "Ad:",
@@ -1397,12 +1423,12 @@
     "audit": {
       "title": "Organizasyon politikası",
       "planBadgeTitle": "GitHub planı — hangi politikaların kapsamda olduğunu belirler (Enterprise, ek üye ayrıcalığı alanlarının kilidini açar)",
-      "description": "Classroom 50'nin sizin adınıza yapılandırdığı ayarlar ve beklenen kilitleme durumundan sapan bir şey olup olmadığı.",
+      "description": "Classroom 50'nin sizin adınıza neyi yapılandırdığı ve beklenen kilitlemeden herhangi bir şeyin değişip değişmediği.",
       "recheck": "Yeniden kontrol et",
       "auditing": "Organizasyon politikası denetleniyor…",
       "auditError": "Politika denetimi çalıştırılamadı. Yeniden kontrol etmeyi deneyin.",
       "fixError": "Düzeltme uygulanamadı. Sahip izinleriniz olmayabilir veya bir enterprise politikası bu değişikliği engelliyor olabilir.",
-      "renameError": "Yapılandırma deposunun varsayılan dalı yeniden adlandırılamadı. Sahip izinleriniz olmayabilir veya yeniden adlandırma gerçekleşmedi — tekrar deneyin.",
+      "renameError": "classroom50 deposunun varsayılan dalı yeniden adlandırılamadı. Sahip izinleriniz olmayabilir veya yeniden adlandırma tamamlanmamış olabilir — tekrar deneyin.",
       "fixTransient": "Bu gerçekleşmedi — geçici bir hız sınırı olabilir ya da depo hâlâ başlatılıyor olabilir. Birazdan tekrar deneyin.",
       "needsManualSetup": "Elle kurulum gerekiyor",
       "couldntAutoConfigure": "Bunu otomatik olarak ayarlayamadık. Bu, bir kurumsal veya organizasyon politikasının ayarı yönettiği ya da hesabın yetkisinin olmadığı durumlarda olabilir. Bağlantılı sayfada elle ayarlayın.",
@@ -1422,19 +1448,19 @@
       "orUseFixIt": " (ya da \"Düzelt\"i kullanın)",
       "requiresManualFix": "Elle ayarla",
       "readError": "Kilitlemeyi denetlemek için organizasyon okunamadı. Erişiminizi kontrol edip tekrar deneyin.",
-      "driftCanFix": "Sapan bir ayarda “Düzelt”i kullanın veya her şeyi bir kerede yeniden uygulamak için aşağıdan kurulumu yeniden çalıştırın.",
-      "driftCannotFix": "Sapmayı düzeltmesi için bir organizasyon sahibinden isteyin — bu değişiklikler sahip izinleri gerektirir.",
+      "driftCanFix": "Değişen bir ayarda \"Düzelt\"i kullanın veya her şeyi bir kerede yeniden uygulamak için aşağıdan kurulumu yeniden çalıştırın.",
+      "driftCannotFix": "Bir organizasyon sahibinden bu ayarları düzeltmesini isteyin; bunları değiştirmek sahip izinleri gerektirir.",
       "confirmByHand": "Elle onayla",
       "confirmByHandBody": "GitHub bu ayarları okumak için bir API sunmadığından, bunları otomatik olarak doğrulayamıyoruz — her birini üye ayrıcalıkları sayfasında onaylayın.",
       "confirmManually": "Elle onayla",
       "recommended": "Önerilen",
       "defaultBranchRec": "Kuruluşunuzun yeni depolar için varsayılan dal adı \"{{current}}\". Yeni depoların (öğrenci ödev depoları dahil) Classroom 50'nin geleneğine uyması için \"main\" öneririz. Mevcut depolar etkilenmez ve çalışmaya devam eder.",
-      "configBranchRec": "classroom50 yapılandırma deposunun varsayılan dalı \"{{current}}\", \"main\" değil. Her şey yine de çalışır (okuma ve yazma işlemleri gerçek dalı hedefler), ancak adını \"main\" olarak değiştirmek Classroom 50'nin geleneğine uyar.",
+      "configBranchRec": "classroom50 deposunun varsayılan dalı \"main\" değil, \"{{current}}\". Her şey yine çalışır (okumalar ve yazmalar gerçek dalı hedefler), ancak onu \"main\" olarak yeniden adlandırmak Classroom 50'nin kuralına uyar.",
       "renameToMain": "main olarak yeniden adlandır",
-      "renameModalTitle": "Yapılandırma deposunun varsayılan dalı main olarak yeniden adlandırılsın mı?",
-      "renameModalBody": "Bu, classroom50 yapılandırma deposunun varsayılan dalını \"main\" olarak yeniden adlandırır. Bazı öğrenciler ödevleri zaten kabul ettiyse, otomatik değerlendirme iş akışları mevcut dal adına sabitlenir ve öğrenciler yeniden kabul edene veya shim'lerini yeniden yönlendirene kadar değerlendirmeyi durdurur. Bunu yalnızca öğrenciler kabul etmeden önce tercih edin veya kurulumlarını yeniden çalıştırmaya hazır olun.",
+      "renameModalTitle": "classroom50 deposunun varsayılan dalı main olarak yeniden adlandırılsın mı?",
+      "renameModalBody": "Bu, classroom50 deposunun varsayılan dalını \"main\" olarak yeniden adlandırır. Herhangi bir öğrenci ödevleri zaten kabul ettiyse, otomatik değerlendirme iş akışları mevcut dal adını sabitler ve öğrenciler yeniden kabul edene veya siz shim'lerini yeniden yönlendirene kadar değerlendirmeyi durdurur. Bunu yalnızca öğrenciler kabul etmeden önce tercih edin veya kurulumlarını yeniden çalıştırmaya hazır olun.",
       "memberPermsToggle": "Yapılandırdığımız üye izinleri",
-      "memberPermsHint": "Classroom 50'nin ayarladığı, halihazırda uygulanmış olanlar da dahil, organizasyon üye ayrıcalıklarının tam listesi. Sapanlar yukarıda belirtilmiştir.",
+      "memberPermsHint": "Classroom 50'nin ayarladığı, halihazırda mevcut olanlar dahil, organizasyon üyesi ayrıcalıklarının tam listesi. Değişenler yukarıda belirtilir.",
       "detail": {
         "budgetMissing": "0 $ katı durdurma Actions bütçesi yok",
         "budgetOverThreshold": "Actions bütçesi {{amount}} $ ({{threshold}} $ üzerinde); 0 $ katı durdurma sınırı öneriliyor",
@@ -1444,8 +1470,8 @@
         "readFailed": "okuma başarısız",
         "readFailedStatus": "okuma başarısız ({{status}})",
         "rulesetsMissing": "eksik: {{names}}",
-        "workflowOrgManaged": "organizasyon politikası iş akışlarını varsayılan olarak okumaya ayarlar; iskelet iş akışları kendi izinlerini bildirir",
-        "orgActionsPaused": "Otomatik değerlendirme duraklatıldı, bu nedenle GitHub Actions kasıtlı olarak classroom50 yapılandırma deposuyla sınırlandırıldı. Standart ilkeyi geri yüklemek için yukarıdaki GitHub Actions bölümünden duraklatmayı kapatın."
+        "workflowOrgManaged": "organizasyon politikası iş akışlarını varsayılan olarak salt okunur yapar; Classroom 50 iş akışları kendi izinlerini bildirir",
+        "orgActionsPaused": "Otomatik değerlendirme duraklatıldı, bu yüzden GitHub Actions bilinçli olarak classroom50 deposuyla sınırlandırıldı. Standart politikayı geri yüklemek için yukarıdaki GitHub Actions bölümünden duraklatmayı kapatın."
       },
       "statePaused": "Duraklatıldı"
     },
@@ -1479,7 +1505,7 @@
     },
     "rerun": {
       "title": "Kurulumu yeniden çalıştır",
-      "description": "Her Classroom 50 organizasyon ayarını yeniden uygular. İstediğiniz zaman güvenle çalıştırabilirsiniz — yalnızca sapmış ayarları değiştirir.",
+      "description": "Her Classroom 50 organizasyon ayarını yeniden uygulayın. Her zaman güvenle çalıştırılabilir — yalnızca değişmiş ayarları günceller.",
       "running": "Yeniden çalıştırılıyor…",
       "button": "Kurulumu yeniden çalıştır",
       "failed": "Kurulumun yeniden çalıştırılması tamamlanmadı — gerekli bir adım başarısız oldu. Yukarıdaki adımları inceleyin, sorunu çözün ve tekrar çalıştırın.",
@@ -1489,26 +1515,43 @@
     },
     "teardown": {
       "title": "Tehlikeli bölge",
-      "description": "Bu organizasyonu, içindeki <strong>her</strong> depoyu, <repo>classroom50</repo> yapılandırma deposu dahil olmak üzere silerek ve her sınıfın GitHub ekibini kaldırarak kaldırın. Bu işlem geri alınamaz.",
+      "description": "Bu organizasyonu, içindeki <strong>her</strong> depoyu, <repo>classroom50</repo> deposu dahil, silerek ve her sınıfın GitHub takımını kaldırarak sökün. Bu geri alınamaz.",
       "prepareError": "Kaldırma planı hazırlanamadı.",
       "preparing": "Hazırlanıyor…",
       "button": "Organizasyonu kaldır",
       "confirmText": "{{org}} sil",
       "confirmLabel": "Tüm kaynakları sil",
       "confirmTitle": "Bu organizasyondaki her depo silinsin mi?",
-      "confirmBody_one": "Bu işlem, <org>{{org}}</org> içindeki <count>{{count}}</count> depoyu, <repo>classroom50</repo> yapılandırma deposu (en son silinir) dahil olmak üzere kalıcı olarak silecek.",
-      "confirmBody_other": "Bu işlem, <org>{{org}}</org> içindeki <count>{{count}}</count> depoyu, <repo>classroom50</repo> yapılandırma deposu (en son silinir) dahil olmak üzere kalıcı olarak silecek.",
+      "confirmBody_one": "Bu, <org>{{org}}</org> içindeki <count>{{count}}</count> depoyu, <repo>classroom50</repo> deposu dahil (en son silinir), kalıcı olarak siler.",
+      "confirmBody_other": "Bu, <org>{{org}}</org> içindeki <count>{{count}}</count> depoyu, <repo>classroom50</repo> deposu dahil (en son silinir), kalıcı olarak siler.",
       "confirmBodyTeams_one": "Ayrıca <count>{{count}}</count> sınıf ekibini kaldıracak.",
       "confirmBodyTeams_other": "Ayrıca <count>{{count}}</count> sınıf ekibini kaldıracak.",
       "confirmBodyCannotUndo": "Bu geri alınamaz.",
       "repositoriesHeading": "Depolar",
       "classroomTeamsHeading": "Sınıf ekipleri",
-      "executeError": "Kaldırma başarısız oldu. Bazı depolar silinmemiş olabilir."
+      "executeError": "Kaldırma başarısız oldu. Bazı depolar silinmemiş olabilir.",
+      "forbidden": "GitHub depoları silmeyi reddetti (403) ve izinleriniz yeterli görünüyor. Muhtemelen bir organizasyon politikası veya korumalı bir depo silmeyi engelliyor. Organizasyonun ayarlarını kontrol edin, sonra sökümü tekrar çalıştırın.",
+      "forbiddenPartial_one": "GitHub, {{count}} zaten silindikten sonra depoları silmeyi reddetti (403) ve o silme kalıcıdır. İzinleriniz yeterli görünüyor, bu yüzden muhtemelen bir organizasyon politikası veya korumalı bir depo geri kalanı engelliyor. Organizasyonun ayarlarını kontrol edin, sonra bitirmek için sökümü tekrar çalıştırın.",
+      "forbiddenPartial_other": "GitHub, {{count}} zaten silindikten sonra depoları silmeyi reddetti (403) ve o silmeler kalıcıdır. İzinleriniz yeterli görünüyor, bu yüzden muhtemelen bir organizasyon politikası veya korumalı bir depo geri kalanı engelliyor. Organizasyonun ayarlarını kontrol edin, sonra bitirmek için sökümü tekrar çalıştırın.",
+      "grantButton": "Yükseltilmiş izinler iste",
+      "insufficientPermission": "Yetersiz izin",
+      "insufficientPermissionHelp": "Söküm depoları siler. Normal oturum açma bunları silme iznini istemez, bu yüzden devam etmek için yükseltilmiş izinler isteyin.",
+      "insufficientPermissionHelpPat": "Söküm depoları siler ve bu oturumun token'ı buna izin vermiyor. Bir token'ın izinleri onu GitHub'da oluşturduğunuzda sabitlenir, bu yüzden depoları silmeye izin veren bir tokenla tekrar oturum açın.",
+      "needsDeleteScope": "GitHub depoları silmeyi reddetti (403). Normal oturum açma bunları silme iznini istemez. Yükseltilmiş izinler isteyip tekrar deneyin veya bunun yerine depoları arşivleyin.",
+      "needsDeleteScopePartial_one": "GitHub, {{count}} zaten silindikten sonra depoları silmeyi reddetti (403). O silme kalıcıdır. Yükseltilmiş izinler isteyip bitirmek için sökümü tekrar çalıştırın.",
+      "needsDeleteScopePartial_other": "GitHub, {{count}} zaten silindikten sonra depoları silmeyi reddetti (403). O silmeler kalıcıdır. Yükseltilmiş izinler isteyip bitirmek için sökümü tekrar çalıştırın.",
+      "needsDeleteScopePat": "Bir kişisel erişim tokenıyla oturum açtınız, bu yüzden Classroom 50 bu izni sizin için ekleyemez. Depoları silmeye izin veren bir token oluşturun (klasik bir tokenda delete_repo kapsamı veya ince ayrıntılı bir tokenda Administration: read and write) ve tekrar oturum açın.",
+      "rateLimited": "GitHub, herhangi bir depo silinmeden önce silmeleri hız sınırladı. Biraz bekleyin, sonra sökümü tekrar çalıştırın.",
+      "rateLimitedPartial_one": "GitHub, {{count}} zaten silindikten sonra silmeleri hız sınırladı ve o silme kalıcıdır. Biraz bekleyin, sonra bitirmek için sökümü tekrar çalıştırın.",
+      "rateLimitedPartial_other": "GitHub, {{count}} zaten silindikten sonra silmeleri hız sınırladı ve o silmeler kalıcıdır. Biraz bekleyin, sonra bitirmek için sökümü tekrar çalıştırın.",
+      "ssoRequired": "GitHub depoları silmeyi reddetti (403). Bu organizasyon SAML tek oturum açma gerektirir. Oturumunuzu bu organizasyon için GitHub'da yetkilendirin, sonra sökümü tekrar çalıştırın.",
+      "ssoRequiredPartial_one": "GitHub, {{count}} zaten silindikten sonra depoları silmeyi reddetti (403) ve o silme kalıcıdır. Bu organizasyon SAML tek oturum açma gerektirir. Oturumunuzu onun için GitHub'da yetkilendirin, sonra bitirmek için sökümü tekrar çalıştırın.",
+      "ssoRequiredPartial_other": "GitHub, {{count}} zaten silindikten sonra depoları silmeyi reddetti (403) ve o silmeler kalıcıdır. Bu organizasyon SAML tek oturum açma gerektirir. Oturumunuzu onun için GitHub'da yetkilendirin, sonra bitirmek için sökümü tekrar çalıştırın."
     },
     "preflight": {
       "categoryServiceToken": "servis belirteci",
       "categoryOrgPolicy": "organizasyon politikası",
-      "title": "Organizasyon ön kontrolü başarısız oldu",
+      "title": "Organizasyon kurulum kontrolü başarısız oldu",
       "body_one": "Bu organizasyonun {{categories}} ile ilgili bir sorun bulundu.",
       "body_other": "Bu organizasyonun {{categories}} ile ilgili sorunlar bulundu.",
       "reviewFix": "<settingsLink>Organizasyon ayarları sayfası</settingsLink> üzerinde gözden geçirin ve düzeltin.",
@@ -1520,8 +1563,8 @@
       "title": "Notlandırmanın çalışır kalması için iş akışı dosyaları güncellensin mi?",
       "confirmLabel": "Şimdi güncelle",
       "cancelLabel": "Şimdi değil",
-      "body_one": "Yapılandırma deponuzdaki 1 Classroom 50 iş akışı/betik dosyası güncel değil ve yenilenecek:",
-      "body_other": "Yapılandırma deponuzdaki {{count}} Classroom 50 iş akışı/betik dosyası güncel değil ve yenilenecek:",
+      "body_one": "classroom50 deposunuzdaki 1 Classroom 50 iş akışı/betik dosyası güncel değil ve yenilenecek:",
+      "body_other": "classroom50 deposunuzdaki {{count}} Classroom 50 iş akışı/betik dosyası güncel değil ve yenilenecek:",
       "warning": "Classroom 50 bu dosyaları yönetir, bu nedenle güncelleme güvenlidir. Bunları güncel olmayan halde bırakmak, otomatik notlandırıcı gibi özelliklerin çalışmasını durdurabilir. Bir dosyayı özelleştirdiyseniz, şimdilik olduğu gibi tutmak için <keepMine>Şimdi değil</keepMine> seçeneğini seçin."
     },
     "steps": {
@@ -1554,16 +1597,16 @@
         "remediation": "Organizasyon Actions ayarlarını açın ve \"Allow GitHub Actions to create and approve pull requests\" seçeneğini etkinleştirin."
       },
       "configRepo": {
-        "title": "Yapılandırma deposu",
-        "what": "Organizasyonda özel classroom50 yapılandırma deposunu oluşturur.",
+        "title": "classroom50 deposu",
+        "what": "Organizasyonda özel classroom50 deposunu oluşturur.",
         "why": "Classroom 50'nin arka ucu yoktur — bu depo tüm sınıf yapılandırmasını, manifestleri, iş akışlarını ve puanları tutar.",
         "remediation": "Bu gerekli bir adımdır. Kurulumu yeniden çalıştırın; başarısız olmaya devam ederse, sahip izinlerinizin olduğunu ve bir organizasyon/enterprise politikasının özel depo oluşturmayı engellemediğini doğrulayın."
       },
       "skeleton": {
-        "title": "İskelet dosyaları",
+        "title": "İş akışı dosyaları",
         "what": "Classroom 50'nin ihtiyaç duyduğu iş akışı ve betik dosyalarını classroom50 deposunda işler veya günceller.",
         "why": "Bu paketlenmiş dosyalar otomatik not vermeyi, yayınlamayı ve puanlamayı çalıştırır; kurulumu yeniden çalıştırmak bunları en son sürüme de yükseltir.",
-        "remediation": "Bu gerekli bir adımdır. Kurulumu yeniden çalıştırın; başarısız olmaya devam ederse, classroom50 deposunun varsayılan dalına gönderim yapabildiğinizi kontrol edin."
+        "remediation": "Bu zorunlu bir adımdır. Kurulumu yeniden çalıştırın; sürekli başarısız oluyorsa, classroom50 deposunun varsayılan dalına push yapabildiğinizi kontrol edin."
       },
       "branchProtection": {
         "title": "Dal koruması",
@@ -1614,7 +1657,7 @@
   },
   "skeletonDrift": {
     "title": "Sınıf iş akışı dosyaları güncel değil",
-    "body": "Bu kuruluşun classroom50 yapılandırma deposundaki GitHub Actions iş akışları güncel değil. Notlandırma, puan toplama ve Pages yayımlamanın çalışır kalması için bunları buradan güncelleyin.",
+    "body": "Bu organizasyonun classroom50 deposundaki GitHub Actions iş akışları güncel değil. Değerlendirmenin, puan toplamanın ve Pages yayınlamanın çalışmaya devam etmesi için bunları buradan güncelleyin.",
     "overwriteWarning_label": "Dikkat:",
     "overwriteWarning": "Güncelleme, iskele iş akışı dosyalarının üzerine (collect-scores, regrade, publish-pages, autograde-runner) varsayılanları yazar ve elle yaptığınız düzenlemeleri değiştirir — önce onaylayacaksınız.",
     "action": "İş akışlarını şimdi güncelle",
@@ -1643,14 +1686,14 @@
     "missingOrgOrClassroom": "Kuruluş veya sınıf eksik.",
     "couldNotLoad": "Sınıf verileri yüklenemedi.",
     "loadingClassroom": "Sınıf yükleniyor",
-    "configRepo": "Yapılandırma deposu",
-    "configRepoTitle": "Bu sınıfın klasörünü GitHub'daki classroom50 yapılandırma deposunda aç",
+    "configRepo": "classroom50 deposu",
+    "configRepoTitle": "Bu sınıfın klasörünü GitHub'daki classroom50 deposunda açın",
     "settingsSubtitle": "<classroom>{{classroom}}</classroom> sınıfının yapılandırması.",
     "somethingWentWrong": "bir şeyler ters gitti",
     "archivedReadOnlyNotice": "Bu sınıf arşivlendi — ayarlar salt okunurdur. Değişiklik yapmak için yukarıdaki Arşivden Çıkar seçeneğini kullanın.",
     "deleteClassroomAria": "Sınıfı sil",
     "deleteClassroomTitle": "Sınıf silinsin mi?",
-    "deleteClassroomBody": "Bu işlem, <classroom>{{classroom}}</classroom> sınıfını <org>{{org}}</org> kuruluşundan kaldırır. Öğrencilerin ödev depoları silinmez.",
+    "deleteClassroomBody": "Bu, <classroom>{{classroom}}</classroom> sınıfını, kabul edilmemiş e-posta davetleri için saklanan adreslerle birlikte <org>{{org}}</org> organizasyonundan kaldırır. Öğrenci ödev depoları silinmez.",
     "deleteClassroomConfirm": "Sınıfı sil",
     "deleteClassroomCancel": "Sınıfı koru",
     "archive": "Arşivle",
@@ -1711,7 +1754,6 @@
       "searchPlaceholder": "Sınıflarda ara…",
       "searchLabel": "Sınıflarda ara",
       "termLabel": "Döneme göre filtrele",
-      "term": "Dönem",
       "allTerms": "Tüm dönemler",
       "sort": {
         "label": "Sırala",
@@ -1799,9 +1841,9 @@
       "roleTeacherPlural": "Öğretmenler",
       "roleTaPlural": "Asistanlar",
       "roleHeadTaPlural": "Baş asistanlar",
-      "accessTeacher": "Kuruluş sahibi. Yapılandırma deposuna yazma erişimi.",
-      "accessHeadTa": "Kuruluş üyesi. Yapılandırma deposuna yazma erişimi.",
-      "accessTa": "Kuruluş üyesi. Yapılandırma deposuna salt okunur erişim.",
+      "accessTeacher": "Organizasyon sahibi. classroom50 deposuna yazma erişimi.",
+      "accessHeadTa": "Organizasyon üyesi. classroom50 deposuna yazma erişimi.",
+      "accessTa": "Organizasyon üyesi. classroom50 deposuna salt okunur erişim.",
       "viewTeamTitle": "{{role}} takımını GitHub'da aç",
       "pendingCount_one": "{{count}} beklemede",
       "pendingCount_other": "{{count}} beklemede",
@@ -1832,7 +1874,16 @@
     "newButton": {
       "moreOptions": "Diğer seçenekler"
     },
-    "viewAssignmentsAria": "{{classroom}} sınıfı için ödevleri görüntüle"
+    "viewAssignmentsAria": "{{classroom}} sınıfı için ödevleri görüntüle",
+    "inviteCleanup": {
+      "body": "E-posta davetleri, her davet edilen adresi gizli bir davet takımında tutar, böylece o öğrenci katıldığında listeye yazılabilir. Bu işlem önce hâlâ eşleştirebildiği her adresi <classroom>{{classroom}}</classroom> sınıfının listesindeki bir GitHub hesabıyla eşleştirir, ardından geri kalanları kaldırır. Bekleyen davetler geçerli kalır, ancak burada kaldırılan bir adres, daveti kabul edildiğinde otomatik olarak kaydedilmez.",
+      "button": "Davet verilerini temizle",
+      "buttonTitle": "Bu sınıf için saklanan davet e-postalarını eşleştir ve kaldır",
+      "confirm": "Temizle",
+      "confirmTitle": "Saklanan davet e-postaları temizlensin mi?",
+      "done": "Davet verileri temizlendi: {{recovered}} listeye eşleştirildi, {{purged}} kaldırıldı.",
+      "failed": "Davet verileri temizlenemedi: {{error}}"
+    }
   },
   "accept": {
     "githubUser": "GitHub kullanıcısı",
@@ -1980,8 +2031,8 @@
       "title": "Teslim metrikleri"
     },
     "errors": {
-      "gradebookLoad": "Not defteri yüklenemedi.",
-      "gradebookLoadWithReason": "Not defteri yüklenemedi: {{reason}}",
+      "gradebookLoad": "Toplanan puanlar yüklenemedi.",
+      "gradebookLoadWithReason": "Toplanan puanlar yüklenemedi: {{reason}}",
       "gradebookLoadHint": "Aşağıdaki sayımlar eksik olabilir — bunlara göre işlem yapmadan önce tekrar deneyin.",
       "rosterLoad": "Liste GitHub'dan yüklenemedi.",
       "rosterLoadHint": "Kayıtlı liste eksik olabilir — bu bir yükleme hatasıdır, boş bir sınıf değildir. Sayılara göre işlem yapmadan önce tekrar deneyin.",
@@ -2006,7 +2057,7 @@
       "statusFailedWithReason": "Toplama başlatılamadı: {{reason}}",
       "statusFailedHint": "GitHub üzerinde manuel olarak kontrol edebilir veya tetikleyebilirsiniz.",
       "statusTimeout": "Bir süredir hâlâ çalışıyor. İlerlemesini GitHub'da kontrol edin veya bittiğinde bu sayfayı yenileyin.",
-      "workflowOutdated": "Bu ödev toplanamadı: bu kuruluşun classroom50 yapılandırma deposundaki Collect Scores iş akışı güncel değil. Kuruluşun iş akışlarını güncelleyin (daha yeni bir sürüm mevcut olduğunda bir güncelleme başlığı görünür), ardından tekrar deneyin."
+      "workflowOutdated": "Bu ödev toplanamadı: bu organizasyonun classroom50 deposundaki Puanları Topla iş akışı güncel değil. Organizasyonun iş akışlarını güncelleyin (daha yeni bir sürüm mevcut olduğunda bir güncelleme bildirimi görünür), sonra tekrar deneyin."
     },
     "regradeAll": {
       "label": "Tümünü yeniden değerlendir",
@@ -2059,30 +2110,26 @@
       "searchGroupPlaceholder": "Grup veya üye ara…",
       "searchStudentPlaceholder": "Öğrenci ara…",
       "searchAria": "Teslimlerde ara",
-      "sectionLabel": "Şube",
       "sectionAria": "Şubeye göre filtrele",
       "allSections": "Tüm şubeler",
-      "submissionLabel": "Durum",
       "submissionAria": "Teslim veya kabul durumuna göre filtrele",
       "allStatuses": "Tüm durumlar",
       "submitted": "Teslim edildi",
       "onTime": "Zamanında",
       "late": "Geç",
       "notSubmitted": "Teslim edilmedi",
-      "passingLabel": "Not",
       "passingAria": "Geçme durumuna göre filtrele",
-      "allGrades": "Tüm notlar",
+      "allGrades": "Tüm puanlar",
       "passing": "Geçen",
       "failing": "Kalan",
       "accepted": "Kabul edildi",
       "notAccepted": "Kabul edilmedi",
-      "clear": "Temizle",
-      "sortLabel": "Sırala",
       "sortAria": "Teslimleri sırala",
       "sortRecent": "En yeni önce",
       "sortOldest": "En eski önce",
       "sortNameFirst": "Ada göre",
-      "sortNameLast": "Soyada göre"
+      "sortNameLast": "Soyada göre",
+      "pendingHiddenHint": "Henüz toplanmamış, yeni gönderilmiş çalışmalar bu sıralama veya filtre altında görünmeyebilir. Görmek için bir ad sıralamasına geçin veya Eşitle'yi kullanın."
     },
     "table": {
       "captionGroup": "Grup teslimleri",
@@ -2102,7 +2149,7 @@
       "staleCount": "Yeni",
       "staleCountTitle": "Bu öğrenci, değerlendirilenden daha fazla teslim gönderdi. En yenisini değerlendirip puanlamak için \"Teslimleri şimdi eşitle\"yi çalıştırın.",
       "late": "Geç",
-      "lateRowTitle": "En son teslim, son tarihten sonra gönderildi.",
+      "lateRowTitle": "En son gönderim, son teslim tarihinden sonra push edildi.",
       "gradedAt": "{{date}} değerlendirildi",
       "gradedAtTitle": "Otomatik değerlendiricinin bu teslimi en son ne zaman (yeniden) değerlendirdiği. Yeniden değerlendirme, teslim zamanını değiştirmeden bunu günceller.",
       "liveLatest": "Son gönderim {{date}} · henüz değerlendirilmedi",
@@ -2118,7 +2165,7 @@
       "resolvingNonSubmitters": "Kimlerin henüz teslim etmediği kontrol ediliyor…",
       "loading": "Teslimler yükleniyor…",
       "pendingGrade": "Beklemede",
-      "pendingGradeTitle": "Teslim edildi — not henüz toplanmadı. \"Teslimleri şimdi eşitle\"yi çalıştırın veya gecelik toplamayı bekleyin.",
+      "pendingGradeTitle": "Gönderildi — puan henüz toplanmadı. Toplamak için \"Gönderimleri şimdi eşitle\"yi çalıştırın.",
       "notSubmitted": "Teslim edilmedi",
       "acceptedAwaiting": "Kabul edildi · teslim bekleniyor",
       "notAccepted": "Kabul edilmedi",
@@ -2208,7 +2255,7 @@
       "blockedTitle": "Bu depolar bir kuruluş yöneticisi gerektiriyor:",
       "confirmBody_one": "Bu, <b>{{name}}</b> için henüz geri bildirim çekme isteği olmayan <b>{{count}}</b> ödev deposunda bir geri bildirim çekme isteği açar. Zaten geri bildirim çekme isteği olan depolara dokunulmaz.",
       "confirmBody_other": "Bu, <b>{{name}}</b> için henüz geri bildirim çekme isteği olmayan <b>{{count}}</b> ödev deposunun her birinde bir geri bildirim çekme isteği açar. Zaten geri bildirim çekme isteği olan depolara dokunulmaz.",
-      "confirmHint": "Bu, tarayıcınızdan bir seferde bir depo olacak şekilde çalışır, bu nedenle büyük bir sınıf için biraz zaman alabilir. Bitene kadar bu sekmeyi açık tutun.",
+      "confirmHint": "Tarayıcınızdan, aynı anda bir depo olacak şekilde çalışır, bu yüzden büyük bir sınıf için biraz zaman alabilir. Bitene kadar bu sekmeyi açık tutun.",
       "confirmLabel_one": "Çekme isteği aç",
       "confirmLabel_other": "Çekme isteklerini aç",
       "failedHint": "Bu genellikle geçici bir GitHub hatasıdır — yalnızca hâlâ çekme isteği eksik olan depoları yeniden denemek için işlemi tekrar çalıştırın.",
@@ -2258,8 +2305,8 @@
       "subtitle_other": "Bu ödevi kabul etmiş {{count}} öğrenciye uygulanır.",
       "title": "Öğrenci depo erişimini ayarla",
       "titleEmptyRoster": "Henüz hiçbir öğrenci kabul etmedi",
-      "warning_one": "Bu, {{count}} öğrencinin kendi deposundaki rolünü {{level}} olarak ayarlar. Admin, depo ayarlarını ve özel bir depoda görünürlüğünü değiştirmelerine olanak tanır. Mevcut katkıda bulunanlar aksi halde etkilenmez.",
-      "warning_other": "Bu, {{count}} öğrencinin kendi depolarındaki rolünü {{level}} olarak ayarlar. Admin, depo ayarlarını ve özel bir depoda görünürlüğünü değiştirmelerine olanak tanır. Mevcut katkıda bulunanlar aksi halde etkilenmez.",
+      "warning_one": "Bu, {{count}} öğrencinin kendi deposundaki rolünü {{level}} olarak ayarlar. Yönetici, depo ayarlarını değiştirmelerine ve ortak çalışanları yönetmelerine izin verir; organizasyon güvenlik varsayılanları yine de üyelerin bir deponun görünürlüğünü değiştirmesini engeller. Mevcut ortak çalışanlar başka türlü etkilenmez.",
+      "warning_other": "Bu, {{count}} öğrencinin kendi depolarındaki rollerini {{level}} olarak ayarlar. Yönetici, depo ayarlarını değiştirmelerine ve ortak çalışanları yönetmelerine izin verir; organizasyon güvenlik varsayılanları yine de üyelerin bir deponun görünürlüğünü değiştirmesini engeller. Mevcut ortak çalışanlar başka türlü etkilenmez.",
       "working": "Depolar güncelleniyor"
     },
     "bulkFeatures": {
@@ -2288,14 +2335,14 @@
       "assemblyError": "Her gönderim indirildi, ancak birleştirilmiş zip tarayıcıda birleştirilemeyecek kadar büyüktü. Bölüme göre filtrelemeyi ve daha küçük gruplar halinde indirmeyi deneyin.",
       "confirmBody_one": "Bu, <b>{{name}}</b> ödevini gönderen <b>{{count}}</b> öğrencinin en son gönderimini tek bir zip'te toplayarak indirir.",
       "confirmBody_other": "Bu, <b>{{name}}</b> ödevini gönderen <b>{{count}}</b> öğrencinin en son gönderimlerini tek bir zip'te toplayarak indirir.",
-      "confirmHint": "Tarayıcınızdan, her seferinde bir depo olacak şekilde çalışır, bu yüzden büyük bir sınıf için biraz zaman alabilir. Bitene kadar bu sekmeyi açık tutun.",
+      "confirmHint": "Tarayıcınızdan, aynı anda bir depo olacak şekilde çalışır, bu yüzden büyük bir sınıf için biraz zaman alabilir. Bitene kadar bu sekmeyi açık tutun.",
       "confirmLabel_one": "Gönderimi indir",
       "confirmLabel_other": "Gönderimleri indir",
       "emptyHint": "Öğrenci ödevi kabul etti ancak henüz herhangi bir iş göndermedi, bu yüzden dahil edilecek bir gönderim yok.",
       "emptyTitle": "Bu depolarda indirilecek bir şey yoktu:",
       "failedHint": "Bu genellikle geçici bir GitHub hatasıdır — yeniden denemek için eylemi tekrar çalıştırın.",
       "failedTitle": "Bu gönderimler indirilemedi:",
-      "largeClassWarning": "Bu, {{count}} gönderimi indirir ve birleştirilmiş zip'i tarayıcınızda oluşturur; bu, çok fazla bellek kullanabilir ve çok büyük bir sınıf için yavaş olabilir veya başarısız olabilir. Önce bölüme göre filtrelemeyi düşünün.",
+      "largeClassWarning": "Bu, {{count}} gönderimi indirir ve birleştirilmiş zip'i tarayıcınızda oluşturur; bu çok fazla bellek kullanabilir ve çok büyük bir sınıf için yavaş olabilir veya başarısız olabilir. Önce şubeye göre filtrelemeyi düşünün.",
       "menuLabel": "Tüm gönderimleri indir",
       "nothingDownloaded": "Hiçbir dosya indirilmedi — seçilen öğrencilerin hiçbirinin getirilecek bir gönderimi yoktu.",
       "runError": "İndirme tamamlanamadı. Lütfen tekrar deneyin.",
@@ -2459,7 +2506,7 @@
       "resultHeadline_other": "{{count}} ödev taşındı.",
       "subtitle": "Bu sınıfın ödevlerini en son yapılandırma şemasına güncelleyin.",
       "title": "Sınıf yapılandırmasını taşı",
-      "warning": "Bu, her ödevin ayarlarını açıkça kaydeder; böylece her araç onları aynı şekilde okur ve en yeni özellikler (canlı gönderim takibi gibi) etkinleşir. Hiçbir notu, teslim tarihini veya öğrencinin erişimini değiştirmez ve eskisi gibi çalışmaya devam edebilirsiniz.",
+      "warning": "Bu, her ödevin ayarlarını açıkça kaydeder, böylece her araç onları aynı şekilde okur ve en yeni özellikler (canlı gönderim takibi gibi) etkinleştirilir. Herhangi bir puanı, son teslim tarihini veya öğrencinin erişimini değiştirmez ve eskisi gibi çalışmaya devam edebilirsiniz.",
       "working": "Ödevler güncelleniyor"
     },
     "rowAutograde": {
@@ -2518,7 +2565,7 @@
       "clearLabel": "{{name}} için puan geçersiz kılmasını temizle",
       "currentAutograded": "Otomatik değerlendirilen puan",
       "descriptionAuto": "Otomatik değerlendirilen sonucu geçersiz kılmak için {{name}} için bir puan girin. Otomatik değerlendirilen puan korunur ve geçersiz kılmayı temizlerseniz geri yüklenir.",
-      "descriptionManual": "{{name}} için bir puan girin. Not defterine kaydedilir ve otomatik değerlendirme tarafından değiştirilmez.",
+      "descriptionManual": "{{name}} için bir puan girin. Toplanan puanlarla birlikte kaydedilir ve otomatik değerlendirmeyle değiştirilmez.",
       "edit": "Notu düzenle",
       "editLabel": "{{name}} için notu düzenle",
       "inputLabel": "Puan",
@@ -2569,7 +2616,6 @@
       "allSources": "Tüm kaynaklar",
       "allTypes": "Tüm türler"
     },
-    "clearFilters": "Temizle",
     "source": {
       "commit": "Yapılandırma değişiklikleri",
       "run": "İş akışı çalışmaları",
@@ -2643,7 +2689,7 @@
     "inviting": "Davet ediliyor...",
     "inviteToOrg": "Kuruluşa davet et",
     "confirmInviteBody": "{{label}} kişisine bir kuruluş daveti gönderilsin mi? Davet, GitHub hesaplarına kimliklerine göre gönderilir ve kabul ettiklerinde önceki sınıf erişimleriyle birlikte {{org}} kuruluşuna yeniden katılırlar.",
-    "notMemberNoId": "Bu öğrenci bir listede ama kuruluş üyesi değil. Henüz kayıtlı bir GitHub kimliği olmadığından, onu sınıfının Öğrenciler sayfasından davet edin.",
+    "notMemberNoId": "Bu öğrenci bir listede ama organizasyon üyesi değil. Henüz kayıtlı bir GitHub kimliği yok, bu yüzden onları sınıflarının Liste sayfasından davet edin.",
     "confirmUnenroll_one": "{{label}} önce <count>{{count}} sınıftan</count> ({{classrooms}}) kaydı silinecek, ardından <org>{{org}}</org> kuruluşundan çıkarılacak. Ödev depoları silinmez.",
     "confirmUnenroll_other": "{{label}} önce <count>{{count}} sınıftan</count> ({{classrooms}}) kaydı silinecek, ardından <org>{{org}}</org> kuruluşundan çıkarılacak. Ödev depoları silinmez.",
     "confirmRemove": "{{label}} <org>{{org}}</org> kuruluşundan çıkarılacak.",
@@ -2703,11 +2749,14 @@
         "not-on-classroom": "Bu sınıfta değil.",
         "already-removed": "Bu sınıftan zaten çıkarılmış.",
         "archived": "Sınıf arşivlenmiş — üyeliği değiştirmek için arşivden çıkarın.",
-        "resolve-failed": "Mevcut GitHub hesapları çözümlenemedi."
+        "resolve-failed": "Mevcut GitHub hesapları çözümlenemedi.",
+        "pending-email-invite": "E-postayla davet edildi ve henüz kabul edilmedi — bunun yerine daveti sınıfın Liste sayfasından iptal edin."
       }
     },
     "inviteMalformedId": "{{who}} davet edilemiyor: \"{{githubId}}\" geçerli bir GitHub kimliği değil. roster.csv dosyasındaki github_id hücresini düzeltin.",
-    "inviteMissingId": "{{who}} davet edilemiyor: kayıtlı GitHub kimliği yok."
+    "inviteMissingId": "{{who}} davet edilemiyor: kayıtlı GitHub kimliği yok.",
+    "badgeInvitePending": "Davet bekliyor",
+    "invitePendingNotice": "Bu öğrenci e-postayla davet edildi ve henüz kabul etmedi, bu yüzden kayıtlı bir GitHub hesabı yok. Bir sorun yok — katıldıklarında ayrıntıları otomatik olarak doldurulur. Daveti, sınıflarının Liste sayfasından iptal edebilirsiniz."
   },
   "components": {
     "avatar": {
@@ -2832,7 +2881,7 @@
         "uniqueHint": "Bu sınıf içinde benzersiz olmalıdır."
       },
       "repoAccess": {
-        "adminWarning": "Her katkıda bulunanın rolünü ayarlayın veya katkıda bulunan ekleyin ve kaldırın. <b>Admin</b>, bir katkıda bulunanın depo ayarlarını ve özel bir depoda görünürlüğünü değiştirmesine izin verir.",
+        "adminWarning": "Her ortak çalışanın rolünü ayarlayın veya ortak çalışan ekleyip kaldırın. <b>Yönetici</b>, bir ortak çalışanın depo ayarlarını değiştirmesine ve ortak çalışanları yönetmesine izin verir; organizasyon güvenlik varsayılanları yine de üyelerin bir deponun görünürlüğünü değiştirmesini engeller.",
         "loading": "Katkıda bulunanlar yükleniyor",
         "needsAdmin": "Bu deponun katkıda bulunanlarını değiştirmek için üzerinde admin erişimine ihtiyacınız var.",
         "newRole": "Yeni katkıda bulunan için rol",
@@ -2868,7 +2917,7 @@
       "heading": "Hizmet Belirteçlerini Yönet",
       "loading": "Kuruluşlarınız kontrol ediliyor…",
       "manage": "Yönet",
-      "subheading": "Sahip olduğunuz her kuruluş genelinde hizmet belirteci durumu. Gecelik puan toplamanın çalışmaya devam etmesi için bir belirteci süresi dolmadan önce döndürün."
+      "subheading": "Sahip olduğunuz her organizasyonda hizmet token'ı durumu. Puan toplamanın çalışmaya devam etmesi için bir token'ı süresi dolmadan yenileyin."
     },
     "appearance": {
       "dark": "Koyu",
@@ -2901,19 +2950,31 @@
       "subheading": "Sayfa geçişleri, menüler ve diğer animasyonlu efektler gibi arayüz hareketini kontrol edin.",
       "system": "Sistem",
       "systemHint": "Cihazınızın hareketi azalt ayarını izle."
+    },
+    "elevatedScope": {
+      "heading": "Yükseltilmiş izinler",
+      "patNote": "Bir kişisel erişim tokenıyla oturum açtınız, bu yüzden izinleri onu GitHub'da oluşturduğunuzda sabitlenir. Bu oturumun neler yapabileceğini değiştirmek için ihtiyacınız olan izinlere sahip bir token oluşturun ve tekrar oturum açın.",
+      "removeButton": "Bu izni kullanmayı bırak",
+      "requestButton": "Depoları silme izni iste",
+      "status": {
+        "granted": "Bu oturum depoları silebilir.",
+        "missing": "Bu oturum depoları silemez.",
+        "unknown": "Token'ınız izinlerini bildirmiyor, bu yüzden Classroom 50 depoları silip silemeyeceğini söyleyemiyor."
+      },
+      "subheading": "Bir organizasyonu sökmek, normal oturum açmanın istemediği depoları silme iznini gerektirir. Bu izni yalnızca ihtiyacınız olduğunda verin ve işiniz bittiğinde GitHub'da iptal edin."
     }
   },
   "pagesErrors": {
     "assignmentNotInManifest": "\"{{assignmentSlug}}\" ödevi bu sınıfın yayımlanan ödevlerinde yok. Bağlantıyı kontrol edin veya öğretmeninizden ödevi yayımlamasını isteyin.",
     "autograderLabel": "Otomatik değerlendirici \"{{autograderName}}\"",
-    "autograderMalformed": "Otomatik değerlendirici \"{{autograderName}}\" hatalı biçimlendirilmiş YAML olabilir. Öğretmeninizden yapılandırma deposundaki dosyayı kontrol etmesini isteyin.",
+    "autograderMalformed": "\"{{autograderName}}\" otomatik değerlendiricisi bozuk YAML olabilir. Öğretmeninizden classroom50 deposundaki dosyayı kontrol etmesini isteyin.",
     "classroomFetchFailed": "Bu sınıfın yayımlanan dosyaları yüklenemedi (HTTP {{status}}). Öğretmeninizden sınıfın yayımlandığını doğrulamasını isteyin, ardından tekrar deneyin.",
     "classroomNotPublished": "Bu sınıf henüz yayımlanmadı. Mevcut olmayabilir veya yayımlama iş akışı çalışmamış olabilir. Öğretmeninizden yayımlamasını isteyin, ardından tekrar deneyin.",
     "deployInFlight": "Sınıfın yayımlanan dosyaları hâlâ dağıtılıyor olabilir. Bir dakika bekleyin, ardından tekrar deneyin.",
     "fetchFailed": "{{label}} yüklenemedi (HTTP {{status}}). Öğretmeninizden sınıfın yayımlandığını doğrulamasını isteyin, ardından tekrar deneyin.",
     "manifestInvalidShape": "Bu sınıfın yayımlanan ödev listesi hatalı biçimlendirilmiş. Öğretmeninizden Classroom 50 yapılandırmasını kontrol etmesini isteyin.",
     "manifestVersionUnsupported": "Bu sınıf, bu Classroom 50 kopyasının desteklediğinden daha yeni bir ödev biçimi (v{{version}}) kullanıyor. Sayfayı yeniden yükleyin veya öğretmeninizden Classroom 50'yi güncellemesini isteyin.",
-    "notPublished": "{{label}} henüz yayımlanmadı. Öğretmeninizden dosyanın yapılandırma deposunda bulunduğunu ve yayımlama iş akışının çalıştırıldığını doğrulamasını isteyin."
+    "notPublished": "{{label}} henüz yayınlanmadı. Öğretmeninizden dosyanın classroom50 deposunda bulunduğunu ve yayınlama iş akışının çalıştırıldığını doğrulamasını isteyin."
   },
   "migration": {
     "access": {
@@ -2931,7 +2992,7 @@
       "title": "Devam etmek için erişim verin"
     },
     "blocker": {
-      "dir_exists": "Bu kuruluşta \"{{shortName}}\" adında bir sınıf zaten var. Devam etmek için farklı bir kısa ad seçin.",
+      "dir_exists": "Bu organizasyonda \"{{shortName}}\" adında bir sınıf zaten var. Devam etmek için farklı bir kısa ad seçin.",
       "needs_org_setup": "\"{{org}}\" henüz Classroom 50 için kurulmadı — önce kuruluş kurulumunu çalıştırın, sonra yeniden deneyin.",
       "source_org_access": "Classroom 50, \"{{org}}\" içindeki başlangıç depolarını okuyamıyor — uygulamaya o kuruluşa erişim verilmedi."
     },
@@ -2951,20 +3012,20 @@
       "modalReuseNote_other": "{{count}} ödev mevcut şablon depolarını yeniden kullanacak.",
       "modalSkipNote_one": "1 ödev atlanacak ve içe aktarılmayacak.",
       "modalSkipNote_other": "{{count}} ödev atlanacak ve içe aktarılmayacak.",
-      "modalSummary_one": "Bu, {{org}} içinde \"{{shortName}}\" sınıfını oluşturacak, bir GitHub takımı ekleyecek ve 1 ödev deposu kopyalayacaktır.",
-      "modalSummary_other": "Bu, {{org}} içinde \"{{shortName}}\" sınıfını oluşturacak, GitHub takımları ekleyecek ve {{count}} ödev deposu kopyalayacaktır.",
+      "modalSummary_one": "Bu, {{org}} içinde \"{{shortName}}\" sınıfını oluşturur, bir GitHub takımı ekler ve 1 ödev deposunu kopyalar.",
+      "modalSummary_other": "Bu, {{org}} içinde \"{{shortName}}\" sınıfını oluşturur, GitHub takımları ekler ve {{count}} ödev deposunu kopyalar.",
       "modalTitle": "Bu adımı geri almak zor",
       "name": "Yeni sınıf adı",
-      "nameHelp": "Classroom 50 kuruluşunuzda oluşturulan sınıfın görünen adı — size ve öğrencilere gösterilir. Kaynak sınıfın adıyla eşleşebilir veya istediğiniz herhangi bir şey olabilir. Varsayılan olarak kaynak adıdır.",
+      "nameHelp": "Classroom 50 organizasyonunuzda oluşturulan sınıfın görünen adı — size ve öğrencilere gösterilir. Kaynak sınıfın adıyla eşleşebilir veya istediğiniz herhangi bir şey olabilir. Varsayılan olarak kaynak adı kullanılır.",
       "noneSelected": "Hiç ödev seçilmedi — içe aktarmak için en az birini işaretleyin veya geri dönün.",
       "preflightError": "İçe aktarma önizlemesi oluşturulamadı.",
       "shortName": "Yeni sınıf kimliği (kısa ad)",
-      "shortNameHelp": "Hedef kuruluşunuzdaki sınıfın URL uyumlu tanımlayıcısı (ör. cs50-fall). Yapılandırma klasörü ve GitHub takım adlarına dönüşür ve her öğrenci deposunun önüne eklenir, bu nedenle sonradan değiştirilemez. Kaynak sınıf adından otomatik doldurulur; farklı bir kimlik istiyorsanız düzenleyin.",
+      "shortNameHelp": "Hedef organizasyonunuzdaki sınıf için URL güvenli tanımlayıcı (örneğin, cs50-fall). Yapılandırma klasörü ve GitHub takım adları olur ve her öğrenci deposunun önüne eklenir, bu yüzden sonradan değiştirilemez. Kaynak sınıf adından otomatik doldurulur; farklı bir kimlik isterseniz düzenleyin.",
       "suffix": "Şablon deposu son eki",
       "suffixHelp": "Kopyalanan her şablon deposu adının sonuna eklenen isteğe bağlı metin (ör. hw1, hw1-f26 olur). Yalnızca ödev adında bir depo bu kuruluşta zaten varsa ve içe aktarma aksi halde çakışacaksa kullanın. Çoğu durumda boş bırakın.",
       "suffixPlaceholder": "isteğe bağlı",
       "term": "Dönem",
-      "termHelp": "Bu sınıfın ne zaman yürütüldüğüne dair isteğe bağlı etiket (ör. Güz-2026). Sınıfta gösterilir ve ayarlarında saklanır; depo veya takım adlarını etkilemez.",
+      "termHelp": "Bu sınıfın ne zaman yürütüleceğine ilişkin isteğe bağlı etiket (örneğin, Fall-2026). Sınıfta gösterilir ve ayarlarında saklanır; depo veya takım adlarını etkilemez.",
       "termPlaceholder": "ör. Güz-2026",
       "title": "İçe aktarılacakları gözden geçirin",
       "updating": "Önizleme güncelleniyor…"
@@ -3005,8 +3066,8 @@
     "item": {
       "assignmentBadge": "Ödev",
       "branchLabel": "Dal",
-      "deadlineLabel": "Son tarih",
-      "emptyRepo": "Boş depo (yalnızca otomatik notlandırma katmanı)",
+      "deadlineLabel": "Son teslim tarihi",
+      "emptyRepo": "Yeni depo (README + otomatik değerlendirme dosyaları)",
       "feedbackLabel": "Geri bildirim PR'ı",
       "groupSizeLabel": "Maksimum grup boyutu",
       "no": "Devre dışı",
@@ -3062,7 +3123,7 @@
       "execute": "İçe aktar",
       "select": "Sınıf seç"
     },
-    "subtitle": "Mevcut bir GitHub Classroom'u — ödevlerini ve başlangıç depolarını — bu kuruluşa yeni bir sınıf olarak getirin. Hiçbir şey oluşturulmadan önce her şeyi gözden geçirip onaylayacaksınız.",
+    "subtitle": "Mevcut bir GitHub Classroom'u — ödevlerini ve başlangıç depolarını — bu organizasyona yeni bir sınıf olarak getirin. Hiçbir şey oluşturulmadan önce her şeyi gözden geçirip onaylayacaksınız.",
     "title": "GitHub Classroom'dan içe aktar"
   },
   "serviceTokenHealth": {
@@ -3170,7 +3231,6 @@
     "summaryPassMargin_other": "Denetlenen {{total}} renk çiftinin tümü WCAG kontrast alt sınırını karşılıyor. {{count}} tanesi geçiyor ancak önerilen güvenlik payımızın altında kalıyor.",
     "title": "Renk kontrast denetimi",
     "vpat": {
-      "clearFilter": "Filtreyi temizle",
       "col": {
         "assessed": "Değerlendirilme",
         "conformance": "Uygunluk",
@@ -3181,7 +3241,6 @@
       "empty": "Bu filtreyle eşleşen kriter yok.",
       "filterAll": "Tüm durumlar",
       "filterAria": "Uygunluk durumuna göre filtrele",
-      "filterLabel": "Durum",
       "generated": "Rapor tarihi {{generated}}",
       "heading": "Uygunluk raporu (VPAT)",
       "loadError": "Uygunluk raporu yüklenemedi.",

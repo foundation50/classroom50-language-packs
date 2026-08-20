@@ -23,7 +23,9 @@
       "show": "Anzeigen",
       "showAria": "Zeilen pro Seite"
     },
-    "linkToSection": "Link zu {{section}}"
+    "linkToSection": "Link zu {{section}}",
+    "clear": "Löschen",
+    "clearFilter": "Filter zurücksetzen"
   },
   "notFound": {
     "title": "Seite nicht gefunden",
@@ -171,7 +173,17 @@
     "patTitleFineGrained": "Mit einem feingranularen persönlichen Zugriffstoken anmelden",
     "sessionExpired": "Deine Sitzung ist abgelaufen – melde dich erneut an, um fortzufahren.",
     "usePersonalAccessTokenClassic": "Ein persönliches Zugriffstoken (klassisch) verwenden",
-    "usePersonalAccessTokenFineGrained": "Ein persönliches Zugriffstoken (feingranular) verwenden"
+    "usePersonalAccessTokenFineGrained": "Ein persönliches Zugriffstoken (feingranular) verwenden",
+    "elevated": {
+      "body": "Das Abbauen einer Organisation löscht Repositories. Melden Sie sich erneut an, um diesen Zugriff zu gewähren. Er bleibt für Classroom 50 autorisiert, bis Sie ihn auf GitHub widerrufen.",
+      "browserButton": "Im Browser fortfahren",
+      "deviceButton": "Gerätecode verwenden",
+      "deviceHint": "Verwenden Sie einen Gerätecode, wenn die Browser-Anmeldung nicht zu dieser Seite zurückkehren kann, etwa auf localhost.",
+      "revokeBody": "Melden Sie sich erneut an, um ein Token ohne diese Berechtigung zu erhalten. Ihr früheres Token bleibt bei GitHub gültig, bis Sie den Zugriff dieser App dort widerrufen.",
+      "revokeLink": "Zugriff dieser App auf GitHub überprüfen",
+      "revokeTitle": "Berechtigung zum Löschen von Repositories nicht mehr verwenden",
+      "title": "Berechtigung zum Löschen von Repositories anfordern"
+    }
   },
   "documentTitle": {
     "assignments": "Aufgaben",
@@ -195,7 +207,7 @@
   },
   "students": {
     "addTitle": "Mitglied hinzufügen",
-    "addHint": "Gib einen GitHub-Benutzernamen ein, um einen Lernenden samt Details hinzuzufügen, oder eine E-Mail-Adresse, um eine Organisationseinladung zu senden. E-Mail-Einladungen erfassen keinen Namen und keine Abteilung – ergänze diese später per Benutzername oder durch das Hochladen einer Kursliste.",
+    "addHint": "Geben Sie einen GitHub-Benutzernamen ein, um eine/n Studierende/n mit den Angaben hinzuzufügen, oder eine E-Mail-Adresse, um eine Organisationseinladung zu senden. Eine E-Mail-Einladung behält den von Ihnen eingegebenen Namen und Abschnitt in einer ausstehenden Namenslistenzeile, bis die/der Studierende akzeptiert.",
     "namePlaceholder": "Name (optional)",
     "usernamePlaceholder": "github-benutzername",
     "emailPlaceholder": "lernende@universitaet.de (optional)",
@@ -209,7 +221,7 @@
     "copyInviteLinkAria": "Einladungslink kopieren",
     "copied": "Kopiert",
     "copy": "Kopieren",
-    "onboardingLinkHint": "Sende diesen Onboarding-Link per E-Mail an Lernende, die du per E-Mail eingeladen hast:",
+    "onboardingLinkHint": "Laden Sie Studierende zuerst aus der Namensliste ein und senden Sie ihnen dann diesen Link per E-Mail, damit sie die Einladung akzeptieren und sich anmelden können:",
     "onboardingLinkAria": "Onboarding-Link für Lernende",
     "copyOnboardingLinkAria": "Onboarding-Link kopieren",
     "resendMissingId": "Die Einladung für {{username}} kann nicht erneut gesendet werden: GitHub-ID fehlt. Füge die Person erneut zur Teilnahmeliste hinzu.",
@@ -240,7 +252,6 @@
     "supportedFormats": "Unterstützt: .csv, .txt",
     "fileLabel": "Datei: {{fileName}}",
     "githubUsernameColumn": "GitHub-Benutzername",
-    "noValidUsernames": "In dieser Datei wurden keine gültigen GitHub-Benutzernamen gefunden.",
     "progressProcessed": "{{processed}} / {{total}} verarbeitet",
     "progressPercent": "{{percent}} %",
     "keepTabOpen": "Halte diesen Tab geöffnet, während der Import läuft. Lernende werden validiert und dem Kursraum hinzugefügt.",
@@ -312,7 +323,7 @@
     "confirmResendBody": "Die ausstehende Organisationseinladung an {{label}} erneut senden? Ihre aktuelle Einladung wird storniert und eine neue für {{org}} gesendet.",
     "detailTitle": "Mitgliederdetails",
     "emailColumn": "E-Mail",
-    "emptyBody": "Teile den obigen Onboarding-Link mit deinen Studierenden oder füge in den Einstellungen Lehrkräfte und TAs hinzu. Sobald Personen die Einladung annehmen und sich anmelden, erscheinen sie hier.",
+    "emptyBody": "Laden Sie Studierende aus der Namensliste ein, um sie einzuschreiben (oder fügen Sie Lehrkräfte und TAs in den Einstellungen hinzu) – der Onboarding-Link fügt von selbst niemanden hinzu, er lässt nur bereits eingeladene Studierende akzeptieren. Sobald Personen die Einladung akzeptieren und sich anmelden, erscheinen sie hier.",
     "emptyTitle": "Noch keine Mitglieder",
     "enrolledCountLoading": "Kursliste wird geladen …",
     "filterAll": "Alle Mitglieder",
@@ -321,7 +332,7 @@
     "filterByStatusLabel": "Mitglieder nach Status filtern",
     "filterEnrolled": "Eingeschrieben",
     "filterPending": "Ausstehend",
-    "inviteLinksHint": "Teile einen der beiden Links mit den Lernenden, damit sie diesem Kurs beitreten können.",
+    "inviteLinksHint": "Laden Sie Studierende zuerst aus der Namensliste ein – GitHub sendet jeder Person eine Einladung per E-Mail. Diese Links fügen von selbst niemanden hinzu; teilen Sie einen, damit eine bereits eingeladene Person akzeptieren und sich anmelden kann.",
     "inviteToOrg": "In die Organisation einladen",
     "invited": "Organisationseinladung an {{label}} gesendet.",
     "nameColumn": "Name",
@@ -333,7 +344,6 @@
     "onboardingLinkLabel": "Kurs-Onboarding-Link",
     "pendingBanner_one": "{{count}} ausstehende Einladung wurde noch nicht angenommen.",
     "pendingBanner_other": "{{count}} ausstehende Einladungen wurden noch nicht angenommen.",
-    "pendingNoEdit": "Profildetails können bearbeitet werden, sobald dieser Lernende der Organisation beitritt.",
     "pendingOwnerOnly": "Ausstehende Einladungen sind nur für Organisationsinhaber:innen sichtbar und werden daher hier nicht angezeigt. Eingeschriebene Mitglieder (unten) werden immer angezeigt.",
     "pendingReview": "Prüfen",
     "remove": "Entfernen",
@@ -351,7 +361,7 @@
     "syncAdded_one": "{{count}} Teammitglied zur Kursliste hinzugefügt.",
     "syncAdded_other": "{{count}} Teammitglieder zur Kursliste hinzugefügt.",
     "syncFailed": "Die Kursliste konnte nicht synchronisiert werden: {{error}}",
-    "syncRosterTitle": "Alle in roster.csv fehlenden Team-Mitglieder hinzufügen (nur Metadaten)",
+    "syncRosterTitle": "roster.csv aus den GitHub-Teams der Klasse aktualisieren",
     "syncUpToDate": "Die Kursliste ist bereits auf dem neuesten Stand.",
     "teamNotYet": "Noch nicht im Team",
     "viewCsvOnGitHub": "roster.csv ansehen",
@@ -370,15 +380,9 @@
     "changeRoleSelfBlocked": "Du kannst deine eigene Rolle hier nicht ändern – bitte eine:n andere:n Organisationsinhaber:in, sie zu ändern.",
     "confirmCancelInviteBody": "Die ausstehende Organisationseinladung für {{label}} stornieren? Die Person wird aus den ausstehenden Einladungen von {{org}} entfernt und tritt nicht bei, sofern sie nicht erneut eingeladen wird.",
     "confirmChanges": "Änderungen bestätigen",
-    "detectedFormat": "Erkanntes Format",
-    "emailInviteConfirmOwner": "Ich bestätige, dass als Lehrkraft markierte Zeilen als Organisations-INHABER eingeladen werden.",
-    "emailInviteNoRosterNotice": "Das Senden dieser Einladungen erstellt oder ändert keine Einträge in roster.csv. Eingeladene erscheinen als ausstehend, bis sie annehmen; erfasse ihren Namen und Kurs später, indem du sie per GitHub-Benutzernamen hinzufügst oder eine Teilnehmerliste hochlädst.",
+    "detectedFormat": "Datei gelesen als",
     "emailInviteSkippedDetail": "Bereits Mitglied oder bereits eingeladen – keine neue Einladung gesendet.",
-    "emailInvitedCount_one": "{{count}} Einladung gesendet.",
-    "emailInvitedCount_other": "{{count}} Einladungen gesendet.",
-    "emailsFound_one": "{{count}} E-Mail-Adresse zum Einladen gefunden.",
-    "emailsFound_other": "{{count}} E-Mail-Adressen zum Einladen gefunden.",
-    "expectedHeaders": "Füge eine Kopfzeile mit einer username-Spalte (erforderlich) sowie beliebigen dieser optionalen Spalten hinzu: {{headers}}. Oder lade eine Textdatei mit einem GitHub-Benutzernamen pro Zeile hoch.",
+    "expectedHeaders": "Fügen Sie eine Kopfzeile mit mindestens einer dieser Spalten hinzu: {{headers}}. Sie können außerdem first_name, last_name, name, section und role angeben. Oder laden Sie eine Textdatei mit einem GitHub-Benutzernamen oder einer E-Mail-Adresse pro Zeile hoch.",
     "failedInviteDismissError": "Die fehlgeschlagene Einladung konnte nicht verworfen werden: {{error}}",
     "failedInviteNoTarget": "Diese Einladung hat weder einen GitHub-Benutzernamen noch eine E-Mail-Adresse und kann daher nicht erneut gesendet werden – verwirf sie und füge die Person erneut hinzu.",
     "failedInviteReinviteError": "Erneutes Einladen fehlgeschlagen: {{error}}",
@@ -404,11 +408,9 @@
     "manageOwnerOnly": "Das Verwalten von Einladungen und Mitgliedschaften ist nur Organisationsinhaber:innen möglich.",
     "membersEnrolledCount_one": "{{count}} Mitglied eingeschrieben",
     "membersEnrolledCount_other": "{{count}} Mitglieder eingeschrieben",
-    "missingUsernameHeader": "Dieser Datei fehlt eine erforderliche Spalte „username“.",
     "needsAttentionInOrgHelp": "{{label}} ist Organisationsmitglied, aber nicht in diesem Classroom eingeschrieben. Füge die Person hier als studierende Person hinzu — Lehrkraft- oder TA-Rollen weist du in den Classroom-Einstellungen zu.",
     "needsAttentionNotInOrgHelp": "{{label}} steht auf der Teilnehmerliste, ist aber kein Organisationsmitglied. Lade die Person in die Organisation ein, um sie einzuschreiben.",
     "noChangesToApply": "Keine Änderungen zu übernehmen",
-    "noValidEmails": "In dieser Datei wurden keine gültigen E-Mail-Adressen gefunden. Lade eine .txt- oder .csv-Datei mit einer E-Mail-Adresse pro Zeile hoch.",
     "preflightConfirmRoleChanges_one": "Ich bestätige, dass {{count}} Mitglied wie oben aufgeführt in ein anderes Team verschoben wird.",
     "preflightConfirmRoleChanges_other": "Ich bestätige, dass {{count}} Mitglieder wie oben aufgeführt in andere Teams verschoben werden.",
     "preflightConfirmTitle": "Vor der Verarbeitung bestätigen",
@@ -436,22 +438,20 @@
     "rosterParseErrorLine": "Zeile {{line}}: {{message}}",
     "rosterRecheck": "roster.csv erneut prüfen",
     "rosterRechecking": "Wird erneut geprüft ...",
-    "sendInviteCount_one": "{{count}} Einladung senden",
-    "sendInviteCount_other": "{{count}} Einladungen senden",
     "statusNeedsAttentionInOrg": "Rolle zuweisen",
     "statusNeedsAttentionNotInOrg": "Nicht in Organisation",
     "taCount_one": "{{count}} Tutor:in",
     "taCount_other": "{{count}} Tutor:innen",
     "uploadDropPrompt": "Datei hierher ziehen oder zum Auswählen klicken",
-    "uploadHintAll": "Eine Teilnehmerlisten-CSV, eine Liste von GitHub-Benutzernamen oder eine Liste von E-Mail-Adressen (eine pro Zeile).",
+    "uploadHintAll": "Eine Namenslisten-CSV mit einer github_id-, Benutzernamen- oder E-Mail-Spalte – oder eine einfache Liste von GitHub-Benutzernamen oder E-Mail-Adressen, eine pro Zeile. Zeilen mit nur einer E-Mail-Adresse werden per E-Mail eingeladen.",
     "uploadInviteNotice_one": "Dadurch wird {{count}} GitHub-Organisationseinladung an Studierende gesendet, die noch keine Mitglieder sind.",
     "uploadInviteNotice_other": "Dadurch werden {{count}} GitHub-Organisationseinladungen an Studierende gesendet, die noch keine Mitglieder sind.",
     "uploadKindEmailList": "E-Mail-Adressen (eine pro Zeile)",
-    "uploadKindRosterCsv": "Teilnehmerlisten-CSV (username-Spalte)",
+    "uploadKindRosterCsv": "Namenslisten-CSV",
     "uploadKindUsernameList": "GitHub-Benutzernamen (einer pro Zeile)",
     "uploadTitle": "Hochladen",
     "addRoleLabel": "Rolle",
-    "addStaffHint": "Lehrkräfte, leitende TAs und TAs werden per GitHub-Benutzername hinzugefügt. Lehrkräfte und leitende TAs erhalten Schreibzugriff auf das Kursraum-Konfigurations-Repository; TAs erhalten Nur-Lese-Zugriff. Einer Lehrkraft wird die Organisationsinhaberschaft gewährt.",
+    "addStaffHint": "Lehrkräfte, Head TAs und TAs werden per GitHub-Benutzernamen hinzugefügt. Lehrkräfte und Head TAs erhalten Schreibzugriff auf das classroom50-Repository; TAs erhalten Nur-Lese-Zugriff. Einer Lehrkraft wird Organisationsinhaber gewährt.",
     "failedInviteNotSent": "An {{who}} wurde keine Einladung gesendet — versuche es erneut.",
     "failedInviteRateLimited": "GitHub hat die erneute Einladung an {{who}} ratenbegrenzt — versuche es erneut.",
     "roleTeacher": "Lehrkraft",
@@ -464,7 +464,8 @@
       "colRole": "Rolle",
       "colSection": "Kursabschnitt",
       "empty": "In roster.csv ist noch niemand aufgeführt.",
-      "notice": "CSV-Roster aus roster.csv (von der Lehrkraft gepflegt). Das maßgebliche teamgesteuerte Roster und die Einladungsverwaltung stehen Lehrkräften zur Verfügung."
+      "notice": "CSV-Roster aus roster.csv (von der Lehrkraft gepflegt). Das maßgebliche teamgesteuerte Roster und die Einladungsverwaltung stehen Lehrkräften zur Verfügung.",
+      "invitePending": "Per E-Mail eingeladen – noch nicht beigetreten"
     },
     "githubIdentity": "GitHub: <username>@{{username}}</username> (ID {{id}})",
     "githubIdentityNoId": "GitHub: <username>@{{username}}</username>",
@@ -472,9 +473,6 @@
     "headTaCount_other": "{{count}} leitende TAs",
     "roleHeadTa": "Leitende TA",
     "unenrollBody": "Dadurch wird die lernende Person <label>{{label}}</label> aus dem Kursraum {{classroom}} in <org>{{org}}</org> entfernt. Die Aufgaben-Repositories der Lernenden werden nicht gelöscht.",
-    "emailInviteInvalidBlocked_one": "{{count}} Zeile ist keine gültige E-Mail-Adresse. Korrigiere sie und lade erneut hoch oder wechsle das Format oben.",
-    "emailInviteInvalidBlocked_other": "{{count}} Zeilen sind keine gültigen E-Mail-Adressen. Korrigiere sie und lade erneut hoch oder wechsle das Format oben.",
-    "emailInviteInvalidRow": "Zeile {{line}}: {{value}}",
     "firstNameColumn": "Vorname",
     "inviteRosterMalformedId": "{{username}} kann nicht eingeladen werden: „{{githubId}}“ ist keine gültige GitHub-ID. Korrigiere die Zelle github_id in roster.csv.",
     "lastNameColumn": "Nachname",
@@ -504,7 +502,49 @@
       "firstName": "Vorname",
       "label": "Nach Namen sortieren",
       "lastName": "Nachname"
-    }
+    },
+    "dropBadEmail": "Zeile {{line}}: <v>{{value}}</v> ist keine gültige E-Mail-Adresse.",
+    "dropBadUsername": "Zeile {{line}}: <v>{{value}}</v> ist kein gültiger GitHub-Benutzername.",
+    "dropBadValue": "Zeile {{line}}: <v>{{value}}</v> ist weder ein GitHub-Benutzername noch eine E-Mail-Adresse.",
+    "dropIdLookupCapped": "Zeile {{line}}: zu viele github_id-Werte in dieser Datei, um sie auf einmal zu prüfen, daher wurde <v>{{value}}</v> nicht nachgeschlagen. Löschen Sie die github_id-Spalte und lassen Sie die Benutzernamensspalte jede Zeile identifizieren, oder teilen Sie die Datei auf.",
+    "dropIdLookupFailed": "Zeile {{line}}: GitHub war nicht erreichbar, um github_id <v>{{value}}</v> nachzuschlagen. Versuchen Sie es gleich erneut – wir greifen nicht auf die Benutzernamensspalte zurück, da dies die falsche Person einladen könnte.",
+    "dropIncomplete": "Zeile {{line}}: kein GitHub-Benutzername, keine github_id und keine E-Mail-Adresse.",
+    "dropUnresolvedId": "Zeile {{line}}: github_id <v>{{value}}</v> stimmt mit keinem GitHub-Konto überein. Wir greifen nicht auf die Benutzernamensspalte zurück, da dies die falsche Person einladen könnte.",
+    "emailInviteHint": "Nur per E-Mail einladen? Die Adresse landet sofort auf der Namensliste und wird beim Beitritt dem GitHub-Konto der/des Studierenden zugeordnet – beachten Sie, dass es die von Ihnen eingeladene Adresse ist, nicht unbedingt die E-Mail-Adresse ihres/seines GitHub-Kontos.",
+    "emailInvitePassFailed": "Die Namensliste wurde gespeichert, aber das Senden der E-Mail-Einladungen ist fehlgeschlagen: {{message}}. Führen Sie den Import erneut aus, um es erneut zu versuchen.",
+    "emailInviteRosterNotice": "Jede eingeladene Adresse wird sofort mit dem etwaigen Namen und Abschnitt aus der Datei zur roster.csv hinzugefügt und beim Akzeptieren dem GitHub-Konto der/des Studierenden zugeordnet. Bis dahin erscheinen Eingeladene als ausstehend.",
+    "importBlockedHint": "Beheben Sie diese Zeilen und laden Sie die Datei erneut hoch. Ein zweiter Import ist sicher – bereits in der Klasse befindliche Studierende bleiben unangetastet.",
+    "importBlocked_one": "{{count}} Zeile kann nicht importiert werden, daher wurde noch nichts geändert.",
+    "importBlocked_other": "{{count}} Zeilen können nicht importiert werden, daher wurde noch nichts geändert.",
+    "importRetryLookup": "Erneut prüfen",
+    "importSkipped_one": "{{count}} Zeile wurde übersprungen: Sie hat keinen GitHub-Benutzernamen, keine github_id und keine E-Mail-Adresse, sodass diese/r Studierende noch nicht erreichbar ist. Alle anderen unten werden dennoch importiert.",
+    "importSkipped_other": "{{count}} Zeilen wurden übersprungen: Sie haben keinen GitHub-Benutzernamen, keine github_id und keine E-Mail-Adresse, sodass diese Studierenden noch nicht erreichbar sind. Alle anderen unten werden dennoch importiert.",
+    "importedAndInvitedCount": "{{added}} Studierende hinzugefügt und {{invited}} E-Mail-Einladung(en) gesendet.",
+    "inviteEmailLocked": "Diese Adresse identifiziert die ausstehende Einladung, daher kann sie hier nicht geändert werden. Um eine andere zu verwenden, brechen Sie diese Einladung ab und laden Sie die neue Adresse ein.",
+    "inviteMetadataFailed": "Die Einladung für {{email}} konnte nicht vorbereitet werden ({{message}}), daher wurde keine Einladung gesendet. Versuchen Sie es erneut; falls es weiterhin fehlschlägt, löschen Sie das in der Meldung genannte übrig gebliebene Team und versuchen Sie es dann erneut.",
+    "invitingEmails": "E-Mail-Einladungen werden gesendet...",
+    "missingIdentityHeader": "Diese Datei hat keine Spalte, die eine/n Studierende/n identifiziert.",
+    "noRosterRowNoEdit": "Profildetails können bearbeitet werden, sobald diese Person einen Namenslisteneintrag hat.",
+    "noUsableRows": "In dieser Datei wurden keine verwendbaren Zeilen gefunden. Jede Zeile benötigt eine github_id, einen GitHub-Benutzernamen oder eine E-Mail-Adresse.",
+    "preflightConfirmIdentity_one": "Ich bestätige den Import von {{count}} Zeile unter Verwendung des Kontos, zu dem ihre github_id gehört.",
+    "preflightConfirmIdentity_other": "Ich bestätige den Import von {{count}} Zeilen unter Verwendung der Konten, zu denen ihre github_id gehört.",
+    "preflightIdentityConfirmTitle": "Diese Konten vor dem Import prüfen",
+    "preflightIdentityDetail": "Datei sagte {{declared}}, ID {{id}}",
+    "preflightIdentityHint": "Die github_id in diesen Zeilen gehört zu einem anderen Konto als der daneben stehende Benutzername – meist, weil die/der Studierende das GitHub-Konto umbenannt hat. Wir verwenden das Konto, zu dem die ID gehört, und korrigieren den Benutzernamen in der Namensliste.",
+    "preflightTeacherEmailNotice_one": "{{count}} weitere Person wird als Organisationsinhaber (OWNER) eingeladen.",
+    "preflightTeacherEmailNotice_other": "{{count}} weitere Personen werden als Organisationsinhaber (OWNER) eingeladen.",
+    "previewEmailOnRoster": "Per E-Mail einladen – bereits auf der Namensliste",
+    "previewInviteByEmail": "Per E-Mail einladen",
+    "previewPreviousUsernameHint": "Datei sagte {{username}}",
+    "resultEmailInvited": "Per E-Mail eingeladen",
+    "resultEmailInvitesDeferred": "E-Mail-Einladungen aufgeschoben (Ratenlimit)",
+    "resultEmailInvitesFailed": "E-Mail-Einladungen fehlgeschlagen",
+    "resultEmailSkipped": "E-Mail-Adressen übersprungen",
+    "syncMatchedEmails_one": "{{count}} eingeladene E-Mail-Adresse einem GitHub-Konto zugeordnet.",
+    "syncMatchedEmails_other": "{{count}} eingeladene E-Mail-Adressen GitHub-Konten zugeordnet.",
+    "syncRemovedEmails_one": "{{count}} Adresse entfernt, deren Einladung nicht mehr aussteht.",
+    "syncRemovedEmails_other": "{{count}} Adressen entfernt, deren Einladungen nicht mehr ausstehen.",
+    "syncRosterDone": "Namensliste aktualisiert."
   },
   "language": {
     "baseName": "Englisch (Basis)",
@@ -713,7 +753,7 @@
       "maxGroupSize": "Maximale Gruppengröße",
       "maxGroupSizeTitle": "Muss eine ganze Zahl zwischen {{min}} und {{max}} sein",
       "feedbackPr": "Feedback-Pull-Request",
-      "feedbackPrHelp": "Öffnet pro Repository einen Pull-Request für die zeilenweise Durchsicht jeder Abgabe.",
+      "feedbackPrHelp": "Öffnet in jedem Repository der Studierenden einen Pull Request für Inline-Bewertung und Kommentare zu ihrer Arbeit.",
       "advanced": "Erweiterte Einstellungen",
       "advancedHelp": "Optionale Bewertungs- und Laufzeiteinstellungen. Leere Felder verwenden ihre dokumentierten Standardwerte.",
       "dockerImage": "Docker-Image",
@@ -736,10 +776,10 @@
         "selfHostedMatch_one": "Selbst gehosteter Runner passt ({{names}})",
         "selfHostedMatch_other": "Selbst gehostete Runner passen ({{names}})",
         "selfHostedLabels": "Labels für selbst gehostete Runner",
-        "invalidLabel": "Ungültiges Label {{labels}} – nur Buchstaben, Zahlen sowie . - _.",
-        "noRunnerMatch": "Kein Runner passt zu {{labels}} – überprüfen Sie die Schreibweise.",
-        "tooMany": "Zu viele Labels ({{count}}) – maximal 10.",
-        "cannotVerify": "Kann nicht überprüft werden – wird wie eingegeben verwendet.",
+        "invalidLabel": "Ungültiges Label {{labels}}: nur Buchstaben, Zahlen, . - _.",
+        "noRunnerMatch": "Kein Runner passt zu {{labels}}. Überprüfen Sie die Schreibweise.",
+        "tooMany": "Zu viele Labels ({{count}}); maximal 10.",
+        "cannotVerify": "Nicht überprüfbar; wird wie eingegeben verwendet.",
         "tip": "Das/Die GitHub-Actions-Runner-Label, mit denen diese Aufgabe bewertet wird. Leer bedeutet ubuntu-latest. Kombiniere kommagetrennte Labels für einen selbstgehosteten Runner (z. B. self-hosted, linux, x64).",
         "emptyHint": "Für <code>ubuntu-latest</code> leer lassen.",
         "selfHostedHint": "Kombiniere kommagetrennte Labels für einen selbstgehosteten Runner (z. B. <code>self-hosted, linux, x64</code>)."
@@ -764,7 +804,7 @@
       "allowedFilesTip": "Geordnete Muster im {{gitignore}}-Stil, eines pro Zeile, die festlegen, welche Dateien zu einer Abgabe gehören (der letzte Treffer gewinnt, {{bang}} schließt wieder ein). Z. B. {{star}} und dann {{example}} erlaubt nur {{result}}. Leer erlaubt jede Datei.",
       "containerUserTip": "Der Benutzer, unter dem der Container läuft. Setze root, wenn der Checkout mit einem Berechtigungsfehler fehlschlägt. GitHub Actions führt Container-Schritte als Benutzer des Host-Runners aus, sodass ein Nicht-Root-Image oft nicht in den Arbeitsbereich schreiben kann.",
       "dockerImageTip": "Bewerte innerhalb dieses öffentlichen Docker-Images statt auf einem von GitHub gehosteten Runner. Das Image stellt das Betriebssystem und dessen Pakete bereit. Es muss öffentlich abrufbar sein (zum Beispiel ubuntu:24.04).",
-      "passThresholdTip": "Standardmäßig deaktiviert. Wenn aktiviert, markiert das Notenbuch Abgaben anhand der unten festgelegten Schwelle als bestanden oder nicht bestanden (Bestanden-Zusammenfassung, Punkte-Badges, Filter bestanden/nicht bestanden). Dies ist nur eine Anzeigeschwelle. Sie ändert nicht die tatsächliche Punktzahl eines Lernenden.",
+      "passThresholdTip": "Standardmäßig aus. Wenn aktiviert, markiert die Abgabenseite Abgaben anhand der unten stehenden Grenze als bestanden oder nicht bestanden (Bestanden-Übersicht, Bewertungs-Badges, Filter bestanden/nicht bestanden). Dies ist nur eine Anzeigeschwelle. Sie ändert nicht die tatsächliche Bewertung einer/eines Studierenden.",
       "runtime": {
         "aptCount_one": "{{count}} Paket",
         "aptCount_other": "{{count}} Pakete",
@@ -778,20 +818,20 @@
         "envLegend": "Laufzeitumgebung",
         "languagesHeading": "Sprachversionen",
         "languagesTip": "Wähle eine Version, um diese Toolchain zu installieren (zum Beispiel Node 26, Java 25), oder gib eine eigene ein. Ein leeres Feld überspringt sie. Python verwendet auf dem gehosteten Runner standardmäßig 3.14, wenn das Feld leer ist. Du kannst so viele Toolchains aktivieren, wie du benötigst.",
-        "runnerContainerError": "„{{label}}“ ist ein macOS-/Windows-Runner – ein Docker-Image benötigt einen Ubuntu-Runner (oder einen benutzerdefinierten/selbst gehosteten).",
+        "runnerContainerError": "„{{label}}“ ist ein macOS/Windows-Runner; ein Docker-Image benötigt einen Ubuntu-Runner (oder einen benutzerdefinierten/selbst gehosteten).",
         "versionMenu": "{{language}}-Version wählen",
         "versionPlaceholder": "z. B. {{version}}",
         "versionTip": "Die {{language}}-Version, die installiert werden soll (über die setup-{{language}}-Action). Leer lassen, um sie zu überspringen. Du kannst jede Version eingeben, die die setup-Action akzeptiert.",
-        "selfHostedDisabled": "Wird auf einem selbstgehosteten Runner ignoriert – er verwendet seine eigenen vorinstallierten Toolchains und Pakete. Stelle diese stattdessen im Runner-Image bereit."
+        "selfHostedDisabled": "Auf einem selbst gehosteten Runner ignoriert, der eigene vorgefertigte Toolchains und Pakete verwendet. Stellen Sie diese stattdessen im Runner-Image bereit."
       },
       "setupCommandTip": "Wird einmal vor den anderen Tests ausgeführt, zum Beispiel zum Kompilieren oder Installieren von Abhängigkeiten. Ein Exit-Code ungleich null oder ein Timeout setzt den Autograde-Status auf „fehlgeschlagen“, ohne die numerische Punktzahl zu ändern; spätere Tests laufen trotzdem.",
       "detailsSection": "Details",
       "dueDateTz": "Die Zeiten beziehen sich auf deine lokale Zeitzone ({{tz}}).",
       "optional": "optional",
       "setDueDate": "Abgabetermin festlegen",
-      "setDueDateTip": "Aus bedeutet, dass die Aufgabe keine Frist hat. Aktiviere die Option, um Datum und Uhrzeit auszuwählen; Studierende sehen dies als Abgabetermin.",
+      "setDueDateTip": "Aus bedeutet, dass die Aufgabe kein Fälligkeitsdatum hat. Aktivieren Sie es, um Datum und Uhrzeit auszuwählen; Studierende sehen dies als Fälligkeitsdatum.",
       "slugEditHelp": "Der Slug ist Teil der Repository-Namen der Aufgabe und kann nach der Erstellung nicht mehr geändert werden.",
-      "feedbackPrEmptyRepoHelp": "Für leere Repositories nicht verfügbar. Es gibt keinen Ausgangs-Commit, gegen den ein Diff erstellt werden könnte.",
+      "feedbackPrEmptyRepoHelp": "Für leere Repositories nicht verfügbar: Es gibt keinen Starter-Commit, mit dem sich die Arbeit einer/eines Studierenden vergleichen ließe.",
       "passThresholdUnit": "% der Höchstpunktzahl zum Bestehen",
       "releaseAssetCount_one": "{{count}} Release-Datei",
       "releaseAssetCount_other": "{{count}} Release-Dateien",
@@ -802,7 +842,7 @@
       "availableFromTz": "Zeiten sind in deiner lokalen Zeitzone ({{tz}}).",
       "repoFeatures": {
         "choices": {
-          "default": "Standard (GitHub-Standard)",
+          "default": "GitHub-Standard",
           "inherit": "Von Vorlage übernehmen",
           "inheritLoading": "Von Vorlage übernehmen (wird geprüft …)",
           "inheritOff": "Von Vorlage übernehmen (derzeit aus)",
@@ -825,20 +865,20 @@
         "wiki": {
           "label": "Wiki"
         },
-        "helpExisting": "Änderungen gelten für ab jetzt erstellte Repositories. Um bereits von Studierenden angenommene zu aktualisieren, verwende das Notenbuch.",
+        "helpExisting": "Änderungen gelten für ab jetzt erstellte Repositories. Um bereits akzeptierte Repositories zu aktualisieren, verwenden Sie die Abgabenseite.",
         "overrideExisting": "Um Repositories zu aktualisieren, die Studierende bereits angenommen haben, verwende die Sammelaktion für Repository-Funktionen auf der Abgabenseite.",
         "overrideNoTemplate": "Die Standardeinstellung behält GitHubs eigene Repository-Standardeinstellungen bei.",
         "overrideTemplate": "Die Standardeinstellung folgt den Einstellungen der Vorlage, wenn eine studierende Person annimmt. Vorhandene Repositories ändern sich nicht, wenn du die Vorlage später aktualisierst.",
         "templateContentWarning": "Das Erben einer privaten Vorlage kopiert auch deren Wiki-, Issues- und Projects-Inhalte, halte also Lösungsschlüssel aus einer Vorlage heraus, von der du erbst."
       },
       "setAvailableFrom": "Freigabedatum festlegen",
-      "setAvailableFromTip": "Aufgaben sind standardmäßig auf der Aufgabenseite der Lernenden ausgeblendet – Lernende können sie nur über den Einladungslink annehmen. Lege ein Freigabedatum fest, um sie nach Ablauf des Datums für alle aufzulisten. Lernende, die bereits angenommen haben, sehen sie immer. Dies steuert nur die Auflistung, nicht den Zugriff.",
+      "setAvailableFromTip": "Aufgaben sind auf der Aufgabenseite der Studierenden standardmäßig ausgeblendet, sodass Studierende sie nur über den Einladungslink akzeptieren können. Legen Sie ein Veröffentlichungsdatum fest, um sie nach Ablauf des Datums für alle aufzulisten. Studierende, die bereits akzeptiert haben, sehen sie immer. Dies steuert nur die Auflistung, nicht den Zugriff.",
       "setupTimeout": "Setup-Timeout (Sekunden)",
       "setupTimeoutTip": "Neue Setup-Befehle beginnen bei {{default}} Sekunden. Setze 0, um den 10-Sekunden-Standard des Runners zu verwenden, oder wähle eine ganze Zahl von 1 bis {{max}}.",
       "studentPermission": {
-        "default": "Standard ({{level}})",
-        "groupHelp": "Gruppenmitglieder treten mit mindestens Admin-Rechten bei, damit die Gruppenbesitzerin bzw. der Gruppenbesitzer Teammitglieder hinzufügen kann. Dies gilt für ab jetzt erstellte Repositorys; nutze das Notenbuch, um bestehende zu ändern.",
-        "help": "Die Rolle, die jede lernende Person auf ihrem eigenen Aufgaben-Repository beim Annehmen erhält. Push (Schreiben) ist der Standard. Wähle Admin, damit Lernende Repository-Einstellungen verwalten und GitHub Pages aktivieren können. Dies gilt für Lernende, die ab jetzt annehmen; nutze das Notenbuch, um bereits erstellte Repositorys zu ändern.",
+        "default": "Standard: {{level}}",
+        "groupHelp": "Gruppenmitglieder treten mit mindestens Admin bei, damit die Gruppeninhaberin bzw. der Gruppeninhaber Teammitglieder hinzufügen kann. Dies gilt für ab jetzt erstellte Repositories; verwenden Sie die Abgabenseite, um vorhandene zu ändern.",
+        "help": "Die Rolle, die jede/r Studierende zum Zeitpunkt des Akzeptierens für das eigene Aufgaben-Repository erhält. Push (Schreiben) ist der Standard. Wählen Sie Admin, damit Studierende Repository-Einstellungen verwalten und GitHub Pages aktivieren können. Dies gilt für Studierende, die ab jetzt akzeptieren; verwenden Sie die Abgabenseite, um bereits erstellte Repositories zu ändern.",
         "label": "Repository-Zugriff für Lernende",
         "learnMore": "Mehr erfahren",
         "levels": {
@@ -850,25 +890,23 @@
         }
       },
       "addReadme": {
-        "helpOff": "Erstelle ein leeres Repository ohne ersten Commit. Automatische Bewertung und der Feedback-PR sind erst nach dem ersten Commit der studierenden Person verfügbar.",
-        "helpOn": "Initialisiere jedes Repository mit einer README.md und erstelle einen ersten Commit, damit Branches, Pull Requests und der Feedback-PR funktionieren.",
+        "helpOff": "Ohne README beginnen. Wenn der eingebaute Autograder aktiviert ist, starten Repositories dennoch mit den Autograding-Dateien und werden normal bewertet. Ist er deaktiviert, sind Repositories vollständig leer, und Autograding sowie die Feedback-PR sind dauerhaft nicht verfügbar.",
+        "helpOn": "Beginnen Sie jedes Repository mit einer README.md. Erst dieser erste Commit ermöglicht Branches, Pull Requests und die Feedback-PR.",
         "label": "README hinzufügen"
       },
       "autograding": {
         "choices": {
           "built-in": {
-            "help": "Committe den integrierten Autograder-Shim und konfiguriere dann unten die Laufzeitumgebung und die deklarativen Tests.",
+            "help": "Richten Sie den eingebauten Autograder ein und fügen Sie unten die Tests und die Laufzeitumgebung hinzu.",
             "label": "Integrierten Autograder verwenden"
           },
           "none": {
-            "help": "Es wird kein Autograder-Shim committet. Mit einer Vorlage stellst du deinen eigenen Workflow in der Vorlage bereit (er muss ein result.json-Asset am Abgabe-Release veröffentlichen). Ohne Vorlage hat das Repository einfach keinen Autograder.",
+            "help": "Stattdessen mit Ihrem eigenen GitHub-Actions-Workflow bewerten. Mit einer Vorlage fügen Sie den Workflow dort hinzu; ohne Vorlage hat die Aufgabe keinen Autograder.",
             "label": "Integrierten Autograder nicht verwenden"
           }
         },
-        "label": "Automatische Bewertung",
         "modeLabel": "Integrierter Autograder",
-        "notAutogradedNote": "Die Optionen zur automatischen Bewertung gelten nur, wenn diese Aufgabe im Abschnitt „Abgabe und Bewertung“ oben auf „Automatisch bewertet“ eingestellt ist. Ändere die Bewertungsauswahl auf „Automatisch bewertet“, um den Autograder zu konfigurieren.",
-        "editHelp": "Eine Änderung des integrierten Autograders wirkt sich nur auf Repositorys aus, die Teilnehmende ab jetzt annehmen. Bereits angenommene Repositorys behalten ihre ursprüngliche Einrichtung — etwaige Unterschiede müssen Sie selbst abgleichen."
+        "editHelp": "Eine Änderung des eingebauten Autograders betrifft nur Repositories, die Studierende ab jetzt akzeptieren. Bereits akzeptierte Repositories behalten ihre ursprüngliche Einrichtung, sodass Sie die vorhandenen Repositories selbst aktualisieren müssen."
       },
       "copyAbout": {
         "help": "Kopiere die „Info“ der Vorlage (ihre Beschreibung) in jedes Repository der Studierenden. GitHub kopiert sie nicht automatisch. Dies gilt für Studierende, die ab jetzt annehmen; bereits erstellte Repositories werden nicht geändert.",
@@ -879,7 +917,6 @@
         "label": "Themen aus Vorlage kopieren"
       },
       "grading": {
-        "autoNote": "Diese Aufgabe wird automatisch bewertet. Konfiguriere den Autograder im Abschnitt „Automatische Bewertung“ unten. Ob du den integrierten Autograder verwendest oder deinen eigenen Workflow bereitstellst, er muss ein result.json-Asset am Abgabe-Release veröffentlichen – diese Datei liest die App, um Punktzahlen anzuzeigen.",
         "choices": {
           "auto": "Automatisch bewertet",
           "manual": "Manuell (Punktzahlen von Hand eingeben)",
@@ -906,7 +943,7 @@
           "help": "Erzeuge das Repository jeder studierenden Person aus einer von dir bereitgestellten Vorlage.",
           "label": "Vorlagen-Repository"
         },
-        "editHelp": "Eine Änderung der Repository-Quelle wirkt sich nur auf Repositorys aus, die Teilnehmende ab jetzt annehmen. Bereits angenommene Repositorys behalten ihren ursprünglichen Startinhalt — etwaige Unterschiede müssen Sie selbst abgleichen."
+        "editHelp": "Eine Änderung der Repository-Quelle betrifft nur Repositories, die Studierende ab jetzt akzeptieren. Bereits akzeptierte Repositories behalten ihren ursprünglichen Starterinhalt, sodass Sie die vorhandenen Repositories selbst aktualisieren müssen."
       },
       "repositorySetupSection": "Repository-Einrichtung",
       "scheduleSection": "Zeitplan",
@@ -915,26 +952,22 @@
           "everyPush": "Jeder Push auf den Standard-Branch",
           "tag": "Ein getaggter Commit"
         },
-        "editWarning": "Diese Änderung wirkt sich nur auf ab jetzt erstellte Repositories aus. Repositories, die Studierende bereits angenommen haben, behalten die alte Einstellung bei, bis du sie aktualisierst – verwende „Auslöser für automatische Bewertung aktualisieren“ auf der Abgabenseite oder gh teacher assignment submission-mode. Studierende müssen nach der Aktualisierung einen Pull ausführen.",
-        "help": "„Jeder Push auf den Standard-Branch“ zählt jeden Push (außer dem Ausgangs-Commit). „Ein getaggter Commit“ zählt nur getaggte Commits – eine studierende Person reicht mit gh student submit oder durch Pushen eines Tags ein, sodass gewöhnliche Pushes keine Actions-Minuten kosten.",
+        "editWarning": "Diese Änderung betrifft nur ab jetzt erstellte Repositories. Bereits von Studierenden akzeptierte Repositories behalten die alte Einstellung, bis Sie sie aktualisieren. Verwenden Sie „Autograding-Auslöser aktualisieren“ auf der Abgabenseite oder gh teacher assignment submission-mode. Studierende müssen nach der Aktualisierung pullen.",
+        "help": "„Jeder Push zum Standard-Branch“ zählt jeden Push nach dem Starter-Commit. „Ein getaggter Commit“ zählt nur getaggte Commits, sodass gewöhnliche Pushes keine Actions-Minuten verbrauchen; Studierende reichen ein, indem sie ein Tag pushen oder gh student submit ausführen.",
         "label": "Abgabetyp"
       },
       "submissionSection": "Abgabe und Bewertung",
-      "submissionSectionHelp": "Lege fest, was als Abgabe für diese Aufgabe zählt – wann der Autograder läuft und welche Tags eine studierende Person zum Abgeben pushen kann.",
+      "submissionSectionHelp": "Legen Sie fest, was für diese Aufgabe als Abgabe zählt: wann der Autograder läuft und welche Tags Studierende zum Einreichen pushen können.",
       "submissionTags": {
-        "commaHint": "Setze einen Tag pro Zeile, keine kommagetrennte Liste – ein Komma wird Teil des Tag-Namens und wird abgelehnt.",
-        "help": "Optionale Tag-Namen (einer pro Zeile), deren Commits ebenfalls zählen – z. B. phase1, phase2. Muster wie v* passen auf eine Familie von Tags. Leer lassen für keine.",
+        "commaHint": "Setzen Sie ein Tag pro Zeile, keine durch Komma getrennte Liste. Ein Komma wird Teil des Tagnamens und wird abgelehnt.",
+        "help": "Optionale Tagnamen (einer pro Zeile), deren Commits ebenfalls zählen, z. B. phase1, phase2. Muster wie v* passen auf eine Familie von Tags. Leer lassen für keine.",
         "label": "Abgabe-Tags",
         "wildcardCaution": "Ein weites Muster wie v* passt auf jeden Tag, den eine studierende Person pusht, einschließlich unabhängiger Release-Tags. Bevorzuge genaue Namen wie phase1."
-      },
-      "submissions": {
-        "heading": "Abgaben",
-        "help": "Wie die Abgabenseite die Arbeit jeder studierenden Person erkennt und zählt. Der Autograder verwendet dieselbe Definition."
       },
       "discardChanges": "Änderungen verwerfen",
       "reset": "Zurücksetzen",
       "resetSection": "Diesen Abschnitt auf die Standardeinstellungen zurücksetzen",
-      "typeLockedHelp": "Nach der Erstellung nicht mehr änderbar — ein Wechsel würde bestehende Abgaben ungültig machen.",
+      "typeLockedHelp": "Kann nach der Erstellung nicht geändert werden. Ein Umschalten würde vorhandene Abgaben ungültig machen.",
       "feedbackPrTemplate": {
         "autoEnabled": "Automatisch aktiviert: Im Template-Repository wurde eine Pull-Request-Vorlage gefunden.",
         "checking": "Template wird auf eine Pull-Request-Vorlage geprüft …",
@@ -957,17 +990,17 @@
       "testNamePlaceholder": "z. B. Gibt hello aus",
       "testType": "Testtyp",
       "setupCommand": "Setup-Befehl",
-      "setupCommandPlaceholder": "optional – z. B. gcc -o hello hello.c",
+      "setupCommandPlaceholder": "optional, z. B. gcc -o hello hello.c",
       "runCommand": "Ausführungsbefehl",
       "runCommandPlaceholder": "z. B. ./hello oder python3 main.py",
       "input": "Eingabe (stdin)",
-      "inputPlaceholder": "optional – Text, der dem Befehl über stdin übergeben wird",
+      "inputPlaceholder": "optional: Text, der dem Befehl über stdin übergeben wird",
       "expectedOutput": "Erwartete Ausgabe",
       "expectedOutputPlaceholder": "Erwartetes stdout",
       "comparison": "Vergleich",
-      "comparisonIncluded": "Enthalten – das Erwartete kommt irgendwo in der Ausgabe vor",
-      "comparisonExact": "Exakt – die Ausgabe entspricht dem Erwarteten (umgebende Leerzeichen werden ignoriert)",
-      "comparisonRegex": "Regex – Python re.search, mehrzeilig",
+      "comparisonIncluded": "Enthalten: Erwartetes kommt irgendwo in der Ausgabe vor",
+      "comparisonExact": "Exakt: Ausgabe entspricht dem Erwarteten (umgebende Leerzeichen werden ignoriert)",
+      "comparisonRegex": "Regex: Python re.search, mehrzeilig",
       "exitCode": "Erforderlicher Exit-Code",
       "exitCodeHint": "Leer lassen, um einen erfolgreichen Exit (0) zu verlangen.",
       "timeout": "Zeitlimit (Sekunden)",
@@ -1035,7 +1068,7 @@
     "template": {
       "label": "Vorlagen-Repository",
       "placeholder": "<owner>/<repo>",
-      "help": "Optional. Teilnehmer erhalten eine Kopie dieses Repositorys. Leer lassen für ein leeres Repository nur mit dem Autograder.",
+      "help": "Optional. Studierende erhalten eine Kopie dieses Repositorys. Leer lassen für eine Aufgabe ohne Vorlage: Studierende erhalten ein initialisiertes Repository mit einer README und den Autograding-Dateien.",
       "checking": "Zugriff auf die Vorlage wird geprüft …",
       "fallbackOrg": "Ihre Organisation",
       "notVisible": "{{owner}}/{{repo}} ist für Sie nicht sichtbar. Machen Sie es öffentlich oder kopieren Sie es in {{org}}.",
@@ -1097,7 +1130,6 @@
       "dueAll": "Alle Abgabetermine",
       "dueAria": "Nach Abgabetermin filtern",
       "dueHas": "Mit Abgabetermin",
-      "dueLabel": "Abgabe",
       "dueNone": "Kein Abgabetermin",
       "dueOverdue": "Überfällig",
       "noResultsBody": "Keine Aufgaben entsprechen deiner Suche oder deinen Filtern. Passe sie an.",
@@ -1107,15 +1139,13 @@
       "sortAria": "Aufgaben sortieren",
       "sortDueAsc": "Abgabetermin (früheste zuerst)",
       "sortDueDesc": "Abgabetermin (späteste zuerst)",
-      "sortLabel": "Sortieren",
       "sortNameAsc": "Name (A–Z)",
       "sortNameDesc": "Name (Z–A)",
       "sortType": "Typ",
       "typeAll": "Alle Typen",
       "typeAria": "Nach Typ filtern",
       "typeGroup": "Gruppe",
-      "typeIndividual": "Einzeln",
-      "typeLabel": "Typ"
+      "typeIndividual": "Einzeln"
     },
     "discover": {
       "accept": "Aufgabe annehmen",
@@ -1135,26 +1165,22 @@
         "clear": "Filter zurücksetzen",
         "dueAll": "Beliebiges Fälligkeitsdatum",
         "dueAria": "Nach Fälligkeitsdatum filtern",
-        "dueLabel": "Fällig",
         "dueOverdue": "Überfällig",
         "searchAria": "Aufgaben durchsuchen",
         "searchPlaceholder": "Aufgaben durchsuchen…",
         "sortAria": "Aufgaben sortieren",
         "sortDueAsc": "Bald fällig",
         "sortDueDesc": "Spät fällig",
-        "sortLabel": "Sortieren",
         "sortNameAsc": "Name (A–Z)",
         "sortNameDesc": "Name (Z–A)",
         "statusAccepted": "Angenommen",
         "statusAll": "Alle",
         "statusAria": "Nach Status filtern",
-        "statusLabel": "Status",
         "statusTodo": "Zu erledigen",
         "typeAll": "Alle Typen",
         "typeAria": "Nach Typ filtern",
         "typeGroup": "Gruppe",
         "typeIndividual": "Einzeln",
-        "typeLabel": "Typ",
         "view": {
           "gridLabel": "Rasteransicht",
           "label": "Ansicht",
@@ -1180,7 +1206,7 @@
     "unlistedWarning": "Dieser Kurs verwendet eine nicht gelistete URL: Seine Ressourcen werden unter einem nicht erratbaren Pfad statt unter einem erratbaren bereitgestellt. Das ist Verschleierung, keine Zugriffskontrolle – der Link ist das Einzige, was die Daten schützt, jede Person mit dem Link kann die Datei lesen, und Links können durchsickern (Browserverlauf, Referrer, Suchmaschinen-Crawler). Teile den kursaufgabenspezifischen Annahme-Link oder CLI-Befehl (die den Schlüssel enthalten) von der Seite jeder Aufgabe.",
     "banner": {
       "title": "Alles unten wird öffentlich über das Internet bereitgestellt",
-      "body": "Dein classroom50-Konfigurations-Repository ist privat, aber seine GitHub-Pages-Site ist bewusst öffentlich – Studierende und der Autograder rufen diese Dateien ohne Authentifizierung ab. Nur die unten in der Positivliste aufgeführten Dateien werden veröffentlicht; alles andere im Repository (deine Teilnehmerliste, interne Kursfelder, Service-Token) bleibt privat. Ein Kurs kann eine nicht gelistete URL verwenden, um seine Dateien schwerer auffindbar zu machen, aber das ist Verschleierung, keine Zugriffskontrolle – die Dateien sind für jeden mit dem Link weiterhin öffentlich."
+      "body": "Ihr classroom50-Repository ist privat, aber seine GitHub-Pages-Site ist bewusst öffentlich – Studierende und der Autograder rufen diese Dateien ohne Authentifizierung ab. Nur die unten aufgeführten, auf der Positivliste stehenden Dateien werden veröffentlicht; alles andere im Repo (Ihre Namensliste, interne Klassenfelder, Service-Token) bleibt privat. Eine Klasse kann eine nicht gelistete URL verwenden, um ihre Dateien schwerer auffindbar zu machen, aber das ist Verschleierung, keine Zugriffskontrolle – die Dateien sind für jeden mit dem Link weiterhin öffentlich."
     },
     "orgLevel": "Auf Organisationsebene",
     "perClassroom": "Pro Kurs",
@@ -1284,8 +1310,8 @@
     "individual": "Dies ist eine Einzelaufgabe – es gibt keine Gruppeneinstellungen zu verwalten. Sieh dir deine <submissionLink>Abgabe und Autograder-Ergebnisse</submissionLink> an.",
     "notAccepted": "Du hast diese Aufgabe noch nicht! Musst du sie zuerst <acceptLink>annehmen</acceptLink>?",
     "provisioningConfirm": {
-      "body_one": "{{count}} Teilnehmer/in hat diese Aufgabe bereits angenommen. Diese Änderung betrifft nur Repositorys, die ab jetzt angenommen werden — das {{count}} vorhandene Repository behält seinen ursprünglichen Startcode und seine Einrichtung. Wenn Sie die automatische Bewertung ausschalten, beginnen die Autograde-Läufe dieser Repositorys zu scheitern und fallen aus dem Notenbuch heraus; wenn Sie den Bewertungsmodus ändern, werden im alten Modus erfasste Punktzahlen möglicherweise anders gelesen. Sie müssen etwaige Inkonsistenzen selbst abgleichen.",
-      "body_other": "{{count}} Teilnehmende haben diese Aufgabe bereits angenommen. Diese Änderung betrifft nur Repositorys, die ab jetzt angenommen werden — die {{count}} vorhandenen Repositorys behalten ihren ursprünglichen Startcode und ihre Einrichtung. Wenn Sie die automatische Bewertung ausschalten, beginnen die Autograde-Läufe dieser Repositorys zu scheitern und fallen aus dem Notenbuch heraus; wenn Sie den Bewertungsmodus ändern, werden im alten Modus erfasste Punktzahlen möglicherweise anders gelesen. Sie müssen etwaige Inkonsistenzen selbst abgleichen.",
+      "body_one": "{{count}} Studierende bzw. Studierender hat diese Aufgabe bereits akzeptiert. Diese Änderung betrifft nur ab jetzt akzeptierte Repositories; das {{count}} vorhandene Repository behält seinen ursprünglichen Startercode und seine Einrichtung. Wenn Sie die automatische Bewertung ausschalten, beginnen die Autograde-Läufe dieser Repositories zu scheitern und fallen aus den gesammelten Bewertungen heraus; wenn Sie den Bewertungsmodus ändern, können unter dem alten Modus erfasste Bewertungen anders gelesen werden. Etwaige Inkonsistenzen müssen Sie selbst auflösen.",
+      "body_other": "{{count}} Studierende haben diese Aufgabe bereits akzeptiert. Diese Änderung betrifft nur ab jetzt akzeptierte Repositories; die {{count}} vorhandenen Repositories behalten ihren ursprünglichen Startercode und ihre Einrichtung. Wenn Sie die automatische Bewertung ausschalten, beginnen die Autograde-Läufe dieser Repositories zu scheitern und fallen aus den gesammelten Bewertungen heraus; wenn Sie den Bewertungsmodus ändern, können unter dem alten Modus erfasste Bewertungen anders gelesen werden. Etwaige Inkonsistenzen müssen Sie selbst auflösen.",
       "cancel": "Abbrechen",
       "confirm": "Änderungen trotzdem speichern",
       "title": "Bereitstellungseinstellungen ändern, nachdem Teilnehmende angenommen haben?"
@@ -1314,7 +1340,7 @@
       "expiryRange": "Gib {{min}}–{{max}} Tage ein",
       "expiryUntrackedHint": "Der Ablauf dieses Tokens wird nicht verfolgt. Lege ein neues Token fest, damit Classroom 50 dich vor dessen Ablauf warnen kann.",
       "generateHelp": "Öffnet das GitHub-Token-Formular mit vorausgefülltem Namen, Ablauf und den erforderlichen Scopes. Setze den Repository-Zugriff auf „All repositories“.",
-      "help": "Ein fein abgestuftes GitHub-Token, mit dem Classroom 50 Punktzahlen über deine Lernenden-Repositorys hinweg sammeln und neu bewerten kann. Wird als Secret in deinem classroom50-Konfigurations-Repository gespeichert.",
+      "help": "Ein fein granulares GitHub-Token, mit dem Classroom 50 Bewertungen sammeln und über Ihre Repositories der Studierenden neu bewerten kann. Wird als Secret in Ihrem classroom50-Repository gespeichert.",
       "learnMore": "Mehr über Service-Tokens erfahren",
       "nameHelp": "Der Name sollte mit der Anzeige dieses Tokens in deiner Liste der persönlichen GitHub-Zugriffstokens übereinstimmen. Classroom 50 verwendet ihn nur als Bezeichnung; ein Umbenennen hier benennt das Token auf GitHub nicht um.",
       "nameRowLabel": "Name:",
@@ -1334,7 +1360,7 @@
     "audit": {
       "title": "Organisationsrichtlinie",
       "planBadgeTitle": "GitHub-Plan — bestimmt, welche Richtlinien relevant sind (Enterprise schaltet zusätzliche Felder für Mitgliederrechte frei)",
-      "description": "Was Classroom 50 in deinem Namen konfiguriert und ob etwas von der erwarteten Absicherung abgewichen ist.",
+      "description": "Was Classroom 50 in Ihrem Auftrag konfiguriert und ob sich etwas gegenüber der erwarteten Absicherung geändert hat.",
       "recheck": "Erneut prüfen",
       "auditing": "Organisationsrichtlinie wird geprüft…",
       "auditError": "Die Richtlinienprüfung konnte nicht ausgeführt werden. Versuche es erneut zu prüfen.",
@@ -1353,24 +1379,24 @@
       "gitHub": "GitHub",
       "orUseFixIt": " (oder verwende „Beheben“)",
       "readError": "Die Organisation konnte nicht gelesen werden, um die Absicherung zu prüfen. Überprüfe deinen Zugriff und versuche es erneut.",
-      "driftCanFix": "Verwende „Beheben“ bei einer abgewichenen Einstellung oder führe die Einrichtung unten erneut aus, um alles auf einmal wieder anzuwenden.",
-      "driftCannotFix": "Bitte eine Organisationsbesitzerin oder einen Organisationsbesitzer, die Abweichung zu beheben — diese Änderungen erfordern Besitzerrechte.",
+      "driftCanFix": "Verwenden Sie „Beheben“ bei einer geänderten Einstellung oder führen Sie das Setup unten erneut aus, um alles auf einmal neu anzuwenden.",
+      "driftCannotFix": "Bitten Sie einen Organisationsinhaber, diese Einstellungen zu beheben; ihre Änderung erfordert Inhaberberechtigungen.",
       "confirmByHand": "Manuell bestätigen",
       "confirmByHandBody": "GitHub stellt keine API bereit, um diese Einstellungen zu lesen, daher können wir sie nicht automatisch überprüfen — bestätige jede einzeln auf der Seite für Mitgliederrechte.",
       "confirmManually": "Manuell bestätigen",
       "memberPermsToggle": "Mitgliederrechte, die wir konfigurieren",
-      "memberPermsHint": "Die vollständige Liste der Mitgliederrechte der Organisation, die Classroom 50 festlegt, einschließlich der bereits vorhandenen. Abgewichene werden oben hervorgehoben.",
+      "memberPermsHint": "Die vollständige Liste der Organisationsmitgliederrechte, die Classroom 50 festlegt, einschließlich der bereits vorhandenen. Geänderte werden oben hervorgehoben.",
       "couldntAutoConfigure": "Dies konnte nicht automatisch eingestellt werden. Das kann passieren, wenn eine Enterprise- oder Organisationsrichtlinie die Einstellung verwaltet oder das Konto keine Berechtigung hat. Stelle es manuell auf der verlinkten Seite ein.",
       "fixTransient": "Das hat nicht geklappt – dies kann ein vorübergehendes Ratenlimit sein, oder das Repository wird möglicherweise noch initialisiert. Versuche es gleich noch einmal.",
       "needsManualSetup": "Manuelle Einrichtung erforderlich",
       "requiresManualFix": "Manuell einstellen",
-      "configBranchRec": "Der Standard-Branch des classroom50-Konfigurations-Repos ist „{{current}}“, nicht „main“. Alles funktioniert weiterhin (Lese- und Schreibzugriffe zielen auf den tatsächlichen Branch), aber eine Umbenennung in „main“ entspricht der Konvention von Classroom 50.",
+      "configBranchRec": "Der Standard-Branch des classroom50-Repositorys ist „{{current}}“, nicht „main“. Alles funktioniert weiterhin (Lese- und Schreibvorgänge zielen auf den tatsächlichen Branch), aber ihn in „main“ umzubenennen entspricht der Konvention von Classroom 50.",
       "defaultBranchRec": "Der Standard-Branch-Name deiner Organisation für neue Repositorys ist „{{current}}“. Wir empfehlen „main“, damit neue Repos (einschließlich der Aufgaben-Repos der Studierenden) der Konvention von Classroom 50 entsprechen. Bestehende Repos sind nicht betroffen und funktionieren weiter.",
       "recommended": "Empfohlen",
-      "renameModalBody": "Dadurch wird der Standard-Branch des classroom50-Konfigurations-Repos in „main“ umbenannt. Wenn Studierende bereits Aufgaben angenommen haben, ist ihr Autograde-Workflow auf den aktuellen Branch-Namen festgelegt und bewertet nicht mehr, bis sie erneut annehmen oder du ihren Shim neu ausrichtest. Bevorzuge dies nur, bevor Studierende annehmen, oder sei bereit, ihre Einrichtung erneut auszuführen.",
-      "renameModalTitle": "Standard-Branch des Konfigurations-Repos in main umbenennen?",
+      "renameModalBody": "Dies benennt den Standard-Branch des classroom50-Repositorys in „main“ um. Wenn bereits Studierende Aufgaben akzeptiert haben, ist in ihrem Autograde-Workflow der aktuelle Branchname fixiert, und die Bewertung stoppt, bis sie erneut akzeptieren oder Sie ihren Shim neu ausrichten. Bevorzugen Sie dies nur, bevor Studierende akzeptieren, oder seien Sie bereit, ihr Setup erneut auszuführen.",
+      "renameModalTitle": "Standard-Branch des classroom50-Repositorys in main umbenennen?",
       "renameToMain": "In main umbenennen",
-      "renameError": "Der Standard-Branch des Konfigurations-Repos konnte nicht umbenannt werden. Möglicherweise fehlen dir Inhaberberechtigungen, oder die Umbenennung ist nicht durchgegangen — versuche es erneut.",
+      "renameError": "Der Standard-Branch des classroom50-Repositorys konnte nicht umbenannt werden. Möglicherweise fehlen Ihnen Inhaberberechtigungen, oder die Umbenennung ist nicht durchgegangen – versuchen Sie es erneut.",
       "stateWarn": "Empfohlen",
       "detail": {
         "budgetMissing": "kein $0-Hard-Stop-Actions-Budget",
@@ -1381,14 +1407,14 @@
         "readFailed": "Lesevorgang fehlgeschlagen",
         "readFailedStatus": "Lesevorgang fehlgeschlagen ({{status}})",
         "rulesetsMissing": "fehlend: {{names}}",
-        "workflowOrgManaged": "Die Organisationsrichtlinie setzt Workflows standardmäßig auf Lesen; die Skeleton-Workflows deklarieren ihre eigenen Berechtigungen",
-        "orgActionsPaused": "Das autom. Bewerten ist pausiert, daher ist GitHub Actions absichtlich auf das classroom50-Konfigurations-Repo beschränkt. Deaktiviere die Pause im Abschnitt GitHub Actions oben, um die Standardrichtlinie wiederherzustellen."
+        "workflowOrgManaged": "Die Organisationsrichtlinie setzt Workflows standardmäßig auf Lesen; die Classroom-50-Workflows deklarieren ihre eigenen Berechtigungen",
+        "orgActionsPaused": "Autograding ist pausiert, daher ist GitHub Actions absichtlich auf das classroom50-Repository beschränkt. Deaktivieren Sie die Pause im Abschnitt GitHub Actions oben, um die Standardrichtlinie wiederherzustellen."
       },
       "statePaused": "Pausiert"
     },
     "rerun": {
       "title": "Einrichtung erneut ausführen",
-      "description": "Wende jede Organisationseinstellung von Classroom 50 erneut an. Jederzeit gefahrlos ausführbar — es werden nur abgewichene Einstellungen geändert.",
+      "description": "Alle Organisationseinstellungen von Classroom 50 erneut anwenden. Jederzeit sicher ausführbar – es werden nur geänderte Einstellungen aktualisiert.",
       "running": "Wird erneut ausgeführt…",
       "button": "Einrichtung erneut ausführen",
       "failed": "Die erneute Einrichtung wurde nicht abgeschlossen — ein erforderlicher Schritt ist fehlgeschlagen. Überprüfe die Schritte oben, behebe das Problem und führe sie erneut aus.",
@@ -1410,14 +1436,31 @@
       "confirmBodyCannotUndo": "Dies kann nicht rückgängig gemacht werden.",
       "confirmBodyTeams_one": "Es wird außerdem <count>{{count}}</count> Kursraum-Team entfernt.",
       "confirmBodyTeams_other": "Es werden außerdem <count>{{count}}</count> Kursraum-Teams entfernt.",
-      "confirmBody_one": "Dadurch wird <count>{{count}}</count> Repository in <org>{{org}}</org> dauerhaft gelöscht, einschließlich des <repo>classroom50</repo>-Konfigurations-Repositorys (zuletzt gelöscht).",
-      "confirmBody_other": "Dadurch werden <count>{{count}}</count> Repositories in <org>{{org}}</org> dauerhaft gelöscht, einschließlich des <repo>classroom50</repo>-Konfigurations-Repositorys (zuletzt gelöscht).",
-      "description": "Baue diese Organisation ab, indem du <strong>jedes</strong> Repository darin löschst, einschließlich des <repo>classroom50</repo>-Konfigurations-Repositorys, und das GitHub-Team jedes Kursraums entfernst. Dies ist unwiderruflich."
+      "confirmBody_one": "Dies löscht dauerhaft <count>{{count}}</count> Repository in <org>{{org}}</org>, einschließlich des <repo>classroom50</repo>-Repositorys (zuletzt gelöscht).",
+      "confirmBody_other": "Dies löscht dauerhaft <count>{{count}}</count> Repositories in <org>{{org}}</org>, einschließlich des <repo>classroom50</repo>-Repositorys (zuletzt gelöscht).",
+      "description": "Bauen Sie diese Organisation ab, indem Sie <strong>jedes</strong> Repository darin löschen, einschließlich des <repo>classroom50</repo>-Repositorys, und das GitHub-Team jeder Klasse entfernen. Dies ist unwiderruflich.",
+      "forbidden": "GitHub hat das Löschen von Repositories abgelehnt (403), und Ihre Berechtigungen scheinen ausreichend zu sein. Wahrscheinlich blockiert eine Organisationsrichtlinie oder ein geschütztes Repository die Löschung. Prüfen Sie die Einstellungen der Organisation und führen Sie den Abbau dann erneut aus.",
+      "forbiddenPartial_one": "GitHub hat das Löschen von Repositories abgelehnt (403), nachdem {{count}} bereits gelöscht wurde, und diese Löschung ist dauerhaft. Ihre Berechtigungen scheinen ausreichend zu sein, daher blockiert wahrscheinlich eine Organisationsrichtlinie oder ein geschütztes Repository den Rest. Prüfen Sie die Einstellungen der Organisation und führen Sie den Abbau dann erneut aus, um ihn abzuschließen.",
+      "forbiddenPartial_other": "GitHub hat das Löschen von Repositories abgelehnt (403), nachdem {{count}} bereits gelöscht wurden, und diese Löschungen sind dauerhaft. Ihre Berechtigungen scheinen ausreichend zu sein, daher blockiert wahrscheinlich eine Organisationsrichtlinie oder ein geschütztes Repository den Rest. Prüfen Sie die Einstellungen der Organisation und führen Sie den Abbau dann erneut aus, um ihn abzuschließen.",
+      "grantButton": "Erweiterte Berechtigungen anfordern",
+      "insufficientPermission": "Unzureichende Berechtigung",
+      "insufficientPermissionHelp": "Der Abbau löscht Repositories. Die normale Anmeldung fordert keine Berechtigung zum Löschen an, fordern Sie daher erweiterte Berechtigungen an, um fortzufahren.",
+      "insufficientPermissionHelpPat": "Der Abbau löscht Repositories, und das Token dieser Sitzung erlaubt das nicht. Die Berechtigungen eines Tokens werden bei der Erstellung auf GitHub festgelegt, melden Sie sich daher erneut mit einem Token an, das das Löschen von Repositories erlaubt.",
+      "needsDeleteScope": "GitHub hat das Löschen von Repositories abgelehnt (403). Die normale Anmeldung fordert keine Berechtigung zum Löschen an. Fordern Sie erweiterte Berechtigungen an und versuchen Sie es erneut, oder archivieren Sie die Repositories stattdessen.",
+      "needsDeleteScopePartial_one": "GitHub hat das Löschen von Repositories abgelehnt (403), nachdem {{count}} bereits gelöscht wurde. Diese Löschung ist dauerhaft. Fordern Sie erweiterte Berechtigungen an und führen Sie den Abbau erneut aus, um ihn abzuschließen.",
+      "needsDeleteScopePartial_other": "GitHub hat das Löschen von Repositories abgelehnt (403), nachdem {{count}} bereits gelöscht wurden. Diese Löschungen sind dauerhaft. Fordern Sie erweiterte Berechtigungen an und führen Sie den Abbau erneut aus, um ihn abzuschließen.",
+      "needsDeleteScopePat": "Sie haben sich mit einem persönlichen Zugriffstoken angemeldet, daher kann Classroom 50 diese Berechtigung nicht für Sie hinzufügen. Erstellen Sie ein Token, das das Löschen von Repositories erlaubt (der delete_repo-Scope bei einem klassischen Token oder Administration: read and write bei einem fein granularen), und melden Sie sich erneut an.",
+      "rateLimited": "GitHub hat die Löschungen aufgrund des Ratenlimits gestoppt, bevor ein Repository gelöscht wurde. Warten Sie einen Moment und führen Sie den Abbau dann erneut aus.",
+      "rateLimitedPartial_one": "GitHub hat die Löschungen aufgrund des Ratenlimits gestoppt, nachdem {{count}} bereits gelöscht wurde, und diese Löschung ist dauerhaft. Warten Sie einen Moment und führen Sie den Abbau dann erneut aus, um ihn abzuschließen.",
+      "rateLimitedPartial_other": "GitHub hat die Löschungen aufgrund des Ratenlimits gestoppt, nachdem {{count}} bereits gelöscht wurden, und diese Löschungen sind dauerhaft. Warten Sie einen Moment und führen Sie den Abbau dann erneut aus, um ihn abzuschließen.",
+      "ssoRequired": "GitHub hat das Löschen von Repositories abgelehnt (403). Diese Organisation erfordert SAML-Single-Sign-on. Autorisieren Sie Ihre Sitzung für diese Organisation auf GitHub und führen Sie den Abbau dann erneut aus.",
+      "ssoRequiredPartial_one": "GitHub hat das Löschen von Repositories abgelehnt (403), nachdem {{count}} bereits gelöscht wurde, und diese Löschung ist dauerhaft. Diese Organisation erfordert SAML-Single-Sign-on. Autorisieren Sie Ihre Sitzung dafür auf GitHub und führen Sie den Abbau dann erneut aus, um ihn abzuschließen.",
+      "ssoRequiredPartial_other": "GitHub hat das Löschen von Repositories abgelehnt (403), nachdem {{count}} bereits gelöscht wurden, und diese Löschungen sind dauerhaft. Diese Organisation erfordert SAML-Single-Sign-on. Autorisieren Sie Ihre Sitzung dafür auf GitHub und führen Sie den Abbau dann erneut aus, um ihn abzuschließen."
     },
     "preflight": {
       "categoryServiceToken": "Service-Token",
       "categoryOrgPolicy": "Organisationsrichtlinie",
-      "title": "Preflight-Prüfung der Organisation fehlgeschlagen",
+      "title": "Prüfung der Organisationseinrichtung fehlgeschlagen",
       "body_one": "Es wurde ein Problem mit {{categories}} dieser Organisation gefunden.",
       "body_other": "Es wurden Probleme mit {{categories}} dieser Organisation gefunden.",
       "reviewFix": "Überprüfen und beheben auf der <settingsLink>Seite mit den Organisationseinstellungen</settingsLink>.",
@@ -1429,8 +1472,8 @@
       "title": "Workflow-Dateien aktualisieren, damit die Bewertung weiter funktioniert?",
       "confirmLabel": "Jetzt aktualisieren",
       "cancelLabel": "Jetzt nicht",
-      "body_one": "1 Classroom-50-Workflow-/Skriptdatei in deinem Konfigurations-Repo ist veraltet und wird aktualisiert:",
-      "body_other": "{{count}} Classroom-50-Workflow-/Skriptdateien in deinem Konfigurations-Repo sind veraltet und werden aktualisiert:",
+      "body_one": "1 Classroom-50-Workflow-/Skriptdatei in Ihrem classroom50-Repository ist veraltet und wird aktualisiert:",
+      "body_other": "{{count}} Classroom-50-Workflow-/Skriptdateien in Ihrem classroom50-Repository sind veraltet und werden aktualisiert:",
       "warning": "Classroom 50 verwaltet diese Dateien, daher ist das Aktualisieren sicher. Sie veraltet zu lassen, kann Funktionen wie den Autograder stoppen. Wenn du eine Datei angepasst hast, wähle <keepMine>Nicht jetzt</keepMine>, um sie vorerst unverändert zu lassen."
     },
     "steps": {
@@ -1457,16 +1500,16 @@
         "remediation": "Öffne die Actions-Einstellungen der Organisation und aktiviere „Allow GitHub Actions to create and approve pull requests“."
       },
       "configRepo": {
-        "title": "Konfigurations-Repository",
-        "what": "Erstellt das private Konfigurations-Repository classroom50 in der Organisation.",
+        "title": "classroom50-Repository",
+        "what": "Erstellt das private classroom50-Repository in der Organisation.",
         "why": "Classroom 50 hat kein Backend — dieses Repo enthält die gesamte Kurskonfiguration, Manifeste, Workflows und Punkte.",
         "remediation": "Dies ist ein erforderlicher Schritt. Führe die Einrichtung erneut aus; wenn sie weiterhin fehlschlägt, bestätige, dass du Besitzerrechte hast und dass keine Organisations-/Enterprise-Richtlinie die Erstellung privater Repositorys blockiert."
       },
       "skeleton": {
-        "title": "Skeleton-Dateien",
+        "title": "Workflow-Dateien",
         "what": "Committet oder aktualisiert die Workflow- und Skriptdateien, die Classroom 50 im Repository classroom50 benötigt.",
         "why": "Diese mitgelieferten Dateien führen Autobewertung, Veröffentlichung und Punktevergabe aus; das erneute Ausführen der Einrichtung aktualisiert sie außerdem auf die neueste Version.",
-        "remediation": "Dies ist ein erforderlicher Schritt. Führe die Einrichtung erneut aus; wenn sie weiterhin fehlschlägt, prüfe, ob du in den Standard-Branch des Repos classroom50 pushen kannst."
+        "remediation": "Dies ist ein erforderlicher Schritt. Führen Sie das Setup erneut aus; falls es weiterhin scheitert, prüfen Sie, ob Sie in den Standard-Branch des classroom50-Repositorys pushen können."
       },
       "branchProtection": {
         "title": "Branch-Schutz",
@@ -1540,8 +1583,8 @@
     "missingOrgOrClassroom": "Organisation oder Kurs fehlt.",
     "couldNotLoad": "Kursdaten konnten nicht geladen werden.",
     "loadingClassroom": "Kurs wird geladen",
-    "configRepo": "Konfigurations-Repository",
-    "configRepoTitle": "Den Ordner dieses Kurses im classroom50-Konfigurations-Repository auf GitHub öffnen",
+    "configRepo": "classroom50-Repository",
+    "configRepoTitle": "Den Ordner dieser Klasse im classroom50-Repository auf GitHub öffnen",
     "somethingWentWrong": "etwas ist schiefgelaufen",
     "archivedReadOnlyNotice": "Dieser Kurs ist archiviert – die Einstellungen sind schreibgeschützt. Verwende oben „Archivierung aufheben“, um Änderungen vorzunehmen.",
     "deleteClassroomAria": "Kurs löschen",
@@ -1649,9 +1692,9 @@
       "resendFailed": "Die Einladung an {{who}} konnte nicht erneut gesendet werden: {{error}}",
       "resentToast": "Die Einladung an {{who}} wurde erneut gesendet.",
       "roleTeacherPlural": "Lehrkräfte",
-      "accessHeadTa": "Organisationsmitglied. Schreibzugriff auf das Konfigurations-Repository.",
-      "accessTa": "Organisationsmitglied. Nur-Lese-Zugriff auf das Konfigurations-Repository.",
-      "accessTeacher": "Organisationsinhaber. Schreibzugriff auf das Konfigurations-Repository.",
+      "accessHeadTa": "Organisationsmitglied. Schreibzugriff auf das classroom50-Repository.",
+      "accessTa": "Organisationsmitglied. Nur-Lese-Zugriff auf das classroom50-Repository.",
+      "accessTeacher": "Organisationsinhaber. Schreibzugriff auf das classroom50-Repository.",
       "pendingCount_one": "{{count}} ausstehend",
       "pendingCount_other": "{{count}} ausstehend",
       "removeSelfTeacherBlocked": "Du kannst dich nicht selbst aus dem Lehrkraft-Team entfernen – dadurch würdest du deinen eigenen Inhaber-Zugriff auf diesen Kursraum verlieren. Bitte eine andere Organisationsinhaberin bzw. einen anderen Organisationsinhaber, dich zu entfernen.",
@@ -1700,8 +1743,7 @@
         "gridLabel": "Rasteransicht",
         "label": "Ansicht",
         "listLabel": "Listenansicht"
-      },
-      "term": "Zeitraum"
+      }
     },
     "claimTeacher": {
       "action": "Dich selbst als Lehrkraft hinzufügen",
@@ -1729,13 +1771,22 @@
       }
     },
     "archiveBody": "Archiviere <classroom>{{classroom}}</classroom>: Der Kursraum verschwindet aus der Standard-Kursraumliste und nimmt keine neuen Aufgaben und Lernenden mehr an. Sein Roster und seine Aufgaben bleiben erhalten, und du kannst die Archivierung später aufheben.",
-    "deleteClassroomBody": "Dadurch wird der Kursraum <classroom>{{classroom}}</classroom> aus der Organisation <org>{{org}}</org> entfernt. Die Aufgaben-Repositories der Lernenden werden nicht gelöscht.",
+    "deleteClassroomBody": "Dies entfernt die Klasse <classroom>{{classroom}}</classroom> aus der Organisation <org>{{org}}</org>, zusammen mit allen Adressen, die für ihre nicht akzeptierten E-Mail-Einladungen gespeichert sind. Aufgaben-Repositories der Studierenden werden nicht gelöscht.",
     "settingsSubtitle": "Konfiguration für den Kursraum <classroom>{{classroom}}</classroom>.",
     "unarchiveBody": "Setze <classroom>{{classroom}}</classroom> wieder auf aktiv: Der Kursraum erscheint wieder in der Standard-Kursraumliste und kann erneut neue Aufgaben und Lernende annehmen.",
     "newButton": {
       "moreOptions": "Weitere Optionen"
     },
-    "viewAssignmentsAria": "Aufgaben für {{classroom}} anzeigen"
+    "viewAssignmentsAria": "Aufgaben für {{classroom}} anzeigen",
+    "inviteCleanup": {
+      "body": "E-Mail-Einladungen behalten jede eingeladene Adresse in einem geheimen Einladungs-Team, damit sie in die Namensliste geschrieben werden kann, wenn diese/r Studierende beitritt. Zuerst wird jede noch möglich zuordenbare Adresse einem GitHub-Konto in der Namensliste von <classroom>{{classroom}}</classroom> zugeordnet, danach werden die übrigen entfernt. Ausstehende Einladungen bleiben gültig, aber eine hier entfernte Adresse wird beim Akzeptieren ihrer Einladung nicht automatisch erfasst.",
+      "button": "Einladungsdaten bereinigen",
+      "buttonTitle": "Die für diese Klasse gespeicherten Einladungs-E-Mails zuordnen und entfernen",
+      "confirm": "Bereinigen",
+      "confirmTitle": "Gespeicherte Einladungs-E-Mails bereinigen?",
+      "done": "Einladungsdaten bereinigt: {{recovered}} der Namensliste zugeordnet, {{purged}} entfernt.",
+      "failed": "Einladungsdaten konnten nicht bereinigt werden: {{error}}"
+    }
   },
   "accept": {
     "githubUser": "GitHub-Benutzer",
@@ -1861,8 +1912,8 @@
     "lateBadge_other": "{{count}} verspätet",
     "downloadCsv": "Punkte herunterladen (CSV)",
     "errors": {
-      "gradebookLoad": "Das Notenbuch konnte nicht geladen werden.",
-      "gradebookLoadWithReason": "Das Notenbuch konnte nicht geladen werden: {{reason}}",
+      "gradebookLoad": "Die gesammelten Bewertungen konnten nicht geladen werden.",
+      "gradebookLoadWithReason": "Die gesammelten Bewertungen konnten nicht geladen werden: {{reason}}",
       "gradebookLoadHint": "Die untenstehenden Zahlen sind möglicherweise unvollständig – versuche es erneut, bevor du darauf reagierst.",
       "retry": "Erneut versuchen",
       "rosterLoad": "Die Kursliste konnte nicht von GitHub geladen werden.",
@@ -1887,7 +1938,7 @@
       "statusFailedWithReason": "Erfassung konnte nicht gestartet werden: {{reason}}",
       "statusFailedHint": "Du kannst sie auf GitHub prüfen oder manuell auslösen.",
       "statusTimeout": "Läuft nach einiger Zeit noch immer. Prüfe den Fortschritt auf GitHub oder aktualisiere diese Seite, sobald die Erfassung abgeschlossen ist.",
-      "workflowOutdated": "Diese Aufgabe konnte nicht eingesammelt werden: Der Collect-Scores-Workflow im classroom50-Konfigurationsrepository dieser Organisation ist veraltet. Aktualisieren Sie die Workflows der Organisation (ein Aktualisierungsbanner erscheint, sobald eine neuere Version verfügbar ist) und versuchen Sie es erneut."
+      "workflowOutdated": "Diese Aufgabe konnte nicht gesammelt werden: Der Collect-Scores-Workflow im classroom50-Repository dieser Organisation ist veraltet. Aktualisieren Sie die Workflows der Organisation (ein Aktualisierungsbanner erscheint, wenn eine neuere Version verfügbar ist) und versuchen Sie es dann erneut."
     },
     "regradeAll": {
       "label": "Alle neu bewerten",
@@ -1953,17 +2004,13 @@
       "failing": "Nicht bestanden",
       "accepted": "Angenommen",
       "notAccepted": "Nicht angenommen",
-      "clear": "Zurücksetzen",
       "sortAria": "Abgaben sortieren",
       "sortRecent": "Neueste zuerst",
       "sortOldest": "Älteste zuerst",
       "allStatuses": "Alle Status",
-      "passingLabel": "Note",
-      "sectionLabel": "Kursabschnitt",
-      "sortLabel": "Sortieren",
-      "submissionLabel": "Status",
       "sortNameFirst": "Nach Vorname",
-      "sortNameLast": "Nach Nachname"
+      "sortNameLast": "Nach Nachname",
+      "pendingHiddenHint": "Gerade eingereichte Arbeit, die noch nicht gesammelt wurde, erscheint unter dieser Sortierung oder diesem Filter möglicherweise nicht. Wechseln Sie zu einer Namenssortierung oder synchronisieren Sie, um sie zu sehen."
     },
     "table": {
       "captionGroup": "Gruppenabgaben",
@@ -1976,7 +2023,7 @@
       "colActions": "Aktionen",
       "openGroupRepo": "Das gemeinsame Gruppen-Repository öffnen",
       "late": "Verspätet",
-      "lateRowTitle": "Die letzte Abgabe wurde nach der Frist gepusht.",
+      "lateRowTitle": "Die neueste Abgabe wurde nach dem Fälligkeitsdatum gepusht.",
       "gradedAt": "Bewertet {{date}}",
       "gradedAtTitle": "Wann der Autograder diese Abgabe zuletzt (neu) bewertet hat. Eine Neubewertung aktualisiert dies, ohne die Abgabezeit zu ändern.",
       "members": "Mitglieder",
@@ -2003,7 +2050,7 @@
       "liveLatestTitle": "Eine neuere Abgabe wurde nach der letzten Sammlung gepusht und ist daher noch nicht bewertet. Führe „Abgaben jetzt synchronisieren“ aus, um sie zu bewerten und zu benoten.",
       "loading": "Abgaben werden geladen…",
       "pendingGrade": "Ausstehend",
-      "pendingGradeTitle": "Abgegeben – Bewertung noch nicht gesammelt. Führe „Abgaben jetzt synchronisieren“ aus oder warte auf die nächtliche Sammlung.",
+      "pendingGradeTitle": "Eingereicht – Bewertung noch nicht gesammelt. Führen Sie „Abgaben jetzt synchronisieren“ aus, um sie zu sammeln.",
       "resolvingNonSubmitters": "Es wird geprüft, wer noch nicht abgegeben hat…",
       "staleCount": "Neu",
       "staleCountTitle": "Diese lernende Person hat mehr Abgaben gepusht, als bewertet wurden. Führe „Abgaben jetzt synchronisieren“ aus, um die neuesten zu bewerten und zu benoten.",
@@ -2111,7 +2158,7 @@
       "blockedTitle": "Diese Repositorys benötigen eine·n Organisations-Admin:",
       "confirmBody_one": "Dies öffnet einen Feedback-PR für das <b>{{count}}</b> Aufgaben-Repository für <b>{{name}}</b>, das noch keinen hat. Repos, die bereits einen Feedback-PR haben, bleiben unberührt.",
       "confirmBody_other": "Dies öffnet einen Feedback-PR für jedes der <b>{{count}}</b> Aufgaben-Repositorys für <b>{{name}}</b>, die noch keinen haben. Repos, die bereits einen Feedback-PR haben, bleiben unberührt.",
-      "confirmHint": "Dies läuft in deinem Browser, ein Repository nach dem anderen, und kann bei einer großen Klasse eine Weile dauern. Lass diesen Tab geöffnet, bis es abgeschlossen ist.",
+      "confirmHint": "Es läuft in Ihrem Browser, ein Repository nach dem anderen, und kann bei einer großen Klasse eine Weile dauern. Lassen Sie diesen Tab geöffnet, bis es abgeschlossen ist.",
       "confirmLabel_one": "PR öffnen",
       "confirmLabel_other": "PRs öffnen",
       "failedHint": "Dies ist oft ein vorübergehender GitHub-Fehler – führe die Aktion erneut aus, um nur die Repositorys zu wiederholen, denen noch ein PR fehlt.",
@@ -2161,8 +2208,8 @@
       "subtitle_other": "Gilt für {{count}} Lernende, die diese Aufgabe angenommen haben.",
       "title": "Repository-Zugriff der Lernenden festlegen",
       "titleEmptyRoster": "Noch hat keine lernende Person angenommen",
-      "warning_one": "Dies setzt die Rolle von {{count}} lernenden Person auf ihrem eigenen Repository auf {{level}}. Admin ermöglicht es ihr, Repository-Einstellungen und bei einem privaten Repository dessen Sichtbarkeit zu ändern. Bestehende Mitarbeitende sind ansonsten nicht betroffen.",
-      "warning_other": "Dies setzt die Rollen von {{count}} Lernenden auf ihren eigenen Repositorys auf {{level}}. Admin ermöglicht es ihnen, Repository-Einstellungen und bei einem privaten Repository dessen Sichtbarkeit zu ändern. Bestehende Mitarbeitende sind ansonsten nicht betroffen.",
+      "warning_one": "Dies setzt die Rolle von {{count}} Studierenden für das eigene Repository auf {{level}}. Admin erlaubt ihnen, Repository-Einstellungen zu ändern und Mitarbeitende zu verwalten; die Sicherheitsstandardeinstellungen der Organisation verhindern weiterhin, dass Mitglieder die Sichtbarkeit eines Repositorys ändern. Vorhandene Mitarbeitende sind sonst nicht betroffen.",
+      "warning_other": "Dies setzt die Rollen von {{count}} Studierenden für ihre eigenen Repositories auf {{level}}. Admin erlaubt ihnen, Repository-Einstellungen zu ändern und Mitarbeitende zu verwalten; die Sicherheitsstandardeinstellungen der Organisation verhindern weiterhin, dass Mitglieder die Sichtbarkeit eines Repositorys ändern. Vorhandene Mitarbeitende sind sonst nicht betroffen.",
       "working": "Repositorys werden aktualisiert"
     },
     "bulkFeatures": {
@@ -2191,14 +2238,14 @@
       "assemblyError": "Alle Abgaben wurden heruntergeladen, aber die kombinierte ZIP-Datei war zu groß, um sie im Browser zusammenzustellen. Filtere nach Kursabschnitt und lade in kleineren Chargen herunter.",
       "confirmBody_one": "Dies lädt die neueste Abgabe der <b>{{count}}</b> lernenden Person herunter, die <b>{{name}}</b> abgegeben hat, gebündelt in einer einzigen ZIP-Datei.",
       "confirmBody_other": "Dies lädt die neuesten Abgaben der <b>{{count}}</b> Lernenden herunter, die <b>{{name}}</b> abgegeben haben, gebündelt in einer einzigen ZIP-Datei.",
-      "confirmHint": "Es läuft in deinem Browser, ein Repository nach dem anderen, daher kann es bei einer großen Klasse eine Weile dauern. Lass diesen Tab geöffnet, bis es fertig ist.",
+      "confirmHint": "Es läuft in Ihrem Browser, ein Repository nach dem anderen, und kann bei einer großen Klasse eine Weile dauern. Lassen Sie diesen Tab geöffnet, bis es abgeschlossen ist.",
       "confirmLabel_one": "Abgabe herunterladen",
       "confirmLabel_other": "Abgaben herunterladen",
       "emptyHint": "Die lernende Person hat die Aufgabe angenommen, aber noch keine Arbeit gepusht, daher gibt es keine Abgabe zum Einbeziehen.",
       "emptyTitle": "Bei diesen Repositorys gab es nichts herunterzuladen:",
       "failedHint": "Dies ist oft ein vorübergehender GitHub-Fehler – führe die Aktion erneut aus, um es noch einmal zu versuchen.",
       "failedTitle": "Diese Abgaben konnten nicht heruntergeladen werden:",
-      "largeClassWarning": "Dies lädt {{count}} Abgaben herunter und erstellt die kombinierte ZIP-Datei in deinem Browser, was viel Speicher verbrauchen kann und bei einer sehr großen Klasse langsam sein oder fehlschlagen kann. Erwäge, zuerst nach Kursabschnitt zu filtern.",
+      "largeClassWarning": "Dies lädt {{count}} Abgaben herunter und erstellt das kombinierte Zip in Ihrem Browser, was viel Arbeitsspeicher verbrauchen kann und bei einer sehr großen Klasse langsam sein oder fehlschlagen kann. Erwägen Sie, zuerst nach Abschnitt zu filtern.",
       "menuLabel": "Alle Abgaben herunterladen",
       "nothingDownloaded": "Es wurde keine Datei heruntergeladen – keine der ausgewählten Lernenden hatte eine Abgabe zum Abrufen.",
       "runError": "Der Download konnte nicht abgeschlossen werden. Bitte versuche es erneut.",
@@ -2362,7 +2409,7 @@
       "resultHeadline_other": "{{count}} Aufgaben migriert.",
       "subtitle": "Aktualisiere die Aufgaben dieses Kurses auf das neueste Konfigurationsschema.",
       "title": "Kurskonfiguration migrieren",
-      "warning": "Dies erfasst die Einstellungen jeder Aufgabe explizit, sodass jedes Werkzeug sie gleich liest und die neuesten Funktionen (etwa die Live-Abgabeverfolgung) aktiviert werden. Es ändert keine Note, keine Frist und keinen Zugriff einer studierenden Person, und du kannst wie zuvor weiterarbeiten.",
+      "warning": "Dies erfasst die Einstellungen jeder Aufgabe explizit, sodass jedes Tool sie gleich liest und die neuesten Funktionen (etwa die Live-Abgabenverfolgung) aktiviert werden. Es ändert keine Bewertung, kein Fälligkeitsdatum und keinen Zugriff einer/eines Studierenden, und Sie können wie zuvor weiterarbeiten.",
       "working": "Aufgaben werden aktualisiert"
     },
     "rowAutograde": {
@@ -2421,7 +2468,7 @@
       "clearLabel": "Punktzahl-Überschreibung für {{name}} aufheben",
       "currentAutograded": "Automatisch bewertete Punktzahl",
       "descriptionAuto": "Geben Sie eine Punktzahl für {{name}} ein, um das automatisch bewertete Ergebnis zu überschreiben. Die automatisch bewertete Punktzahl bleibt erhalten und wird wiederhergestellt, wenn Sie die Überschreibung aufheben.",
-      "descriptionManual": "Geben Sie eine Punktzahl für {{name}} ein. Sie wird im Notenbuch gespeichert und von der automatischen Bewertung nicht verändert.",
+      "descriptionManual": "Geben Sie eine Bewertung für {{name}} ein. Sie wird mit den gesammelten Bewertungen gespeichert und durch das Autograding nicht geändert.",
       "edit": "Bewertung bearbeiten",
       "editLabel": "Bewertung für {{name}} bearbeiten",
       "inputLabel": "Punktzahl",
@@ -2475,7 +2522,7 @@
     "selfNotice": "Dies ist dein angemeldetes Konto, daher kann es hier nicht aus der Organisation entfernt werden.",
     "inviting": "Einladung wird gesendet …",
     "inviteToOrg": "In Organisation einladen",
-    "notMemberNoId": "Diese:r Lernende steht auf einer Teilnehmerliste, ist aber kein Organisationsmitglied. Es ist noch keine GitHub-ID hinterlegt, lade die Person daher über die Seite „Lernende“ ihres Kurses ein.",
+    "notMemberNoId": "Diese/r Studierende steht auf einer Namensliste, ist aber kein Organisationsmitglied. Es liegt noch keine GitHub-ID vor, laden Sie sie/ihn daher über die Namenslistenseite der Klasse ein.",
     "removing": "Wird entfernt …",
     "removeFromOrg": "Aus Organisation entfernen",
     "inviteFailed": "{{label}} konnte nicht eingeladen werden: {{reason}}",
@@ -2532,7 +2579,8 @@
         "no-id": "Keine GitHub-ID hinterlegt, um sie zuzuordnen.",
         "not-member": "Kein Organisationsmitglied – lade sie zuerst ein.",
         "not-on-classroom": "Nicht in diesem Kurs.",
-        "resolve-failed": "Ihr aktuelles GitHub-Konto konnte nicht ermittelt werden."
+        "resolve-failed": "Ihr aktuelles GitHub-Konto konnte nicht ermittelt werden.",
+        "pending-email-invite": "Per E-Mail eingeladen und noch nicht akzeptiert – brechen Sie die Einladung stattdessen auf der Namenslistenseite der Klasse ab."
       },
       "starting": "Wird gestartet …"
     },
@@ -2554,7 +2602,9 @@
     "subtitle": "Alle in der GitHub-Organisation <orgLink>{{org}}</orgLink> und die Kursräume, denen sie angehören.",
     "usernameWithId": "<username>@{{username}}</username> <meta>· ID {{id}}</meta>",
     "inviteMalformedId": "{{who}} kann nicht eingeladen werden: „{{githubId}}“ ist keine gültige GitHub-ID. Korrigiere die Zelle github_id in roster.csv.",
-    "inviteMissingId": "{{who}} kann nicht eingeladen werden: keine GitHub-ID hinterlegt."
+    "inviteMissingId": "{{who}} kann nicht eingeladen werden: keine GitHub-ID hinterlegt.",
+    "badgeInvitePending": "Einladung ausstehend",
+    "invitePendingNotice": "Diese/r Studierende wurde per E-Mail eingeladen und hat noch nicht akzeptiert, daher gibt es kein GitHub-Konto in den Unterlagen. Es ist nichts falsch – die Angaben werden beim Beitritt automatisch ergänzt. Sie können die Einladung auf der Namenslistenseite der Klasse abbrechen."
   },
   "components": {
     "avatar": {
@@ -2679,7 +2729,7 @@
         "description": "Kopiere eine vorhandene Aufgabe in {{org}} in den Kursraum <classroom>{{classroom}}</classroom>. Name, Vorlage, Tests, Laufzeit, Fälligkeitsdatum und andere Einstellungen werden kopiert; Repositories und Bewertungen der Lernenden nicht."
       },
       "repoAccess": {
-        "adminWarning": "Lege die Rolle jeder mitarbeitenden Person fest oder füge Mitarbeitende hinzu bzw. entferne sie. <b>Admin</b> ermöglicht es einer mitarbeitenden Person, Repository-Einstellungen und bei einem privaten Repository dessen Sichtbarkeit zu ändern.",
+        "adminWarning": "Legen Sie die Rolle jeder Mitarbeiterin bzw. jedes Mitarbeiters fest oder fügen Sie Mitarbeitende hinzu und entfernen sie. <b>Admin</b> erlaubt einer mitwirkenden Person, Repository-Einstellungen zu ändern und Mitarbeitende zu verwalten; die Sicherheitsstandardeinstellungen der Organisation verhindern weiterhin, dass Mitglieder die Sichtbarkeit eines Repositorys ändern.",
         "loading": "Mitarbeitende werden geladen",
         "needsAdmin": "Du brauchst Admin-Zugriff auf dieses Repository, um seine Mitarbeitenden zu ändern.",
         "newRole": "Rolle für die neue mitarbeitende Person",
@@ -2724,7 +2774,7 @@
   },
   "skeletonDrift": {
     "action": "Workflows jetzt aktualisieren",
-    "body": "Die GitHub-Actions-Workflows im classroom50-Konfigurations-Repo dieser Organisation sind veraltet. Aktualisiere sie hier, damit Bewertung, Notenerfassung und Pages-Veröffentlichung weiter funktionieren.",
+    "body": "Die GitHub-Actions-Workflows im classroom50-Repository dieser Organisation sind veraltet. Aktualisieren Sie sie hier, damit Bewertung, Bewertungssammlung und Pages-Veröffentlichung weiter funktionieren.",
     "overwriteWarning": "Beim Aktualisieren werden die generierten Workflow-Dateien (collect-scores, regrade, publish-pages, autograde-runner) mit den Standardwerten überschrieben, wobei manuelle Änderungen ersetzt werden – du bestätigst zuerst.",
     "overwriteWarning_label": "Hinweis:",
     "title": "Die Classroom-Workflow-Dateien sind veraltet",
@@ -2755,7 +2805,7 @@
       "title": "Etwas ist schiefgelaufen"
     },
     "notAMember": {
-      "instructions": "Bitte deine Lehrkraft, dich in die Kursliste aufzunehmen und dir eine Einladung zu senden (dies ist über die Kurslisten-Seite des Kurses möglich). GitHub sendet die Einladung per E-Mail an dein Konto – nimm sie an und prüfe dann hier erneut. Wenn du gerade eine Einladung angenommen hast, gib GitHub einen Moment Zeit.",
+      "instructions": "Bitten Sie Ihre Lehrkraft, Sie zur Namensliste der Klasse hinzuzufügen und Ihnen eine Einladung zu senden (dies ist über die Namenslistenseite der Klasse möglich). GitHub sendet die Einladung per E-Mail an Ihr Konto – akzeptieren Sie sie und prüfen Sie dann hier erneut. Wenn Sie eine Einladung gerade erst akzeptiert haben, geben Sie GitHub einen Moment, um nachzuziehen.",
       "title": "Noch kein Mitglied",
       "body": "Du bist noch kein Mitglied der Organisation <org>{{org}}</org> und kannst diese Aufgabe daher nicht annehmen. Zunächst ist ein Beitritt erforderlich – eine Einladung zur GitHub-Organisation gibt dir Zugriff, um dein Aufgaben-Repository zu erstellen.",
       "checkAgain": "Erneut prüfen"
@@ -2779,7 +2829,6 @@
     "title": "Du bist offline"
   },
   "orgActivity": {
-    "clearFilters": "Zurücksetzen",
     "detail": {
       "source": "bei {{location}}",
       "status": "HTTP {{code}}"
@@ -2868,7 +2917,7 @@
       "heading": "Service-Tokens verwalten",
       "loading": "Deine Organisationen werden geprüft …",
       "manage": "Verwalten",
-      "subheading": "Service-Token-Status über jede Organisation hinweg, deren Inhaber:in du bist. Erneuere ein Token, bevor es abläuft, damit die nächtliche Punktesammlung weiterläuft."
+      "subheading": "Status der Service-Tokens über jede Organisation hinweg, die Ihnen gehört. Erneuern Sie ein Token, bevor es abläuft, damit die Bewertungssammlung weiter funktioniert."
     },
     "appearance": {
       "dark": "Dunkel",
@@ -2901,19 +2950,31 @@
       "subheading": "Steuere Bewegungen der Oberfläche wie Seitenübergänge, Menüs und andere animierte Effekte.",
       "system": "System",
       "systemHint": "Der Einstellung „Bewegung reduzieren“ deines Geräts folgen."
+    },
+    "elevatedScope": {
+      "heading": "Erweiterte Berechtigungen",
+      "patNote": "Sie haben sich mit einem persönlichen Zugriffstoken angemeldet, dessen Berechtigungen bei der Erstellung auf GitHub festgelegt werden. Um zu ändern, was diese Sitzung tun kann, erstellen Sie ein Token mit den benötigten Berechtigungen und melden Sie sich erneut an.",
+      "removeButton": "Diese Berechtigung nicht mehr verwenden",
+      "requestButton": "Berechtigung zum Löschen von Repositories anfordern",
+      "status": {
+        "granted": "Diese Sitzung kann Repositories löschen.",
+        "missing": "Diese Sitzung kann keine Repositories löschen.",
+        "unknown": "Ihr Token meldet seine Berechtigungen nicht, daher kann Classroom 50 nicht erkennen, ob es Repositories löschen kann."
+      },
+      "subheading": "Das Abbauen einer Organisation erfordert die Berechtigung zum Löschen von Repositories, die die normale Anmeldung nicht anfordert. Gewähren Sie diese Berechtigung nur, wenn Sie sie benötigen, und widerrufen Sie sie auf GitHub, wenn Sie fertig sind."
     }
   },
   "pagesErrors": {
     "assignmentNotInManifest": "Die Aufgabe „{{assignmentSlug}}“ ist nicht in den veröffentlichten Aufgaben dieses Klassenzimmers enthalten. Überprüfe den Link oder bitte deine Lehrkraft, die Aufgabe zu veröffentlichen.",
     "autograderLabel": "Autograder „{{autograderName}}“",
-    "autograderMalformed": "Der Autograder „{{autograderName}}“ enthält möglicherweise fehlerhaftes YAML. Bitte deine Lehrkraft, die Datei im Konfigurations-Repo zu prüfen.",
+    "autograderMalformed": "Der Autograder „{{autograderName}}“ enthält möglicherweise fehlerhaftes YAML. Bitten Sie Ihre Lehrkraft, die Datei im classroom50-Repository zu überprüfen.",
     "classroomFetchFailed": "Die veröffentlichten Dateien dieses Klassenzimmers konnten nicht geladen werden (HTTP {{status}}). Bitte deine Lehrkraft zu bestätigen, dass das Klassenzimmer veröffentlicht ist, und versuche es dann erneut.",
     "classroomNotPublished": "Dieses Klassenzimmer ist noch nicht veröffentlicht. Es existiert möglicherweise nicht, oder der Veröffentlichungs-Workflow wurde noch nicht ausgeführt. Bitte deine Lehrkraft, es zu veröffentlichen, und versuche es dann erneut.",
     "deployInFlight": "Die veröffentlichten Dateien des Klassenzimmers werden möglicherweise noch bereitgestellt. Warte eine Minute und versuche es dann erneut.",
     "fetchFailed": "{{label}} konnte nicht geladen werden (HTTP {{status}}). Bitte deine Lehrkraft zu bestätigen, dass das Klassenzimmer veröffentlicht ist, und versuche es dann erneut.",
     "manifestInvalidShape": "Die veröffentlichte Aufgabenliste dieses Klassenzimmers ist fehlerhaft. Bitte deine Lehrkraft, die Classroom-50-Konfiguration zu prüfen.",
     "manifestVersionUnsupported": "Dieses Klassenzimmer verwendet ein neueres Aufgabenformat (v{{version}}), als diese Version von Classroom 50 unterstützt. Lade die Seite neu oder bitte deine Lehrkraft, Classroom 50 zu aktualisieren.",
-    "notPublished": "{{label}} ist noch nicht veröffentlicht. Bitte deine Lehrkraft zu bestätigen, dass die Datei im Konfigurations-Repo vorhanden ist und dass der Veröffentlichungs-Workflow ausgeführt wurde."
+    "notPublished": "{{label}} ist noch nicht veröffentlicht. Bitten Sie Ihre Lehrkraft zu bestätigen, dass die Datei im classroom50-Repository existiert und der Veröffentlichungs-Workflow ausgeführt wurde."
   },
   "migration": {
     "access": {
@@ -2931,7 +2992,7 @@
       "title": "Zugriff erteilen, um fortzufahren"
     },
     "blocker": {
-      "dir_exists": "In dieser Organisation existiert bereits eine Klasse namens „{{shortName}}“. Wähle einen anderen Kurznamen, um fortzufahren.",
+      "dir_exists": "In dieser Organisation existiert bereits eine Klasse namens „{{shortName}}“. Wählen Sie einen anderen Kurznamen, um fortzufahren.",
       "needs_org_setup": "„{{org}}“ ist noch nicht für Classroom 50 eingerichtet – führe zuerst das Organisations-Setup aus und versuche es dann erneut.",
       "source_org_access": "Classroom 50 kann die Starter-Repositorys in „{{org}}“ nicht lesen – der App wurde kein Zugriff auf diese Organisation erteilt."
     },
@@ -2951,20 +3012,20 @@
       "modalReuseNote_other": "{{count}} Aufgaben werden vorhandene Vorlagen-Repositorys wiederverwenden.",
       "modalSkipNote_one": "1 Aufgabe wird übersprungen und nicht importiert.",
       "modalSkipNote_other": "{{count}} Aufgaben werden übersprungen und nicht importiert.",
-      "modalSummary_one": "Dadurch wird die Klasse „{{shortName}}“ in {{org}} erstellt, ein GitHub-Team hinzugefügt und 1 Aufgaben-Repository kopiert.",
-      "modalSummary_other": "Dadurch wird die Klasse „{{shortName}}“ in {{org}} erstellt, GitHub-Teams hinzugefügt und {{count}} Aufgaben-Repositorys kopiert.",
+      "modalSummary_one": "Dies erstellt die Klasse „{{shortName}}“ in {{org}}, fügt ein GitHub-Team hinzu und kopiert 1 Aufgaben-Repository.",
+      "modalSummary_other": "Dies erstellt die Klasse „{{shortName}}“ in {{org}}, fügt GitHub-Teams hinzu und kopiert {{count}} Aufgaben-Repositories.",
       "modalTitle": "Dieser Schritt ist schwer rückgängig zu machen",
       "name": "Name der neuen Klasse",
-      "nameHelp": "Der Anzeigename für die in deiner Classroom-50-Organisation erstellte Klasse – wird dir und den Lernenden angezeigt. Er kann dem Namen der Quellkursumgebung entsprechen oder beliebig gewählt werden. Standardmäßig wird der Quellname verwendet.",
+      "nameHelp": "Der Anzeigename für die in Ihrer Classroom-50-Organisation erstellte Klasse – wird Ihnen und den Studierenden angezeigt. Er kann dem Namen der Quellklasse entsprechen oder beliebig sein. Standardmäßig der Quellname.",
       "noneSelected": "Keine Aufgaben ausgewählt – wähle mindestens eine zum Importieren aus oder gehe zurück.",
       "preflightError": "Die Importvorschau konnte nicht erstellt werden.",
-      "shortName": "Neue Klassen-ID (Kurzname)",
-      "shortNameHelp": "Der URL-sichere Bezeichner für die Klasse in deiner Zielorganisation (z. B. cs50-fall). Er wird zum Konfigurationsordner und zu GitHub-Teamnamen und stellt jedem Lernenden-Repository ein Präfix voran, daher kann er später nicht mehr geändert werden. Wird automatisch aus dem Namen der Quellkursumgebung ausgefüllt; bearbeite ihn, wenn du eine andere ID möchtest.",
+      "shortName": "ID der neuen Klasse (Kurzname)",
+      "shortNameHelp": "Die URL-sichere Kennung für die Klasse in Ihrer Zielorganisation (zum Beispiel cs50-fall). Sie wird zum Konfigurationsordner und zu den GitHub-Teamnamen und stellt jedem Repository der Studierenden ein Präfix voran, daher kann sie später nicht geändert werden. Automatisch aus dem Namen der Quellklasse gefüllt; bearbeiten Sie sie, wenn Sie eine andere ID wünschen.",
       "suffix": "Suffix für Vorlagen-Repository",
       "suffixHelp": "Optionaler Text, der an jeden kopierten Vorlagen-Repository-Namen angehängt wird (z. B. wird aus hw1 dann hw1-f26). Verwende ihn nur, wenn in dieser Organisation bereits ein Repository mit dem Namen der Aufgabe existiert und der Import andernfalls kollidieren würde. In den meisten Fällen leer lassen.",
       "suffixPlaceholder": "optional",
       "term": "Zeitraum",
-      "termHelp": "Optionale Bezeichnung für den Zeitraum, in dem diese Klasse läuft (z. B. Herbst-2026). Wird bei der Klasse angezeigt und in ihren Einstellungen gespeichert; sie wirkt sich nicht auf Repository- oder Teamnamen aus.",
+      "termHelp": "Optionale Bezeichnung dafür, wann diese Klasse läuft (zum Beispiel Fall-2026). Wird bei der Klasse angezeigt und in ihren Einstellungen gespeichert; sie beeinflusst keine Repository- oder Teamnamen.",
       "termPlaceholder": "z. B. Herbst-2026",
       "title": "Prüfen, was importiert wird",
       "updating": "Vorschau wird aktualisiert …"
@@ -2992,7 +3053,7 @@
       "summaryComplete": "Import abgeschlossen.",
       "summaryCounts": "{{generated}} generiert, {{reused}} wiederverwendet, {{skipped}} übersprungen.",
       "summaryPartial": "Import abgeschlossen, einige Aufgaben wurden übersprungen.",
-      "viewClass": "Neue Klasse öffnen"
+      "viewClass": "Die neue Klasse öffnen"
     },
     "gate": {
       "body": "„{{org}}“ ist noch keine Classroom-50-Organisation. Führe das einmalige Setup aus und komm dann zum Importieren zurück.",
@@ -3005,8 +3066,8 @@
     "item": {
       "assignmentBadge": "Aufgabe",
       "branchLabel": "Branch",
-      "deadlineLabel": "Abgabefrist",
-      "emptyRepo": "Leeres Repo (nur Autograde-Shim)",
+      "deadlineLabel": "Fälligkeitsdatum",
+      "emptyRepo": "Neues Repo (README + Autograding-Dateien)",
       "feedbackLabel": "Feedback-PR",
       "groupSizeLabel": "Max. Gruppengröße",
       "no": "Deaktiviert",
@@ -3062,7 +3123,7 @@
       "execute": "Importieren",
       "select": "Kursumgebung wählen"
     },
-    "subtitle": "Bring einen bestehenden GitHub Classroom – seine Aufgaben und Starter-Repositorys – als neue Klasse in diese Organisation. Du prüfst und bestätigst alles, bevor etwas erstellt wird.",
+    "subtitle": "Bringen Sie ein bestehendes GitHub Classroom – seine Aufgaben und Starter-Repositories – als neue Klasse in diese Organisation ein. Sie überprüfen und bestätigen alles, bevor etwas erstellt wird.",
     "title": "Aus GitHub Classroom importieren"
   },
   "serviceTokenHealth": {
@@ -3170,7 +3231,6 @@
     "summaryPassMargin_other": "Alle {{total}} geprüften Farbpaare erfüllen ihre WCAG-Kontrastuntergrenze. {{count}} bestehen, liegen aber unter unserem empfohlenen Sicherheitsspielraum.",
     "title": "Farbkontrastprüfung",
     "vpat": {
-      "clearFilter": "Filter zurücksetzen",
       "col": {
         "assessed": "Bewertet",
         "conformance": "Konformität",
@@ -3181,7 +3241,6 @@
       "empty": "Keine Kriterien entsprechen diesem Filter.",
       "filterAll": "Alle Status",
       "filterAria": "Nach Konformitätsstatus filtern",
-      "filterLabel": "Status",
       "generated": "Berichtsdatum {{generated}}",
       "heading": "Konformitätsbericht (VPAT)",
       "loadError": "Der Konformitätsbericht konnte nicht geladen werden.",
