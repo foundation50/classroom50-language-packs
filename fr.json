@@ -47,7 +47,9 @@
       "previous": "Page précédente",
       "next": "Page suivante"
     },
-    "linkToSection": "Lien vers {{section}}"
+    "linkToSection": "Lien vers {{section}}",
+    "clear": "Effacer",
+    "clearFilter": "Effacer le filtre"
   },
   "notFound": {
     "title": "Page introuvable",
@@ -200,7 +202,17 @@
     "patTitleFineGrained": "Se connecter avec un jeton d'accès personnel à portée restreinte",
     "sessionExpired": "Votre session a expiré — reconnectez-vous pour continuer.",
     "usePersonalAccessTokenClassic": "Utiliser un jeton d'accès personnel (classique)",
-    "usePersonalAccessTokenFineGrained": "Utiliser un jeton d'accès personnel (à portée restreinte)"
+    "usePersonalAccessTokenFineGrained": "Utiliser un jeton d'accès personnel (à portée restreinte)",
+    "elevated": {
+      "body": "Le démantèlement d'une organisation supprime des dépôts. Reconnectez-vous pour accorder cet accès. Il reste autorisé pour Classroom 50 jusqu'à ce que vous le révoquiez sur GitHub.",
+      "browserButton": "Continuer dans le navigateur",
+      "deviceButton": "Utiliser un code d'appareil",
+      "deviceHint": "Utilisez un code d'appareil lorsque la connexion par navigateur ne peut pas revenir à cette page, par exemple sur localhost.",
+      "revokeBody": "Reconnectez-vous pour obtenir un jeton sans cette autorisation. Votre jeton précédent reste valide sur GitHub jusqu'à ce que vous y révoquiez l'accès de cette application.",
+      "revokeLink": "Examiner l'accès de cette application sur GitHub",
+      "revokeTitle": "Cesser d'utiliser l'autorisation de supprimer des dépôts",
+      "title": "Demander l'autorisation de supprimer des dépôts"
+    }
   },
   "documentTitle": {
     "assignments": "Devoirs",
@@ -224,9 +236,9 @@
   },
   "students": {
     "addTitle": "Ajouter un membre",
-    "addHint": "Saisissez un nom d'utilisateur GitHub pour ajouter un étudiant avec ses informations, ou un e-mail pour envoyer une invitation à l'organisation. Les invitations par e-mail ne capturent ni nom ni section — ajoutez-les plus tard par nom d'utilisateur ou en téléversant une liste.",
+    "addHint": "Saisissez un nom d'utilisateur GitHub pour ajouter un étudiant avec ses détails, ou une adresse e-mail pour envoyer une invitation à l'organisation. Une invitation par e-mail conserve le nom et la section que vous saisissez sur une ligne de registre en attente jusqu'à ce que l'étudiant accepte.",
     "addRoleLabel": "Rôle",
-    "addStaffHint": "Les enseignant·e·s, les AE responsables et les AE sont ajouté·e·s par nom d'utilisateur GitHub. Les enseignant·e·s et les AE responsables obtiennent un accès en écriture au dépôt de configuration du cours ; les AE obtiennent un accès en lecture seule. Un·e enseignant·e reçoit le rôle de propriétaire de l'organisation.",
+    "addStaffHint": "Les enseignants, les responsables d'AE et les AE sont ajoutés par nom d'utilisateur GitHub. Les enseignants et les responsables d'AE obtiennent un accès en écriture au dépôt classroom50 ; les AE obtiennent un accès en lecture seule. Un enseignant se voit accorder le rôle de propriétaire de l'organisation.",
     "namePlaceholder": "Nom (facultatif)",
     "usernamePlaceholder": "github-username",
     "emailPlaceholder": "eleve@universite.edu (facultatif)",
@@ -255,7 +267,7 @@
     "copyInviteLinkAria": "Copier le lien d'invitation",
     "copied": "Copié",
     "copy": "Copier",
-    "onboardingLinkHint": "Envoyez ce lien d'accueil par e-mail aux élèves que vous avez invités par e-mail :",
+    "onboardingLinkHint": "Invitez d'abord les étudiants depuis le registre, puis envoyez-leur ce lien par e-mail pour qu'ils puissent accepter l'invitation et se connecter :",
     "onboardingLinkAria": "Lien d'accueil pour l'élève",
     "copyOnboardingLinkAria": "Copier le lien d'accueil",
     "resendMissingId": "Impossible de renvoyer l'invitation pour {{username}} : identifiant GitHub manquant. Rajoutez-le à la liste.",
@@ -281,7 +293,8 @@
       "colName": "Nom",
       "colSection": "Section",
       "colRole": "Rôle",
-      "empty": "Personne n'est encore répertorié dans roster.csv."
+      "empty": "Personne n'est encore répertorié dans roster.csv.",
+      "invitePending": "Invité par e-mail — n'a pas encore rejoint"
     },
     "classroomTeamLabel": "Équipe de la classe",
     "teamNotYet": "Pas encore dans l'équipe",
@@ -308,11 +321,10 @@
     "failedInviteNotSent": "Aucune invitation n'a été envoyée à {{who}} — réessayez.",
     "failedInviteNoTarget": "Cette invitation n'a ni nom d'utilisateur GitHub ni e-mail, elle ne peut donc pas être renvoyée — ignorez-la et rajoutez la personne.",
     "pendingReview": "Examiner",
-    "inviteLinksHint": "Partagez l'un ou l'autre lien avec les étudiants pour qu'ils puissent rejoindre cette classe.",
+    "inviteLinksHint": "Invitez d'abord les étudiants depuis le registre — GitHub envoie une invitation par e-mail à chacun. Ces liens n'ajoutent personne par eux-mêmes ; partagez-en un pour qu'un étudiant déjà invité puisse accepter et se connecter.",
     "onboardingLinkLabel": "Lien d'intégration à la classe",
     "nativeInviteLabel": "Lien d'invitation à l'organisation GitHub",
     "detailTitle": "Détails du membre",
-    "pendingNoEdit": "Les détails du profil pourront être modifiés une fois que cet étudiant aura rejoint l'organisation.",
     "needsAttentionInOrgHelp": "{{label}} est membre de l'organisation mais n'est pas inscrit·e à ce cours. Ajoutez-le·la comme élève ici — attribuez les rôles d'enseignant·e ou d'AE dans les Paramètres du cours.",
     "needsAttentionNotInOrgHelp": "{{label}} figure sur la liste mais n'est pas membre de l'organisation. Invitez-le dans l'organisation pour l'inscrire.",
     "assignRoleAction": "Ajouter au cours",
@@ -404,9 +416,9 @@
       "malformedInviteId": "github_id invalide dans roster.csv."
     },
     "emptyTitle": "Aucun membre pour le moment",
-    "emptyBody": "Partagez le lien d'intégration ci-dessus avec vos élèves, ou ajoutez des enseignant·e·s et des AE dans les Paramètres. Une fois que les personnes auront accepté l'invitation et se seront connectées, elles apparaîtront ici.",
+    "emptyBody": "Invitez des étudiants depuis le registre pour les inscrire (ou ajoutez des enseignants et des AE dans les Paramètres) — le lien d'intégration n'ajoute personne par lui-même, il permet seulement à un étudiant déjà invité d'accepter. Une fois que les personnes acceptent l'invitation et se connectent, elles apparaîtront ici.",
     "pendingOwnerOnly": "Les invitations en attente ne sont visibles que par les propriétaires de l'organisation, elles ne sont donc pas affichées ici. Les membres inscrits (ci-dessous) sont toujours affichés.",
-    "syncRosterTitle": "Ajouter les membres de l'équipe manquants dans roster.csv (métadonnées uniquement)",
+    "syncRosterTitle": "Actualiser roster.csv à partir des équipes GitHub de la classe",
     "syncUpToDate": "La liste est déjà à jour.",
     "syncAdded_one": "{{count}} membre d'équipe ajouté à la liste.",
     "syncAdded_other": "{{count}} membres d'équipe ajoutés à la liste.",
@@ -435,9 +447,9 @@
     "importFailed": "Échec de l'importation",
     "uploadTitle": "Importer",
     "uploadDropPrompt": "Déposez un fichier ici, ou cliquez pour choisir",
-    "uploadHintAll": "Un CSV de liste, une liste de noms d'utilisateur GitHub ou une liste d'adresses e-mail (une par ligne).",
-    "detectedFormat": "Format détecté",
-    "uploadKindRosterCsv": "CSV de liste (colonne username)",
+    "uploadHintAll": "Un CSV de registre avec une colonne github_id, username ou email — ou une simple liste de noms d'utilisateur GitHub ou d'adresses e-mail, un par ligne. Les lignes n'ayant qu'un e-mail sont invitées par e-mail.",
+    "detectedFormat": "Fichier lu comme",
+    "uploadKindRosterCsv": "CSV de registre",
     "uploadKindUsernameList": "Noms d'utilisateur GitHub (un par ligne)",
     "uploadKindEmailList": "Adresses e-mail (une par ligne)",
     "chooseFile": "Choisir un fichier",
@@ -447,19 +459,8 @@
     "nameColumn": "Nom",
     "emailColumn": "E-mail",
     "sectionColumn": "Section",
-    "noValidUsernames": "Aucun nom d'utilisateur GitHub valide n'a été trouvé dans ce fichier.",
-    "missingUsernameHeader": "Il manque à ce fichier une colonne « username » obligatoire.",
-    "expectedHeaders": "Ajoutez une ligne d'en-tête avec une colonne username (obligatoire), plus l'une de ces colonnes facultatives : {{headers}}. Ou importez un fichier texte avec un nom d'utilisateur GitHub par ligne.",
+    "expectedHeaders": "Ajoutez une ligne d'en-tête avec au moins une de ces colonnes : {{headers}}. Vous pouvez aussi inclure first_name, last_name, name, section et role. Ou téléversez un fichier texte avec un nom d'utilisateur GitHub ou une adresse e-mail par ligne.",
     "malformedCsv": "Ce fichier n'a pas pu être analysé comme un CSV.",
-    "emailsFound_one": "{{count}} adresse e-mail trouvée à inviter.",
-    "emailsFound_other": "{{count}} adresses e-mail trouvées à inviter.",
-    "emailInviteNoRosterNotice": "L'envoi de ces invitations ne créera ni ne modifiera aucun enregistrement dans roster.csv. Les invités apparaissent comme en attente jusqu'à ce qu'ils acceptent ; renseignez leur nom et leur section plus tard en les ajoutant par nom d'utilisateur GitHub ou en important une liste.",
-    "noValidEmails": "Aucune adresse e-mail valide n'a été trouvée dans ce fichier. Importez un fichier .txt ou .csv avec une adresse e-mail par ligne.",
-    "emailInviteConfirmOwner": "Je confirme que les lignes marquées Enseignant·e seront invitées en tant que PROPRIÉTAIRES de l'organisation.",
-    "sendInviteCount_one": "Envoyer {{count}} invitation",
-    "sendInviteCount_other": "Envoyer {{count}} invitations",
-    "emailInvitedCount_one": "{{count}} invitation envoyée.",
-    "emailInvitedCount_other": "{{count}} invitations envoyées.",
     "emailInviteSkippedDetail": "Déjà membre ou déjà invité — aucune nouvelle invitation envoyée.",
     "importAndInviteMembers_one": "Importer et inviter {{count}} membre",
     "importAndInviteMembers_other": "Importer et inviter {{count}} membres",
@@ -501,9 +502,6 @@
     "resultRoleChangeFailures": "Changements de rôle échoués",
     "done": "Terminé",
     "chooseAnotherFile": "Choisir un autre fichier",
-    "emailInviteInvalidBlocked_one": "{{count}} ligne n'est pas une adresse e-mail valide. Corrigez-la et téléchargez à nouveau, ou changez le format ci-dessus.",
-    "emailInviteInvalidBlocked_other": "{{count}} lignes ne sont pas des adresses e-mail valides. Corrigez-les et téléchargez à nouveau, ou changez le format ci-dessus.",
-    "emailInviteInvalidRow": "Ligne {{line}} : {{value}}",
     "firstNameColumn": "Prénom",
     "inviteRosterMalformedId": "Impossible d'inviter {{username}} : « {{githubId}} » n'est pas un identifiant GitHub valide. Corrigez la cellule github_id dans roster.csv.",
     "lastNameColumn": "Nom",
@@ -533,7 +531,49 @@
       "firstName": "Prénom",
       "label": "Trier par nom",
       "lastName": "Nom"
-    }
+    },
+    "dropBadEmail": "Ligne {{line}} : <v>{{value}}</v> n'est pas une adresse e-mail valide.",
+    "dropBadUsername": "Ligne {{line}} : <v>{{value}}</v> n'est pas un nom d'utilisateur GitHub valide.",
+    "dropBadValue": "Ligne {{line}} : <v>{{value}}</v> n'est ni un nom d'utilisateur GitHub ni une adresse e-mail.",
+    "dropIdLookupCapped": "Ligne {{line}} : trop de valeurs github_id dans ce fichier pour toutes les vérifier en une fois, donc <v>{{value}}</v> n'a pas été recherché. Supprimez la colonne github_id et laissez la colonne du nom d'utilisateur identifier chaque ligne, ou divisez le fichier.",
+    "dropIdLookupFailed": "Ligne {{line}} : impossible de joindre GitHub pour rechercher github_id <v>{{value}}</v>. Réessayez dans un instant — nous ne nous rabattrons pas sur la colonne du nom d'utilisateur, car cela pourrait inviter la mauvaise personne.",
+    "dropIncomplete": "Ligne {{line}} : aucun nom d'utilisateur GitHub, github_id ou adresse e-mail.",
+    "dropUnresolvedId": "Ligne {{line}} : github_id <v>{{value}}</v> ne correspond à aucun compte GitHub. Nous ne nous rabattrons pas sur la colonne du nom d'utilisateur, car cela pourrait inviter la mauvaise personne.",
+    "emailInviteHint": "Vous invitez uniquement par e-mail ? L'adresse est ajoutée au registre immédiatement et associée au compte GitHub de l'étudiant lorsqu'il rejoint — notez qu'il s'agit de l'adresse que vous avez invitée, pas nécessairement de l'e-mail de son compte GitHub.",
+    "emailInvitePassFailed": "Le registre a été enregistré, mais l'envoi des invitations par e-mail a échoué : {{message}}. Relancez l'importation pour les réessayer.",
+    "emailInviteRosterNotice": "Chaque adresse invitée est ajoutée à roster.csv immédiatement, avec le nom et la section éventuels du fichier, et associée au compte GitHub de l'étudiant lorsqu'il accepte. Les invités apparaissent comme en attente jusque-là.",
+    "importBlockedHint": "Corrigez ces lignes et téléversez à nouveau le fichier. Le réimporter une seconde fois est sans risque — les étudiants déjà dans la classe sont laissés tels quels.",
+    "importBlocked_one": "{{count}} ligne ne peut pas être importée, donc rien n'a encore été modifié.",
+    "importBlocked_other": "{{count}} lignes ne peuvent pas être importées, donc rien n'a encore été modifié.",
+    "importRetryLookup": "Vérifier à nouveau",
+    "importSkipped_one": "{{count}} ligne a été ignorée : elle n'a aucun nom d'utilisateur GitHub, github_id ou adresse e-mail, il n'y a donc pas encore moyen de joindre cet étudiant. Tous les autres ci-dessous seront tout de même importés.",
+    "importSkipped_other": "{{count}} lignes ont été ignorées : elles n'ont aucun nom d'utilisateur GitHub, github_id ou adresse e-mail, il n'y a donc pas encore moyen de joindre ces étudiants. Tous les autres ci-dessous seront tout de même importés.",
+    "importedAndInvitedCount": "{{added}} étudiant(s) ajouté(s) et {{invited}} invitation(s) par e-mail envoyée(s).",
+    "inviteEmailLocked": "Cette adresse identifie l'invitation en attente, elle ne peut donc pas être modifiée ici. Pour en utiliser une autre, annulez cette invitation et invitez la nouvelle adresse.",
+    "inviteMetadataFailed": "Impossible de préparer l'invitation pour {{email}} ({{message}}), aucune invitation n'a donc été envoyée. Réessayez ; si cela continue d'échouer, supprimez l'équipe résiduelle nommée dans le message, puis réessayez.",
+    "invitingEmails": "Envoi des invitations par e-mail...",
+    "missingIdentityHeader": "Ce fichier n'a aucune colonne qui identifie un étudiant.",
+    "noRosterRowNoEdit": "Les détails du profil peuvent être modifiés une fois que cette personne a une entrée dans le registre.",
+    "noUsableRows": "Aucune ligne utilisable n'a été trouvée dans ce fichier. Chaque ligne a besoin d'un github_id, d'un nom d'utilisateur GitHub ou d'une adresse e-mail.",
+    "preflightConfirmIdentity_one": "Je confirme l'importation de {{count}} ligne en utilisant le compte auquel appartient son github_id.",
+    "preflightConfirmIdentity_other": "Je confirme l'importation de {{count}} lignes en utilisant les comptes auxquels appartient leur github_id.",
+    "preflightIdentityConfirmTitle": "Vérifiez ces comptes avant l'importation",
+    "preflightIdentityDetail": "le fichier indiquait {{declared}}, id {{id}}",
+    "preflightIdentityHint": "Le github_id de ces lignes appartient à un compte différent du nom d'utilisateur situé à côté — généralement parce que l'étudiant a renommé son compte GitHub. Nous utiliserons le compte auquel appartient l'id et corrigerons le nom d'utilisateur dans le registre.",
+    "preflightTeacherEmailNotice_one": "{{count}} personne de plus sera invitée en tant que PROPRIÉTAIRE de l'organisation.",
+    "preflightTeacherEmailNotice_other": "{{count}} personnes de plus seront invitées en tant que PROPRIÉTAIRES de l'organisation.",
+    "previewEmailOnRoster": "Inviter par e-mail — déjà dans le registre",
+    "previewInviteByEmail": "Inviter par e-mail",
+    "previewPreviousUsernameHint": "le fichier indiquait {{username}}",
+    "resultEmailInvited": "Invités par e-mail",
+    "resultEmailInvitesDeferred": "Invitations par e-mail différées (débit limité)",
+    "resultEmailInvitesFailed": "Invitations par e-mail échouées",
+    "resultEmailSkipped": "Adresses e-mail ignorées",
+    "syncMatchedEmails_one": "{{count}} e-mail invité associé à un compte GitHub.",
+    "syncMatchedEmails_other": "{{count}} e-mails invités associés à des comptes GitHub.",
+    "syncRemovedEmails_one": "{{count}} adresse dont l'invitation n'est plus en attente supprimée.",
+    "syncRemovedEmails_other": "{{count}} adresses dont les invitations ne sont plus en attente supprimées.",
+    "syncRosterDone": "Registre mis à jour."
   },
   "language": {
     "baseName": "Anglais (base)",
@@ -734,21 +774,17 @@
       "toolbar": {
         "searchPlaceholder": "Rechercher des devoirs…",
         "searchAria": "Rechercher des devoirs",
-        "statusLabel": "Statut",
         "statusAria": "Filtrer par statut",
         "statusAll": "Tous",
         "statusTodo": "À faire",
         "statusAccepted": "Acceptés",
-        "typeLabel": "Type",
         "typeAria": "Filtrer par type",
         "typeAll": "Tous les types",
         "typeIndividual": "Individuel",
         "typeGroup": "Groupe",
-        "dueLabel": "À rendre",
         "dueAria": "Filtrer par date limite",
         "dueAll": "Toute date limite",
         "dueOverdue": "En retard",
-        "sortLabel": "Trier",
         "sortAria": "Trier les devoirs",
         "sortDueAsc": "Échéance la plus proche",
         "sortDueDesc": "Échéance la plus lointaine",
@@ -790,7 +826,7 @@
       "descriptionPlaceholder": "Décrivez les objectifs du devoir…",
       "dueDate": "Date limite ({{tz}})",
       "setDueDate": "Définir une date limite",
-      "setDueDateTip": "Désactivé signifie que le devoir n'a pas de date limite. Activez pour choisir une date et une heure ; les étudiants la voient comme date limite.",
+      "setDueDateTip": "Désactivé signifie que le devoir n'a pas de date d'échéance. Activez pour choisir une date et une heure ; les étudiants la voient comme la date d'échéance.",
       "dueDateTz": "Les heures sont exprimées dans votre fuseau horaire local ({{tz}}).",
       "type": "Type de devoir",
       "typeIndividual": "Individuel",
@@ -798,8 +834,8 @@
       "maxGroupSize": "Taille maximale du groupe",
       "maxGroupSizeTitle": "Doit être un nombre entier compris entre {{min}} et {{max}}",
       "feedbackPr": "Pull request de retour",
-      "feedbackPrHelp": "Ouvre une pull request par dépôt pour une relecture en ligne de chaque rendu.",
-      "feedbackPrEmptyRepoHelp": "Non disponible pour les dépôts vides. Il n'y a aucun commit de départ pour établir une comparaison.",
+      "feedbackPrHelp": "Ouvre une pull request dans le dépôt de chaque étudiant pour la relecture et les commentaires en ligne sur leur travail.",
+      "feedbackPrEmptyRepoHelp": "Indisponible pour les dépôts vides : il n'y a pas de commit de départ auquel comparer le travail d'un étudiant.",
       "advanced": "Paramètres avancés",
       "advancedHelp": "Paramètres facultatifs de notation et d'exécution. Les champs vides utilisent leurs valeurs par défaut documentées.",
       "dockerImage": "Image Docker",
@@ -821,7 +857,7 @@
       "patternCount_one": "{{count}} motif",
       "patternCount_other": "{{count}} motifs",
       "passThresholdToggle": "Définir un seuil de réussite",
-      "passThresholdTip": "Désactivé par défaut. Lorsqu'il est activé, le carnet de notes marque les remises comme réussies ou échouées par rapport au seuil ci-dessous (bilan de réussite, badges de note, filtre réussite/échec). Il s'agit uniquement d'un seuil d'affichage. Il ne modifie pas la note réelle de l'étudiant.",
+      "passThresholdTip": "Désactivé par défaut. Lorsqu'il est activé, la page des soumissions marque les soumissions comme réussies ou échouées par rapport au seuil ci-dessous (récapitulatif de réussite, badges de score, filtre réussite/échec). C'est un seuil d'affichage uniquement. Il ne change pas le score réel d'un étudiant.",
       "passThresholdUnit": "% du score max. pour réussir",
       "back": "Retour",
       "saveChanges": "Enregistrer les modifications",
@@ -836,10 +872,10 @@
         "selfHostedMatch_one": "Correspondance de runner auto-hébergé ({{names}})",
         "selfHostedMatch_other": "Correspondance de runners auto-hébergés ({{names}})",
         "selfHostedLabels": "Étiquettes du runner auto-hébergé",
-        "invalidLabel": "Étiquette non valide {{labels}} — lettres, chiffres, . - _ uniquement.",
-        "noRunnerMatch": "Aucun runner ne correspond à {{labels}} — vérifiez l'orthographe.",
-        "tooMany": "Trop d'étiquettes ({{count}}) — 10 maximum.",
-        "cannotVerify": "Vérification impossible — utilisé tel quel."
+        "invalidLabel": "Étiquette invalide {{labels}} : lettres, chiffres, . - _ uniquement.",
+        "noRunnerMatch": "Aucun runner ne correspond à {{labels}}. Vérifiez l'orthographe.",
+        "tooMany": "Trop d'étiquettes ({{count}}) ; 10 au maximum.",
+        "cannotVerify": "Impossible de vérifier ; utilisé tel que saisi."
       },
       "runtime": {
         "envLegend": "Environnement d'exécution",
@@ -857,8 +893,8 @@
         "aptTip": "Paquets Ubuntu supplémentaires installés (apt-get) avant l'évaluation, séparés par des virgules ou des espaces. Noms de paquets Debian en minuscules.",
         "aptCount_one": "{{count}} paquet",
         "aptCount_other": "{{count}} paquets",
-        "runnerContainerError": "« {{label}} » est un runner macOS/Windows — une image Docker nécessite un runner Ubuntu (ou personnalisé/auto-hébergé).",
-        "selfHostedDisabled": "Ignoré sur un runner auto-hébergé — il utilise ses propres chaînes d'outils et paquets préinstallés. Provisionnez-les plutôt dans l'image du runner."
+        "runnerContainerError": "« {{label}} » est un runner macOS/Windows ; une image Docker nécessite un runner Ubuntu (ou personnalisé/auto-hébergé).",
+        "selfHostedDisabled": "Ignoré sur un runner auto-hébergé, qui utilise ses propres chaînes d'outils et paquets préinstallés. Fournissez-les plutôt dans l'image du runner."
       },
       "validation": {
         "nameRequired": "Le nom du devoir est obligatoire.",
@@ -881,7 +917,7 @@
       "availableFromTz": "Les heures sont indiquées dans votre fuseau horaire local ({{tz}}).",
       "repoFeatures": {
         "choices": {
-          "default": "Par défaut (défaut GitHub)",
+          "default": "Valeur par défaut de GitHub",
           "inherit": "Hériter du modèle",
           "inheritLoading": "Hériter du modèle (vérification…)",
           "inheritOff": "Hériter du modèle (actuellement désactivé)",
@@ -904,20 +940,20 @@
         "wiki": {
           "label": "Wiki"
         },
-        "helpExisting": "Les changements s'appliquent aux dépôts créés à partir de maintenant. Pour mettre à jour ceux déjà acceptés par les étudiants, utilisez le carnet de notes.",
+        "helpExisting": "Les modifications s'appliquent aux dépôts créés à partir de maintenant. Pour mettre à jour ceux que les étudiants ont déjà acceptés, utilisez la page des soumissions.",
         "overrideExisting": "Pour mettre à jour les dépôts déjà acceptés par les étudiants, utilisez l'action groupée sur les fonctionnalités de dépôt de la page des rendus.",
         "overrideNoTemplate": "Par défaut, les valeurs par défaut de GitHub pour les dépôts sont conservées.",
         "overrideTemplate": "Par défaut, les réglages du modèle sont suivis lorsqu'un étudiant accepte. Les dépôts existants ne changeront pas si vous modifiez le modèle plus tard.",
         "templateContentWarning": "Hériter d'un modèle privé copie aussi le contenu de son wiki, de ses issues et de ses projets ; gardez donc les corrigés hors d'un modèle dont vous héritez."
       },
       "setAvailableFrom": "Définir une date de publication",
-      "setAvailableFromTip": "Les devoirs sont masqués de la page des devoirs des étudiants par défaut — les étudiants ne peuvent l'accepter que via le lien d'invitation. Définissez une date de publication pour le lister pour tout le monde une fois la date passée. Les étudiants qui l'ont déjà accepté le voient toujours. Cela contrôle uniquement l'affichage, pas l'accès.",
+      "setAvailableFromTip": "Les devoirs sont masqués de la page des devoirs de l'étudiant par défaut, si bien que les étudiants ne peuvent l'accepter que via le lien d'invitation. Définissez une date de publication pour le lister pour tout le monde une fois la date passée. Les étudiants qui l'ont déjà accepté le voient toujours. Cela contrôle uniquement l'affichage dans la liste, pas l'accès.",
       "setupTimeout": "Délai de configuration (secondes)",
       "setupTimeoutTip": "Les nouvelles commandes de configuration démarrent à {{default}} secondes. Mettez 0 pour utiliser le délai par défaut de 10 secondes du runner, ou choisissez un nombre entier de 1 à {{max}}.",
       "studentPermission": {
-        "default": "Par défaut ({{level}})",
-        "groupHelp": "Les membres du groupe rejoignent avec au moins le rôle admin pour que le propriétaire du groupe puisse ajouter des coéquipiers. Cela s'applique aux dépôts créés à partir de maintenant ; utilisez le carnet de notes pour modifier les dépôts existants.",
-        "help": "Le rôle attribué à chaque étudiant sur son propre dépôt de devoir au moment de l'acceptation. Push (écriture) est la valeur par défaut. Choisissez Admin pour permettre aux étudiants de gérer les paramètres du dépôt et d'activer GitHub Pages. Cela s'applique aux étudiants qui acceptent à partir de maintenant ; utilisez le carnet de notes pour modifier les dépôts déjà créés.",
+        "default": "Par défaut : {{level}}",
+        "groupHelp": "Les membres du groupe rejoignent avec au moins le rôle d'administrateur pour que le propriétaire du groupe puisse ajouter des coéquipiers. Cela s'applique aux dépôts créés à partir de maintenant ; utilisez la page des soumissions pour modifier les dépôts existants.",
+        "help": "Le rôle accordé à chaque étudiant sur son propre dépôt de devoir au moment de l'acceptation. Push (écriture) est la valeur par défaut. Choisissez Admin pour laisser les étudiants gérer les paramètres du dépôt et activer GitHub Pages. Cela s'applique aux étudiants qui acceptent à partir de maintenant ; utilisez la page des soumissions pour modifier les dépôts déjà créés.",
         "label": "Accès au dépôt de l'étudiant",
         "learnMore": "En savoir plus",
         "levels": {
@@ -929,25 +965,23 @@
         }
       },
       "addReadme": {
-        "helpOff": "Crée un dépôt vide sans commit initial. La correction automatique et la PR de retour ne sont pas disponibles avant le premier commit de l'étudiant.",
-        "helpOn": "Initialise chaque dépôt avec un README.md, créant un commit initial pour que les branches, les pull requests et la PR de retour fonctionnent.",
+        "helpOff": "Commencer sans README. Avec l'autonoteur intégré activé, les dépôts démarrent tout de même avec les fichiers d'autonotation et sont notés normalement. Avec l'autonoteur désactivé, les dépôts sont totalement vides, et l'autonotation ainsi que la PR de retour sont indisponibles de façon permanente.",
+        "helpOn": "Commencer chaque dépôt avec un README.md. Ce premier commit est ce qui permet aux branches, aux pull requests et à la PR de retour de fonctionner.",
         "label": "Ajouter un README"
       },
       "autograding": {
         "choices": {
           "built-in": {
-            "help": "Ajoute le shim du correcteur automatique intégré, puis configure l'environnement d'exécution et les tests déclaratifs ci-dessous.",
+            "help": "Configurez l'autonoteur intégré, puis ajoutez les tests et l'environnement d'exécution ci-dessous.",
             "label": "Utiliser le correcteur automatique intégré"
           },
           "none": {
-            "help": "Aucun shim de correcteur automatique n'est ajouté. Avec un modèle, fournissez votre propre workflow dans le modèle (il doit publier un fichier result.json sur la release du rendu). Sans modèle, le dépôt n'a tout simplement aucun correcteur automatique.",
+            "help": "Notez avec votre propre flux de travail GitHub Actions à la place. Avec un modèle, ajoutez-y le flux de travail ; sans modèle, le devoir n'a pas d'autonoteur.",
             "label": "Ne pas utiliser le correcteur automatique intégré"
           }
         },
-        "label": "Correction automatique",
         "modeLabel": "Correcteur automatique intégré",
-        "notAutogradedNote": "Les options de correction automatique ne s'appliquent que lorsque ce devoir est réglé sur « Corrigé automatiquement » dans la section Rendu et notation ci-dessus. Choisissez Corrigé automatiquement pour configurer le correcteur automatique.",
-        "editHelp": "Modifier le correcteur automatique intégré ne concerne que les dépôts que les étudiants acceptent à partir de maintenant. Les dépôts déjà acceptés conservent leur configuration d'origine — il vous appartiendra de résoudre vous-même toute différence."
+        "editHelp": "Modifier l'autonoteur intégré ne concerne que les dépôts que les étudiants acceptent à partir de maintenant. Les dépôts déjà acceptés conservent leur configuration d'origine, vous devrez donc mettre à jour les dépôts existants vous-même."
       },
       "copyAbout": {
         "help": "Copie le champ « À propos » (sa description) du modèle sur chaque dépôt d'étudiant. GitHub ne le copie pas automatiquement. Cela s'applique aux étudiants qui acceptent à partir de maintenant ; les dépôts déjà créés ne sont pas modifiés.",
@@ -958,7 +992,6 @@
         "label": "Copier les sujets depuis le modèle"
       },
       "grading": {
-        "autoNote": "Ce devoir est corrigé automatiquement. Configurez le correcteur automatique dans la section Correction automatique ci-dessous. Que vous utilisiez le correcteur automatique intégré ou fournissiez votre propre workflow, il doit publier un fichier result.json sur la release du rendu — c'est ce fichier que l'application lit pour afficher les scores.",
         "choices": {
           "auto": "Corrigé automatiquement",
           "manual": "Manuel (saisir les scores à la main)",
@@ -985,7 +1018,7 @@
           "help": "Génère le dépôt de chaque étudiant à partir d'un modèle que vous fournissez.",
           "label": "Dépôt modèle"
         },
-        "editHelp": "Modifier la source du dépôt ne concerne que les dépôts que les étudiants acceptent à partir de maintenant. Les dépôts déjà acceptés conservent leur contenu de départ d'origine — il vous appartiendra de résoudre vous-même toute différence."
+        "editHelp": "Modifier la source du dépôt ne concerne que les dépôts que les étudiants acceptent à partir de maintenant. Les dépôts déjà acceptés conservent leur contenu de départ d'origine, vous devrez donc mettre à jour les dépôts existants vous-même."
       },
       "repositorySetupSection": "Configuration du dépôt",
       "scheduleSection": "Planning",
@@ -994,26 +1027,22 @@
           "everyPush": "Chaque push sur la branche par défaut",
           "tag": "Un commit étiqueté"
         },
-        "editWarning": "Modifier ceci n'affecte que les dépôts créés à partir de maintenant. Les dépôts déjà acceptés par les étudiants conservent l'ancien réglage jusqu'à ce que vous les mettiez à jour — utilisez « Mettre à jour les déclencheurs de correction automatique » sur la page des rendus ou gh teacher assignment submission-mode. Les étudiants doivent faire un pull après la mise à jour.",
-        "help": "« Chaque push sur la branche par défaut » comptabilise chaque push (hors commit de départ). « Un commit étiqueté » ne comptabilise que les commits étiquetés — un étudiant soumet avec gh student submit ou en poussant une étiquette, de sorte que les pushes ordinaires ne consomment aucune minute d'Actions.",
+        "editWarning": "Modifier ceci ne concerne que les dépôts créés à partir de maintenant. Les dépôts que les étudiants ont déjà acceptés conservent l'ancien réglage jusqu'à ce que vous les mettiez à jour. Utilisez « Mettre à jour les déclencheurs d'autonotation » sur la page des soumissions ou gh teacher assignment submission-mode. Les étudiants doivent faire un pull après la mise à jour.",
+        "help": "« Chaque push sur la branche par défaut » compte chaque push après le commit de départ. « Un commit étiqueté » ne compte que les commits étiquetés, donc les pushs ordinaires n'utilisent aucune minute d'Actions ; un étudiant soumet en poussant une étiquette ou en exécutant gh student submit.",
         "label": "Type de rendu"
       },
       "submissionSection": "Rendu et notation",
-      "submissionSectionHelp": "Définit ce qui compte comme un rendu pour ce devoir — quand le correcteur automatique s'exécute et quelles étiquettes un étudiant peut pousser pour soumettre.",
+      "submissionSectionHelp": "Définissez ce qui compte comme une soumission pour ce devoir : quand l'autonoteur s'exécute et quelles étiquettes un étudiant peut pousser pour soumettre.",
       "submissionTags": {
-        "commaHint": "Mettez une étiquette par ligne, pas une liste séparée par des virgules — une virgule ferait partie du nom de l'étiquette et sera rejetée.",
-        "help": "Noms d'étiquettes facultatifs (un par ligne) dont les commits comptent aussi — par ex. phase1, phase2. Des motifs comme v* correspondent à une famille d'étiquettes. Laissez vide pour aucune.",
+        "commaHint": "Mettez une étiquette par ligne, pas une liste séparée par des virgules. Une virgule devient partie du nom de l'étiquette et sera rejetée.",
+        "help": "Noms d'étiquettes facultatifs (un par ligne) dont les commits comptent également, ex. phase1, phase2. Les motifs comme v* correspondent à une famille d'étiquettes. Laissez vide pour aucune.",
         "label": "Étiquettes de rendu",
         "wildcardCaution": "Un motif large comme v* correspond à toutes les étiquettes qu'un étudiant pousse, y compris les étiquettes de release sans rapport. Préférez des noms exacts comme phase1."
-      },
-      "submissions": {
-        "heading": "Rendus",
-        "help": "Comment la page des rendus détecte et comptabilise le travail de chaque étudiant. Le correcteur automatique utilise la même définition."
       },
       "discardChanges": "Abandonner les modifications",
       "reset": "Réinitialiser",
       "resetSection": "Réinitialiser cette section à ses paramètres par défaut",
-      "typeLockedHelp": "Non modifiable après la création — le changer invaliderait les rendus existants.",
+      "typeLockedHelp": "Ne peut pas être modifié après la création. Le changer invaliderait les soumissions existantes.",
       "feedbackPrTemplate": {
         "autoEnabled": "Activé automatiquement : un modèle de pull request a été trouvé dans le dépôt modèle.",
         "checking": "Vérification de la présence d'un modèle de pull request dans le modèle…",
@@ -1036,17 +1065,17 @@
       "testNamePlaceholder": "p. ex. Affiche hello",
       "testType": "Type de test",
       "setupCommand": "Commande de configuration",
-      "setupCommandPlaceholder": "facultatif — p. ex. gcc -o hello hello.c",
+      "setupCommandPlaceholder": "facultatif, ex. : gcc -o hello hello.c",
       "runCommand": "Commande d'exécution",
       "runCommandPlaceholder": "p. ex. ./hello ou python3 main.py",
       "input": "Entrée (stdin)",
-      "inputPlaceholder": "facultatif — texte fourni à la commande sur stdin",
+      "inputPlaceholder": "facultatif : texte fourni à la commande sur stdin",
       "expectedOutput": "Sortie attendue",
       "expectedOutputPlaceholder": "stdout attendu",
       "comparison": "Comparaison",
-      "comparisonIncluded": "Inclus — la valeur attendue apparaît n'importe où dans la sortie",
-      "comparisonExact": "Exact — la sortie est égale à la valeur attendue (espaces environnants ignorés)",
-      "comparisonRegex": "Regex — re.search de Python, multiligne",
+      "comparisonIncluded": "Incluse : l'attendu apparaît n'importe où dans la sortie",
+      "comparisonExact": "Exacte : la sortie est égale à l'attendu (espaces environnants ignorés)",
+      "comparisonRegex": "Regex : re.search de Python, multiligne",
       "exitCode": "Code de sortie requis",
       "exitCodeHint": "Laissez vide pour exiger une sortie réussie (0).",
       "pythonNote": "La commande d'exécution doit invoquer pytest (p. ex. <code>python3 -m pytest -q</code>) sur les fichiers de test du modèle du devoir. pytest et pytest-json-report sont installés automatiquement. Les points sont répartis entre les cas détectés par pytest.",
@@ -1114,19 +1143,16 @@
     "toolbar": {
       "searchPlaceholder": "Rechercher des devoirs…",
       "searchAria": "Rechercher des devoirs",
-      "sortLabel": "Trier",
       "sortAria": "Trier les devoirs",
       "sortNameAsc": "Nom (A–Z)",
       "sortNameDesc": "Nom (Z–A)",
       "sortDueAsc": "Date limite (la plus proche)",
       "sortDueDesc": "Date limite (la plus lointaine)",
       "sortType": "Type",
-      "typeLabel": "Type",
       "typeAria": "Filtrer par type",
       "typeAll": "Tous les types",
       "typeIndividual": "Individuel",
       "typeGroup": "Groupe",
-      "dueLabel": "Échéance",
       "dueAria": "Filtrer par date limite",
       "dueAll": "Toutes les dates limites",
       "dueHas": "Avec date limite",
@@ -1139,7 +1165,7 @@
     "template": {
       "label": "Dépôt modèle",
       "placeholder": "<owner>/<repo>",
-      "help": "Facultatif. Les élèves reçoivent une copie de ce dépôt. Laissez vide pour un dépôt vide contenant uniquement l'autograder.",
+      "help": "Facultatif. Les étudiants reçoivent une copie de ce dépôt. Laissez vide pour un devoir sans modèle : les étudiants obtiennent un dépôt initialisé avec un README et les fichiers d'autonotation.",
       "checking": "Vérification de l'accès au modèle…",
       "fallbackOrg": "votre organisation",
       "privateHasAccess": "Modèle privé dans {{owner}} (branche <branch>{{branch}}</branch>). L'équipe de la classe a déjà un accès en lecture — les élèves peuvent le copier.",
@@ -1211,7 +1237,7 @@
     "unlistedWarning": "Cette classe utilise une URL non répertoriée : ses ressources sont servies à un chemin impossible à deviner plutôt qu’à un chemin devinable. Il s’agit d’un simple masquage, pas d’un contrôle d’accès : le lien est la seule chose qui protège les données, quiconque le possède peut lire le fichier, et les liens peuvent fuiter (historique du navigateur, référents, robots d’indexation). Partagez le lien d’acceptation ou la commande CLI propres à chaque devoir (qui incluent la clé) depuis la page de chaque devoir.",
     "banner": {
       "title": "Tout ce qui figure ci-dessous est servi publiquement sur Internet",
-      "body": "Votre dépôt de configuration classroom50 est privé, mais son site GitHub Pages est public par conception : les étudiants et l’autocorrecteur récupèrent ces fichiers sans s’authentifier. Seuls les fichiers autorisés ci-dessous sont publiés ; tout le reste du dépôt (votre liste d’inscrits, les champs internes de la classe, le jeton de service) reste privé. Une classe peut utiliser une URL non répertoriée pour rendre ses fichiers plus difficiles à trouver, mais c’est un simple masquage, pas un contrôle d’accès : les fichiers restent publics pour quiconque possède le lien."
+      "body": "Votre dépôt classroom50 est privé, mais son site GitHub Pages est public par conception — les étudiants et l'autonoteur récupèrent ces fichiers sans authentification. Seuls les fichiers de la liste d'autorisation ci-dessous sont publiés ; tout le reste dans le dépôt (votre registre, les champs internes de la classe, le jeton de service) reste privé. Une classe peut utiliser une URL non répertoriée pour rendre ses fichiers plus difficiles à trouver, mais c'est de l'obscurité, pas un contrôle d'accès — les fichiers restent publics pour quiconque possède le lien."
     },
     "orgLevel": "Au niveau de l’organisation",
     "orgLevelServed": "Servi à la racine de <path>{{base}}/</path>.",
@@ -1307,7 +1333,7 @@
     "notAMember": {
       "title": "Pas encore membre",
       "body": "Vous n'êtes pas encore membre de l'organisation <org>{{org}}</org>, vous ne pouvez donc pas accepter ce devoir. Il faut d'abord la rejoindre — une invitation à l'organisation GitHub vous donne accès à la création de votre dépôt de devoir.",
-      "instructions": "Demandez à votre enseignant·e de vous ajouter à la liste de la classe et de vous envoyer une invitation (il ou elle peut le faire depuis la page de liste de la classe). GitHub enverra l'invitation par e-mail à votre compte — acceptez-la, puis vérifiez à nouveau ici. Si vous venez d'accepter une invitation, laissez à GitHub un moment pour se mettre à jour.",
+      "instructions": "Demandez à votre enseignant de vous ajouter au registre de la classe et de vous envoyer une invitation (il peut le faire depuis la page du registre de la classe). GitHub enverra l'invitation par e-mail à votre compte — acceptez-la, puis vérifiez à nouveau ici. Si vous venez d'accepter une invitation, laissez à GitHub un moment pour se mettre à jour.",
       "checkAgain": "Vérifier à nouveau"
     },
     "generic": {
@@ -1347,8 +1373,8 @@
     "collaboratorsHint_other": "Ajoutez ou supprimez des collaborateurs pour ce dépôt de devoir. Ce devoir autorise jusqu'à <count>{{count}}</count> élèves en plus du propriétaire du groupe.",
     "manageCollaborators": "Gérer les collaborateurs",
     "provisioningConfirm": {
-      "body_one": "{{count}} étudiant a déjà accepté ce devoir. Cette modification ne concerne que les dépôts acceptés à partir de maintenant — le {{count}} dépôt existant conserve son code de départ et sa configuration d'origine. Si vous désactivez la correction automatique, les exécutions de correction de ces dépôts commencent à échouer et disparaissent du carnet de notes ; si vous changez le mode de notation, les notes enregistrées dans l'ancien mode peuvent s'afficher différemment. Il vous appartiendra de résoudre vous-même toute incohérence.",
-      "body_other": "{{count}} étudiants ont déjà accepté ce devoir. Cette modification ne concerne que les dépôts acceptés à partir de maintenant — les {{count}} dépôts existants conservent leur code de départ et leur configuration d'origine. Si vous désactivez la correction automatique, les exécutions de correction de ces dépôts commencent à échouer et disparaissent du carnet de notes ; si vous changez le mode de notation, les notes enregistrées dans l'ancien mode peuvent s'afficher différemment. Il vous appartiendra de résoudre vous-même toute incohérence.",
+      "body_one": "{{count}} étudiant a déjà accepté ce devoir. Cette modification ne concerne que les dépôts acceptés à partir de maintenant ; le {{count}} dépôt existant conserve son code de départ et sa configuration d'origine. Si vous désactivez l'autonotation, les exécutions d'autonotation de ces dépôts commenceront à échouer et disparaîtront des scores collectés ; si vous changez le mode de notation, les scores enregistrés sous l'ancien mode pourraient être interprétés différemment. Vous devrez résoudre toute incohérence vous-même.",
+      "body_other": "{{count}} étudiants ont déjà accepté ce devoir. Cette modification ne concerne que les dépôts acceptés à partir de maintenant ; les {{count}} dépôts existants conservent leur code de départ et leur configuration d'origine. Si vous désactivez l'autonotation, les exécutions d'autonotation de ces dépôts commenceront à échouer et disparaîtront des scores collectés ; si vous changez le mode de notation, les scores enregistrés sous l'ancien mode pourraient être interprétés différemment. Vous devrez résoudre toute incohérence vous-même.",
       "cancel": "Annuler",
       "confirm": "Enregistrer les modifications malgré tout",
       "title": "Modifier les paramètres de provisionnement après que des étudiants ont accepté ?"
@@ -1377,7 +1403,7 @@
       "expiryRange": "Saisissez {{min}}–{{max}} jours",
       "expiryUntrackedHint": "L'expiration de ce jeton n'est pas suivie. Définissez un nouveau jeton pour que Classroom 50 puisse vous avertir avant son expiration.",
       "generateHelp": "Ouvre le formulaire de jeton de GitHub avec le nom, l'expiration et les portées requises préremplis. Réglez l'accès aux dépôts sur Tous les dépôts.",
-      "help": "Un jeton GitHub à portée fine qui permet à Classroom 50 de collecter les notes et de réévaluer sur vos dépôts d'étudiants. Stocké comme secret sur votre dépôt de configuration classroom50.",
+      "help": "Un jeton GitHub à granularité fine qui permet à Classroom 50 de collecter les scores et de renoter sur tous vos dépôts d'étudiants. Stocké comme secret sur votre dépôt classroom50.",
       "learnMore": "En savoir plus sur les jetons de service",
       "nameHelp": "Le nom doit correspondre à la façon dont ce jeton apparaît dans votre liste de jetons d'accès personnel GitHub. Classroom 50 ne l'utilise que comme étiquette ; le renommer ici ne renomme pas le jeton sur GitHub.",
       "nameRowLabel": "Nom :",
@@ -1397,12 +1423,12 @@
     "audit": {
       "title": "Politique de l'organisation",
       "planBadgeTitle": "Formule GitHub — détermine quelles politiques sont concernées (Enterprise débloque des champs de privilèges de membre supplémentaires)",
-      "description": "Ce que Classroom 50 configure en votre nom, et si un élément s'est écarté du verrouillage attendu.",
+      "description": "Ce que Classroom 50 configure en votre nom, et si quelque chose a changé par rapport au verrouillage attendu.",
       "recheck": "Revérifier",
       "auditing": "Audit de la politique de l'organisation…",
       "auditError": "Impossible d'exécuter l'audit de la politique. Essayez de revérifier.",
       "fixError": "Impossible d'appliquer la correction. Il se peut que vous n'ayez pas les autorisations de propriétaire, ou qu'une politique enterprise bloque ce changement.",
-      "renameError": "Impossible de renommer la branche par défaut du dépôt de configuration. Il se peut que vous n'ayez pas les autorisations de propriétaire, ou que le renommage n'ait pas abouti — réessayez.",
+      "renameError": "Impossible de renommer la branche par défaut du dépôt classroom50. Il se peut que vous n'ayez pas les autorisations de propriétaire, ou que le renommage n'ait pas abouti — réessayez.",
       "fixTransient": "Cela n'a pas abouti — il peut s'agir d'une limite de débit temporaire, ou le dépôt est peut-être encore en cours d'initialisation. Réessayez dans un instant.",
       "needsManualSetup": "Configuration manuelle requise",
       "couldntAutoConfigure": "Nous n'avons pas pu configurer cela automatiquement. Cela peut se produire lorsqu'une stratégie d'entreprise ou d'organisation gère le paramètre, ou lorsque le compte manque d'autorisations. Configurez-le manuellement sur la page liée.",
@@ -1422,19 +1448,19 @@
       "orUseFixIt": " (ou utilisez « Corriger »)",
       "requiresManualFix": "Configurer manuellement",
       "readError": "Impossible de lire l'organisation pour auditer le verrouillage. Vérifiez votre accès et réessayez.",
-      "driftCanFix": "Utilisez « Corriger » sur un paramètre écarté, ou relancez la configuration ci-dessous pour tout réappliquer d'un coup.",
-      "driftCannotFix": "Demandez à un propriétaire de l'organisation de réparer l'écart — ces changements nécessitent des autorisations de propriétaire.",
+      "driftCanFix": "Utilisez « Corriger » sur un paramètre modifié, ou relancez la configuration ci-dessous pour tout réappliquer d'un coup.",
+      "driftCannotFix": "Demandez à un propriétaire de l'organisation de corriger ces paramètres ; les modifier requiert des autorisations de propriétaire.",
       "confirmByHand": "Confirmer manuellement",
       "confirmByHandBody": "GitHub n'expose aucune API pour lire ces paramètres ; nous ne pouvons donc pas les vérifier automatiquement — confirmez chacun d'eux sur la page des privilèges de membre.",
       "confirmManually": "Confirmer manuellement",
       "recommended": "Recommandé",
       "defaultBranchRec": "Le nom de la branche par défaut de votre organisation pour les nouveaux dépôts est « {{current}} ». Nous recommandons « main » pour que les nouveaux dépôts (y compris les dépôts de devoirs des étudiants) respectent la convention de Classroom 50. Les dépôts existants ne sont pas affectés et continuent de fonctionner.",
-      "configBranchRec": "La branche par défaut du dépôt de configuration classroom50 est « {{current}} », et non « main ». Tout continue de fonctionner (les lectures et écritures ciblent la branche réelle), mais la renommer en « main » respecte la convention de Classroom 50.",
+      "configBranchRec": "La branche par défaut du dépôt classroom50 est « {{current}} », et non « main ». Tout fonctionne toujours (les lectures et écritures ciblent la vraie branche), mais la renommer en « main » correspond à la convention de Classroom 50.",
       "renameToMain": "Renommer en main",
-      "renameModalTitle": "Renommer en main la branche par défaut du dépôt de configuration ?",
-      "renameModalBody": "Cette action renomme la branche par défaut du dépôt de configuration classroom50 en « main ». Si des étudiants ont déjà accepté des devoirs, leur workflow d'autograding est figé sur le nom de branche actuel et cessera de noter jusqu'à ce qu'ils réacceptent ou que vous repointiez leur shim. Préférez cette action avant que les étudiants acceptent, ou soyez prêt à relancer leur configuration.",
+      "renameModalTitle": "Renommer la branche par défaut du dépôt classroom50 en main ?",
+      "renameModalBody": "Cela renomme la branche par défaut du dépôt classroom50 en « main ». Si des étudiants ont déjà accepté des devoirs, leur flux de travail d'autonotation fixe le nom de branche actuel et cessera de noter jusqu'à ce qu'ils réacceptent ou que vous repointiez leur shim. Préférez cela uniquement avant que les étudiants n'acceptent, ou soyez prêt à relancer leur configuration.",
       "memberPermsToggle": "Autorisations de membre que nous configurons",
-      "memberPermsHint": "La liste complète des privilèges de membre de l'organisation que Classroom 50 définit, y compris ceux déjà en place. Ceux qui se sont écartés sont signalés ci-dessus.",
+      "memberPermsHint": "La liste complète des privilèges des membres de l'organisation que Classroom 50 définit, y compris ceux déjà en place. Ceux qui ont changé sont signalés ci-dessus.",
       "detail": {
         "budgetMissing": "aucun budget Actions avec arrêt strict à 0 $",
         "budgetOverThreshold": "Le budget Actions est de {{amount}} $ (au-dessus de {{threshold}} $) ; un plafond d'arrêt strict à 0 $ est recommandé",
@@ -1444,8 +1470,8 @@
         "readFailed": "échec de lecture",
         "readFailedStatus": "échec de lecture ({{status}})",
         "rulesetsMissing": "manquant : {{names}}",
-        "workflowOrgManaged": "la politique de l'organisation configure par défaut les workflows en lecture ; les workflows du squelette déclarent leurs propres autorisations",
-        "orgActionsPaused": "L'autograding est en pause, donc GitHub Actions est délibérément restreint au dépôt de configuration classroom50. Désactivez la pause dans la section GitHub Actions ci-dessus pour rétablir la politique standard."
+        "workflowOrgManaged": "la politique de l'organisation configure par défaut les flux de travail en lecture ; les flux de travail de Classroom 50 déclarent leurs propres autorisations",
+        "orgActionsPaused": "L'autonotation est en pause, donc GitHub Actions est délibérément restreint au dépôt classroom50. Désactivez la pause dans la section GitHub Actions ci-dessus pour restaurer la politique standard."
       },
       "statePaused": "En pause"
     },
@@ -1479,7 +1505,7 @@
     },
     "rerun": {
       "title": "Relancer la configuration",
-      "description": "Réappliquer chaque paramètre d'organisation de Classroom 50. Sans risque à tout moment — cela ne modifie que les paramètres qui se sont écartés.",
+      "description": "Réappliquer chaque paramètre d'organisation de Classroom 50. Peut être exécuté à tout moment sans risque — il ne met à jour que les paramètres qui ont changé.",
       "running": "Relance en cours…",
       "button": "Relancer la configuration",
       "failed": "La relance de la configuration ne s'est pas terminée — une étape requise a échoué. Vérifiez les étapes ci-dessus, résolvez le problème, puis relancez-la.",
@@ -1489,26 +1515,43 @@
     },
     "teardown": {
       "title": "Zone de danger",
-      "description": "Démantelez cette organisation en supprimant <strong>chaque</strong> dépôt qu'elle contient, y compris le dépôt de config <repo>classroom50</repo>, et en supprimant l'équipe GitHub de chaque classe. Cette action est irréversible.",
+      "description": "Démantelez cette organisation en supprimant <strong>tous</strong> les dépôts qu'elle contient, y compris le dépôt <repo>classroom50</repo>, et en supprimant l'équipe GitHub de chaque classe. Ceci est irréversible.",
       "prepareError": "Impossible de préparer le plan de démantèlement.",
       "preparing": "Préparation en cours…",
       "button": "Démanteler l'organisation",
       "confirmText": "delete {{org}}",
       "confirmLabel": "Supprimer toutes les ressources",
       "confirmTitle": "Supprimer chaque dépôt de cette organisation ?",
-      "confirmBody_one": "Cette action supprimera définitivement <count>{{count}}</count> dépôt dans <org>{{org}}</org>, y compris le dépôt de config <repo>classroom50</repo> (supprimé en dernier).",
-      "confirmBody_other": "Cette action supprimera définitivement <count>{{count}}</count> dépôts dans <org>{{org}}</org>, y compris le dépôt de config <repo>classroom50</repo> (supprimé en dernier).",
+      "confirmBody_one": "Cela supprimera définitivement <count>{{count}}</count> dépôt dans <org>{{org}}</org>, y compris le dépôt <repo>classroom50</repo> (supprimé en dernier).",
+      "confirmBody_other": "Cela supprimera définitivement <count>{{count}}</count> dépôts dans <org>{{org}}</org>, y compris le dépôt <repo>classroom50</repo> (supprimé en dernier).",
       "confirmBodyTeams_one": "Elle supprimera aussi <count>{{count}}</count> équipe de classe.",
       "confirmBodyTeams_other": "Elle supprimera aussi <count>{{count}}</count> équipes de classe.",
       "confirmBodyCannotUndo": "Cette action est irréversible.",
       "repositoriesHeading": "Dépôts",
       "classroomTeamsHeading": "Équipes de classe",
-      "executeError": "Le démantèlement a échoué. Certains dépôts n'ont peut-être pas été supprimés."
+      "executeError": "Le démantèlement a échoué. Certains dépôts n'ont peut-être pas été supprimés.",
+      "forbidden": "GitHub a refusé de supprimer les dépôts (403), et vos autorisations semblent suffisantes. Une politique de l'organisation ou un dépôt protégé bloque probablement la suppression. Vérifiez les paramètres de l'organisation, puis relancez le démantèlement.",
+      "forbiddenPartial_one": "GitHub a refusé de supprimer les dépôts (403) après que {{count}} a déjà été supprimé, et cette suppression est définitive. Vos autorisations semblent suffisantes, donc une politique de l'organisation ou un dépôt protégé bloque probablement le reste. Vérifiez les paramètres de l'organisation, puis relancez le démantèlement pour terminer.",
+      "forbiddenPartial_other": "GitHub a refusé de supprimer les dépôts (403) après que {{count}} ont déjà été supprimés, et ces suppressions sont définitives. Vos autorisations semblent suffisantes, donc une politique de l'organisation ou un dépôt protégé bloque probablement le reste. Vérifiez les paramètres de l'organisation, puis relancez le démantèlement pour terminer.",
+      "grantButton": "Demander des autorisations élevées",
+      "insufficientPermission": "Autorisation insuffisante",
+      "insufficientPermissionHelp": "Le démantèlement supprime des dépôts. La connexion normale ne demande pas l'autorisation de les supprimer, demandez donc des autorisations élevées pour continuer.",
+      "insufficientPermissionHelpPat": "Le démantèlement supprime des dépôts, et le jeton de cette session ne le permet pas. Les autorisations d'un jeton sont fixées lorsque vous le créez sur GitHub, reconnectez-vous donc avec un jeton qui permet de supprimer des dépôts.",
+      "needsDeleteScope": "GitHub a refusé de supprimer les dépôts (403). La connexion normale ne demande pas l'autorisation de les supprimer. Demandez des autorisations élevées et réessayez, ou archivez les dépôts à la place.",
+      "needsDeleteScopePartial_one": "GitHub a refusé de supprimer les dépôts (403) après que {{count}} a déjà été supprimé. Cette suppression est définitive. Demandez des autorisations élevées et relancez le démantèlement pour terminer.",
+      "needsDeleteScopePartial_other": "GitHub a refusé de supprimer les dépôts (403) après que {{count}} ont déjà été supprimés. Ces suppressions sont définitives. Demandez des autorisations élevées et relancez le démantèlement pour terminer.",
+      "needsDeleteScopePat": "Vous vous êtes connecté avec un jeton d'accès personnel, Classroom 50 ne peut donc pas ajouter cette autorisation pour vous. Créez un jeton qui permet de supprimer des dépôts (la portée delete_repo sur un jeton classique, ou Administration : lecture et écriture sur un jeton à granularité fine) et reconnectez-vous.",
+      "rateLimited": "GitHub a limité le débit des suppressions avant qu'aucun dépôt ne soit supprimé. Attendez un moment, puis relancez le démantèlement.",
+      "rateLimitedPartial_one": "GitHub a limité le débit des suppressions après que {{count}} a déjà été supprimé, et cette suppression est définitive. Attendez un moment, puis relancez le démantèlement pour terminer.",
+      "rateLimitedPartial_other": "GitHub a limité le débit des suppressions après que {{count}} ont déjà été supprimés, et ces suppressions sont définitives. Attendez un moment, puis relancez le démantèlement pour terminer.",
+      "ssoRequired": "GitHub a refusé de supprimer les dépôts (403). Cette organisation nécessite l'authentification unique SAML. Autorisez votre session pour cette organisation sur GitHub, puis relancez le démantèlement.",
+      "ssoRequiredPartial_one": "GitHub a refusé de supprimer les dépôts (403) après que {{count}} a déjà été supprimé, et cette suppression est définitive. Cette organisation nécessite l'authentification unique SAML. Autorisez votre session pour elle sur GitHub, puis relancez le démantèlement pour terminer.",
+      "ssoRequiredPartial_other": "GitHub a refusé de supprimer les dépôts (403) après que {{count}} ont déjà été supprimés, et ces suppressions sont définitives. Cette organisation nécessite l'authentification unique SAML. Autorisez votre session pour elle sur GitHub, puis relancez le démantèlement pour terminer."
     },
     "preflight": {
       "categoryServiceToken": "jeton de service",
       "categoryOrgPolicy": "politique de l'organisation",
-      "title": "La vérification préalable de l'organisation a échoué",
+      "title": "La vérification de la configuration de l'organisation a échoué",
       "body_one": "Un problème a été détecté avec {{categories}} de cette organisation.",
       "body_other": "Des problèmes ont été détectés avec {{categories}} de cette organisation.",
       "reviewFix": "Vérifiez et corrigez sur la <settingsLink>page des paramètres de l'organisation</settingsLink>.",
@@ -1520,8 +1563,8 @@
       "title": "Mettre à jour les fichiers de workflow pour que l'évaluation continue de fonctionner ?",
       "confirmLabel": "Mettre à jour maintenant",
       "cancelLabel": "Pas maintenant",
-      "body_one": "1 fichier de workflow/script Classroom 50 dans votre dépôt de configuration est obsolète et sera actualisé :",
-      "body_other": "{{count}} fichiers de workflow/script Classroom 50 dans votre dépôt de configuration sont obsolètes et seront actualisés :",
+      "body_one": "1 fichier de flux de travail/script Classroom 50 dans votre dépôt classroom50 est obsolète et sera actualisé :",
+      "body_other": "{{count}} fichiers de flux de travail/script Classroom 50 dans votre dépôt classroom50 sont obsolètes et seront actualisés :",
       "warning": "Classroom 50 gère ces fichiers, la mise à jour est donc sans risque. Les laisser obsolètes peut empêcher des fonctionnalités comme l'autonotation de fonctionner. Si vous avez personnalisé un fichier, choisissez <keepMine>Pas maintenant</keepMine> pour le conserver tel quel pour l'instant."
     },
     "steps": {
@@ -1554,16 +1597,16 @@
         "remediation": "Ouvrez les paramètres Actions de l'organisation et activez « Allow GitHub Actions to create and approve pull requests »."
       },
       "configRepo": {
-        "title": "Dépôt de configuration",
-        "what": "Crée le dépôt de configuration privé classroom50 dans l'organisation.",
+        "title": "dépôt classroom50",
+        "what": "Crée le dépôt privé classroom50 dans l'organisation.",
         "why": "Classroom 50 n'a pas de backend — ce dépôt contient toute la configuration des classes, les manifestes, les workflows et les scores.",
         "remediation": "Il s'agit d'une étape requise. Relancez la configuration ; si elle continue d'échouer, vérifiez que vous avez les autorisations de propriétaire et qu'une politique d'organisation/enterprise ne bloque pas la création de dépôts privés."
       },
       "skeleton": {
-        "title": "Fichiers de base",
+        "title": "Fichiers de flux de travail",
         "what": "Valide ou met à jour les fichiers de workflow et de script dont Classroom 50 a besoin dans le dépôt classroom50.",
         "why": "Ces fichiers fournis exécutent l'autocorrection, la publication et l'évaluation ; relancer la configuration les met aussi à niveau vers la dernière version.",
-        "remediation": "Il s'agit d'une étape requise. Relancez la configuration ; si elle continue d'échouer, vérifiez que vous pouvez pousser vers la branche par défaut du dépôt classroom50."
+        "remediation": "C'est une étape obligatoire. Relancez la configuration ; si elle échoue toujours, vérifiez que vous pouvez pousser sur la branche par défaut du dépôt classroom50."
       },
       "branchProtection": {
         "title": "Protection de branche",
@@ -1614,7 +1657,7 @@
   },
   "skeletonDrift": {
     "title": "Les fichiers de workflow de la classe ne sont plus à jour",
-    "body": "Les workflows GitHub Actions du dépôt de configuration classroom50 de cette organisation sont obsolètes. Mettez-les à jour ici pour que l'évaluation, la collecte des notes et la publication de Pages continuent de fonctionner.",
+    "body": "Les flux de travail GitHub Actions dans le dépôt classroom50 de cette organisation sont obsolètes. Mettez-les à jour ici pour que la notation, la collecte des scores et la publication de Pages continuent de fonctionner.",
     "overwriteWarning_label": "Attention :",
     "overwriteWarning": "La mise à jour écrase les fichiers de workflow générés (collect-scores, regrade, publish-pages, autograde-runner) par les valeurs par défaut, remplaçant toute modification manuelle — vous confirmerez d'abord.",
     "action": "Mettre à jour les workflows maintenant",
@@ -1643,14 +1686,14 @@
     "missingOrgOrClassroom": "Organisation ou cours manquant.",
     "couldNotLoad": "Impossible de charger les données du cours.",
     "loadingClassroom": "Chargement du cours",
-    "configRepo": "Dépôt de configuration",
-    "configRepoTitle": "Ouvrir le dossier de ce cours dans le dépôt de configuration classroom50 sur GitHub",
+    "configRepo": "dépôt classroom50",
+    "configRepoTitle": "Ouvrir le dossier de cette classe dans le dépôt classroom50 sur GitHub",
     "settingsSubtitle": "Configuration du cours <classroom>{{classroom}}</classroom>.",
     "somethingWentWrong": "une erreur est survenue",
     "archivedReadOnlyNotice": "Ce cours est archivé — les paramètres sont en lecture seule. Utilisez Désarchiver ci-dessus pour effectuer des modifications.",
     "deleteClassroomAria": "Supprimer le cours",
     "deleteClassroomTitle": "Supprimer le cours ?",
-    "deleteClassroomBody": "Cela supprimera le cours <classroom>{{classroom}}</classroom> de l'organisation <org>{{org}}</org>. Les dépôts de devoir des élèves ne seront pas supprimés.",
+    "deleteClassroomBody": "Cela supprimera la classe <classroom>{{classroom}}</classroom> de l'organisation <org>{{org}}</org>, ainsi que toutes les adresses stockées pour ses invitations par e-mail non acceptées. Les dépôts de devoirs des étudiants ne seront pas supprimés.",
     "deleteClassroomConfirm": "Supprimer le cours",
     "deleteClassroomCancel": "Conserver le cours",
     "archive": "Archiver",
@@ -1711,7 +1754,6 @@
       "searchPlaceholder": "Rechercher des cours…",
       "searchLabel": "Rechercher des cours",
       "termLabel": "Filtrer par session",
-      "term": "Session",
       "allTerms": "Toutes les sessions",
       "sort": {
         "label": "Trier",
@@ -1799,9 +1841,9 @@
       "roleTeacherPlural": "Enseignant·e·s",
       "roleTaPlural": "Assistant·e·s",
       "roleHeadTaPlural": "Assistant·e·s principaux·ales",
-      "accessTeacher": "Propriétaire de l'organisation. Accès en écriture au dépôt de configuration.",
-      "accessHeadTa": "Membre de l'organisation. Accès en écriture au dépôt de configuration.",
-      "accessTa": "Membre de l'organisation. Accès en lecture seule au dépôt de configuration.",
+      "accessTeacher": "Propriétaire de l'organisation. Accès en écriture au dépôt classroom50.",
+      "accessHeadTa": "Membre de l'organisation. Accès en écriture au dépôt classroom50.",
+      "accessTa": "Membre de l'organisation. Accès en lecture seule au dépôt classroom50.",
       "viewTeamTitle": "Ouvrir l'équipe {{role}} sur GitHub",
       "pendingCount_one": "{{count}} en attente",
       "pendingCount_other": "{{count}} en attente",
@@ -1832,7 +1874,16 @@
     "newButton": {
       "moreOptions": "Plus d'options"
     },
-    "viewAssignmentsAria": "Voir les devoirs de {{classroom}}"
+    "viewAssignmentsAria": "Voir les devoirs de {{classroom}}",
+    "inviteCleanup": {
+      "body": "Les invitations par e-mail conservent chaque adresse invitée dans une équipe d'invitation secrète, afin qu'elle puisse être inscrite au registre lorsque cet étudiant rejoint. Ceci fait d'abord correspondre chaque adresse encore possible à un compte GitHub du registre de <classroom>{{classroom}}</classroom>, puis supprime les autres. Les invitations en attente restent valides, mais une adresse supprimée ici ne sera pas enregistrée automatiquement lorsque son invitation sera acceptée.",
+      "button": "Nettoyer les données d'invitation",
+      "buttonTitle": "Faire correspondre et supprimer les e-mails d'invitation stockés pour cette classe",
+      "confirm": "Nettoyer",
+      "confirmTitle": "Nettoyer les e-mails d'invitation stockés ?",
+      "done": "Données d'invitation nettoyées : {{recovered}} associées au registre, {{purged}} supprimées.",
+      "failed": "Impossible de nettoyer les données d'invitation : {{error}}"
+    }
   },
   "accept": {
     "githubUser": "Utilisateur GitHub",
@@ -1980,8 +2031,8 @@
       "title": "Statistiques des rendus"
     },
     "errors": {
-      "gradebookLoad": "Impossible de charger le carnet de notes.",
-      "gradebookLoadWithReason": "Impossible de charger le carnet de notes : {{reason}}",
+      "gradebookLoad": "Impossible de charger les scores collectés.",
+      "gradebookLoadWithReason": "Impossible de charger les scores collectés : {{reason}}",
       "gradebookLoadHint": "Les décomptes ci-dessous peuvent être incomplets — réessayez avant d'agir en fonction de ceux-ci.",
       "rosterLoad": "Impossible de charger la liste depuis GitHub.",
       "rosterLoadHint": "La liste des inscrits peut être incomplète — il s'agit d'une erreur de chargement, pas d'une classe vide. Réessayez avant d'agir sur les nombres.",
@@ -2006,7 +2057,7 @@
       "statusFailedWithReason": "Impossible de démarrer la collecte : {{reason}}",
       "statusFailedHint": "Vous pouvez la vérifier ou la déclencher manuellement sur GitHub.",
       "statusTimeout": "Toujours en cours après un moment. Vérifiez sa progression sur GitHub, ou actualisez cette page une fois terminée.",
-      "workflowOutdated": "Impossible de collecter ce devoir : le workflow Collect Scores dans le dépôt de configuration classroom50 de cette organisation est obsolète. Mettez à jour les workflows de l'organisation (une bannière de mise à jour apparaît lorsqu'une version plus récente est disponible), puis réessayez."
+      "workflowOutdated": "Impossible de collecter ce devoir : le flux de travail Collect Scores dans le dépôt classroom50 de cette organisation est obsolète. Mettez à jour les flux de travail de l'organisation (une bannière de mise à jour apparaît lorsqu'une version plus récente est disponible), puis réessayez."
     },
     "regradeAll": {
       "label": "Tout réévaluer",
@@ -2059,30 +2110,26 @@
       "searchGroupPlaceholder": "Rechercher un groupe ou un membre…",
       "searchStudentPlaceholder": "Rechercher un étudiant…",
       "searchAria": "Rechercher des rendus",
-      "sectionLabel": "Section",
       "sectionAria": "Filtrer par section",
       "allSections": "Toutes les sections",
-      "submissionLabel": "Statut",
       "submissionAria": "Filtrer par statut de soumission ou d'acceptation",
       "allStatuses": "Tous les statuts",
       "submitted": "Rendu",
       "onTime": "Dans les temps",
       "late": "En retard",
       "notSubmitted": "Non rendu",
-      "passingLabel": "Note",
       "passingAria": "Filtrer par statut de réussite",
-      "allGrades": "Toutes les notes",
+      "allGrades": "Tous les scores",
       "passing": "Réussite",
       "failing": "Échec",
       "accepted": "Accepté",
       "notAccepted": "Non accepté",
-      "clear": "Effacer",
-      "sortLabel": "Trier",
       "sortAria": "Trier les rendus",
       "sortRecent": "Plus récents d'abord",
       "sortOldest": "Plus anciens d'abord",
       "sortNameFirst": "Par prénom",
-      "sortNameLast": "Par nom"
+      "sortNameLast": "Par nom",
+      "pendingHiddenHint": "Le travail tout juste soumis qui n'a pas encore été collecté peut ne pas apparaître sous ce tri ou ce filtre. Passez à un tri par nom, ou synchronisez, pour le voir."
     },
     "table": {
       "captionGroup": "Rendus de groupe",
@@ -2102,7 +2149,7 @@
       "staleCount": "Nouveau",
       "staleCountTitle": "Cet étudiant a poussé plus de rendus qu'il n'en a été évalué. Lancez « Synchroniser les rendus maintenant » pour évaluer et noter les plus récents.",
       "late": "En retard",
-      "lateRowTitle": "Le dernier rendu a été poussé après la date limite.",
+      "lateRowTitle": "La dernière soumission a été poussée après la date d'échéance.",
       "gradedAt": "Évalué le {{date}}",
       "gradedAtTitle": "Date à laquelle l'autograder a (ré)évalué ce rendu pour la dernière fois. La réévaluation met cela à jour sans changer la date de rendu.",
       "liveLatest": "Dernier push {{date}} · pas encore évalué",
@@ -2118,7 +2165,7 @@
       "resolvingNonSubmitters": "Vérification de qui n'a pas encore rendu…",
       "loading": "Chargement des rendus…",
       "pendingGrade": "En attente",
-      "pendingGradeTitle": "Rendu — note pas encore collectée. Lancez « Synchroniser les rendus maintenant » ou attendez la collecte nocturne.",
+      "pendingGradeTitle": "Soumis — note pas encore collectée. Exécutez « Synchroniser les soumissions maintenant » pour la collecter.",
       "notSubmitted": "Non rendu",
       "acceptedAwaiting": "Accepté · en attente de soumission",
       "notAccepted": "Non accepté",
@@ -2208,7 +2255,7 @@
       "blockedTitle": "Ces dépôts nécessitent un administrateur de l'organisation :",
       "confirmBody_one": "Cela ouvre une PR de retour sur le <b>{{count}}</b> dépôt de devoir de <b>{{name}}</b> qui n'en a pas encore. Les dépôts qui ont déjà une PR de retour restent inchangés.",
       "confirmBody_other": "Cela ouvre une PR de retour sur chacun des <b>{{count}}</b> dépôts de devoir de <b>{{name}}</b> qui n'en ont pas encore. Les dépôts qui ont déjà une PR de retour restent inchangés.",
-      "confirmHint": "Cela s'exécute depuis votre navigateur, un dépôt à la fois, cela peut donc prendre un certain temps pour une grande classe. Gardez cet onglet ouvert jusqu'à ce que ce soit terminé.",
+      "confirmHint": "Cela s'exécute depuis votre navigateur, un dépôt à la fois, cela peut donc prendre du temps pour une grande classe. Gardez cet onglet ouvert jusqu'à ce que ce soit terminé.",
       "confirmLabel_one": "Ouvrir la PR",
       "confirmLabel_other": "Ouvrir les PR",
       "failedHint": "Il s'agit souvent d'une erreur GitHub transitoire — relancez l'action pour réessayer uniquement les dépôts qui n'ont toujours pas de PR.",
@@ -2258,8 +2305,8 @@
       "subtitle_other": "S'applique à {{count}} étudiants qui ont accepté ce devoir.",
       "title": "Définir l'accès aux dépôts des étudiants",
       "titleEmptyRoster": "Aucun étudiant n'a encore accepté",
-      "warning_one": "Cela définit le rôle de {{count}} étudiant sur son propre dépôt sur {{level}}. Admin lui permet de modifier les paramètres du dépôt et, sur un dépôt privé, sa visibilité. Les collaborateurs existants ne sont pas autrement affectés.",
-      "warning_other": "Cela définit le rôle de {{count}} étudiants sur leurs propres dépôts sur {{level}}. Admin leur permet de modifier les paramètres du dépôt et, sur un dépôt privé, sa visibilité. Les collaborateurs existants ne sont pas autrement affectés.",
+      "warning_one": "Cela définit le rôle de {{count}} étudiant sur son propre dépôt à {{level}}. Admin lui permet de modifier les paramètres du dépôt et de gérer les collaborateurs ; les paramètres de sécurité par défaut de l'organisation empêchent toujours les membres de changer la visibilité d'un dépôt. Les collaborateurs existants ne sont par ailleurs pas affectés.",
+      "warning_other": "Cela définit le rôle de {{count}} étudiants sur leurs propres dépôts à {{level}}. Admin leur permet de modifier les paramètres du dépôt et de gérer les collaborateurs ; les paramètres de sécurité par défaut de l'organisation empêchent toujours les membres de changer la visibilité d'un dépôt. Les collaborateurs existants ne sont par ailleurs pas affectés.",
       "working": "Mise à jour des dépôts"
     },
     "bulkFeatures": {
@@ -2288,7 +2335,7 @@
       "assemblyError": "Toutes les soumissions ont été téléchargées, mais le zip combiné était trop volumineux pour être assemblé dans le navigateur. Essayez de filtrer par section et de télécharger par lots plus petits.",
       "confirmBody_one": "Cela télécharge la dernière soumission de <b>{{count}}</b> étudiant qui a soumis <b>{{name}}</b>, regroupée dans un seul zip.",
       "confirmBody_other": "Cela télécharge les dernières soumissions de <b>{{count}}</b> étudiants qui ont soumis <b>{{name}}</b>, regroupées dans un seul zip.",
-      "confirmHint": "Cela s'exécute depuis votre navigateur, un dépôt à la fois, cela peut donc prendre du temps pour une grande classe. Gardez cet onglet ouvert jusqu'à la fin.",
+      "confirmHint": "Cela s'exécute depuis votre navigateur, un dépôt à la fois, cela peut donc prendre du temps pour une grande classe. Gardez cet onglet ouvert jusqu'à ce que ce soit terminé.",
       "confirmLabel_one": "Télécharger la soumission",
       "confirmLabel_other": "Télécharger les soumissions",
       "emptyHint": "L'étudiant a accepté le devoir mais n'a encore poussé aucun travail, il n'y a donc pas de soumission à inclure.",
@@ -2459,7 +2506,7 @@
       "resultHeadline_other": "{{count}} devoirs migrés.",
       "subtitle": "Mettez à jour les devoirs de cette classe vers le schéma de configuration le plus récent.",
       "title": "Migrer la configuration de la classe",
-      "warning": "Cela enregistre explicitement les réglages de chaque devoir afin que chaque outil les lise de la même manière et que les fonctionnalités les plus récentes (comme le suivi des rendus en direct) soient activées. Cela ne modifie aucune note, échéance ni accès d'étudiant, et vous pouvez continuer à travailler comme avant.",
+      "warning": "Ceci enregistre explicitement les paramètres de chaque devoir afin que chaque outil les interprète de la même façon et que les fonctionnalités les plus récentes (comme le suivi des soumissions en direct) soient activées. Cela ne change aucun score, date d'échéance ou accès d'étudiant, et vous pouvez continuer à travailler comme avant.",
       "working": "Mise à jour des devoirs"
     },
     "rowAutograde": {
@@ -2518,7 +2565,7 @@
       "clearLabel": "Effacer la substitution de note pour {{name}}",
       "currentAutograded": "Note automatique",
       "descriptionAuto": "Saisissez une note pour {{name}} afin de remplacer le résultat de la correction automatique. La note automatique est conservée et rétablie si vous effacez la substitution.",
-      "descriptionManual": "Saisissez une note pour {{name}}. Elle est enregistrée dans le carnet de notes et ne sera pas modifiée par la correction automatique.",
+      "descriptionManual": "Saisissez un score pour {{name}}. Il est enregistré avec les scores collectés et ne sera pas modifié par l'autonotation.",
       "edit": "Modifier la note",
       "editLabel": "Modifier la note pour {{name}}",
       "inputLabel": "Note",
@@ -2549,7 +2596,6 @@
     }
   },
   "orgActivity": {
-    "clearFilters": "Effacer",
     "detail": {
       "source": "à {{location}}",
       "status": "HTTP {{code}}"
@@ -2643,7 +2689,7 @@
     "inviting": "Invitation en cours…",
     "inviteToOrg": "Inviter dans l'organisation",
     "confirmInviteBody": "Envoyer une invitation à l'organisation à {{label}} ? L'invitation est envoyée à son compte GitHub par identifiant et il rejoindra {{org}} avec son accès de classe antérieur une fois qu'il l'aura acceptée.",
-    "notMemberNoId": "Cet élève figure sur une liste de classe mais n'est pas membre de l'organisation. Aucun id GitHub n'est enregistré pour lui ; invitez-le depuis la page Élèves de sa classe.",
+    "notMemberNoId": "Cet étudiant figure dans un registre mais n'est pas membre de l'organisation. Il n'a pas encore d'id GitHub enregistré, invitez-le donc depuis la page du registre de sa classe.",
     "confirmUnenroll_one": "{{label}} sera d'abord désinscrit de <count>{{count}} classe</count> ({{classrooms}}), puis retiré de l'organisation <org>{{org}}</org>. Ses dépôts de devoirs ne sont pas supprimés.",
     "confirmUnenroll_other": "{{label}} sera d'abord désinscrit de <count>{{count}} classes</count> ({{classrooms}}), puis retiré de l'organisation <org>{{org}}</org>. Ses dépôts de devoirs ne sont pas supprimés.",
     "confirmRemove": "{{label}} sera retiré de l'organisation <org>{{org}}</org>.",
@@ -2703,11 +2749,14 @@
         "not-on-classroom": "Pas dans cette classe.",
         "already-removed": "Déjà retiré de cette classe.",
         "archived": "La classe est archivée — désarchivez-la pour modifier l'appartenance.",
-        "resolve-failed": "Impossible de résoudre son compte GitHub actuel."
+        "resolve-failed": "Impossible de résoudre son compte GitHub actuel.",
+        "pending-email-invite": "Invité par e-mail et pas encore accepté — annulez plutôt l'invitation depuis la page du registre de la classe."
       }
     },
     "inviteMalformedId": "Impossible d'inviter {{who}} : « {{githubId}} » n'est pas un identifiant GitHub valide. Corrigez la cellule github_id dans roster.csv.",
-    "inviteMissingId": "Impossible d'inviter {{who}} : aucun identifiant GitHub enregistré."
+    "inviteMissingId": "Impossible d'inviter {{who}} : aucun identifiant GitHub enregistré.",
+    "badgeInvitePending": "Invitation en attente",
+    "invitePendingNotice": "Cet étudiant a été invité par e-mail et n'a pas encore accepté, il n'a donc aucun compte GitHub enregistré. Rien d'anormal — ses détails se rempliront automatiquement lorsqu'il rejoindra. Vous pouvez annuler l'invitation depuis la page du registre de sa classe."
   },
   "components": {
     "avatar": {
@@ -2832,7 +2881,7 @@
         "uniqueHint": "Doit être unique au sein de cette classe."
       },
       "repoAccess": {
-        "adminWarning": "Définissez le rôle de chaque collaborateur, ou ajoutez et retirez des collaborateurs. <b>Admin</b> permet à un collaborateur de modifier les paramètres du dépôt et, sur un dépôt privé, sa visibilité.",
+        "adminWarning": "Définissez le rôle de chaque collaborateur, ou ajoutez et supprimez des collaborateurs. <b>Admin</b> permet à un collaborateur de modifier les paramètres du dépôt et de gérer les collaborateurs ; les paramètres de sécurité par défaut de l'organisation empêchent toujours les membres de changer la visibilité d'un dépôt.",
         "loading": "Chargement des collaborateurs",
         "needsAdmin": "Vous avez besoin d'un accès admin sur ce dépôt pour modifier ses collaborateurs.",
         "newRole": "Rôle pour le nouveau collaborateur",
@@ -2868,7 +2917,7 @@
       "heading": "Gérer les jetons de service",
       "loading": "Vérification de vos organisations…",
       "manage": "Gérer",
-      "subheading": "État des jetons de service dans chaque organisation dont vous êtes propriétaire. Renouvelez un jeton avant son expiration pour que la collecte nocturne des notes continue de fonctionner."
+      "subheading": "État des jetons de service dans chaque organisation dont vous êtes propriétaire. Renouvelez un jeton avant son expiration pour que la collecte des scores continue de fonctionner."
     },
     "appearance": {
       "dark": "Sombre",
@@ -2901,19 +2950,31 @@
       "subheading": "Contrôlez les animations de l'interface, telles que les transitions de page, les menus et autres effets animés.",
       "system": "Système",
       "systemHint": "Suivre le réglage de réduction des animations de votre appareil."
+    },
+    "elevatedScope": {
+      "heading": "Autorisations élevées",
+      "patNote": "Vous vous êtes connecté avec un jeton d'accès personnel, ses autorisations sont donc fixées lorsque vous le créez sur GitHub. Pour changer ce que cette session peut faire, créez un jeton avec les autorisations dont vous avez besoin et reconnectez-vous.",
+      "removeButton": "Cesser d'utiliser cette autorisation",
+      "requestButton": "Demander l'autorisation de supprimer des dépôts",
+      "status": {
+        "granted": "Cette session peut supprimer des dépôts.",
+        "missing": "Cette session ne peut pas supprimer de dépôts.",
+        "unknown": "Votre jeton ne signale pas ses autorisations, Classroom 50 ne peut donc pas déterminer s'il peut supprimer des dépôts."
+      },
+      "subheading": "Le démantèlement d'une organisation nécessite l'autorisation de supprimer des dépôts, ce que la connexion normale ne demande pas. Accordez cette autorisation uniquement lorsque vous en avez besoin, et révoquez-la sur GitHub une fois terminé."
     }
   },
   "pagesErrors": {
     "assignmentNotInManifest": "Le devoir « {{assignmentSlug}} » ne figure pas dans les devoirs publiés de cette classe. Vérifiez le lien, ou demandez à votre enseignant de publier le devoir.",
     "autograderLabel": "Autograder « {{autograderName}} »",
-    "autograderMalformed": "L'autograder « {{autograderName}} » contient peut-être du YAML mal formé. Demandez à votre enseignant de vérifier le fichier dans le dépôt de configuration.",
+    "autograderMalformed": "L'autonoteur « {{autograderName}} » a peut-être un YAML mal formé. Demandez à votre enseignant de vérifier le fichier dans le dépôt classroom50.",
     "classroomFetchFailed": "Impossible de charger les fichiers publiés de cette classe (HTTP {{status}}). Demandez à votre enseignant de confirmer que la classe est publiée, puis réessayez.",
     "classroomNotPublished": "Cette classe n'est pas encore publiée. Elle n'existe peut-être pas, ou le workflow de publication n'a peut-être pas été exécuté. Demandez à votre enseignant de la publier, puis réessayez.",
     "deployInFlight": "Les fichiers publiés de la classe sont peut-être encore en cours de déploiement. Patientez une minute, puis réessayez.",
     "fetchFailed": "Impossible de charger {{label}} (HTTP {{status}}). Demandez à votre enseignant de confirmer que la classe est publiée, puis réessayez.",
     "manifestInvalidShape": "La liste des devoirs publiés de cette classe est mal formée. Demandez à votre enseignant de vérifier la configuration de Classroom 50.",
     "manifestVersionUnsupported": "Cette classe utilise un format de devoir plus récent (v{{version}}) que celui pris en charge par cette copie de Classroom 50. Rechargez la page, ou demandez à votre enseignant de mettre à jour Classroom 50.",
-    "notPublished": "{{label}} n'est pas encore publié. Demandez à votre enseignant de confirmer que le fichier existe dans le dépôt de configuration et que le workflow de publication a été exécuté."
+    "notPublished": "{{label}} n'est pas encore publié. Demandez à votre enseignant de confirmer que le fichier existe dans le dépôt classroom50 et que le flux de travail de publication a été exécuté."
   },
   "migration": {
     "access": {
@@ -2931,7 +2992,7 @@
       "title": "Accordez l'accès pour continuer"
     },
     "blocker": {
-      "dir_exists": "Une classe nommée « {{shortName}} » existe déjà dans cette organisation. Choisissez un autre nom court pour continuer.",
+      "dir_exists": "Une classe nommée « {{shortName}} » existe déjà dans cette organisation. Choisissez un nom court différent pour continuer.",
       "needs_org_setup": "« {{org}} » n'est pas encore configuré pour Classroom 50 — exécutez d'abord la configuration de l'organisation, puis réessayez.",
       "source_org_access": "Classroom 50 ne peut pas lire les dépôts de départ dans « {{org}} » — l'application n'a pas reçu l'accès à cette organisation."
     },
@@ -2952,19 +3013,19 @@
       "modalSkipNote_one": "1 devoir sera ignoré et non importé.",
       "modalSkipNote_other": "{{count}} devoirs seront ignorés et non importés.",
       "modalSummary_one": "Cela créera la classe « {{shortName}} » dans {{org}}, ajoutera une équipe GitHub et copiera 1 dépôt de devoir.",
-      "modalSummary_other": "Cela créera la classe « {{shortName}} » dans {{org}}, ajoutera des équipes GitHub et copiera {{count}} dépôts de devoir.",
+      "modalSummary_other": "Cela créera la classe « {{shortName}} » dans {{org}}, ajoutera des équipes GitHub et copiera {{count}} dépôts de devoirs.",
       "modalTitle": "Cette étape est difficile à annuler",
       "name": "Nom de la nouvelle classe",
-      "nameHelp": "Le nom affiché de la classe créée dans votre organisation Classroom 50 — visible par vous et les étudiants. Il peut correspondre au nom de la classe source ou être ce que vous voulez. Par défaut, le nom de la source.",
+      "nameHelp": "Le nom d'affichage de la classe créée dans votre organisation Classroom 50 — visible par vous et les étudiants. Il peut correspondre au nom de la classe source ou être ce que vous voulez. Par défaut, il reprend le nom source.",
       "noneSelected": "Aucun devoir sélectionné — cochez-en au moins un à importer, ou revenez en arrière.",
       "preflightError": "Impossible de construire l'aperçu de l'importation.",
-      "shortName": "Nouvel identifiant de classe (nom court)",
-      "shortNameHelp": "L'identifiant compatible URL de la classe dans votre organisation cible (par ex. cs50-fall). Il devient le dossier de configuration et les noms d'équipe GitHub, et préfixe chaque dépôt d'étudiant, il ne peut donc pas être modifié plus tard. Rempli automatiquement à partir du nom de la classe source ; modifiez-le si vous voulez un autre identifiant.",
+      "shortName": "ID de la nouvelle classe (nom court)",
+      "shortNameHelp": "L'identifiant compatible URL de la classe dans votre organisation cible (par exemple, cs50-fall). Il devient le dossier de configuration et les noms des équipes GitHub, et préfixe chaque dépôt d'étudiant, il ne peut donc pas être modifié par la suite. Rempli automatiquement à partir du nom de la classe source ; modifiez-le si vous voulez un autre id.",
       "suffix": "Suffixe du dépôt de modèle",
       "suffixHelp": "Texte facultatif ajouté à chaque nom de dépôt de modèle copié (par ex. hw1 devient hw1-f26). Utilisez-le uniquement si un dépôt portant le nom du devoir existe déjà dans cette organisation et que l'importation entrerait sinon en conflit. Laissez vide dans la plupart des cas.",
       "suffixPlaceholder": "facultatif",
       "term": "Session",
-      "termHelp": "Étiquette facultative indiquant quand cette classe se déroule (par ex. Fall-2026). Affichée sur la classe et stockée dans ses paramètres ; elle n'affecte pas les noms de dépôt ni d'équipe.",
+      "termHelp": "Étiquette facultative indiquant quand cette classe se déroule (par exemple, Fall-2026). Affichée sur la classe et stockée dans ses paramètres ; elle n'affecte pas les noms des dépôts ni des équipes.",
       "termPlaceholder": "par ex. Fall-2026",
       "title": "Vérifiez ce qui sera importé",
       "updating": "Mise à jour de l'aperçu…"
@@ -3005,8 +3066,8 @@
     "item": {
       "assignmentBadge": "Devoir",
       "branchLabel": "Branche",
-      "deadlineLabel": "Échéance",
-      "emptyRepo": "Dépôt vide (shim d'auto-évaluation seulement)",
+      "deadlineLabel": "Date d'échéance",
+      "emptyRepo": "Nouveau dépôt (README + fichiers d'autonotation)",
       "feedbackLabel": "PR de retour",
       "groupSizeLabel": "Taille max du groupe",
       "no": "Désactivé",
@@ -3062,7 +3123,7 @@
       "execute": "Importer",
       "select": "Choisir une classe"
     },
-    "subtitle": "Amenez un GitHub Classroom existant — ses devoirs et ses dépôts de départ — dans cette organisation en tant que nouvelle classe. Vous vérifierez et confirmerez tout avant que quoi que ce soit ne soit créé.",
+    "subtitle": "Importez une classe GitHub Classroom existante — ses devoirs et dépôts de départ — dans cette organisation en tant que nouvelle classe. Vous examinerez et confirmerez tout avant que quoi que ce soit ne soit créé.",
     "title": "Importer depuis GitHub Classroom"
   },
   "serviceTokenHealth": {
@@ -3170,7 +3231,6 @@
     "summaryPassMargin_other": "Les {{total}} paires de couleurs auditées satisfont toutes à leur seuil de contraste WCAG. {{count}} satisfont mais restent en dessous de notre marge de sécurité recommandée.",
     "title": "Audit du contraste des couleurs",
     "vpat": {
-      "clearFilter": "Effacer le filtre",
       "col": {
         "assessed": "Évalué",
         "conformance": "Conformité",
@@ -3181,7 +3241,6 @@
       "empty": "Aucun critère ne correspond à ce filtre.",
       "filterAll": "Tous les états",
       "filterAria": "Filtrer par état de conformité",
-      "filterLabel": "État",
       "generated": "Date du rapport {{generated}}",
       "heading": "Rapport de conformité (VPAT)",
       "loadError": "Impossible de charger le rapport de conformité.",
