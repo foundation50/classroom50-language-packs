@@ -58,7 +58,6 @@
     "manageGroup": "Gruppe verwalten",
     "acceptAssignment": "Aufgabe annehmen",
     "myClasses": "Meine Classrooms",
-    "myAssignments": "Meine Aufgaben",
     "published": "Veröffentlicht",
     "members": "Mitglieder",
     "organizations": "Organisationen",
@@ -228,7 +227,6 @@
     "resendFailed": "Das erneute Senden der Einladung für {{username}} ist fehlgeschlagen ({{error}}).",
     "resend": "Erneut senden",
     "dismiss": "Schließen",
-    "loadingRoster": "Teilnahmeliste wird geladen …",
     "inviteStudents": "Lernende einladen",
     "groupBySection": "Nach Kurs gruppieren",
     "noSection": "Kein Kurs",
@@ -592,7 +590,8 @@
     "classroomSlugRequired": "Der Kurs-Slug ist erforderlich.",
     "classroomSlugTaken": "Dieser Kurs-Slug ist bereits vergeben.",
     "assignmentSlugTaken": "In diesem Kurs existiert bereits eine Aufgabe „{{slug}}“.",
-    "groupSizeRange": "Die Gruppengröße muss eine ganze Zahl zwischen {{min}} und {{max}} sein."
+    "groupSizeRange": "Die Gruppengröße muss eine ganze Zahl zwischen {{min}} und {{max}} sein.",
+    "classroomSlugInvalid": "Der Kurs-Slug muss {{description}} sein."
   },
   "toasts": {
     "classroomSettingsSaved": "Kurseinstellungen gespeichert. Die Veröffentlichung auf der Lernenden-Seite läuft jetzt – das Banner oben zeigt den Fortschritt an.",
@@ -799,7 +798,8 @@
         "studentPermissionInvalid": "Der Repository-Zugriff für Lernende muss einer der Werte pull, triage, push, maintain oder admin sein.",
         "gradingMaxPointsInvalid": "Maximalpunkte müssen eine ganze Zahl von mindestens {{min}} sein.",
         "gradingModeInvalid": "Die Bewertung muss „off“, „auto“ oder „manual“ sein.",
-        "submissionModeInvalid": "Der Auslöser für die automatische Bewertung muss „every-push“ oder „tag“ sein."
+        "submissionModeInvalid": "Der Auslöser für die automatische Bewertung muss „every-push“ oder „tag“ sein.",
+        "slugInvalid": "Der Aufgaben-Slug muss {{description}} sein."
       },
       "allowedFilesTip": "Geordnete Muster im {{gitignore}}-Stil, eines pro Zeile, die festlegen, welche Dateien zu einer Abgabe gehören (der letzte Treffer gewinnt, {{bang}} schließt wieder ein). Z. B. {{star}} und dann {{example}} erlaubt nur {{result}}. Leer erlaubt jede Datei.",
       "containerUserTip": "Der Benutzer, unter dem der Container läuft. Setze root, wenn der Checkout mit einem Berechtigungsfehler fehlschlägt. GitHub Actions führt Container-Schritte als Benutzer des Host-Runners aus, sodass ein Nicht-Root-Image oft nicht in den Arbeitsbereich schreiben kann.",
@@ -953,7 +953,7 @@
           "tag": "Ein getaggter Commit"
         },
         "editWarning": "Diese Änderung betrifft nur ab jetzt erstellte Repositories. Bereits von Studierenden akzeptierte Repositories behalten die alte Einstellung, bis Sie sie aktualisieren. Verwenden Sie „Autograding-Auslöser aktualisieren“ auf der Abgabenseite oder gh teacher assignment submission-mode. Studierende müssen nach der Aktualisierung pullen.",
-        "help": "„Jeder Push zum Standard-Branch“ zählt jeden Push nach dem Starter-Commit. „Ein getaggter Commit“ zählt nur getaggte Commits, sodass gewöhnliche Pushes keine Actions-Minuten verbrauchen; Studierende reichen ein, indem sie ein Tag pushen oder gh student submit ausführen.",
+        "help": "„Jeder Push auf den Standardbranch“ zählt jeden Commit des Lernenden nach dem Start-Commit (die eigenen Annahme- und Autograding-Update-Commits des Tools zählen nicht). „Ein getaggter Commit“ zählt nur getaggte Commits, sodass gewöhnliche Pushes keine Actions-Minuten verbrauchen; ein Lernender reicht ein, indem er ein Tag pusht oder gh student submit ausführt.",
         "label": "Abgabetyp"
       },
       "submissionSection": "Abgabe und Bewertung",
@@ -1027,7 +1027,6 @@
       "colAssignment": "Aufgabe",
       "colType": "Typ",
       "colDueDate": "Fälligkeitsdatum",
-      "colSubmissions": "Abgaben",
       "colActions": "Aktionen",
       "empty": "Keine Aufgaben erstellt.",
       "individual": "Einzeln",
@@ -1063,12 +1062,23 @@
       "unlockSuccess": "{{name}} entsperrt.",
       "unlockTitle": "Aufgabe entsperren",
       "unlockTitleModal": "Aufgabe entsperren?",
-      "openSubmissionsAria": "Abgaben von {{name}} öffnen"
+      "openSubmissionsAria": "Abgaben von {{name}} öffnen",
+      "acceptedTitle": "{{accepted}} von {{total}} Lernenden haben die Aufgabe angenommen",
+      "colAccepted": "Angenommen",
+      "colSubmitted": "Eingereicht",
+      "groupsAcceptedTitle": "Gruppen, die angenommen haben – vorhandene Gruppen-Repositorys",
+      "noGroupsYet": "Noch keine Gruppen",
+      "noGroupsYetTitle": "Noch keine Gruppen – ein Gruppen-Repository wird erstellt, wenn deren Gründer:in annimmt",
+      "notCollectedYet": "Noch nicht eingesammelt",
+      "sortByDue": "Nach Abgabedatum sortieren",
+      "sortByName": "Nach Name sortieren",
+      "submittedTitle": "{{submitted}} von {{total}} Lernenden haben eingereicht",
+      "submittedTitleGroup": "{{submitted}} von {{accepted}} Gruppen haben eingereicht"
     },
     "template": {
       "label": "Vorlagen-Repository",
-      "placeholder": "<owner>/<repo>",
-      "help": "Optional. Studierende erhalten eine Kopie dieses Repositorys. Leer lassen für eine Aufgabe ohne Vorlage: Studierende erhalten ein initialisiertes Repository mit einer README und den Autograding-Dateien.",
+      "placeholder": "Vorlagen durchsuchen oder <owner>/<repo> einfügen",
+      "help": "Optional. Lernende erhalten eine Kopie dieses Repositorys. Durchsuche die Vorlagen-Repositorys deiner Organisation oder gib <owner>/<repo> ein bzw. füge eine GitHub-URL ein, um ein Repository von überall zu verwenden. Leer lassen für eine Aufgabe ohne Vorlage: Lernende erhalten ein initialisiertes Repository mit einer README und den Autograding-Dateien.",
       "checking": "Zugriff auf die Vorlage wird geprüft …",
       "fallbackOrg": "Ihre Organisation",
       "notVisible": "{{owner}}/{{repo}} ist für Sie nicht sichtbar. Machen Sie es öffentlich oder kopieren Sie es in {{org}}.",
@@ -1105,7 +1115,7 @@
         "pending": "Wird gewährt…",
         "success": "Der Lesezugriff des Classroom-Teams auf die Vorlage ist bestätigt."
       },
-      "noBranch": "{{owner}}/{{repo}} hat keinen Standard-Branch. Pushe einen Commit oder füge <hint/> hinzu.",
+      "noBranch": "{{owner}}/{{repo}} hat keinen Standardbranch. Pushe einen Commit dorthin und versuche es erneut.",
       "nonMainBranch": "Der Standard-Branch dieser Vorlage ist <branch>{{branch}}</branch>, nicht „main“. Die Aufgabe verwendet ihn, und das automatische Bewerten der Lernenden richtet sich nach diesem Branch.",
       "okPrivate": "Private Vorlage in {{owner}}, Branch <branch>{{branch}}</branch>. Lernende können darauf zugreifen.",
       "okPrivateInOrg": "Private Vorlage, Branch <branch>{{branch}}</branch>. Lernende können darauf zugreifen.",
@@ -1123,7 +1133,26 @@
       "restrictedItemFork": "Wenn {{repo}} ein Fork ist, genehmige Classroom 50 auch für die Upstream-Organisation des Forks – der Zugriff eines privaten Forks folgt der Richtlinie der Upstream-Organisation.",
       "restrictedItemOther": "Andernfalls kann es sich um einen anderen 403 handeln; siehe die Meldung von GitHub unten.",
       "viewTemplateRepo": "{{owner}}/{{repo}} auf GitHub öffnen",
-      "emptyTemplate": "{{owner}}/{{repo}} ist eine Vorlage, hat aber keine Commits. Füge mindestens einen Commit hinzu (z. B. eine README) und versuche es dann erneut."
+      "emptyTemplate": "{{owner}}/{{repo}} ist eine Vorlage, hat aber keine Commits. Füge mindestens einen Commit hinzu (z. B. eine README) und versuche es dann erneut.",
+      "branchIgnored": "Ein benutzerdefinierter Branch (<branch>{{branch}}</branch>) wurde angegeben und wird ignoriert – die Aufgabe kopiert den Standardbranch der Vorlage. Um einen anderen Branch zu verwenden, ändere den Standardbranch des Vorlagen-Repositorys.",
+      "invalid": {
+        "empty": "Gib ein Vorlagen-Repository ein.",
+        "notGithubHost": "„{{raw}}“ liegt auf {{host}}, nicht auf github.com. Classroom 50 kann nur Vorlagen kopieren, die auf GitHub gehostet sind.",
+        "shape": "„{{raw}}“ ist keine Repository-Referenz. Verwende <owner>/<repo>, einen Repository-Namen oder füge eine GitHub-Repository-URL ein.",
+        "urlShape": "„{{raw}}“ ist keine GitHub-Repository-URL. Verlinke auf das Repository selbst, etwa https://github.com/<owner>/<repo>."
+      },
+      "search": {
+        "loading": "Vorlagen werden geladen …",
+        "noMatches": "Keine Vorlagen-Repositorys in dieser Organisation passen zu „{{query}}“. Du kannst weiterhin <owner>/<repo> eingeben oder eine GitHub-URL einfügen.",
+        "noTemplates": "In dieser Organisation wurden keine Vorlagen-Repositorys gefunden. Aktiviere „Template repository“ in den Einstellungen eines Repositorys oder füge eine GitHub-URL ein.",
+        "privateRepo": "Privates Repository",
+        "showing": "{{shown}} von {{total}} Vorlagen werden angezeigt.",
+        "truncated": "Die {{scanned}} zuletzt aktualisierten Repositorys wurden durchsucht. Falls deine Vorlage nicht aufgeführt ist, gib <owner>/<repo> ein.",
+        "typeInstead": "Gib einen Repository-Namen, <owner>/<repo> ein oder füge eine GitHub-URL ein.",
+        "unavailable": "Die Vorlagen dieser Organisation konnten nicht geladen werden. Gib stattdessen den Repository-Namen ein.",
+        "unfiltered": "GitHub hat nicht gemeldet, welche dieser Repositorys Vorlagen sind, daher werden alle aufgeführt. Prüfe die Einstellungen des Repositorys, falls eine Kopie fehlschlägt.",
+        "updated": "Aktualisiert {{when}}"
+      }
     },
     "toolbar": {
       "clear": "Zurücksetzen",
@@ -1149,12 +1178,8 @@
     },
     "discover": {
       "accept": "Aufgabe annehmen",
-      "due": "Fällig am {{date}}",
       "emptyBody": "Sobald eine Lehrkraft Aufgaben für dieses Classroom veröffentlicht, erscheinen sie hier.",
       "emptyTitle": "Noch keine Aufgaben",
-      "modeGroup": "Gruppe",
-      "modeIndividual": "Einzeln",
-      "noDue": "Kein Fälligkeitsdatum",
       "noResults": {
         "body": "Versuche eine andere Suche oder setze die Filter zurück.",
         "title": "Keine Aufgaben entsprechen deinen Filtern"
@@ -1180,16 +1205,15 @@
         "typeAll": "Alle Typen",
         "typeAria": "Nach Typ filtern",
         "typeGroup": "Gruppe",
-        "typeIndividual": "Einzeln",
-        "view": {
-          "gridLabel": "Rasteransicht",
-          "label": "Ansicht",
-          "listLabel": "Listenansicht"
-        }
+        "typeIndividual": "Einzeln"
       },
       "viewSubmission": "Meine Abgabe ansehen",
       "linkOnlyBody": "Aufgaben in dieser Kursumgebung werden über den Einladungslink geöffnet, den deine Lehrkraft teilt. Öffne diesen Link, um eine Aufgabe anzunehmen; sie erscheint dann hier, zusammen mit allen, die deine Lehrkraft für alle freigegeben hat.",
-      "linkOnlyTitle": "Öffne deinen Einladungslink, um loszulegen"
+      "linkOnlyTitle": "Öffne deinen Einladungslink, um loszulegen",
+      "accepted": "Angenommen",
+      "colAction": "Aktion",
+      "colStatus": "Status",
+      "tableCaption": "Veröffentlichte Aufgaben und dein jeweiliger Status"
     },
     "archivedNotice": "Dieser Kursraum ist archiviert – neue Aufgaben und Annahmen durch Lernende sind deaktiviert. Hebe die Archivierung in den <settingsLink>Kursraumeinstellungen</settingsLink> auf, um Änderungen vorzunehmen.",
     "studentViewAll": "Alle Aufgaben für den Kursraum <classroom>{{classroom}}</classroom> anzeigen."
@@ -1336,7 +1360,6 @@
       "validating": "Wird validiert…",
       "saveButton": "Token speichern",
       "cancelRename": "Abbrechen",
-      "checking": "Wird geprüft …",
       "expiryRange": "Gib {{min}}–{{max}} Tage ein",
       "expiryUntrackedHint": "Der Ablauf dieses Tokens wird nicht verfolgt. Lege ein neues Token fest, damit Classroom 50 dich vor dessen Ablauf warnen kann.",
       "generateHelp": "Öffnet das GitHub-Token-Formular mit vorausgefülltem Namen, Ablauf und den erforderlichen Scopes. Setze den Repository-Zugriff auf „All repositories“.",
@@ -1610,7 +1633,6 @@
     "viewAssignments": "Aufgaben ansehen",
     "githubOrganization": "GitHub-Organisation",
     "myClasses": "Meine Classrooms",
-    "myAssignments": "Meine Aufgaben",
     "manageSubtitle": "Verwalte deine Classrooms und Aufgaben.",
     "newClass": "Neuer Kurs",
     "empty": {
@@ -1848,7 +1870,9 @@
       "orgRepoCreationDenied": "{{org}} erlaubt Mitgliedern möglicherweise nicht, private Repositorys zu erstellen, sodass dein Repository nicht erstellt werden konnte (HTTP {{status}}). Bitte deine Lehrkraft, dies zu aktivieren, und nimm die Aufgabe dann erneut an.",
       "orgRepoCreationDeniedStep": "{{org}} hat die Erstellung deines Repositorys nicht zugelassen (HTTP {{status}}).",
       "forkParentRestricted": "Die Vorlage {{owner}}/{{repo}} konnte nicht kopiert werden (HTTP {{status}}).{{detail}} Diese Vorlage ist ein Fork eines Repositorys in der Organisation {{parentOwner}}, und das Kopieren eines Forks unterliegt den Drittanbieter-App-Beschränkungen dieser Organisation. Bitte deine Lehrkraft, die Classroom-50-App für {{parentOwner}} zu genehmigen oder ein neues (nicht geforktes) Vorlagen-Repository zu verwenden, und nimm die Aufgabe dann erneut an.",
-      "forkParentRestrictedStep": "{{parentOwner}} hat Classroom 50 nicht für den Upstream des Forks genehmigt (HTTP {{status}})."
+      "forkParentRestrictedStep": "{{parentOwner}} hat Classroom 50 nicht für den Upstream des Forks genehmigt (HTTP {{status}}).",
+      "repoNameTooLong": "Dein Repository-Name „{{name}}“ hat {{length}} Zeichen und überschreitet damit GitHubs Limit von 100 Zeichen, sodass er nicht erstellt werden konnte (HTTP {{status}}).{{detail}} Bitte deine Lehrkraft, den Kurs- oder Aufgaben-Slug zu kürzen, und nimm die Aufgabe dann erneut an.",
+      "repoNameTooLongStep": "Der Repository-Name „{{name}}“ ist zu lang ({{length}} Zeichen)."
     },
     "errors": {
       "emptyRepoWithTemplate": "Die Aufgabe „{{assignmentSlug}}“ legt sowohl ein leeres Repository als auch eine Vorlage fest, was nicht zulässig ist. Bitte deine Lehrkraft, die Aufgaben-Einrichtung erneut auszuführen.",
@@ -2048,7 +2072,6 @@
       "noGradingTitle": "Autograding ist für diese Aufgabe deaktiviert",
       "liveLatest": "Letzter Push {{date}} · noch nicht bewertet",
       "liveLatestTitle": "Eine neuere Abgabe wurde nach der letzten Sammlung gepusht und ist daher noch nicht bewertet. Führe „Abgaben jetzt synchronisieren“ aus, um sie zu bewerten und zu benoten.",
-      "loading": "Abgaben werden geladen…",
       "pendingGrade": "Ausstehend",
       "pendingGradeTitle": "Eingereicht – Bewertung noch nicht gesammelt. Führen Sie „Abgaben jetzt synchronisieren“ aus, um sie zu sammeln.",
       "resolvingNonSubmitters": "Es wird geprüft, wer noch nicht abgegeben hat…",
@@ -2060,7 +2083,14 @@
       "overriddenTitle": "Diese Punktzahl wurde von Hand gesetzt und wird von der automatischen Bewertung nicht geändert, bis die Überschreibung aufgehoben wird.",
       "notCollectedYet": "Noch nicht eingesammelt",
       "notCollectedYetTitle": "Diese/r Teilnehmende hat Arbeit gepusht, die noch nicht eingesammelt wurde, daher gibt es keinen erfassten Abgabezeitpunkt. Führen Sie „Abgaben jetzt synchronisieren“ aus, um sie einzusammeln.",
-      "viewSubmissionsTitle": "Abgaben ansehen"
+      "emptyNoGroupsBody": "Ein Gruppen-Repository wird erstellt, wenn deren Gründer:in die Aufgabe annimmt. Gruppen erscheinen hier, sobald sie sich bilden.",
+      "emptyNoGroupsTitle": "Noch keine Gruppen",
+      "noRepoYetTitle": "Noch kein Repository – der/die Lernende hat die Aufgabe nicht angenommen",
+      "notAcceptedTitle": "Der/die Lernende hat den Einladungslink noch nicht geöffnet, daher existiert kein Repository. Teile den Aufgaben-Link über die Schaltfläche „Teilen“.",
+      "sortByLastSubmitted": "Nach letzter Einreichung sortieren",
+      "sortByName": "Nach Name sortieren",
+      "viewSubmissionsTitleEveryPush": "Commits auf dem Standardbranch zählen als Einreichungen. Zum Anzeigen klicken.",
+      "viewSubmissionsTitleTag": "Getaggte Releases zählen als Einreichungen. Zum Anzeigen klicken."
     },
     "reviewModal": {
       "errorTitle": "Es konnte nicht nach einem Feedback-PR gesucht werden",
@@ -2129,7 +2159,11 @@
       "detailsTitle": "Ihre Abgaben",
       "notSubmittedYet": "Noch nicht abgegeben",
       "submittedAwaitingGrading": "Abgegeben — Bewertung ausstehend",
-      "tableCaption": "Ihre Abgabe für diese Aufgabe"
+      "tableCaption": "Ihre Abgabe für diese Aufgabe",
+      "colYourRepo": "Dein Repository",
+      "statusNotSubmitted": "Noch nichts eingereicht.",
+      "statusNotSubmittedCta": "Zeig mir, wie ich einreiche",
+      "statusSubmitted": "Eingereicht – letzte Einreichung {{relative}}"
     },
     "viewSourceRepo": "Vorlage anzeigen",
     "menu": {
@@ -2400,18 +2434,6 @@
       "working": "Repositories werden aktualisiert"
     },
     "closedNotice": "Abgaben sind geschlossen. Neue Studierende können diese Aufgabe nicht annehmen. Wenn du hier schließt, werden die Repositories der Studierenden, die angenommen haben, schreibgeschützt gesetzt; bestehende Arbeit bleibt erhalten. Öffne sie über das Aktionsmenü wieder, um Abgaben erneut zuzulassen.",
-    "migrateTracking": {
-      "apply": "Konfiguration migrieren",
-      "bannerAction": "Konfiguration migrieren",
-      "bannerText": "Die Konfiguration dieses Kurses verwendet ein älteres Format. Migriere sie zum neuesten Schema, um die neuesten Aufgaben- und Abgabefunktionen zu aktivieren.",
-      "error": "Die Aufgaben konnten nicht aktualisiert werden. Versuche es erneut.",
-      "resultHeadline_one": "{{count}} Aufgabe migriert.",
-      "resultHeadline_other": "{{count}} Aufgaben migriert.",
-      "subtitle": "Aktualisiere die Aufgaben dieses Kurses auf das neueste Konfigurationsschema.",
-      "title": "Kurskonfiguration migrieren",
-      "warning": "Dies erfasst die Einstellungen jeder Aufgabe explizit, sodass jedes Tool sie gleich liest und die neuesten Funktionen (etwa die Live-Abgabenverfolgung) aktiviert werden. Es ändert keine Bewertung, kein Fälligkeitsdatum und keinen Zugriff einer/eines Studierenden, und Sie können wie zuvor weiterarbeiten.",
-      "working": "Aufgaben werden aktualisiert"
-    },
     "rowAutograde": {
       "outcome": {
         "failed": "Der Status der automatischen Bewertung konnte nicht geändert werden – versuche es erneut.",
@@ -2440,11 +2462,11 @@
       "title": "Auslöser für automatische Bewertung aktualisieren"
     },
     "details": {
-      "emptyEveryPush": "Noch keine Pushes auf den Standard-Branch. Das Repository existiert weiterhin — öffnen Sie es, um den Code zu sehen.",
+      "emptyEveryPush": "Noch keine Commits auf dem Standardbranch. Das Repository existiert bereits – öffne es, um den Code zu sehen.",
       "emptyLinkDefaultBranch": "Repository ansehen",
       "emptyLinkTags": "Tags ansehen",
       "emptyTag": "Noch keine mit Tag versehenen Abgaben. Das Repository existiert weiterhin — öffnen Sie seine Tags, um Abgaben zu sehen, sobald sie eintreffen.",
-      "pushEntry": "Push #{{number}}",
+      "pushEntry": "Commit Nr. {{number}}",
       "tagEntry": "Abgabe #{{number}}",
       "unavailable": "Nicht verfügbar",
       "viewCommit": "Commit ansehen",
@@ -2456,7 +2478,7 @@
     "grading": {
       "badgeBuiltIn": "Automatisch bewertet",
       "badgeEmptyRepo": "Keine automatische Bewertung",
-      "badgeNoAutograder": "Keine integrierte automatische Bewertung",
+      "badgeNoAutograder": "Benutzerdefiniertes Autograding",
       "titleEmptyRepo": "Diese Aufgabe verwendet leere Repositorys — automatische Bewertung, Punktzahlen und die Feedback-Pull-Request sind deaktiviert. Die Tabelle zeigt, wer angenommen hat.",
       "titleNoAutograder": "Die Lehrkraft stellt eine eigene CI im Template bereit. Integrierte Punktzahlen und Neubewertung sind deaktiviert; die Feedback-Pull-Request funktioniert weiterhin, sofern aktiviert."
     },
@@ -2488,14 +2510,19 @@
       "titleOverride": "Punktzahl überschreiben"
     },
     "type": {
-      "badgeEveryPush": "Jeder Push auf den Standard-Branch zählt",
-      "badgeTag": "Per Tag eingereicht",
-      "countEveryPush_one": "{{count}} Push auf den Standard-Branch",
-      "countEveryPush_other": "{{count}} Pushes auf den Standard-Branch",
-      "countTag_one": "{{count}} mit Tag versehene Abgabe",
-      "countTag_other": "{{count}} mit Tag versehene Abgaben",
+      "badgeEveryPush": "Einreichung bei jedem Push",
+      "badgeTag": "Einreichung per Tag",
+      "countEveryPush_one": "{{count}} Commit",
+      "countEveryPush_other": "{{count}} Commits",
+      "countTag_one": "{{count}} Tag",
+      "countTag_other": "{{count}} Tags",
       "tagGroupCount_one": "{{pattern}} · {{count}} Tag",
       "tagGroupCount_other": "{{pattern}} · {{count}} Tags"
+    },
+    "funnel": {
+      "showNotSubmitted": "Anzeigen, wer noch nicht eingereicht hat",
+      "submittedTitle": "{{submitted}} von {{total}} Lernenden haben eingereicht",
+      "submittedTitleGroup": "{{submitted}} von {{accepted}} Gruppen haben eingereicht"
     }
   },
   "orgMembers": {
@@ -2915,7 +2942,6 @@
       "empty": "Noch keine Organisationen mit eingerichtetem Classroom 50.",
       "expires": "Läuft ab {{date}}",
       "heading": "Service-Tokens verwalten",
-      "loading": "Deine Organisationen werden geprüft …",
       "manage": "Verwalten",
       "subheading": "Status der Service-Tokens über jede Organisation hinweg, die Ihnen gehört. Erneuern Sie ein Token, bevor es abläuft, damit die Bewertungssammlung weiter funktioniert."
     },

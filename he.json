@@ -90,7 +90,6 @@
     "manageGroup": "ניהול קבוצה",
     "acceptAssignment": "קבלת מטלה",
     "myClasses": "הכיתות שלי",
-    "myAssignments": "המטלות שלי",
     "published": "פורסם",
     "members": "חברים",
     "activity": "פעילות",
@@ -277,7 +276,6 @@
     "resendFailed": "השליחה החוזרת של ההזמנה עבור {{username}} נכשלה ({{error}}).",
     "resend": "שליחה חוזרת",
     "dismiss": "סגירה",
-    "loadingRoster": "טוען רשימה...",
     "rosterLoadError": "לא ניתן היה לטעון את הרשימה מ-GitHub. רשימת הרשומים עשויה להיות חלקית — זו שגיאת טעינה, לא כיתה ריקה.",
     "rosterRetry": "ניסיון חוזר",
     "rosterParseError": "הקובץ roster.csv פגום ולא ניתן היה לקרוא אותו במלואו. תקנו שורות אלה כדי שהרשימה תישאר מדויקת:",
@@ -648,7 +646,8 @@
     "classroomSlugRequired": "מזהה הכיתה (slug) הוא שדה חובה.",
     "classroomSlugTaken": "מזהה הכיתה (slug) כבר תפוס.",
     "assignmentSlugTaken": "מטלה בשם \"{{slug}}\" כבר קיימת בכיתה הזו.",
-    "groupSizeRange": "גודל הקבוצה חייב להיות מספר שלם בין {{min}} ל-{{max}}."
+    "groupSizeRange": "גודל הקבוצה חייב להיות מספר שלם בין {{min}} ל-{{max}}.",
+    "classroomSlugInvalid": "מזהה הכיתה חייב להיות {{description}}."
   },
   "toasts": {
     "classroomSettingsSaved": "הגדרות הכיתה נשמרו. מתבצע כעת פרסום לאתר התלמידים — הכרזה למעלה עוקבת אחר ההתקדמות.",
@@ -792,10 +791,6 @@
       "accept": "קבל מטלה",
       "notAccepted": "לא התקבלה",
       "viewSubmission": "הצג את ההגשה שלי",
-      "modeIndividual": "יחיד",
-      "modeGroup": "קבוצה",
-      "due": "מועד הגשה: {{date}}",
-      "noDue": "אין מועד הגשה",
       "emptyTitle": "אין עדיין מטלות",
       "emptyBody": "כאשר מורה יפרסם מטלות לכיתה הזו, הן יופיעו כאן.",
       "protectedNoSecret": "המטלות של הכיתה הזו נפתחות מקישור ההזמנה שהמורה שיתף. פתח את הקישור כדי לקבל אותן ולראות אותן כאן.",
@@ -818,19 +813,18 @@
         "sortDueDesc": "מועד ההגשה הרחוק ביותר",
         "sortNameAsc": "שם (א׳–ת׳)",
         "sortNameDesc": "שם (ת׳–א׳)",
-        "clear": "נקה מסננים",
-        "view": {
-          "label": "תצוגה",
-          "gridLabel": "תצוגת רשת",
-          "listLabel": "תצוגת רשימה"
-        }
+        "clear": "נקה מסננים"
       },
       "noResults": {
         "title": "אין מטלות התואמות למסננים שלך",
         "body": "נסה חיפוש אחר או נקה את המסננים."
       },
       "linkOnlyBody": "מטלות בכיתה זו נפתחות מקישור ההזמנה שהמורה משתפ/ת. פתחו את הקישור כדי לקבל מטלה; לאחר מכן היא תופיע כאן לצד כל מטלה שהמורה שחרר/ה לכולם.",
-      "linkOnlyTitle": "פתחו את קישור ההזמנה שלכם כדי להתחיל"
+      "linkOnlyTitle": "פתחו את קישור ההזמנה שלכם כדי להתחיל",
+      "accepted": "התקבלה",
+      "colAction": "פעולה",
+      "colStatus": "סטטוס",
+      "tableCaption": "מטלות שפורסמו והסטטוס שלך בכל אחת מהן"
     },
     "newButton": {
       "assignment": "מטלה",
@@ -934,7 +928,8 @@
         "studentPermissionInvalid": "הגישה למאגר הקוד של התלמיד חייבת להיות אחת מ: pull, triage, push, maintain או admin.",
         "gradingMaxPointsInvalid": "נקודות מקסימום חייבות להיות מספר שלם של לפחות {{min}}.",
         "gradingModeInvalid": "הציון חייב להיות \"off\", \"auto\", או \"manual\".",
-        "submissionModeInvalid": "טריגר הבדיקה האוטומטית חייב להיות \"every-push\" או \"tag\"."
+        "submissionModeInvalid": "טריגר הבדיקה האוטומטית חייב להיות \"every-push\" או \"tag\".",
+        "slugInvalid": "מזהה המטלה חייב להיות {{description}}."
       },
       "releaseAssetCount_one": "קובץ שחרור אחד",
       "releaseAssetCount_other": "{{count}} קובצי שחרור",
@@ -1056,7 +1051,7 @@
           "tag": "קומיט מתויג"
         },
         "editWarning": "שינוי זה משפיע רק על מאגרים שנוצרו מעכשיו והלאה. מאגרים שהסטודנטים כבר קיבלו שומרים על ההגדרה הישנה עד שתעדכנו אותם. השתמשו ב\"עדכון טריגרים לבדיקה אוטומטית\" בעמוד ההגשות או ב-gh teacher assignment submission-mode. הסטודנטים חייבים לבצע pull לאחר העדכון.",
-        "help": "\"כל push ל-branch של ברירת המחדל\" סופר כל push לאחר קומיט ההתחלה. \"קומיט מתויג\" סופר רק קומיטים מתויגים, כך ש-pushes רגילים אינם צורכים דקות Actions; סטודנט מגיש על ידי push של תגית או הרצת gh student submit.",
+        "help": "‏\"כל דחיפה לענף ברירת המחדל\" סופרת כל קומיט של תלמיד לאחר קומיט ההתחלה (קומיטים של הכלי עצמו — קבלת המטלה ועדכון הבדיקה האוטומטית — אינם נספרים). ‏\"קומיט מתויג\" סופר רק קומיטים מתויגים, כך שדחיפות רגילות אינן צורכות דקות Actions; תלמיד מגיש על ידי דחיפת תג או הרצת gh student submit.",
         "label": "סוג הגשה"
       },
       "submissionSection": "הגשה וציון",
@@ -1130,7 +1125,6 @@
       "colAssignment": "מטלה",
       "colType": "סוג",
       "colDueDate": "מועד הגשה",
-      "colSubmissions": "הגשות",
       "colActions": "פעולות",
       "empty": "לא נוצרו מטלות.",
       "individual": "יחיד",
@@ -1166,7 +1160,18 @@
       "unlockSuccess": "נעילת {{name}} בוטלה.",
       "unlockTitle": "ביטול נעילת המטלה",
       "unlockTitleModal": "לבטל את נעילת המטלה?",
-      "openSubmissionsAria": "פתח הגשות של {{name}}"
+      "openSubmissionsAria": "פתח הגשות של {{name}}",
+      "acceptedTitle": "{{accepted}} מתוך {{total}} תלמידים קיבלו את המטלה",
+      "colAccepted": "התקבלו",
+      "colSubmitted": "הוגשו",
+      "groupsAcceptedTitle": "קבוצות שקיבלו את המטלה — מאגרים קבוצתיים שקיימים",
+      "noGroupsYet": "אין קבוצות עדיין",
+      "noGroupsYetTitle": "אין קבוצות עדיין — מאגר קבוצתי נוצר כשמייסד הקבוצה מקבל את המטלה",
+      "notCollectedYet": "טרם נאסף",
+      "sortByDue": "מיין לפי מועד הגשה",
+      "sortByName": "מיין לפי שם",
+      "submittedTitle": "{{submitted}} מתוך {{total}} תלמידים הגישו",
+      "submittedTitleGroup": "{{submitted}} מתוך {{accepted}} קבוצות הגישו"
     },
     "toolbar": {
       "searchPlaceholder": "חיפוש מטלות…",
@@ -1192,8 +1197,8 @@
     },
     "template": {
       "label": "מאגר תבנית",
-      "placeholder": "<owner>/<repo>",
-      "help": "אופציונלי. הסטודנטים מקבלים עותק של המאגר הזה. השאירו ריק למטלה ללא תבנית: הסטודנטים מקבלים מאגר מאותחל עם README וקובצי הבדיקה האוטומטית.",
+      "placeholder": "חפש תבניות, או הדבק <owner>/<repo>",
+      "help": "אופציונלי. התלמידים מקבלים עותק של המאגר הזה. חפש בין מאגרי התבנית של הארגון שלך, או הקלד <owner>/<repo> או הדבק כתובת URL של GitHub כדי להשתמש בכל מאגר שהוא. השאר ריק למטלה ללא תבנית: התלמידים יקבלו מאגר מאותחל עם README וקובצי הבדיקה האוטומטית.",
       "checking": "בודק גישה לתבנית…",
       "fallbackOrg": "הארגון שלך",
       "privateHasAccess": "תבנית פרטית ב־{{owner}} (ענף <branch>{{branch}}</branch>). לצוות הכיתה כבר יש גישת קריאה — התלמידים יכולים להעתיק אותה.",
@@ -1214,7 +1219,7 @@
       "privateForkNoParent": "{{owner}}/{{repo}} הוא פיצול פרטי (ענף <branch>{{branch}}</branch>). <important>חשוב: ארגון המקור של הפיצול חייב להשאיר את Classroom 50 מאושר — אם האישור הזה יוסר אי פעם, תלמידים ייכשלו בקבלת המטלה (HTTP 403).</important> כדי להימנע מתלות בארגון המקור, השתמשו במאגר חדש (שאינו פיצול): צרו מאגר חדש והעתיקו אליו את תוכן הפיצול.",
       "unknown": "לא ניתן לאמת כעת את {{owner}}/{{repo}}. הוא ייבדק מחדש כשהתלמידים מקבלים.",
       "privateOutOfOrg": "{{owner}}/{{repo}} פרטי ומחוץ ל־{{org}}. הפוך אותו לציבורי או העתק אותו לתוך {{org}}.",
-      "noBranch": "ל־{{owner}}/{{repo}} אין ענף ברירת מחדל. דחוף קומיט, או הוסף <hint/>.",
+      "noBranch": "ל-{{owner}}/{{repo}} אין ענף ברירת מחדל. דחוף אליו קומיט, ואז נסה שוב.",
       "rateLimited": "הגעת למגבלת הקצב של GitHub. נסה שוב בעוד רגע.",
       "policyLink": "בדוק את מדיניות אפליקציות ה־OAuth של {{owner}}",
       "reconcile": {
@@ -1248,7 +1253,26 @@
       "restrictedItemFork": "אם {{repo}} הוא פיצול, אשרו את Classroom 50 גם בארגון המקור של הפיצול — הגישה של פיצול פרטי עוקבת אחר מדיניות ארגון המקור.",
       "restrictedItemOther": "אחרת ייתכן שמדובר ב-403 אחר; ראו את ההודעה של GitHub למטה.",
       "viewTemplateRepo": "פתיחת {{owner}}/{{repo}} ב-GitHub",
-      "emptyTemplate": "{{owner}}/{{repo}} הוא תבנית אך אין בו קומיטים. הוסף לפחות קומיט אחד (לדוגמה README), ואז נסה שוב."
+      "emptyTemplate": "{{owner}}/{{repo}} הוא תבנית אך אין בו קומיטים. הוסף לפחות קומיט אחד (לדוגמה README), ואז נסה שוב.",
+      "branchIgnored": "צוין ענף מותאם אישית (<branch>{{branch}}</branch>) שיתעלמו ממנו — המטלה מעתיקה את ענף ברירת המחדל של התבנית. כדי להשתמש בענף אחר, שנה את ענף ברירת המחדל של מאגר התבנית.",
+      "invalid": {
+        "empty": "הזן מאגר תבנית.",
+        "notGithubHost": "\"{{raw}}\" נמצא ב-{{host}}, ולא ב-github.com. Classroom 50 יכול להעתיק רק תבניות המתארחות ב-GitHub.",
+        "shape": "\"{{raw}}\" אינו הפניה למאגר. השתמש ב-<owner>/<repo>, בשם מאגר, או הדבק כתובת URL של מאגר ב-GitHub.",
+        "urlShape": "\"{{raw}}\" אינו כתובת URL של מאגר ב-GitHub. קשר למאגר עצמו, למשל https://github.com/<owner>/<repo>."
+      },
+      "search": {
+        "loading": "טוען תבניות…",
+        "noMatches": "אין מאגרי תבנית בארגון הזה שתואמים ל-\"{{query}}\". עדיין אפשר להקליד <owner>/<repo> או להדביק כתובת URL של GitHub.",
+        "noTemplates": "לא נמצאו מאגרי תבנית בארגון הזה. הפעל \"Template repository\" בהגדרות של מאגר, או הדבק כתובת URL של GitHub.",
+        "privateRepo": "מאגר פרטי",
+        "showing": "מוצגים {{shown}} מתוך {{total}} תבניות.",
+        "truncated": "נסרקו {{scanned}} המאגרים שעודכנו לאחרונה. אם התבנית שלך אינה מופיעה, הקלד <owner>/<repo>.",
+        "typeInstead": "הקלד שם מאגר, <owner>/<repo>, או הדבק כתובת URL של GitHub.",
+        "unavailable": "לא ניתן היה לטעון את התבניות של הארגון הזה. הקלד את שם המאגר במקום זאת.",
+        "unfiltered": "‏GitHub לא דיווח אילו מהמאגרים האלה הם תבניות, ולכן כולם מוצגים. בדוק את הגדרות המאגר אם העתקה נכשלת.",
+        "updated": "עודכן {{when}}"
+      }
     }
   },
   "published": {
@@ -1428,7 +1452,6 @@
       "validating": "מאמת…",
       "saveButton": "שמירת הטוקן",
       "cancelRename": "ביטול",
-      "checking": "בודקים…",
       "expiryRange": "הזינו {{min}}–{{max}} ימים",
       "expiryUntrackedHint": "תפוגת הטוקן הזה אינה במעקב. הגדירו טוקן חדש כדי ש-Classroom 50 יוכל להזהיר אתכם לפני שיפוג.",
       "generateHelp": "פותח את טופס הטוקן של GitHub עם השם, התפוגה וההרשאות הנדרשות ממולאים מראש. הגדירו את Repository access ל-All repositories.",
@@ -1741,7 +1764,6 @@
     "viewAssignments": "הצגת מטלות",
     "githubOrganization": "ארגון GitHub",
     "myClasses": "הכיתות שלי",
-    "myAssignments": "המטלות שלי",
     "manageSubtitle": "ניהול הכיתות והמטלות שלכם.",
     "newClass": "כיתה חדשה",
     "empty": {
@@ -1941,7 +1963,9 @@
       "orgRepoCreationDenied": "ייתכן ש-{{org}} אינו מתיר לחברים ליצור מאגרים פרטיים, ולכן לא ניתן היה ליצור את המאגר שלכם (HTTP {{status}}). בקשו מהמורה שלכם לאפשר זאת, ולאחר מכן קבלו את המטלה שוב.",
       "orgRepoCreationDeniedStep": "{{org}} לא הרשה ליצור את המאגר שלכם (HTTP {{status}}).",
       "forkParentRestricted": "לא ניתן היה להעתיק את התבנית {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} תבנית זו היא פיצול (fork) של מאגר בארגון {{parentOwner}}, והעתקת פיצול כפופה למגבלות היישומים של צד שלישי של אותו ארגון. בקשו מהמורה לאשר את יישום Classroom 50 עבור {{parentOwner}}, או להשתמש במאגר תבנית חדש (שאינו פיצול), ואז נסו לקבל את המטלה שוב.",
-      "forkParentRestrictedStep": "{{parentOwner}} לא אישר/ה את Classroom 50 עבור מקור הפיצול (HTTP {{status}})."
+      "forkParentRestrictedStep": "{{parentOwner}} לא אישר/ה את Classroom 50 עבור מקור הפיצול (HTTP {{status}}).",
+      "repoNameTooLong": "שם המאגר שלך \"{{name}}\" הוא באורך {{length}} תווים, מעל למגבלת 100 התווים של GitHub, ולכן לא ניתן היה ליצור אותו (HTTP {{status}}).{{detail}} בקש מהמורה לקצר את המזהה של הכיתה או של המטלה, ואז קבל את המטלה שוב.",
+      "repoNameTooLongStep": "שם המאגר \"{{name}}\" ארוך מדי ({{length}} תווים)."
     },
     "notFound": {
       "badge": "המטלה אינה זמינה",
@@ -2180,7 +2204,6 @@
       "reviewAria": "פתיחת בקשת המשיכה למשוב",
       "liveLatest": "דחיפה אחרונה {{date}} · טרם נבדקה",
       "liveLatestTitle": "הגשה חדשה יותר נדחפה לאחר האיסוף האחרון, ולכן היא עדיין לא נבדקה. הריצו \"סנכרון הגשות עכשיו\" כדי לבדוק ולתת לה ציון.",
-      "loading": "טוען הגשות…",
       "pendingGrade": "בהמתנה",
       "pendingGradeTitle": "הוגש — הציון עדיין לא נאסף. הריצו \"סנכרן הגשות עכשיו\" כדי לאסוף אותו.",
       "resolvingNonSubmitters": "בודק מי עדיין לא הגיש…",
@@ -2192,7 +2215,14 @@
       "overriddenTitle": "ציון זה הוגדר ידנית ולא ישונה על ידי בדיקה אוטומטית עד שהעקיפה תבוטל.",
       "notCollectedYet": "עדיין לא נאסף",
       "notCollectedYetTitle": "הסטודנט הזה דחף עבודה שעדיין לא נאספה, לכן אין זמן הגשה רשום. הרץ \"סנכרן הגשות עכשיו\" כדי לאסוף אותה.",
-      "viewSubmissionsTitle": "הצג הגשות"
+      "emptyNoGroupsBody": "מאגר קבוצתי נוצר כשמייסד הקבוצה מקבל את המטלה. קבוצות יופיעו כאן ככל שהן נוצרות.",
+      "emptyNoGroupsTitle": "אין קבוצות עדיין",
+      "noRepoYetTitle": "אין עדיין מאגר — התלמיד לא קיבל את המטלה",
+      "notAcceptedTitle": "התלמיד עדיין לא פתח את קישור ההזמנה, ולכן אין מאגר. שתף את קישור המטלה מכפתור השיתוף.",
+      "sortByLastSubmitted": "מיין לפי הגשה אחרונה",
+      "sortByName": "מיין לפי שם",
+      "viewSubmissionsTitleEveryPush": "קומיטים בענף ברירת המחדל נחשבים כהגשות. לחץ כדי לצפות.",
+      "viewSubmissionsTitleTag": "מהדורות מתויגות נחשבות כהגשות. לחץ כדי לצפות."
     },
     "reviewModal": {
       "errorTitle": "לא ניתן היה לבדוק אם קיימת בקשת משיכה למשוב",
@@ -2261,7 +2291,11 @@
       "detailsTitle": "ההגשות שלך",
       "notSubmittedYet": "עדיין לא הוגש",
       "submittedAwaitingGrading": "הוגש — ממתין לבדיקה",
-      "tableCaption": "ההגשה שלך למטלה הזו"
+      "tableCaption": "ההגשה שלך למטלה הזו",
+      "colYourRepo": "המאגר שלך",
+      "statusNotSubmitted": "עדיין לא הוגש דבר.",
+      "statusNotSubmittedCta": "הראה לי איך להגיש",
+      "statusSubmitted": "הוגש — ההגשה האחרונה {{relative}}"
     },
     "freshness": {
       "collected": "נתוני ההגשות סונכרנו {{when}}",
@@ -2523,18 +2557,6 @@
       "working": "מעדכן מאגרים"
     },
     "closedNotice": "ההגשות סגורות. סטודנטים חדשים אינם יכולים לקבל מטלה זו. כאשר אתה סוגר מכאן, המאגרים של הסטודנטים שקיבלו את המטלה מוגדרים לקריאה בלבד; עבודה קיימת נשמרת. פתח מחדש מתפריט הפעולות כדי לאפשר הגשות שוב.",
-    "migrateTracking": {
-      "apply": "העבר תצורה",
-      "bannerAction": "העבר תצורה",
-      "bannerText": "התצורה של כיתה זו משתמשת בפורמט ישן יותר. העבר אותה לסכמה העדכנית ביותר כדי לאפשר את תכונות המטלות וההגשות החדשות ביותר.",
-      "error": "לא ניתן היה לעדכן את המטלות. נסה שוב.",
-      "resultHeadline_one": "הועברה מטלה {{count}}.",
-      "resultHeadline_other": "הועברו {{count}} מטלות.",
-      "subtitle": "עדכן את המטלות של כיתה זו לסכמת התצורה העדכנית ביותר.",
-      "title": "העבר את תצורת הכיתה",
-      "warning": "פעולה זו רושמת את הגדרות כל מטלה במפורש כך שכל כלי קורא אותן באותו אופן והתכונות החדשות ביותר (כמו מעקב הגשות חי) מופעלות. היא אינה משנה אף ציון, מועד הגשה או גישה של סטודנט, ותוכלו להמשיך לעבוד כמו קודם.",
-      "working": "מעדכן מטלות"
-    },
     "rowAutograde": {
       "outcome": {
         "failed": "לא ניתן היה לשנות את מצב הבדיקה האוטומטית — נסה שוב.",
@@ -2563,11 +2585,11 @@
       "title": "עדכן את הטריגר לבדיקה אוטומטית"
     },
     "details": {
-      "emptyEveryPush": "עדיין אין דחיפות לענף ברירת המחדל. המאגר עדיין קיים — פתח אותו כדי לראות את הקוד.",
+      "emptyEveryPush": "אין עדיין קומיטים בענף ברירת המחדל. המאגר עדיין קיים — פתח אותו כדי לראות את הקוד.",
       "emptyLinkDefaultBranch": "הצג מאגר",
       "emptyLinkTags": "הצג תגיות",
       "emptyTag": "עדיין אין הגשות מתויגות. המאגר עדיין קיים — פתח את התגיות שלו כדי לראות הגשות ככל שהן מגיעות.",
-      "pushEntry": "דחיפה #{{number}}",
+      "pushEntry": "קומיט #{{number}}",
       "tagEntry": "הגשה #{{number}}",
       "unavailable": "לא זמין",
       "viewCommit": "הצג קומיט",
@@ -2579,7 +2601,7 @@
     "grading": {
       "badgeBuiltIn": "נבדק אוטומטית",
       "badgeEmptyRepo": "ללא בדיקה אוטומטית",
-      "badgeNoAutograder": "ללא בדיקה אוטומטית מובנית",
+      "badgeNoAutograder": "בדיקה אוטומטית מותאמת אישית",
       "titleEmptyRepo": "המטלה הזו משתמשת במאגרים ריקים — בדיקה אוטומטית, ציונים ובקשת המשיכה למשוב מושבתים. הטבלה מציגה מי קיבל את המטלה.",
       "titleNoAutograder": "המורה מספק CI משלו בתבנית. ציונים מובנים ובדיקה חוזרת מושבתים; בקשת המשיכה למשוב עדיין עובדת כשהיא מופעלת."
     },
@@ -2611,14 +2633,19 @@
       "titleOverride": "עקוף ציון"
     },
     "type": {
-      "badgeEveryPush": "כל דחיפה לענף ברירת המחדל נספרת",
-      "badgeTag": "הוגש באמצעות תגית",
-      "countEveryPush_one": "דחיפה אחת לענף ברירת המחדל",
-      "countEveryPush_other": "{{count}} דחיפות לענף ברירת המחדל",
-      "countTag_one": "הגשה מתויגת אחת",
-      "countTag_other": "{{count}} הגשות מתויגות",
+      "badgeEveryPush": "מגיש בכל דחיפה",
+      "badgeTag": "מגיש לפי תג",
+      "countEveryPush_one": "קומיט אחד",
+      "countEveryPush_other": "{{count}} קומיטים",
+      "countTag_one": "תג אחד",
+      "countTag_other": "{{count}} תגים",
       "tagGroupCount_one": "{{pattern}} · תגית אחת",
       "tagGroupCount_other": "{{pattern}} · {{count}} תגיות"
+    },
+    "funnel": {
+      "showNotSubmitted": "הצג מי לא הגיש",
+      "submittedTitle": "{{submitted}} מתוך {{total}} תלמידים הגישו",
+      "submittedTitleGroup": "{{submitted}} מתוך {{accepted}} קבוצות הגישו"
     }
   },
   "orgActivity": {
@@ -2959,7 +2986,6 @@
       "empty": "אין עדיין ארגונים עם Classroom 50 מוגדר.",
       "expires": "פג ב-{{date}}",
       "heading": "ניהול טוקני שירות",
-      "loading": "בודקים את הארגונים שלכם…",
       "manage": "ניהול",
       "subheading": "מצב טוקן השירות בכל ארגון שבבעלותכם. החליפו טוקן לפני שהוא פג כדי שאיסוף הציונים ימשיך לעבוד."
     },

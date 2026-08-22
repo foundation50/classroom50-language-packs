@@ -58,7 +58,6 @@
     "manageGroup": "管理小組",
     "acceptAssignment": "接受作業",
     "myClasses": "我的課程",
-    "myAssignments": "我的作業",
     "published": "已發佈",
     "members": "成員",
     "organizations": "組織",
@@ -228,7 +227,6 @@
     "resendFailed": "重新寄送給 {{username}} 的邀請失敗（{{error}}）。",
     "resend": "重新寄送",
     "dismiss": "關閉",
-    "loadingRoster": "正在載入名冊…",
     "inviteStudents": "邀請學生",
     "groupBySection": "依分組排列",
     "noSection": "無分組",
@@ -592,7 +590,8 @@
     "classroomSlugRequired": "課堂代稱為必填項目。",
     "classroomSlugTaken": "此課堂代稱已被使用。",
     "assignmentSlugTaken": "此課堂中已存在名為「{{slug}}」的作業。",
-    "groupSizeRange": "群組人數必須為介於 {{min}} 到 {{max}} 之間的整數。"
+    "groupSizeRange": "群組人數必須為介於 {{min}} 到 {{max}} 之間的整數。",
+    "classroomSlugInvalid": "課程短代碼（slug）必須為{{description}}。"
   },
   "toasts": {
     "classroomSettingsSaved": "課程設定已儲存。正在發佈至學生網站——上方橫幅會顯示進度。",
@@ -799,7 +798,8 @@
         "studentPermissionInvalid": "學生儲存庫存取權必須為 pull、triage、push、maintain 或 admin 其中之一。",
         "gradingMaxPointsInvalid": "滿分必須是至少 {{min}} 的整數。",
         "gradingModeInvalid": "評分必須是「off」、「auto」或「manual」。",
-        "submissionModeInvalid": "自動評分觸發條件必須是「every-push」或「tag」。"
+        "submissionModeInvalid": "自動評分觸發條件必須是「every-push」或「tag」。",
+        "slugInvalid": "作業短代碼（slug）必須為{{description}}。"
       },
       "allowedFilesTip": "採用 {{gitignore}} 樣式的有序模式，每行一個，用來定義哪些檔案屬於一份繳交（最後符合者優先，{{bang}} 可重新納入）。例如先寫 {{star}} 再寫 {{example}}，就只允許 {{result}}。留空則允許所有檔案。",
       "containerUserTip": "容器執行時所使用的使用者。若簽出（checkout）因權限錯誤而失敗，請設為 root。GitHub Actions 會以主機 runner 的使用者身分執行容器步驟，因此非 root 映像檔往往無法寫入工作區。",
@@ -953,7 +953,7 @@
           "tag": "已標籤的提交"
         },
         "editWarning": "變更此設定僅影響從現在起建立的儲存庫。學生已接受的儲存庫在你更新前仍保留舊設定。請使用提交頁面上的「更新自動評分觸發條件」或 gh teacher assignment submission-mode。學生須在更新後執行 pull。",
-        "help": "「每次推送到預設分支」會計入起始提交之後的每一次推送。「已加標籤的提交」僅計入加了標籤的提交，因此一般推送不會使用任何 Actions 分鐘數；學生可透過推送標籤或執行 gh student submit 來提交。",
+        "help": "「每次推送到預設分支」會計入學生在初始提交之後的每一次提交（工具本身的接受提交與自動評分更新提交不計入）。「已加標籤的提交」只計入有標籤的提交，因此一般推送不會使用 Actions 分鐘數；學生透過推送標籤或執行 gh student submit 來提交。",
         "label": "提交類型"
       },
       "submissionSection": "提交與評分",
@@ -1027,7 +1027,6 @@
       "colAssignment": "作業",
       "colType": "類型",
       "colDueDate": "截止日",
-      "colSubmissions": "繳交",
       "colActions": "操作",
       "empty": "尚未建立任何作業。",
       "individual": "個人",
@@ -1063,12 +1062,23 @@
       "unlockSuccess": "已解除鎖定 {{name}}。",
       "unlockTitle": "解除鎖定作業",
       "unlockTitleModal": "要解除鎖定作業嗎？",
-      "openSubmissionsAria": "開啟 {{name}} 的提交"
+      "openSubmissionsAria": "開啟 {{name}} 的提交",
+      "acceptedTitle": "共 {{total}} 位學生中有 {{accepted}} 位接受了作業",
+      "colAccepted": "已接受",
+      "colSubmitted": "已提交",
+      "groupsAcceptedTitle": "已接受的小組——已存在的小組儲存庫",
+      "noGroupsYet": "尚無小組",
+      "noGroupsYetTitle": "尚無小組——當創建者接受作業時會建立小組儲存庫",
+      "notCollectedYet": "尚未收集",
+      "sortByDue": "依截止日期排序",
+      "sortByName": "依名稱排序",
+      "submittedTitle": "共 {{total}} 位學生中有 {{submitted}} 位已提交",
+      "submittedTitleGroup": "共 {{accepted}} 個小組中有 {{submitted}} 個已提交"
     },
     "template": {
       "label": "範本儲存庫",
-      "placeholder": "<owner>/<repo>",
-      "help": "選填。學生會收到此儲存庫的副本。留空表示無範本作業：學生會取得一個已初始化、含 README 與自動評分檔案的儲存庫。",
+      "placeholder": "搜尋範本，或貼上 <owner>/<repo>",
+      "help": "選填。學生會取得此儲存庫的副本。搜尋你組織的範本儲存庫，或輸入 <owner>/<repo> 或貼上 GitHub 網址以使用任何來源的儲存庫。留空則建立無範本的作業：學生會取得一個已初始化、含 README 和自動評分檔案的儲存庫。",
       "checking": "檢查範本存取權限中……",
       "fallbackOrg": "你的組織",
       "notVisible": "你無法看到 {{owner}}/{{repo}}。請將其設為公開，或複製到 {{org}} 中。",
@@ -1105,7 +1115,7 @@
         "pending": "授予中…",
         "success": "已確認課程團隊對範本的讀取權限。"
       },
-      "noBranch": "{{owner}}/{{repo}} 沒有預設分支。請推送一次提交，或加入 <hint/>。",
+      "noBranch": "{{owner}}/{{repo}} 沒有預設分支。請先推送一個提交，然後再試一次。",
       "nonMainBranch": "此範本的預設分支是 <branch>{{branch}}</branch>，而非「main」。作業會使用此分支，且學生的自動評分會以該分支為準。",
       "okPrivate": "{{owner}} 中的私有範本，分支為 <branch>{{branch}}</branch>。學生可以存取。",
       "okPrivateInOrg": "私有範本，分支為 <branch>{{branch}}</branch>。學生可以存取。",
@@ -1123,7 +1133,26 @@
       "restrictedItemFork": "若 {{repo}} 是分支，也請在該分支的上游組織核准 Classroom 50——私人分支的存取權取決於上游組織的政策。",
       "restrictedItemOther": "否則可能是其他 403；請參閱下方 GitHub 的訊息。",
       "viewTemplateRepo": "在 GitHub 上開啟 {{owner}}/{{repo}}",
-      "emptyTemplate": "{{owner}}/{{repo}} 是範本，但沒有任何提交。請至少新增一個提交（例如 README），然後重試。"
+      "emptyTemplate": "{{owner}}/{{repo}} 是範本，但沒有任何提交。請至少新增一個提交（例如 README），然後重試。",
+      "branchIgnored": "指定的自訂分支（<branch>{{branch}}</branch>）將被忽略——作業會複製範本的預設分支。若要使用其他分支，請變更範本儲存庫的預設分支。",
+      "invalid": {
+        "empty": "請輸入範本儲存庫。",
+        "notGithubHost": "「{{raw}}」位於 {{host}}，而非 github.com。Classroom 50 只能複製託管在 GitHub 上的範本。",
+        "shape": "「{{raw}}」不是儲存庫參照。請使用 <owner>/<repo>、儲存庫名稱，或貼上 GitHub 儲存庫網址。",
+        "urlShape": "「{{raw}}」不是 GitHub 儲存庫網址。請連結到儲存庫本身，例如 https://github.com/<owner>/<repo>。"
+      },
+      "search": {
+        "loading": "正在載入範本…",
+        "noMatches": "此組織中沒有符合「{{query}}」的範本儲存庫。你仍可輸入 <owner>/<repo> 或貼上 GitHub 網址。",
+        "noTemplates": "在此組織中找不到範本儲存庫。請在某個儲存庫的設定中開啟「Template repository」，或貼上 GitHub 網址。",
+        "privateRepo": "私人儲存庫",
+        "showing": "顯示 {{total}} 個範本中的 {{shown}} 個。",
+        "truncated": "已搜尋最近更新的 {{scanned}} 個儲存庫。若清單中沒有你的範本，請輸入 <owner>/<repo>。",
+        "typeInstead": "輸入儲存庫名稱、<owner>/<repo>，或貼上 GitHub 網址。",
+        "unavailable": "無法載入此組織的範本。請改為輸入儲存庫名稱。",
+        "unfiltered": "GitHub 未回報這些儲存庫中哪些是範本，因此全部列出。若複製失敗，請檢查該儲存庫的設定。",
+        "updated": "更新於 {{when}}"
+      }
     },
     "toolbar": {
       "clear": "清除",
@@ -1149,12 +1178,8 @@
     },
     "discover": {
       "accept": "接受作業",
-      "due": "截止日 {{date}}",
       "emptyBody": "當老師為此課程發布作業後，作業會顯示在這裡。",
       "emptyTitle": "尚無作業",
-      "modeGroup": "小組",
-      "modeIndividual": "個人",
-      "noDue": "無截止日",
       "noResults": {
         "body": "請嘗試不同的搜尋，或清除篩選條件。",
         "title": "沒有符合篩選條件的作業"
@@ -1180,16 +1205,15 @@
         "typeAll": "所有類型",
         "typeAria": "依類型篩選",
         "typeGroup": "小組",
-        "typeIndividual": "個人",
-        "view": {
-          "gridLabel": "格狀檢視",
-          "label": "檢視",
-          "listLabel": "清單檢視"
-        }
+        "typeIndividual": "個人"
       },
       "viewSubmission": "檢視我的繳交內容",
       "linkOnlyBody": "此課程的作業需透過老師分享的邀請連結開啟。開啟該連結以接受作業；接受後，它就會顯示在這裡，與老師向所有人發布的作業一同列出。",
-      "linkOnlyTitle": "開啟你的邀請連結以開始"
+      "linkOnlyTitle": "開啟你的邀請連結以開始",
+      "accepted": "已接受",
+      "colAction": "動作",
+      "colStatus": "狀態",
+      "tableCaption": "已發佈的作業以及你在每項作業的狀態"
     },
     "archivedNotice": "這個課程已封存——已停用新作業與學生領取。請在<settingsLink>課程設定</settingsLink>中取消封存才能進行變更。",
     "studentViewAll": "查看 <classroom>{{classroom}}</classroom> 課程的所有作業。"
@@ -1336,7 +1360,6 @@
       "validating": "驗證中…",
       "saveButton": "儲存權杖",
       "cancelRename": "取消",
-      "checking": "檢查中…",
       "expiryRange": "請輸入 {{min}}–{{max}} 天",
       "expiryUntrackedHint": "此權杖的到期日未被追蹤。請設定新權杖，讓 Classroom 50 能在到期前提醒你。",
       "generateHelp": "開啟 GitHub 的權杖表單，並預先填入名稱、到期日與所需範圍。請將 Repository access 設為 All repositories。",
@@ -1610,7 +1633,6 @@
     "viewAssignments": "檢視作業",
     "githubOrganization": "GitHub 組織",
     "myClasses": "我的課程",
-    "myAssignments": "我的作業",
     "manageSubtitle": "管理你的課程與作業。",
     "newClass": "新增課堂",
     "empty": {
@@ -1848,7 +1870,9 @@
       "orgRepoCreationDenied": "{{org}} 可能不允許成員建立私有儲存庫，因此無法建立你的儲存庫（HTTP {{status}}）。請你的老師啟用此功能，然後再次接受作業。",
       "orgRepoCreationDeniedStep": "{{org}} 不允許建立你的儲存庫（HTTP {{status}}）。",
       "forkParentRestricted": "無法複製範本 {{owner}}/{{repo}}（HTTP {{status}}）。{{detail}}此範本是 {{parentOwner}} 組織中某個儲存庫的分支（fork），複製分支受該組織的第三方應用程式限制所規範。請老師為 {{parentOwner}} 核准 Classroom 50 應用程式，或改用全新（非分支）的範本儲存庫，然後再次接受。",
-      "forkParentRestrictedStep": "{{parentOwner}} 尚未為此分支的上游核准 Classroom 50（HTTP {{status}}）。"
+      "forkParentRestrictedStep": "{{parentOwner}} 尚未為此分支的上游核准 Classroom 50（HTTP {{status}}）。",
+      "repoNameTooLong": "你的儲存庫名稱「{{name}}」有 {{length}} 個字元，超過 GitHub 的 100 個字元上限，因此無法建立（HTTP {{status}}）。{{detail}} 請你的老師縮短課程或作業的短代碼（slug），然後再接受一次。",
+      "repoNameTooLongStep": "儲存庫名稱「{{name}}」太長了（{{length}} 個字元）。"
     },
     "errors": {
       "emptyRepoWithTemplate": "作業「{{assignmentSlug}}」同時設定了空白儲存庫與範本，這是無效的組合。請你的老師重新執行作業設定。",
@@ -2048,7 +2072,6 @@
       "noGradingTitle": "此作業已停用自動評分",
       "liveLatest": "最新推送 {{date}} · 尚未評分",
       "liveLatestTitle": "在上次收集之後推送了較新的提交，因此尚未評分。執行「立即同步提交」以對其評分並計分。",
-      "loading": "載入提交中…",
       "pendingGrade": "待處理",
       "pendingGradeTitle": "已提交——分數尚未收集。執行「立即同步提交」以收集它。",
       "resolvingNonSubmitters": "檢查誰尚未提交中…",
@@ -2060,7 +2083,14 @@
       "overriddenTitle": "此分數為手動設定，在清除覆寫之前不會被自動評分變更。",
       "notCollectedYet": "尚未收集",
       "notCollectedYetTitle": "這位學生推送了尚未被收集的作業，因此沒有記錄的提交時間。請執行「立即同步提交」以收集它。",
-      "viewSubmissionsTitle": "檢視提交"
+      "emptyNoGroupsBody": "當小組的創建者接受作業時，會建立小組儲存庫。小組成立後便會顯示於此。",
+      "emptyNoGroupsTitle": "尚無小組",
+      "noRepoYetTitle": "尚無儲存庫——該學生尚未接受作業",
+      "notAcceptedTitle": "該學生尚未開啟邀請連結，因此還沒有儲存庫。請透過「分享」按鈕分享作業連結。",
+      "sortByLastSubmitted": "依最後提交時間排序",
+      "sortByName": "依名稱排序",
+      "viewSubmissionsTitleEveryPush": "預設分支上的提交會計為提交。點擊即可查看。",
+      "viewSubmissionsTitleTag": "已加標籤的發行版會計為提交。點擊即可查看。"
     },
     "reviewModal": {
       "errorTitle": "無法檢查是否有回饋 PR",
@@ -2129,7 +2159,11 @@
       "detailsTitle": "你的提交",
       "notSubmittedYet": "尚未提交",
       "submittedAwaitingGrading": "已提交——等待評分",
-      "tableCaption": "你這份作業的提交"
+      "tableCaption": "你這份作業的提交",
+      "colYourRepo": "你的儲存庫",
+      "statusNotSubmitted": "尚未提交任何內容。",
+      "statusNotSubmittedCta": "告訴我如何提交",
+      "statusSubmitted": "已提交——最後一次提交於 {{relative}}"
     },
     "viewSourceRepo": "查看範本",
     "menu": {
@@ -2400,18 +2434,6 @@
       "working": "正在更新儲存庫"
     },
     "closedNotice": "提交已關閉。新學生無法接受此作業。當你從此處關閉時，已接受學生的儲存庫會設為唯讀；既有作品會保留。從「動作」選單重新開放即可再次允許提交。",
-    "migrateTracking": {
-      "apply": "遷移設定",
-      "bannerAction": "遷移設定",
-      "bannerText": "此教室的設定使用較舊的格式。請將它遷移到最新的結構描述，以啟用最新的作業與提交功能。",
-      "error": "無法更新作業。請再試一次。",
-      "resultHeadline_one": "已遷移 {{count}} 個作業。",
-      "resultHeadline_other": "已遷移 {{count}} 個作業。",
-      "subtitle": "將此教室的作業更新為最新的設定結構描述。",
-      "title": "遷移教室設定",
-      "warning": "這會明確記錄每個作業的設定，好讓每個工具以相同方式讀取，並啟用最新功能（例如即時提交追蹤）。它不會變更任何分數、截止日期或學生的存取權，你也可以像以前一樣繼續作業。",
-      "working": "正在更新作業"
-    },
     "rowAutograde": {
       "outcome": {
         "failed": "無法變更自動評分狀態——請再試一次。",
@@ -2440,11 +2462,11 @@
       "title": "更新自動評分觸發條件"
     },
     "details": {
-      "emptyEveryPush": "尚未有任何推送至預設分支。儲存庫仍然存在——開啟它即可檢視程式碼。",
+      "emptyEveryPush": "預設分支上尚無提交。儲存庫仍然存在——開啟它即可查看程式碼。",
       "emptyLinkDefaultBranch": "檢視儲存庫",
       "emptyLinkTags": "檢視標籤",
       "emptyTag": "尚未有任何標籤提交。儲存庫仍然存在——開啟其標籤即可檢視陸續送達的提交。",
-      "pushEntry": "推送 #{{number}}",
+      "pushEntry": "提交 #{{number}}",
       "tagEntry": "提交 #{{number}}",
       "unavailable": "無法使用",
       "viewCommit": "檢視提交",
@@ -2456,7 +2478,7 @@
     "grading": {
       "badgeBuiltIn": "自動評分",
       "badgeEmptyRepo": "不自動評分",
-      "badgeNoAutograder": "無內建自動評分",
+      "badgeNoAutograder": "自訂自動評分",
       "titleEmptyRepo": "這份作業使用空白儲存庫——自動評分、分數與意見回饋 pull request 都已停用。表格僅顯示誰已接受作業。",
       "titleNoAutograder": "老師在範本中提供自己的 CI。內建分數與重新評分已停用；啟用時意見回饋 pull request 仍可運作。"
     },
@@ -2488,14 +2510,19 @@
       "titleOverride": "覆寫分數"
     },
     "type": {
-      "badgeEveryPush": "每次推送至預設分支皆計入",
+      "badgeEveryPush": "每次推送皆提交",
       "badgeTag": "以標籤提交",
-      "countEveryPush_one": "{{count}} 次推送至預設分支",
-      "countEveryPush_other": "{{count}} 次推送至預設分支",
-      "countTag_one": "{{count}} 次標籤提交",
-      "countTag_other": "{{count}} 次標籤提交",
+      "countEveryPush_one": "{{count}} 個提交",
+      "countEveryPush_other": "{{count}} 個提交",
+      "countTag_one": "{{count}} 個標籤",
+      "countTag_other": "{{count}} 個標籤",
       "tagGroupCount_one": "{{pattern}} · {{count}} 個標籤",
       "tagGroupCount_other": "{{pattern}} · {{count}} 個標籤"
+    },
+    "funnel": {
+      "showNotSubmitted": "顯示尚未提交的人",
+      "submittedTitle": "共 {{total}} 位學生中有 {{submitted}} 位已提交",
+      "submittedTitleGroup": "共 {{accepted}} 個小組中有 {{submitted}} 個已提交"
     }
   },
   "orgMembers": {
@@ -2915,7 +2942,6 @@
       "empty": "尚無已設定 Classroom 50 的組織。",
       "expires": "{{date}} 到期",
       "heading": "管理服務權杖",
-      "loading": "正在檢查你的組織…",
       "manage": "管理",
       "subheading": "你所擁有的每個組織的服務權杖狀態。請在權杖到期前輪替它，好讓分數收集持續運作。"
     },

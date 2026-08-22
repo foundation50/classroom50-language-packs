@@ -58,7 +58,6 @@
     "manageGroup": "管理小组",
     "acceptAssignment": "接受作业",
     "myClasses": "我的课堂",
-    "myAssignments": "我的作业",
     "published": "已发布",
     "members": "成员",
     "organizations": "组织",
@@ -228,7 +227,6 @@
     "resendFailed": "为 {{username}} 重新发送邀请失败（{{error}}）。",
     "resend": "重新发送",
     "dismiss": "关闭",
-    "loadingRoster": "正在加载名册……",
     "inviteStudents": "邀请学生",
     "groupBySection": "按班次分组",
     "noSection": "无班次",
@@ -592,7 +590,8 @@
     "classroomSlugRequired": "班级标识（slug）为必填项。",
     "classroomSlugTaken": "该班级标识（slug）已被使用。",
     "assignmentSlugTaken": "此班级中已存在名为“{{slug}}”的作业。",
-    "groupSizeRange": "小组人数必须是介于 {{min}} 和 {{max}} 之间的整数。"
+    "groupSizeRange": "小组人数必须是介于 {{min}} 和 {{max}} 之间的整数。",
+    "classroomSlugInvalid": "班级短名称必须{{description}}。"
   },
   "toasts": {
     "classroomSettingsSaved": "课堂设置已保存。正在发布到学生站点——上方横幅会显示进度。",
@@ -799,7 +798,8 @@
         "studentPermissionInvalid": "学生仓库访问权限必须是 pull、triage、push、maintain 或 admin 之一。",
         "gradingMaxPointsInvalid": "满分必须是不小于 {{min}} 的整数。",
         "gradingModeInvalid": "评分必须为“off”、“auto”或“manual”。",
-        "submissionModeInvalid": "自动评分触发条件必须为“every-push”或“tag”。"
+        "submissionModeInvalid": "自动评分触发条件必须为“every-push”或“tag”。",
+        "slugInvalid": "作业短名称必须{{description}}。"
       },
       "allowedFilesTip": "按顺序排列的 {{gitignore}} 风格模式，每行一个，用于定义哪些文件属于一份提交（后匹配者优先，{{bang}} 表示重新包含）。例如 {{star}} 后接 {{example}} 仅允许 {{result}}。留空则允许所有文件。",
       "containerUserTip": "容器运行时使用的用户。如果检出因权限错误失败，请设为 root。GitHub Actions 以宿主运行器的用户身份运行容器步骤，因此非 root 镜像通常无法写入工作区。",
@@ -953,7 +953,7 @@
           "tag": "带标签的提交"
         },
         "editWarning": "此更改仅影响从现在起创建的仓库。学生已接受的仓库将保留旧设置，直到你更新它们。请使用提交页面上的“更新自动评分触发器”或 gh teacher assignment submission-mode。更新后学生必须执行 pull。",
-        "help": "“向默认分支的每次推送”会计入初始提交之后的每次推送。“带标签的提交”仅计入带标签的提交，因此普通推送不消耗 Actions 分钟数；学生通过推送标签或运行 gh student submit 来提交。",
+        "help": "“向默认分支的每次推送”会计入起始提交之后学生的每次提交（工具自身的接受提交和自动评分更新提交不计入）。“带标签的提交”仅计入带标签的提交，因此普通推送不消耗 Actions 分钟数；学生通过推送标签或运行 gh student submit 来提交。",
         "label": "提交类型"
       },
       "submissionSection": "提交与评分",
@@ -1027,7 +1027,6 @@
       "colAssignment": "作业",
       "colType": "类型",
       "colDueDate": "截止日期",
-      "colSubmissions": "提交",
       "colActions": "操作",
       "empty": "尚未创建任何作业。",
       "individual": "个人",
@@ -1063,12 +1062,23 @@
       "unlockSuccess": "已解锁 {{name}}。",
       "unlockTitle": "解锁作业",
       "unlockTitleModal": "解锁作业？",
-      "openSubmissionsAria": "打开 {{name}} 的提交"
+      "openSubmissionsAria": "打开 {{name}} 的提交",
+      "acceptedTitle": "共 {{total}} 名学生中已有 {{accepted}} 名接受了此作业",
+      "colAccepted": "已接受",
+      "colSubmitted": "已提交",
+      "groupsAcceptedTitle": "已接受的小组——已存在的小组仓库",
+      "noGroupsYet": "暂无小组",
+      "noGroupsYetTitle": "暂无小组——小组仓库会在其创建者接受时生成",
+      "notCollectedYet": "尚未收集",
+      "sortByDue": "按截止日期排序",
+      "sortByName": "按名称排序",
+      "submittedTitle": "共 {{total}} 名学生中已有 {{submitted}} 名提交",
+      "submittedTitleGroup": "共 {{accepted}} 个小组中已有 {{submitted}} 个提交"
     },
     "template": {
       "label": "模板仓库",
-      "placeholder": "<owner>/<repo>",
-      "help": "可选。学生将收到此仓库的副本。留空表示无模板作业：学生会得到一个初始化的仓库，其中包含 README 和自动评分文件。",
+      "placeholder": "搜索模板，或粘贴 <owner>/<repo>",
+      "help": "可选。学生会获得此仓库的副本。可搜索你所在组织的模板仓库，或输入 <owner>/<repo> 或粘贴 GitHub URL 以使用来自任意位置的仓库。留空则创建无模板作业：学生获得一个已初始化的仓库，其中包含 README 和自动评分文件。",
       "checking": "正在检查模板访问权限……",
       "fallbackOrg": "你的组织",
       "notVisible": "你无法看到 {{owner}}/{{repo}}。请将其设为公开，或将其复制到 {{org}} 中。",
@@ -1105,7 +1115,7 @@
         "pending": "正在授予…",
         "success": "已确认课堂团队对模板的读取权限。"
       },
-      "noBranch": "{{owner}}/{{repo}} 没有默认分支。请推送一次提交，或添加 <hint/>。",
+      "noBranch": "{{owner}}/{{repo}} 没有默认分支。请向其推送一次提交，然后重试。",
       "nonMainBranch": "此模板的默认分支是 <branch>{{branch}}</branch>，而非“main”。作业将使用它，学生的自动评分也以该分支为准。",
       "okPrivate": "{{owner}} 中的私有模板，分支 <branch>{{branch}}</branch>。学生可以访问它。",
       "okPrivateInOrg": "私有模板，分支 <branch>{{branch}}</branch>。学生可以访问它。",
@@ -1123,7 +1133,26 @@
       "restrictedItemFork": "如果 {{repo}} 是一个复刻，也请在该复刻的上游组织中批准 Classroom 50——私有复刻的访问权限遵循上游组织的策略。",
       "restrictedItemOther": "否则可能是另一种 403；请参见下方 GitHub 的消息。",
       "viewTemplateRepo": "在 GitHub 上打开 {{owner}}/{{repo}}",
-      "emptyTemplate": "{{owner}}/{{repo}} 是模板，但没有任何提交。请至少添加一次提交（例如一个 README），然后重试。"
+      "emptyTemplate": "{{owner}}/{{repo}} 是模板，但没有任何提交。请至少添加一次提交（例如一个 README），然后重试。",
+      "branchIgnored": "已指定自定义分支（<branch>{{branch}}</branch>），但将被忽略——作业会复制模板的默认分支。若要使用其他分支，请更改模板仓库的默认分支。",
+      "invalid": {
+        "empty": "请输入模板仓库。",
+        "notGithubHost": "“{{raw}}”位于 {{host}}，而非 github.com。Classroom 50 只能复制托管在 GitHub 上的模板。",
+        "shape": "“{{raw}}”不是有效的仓库引用。请使用 <owner>/<repo>、仓库名称，或粘贴 GitHub 仓库 URL。",
+        "urlShape": "“{{raw}}”不是有效的 GitHub 仓库 URL。请链接到仓库本身，例如 https://github.com/<owner>/<repo>。"
+      },
+      "search": {
+        "loading": "正在加载模板…",
+        "noMatches": "此组织中没有与“{{query}}”匹配的模板仓库。你仍可输入 <owner>/<repo> 或粘贴 GitHub URL。",
+        "noTemplates": "此组织中未找到模板仓库。请在某个仓库的设置中开启“Template repository”，或粘贴 GitHub URL。",
+        "privateRepo": "私有仓库",
+        "showing": "正在显示 {{total}} 个模板中的 {{shown}} 个。",
+        "truncated": "已搜索最近更新的 {{scanned}} 个仓库。如果未列出你的模板，请输入 <owner>/<repo>。",
+        "typeInstead": "请输入仓库名称、<owner>/<repo>，或粘贴 GitHub URL。",
+        "unavailable": "无法加载此组织的模板。请改为直接输入仓库名称。",
+        "unfiltered": "GitHub 未报告其中哪些仓库是模板，因此全部列出。如果复制失败，请检查该仓库的设置。",
+        "updated": "更新于 {{when}}"
+      }
     },
     "toolbar": {
       "clear": "清除",
@@ -1149,12 +1178,8 @@
     },
     "discover": {
       "accept": "接受作业",
-      "due": "截止 {{date}}",
       "emptyBody": "当老师为此课堂发布作业后，作业会显示在这里。",
       "emptyTitle": "还没有作业",
-      "modeGroup": "小组",
-      "modeIndividual": "个人",
-      "noDue": "无截止日期",
       "noResults": {
         "body": "换个搜索词试试，或清除筛选条件。",
         "title": "没有符合筛选条件的作业"
@@ -1180,16 +1205,15 @@
         "typeAll": "所有类型",
         "typeAria": "按类型筛选",
         "typeGroup": "小组",
-        "typeIndividual": "个人",
-        "view": {
-          "gridLabel": "网格视图",
-          "label": "视图",
-          "listLabel": "列表视图"
-        }
+        "typeIndividual": "个人"
       },
       "viewSubmission": "查看我的提交",
       "linkOnlyBody": "此课堂中的作业通过老师分享的邀请链接打开。打开该链接以领取作业；领取后它会显示在这里，与老师向所有人发布的作业一并出现。",
-      "linkOnlyTitle": "打开邀请链接即可开始"
+      "linkOnlyTitle": "打开邀请链接即可开始",
+      "accepted": "已接受",
+      "colAction": "操作",
+      "colStatus": "状态",
+      "tableCaption": "已发布的作业以及你在每项作业中的状态"
     },
     "archivedNotice": "此课堂已归档——已禁用新建作业和学生接受作业。请在<settingsLink>课堂设置</settingsLink>中取消归档，以进行更改。",
     "studentViewAll": "查看 <classroom>{{classroom}}</classroom> 课堂的所有作业。"
@@ -1336,7 +1360,6 @@
       "validating": "正在验证……",
       "saveButton": "保存令牌",
       "cancelRename": "取消",
-      "checking": "检查中…",
       "expiryRange": "请输入 {{min}}–{{max}} 天",
       "expiryUntrackedHint": "此令牌的到期时间未被跟踪。请设置一个新令牌，以便 Classroom 50 能在其到期前提醒你。",
       "generateHelp": "打开 GitHub 的令牌表单，其中已预填名称、到期时间和所需的权限范围。请将 Repository access 设为 All repositories。",
@@ -1610,7 +1633,6 @@
     "viewAssignments": "查看作业",
     "githubOrganization": "GitHub 组织",
     "myClasses": "我的课堂",
-    "myAssignments": "我的作业",
     "manageSubtitle": "管理你的课堂和作业。",
     "newClass": "新建课堂",
     "empty": {
@@ -1848,7 +1870,9 @@
       "orgRepoCreationDenied": "{{org}} 可能不允许成员创建私有仓库，因此无法创建你的仓库（HTTP {{status}}）。请让你的老师启用该权限，然后再次接受作业。",
       "orgRepoCreationDeniedStep": "{{org}} 不允许创建你的仓库（HTTP {{status}}）。",
       "forkParentRestricted": "无法复制模板 {{owner}}/{{repo}}（HTTP {{status}}）。{{detail}} 此模板是 {{parentOwner}} 组织中某个仓库的复刻（fork），而复制复刻受该组织的第三方应用限制约束。请让老师为 {{parentOwner}} 批准 Classroom 50 应用，或改用一个全新（非复刻）的模板仓库，然后重新领取。",
-      "forkParentRestrictedStep": "{{parentOwner}} 尚未为该复刻的上游批准 Classroom 50（HTTP {{status}}）。"
+      "forkParentRestrictedStep": "{{parentOwner}} 尚未为该复刻的上游批准 Classroom 50（HTTP {{status}}）。",
+      "repoNameTooLong": "你的仓库名称“{{name}}”有 {{length}} 个字符，超过了 GitHub 的 100 字符上限，因此无法创建（HTTP {{status}}）。{{detail}}请让老师缩短班级或作业的短名称，然后重新接受。",
+      "repoNameTooLongStep": "仓库名称“{{name}}”太长（{{length}} 个字符）。"
     },
     "errors": {
       "emptyRepoWithTemplate": "作业“{{assignmentSlug}}”同时设置了空仓库和模板，这是无效的。请让你的老师重新运行作业设置。",
@@ -2048,7 +2072,6 @@
       "noGradingTitle": "此作业已禁用自动评分",
       "liveLatest": "最新推送于 {{date}} · 尚未评分",
       "liveLatestTitle": "有一次较新的提交在上次收集之后被推送，因此尚未评分。运行“立即同步提交”以对其评分并计分。",
-      "loading": "正在加载提交……",
       "pendingGrade": "待处理",
       "pendingGradeTitle": "已提交——分数尚未收集。运行“立即同步提交”以收集它。",
       "resolvingNonSubmitters": "正在检查谁还没有提交……",
@@ -2060,7 +2083,14 @@
       "overriddenTitle": "此分数是人工设定的，在清除覆盖之前，自动评分不会更改它。",
       "notCollectedYet": "尚未收集",
       "notCollectedYetTitle": "该学生已推送尚未收集的工作，因此没有记录的提交时间。运行“立即同步提交”以收集它。",
-      "viewSubmissionsTitle": "查看提交"
+      "emptyNoGroupsBody": "小组仓库会在其创建者接受作业时生成。小组组建后将显示在此处。",
+      "emptyNoGroupsTitle": "暂无小组",
+      "noRepoYetTitle": "尚无仓库——该学生尚未接受此作业",
+      "notAcceptedTitle": "该学生尚未打开邀请链接，因此仓库不存在。请通过“分享”按钮分享作业链接。",
+      "sortByLastSubmitted": "按最近提交排序",
+      "sortByName": "按名称排序",
+      "viewSubmissionsTitleEveryPush": "默认分支上的提交计为提交内容。点击查看。",
+      "viewSubmissionsTitleTag": "带标签的发布计为提交内容。点击查看。"
     },
     "reviewModal": {
       "errorTitle": "无法检查反馈拉取请求",
@@ -2129,7 +2159,11 @@
       "detailsTitle": "你的提交",
       "notSubmittedYet": "尚未提交",
       "submittedAwaitingGrading": "已提交——等待评分",
-      "tableCaption": "你对此作业的提交"
+      "tableCaption": "你对此作业的提交",
+      "colYourRepo": "你的仓库",
+      "statusNotSubmitted": "尚未提交任何内容。",
+      "statusNotSubmittedCta": "教我如何提交",
+      "statusSubmitted": "已提交——最近一次提交 {{relative}}"
     },
     "viewSourceRepo": "查看模板",
     "menu": {
@@ -2400,18 +2434,6 @@
       "working": "正在更新仓库"
     },
     "closedNotice": "提交已关闭。新学生无法接受此作业。当你从这里关闭时，已接受学生的仓库会被设为只读；已有作业会被保留。可在“操作”菜单中重新开放，以再次允许提交。",
-    "migrateTracking": {
-      "apply": "迁移配置",
-      "bannerAction": "迁移配置",
-      "bannerText": "此课堂的配置使用了较旧的格式。请将其迁移到最新的架构，以启用最新的作业和提交功能。",
-      "error": "无法更新作业。请重试。",
-      "resultHeadline_one": "已迁移 {{count}} 个作业。",
-      "resultHeadline_other": "已迁移 {{count}} 个作业。",
-      "subtitle": "将此课堂的作业更新到最新的配置架构。",
-      "title": "迁移课堂配置",
-      "warning": "这会明确记录每个作业的设置，以便每个工具都以相同方式读取它们，并启用最新功能（例如实时提交跟踪）。它不会更改任何分数、截止日期或学生的访问权限，你可以像以前一样继续工作。",
-      "working": "正在更新作业"
-    },
     "rowAutograde": {
       "outcome": {
         "failed": "无法更改自动评分状态——请重试。",
@@ -2440,11 +2462,11 @@
       "title": "更新自动评分触发条件"
     },
     "details": {
-      "emptyEveryPush": "尚无向默认分支的推送。该仓库仍然存在——打开它即可查看代码。",
+      "emptyEveryPush": "默认分支上还没有提交。仓库仍然存在——打开它即可查看代码。",
       "emptyLinkDefaultBranch": "查看仓库",
       "emptyLinkTags": "查看标签",
       "emptyTag": "尚无带标签的提交。该仓库仍然存在——打开其标签即可查看陆续到达的提交。",
-      "pushEntry": "推送 #{{number}}",
+      "pushEntry": "第 {{number}} 次提交",
       "tagEntry": "提交 #{{number}}",
       "unavailable": "不可用",
       "viewCommit": "查看提交",
@@ -2456,7 +2478,7 @@
     "grading": {
       "badgeBuiltIn": "自动评分",
       "badgeEmptyRepo": "无自动评分",
-      "badgeNoAutograder": "无内置自动评分",
+      "badgeNoAutograder": "自定义自动评分",
       "titleEmptyRepo": "此作业使用空仓库——自动评分、分数和反馈拉取请求均已禁用。表格显示哪些人已接受。",
       "titleNoAutograder": "教师在模板中提供自己的 CI。内置分数和重新评分已禁用；启用时反馈拉取请求仍然有效。"
     },
@@ -2488,14 +2510,19 @@
       "titleOverride": "覆盖分数"
     },
     "type": {
-      "badgeEveryPush": "对默认分支的每次推送都计入",
+      "badgeEveryPush": "每次推送即提交",
       "badgeTag": "按标签提交",
-      "countEveryPush_one": "对默认分支的 {{count}} 次推送",
-      "countEveryPush_other": "对默认分支的 {{count}} 次推送",
-      "countTag_one": "{{count}} 次带标签的提交",
-      "countTag_other": "{{count}} 次带标签的提交",
+      "countEveryPush_one": "{{count}} 次提交",
+      "countEveryPush_other": "{{count}} 次提交",
+      "countTag_one": "{{count}} 个标签",
+      "countTag_other": "{{count}} 个标签",
       "tagGroupCount_one": "{{pattern}} · {{count}} 个标签",
       "tagGroupCount_other": "{{pattern}} · {{count}} 个标签"
+    },
+    "funnel": {
+      "showNotSubmitted": "显示尚未提交的学生",
+      "submittedTitle": "共 {{total}} 名学生中已有 {{submitted}} 名提交",
+      "submittedTitleGroup": "共 {{accepted}} 个小组中已有 {{submitted}} 个提交"
     }
   },
   "orgMembers": {
@@ -2915,7 +2942,6 @@
       "empty": "尚无已设置 Classroom 50 的组织。",
       "expires": "{{date}} 到期",
       "heading": "管理服务令牌",
-      "loading": "正在检查你的组织…",
       "manage": "管理",
       "subheading": "你拥有的每个组织的服务令牌状态。在令牌过期前轮换它，以便分数收集能持续正常工作。"
     },
