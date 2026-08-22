@@ -58,7 +58,6 @@
     "manageGroup": "グループを管理",
     "acceptAssignment": "課題を承諾",
     "myClasses": "自分のクラスルーム",
-    "myAssignments": "自分の課題",
     "published": "公開",
     "members": "メンバー",
     "organizations": "Organization",
@@ -228,7 +227,6 @@
     "resendFailed": "{{username}} への招待の再送に失敗しました（{{error}}）。",
     "resend": "再送",
     "dismiss": "閉じる",
-    "loadingRoster": "名簿を読み込み中...",
     "inviteStudents": "受講者を招待",
     "groupBySection": "クラスごとにグループ化",
     "noSection": "クラスなし",
@@ -592,7 +590,8 @@
     "classroomSlugRequired": "クラスのスラッグは必須です。",
     "classroomSlugTaken": "このクラスのスラッグは既に使用されています。",
     "assignmentSlugTaken": "課題「{{slug}}」はこのクラスに既に存在します。",
-    "groupSizeRange": "グループの人数は {{min}} から {{max}} までの整数で指定してください。"
+    "groupSizeRange": "グループの人数は {{min}} から {{max}} までの整数で指定してください。",
+    "classroomSlugInvalid": "クラスルームのスラッグは{{description}}である必要があります。"
   },
   "toasts": {
     "classroomSettingsSaved": "教室の設定を保存しました。ただいま受講者向けサイトへ公開中です。上のバナーで進行状況を確認できます。",
@@ -799,7 +798,8 @@
         "studentPermissionInvalid": "学生のリポジトリアクセスは、pull、triage、push、maintain、admin のいずれかにしてください。",
         "gradingMaxPointsInvalid": "満点は {{min}} 以上の整数でなければなりません。",
         "gradingModeInvalid": "採点は「off」「auto」「manual」のいずれかでなければなりません。",
-        "submissionModeInvalid": "オートグレーディングのトリガーは「every-push」または「tag」でなければなりません。"
+        "submissionModeInvalid": "オートグレーディングのトリガーは「every-push」または「tag」でなければなりません。",
+        "slugInvalid": "課題のスラッグは{{description}}である必要があります。"
       },
       "allowedFilesTip": "1 行に 1 つずつ、順序付きの {{gitignore}} 形式のパターンで、提出物に含めるファイルを定義します（後のマッチが優先、{{bang}} で再度含める）。例：{{star}} の後に {{example}} を指定すると {{result}} のみが許可されます。空欄の場合はすべてのファイルを許可します。",
       "containerUserTip": "コンテナを実行するユーザーです。チェックアウトが権限エラーで失敗する場合は root を設定してください。GitHub Actions はコンテナのステップをホストランナーのユーザーとして実行するため、非 root イメージではワークスペースに書き込めないことがよくあります。",
@@ -953,7 +953,7 @@
           "tag": "タグ付きコミット"
         },
         "editWarning": "この変更は今後作成されるリポジトリにのみ影響します。既に学生が承諾したリポジトリは、更新するまで旧設定を保持します。提出物ページの「自動採点トリガーを更新」または gh teacher assignment submission-mode を使用してください。更新後、学生は pull する必要があります。",
-        "help": "「デフォルトブランチへのすべてのプッシュ」は、スターターコミット以降のプッシュを毎回カウントします。「タグ付きコミット」はタグ付きコミットのみをカウントするため、通常のプッシュでは Actions の分数を消費しません。学生はタグをプッシュするか gh student submit を実行して提出します。",
+        "help": "「デフォルトブランチへのすべてのプッシュ」は、スターターコミット以降の各生徒のコミットをカウントします（ツール自体の受け入れコミットや自動採点更新コミットはカウントされません）。「タグ付きコミット」はタグ付きコミットのみをカウントするため、通常のプッシュでは Actions の分数を消費しません。生徒はタグをプッシュするか gh student submit を実行して提出します。",
         "label": "提出の種類"
       },
       "submissionSection": "提出と採点",
@@ -1027,7 +1027,6 @@
       "colAssignment": "課題",
       "colType": "種類",
       "colDueDate": "期限",
-      "colSubmissions": "提出",
       "colActions": "操作",
       "empty": "課題は作成されていません。",
       "individual": "個人",
@@ -1063,12 +1062,23 @@
       "unlockSuccess": "{{name}} のロックを解除しました。",
       "unlockTitle": "課題のロックを解除",
       "unlockTitleModal": "課題のロックを解除しますか？",
-      "openSubmissionsAria": "{{name}} の提出を開く"
+      "openSubmissionsAria": "{{name}} の提出を開く",
+      "acceptedTitle": "{{total}}人中{{accepted}}人の生徒が課題を受け入れました",
+      "colAccepted": "受け入れ済み",
+      "colSubmitted": "提出済み",
+      "groupsAcceptedTitle": "受け入れたグループ — 存在するグループリポジトリ",
+      "noGroupsYet": "まだグループはありません",
+      "noGroupsYetTitle": "まだグループはありません — 作成者が受け入れるとグループリポジトリが作成されます",
+      "notCollectedYet": "まだ収集されていません",
+      "sortByDue": "締切日で並べ替え",
+      "sortByName": "名前で並べ替え",
+      "submittedTitle": "{{total}}人中{{submitted}}人の生徒が提出しました",
+      "submittedTitleGroup": "{{accepted}}グループ中{{submitted}}グループが提出しました"
     },
     "template": {
       "label": "テンプレートリポジトリ",
-      "placeholder": "<owner>/<repo>",
-      "help": "任意。学生はこのリポジトリのコピーを受け取ります。テンプレートなしの課題にする場合は空欄にしてください。学生は README と自動採点ファイルで初期化されたリポジトリを受け取ります。",
+      "placeholder": "テンプレートを検索するか、<owner>/<repo> を貼り付けてください",
+      "help": "任意。生徒はこのリポジトリのコピーを受け取ります。組織のテンプレートリポジトリを検索するか、<owner>/<repo> を入力するか、GitHub の URL を貼り付けてどこからでも利用できます。テンプレートなしの課題にするには空欄のままにしてください。その場合、生徒は README と自動採点ファイルが初期化されたリポジトリを受け取ります。",
       "checking": "テンプレートへのアクセスを確認中…",
       "fallbackOrg": "あなたの Organization",
       "notVisible": "{{owner}}/{{repo}} はあなたには表示されません。パブリックにするか、{{org}} にコピーしてください。",
@@ -1105,7 +1115,7 @@
         "pending": "付与中…",
         "success": "テンプレートに対するクラスルームチームの読み取りアクセスが確認されました。"
       },
-      "noBranch": "{{owner}}/{{repo}} には既定のブランチがありません。コミットをプッシュするか、<hint/> を追加してください。",
+      "noBranch": "{{owner}}/{{repo}} にはデフォルトブランチがありません。コミットをプッシュしてから、もう一度お試しください。",
       "nonMainBranch": "このテンプレートの既定ブランチは「main」ではなく <branch>{{branch}}</branch> です。課題ではこのブランチが使われ、受講者の自動採点もそのブランチを基準に動作します。",
       "okPrivate": "{{owner}} 内のプライベートテンプレート、ブランチ <branch>{{branch}}</branch>。受講者がアクセスできます。",
       "okPrivateInOrg": "プライベートテンプレート、ブランチ <branch>{{branch}}</branch>。受講者がアクセスできます。",
@@ -1123,7 +1133,26 @@
       "restrictedItemFork": "{{repo}} がフォークの場合は、フォークの上流 org でも Classroom 50 を承認してください。プライベートフォークのアクセスは上流 org のポリシーに従います。",
       "restrictedItemOther": "それ以外の場合、別の 403 の可能性があります。下の GitHub のメッセージを参照してください。",
       "viewTemplateRepo": "GitHub で {{owner}}/{{repo}} を開く",
-      "emptyTemplate": "{{owner}}/{{repo}} はテンプレートですが、コミットがありません。少なくとも 1 つのコミット（例: README）を追加してから、もう一度試してください。"
+      "emptyTemplate": "{{owner}}/{{repo}} はテンプレートですが、コミットがありません。少なくとも 1 つのコミット（例: README）を追加してから、もう一度試してください。",
+      "branchIgnored": "カスタムブランチ（<branch>{{branch}}</branch>）が指定されましたが無視されます — 課題はテンプレートのデフォルトブランチをコピーします。別のブランチを使うには、テンプレートリポジトリのデフォルトブランチを変更してください。",
+      "invalid": {
+        "empty": "テンプレートリポジトリを入力してください。",
+        "notGithubHost": "「{{raw}}」は github.com ではなく {{host}} 上にあります。Classroom 50 は GitHub にホストされたテンプレートのみをコピーできます。",
+        "shape": "「{{raw}}」はリポジトリの参照ではありません。<owner>/<repo>、リポジトリ名を使うか、GitHub のリポジトリ URL を貼り付けてください。",
+        "urlShape": "「{{raw}}」は GitHub のリポジトリ URL ではありません。https://github.com/<owner>/<repo> のように、リポジトリそのものへのリンクにしてください。"
+      },
+      "search": {
+        "loading": "テンプレートを読み込んでいます…",
+        "noMatches": "この組織で「{{query}}」に一致するテンプレートリポジトリはありません。<owner>/<repo> を入力するか、GitHub の URL を貼り付けることもできます。",
+        "noTemplates": "この組織にテンプレートリポジトリが見つかりませんでした。リポジトリの設定で「Template repository」を有効にするか、GitHub の URL を貼り付けてください。",
+        "privateRepo": "プライベートリポジトリ",
+        "showing": "{{total}}件中{{shown}}件のテンプレートを表示しています。",
+        "truncated": "最近更新された{{scanned}}件のリポジトリを検索しました。テンプレートが表示されない場合は、<owner>/<repo> を入力してください。",
+        "typeInstead": "リポジトリ名、<owner>/<repo> を入力するか、GitHub の URL を貼り付けてください。",
+        "unavailable": "この組織のテンプレートを読み込めませんでした。代わりにリポジトリ名を入力してください。",
+        "unfiltered": "GitHub はこれらのリポジトリのどれがテンプレートかを報告しなかったため、すべて表示されています。コピーに失敗した場合はリポジトリの設定を確認してください。",
+        "updated": "更新: {{when}}"
+      }
     },
     "toolbar": {
       "clear": "クリア",
@@ -1149,12 +1178,8 @@
     },
     "discover": {
       "accept": "課題を承諾",
-      "due": "期限 {{date}}",
       "emptyBody": "先生がこのクラスルーム向けに課題を公開すると、ここに表示されます。",
       "emptyTitle": "課題はまだありません",
-      "modeGroup": "グループ",
-      "modeIndividual": "個人",
-      "noDue": "期限なし",
       "noResults": {
         "body": "別の検索を試すか、フィルターをクリアしてください。",
         "title": "フィルターに一致する課題がありません"
@@ -1180,16 +1205,15 @@
         "typeAll": "すべての種類",
         "typeAria": "種類で絞り込み",
         "typeGroup": "グループ",
-        "typeIndividual": "個人",
-        "view": {
-          "gridLabel": "グリッド表示",
-          "label": "表示",
-          "listLabel": "リスト表示"
-        }
+        "typeIndividual": "個人"
       },
       "viewSubmission": "自分の提出を表示",
       "linkOnlyBody": "この classroom の課題は、先生が共有する招待リンクから開きます。そのリンクを開いて課題を受け取ってください。受け取ると、先生が全員に公開した課題と並んでここに表示されます。",
-      "linkOnlyTitle": "招待リンクを開いて始めましょう"
+      "linkOnlyTitle": "招待リンクを開いて始めましょう",
+      "accepted": "受け入れ済み",
+      "colAction": "操作",
+      "colStatus": "ステータス",
+      "tableCaption": "公開された課題と、それぞれのあなたのステータス"
     },
     "archivedNotice": "この教室はアーカイブされています。新しい課題の作成や受講者の受け取りは無効です。変更するには、<settingsLink>教室の設定</settingsLink>でアーカイブを解除してください。",
     "studentViewAll": "<classroom>{{classroom}}</classroom> 教室のすべての課題を表示します。"
@@ -1336,7 +1360,6 @@
       "validating": "検証中…",
       "saveButton": "トークンを保存",
       "cancelRename": "キャンセル",
-      "checking": "確認中…",
       "expiryRange": "{{min}}〜{{max}} 日で入力してください",
       "expiryUntrackedHint": "このトークンの有効期限は追跡されていません。Classroom 50 が期限切れの前に警告できるよう、新しいトークンを設定してください。",
       "generateHelp": "名前、有効期限、必要なスコープが事前入力された GitHub のトークンフォームを開きます。Repository access を All repositories に設定してください。",
@@ -1610,7 +1633,6 @@
     "viewAssignments": "課題を表示",
     "githubOrganization": "GitHub 組織",
     "myClasses": "自分のクラスルーム",
-    "myAssignments": "自分の課題",
     "manageSubtitle": "クラスルームと課題を管理します。",
     "newClass": "新しいクラスルーム",
     "empty": {
@@ -1848,7 +1870,9 @@
       "orgRepoCreationDenied": "{{org}} はメンバーによるプライベートリポジトリの作成を許可していない可能性があるため、リポジトリを作成できませんでした（HTTP {{status}}）。担当の先生に有効化してもらってから、もう一度受け入れてください。",
       "orgRepoCreationDeniedStep": "{{org}} がリポジトリの作成を許可しませんでした（HTTP {{status}}）。",
       "forkParentRestricted": "テンプレート {{owner}}/{{repo}} をコピーできませんでした（HTTP {{status}}）。{{detail}} このテンプレートは {{parentOwner}} organization にあるリポジトリのフォークで、フォークのコピーはその organization のサードパーティアプリ制限の管理下にあります。Classroom 50 アプリを {{parentOwner}} に対して承認するか、フォークではない新しいテンプレートリポジトリを使用するよう先生に依頼してから、もう一度受け取ってください。",
-      "forkParentRestrictedStep": "{{parentOwner}} はフォークの上流に対して Classroom 50 を承認していません（HTTP {{status}}）。"
+      "forkParentRestrictedStep": "{{parentOwner}} はフォークの上流に対して Classroom 50 を承認していません（HTTP {{status}}）。",
+      "repoNameTooLong": "リポジトリ名「{{name}}」は{{length}}文字あり、GitHub の 100 文字の上限を超えているため作成できませんでした（HTTP {{status}}）。{{detail}}先生にクラスルームまたは課題のスラッグを短くしてもらってから、もう一度受け入れてください。",
+      "repoNameTooLongStep": "リポジトリ名「{{name}}」が長すぎます（{{length}}文字）。"
     },
     "errors": {
       "emptyRepoWithTemplate": "課題「{{assignmentSlug}}」は空のリポジトリとテンプレートの両方が設定されており、これは無効です。担当の先生に課題のセットアップを再実行してもらってください。",
@@ -2048,7 +2072,6 @@
       "noGradingTitle": "この課題では自動採点が無効になっています",
       "liveLatest": "最新のプッシュ {{date}} · 未採点",
       "liveLatestTitle": "前回の収集後に新しい提出物がプッシュされたため、まだ採点されていません。「今すぐ提出物を同期」を実行して採点・スコア付けしてください。",
-      "loading": "提出物を読み込み中…",
       "pendingGrade": "保留中",
       "pendingGradeTitle": "提出済み — スコアはまだ収集されていません。「今すぐ提出物を同期」を実行して収集してください。",
       "resolvingNonSubmitters": "まだ提出していない人を確認中…",
@@ -2060,7 +2083,14 @@
       "overriddenTitle": "このスコアは手作業で設定されており、上書きが解除されるまでオートグレーディングによって変更されません。",
       "notCollectedYet": "未収集",
       "notCollectedYetTitle": "この学生はまだ収集されていない作業をプッシュしているため、記録された提出時刻がありません。「提出を今すぐ同期」を実行して収集してください。",
-      "viewSubmissionsTitle": "提出を表示"
+      "emptyNoGroupsBody": "グループリポジトリは、作成者が課題を受け入れると作成されます。グループは形成されるとここに表示されます。",
+      "emptyNoGroupsTitle": "まだグループはありません",
+      "noRepoYetTitle": "まだリポジトリがありません — 生徒が課題を受け入れていません",
+      "notAcceptedTitle": "この生徒はまだ招待リンクを開いていないため、リポジトリは存在しません。「共有」ボタンから課題リンクを共有してください。",
+      "sortByLastSubmitted": "最終提出で並べ替え",
+      "sortByName": "名前で並べ替え",
+      "viewSubmissionsTitleEveryPush": "デフォルトブランチへのコミットが提出としてカウントされます。クリックして表示します。",
+      "viewSubmissionsTitleTag": "タグ付きリリースが提出としてカウントされます。クリックして表示します。"
     },
     "reviewModal": {
       "errorTitle": "フィードバック PR を確認できませんでした",
@@ -2129,7 +2159,11 @@
       "detailsTitle": "あなたの提出",
       "notSubmittedYet": "まだ提出されていません",
       "submittedAwaitingGrading": "提出済み — 採点待ち",
-      "tableCaption": "この課題のあなたの提出"
+      "tableCaption": "この課題のあなたの提出",
+      "colYourRepo": "あなたのリポジトリ",
+      "statusNotSubmitted": "まだ何も提出していません。",
+      "statusNotSubmittedCta": "提出方法を見る",
+      "statusSubmitted": "提出済み — 最終提出 {{relative}}"
     },
     "viewSourceRepo": "テンプレートを表示",
     "menu": {
@@ -2400,18 +2434,6 @@
       "working": "リポジトリを更新しています"
     },
     "closedNotice": "提出は締め切られています。新規の生徒はこの課題を受け取れません。ここから締め切ると、受け取り済みの生徒のリポジトリは読み取り専用に設定されます。既存の成果物は保持されます。再び提出を許可するには、アクションメニューから再開してください。",
-    "migrateTracking": {
-      "apply": "設定を移行",
-      "bannerAction": "設定を移行",
-      "bannerText": "このクラスの設定は古い形式を使用しています。最新のスキーマに移行して、最新の課題および提出機能を有効にしてください。",
-      "error": "課題を更新できませんでした。もう一度お試しください。",
-      "resultHeadline_one": "{{count}} 件の課題を移行しました。",
-      "resultHeadline_other": "{{count}} 件の課題を移行しました。",
-      "subtitle": "このクラスの課題を最新の設定スキーマに更新します。",
-      "title": "クラス設定を移行",
-      "warning": "これにより、各課題の設定が明示的に記録され、すべてのツールが同じように読み取れるようになり、最新機能（ライブ提出追跡など）が有効になります。スコア、締切、学生のアクセスは一切変更されず、これまでどおり作業を続けられます。",
-      "working": "課題を更新しています"
-    },
     "rowAutograde": {
       "outcome": {
         "failed": "オートグレーディングの状態を変更できませんでした。もう一度お試しください。",
@@ -2440,11 +2462,11 @@
       "title": "オートグレーディングトリガーを更新"
     },
     "details": {
-      "emptyEveryPush": "既定ブランチへのプッシュはまだありません。リポジトリは存在しています。開いてコードを確認できます。",
+      "emptyEveryPush": "デフォルトブランチにはまだコミットがありません。リポジトリは存在します — コードを見るには開いてください。",
       "emptyLinkDefaultBranch": "リポジトリを表示",
       "emptyLinkTags": "タグを表示",
       "emptyTag": "タグ付きの提出はまだありません。リポジトリは存在しています。タグを開くと、届いた提出を確認できます。",
-      "pushEntry": "プッシュ #{{number}}",
+      "pushEntry": "コミット #{{number}}",
       "tagEntry": "提出 #{{number}}",
       "unavailable": "利用不可",
       "viewCommit": "コミットを表示",
@@ -2456,7 +2478,7 @@
     "grading": {
       "badgeBuiltIn": "自動採点",
       "badgeEmptyRepo": "自動採点なし",
-      "badgeNoAutograder": "組み込み自動採点なし",
+      "badgeNoAutograder": "カスタム自動採点",
       "titleEmptyRepo": "この課題は空のリポジトリを使用します。自動採点、スコア、フィードバックプルリクエストは無効です。表には受諾した人が表示されます。",
       "titleNoAutograder": "教師がテンプレート内で独自の CI を提供します。組み込みのスコアと再採点は無効ですが、フィードバックプルリクエストは有効な場合に引き続き機能します。"
     },
@@ -2488,14 +2510,19 @@
       "titleOverride": "スコアを上書き"
     },
     "type": {
-      "badgeEveryPush": "既定ブランチへの各プッシュがカウントされます",
+      "badgeEveryPush": "プッシュごとに提出",
       "badgeTag": "タグで提出",
-      "countEveryPush_one": "既定ブランチへの {{count}} 件のプッシュ",
-      "countEveryPush_other": "既定ブランチへの {{count}} 件のプッシュ",
-      "countTag_one": "{{count}} 件のタグ付き提出",
-      "countTag_other": "{{count}} 件のタグ付き提出",
+      "countEveryPush_one": "{{count}}コミット",
+      "countEveryPush_other": "{{count}}コミット",
+      "countTag_one": "{{count}}タグ",
+      "countTag_other": "{{count}}タグ",
       "tagGroupCount_one": "{{pattern}} · {{count}} 件のタグ",
       "tagGroupCount_other": "{{pattern}} · {{count}} 件のタグ"
+    },
+    "funnel": {
+      "showNotSubmitted": "未提出の生徒を表示",
+      "submittedTitle": "{{total}}人中{{submitted}}人の生徒が提出しました",
+      "submittedTitleGroup": "{{accepted}}グループ中{{submitted}}グループが提出しました"
     }
   },
   "orgMembers": {
@@ -2915,7 +2942,6 @@
       "empty": "Classroom 50 がセットアップされた organization はまだありません。",
       "expires": "有効期限：{{date}}",
       "heading": "サービストークンを管理",
-      "loading": "あなたの organization を確認中…",
       "manage": "管理",
       "subheading": "あなたが所有するすべての組織のサービストークンの状態です。スコア収集を継続させるため、有効期限が切れる前にトークンをローテーションしてください。"
     },

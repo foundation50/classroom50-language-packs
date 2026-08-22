@@ -90,7 +90,6 @@
     "manageGroup": "Grubu yönet",
     "acceptAssignment": "Ödevi kabul et",
     "myClasses": "Sınıflarım",
-    "myAssignments": "Ödevlerim",
     "published": "Yayımlanan",
     "members": "Üyeler",
     "activity": "Etkinlik",
@@ -274,7 +273,6 @@
     "resendFailed": "{{username}} için davet yeniden gönderilemedi ({{error}}).",
     "resend": "Yeniden gönder",
     "dismiss": "Kapat",
-    "loadingRoster": "Liste yükleniyor...",
     "rosterLoadError": "Liste GitHub'dan yüklenemedi. Kayıtlı liste eksik olabilir — bu bir yükleme hatasıdır, boş bir sınıf değildir.",
     "rosterRetry": "Tekrar dene",
     "rosterParseError": "roster.csv hatalı ve tamamen okunamadı. Listenin doğru kalması için bu satırları düzeltin:",
@@ -621,7 +619,8 @@
     "classroomSlugRequired": "Sınıf kısa adı (slug) zorunludur.",
     "classroomSlugTaken": "Bu sınıf kısa adı (slug) zaten kullanılıyor.",
     "assignmentSlugTaken": "Bu sınıfta zaten \"{{slug}}\" adında bir ödev var.",
-    "groupSizeRange": "Grup boyutu {{min}} ile {{max}} arasında bir tam sayı olmalıdır."
+    "groupSizeRange": "Grup boyutu {{min}} ile {{max}} arasında bir tam sayı olmalıdır.",
+    "classroomSlugInvalid": "Sınıf kısaltması (slug) {{description}} olmalıdır."
   },
   "toasts": {
     "classroomSettingsSaved": "Sınıf ayarları kaydedildi. Şimdi öğrenci sitesinde yayımlanıyor — yukarıdaki bilgi çubuğu ilerlemeyi takip eder.",
@@ -764,10 +763,6 @@
       "accept": "Ödevi kabul et",
       "notAccepted": "Kabul edilmedi",
       "viewSubmission": "Gönderimimi görüntüle",
-      "modeIndividual": "Bireysel",
-      "modeGroup": "Grup",
-      "due": "Son tarih {{date}}",
-      "noDue": "Son tarih yok",
       "emptyTitle": "Henüz ödev yok",
       "emptyBody": "Bir öğretmen bu sınıf için ödev yayımladığında burada görünecektir.",
       "protectedNoSecret": "Bu sınıfın ödevleri, öğretmeninizin paylaştığı davet bağlantısından açılır. Kabul etmek ve burada görmek için o bağlantıyı açın.",
@@ -790,19 +785,18 @@
         "sortDueDesc": "En geç son tarih",
         "sortNameAsc": "Ad (A–Z)",
         "sortNameDesc": "Ad (Z–A)",
-        "clear": "Filtreleri temizle",
-        "view": {
-          "label": "Görünüm",
-          "gridLabel": "Izgara görünümü",
-          "listLabel": "Liste görünümü"
-        }
+        "clear": "Filtreleri temizle"
       },
       "noResults": {
         "title": "Filtrelerinize uyan ödev yok",
         "body": "Farklı bir arama deneyin veya filtreleri temizleyin."
       },
       "linkOnlyBody": "Bu sınıftaki ödevler, öğretmeninizin paylaştığı davet bağlantısından açılır. Bir ödevi kabul etmek için o bağlantıyı açın; ardından öğretmeninizin herkese sunduğu ödevlerle birlikte burada görünür.",
-      "linkOnlyTitle": "Başlamak için davet bağlantınızı açın"
+      "linkOnlyTitle": "Başlamak için davet bağlantınızı açın",
+      "accepted": "Kabul edildi",
+      "colAction": "Eylem",
+      "colStatus": "Durum",
+      "tableCaption": "Yayımlanan ödevler ve her biri için durumunuz"
     },
     "newButton": {
       "assignment": "Ödev",
@@ -911,7 +905,8 @@
         "studentPermissionInvalid": "Öğrenci depo erişimi pull, triage, push, maintain veya admin değerlerinden biri olmalıdır.",
         "gradingMaxPointsInvalid": "Maksimum puan en az {{min}} olan bir tam sayı olmalıdır.",
         "gradingModeInvalid": "Değerlendirme \"off\", \"auto\" veya \"manual\" olmalıdır.",
-        "submissionModeInvalid": "Otomatik değerlendirme tetikleyicisi \"every-push\" veya \"tag\" olmalıdır."
+        "submissionModeInvalid": "Otomatik değerlendirme tetikleyicisi \"every-push\" veya \"tag\" olmalıdır.",
+        "slugInvalid": "Ödev kısaltması (slug) {{description}} olmalıdır."
       },
       "availableFrom": "Yayınlanma tarihi ({{tz}})",
       "availableFromTz": "Saatler yerel saat diliminizdedir ({{tz}}).",
@@ -1028,7 +1023,7 @@
           "tag": "Etiketli bir commit"
         },
         "editWarning": "Bunu değiştirmek yalnızca bundan sonra oluşturulan depoları etkiler. Öğrencilerin zaten kabul ettiği depolar, siz güncelleyene kadar eski ayarı korur. Gönderiler sayfasındaki \"Otomatik değerlendirme tetikleyicilerini güncelle\"yi veya gh teacher assignment submission-mode komutunu kullanın. Öğrenciler güncellemeden sonra pull yapmalıdır.",
-        "help": "\"Varsayılan dala her push\" başlangıç commit'inden sonraki her push'u sayar. \"Etiketli bir commit\" yalnızca etiketli commit'leri sayar, böylece sıradan push'lar hiç Actions dakikası kullanmaz; öğrenci bir etiket göndererek veya gh student submit çalıştırarak gönderim yapar.",
+        "help": "\"Varsayılan dala her push\", öğrencinin başlangıç commit'inden sonraki her commit'ini sayar (aracın kendi kabul ve otomatik değerlendirme güncelleme commit'leri sayılmaz). \"Etiketlenmiş bir commit\" yalnızca etiketlenmiş commit'leri sayar; böylece sıradan push'lar Actions dakikası kullanmaz; öğrenci bir etiket push ederek veya gh student submit çalıştırarak teslim eder.",
         "label": "Gönderim türü"
       },
       "submissionSection": "Gönderim ve değerlendirme",
@@ -1102,7 +1097,6 @@
       "colAssignment": "Ödev",
       "colType": "Tür",
       "colDueDate": "Son tarih",
-      "colSubmissions": "Teslimler",
       "colActions": "İşlemler",
       "empty": "Oluşturulmuş ödev yok.",
       "individual": "Bireysel",
@@ -1138,7 +1132,18 @@
       "unlockSuccess": "{{name}} kilidi açıldı.",
       "unlockTitle": "Ödevin kilidini aç",
       "unlockTitleModal": "Ödevin kilidi açılsın mı?",
-      "openSubmissionsAria": "{{name}} gönderimlerini aç"
+      "openSubmissionsAria": "{{name}} gönderimlerini aç",
+      "acceptedTitle": "{{total}} öğrenciden {{accepted}} tanesi ödevi kabul etti",
+      "colAccepted": "Kabul edildi",
+      "colSubmitted": "Teslim edildi",
+      "groupsAcceptedTitle": "Kabul eden gruplar — var olan grup depoları",
+      "noGroupsYet": "Henüz grup yok",
+      "noGroupsYetTitle": "Henüz grup yok — grup deposu, kurucusu kabul ettiğinde oluşturulur",
+      "notCollectedYet": "Henüz toplanmadı",
+      "sortByDue": "Son teslim tarihine göre sırala",
+      "sortByName": "Ada göre sırala",
+      "submittedTitle": "{{total}} öğrenciden {{submitted}} tanesi teslim etti",
+      "submittedTitleGroup": "{{accepted}} gruptan {{submitted}} tanesi teslim etti"
     },
     "toolbar": {
       "searchPlaceholder": "Ödevlerde ara…",
@@ -1164,8 +1169,8 @@
     },
     "template": {
       "label": "Şablon deposu",
-      "placeholder": "<owner>/<repo>",
-      "help": "İsteğe bağlı. Öğrenciler bu deponun bir kopyasını alır. Şablonsuz bir ödev için boş bırakın: öğrenciler bir README ve otomatik değerlendirme dosyalarıyla başlatılmış bir depo alır.",
+      "placeholder": "Şablonlarda arayın veya <owner>/<repo> yapıştırın",
+      "help": "İsteğe bağlı. Öğrenciler bu deponun bir kopyasını alır. Kuruluşunuzun şablon depolarında arama yapın ya da <owner>/<repo> yazın veya herhangi bir yerden birini kullanmak için bir GitHub URL'si yapıştırın. Şablonsuz bir ödev için boş bırakın: öğrenciler bir README ve otomatik değerlendirme dosyalarını içeren, başlatılmış bir depo alır.",
       "checking": "Şablon erişimi kontrol ediliyor…",
       "fallbackOrg": "kuruluşunuz",
       "privateHasAccess": "{{owner}} içinde özel şablon (dal <branch>{{branch}}</branch>). Sınıf ekibinin zaten okuma erişimi var — öğrenciler kopyalayabilir.",
@@ -1186,7 +1191,7 @@
       "privateForkNoParent": "{{owner}}/{{repo}} özel bir çataldır (dal <branch>{{branch}}</branch>). <important>Önemli: çatalın üst kuruluşu Classroom 50'yi onaylı tutmalıdır — bu onay herhangi bir zamanda kaldırılırsa öğrenciler kabul edemez (HTTP 403).</important> Üst kuruluşa bağımlı olmamak için yeni (çatal olmayan) bir depo kullanın: yeni bir depo oluşturun ve çatalın içeriğini ona kopyalayın.",
       "unknown": "{{owner}}/{{repo}} şu anda doğrulanamadı. Öğrenciler kabul ettiğinde yeniden kontrol edilecek.",
       "privateOutOfOrg": "{{owner}}/{{repo}} özel ve {{org}} dışında. Herkese açık yapın veya {{org}} içine kopyalayın.",
-      "noBranch": "{{owner}}/{{repo}} deposunun varsayılan dalı yok. Bir commit gönderin veya <hint/> ekleyin.",
+      "noBranch": "{{owner}}/{{repo}} deposunun varsayılan dalı yok. Ona bir commit push edin, ardından yeniden deneyin.",
       "rateLimited": "GitHub hız sınırına ulaşıldı. Birazdan tekrar deneyin.",
       "policyLink": "{{owner}} kuruluşunun OAuth uygulama ilkesini kontrol edin",
       "reconcile": {
@@ -1220,7 +1225,26 @@
       "restrictedItemFork": "{{repo}} bir çatalsa, Classroom 50'yi çatalın üst kuruluşunda da onaylayın — özel bir çatalın erişimi üst kuruluşun politikasına tabidir.",
       "restrictedItemOther": "Aksi takdirde farklı bir 403 olabilir; aşağıdaki GitHub mesajına bakın.",
       "viewTemplateRepo": "{{owner}}/{{repo}} deposunu GitHub'da aç",
-      "emptyTemplate": "{{owner}}/{{repo}} bir şablon ancak hiç commit'i yok. En az bir commit ekleyin (örn. bir README), ardından yeniden deneyin."
+      "emptyTemplate": "{{owner}}/{{repo}} bir şablon ancak hiç commit'i yok. En az bir commit ekleyin (örn. bir README), ardından yeniden deneyin.",
+      "branchIgnored": "Özel bir dal (<branch>{{branch}}</branch>) belirtildi ve yok sayılacak — ödev, şablonun varsayılan dalını kopyalar. Farklı bir dal kullanmak için şablon deposunun varsayılan dalını değiştirin.",
+      "invalid": {
+        "empty": "Bir şablon deposu girin.",
+        "notGithubHost": "\"{{raw}}\" github.com'da değil, {{host}} üzerinde. Classroom 50 yalnızca GitHub'da barındırılan şablonları kopyalayabilir.",
+        "shape": "\"{{raw}}\" bir depo referansı değil. <owner>/<repo> biçimini, bir depo adını kullanın ya da bir GitHub depo URL'si yapıştırın.",
+        "urlShape": "\"{{raw}}\" bir GitHub depo URL'si değil. Deponun kendisine bağlantı verin; örneğin https://github.com/<owner>/<repo>."
+      },
+      "search": {
+        "loading": "Şablonlar yükleniyor…",
+        "noMatches": "Bu kuruluşta \"{{query}}\" ile eşleşen şablon deposu yok. Yine de <owner>/<repo> yazabilir veya bir GitHub URL'si yapıştırabilirsiniz.",
+        "noTemplates": "Bu kuruluşta hiç şablon deposu bulunamadı. Bir deponun ayarlarında \"Template repository\" seçeneğini açın veya bir GitHub URL'si yapıştırın.",
+        "privateRepo": "Özel depo",
+        "showing": "{{total}} şablondan {{shown}} tanesi gösteriliyor.",
+        "truncated": "En son güncellenen {{scanned}} depo arandı. Şablonunuz listede yoksa <owner>/<repo> yazın.",
+        "typeInstead": "Bir depo adı, <owner>/<repo> yazın veya bir GitHub URL'si yapıştırın.",
+        "unavailable": "Bu kuruluşun şablonları yüklenemedi. Bunun yerine depo adını yazın.",
+        "unfiltered": "GitHub bu depolardan hangilerinin şablon olduğunu bildirmedi; bu yüzden hepsi listeleniyor. Bir kopyalama başarısız olursa deponun ayarlarını kontrol edin.",
+        "updated": "Güncellendi {{when}}"
+      }
     }
   },
   "published": {
@@ -1399,7 +1423,6 @@
       "validating": "Doğrulanıyor…",
       "saveButton": "Belirteci kaydet",
       "cancelRename": "İptal",
-      "checking": "Kontrol ediliyor…",
       "expiryRange": "{{min}}–{{max}} gün girin",
       "expiryUntrackedHint": "Bu belirtecin sona erme tarihi izlenmiyor. Classroom 50'nin sona ermeden önce sizi uyarabilmesi için yeni bir belirteç ayarlayın.",
       "generateHelp": "GitHub'ın belirteç formunu ad, sona erme ve gerekli kapsamlar önceden doldurulmuş olarak açar. Depo erişimini All repositories olarak ayarlayın.",
@@ -1717,7 +1740,6 @@
     "viewAssignments": "Ödevleri görüntüle",
     "githubOrganization": "GitHub organizasyonu",
     "myClasses": "Sınıflarım",
-    "myAssignments": "Ödevlerim",
     "manageSubtitle": "Sınıflarınızı ve ödevlerinizi yönetin.",
     "newClass": "Yeni sınıf",
     "empty": {
@@ -1915,7 +1937,9 @@
       "orgRepoCreationDenied": "{{org}} üyelerin özel depo oluşturmasına izin vermiyor olabilir, bu nedenle deponuz oluşturulamadı (HTTP {{status}}). Öğretmeninizden bunu etkinleştirmesini isteyin, ardından ödevi tekrar kabul edin.",
       "orgRepoCreationDeniedStep": "{{org}} deponuzun oluşturulmasına izin vermedi (HTTP {{status}}).",
       "forkParentRestricted": "{{owner}}/{{repo}} şablonu kopyalanamadı (HTTP {{status}}).{{detail}} Bu şablon, {{parentOwner}} kuruluşundaki bir deponun çatalıdır ve bir çatalın kopyalanması o kuruluşun üçüncü taraf uygulama kısıtlamalarına tabidir. Öğretmeninizden Classroom 50 uygulamasını {{parentOwner}} için onaylamasını veya yeni (çatal olmayan) bir şablon deposu kullanmasını isteyin, ardından tekrar kabul edin.",
-      "forkParentRestrictedStep": "{{parentOwner}}, çatalın üst kaynağı için Classroom 50'yi onaylamadı (HTTP {{status}})."
+      "forkParentRestrictedStep": "{{parentOwner}}, çatalın üst kaynağı için Classroom 50'yi onaylamadı (HTTP {{status}}).",
+      "repoNameTooLong": "Depo adınız \"{{name}}\" {{length}} karakter uzunluğunda ve GitHub'ın 100 karakter sınırını aştığı için oluşturulamadı (HTTP {{status}}).{{detail}} Öğretmeninizden sınıf veya ödev kısaltmasını (slug) kısaltmasını isteyin, ardından yeniden kabul edin.",
+      "repoNameTooLongStep": "\"{{name}}\" depo adı çok uzun ({{length}} karakter)."
     },
     "notFound": {
       "badge": "Ödev kullanılamıyor",
@@ -2163,7 +2187,6 @@
       "noDetails": "Henüz ayrıntı yok",
       "noGradingTitle": "Bu ödev için otomatik değerlendirme devre dışı",
       "resolvingNonSubmitters": "Kimlerin henüz teslim etmediği kontrol ediliyor…",
-      "loading": "Teslimler yükleniyor…",
       "pendingGrade": "Beklemede",
       "pendingGradeTitle": "Gönderildi — puan henüz toplanmadı. Toplamak için \"Gönderimleri şimdi eşitle\"yi çalıştırın.",
       "notSubmitted": "Teslim edilmedi",
@@ -2179,7 +2202,14 @@
       "overriddenTitle": "Bu puan elle ayarlandı ve geçersiz kılma temizlenene kadar otomatik değerlendirme tarafından değiştirilmez.",
       "notCollectedYet": "Henüz toplanmadı",
       "notCollectedYetTitle": "Bu öğrenci henüz toplanmamış çalışma push etti, bu yüzden kayıtlı bir gönderim zamanı yok. Toplamak için \"Gönderimleri şimdi eşitle\"yi çalıştırın.",
-      "viewSubmissionsTitle": "Gönderimleri görüntüle"
+      "emptyNoGroupsBody": "Grup deposu, kurucusu ödevi kabul ettiğinde oluşturulur. Gruplar oluştukça burada görünür.",
+      "emptyNoGroupsTitle": "Henüz grup yok",
+      "noRepoYetTitle": "Henüz depo yok — öğrenci ödevi kabul etmedi",
+      "notAcceptedTitle": "Bu öğrenci davet bağlantısını henüz açmadı, bu yüzden depo yok. Paylaş düğmesinden ödev bağlantısını paylaşın.",
+      "sortByLastSubmitted": "Son teslime göre sırala",
+      "sortByName": "Ada göre sırala",
+      "viewSubmissionsTitleEveryPush": "Varsayılan daldaki commit'ler teslim sayılır. Görüntülemek için tıklayın.",
+      "viewSubmissionsTitleTag": "Etiketlenmiş sürümler teslim sayılır. Görüntülemek için tıklayın."
     },
     "reviewModal": {
       "errorTitle": "Geri bildirim PR'ı kontrol edilemedi",
@@ -2248,7 +2278,11 @@
       "detailsTitle": "Gönderimleriniz",
       "notSubmittedYet": "Henüz gönderilmedi",
       "submittedAwaitingGrading": "Gönderildi — değerlendirme bekleniyor",
-      "tableCaption": "Bu ödev için gönderiminiz"
+      "tableCaption": "Bu ödev için gönderiminiz",
+      "colYourRepo": "Deponuz",
+      "statusNotSubmitted": "Henüz bir şey teslim edilmedi.",
+      "statusNotSubmittedCta": "Nasıl teslim edeceğimi göster",
+      "statusSubmitted": "Teslim edildi — son teslim {{relative}}"
     },
     "openAllPrs": {
       "blockedHint": "Geri bildirim dalları yanlış işlemeyi (commit) gösteriyor, bu nedenle çekme isteğini açmak boş bir fark gösterir. Bir kuruluş yöneticisinin bu işlemi yeniden çalıştırmadan önce her geri bildirim dalını silmesi gerekir — yalnızca yeniden denemek bunları düzeltmez.",
@@ -2497,18 +2531,6 @@
       "working": "Depolar güncelleniyor"
     },
     "closedNotice": "Gönderimler kapalı. Yeni öğrenciler bu ödevi kabul edemez. Buradan kapattığınızda, kabul etmiş öğrencilerin depoları salt okunur olarak ayarlanır; mevcut çalışma korunur. Gönderimlere yeniden izin vermek için İşlemler menüsünden yeniden açın.",
-    "migrateTracking": {
-      "apply": "Yapılandırmayı taşı",
-      "bannerAction": "Yapılandırmayı taşı",
-      "bannerText": "Bu sınıfın yapılandırması daha eski bir biçim kullanıyor. En yeni ödev ve gönderim özelliklerini etkinleştirmek için onu en son şemaya taşıyın.",
-      "error": "Ödevler güncellenemedi. Yeniden deneyin.",
-      "resultHeadline_one": "{{count}} ödev taşındı.",
-      "resultHeadline_other": "{{count}} ödev taşındı.",
-      "subtitle": "Bu sınıfın ödevlerini en son yapılandırma şemasına güncelleyin.",
-      "title": "Sınıf yapılandırmasını taşı",
-      "warning": "Bu, her ödevin ayarlarını açıkça kaydeder, böylece her araç onları aynı şekilde okur ve en yeni özellikler (canlı gönderim takibi gibi) etkinleştirilir. Herhangi bir puanı, son teslim tarihini veya öğrencinin erişimini değiştirmez ve eskisi gibi çalışmaya devam edebilirsiniz.",
-      "working": "Ödevler güncelleniyor"
-    },
     "rowAutograde": {
       "outcome": {
         "failed": "Otomatik değerlendirme durumu değiştirilemedi — yeniden deneyin.",
@@ -2537,11 +2559,11 @@
       "title": "Otomatik değerlendirme tetikleyicisini güncelle"
     },
     "details": {
-      "emptyEveryPush": "Varsayılan dala henüz push yapılmadı. Depo hâlâ var — kodu görmek için açın.",
+      "emptyEveryPush": "Varsayılan dalda henüz commit yok. Depo hâlâ mevcut — kodu görmek için açın.",
       "emptyLinkDefaultBranch": "Depoyu görüntüle",
       "emptyLinkTags": "Etiketleri görüntüle",
       "emptyTag": "Henüz etiketli gönderim yok. Depo hâlâ var — gönderimler geldikçe görmek için etiketlerini açın.",
-      "pushEntry": "Push #{{number}}",
+      "pushEntry": "Commit #{{number}}",
       "tagEntry": "Gönderim #{{number}}",
       "unavailable": "Kullanılamıyor",
       "viewCommit": "Commit'i görüntüle",
@@ -2553,7 +2575,7 @@
     "grading": {
       "badgeBuiltIn": "Otomatik değerlendirilir",
       "badgeEmptyRepo": "Otomatik değerlendirme yok",
-      "badgeNoAutograder": "Yerleşik otomatik değerlendirme yok",
+      "badgeNoAutograder": "Özel otomatik değerlendirme",
       "titleEmptyRepo": "Bu ödev boş depolar kullanır — otomatik değerlendirme, puanlar ve geri bildirim çekme isteği devre dışıdır. Tablo kimlerin kabul ettiğini gösterir.",
       "titleNoAutograder": "Öğretmen şablonda kendi CI'sını sağlar. Yerleşik puanlar ve yeniden değerlendirme devre dışıdır; geri bildirim çekme isteği etkinleştirildiğinde yine de çalışır."
     },
@@ -2585,14 +2607,19 @@
       "titleOverride": "Puanı geçersiz kıl"
     },
     "type": {
-      "badgeEveryPush": "Varsayılan dala yapılan her push sayılır",
-      "badgeTag": "Etiketle gönderildi",
-      "countEveryPush_one": "Varsayılan dala {{count}} push",
-      "countEveryPush_other": "Varsayılan dala {{count}} push",
-      "countTag_one": "{{count}} etiketli gönderim",
-      "countTag_other": "{{count}} etiketli gönderim",
+      "badgeEveryPush": "Her push'ta teslim eder",
+      "badgeTag": "Etikete göre teslim eder",
+      "countEveryPush_one": "{{count}} commit",
+      "countEveryPush_other": "{{count}} commit",
+      "countTag_one": "{{count}} etiket",
+      "countTag_other": "{{count}} etiket",
       "tagGroupCount_one": "{{pattern}} · {{count}} etiket",
       "tagGroupCount_other": "{{pattern}} · {{count}} etiket"
+    },
+    "funnel": {
+      "showNotSubmitted": "Teslim etmeyenleri göster",
+      "submittedTitle": "{{total}} öğrenciden {{submitted}} tanesi teslim etti",
+      "submittedTitleGroup": "{{accepted}} gruptan {{submitted}} tanesi teslim etti"
     }
   },
   "orgActivity": {
@@ -2915,7 +2942,6 @@
       "empty": "Henüz Classroom 50 kurulmuş bir kuruluş yok.",
       "expires": "{{date}} tarihinde sona erer",
       "heading": "Hizmet Belirteçlerini Yönet",
-      "loading": "Kuruluşlarınız kontrol ediliyor…",
       "manage": "Yönet",
       "subheading": "Sahip olduğunuz her organizasyonda hizmet token'ı durumu. Puan toplamanın çalışmaya devam etmesi için bir token'ı süresi dolmadan yenileyin."
     },

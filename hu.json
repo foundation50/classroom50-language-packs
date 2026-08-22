@@ -58,7 +58,6 @@
     "manageGroup": "Csoport kezelése",
     "acceptAssignment": "Feladat elfogadása",
     "myClasses": "Tantermeim",
-    "myAssignments": "Feladataim",
     "published": "Közzétéve",
     "members": "Tagok",
     "organizations": "Szervezetek",
@@ -228,7 +227,6 @@
     "resendFailed": "A meghívó újraküldése {{username}} részére sikertelen ({{error}}).",
     "resend": "Újraküldés",
     "dismiss": "Elvetés",
-    "loadingRoster": "Névsor betöltése...",
     "inviteStudents": "Diákok meghívása",
     "groupBySection": "Csoportosítás csoport szerint",
     "noSection": "Nincs csoport",
@@ -592,7 +590,8 @@
     "classroomSlugRequired": "A tanterem azonosítója (slug) kötelező.",
     "classroomSlugTaken": "Ez a tanterem-azonosító (slug) már foglalt.",
     "assignmentSlugTaken": "Ebben a tanteremben már létezik „{{slug}}” nevű feladat.",
-    "groupSizeRange": "A csoportméretnek egész számnak kell lennie {{min}} és {{max}} között."
+    "groupSizeRange": "A csoportméretnek egész számnak kell lennie {{min}} és {{max}} között.",
+    "classroomSlugInvalid": "A kurzus azonosítójának a következőnek kell lennie: {{description}}."
   },
   "toasts": {
     "classroomSettingsSaved": "A tantermi beállításokat elmentettük. Most közzétesszük a diákoldalon – a fenti sáv követi a folyamatot.",
@@ -799,7 +798,8 @@
         "studentPermissionInvalid": "A diák tárolóhozzáférésének a következők egyikének kell lennie: pull, triage, push, maintain vagy admin.",
         "gradingMaxPointsInvalid": "A maximális pontszámnak legalább {{min}} egész számnak kell lennie.",
         "gradingModeInvalid": "Az értékelésnek „off”, „auto” vagy „manual” értékűnek kell lennie.",
-        "submissionModeInvalid": "Az automata értékelési triggernek „every-push” vagy „tag” értékűnek kell lennie."
+        "submissionModeInvalid": "Az automata értékelési triggernek „every-push” vagy „tag” értékűnek kell lennie.",
+        "slugInvalid": "A feladat azonosítójának a következőnek kell lennie: {{description}}."
       },
       "allowedFilesTip": "Sorrendbe rendezett, {{gitignore}} stílusú minták, soronként egy, amelyek meghatározzák, mely fájlok tartoznak egy beadáshoz (az utolsó egyezés érvényesül, a {{bang}} újra hozzáadja). Pl. {{star}}, majd {{example}} csak a {{result}} fájlt engedélyezi. Üresen hagyva minden fájlt engedélyez.",
       "containerUserTip": "A felhasználó, amelynek nevében a konténer fut. Állítsd root-ra, ha a checkout jogosultsági hibával hiúsul meg. A GitHub Actions a konténer lépéseit a gazdafuttató felhasználójaként futtatja, így egy nem root image gyakran nem tud írni a munkaterületre.",
@@ -953,7 +953,7 @@
           "tag": "Címkézett commit"
         },
         "editWarning": "Ennek módosítása csak a mostantól létrehozott repókra vonatkozik. A tanulók által már elfogadott repók megtartják a régi beállítást, amíg nem frissíted őket. Használd az „Automatikus értékelési triggerek frissítése” lehetőséget a beadások oldalon, vagy a gh teacher assignment submission-mode parancsot. A tanulóknak a frissítés után pull-ozniuk kell.",
-        "help": "A „Minden push az alapértelmezett ágra” minden pusht számol a kiindulási commit után. Az „Egy címkézett commit” csak a címkézett commitokat számolja, így a hétköznapi pushok nem használnak Actions-perceket; a tanuló egy címke pusholásával vagy a gh student submit futtatásával ad be.",
+        "help": "A „Minden push az alapértelmezett ágra” minden diákcommitot számol a kezdő commit után (az eszköz saját elfogadási és automatikus értékelést frissítő commitjai nem számítanak). A „Címkézett commit” csak a címkézett commitokat számolja, így a szokásos pushok nem használnak Actions-percet; a diák egy címke pusholásával vagy a gh student submit futtatásával küld be munkát.",
         "label": "Beadás típusa"
       },
       "submissionSection": "Beadás és értékelés",
@@ -1027,7 +1027,6 @@
       "colAssignment": "Feladat",
       "colType": "Típus",
       "colDueDate": "Határidő",
-      "colSubmissions": "Beadások",
       "colActions": "Műveletek",
       "empty": "Nincs létrehozott feladat.",
       "individual": "Egyéni",
@@ -1063,12 +1062,23 @@
       "unlockSuccess": "{{name}} feloldva.",
       "unlockTitle": "Feladat feloldása",
       "unlockTitleModal": "Feloldod a feladatot?",
-      "openSubmissionsAria": "{{name}} beadásainak megnyitása"
+      "openSubmissionsAria": "{{name}} beadásainak megnyitása",
+      "acceptedTitle": "{{total}} diákból {{accepted}} fogadta el a feladatot",
+      "colAccepted": "Elfogadva",
+      "colSubmitted": "Beadva",
+      "groupsAcceptedTitle": "Elfogadó csoportok — létező csoporttárak",
+      "noGroupsYet": "Még nincsenek csoportok",
+      "noGroupsYetTitle": "Még nincsenek csoportok — a csoporttár akkor jön létre, amikor az alapítója elfogadja",
+      "notCollectedYet": "Még nincs begyűjtve",
+      "sortByDue": "Rendezés határidő szerint",
+      "sortByName": "Rendezés név szerint",
+      "submittedTitle": "{{total}} diákból {{submitted}} adott be",
+      "submittedTitleGroup": "{{accepted}} csoportból {{submitted}} adott be"
     },
     "template": {
       "label": "Sablontároló",
-      "placeholder": "<owner>/<repo>",
-      "help": "Opcionális. A tanulók másolatot kapnak erről a repóról. Hagyd üresen egy sablon nélküli feladathoz: a tanulók egy README-vel és az automatikus értékelési fájlokkal inicializált repót kapnak.",
+      "placeholder": "Keress sablonok között, vagy illeszd be az <owner>/<repo> formát",
+      "help": "Nem kötelező. A diákok másolatot kapnak erről a tárról. Keress a szervezeted sablontárai között, vagy írd be az <owner>/<repo> formát, illetve illessz be egy GitHub-URL-t bárhonnan. Hagyd üresen sablon nélküli feladathoz: a diákok inicializált tárat kapnak README-vel és az automatikus értékelés fájljaival.",
       "checking": "Sablon-hozzáférés ellenőrzése…",
       "fallbackOrg": "a szervezeted",
       "notVisible": "A(z) {{owner}}/{{repo}} nem látható számodra. Tedd nyilvánossá, vagy másold be ide: {{org}}.",
@@ -1105,7 +1115,7 @@
         "pending": "Megadás…",
         "success": "A tanterem csapatának olvasási joga a sablonhoz megerősítve."
       },
-      "noBranch": "A(z) {{owner}}/{{repo}} adattárnak nincs alapértelmezett ága. Push-olj egy commitot, vagy add hozzá a(z) <hint/> elemet.",
+      "noBranch": "A(z) {{owner}}/{{repo}} tárnak nincs alapértelmezett ága. Pusholj bele egy commitot, majd próbáld újra.",
       "nonMainBranch": "Ennek a sablonnak az alapértelmezett ága a(z) <branch>{{branch}}</branch>, nem pedig „main”. A feladat ezt fogja használni, és a tanulói automatikus értékelés ehhez az ághoz igazodik.",
       "okPrivate": "Privát sablon itt: {{owner}}, ág: <branch>{{branch}}</branch>. A tanulók hozzáférhetnek.",
       "okPrivateInOrg": "Privát sablon, ág: <branch>{{branch}}</branch>. A tanulók hozzáférhetnek.",
@@ -1123,7 +1133,26 @@
       "restrictedItemFork": "Ha a(z) {{repo}} egy fork, hagyd jóvá a Classroom 50 alkalmazást a fork forrásszervezetében is – egy privát fork hozzáférése a forrásszervezet szabályzatát követi.",
       "restrictedItemOther": "Ellenkező esetben lehet, hogy egy másik 403; lásd a GitHub üzenetét lentebb.",
       "viewTemplateRepo": "{{owner}}/{{repo}} megnyitása a GitHubon",
-      "emptyTemplate": "A(z) {{owner}}/{{repo}} sablon, de nincs commitja. Adj hozzá legalább egy commitot (pl. egy README-t), majd próbáld újra."
+      "emptyTemplate": "A(z) {{owner}}/{{repo}} sablon, de nincs commitja. Adj hozzá legalább egy commitot (pl. egy README-t), majd próbáld újra.",
+      "branchIgnored": "Egyéni ágat (<branch>{{branch}}</branch>) adtál meg, de ez figyelmen kívül marad — a feladat a sablon alapértelmezett ágát másolja. Másik ág használatához módosítsd a sablontár alapértelmezett ágát.",
+      "invalid": {
+        "empty": "Adj meg egy sablontárat.",
+        "notGithubHost": "A(z) „{{raw}}” a(z) {{host}} címen van, nem a github.com-on. A Classroom 50 csak GitHubon tárolt sablonokat tud másolni.",
+        "shape": "A(z) „{{raw}}” nem tárhivatkozás. Használd az <owner>/<repo> formát, egy tárnevet, vagy illessz be egy GitHub-tár URL-jét.",
+        "urlShape": "A(z) „{{raw}}” nem GitHub-tár URL-je. Magára a tárra hivatkozz, például https://github.com/<owner>/<repo>."
+      },
+      "search": {
+        "loading": "Sablonok betöltése…",
+        "noMatches": "Ebben a szervezetben nincs a következőre illeszkedő sablontár: „{{query}}”. Beírhatod az <owner>/<repo> formát, vagy beilleszthetsz egy GitHub-URL-t.",
+        "noTemplates": "Nem található sablontár ebben a szervezetben. Kapcsold be a „Template repository” beállítást egy tár beállításaiban, vagy illessz be egy GitHub-URL-t.",
+        "privateRepo": "Privát tár",
+        "showing": "{{total}} sablonból {{shown}} látható.",
+        "truncated": "A {{scanned}} legutóbb frissített tárban kerestünk. Ha a sablonod nincs a listán, írd be az <owner>/<repo> formát.",
+        "typeInstead": "Írj be egy tárnevet, az <owner>/<repo> formát, vagy illessz be egy GitHub-URL-t.",
+        "unavailable": "Nem sikerült betölteni a szervezet sablonjait. Írd be helyette a tár nevét.",
+        "unfiltered": "A GitHub nem jelezte, hogy ezek közül mely tárak sablonok, ezért mindegyik felsorolásra kerül. Ha egy másolás meghiúsul, ellenőrizd a tár beállításait.",
+        "updated": "Frissítve: {{when}}"
+      }
     },
     "toolbar": {
       "clear": "Törlés",
@@ -1149,12 +1178,8 @@
     },
     "discover": {
       "accept": "Feladat elfogadása",
-      "due": "Határidő: {{date}}",
       "emptyBody": "Amikor egy tanár feladatokat tesz közzé ehhez a tanteremhez, itt fognak megjelenni.",
       "emptyTitle": "Még nincsenek feladatok",
-      "modeGroup": "Csoportos",
-      "modeIndividual": "Egyéni",
-      "noDue": "Nincs határidő",
       "noResults": {
         "body": "Próbálj más keresést, vagy töröld a szűrőket.",
         "title": "Egy feladat sem felel meg a szűrőknek"
@@ -1180,16 +1205,15 @@
         "typeAll": "Minden típus",
         "typeAria": "Szűrés típus szerint",
         "typeGroup": "Csoportos",
-        "typeIndividual": "Egyéni",
-        "view": {
-          "gridLabel": "Rácsnézet",
-          "label": "Nézet",
-          "listLabel": "Listanézet"
-        }
+        "typeIndividual": "Egyéni"
       },
       "viewSubmission": "Beadásom megtekintése",
       "linkOnlyBody": "Ebben az osztályban a feladatok a tanárod által megosztott meghívólinkről nyílnak meg. Nyisd meg azt a linket egy feladat elfogadásához; ezután itt is megjelenik azok mellett, amelyeket a tanárod mindenki számára közzétett.",
-      "linkOnlyTitle": "Nyisd meg a meghívólinkedet a kezdéshez"
+      "linkOnlyTitle": "Nyisd meg a meghívólinkedet a kezdéshez",
+      "accepted": "Elfogadva",
+      "colAction": "Művelet",
+      "colStatus": "Állapot",
+      "tableCaption": "Közzétett feladatok és az egyes feladatoknál az állapotod"
     },
     "archivedNotice": "Ez az osztály archiválva van — az új feladatok és a tanulói elfogadások le vannak tiltva. A módosításokhoz oldd fel az archiválást az <settingsLink>Osztálybeállításokból</settingsLink>.",
     "studentViewAll": "A(z) <classroom>{{classroom}}</classroom> osztály összes feladatának megtekintése."
@@ -1336,7 +1360,6 @@
       "validating": "Érvényesítés…",
       "saveButton": "Token mentése",
       "cancelRename": "Mégse",
-      "checking": "Ellenőrzés…",
       "expiryRange": "Adj meg {{min}}–{{max}} napot",
       "expiryUntrackedHint": "Ennek a tokennek a lejáratát nem követjük. Állíts be egy új tokent, hogy a Classroom 50 figyelmeztethessen a lejárata előtt.",
       "generateHelp": "Megnyitja a GitHub tokenűrlapját előre kitöltött névvel, lejárattal és a szükséges jogosultságokkal. A Repository access értékét állítsd „All repositories”-ra.",
@@ -1610,7 +1633,6 @@
     "viewAssignments": "Feladatok megtekintése",
     "githubOrganization": "GitHub-szervezet",
     "myClasses": "Tantermeim",
-    "myAssignments": "Feladataim",
     "manageSubtitle": "Kezeld a tantermeidet és feladataidat.",
     "newClass": "Új kurzus",
     "empty": {
@@ -1848,7 +1870,9 @@
       "orgRepoCreationDenied": "Lehet, hogy a(z) {{org}} nem engedélyezi a tagoknak privát tárolók létrehozását, ezért a tárolódat nem lehetett létrehozni (HTTP {{status}}). Kérd meg a tanárodat, hogy engedélyezze, majd fogadd el ismét.",
       "orgRepoCreationDeniedStep": "A(z) {{org}} nem engedte létrehozni a tárolódat (HTTP {{status}}).",
       "forkParentRestricted": "Nem sikerült lemásolni a(z) {{owner}}/{{repo}} sablont (HTTP {{status}}).{{detail}} Ez a sablon egy, a(z) {{parentOwner}} szervezetben lévő tároló forkja, és egy fork másolására az adott szervezet külső alkalmazásokra vonatkozó korlátozásai vonatkoznak. Kérd meg a tanárodat, hogy hagyja jóvá a Classroom 50 alkalmazást a(z) {{parentOwner}} számára, vagy használjon egy friss (nem fork) sablontárolót, majd fogadd el ismét.",
-      "forkParentRestrictedStep": "A(z) {{parentOwner}} nem hagyta jóvá a Classroom 50 alkalmazást a fork forrásához (HTTP {{status}})."
+      "forkParentRestrictedStep": "A(z) {{parentOwner}} nem hagyta jóvá a Classroom 50 alkalmazást a fork forrásához (HTTP {{status}}).",
+      "repoNameTooLong": "A tárad neve „{{name}}” {{length}} karakter hosszú, ami meghaladja a GitHub 100 karakteres korlátját, ezért nem lehetett létrehozni (HTTP {{status}}).{{detail}} Kérd meg a tanárt, hogy rövidítse le a kurzus vagy a feladat azonosítóját, majd fogadd el újra.",
+      "repoNameTooLongStep": "A tár neve „{{name}}” túl hosszú ({{length}} karakter)."
     },
     "errors": {
       "emptyRepoWithTemplate": "A(z) „{{assignmentSlug}}” feladat egyszerre állít be üres tárolót és sablont, ami nem érvényes. Kérd meg a tanárodat, hogy futtassa le újra a feladat beállítását.",
@@ -2048,7 +2072,6 @@
       "noGradingTitle": "Az automatikus értékelés le van tiltva ennél a feladatnál",
       "liveLatest": "Legutóbbi push: {{date}} · még nincs értékelve",
       "liveLatestTitle": "Egy újabb beadás lett push-olva a legutóbbi gyűjtés után, így az még nincs értékelve. Futtasd a „Beadások szinkronizálása most” műveletet az értékeléséhez és pontozásához.",
-      "loading": "Beadások betöltése…",
       "pendingGrade": "Függőben",
       "pendingGradeTitle": "Beadva — az értékelés még nincs begyűjtve. Futtasd a „Beadások szinkronizálása most” lehetőséget a begyűjtéséhez.",
       "resolvingNonSubmitters": "Annak ellenőrzése, hogy ki nem adott még be…",
@@ -2060,7 +2083,14 @@
       "overriddenTitle": "Ezt a pontszámot kézzel állították be, és az automata értékelés nem módosítja, amíg a felülbírálás nem törlődik.",
       "notCollectedYet": "Még nincs begyűjtve",
       "notCollectedYetTitle": "Ez a diák olyan munkát pusholt, amelyet még nem gyűjtöttek be, ezért nincs rögzített beadási időpont. Futtasd a „Beadások szinkronizálása most” műveletet a begyűjtéshez.",
-      "viewSubmissionsTitle": "Beadások megtekintése"
+      "emptyNoGroupsBody": "A csoporttár akkor jön létre, amikor az alapítója elfogadja a feladatot. A csoportok itt jelennek meg, amint kialakulnak.",
+      "emptyNoGroupsTitle": "Még nincsenek csoportok",
+      "noRepoYetTitle": "Még nincs tár — a diák nem fogadta el a feladatot",
+      "notAcceptedTitle": "Ez a diák még nem nyitotta meg a meghívólinket, ezért nincs tár. Oszd meg a feladat linkjét a Megosztás gombbal.",
+      "sortByLastSubmitted": "Rendezés utolsó beadás szerint",
+      "sortByName": "Rendezés név szerint",
+      "viewSubmissionsTitleEveryPush": "Az alapértelmezett ágra érkező commitok számítanak beadásnak. Kattints a megtekintéshez.",
+      "viewSubmissionsTitleTag": "A címkézett kiadások számítanak beadásnak. Kattints a megtekintéshez."
     },
     "reviewModal": {
       "errorTitle": "Nem sikerült ellenőrizni a visszajelzési PR-t",
@@ -2129,7 +2159,11 @@
       "detailsTitle": "A beadásaid",
       "notSubmittedYet": "Még nem adtad be",
       "submittedAwaitingGrading": "Beadva — értékelésre vár",
-      "tableCaption": "A beadásod ehhez a feladathoz"
+      "tableCaption": "A beadásod ehhez a feladathoz",
+      "colYourRepo": "A tárad",
+      "statusNotSubmitted": "Még nem adtál be semmit.",
+      "statusNotSubmittedCta": "Mutasd meg, hogyan adhatok be",
+      "statusSubmitted": "Beadva — utolsó beadás {{relative}}"
     },
     "viewSourceRepo": "Sablon megtekintése",
     "menu": {
@@ -2400,18 +2434,6 @@
       "working": "Tárolók frissítése"
     },
     "closedNotice": "A beadások le vannak zárva. Új diákok nem fogadhatják el ezt a feladatot. Amikor innen zársz le, az elfogadott diákok tárolói csak olvashatóra állnak; a meglévő munka megmarad. Nyisd meg újra a Műveletek menüből a beadások ismételt engedélyezéséhez.",
-    "migrateTracking": {
-      "apply": "Konfiguráció migrálása",
-      "bannerAction": "Konfiguráció migrálása",
-      "bannerText": "Ennek az osztálynak a konfigurációja régebbi formátumot használ. Migráld a legújabb sémára a legújabb feladat- és beadási funkciók engedélyezéséhez.",
-      "error": "A feladatokat nem sikerült frissíteni. Próbáld újra.",
-      "resultHeadline_one": "{{count}} feladat migrálva.",
-      "resultHeadline_other": "{{count}} feladat migrálva.",
-      "subtitle": "Frissítsd ennek az osztálynak a feladatait a legújabb konfigurációs sémára.",
-      "title": "Osztálykonfiguráció migrálása",
-      "warning": "Ez explicit módon rögzíti minden feladat beállításait, hogy minden eszköz ugyanúgy olvassa azokat, és engedélyezze a legújabb funkciókat (például az élő beadáskövetést). Nem változtat meg semmilyen pontszámot, határidőt vagy tanuló hozzáférését, és a szokásos módon folytathatod a munkát.",
-      "working": "Feladatok frissítése"
-    },
     "rowAutograde": {
       "outcome": {
         "failed": "Nem sikerült módosítani az automata értékelés állapotát – próbáld újra.",
@@ -2440,11 +2462,11 @@
       "title": "Automata értékelési trigger frissítése"
     },
     "details": {
-      "emptyEveryPush": "Még nem történt push az alapértelmezett ágra. A tároló még létezik — nyisd meg a kód megtekintéséhez.",
+      "emptyEveryPush": "Még nincs commit az alapértelmezett ágon. A tár már létezik — nyisd meg a kód megtekintéséhez.",
       "emptyLinkDefaultBranch": "Tároló megtekintése",
       "emptyLinkTags": "Címkék megtekintése",
       "emptyTag": "Még nincs címkézett beadás. A tároló még létezik — nyisd meg a címkéit, hogy lásd a beérkező beadásokat.",
-      "pushEntry": "{{number}}. push",
+      "pushEntry": "{{number}}. commit",
       "tagEntry": "{{number}}. beadás",
       "unavailable": "Nem elérhető",
       "viewCommit": "Commit megtekintése",
@@ -2456,7 +2478,7 @@
     "grading": {
       "badgeBuiltIn": "Automatikusan értékelt",
       "badgeEmptyRepo": "Nincs automatikus értékelés",
-      "badgeNoAutograder": "Nincs beépített automatikus értékelés",
+      "badgeNoAutograder": "Egyéni automatikus értékelés",
       "titleEmptyRepo": "Ez a feladat üres tárolókat használ — az automatikus értékelés, a pontszámok és a visszajelzési pull request le van tiltva. A táblázat azt mutatja, ki fogadta el.",
       "titleNoAutograder": "A tanár saját CI-t biztosít a sablonban. A beépített pontszámok és az újraértékelés le van tiltva; a visszajelzési pull request továbbra is működik, ha engedélyezve van."
     },
@@ -2488,14 +2510,19 @@
       "titleOverride": "Pontszám felülbírálása"
     },
     "type": {
-      "badgeEveryPush": "Az alapértelmezett ágra történő minden push számít",
-      "badgeTag": "Címkével beadva",
-      "countEveryPush_one": "{{count}} push az alapértelmezett ágra",
-      "countEveryPush_other": "{{count}} push az alapértelmezett ágra",
-      "countTag_one": "{{count}} címkézett beadás",
-      "countTag_other": "{{count}} címkézett beadás",
+      "badgeEveryPush": "Beadás minden pushnál",
+      "badgeTag": "Beadás címkével",
+      "countEveryPush_one": "{{count}} commit",
+      "countEveryPush_other": "{{count}} commit",
+      "countTag_one": "{{count}} címke",
+      "countTag_other": "{{count}} címke",
       "tagGroupCount_one": "{{pattern}} · {{count}} címke",
       "tagGroupCount_other": "{{pattern}} · {{count}} címke"
+    },
+    "funnel": {
+      "showNotSubmitted": "Mutasd, ki nem adott be",
+      "submittedTitle": "{{total}} diákból {{submitted}} adott be",
+      "submittedTitleGroup": "{{accepted}} csoportból {{submitted}} adott be"
     }
   },
   "orgMembers": {
@@ -2915,7 +2942,6 @@
       "empty": "Még nincs Classroom 50-hez beállított szervezet.",
       "expires": "Lejár: {{date}}",
       "heading": "Szolgáltatási tokenek kezelése",
-      "loading": "A szervezeteid ellenőrzése…",
       "manage": "Kezelés",
       "subheading": "Szolgáltatási token állapota minden általad birtokolt szervezetben. Cseréld le a tokent, mielőtt lejár, hogy a pontszámgyűjtés továbbra is működjön."
     },

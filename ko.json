@@ -58,7 +58,6 @@
     "manageGroup": "그룹 관리",
     "acceptAssignment": "과제 수락",
     "myClasses": "내 강의실",
-    "myAssignments": "내 과제",
     "published": "게시됨",
     "members": "구성원",
     "organizations": "조직",
@@ -228,7 +227,6 @@
     "resendFailed": "{{username}}의 초대를 다시 보내지 못했습니다 ({{error}}).",
     "resend": "다시 보내기",
     "dismiss": "닫기",
-    "loadingRoster": "명단 불러오는 중...",
     "inviteStudents": "학생 초대",
     "groupBySection": "분반별로 묶기",
     "noSection": "분반 없음",
@@ -592,7 +590,8 @@
     "classroomSlugRequired": "클래스룸 슬러그는 필수입니다.",
     "classroomSlugTaken": "이미 사용 중인 클래스룸 슬러그입니다.",
     "assignmentSlugTaken": "이 클래스룸에는 이미 \"{{slug}}\" 과제가 있습니다.",
-    "groupSizeRange": "그룹 크기는 {{min}}에서 {{max}} 사이의 정수여야 합니다."
+    "groupSizeRange": "그룹 크기는 {{min}}에서 {{max}} 사이의 정수여야 합니다.",
+    "classroomSlugInvalid": "강의실 슬러그는 {{description}}여야 합니다."
   },
   "toasts": {
     "classroomSettingsSaved": "학급 설정이 저장되었습니다. 지금 학생 사이트에 게시 중입니다 — 위 배너에서 진행 상황을 확인할 수 있습니다.",
@@ -799,7 +798,8 @@
         "studentPermissionInvalid": "학생 저장소 액세스는 pull, triage, push, maintain, admin 중 하나여야 합니다.",
         "gradingMaxPointsInvalid": "만점은 최소 {{min}} 이상의 정수여야 합니다.",
         "gradingModeInvalid": "채점은 \"off\", \"auto\" 또는 \"manual\"이어야 합니다.",
-        "submissionModeInvalid": "자동 채점 트리거는 \"every-push\" 또는 \"tag\"여야 합니다."
+        "submissionModeInvalid": "자동 채점 트리거는 \"every-push\" 또는 \"tag\"여야 합니다.",
+        "slugInvalid": "과제 슬러그는 {{description}}여야 합니다."
       },
       "allowedFilesTip": "제출물에 포함할 파일을 정의하는 {{gitignore}} 스타일 패턴을 한 줄에 하나씩 순서대로 지정합니다(마지막으로 일치하는 항목이 우선, {{bang}}은(는) 다시 포함). 예: {{star}} 다음에 {{example}}을(를) 지정하면 {{result}}만 허용됩니다. 비워 두면 모든 파일이 허용됩니다.",
       "containerUserTip": "컨테이너가 실행되는 사용자입니다. 체크아웃이 권한 오류로 실패하면 root로 설정하세요. GitHub Actions는 컨테이너 단계를 호스트 러너의 사용자로 실행하므로, 루트가 아닌 이미지는 종종 작업 공간에 쓸 수 없습니다.",
@@ -953,7 +953,7 @@
           "tag": "태그가 지정된 커밋"
         },
         "editWarning": "이 변경은 지금부터 생성되는 저장소에만 영향을 줍니다. 학생이 이미 수락한 저장소는 업데이트하기 전까지 이전 설정을 유지합니다. 제출 페이지의 \"자동 채점 트리거 업데이트\"나 gh teacher assignment submission-mode를 사용하세요. 업데이트 후 학생은 반드시 pull해야 합니다.",
-        "help": "\"기본 브랜치로의 모든 push\"는 시작 커밋 이후의 각 push를 계산합니다. \"태그된 커밋\"은 태그된 커밋만 계산하므로 일반적인 push는 Actions 시간을 사용하지 않습니다. 학생은 태그를 push하거나 gh student submit을 실행하여 제출합니다.",
+        "help": "\"기본 브랜치에 대한 모든 푸시\"는 시작 커밋 이후 학생의 각 커밋을 계산합니다(도구 자체의 수락 및 자동 채점 업데이트 커밋은 제외됩니다). \"태그된 커밋\"은 태그된 커밋만 계산하므로 일반 푸시는 Actions 시간을 사용하지 않습니다. 학생은 태그를 푸시하거나 gh student submit을 실행하여 제출합니다.",
         "label": "제출 유형"
       },
       "submissionSection": "제출 및 채점",
@@ -1027,7 +1027,6 @@
       "colAssignment": "과제",
       "colType": "유형",
       "colDueDate": "마감일",
-      "colSubmissions": "제출물",
       "colActions": "작업",
       "empty": "생성된 과제가 없습니다.",
       "individual": "개인",
@@ -1063,12 +1062,23 @@
       "unlockSuccess": "{{name}}의 잠금을 해제했습니다.",
       "unlockTitle": "과제 잠금 해제",
       "unlockTitleModal": "과제 잠금을 해제할까요?",
-      "openSubmissionsAria": "{{name}} 제출물 열기"
+      "openSubmissionsAria": "{{name}} 제출물 열기",
+      "acceptedTitle": "전체 학생 {{total}}명 중 {{accepted}}명이 과제를 수락했습니다",
+      "colAccepted": "수락",
+      "colSubmitted": "제출",
+      "groupsAcceptedTitle": "수락한 그룹 — 존재하는 그룹 저장소",
+      "noGroupsYet": "아직 그룹 없음",
+      "noGroupsYetTitle": "아직 그룹 없음 — 그룹 저장소는 창설자가 수락할 때 생성됩니다",
+      "notCollectedYet": "아직 수집되지 않음",
+      "sortByDue": "마감일순 정렬",
+      "sortByName": "이름순 정렬",
+      "submittedTitle": "전체 학생 {{total}}명 중 {{submitted}}명이 제출했습니다",
+      "submittedTitleGroup": "수락한 그룹 {{accepted}}개 중 {{submitted}}개가 제출했습니다"
     },
     "template": {
       "label": "템플릿 저장소",
-      "placeholder": "<owner>/<repo>",
-      "help": "선택 사항. 학생은 이 저장소의 복사본을 받습니다. 템플릿이 없는 과제를 원하면 비워 두세요. 학생은 README와 자동 채점 파일이 포함되어 초기화된 저장소를 받습니다.",
+      "placeholder": "템플릿을 검색하거나 <owner>/<repo>를 붙여넣으세요",
+      "help": "선택 사항입니다. 학생들은 이 저장소의 복사본을 받습니다. 조직의 템플릿 저장소를 검색하거나, <owner>/<repo>를 입력하거나 GitHub URL을 붙여넣어 어디서든 하나를 사용하세요. 템플릿이 없는 과제는 비워 두세요. 학생들은 README와 자동 채점 파일이 포함되어 초기화된 저장소를 받습니다.",
       "checking": "템플릿 접근 권한 확인 중…",
       "fallbackOrg": "귀하의 조직",
       "notVisible": "{{owner}}/{{repo}}이(가) 표시되지 않습니다. 공개로 설정하거나 {{org}}(으)로 복사하세요.",
@@ -1105,7 +1115,7 @@
         "pending": "부여 중…",
         "success": "템플릿에 대한 강의실 팀 읽기 권한이 확인되었습니다."
       },
-      "noBranch": "{{owner}}/{{repo}}에 기본 브랜치가 없습니다. 커밋을 푸시하거나 <hint/>를 추가하세요.",
+      "noBranch": "{{owner}}/{{repo}}에 기본 브랜치가 없습니다. 커밋을 푸시한 다음 다시 시도하세요.",
       "nonMainBranch": "이 템플릿의 기본 브랜치는 \"main\"이 아니라 <branch>{{branch}}</branch>입니다. 과제는 이 브랜치를 사용하며 학생 자동 채점도 해당 브랜치를 기준으로 합니다.",
       "okPrivate": "{{owner}}의 비공개 템플릿, <branch>{{branch}}</branch> 브랜치. 학생이 접근할 수 있습니다.",
       "okPrivateInOrg": "비공개 템플릿, <branch>{{branch}}</branch> 브랜치. 학생이 접근할 수 있습니다.",
@@ -1123,7 +1133,26 @@
       "restrictedItemFork": "{{repo}}가 포크인 경우, 포크의 업스트림 조직에서도 Classroom 50을 승인하세요 — 비공개 포크의 액세스는 업스트림 조직의 정책을 따릅니다.",
       "restrictedItemOther": "그렇지 않으면 다른 403일 수 있습니다. 아래의 GitHub 메시지를 확인하세요.",
       "viewTemplateRepo": "GitHub에서 {{owner}}/{{repo}} 열기",
-      "emptyTemplate": "{{owner}}/{{repo}}은(는) 템플릿이지만 커밋이 없습니다. 커밋을 하나 이상 추가한 후(예: README) 다시 시도하세요."
+      "emptyTemplate": "{{owner}}/{{repo}}은(는) 템플릿이지만 커밋이 없습니다. 커밋을 하나 이상 추가한 후(예: README) 다시 시도하세요.",
+      "branchIgnored": "사용자 지정 브랜치(<branch>{{branch}}</branch>)가 지정되었지만 무시됩니다 — 과제는 템플릿의 기본 브랜치를 복사합니다. 다른 브랜치를 사용하려면 템플릿 저장소의 기본 브랜치를 변경하세요.",
+      "invalid": {
+        "empty": "템플릿 저장소를 입력하세요.",
+        "notGithubHost": "\"{{raw}}\"은(는) github.com이 아닌 {{host}}에 있습니다. Classroom 50은 GitHub에 호스팅된 템플릿만 복사할 수 있습니다.",
+        "shape": "\"{{raw}}\"은(는) 저장소 참조가 아닙니다. <owner>/<repo>, 저장소 이름을 사용하거나 GitHub 저장소 URL을 붙여넣으세요.",
+        "urlShape": "\"{{raw}}\"은(는) GitHub 저장소 URL이 아닙니다. https://github.com/<owner>/<repo>처럼 저장소 자체로 연결하세요."
+      },
+      "search": {
+        "loading": "템플릿을 불러오는 중…",
+        "noMatches": "이 조직에 \"{{query}}\"와(과) 일치하는 템플릿 저장소가 없습니다. 그래도 <owner>/<repo>를 입력하거나 GitHub URL을 붙여넣을 수 있습니다.",
+        "noTemplates": "이 조직에서 템플릿 저장소를 찾을 수 없습니다. 저장소 설정에서 \"Template repository\"를 켜거나 GitHub URL을 붙여넣으세요.",
+        "privateRepo": "비공개 저장소",
+        "showing": "템플릿 {{total}}개 중 {{shown}}개 표시 중입니다.",
+        "truncated": "가장 최근에 업데이트된 저장소 {{scanned}}개를 검색했습니다. 템플릿이 목록에 없으면 <owner>/<repo>를 입력하세요.",
+        "typeInstead": "저장소 이름, <owner>/<repo>를 입력하거나 GitHub URL을 붙여넣으세요.",
+        "unavailable": "이 조직의 템플릿을 불러올 수 없습니다. 대신 저장소 이름을 입력하세요.",
+        "unfiltered": "GitHub가 이 저장소 중 어느 것이 템플릿인지 알려주지 않아 모두 나열되었습니다. 복사가 실패하면 저장소 설정을 확인하세요.",
+        "updated": "{{when}} 업데이트됨"
+      }
     },
     "toolbar": {
       "clear": "지우기",
@@ -1149,12 +1178,8 @@
     },
     "discover": {
       "accept": "과제 수락",
-      "due": "마감 {{date}}",
       "emptyBody": "선생님이 이 강의실에 과제를 게시하면 여기에 표시됩니다.",
       "emptyTitle": "아직 과제가 없습니다",
-      "modeGroup": "그룹",
-      "modeIndividual": "개인",
-      "noDue": "마감일 없음",
       "noResults": {
         "body": "다른 검색어를 시도하거나 필터를 지워 보세요.",
         "title": "필터와 일치하는 과제가 없습니다"
@@ -1180,16 +1205,15 @@
         "typeAll": "모든 유형",
         "typeAria": "유형으로 필터링",
         "typeGroup": "그룹",
-        "typeIndividual": "개인",
-        "view": {
-          "gridLabel": "그리드 보기",
-          "label": "보기",
-          "listLabel": "목록 보기"
-        }
+        "typeIndividual": "개인"
       },
       "viewSubmission": "내 제출물 보기",
       "linkOnlyBody": "이 강좌의 과제는 선생님이 공유한 초대 링크를 통해 열립니다. 그 링크를 열어 과제를 수락하면, 선생님이 모두에게 공개한 과제와 함께 여기에 표시됩니다.",
-      "linkOnlyTitle": "시작하려면 초대 링크를 여세요"
+      "linkOnlyTitle": "시작하려면 초대 링크를 여세요",
+      "accepted": "수락됨",
+      "colAction": "작업",
+      "colStatus": "상태",
+      "tableCaption": "게시된 과제와 각 과제에 대한 나의 상태"
     },
     "archivedNotice": "이 강의실은 보관됨 상태입니다 — 새 과제 및 학생 수락이 비활성화되어 있습니다. 변경하려면 <settingsLink>강의실 설정</settingsLink>에서 보관을 해제하세요.",
     "studentViewAll": "<classroom>{{classroom}}</classroom> 강의실의 모든 과제를 확인하세요."
@@ -1336,7 +1360,6 @@
       "validating": "검증 중…",
       "saveButton": "토큰 저장",
       "cancelRename": "취소",
-      "checking": "확인 중…",
       "expiryRange": "{{min}}~{{max}}일 입력",
       "expiryUntrackedHint": "이 토큰의 만료 시점이 추적되지 않습니다. Classroom 50이 만료 전에 경고할 수 있도록 새 토큰을 설정하세요.",
       "generateHelp": "이름, 만료 시점, 필요한 스코프가 미리 채워진 GitHub 토큰 양식을 엽니다. Repository access를 All repositories로 설정하세요.",
@@ -1610,7 +1633,6 @@
     "viewAssignments": "과제 보기",
     "githubOrganization": "GitHub 조직",
     "myClasses": "내 강의실",
-    "myAssignments": "내 과제",
     "manageSubtitle": "강의실과 과제를 관리하세요.",
     "newClass": "새 클래스",
     "empty": {
@@ -1848,7 +1870,9 @@
       "orgRepoCreationDenied": "{{org}}이(가) 구성원의 비공개 저장소 생성을 허용하지 않아 회원님의 저장소를 만들 수 없습니다 (HTTP {{status}}). 선생님께 이를 활성화해 달라고 요청한 뒤 다시 수락하세요.",
       "orgRepoCreationDeniedStep": "{{org}}이(가) 회원님의 저장소 생성을 허용하지 않았습니다 (HTTP {{status}}).",
       "forkParentRestricted": "템플릿 {{owner}}/{{repo}}를 복사할 수 없습니다 (HTTP {{status}}).{{detail}} 이 템플릿은 {{parentOwner}} 조직에 있는 저장소의 포크이며, 포크 복사는 해당 조직의 서드파티 앱 제한 정책을 따릅니다. 선생님에게 {{parentOwner}}에 대해 Classroom 50 앱을 승인하거나 새로운(포크가 아닌) 템플릿 저장소를 사용하도록 요청한 후 다시 수락하세요.",
-      "forkParentRestrictedStep": "{{parentOwner}}가 포크의 업스트림에 대해 Classroom 50을 승인하지 않았습니다 (HTTP {{status}})."
+      "forkParentRestrictedStep": "{{parentOwner}}가 포크의 업스트림에 대해 Classroom 50을 승인하지 않았습니다 (HTTP {{status}}).",
+      "repoNameTooLong": "저장소 이름 \"{{name}}\"이(가) {{length}}자로 GitHub의 100자 제한을 초과하여 생성할 수 없었습니다(HTTP {{status}}).{{detail}} 선생님께 강의실 또는 과제 슬러그를 줄여달라고 요청한 다음 다시 수락하세요.",
+      "repoNameTooLongStep": "저장소 이름 \"{{name}}\"이(가) 너무 깁니다({{length}}자)."
     },
     "errors": {
       "emptyRepoWithTemplate": "\"{{assignmentSlug}}\" 과제가 빈 저장소와 템플릿을 동시에 설정하고 있어 올바르지 않습니다. 선생님께 과제 설정을 다시 실행해 달라고 요청하세요.",
@@ -2048,7 +2072,6 @@
       "noGradingTitle": "이 과제는 자동 채점이 비활성화되어 있습니다",
       "liveLatest": "최신 푸시 {{date}} · 아직 채점되지 않음",
       "liveLatestTitle": "마지막 수집 이후 더 새로운 제출물이 푸시되어 아직 채점되지 않았습니다. \"지금 제출물 동기화\"를 실행하여 채점하고 점수를 매기세요.",
-      "loading": "제출물 로드 중…",
       "pendingGrade": "대기 중",
       "pendingGradeTitle": "제출됨 — 아직 채점이 수집되지 않았습니다. 수집하려면 \"지금 제출물 동기화\"를 실행하세요.",
       "resolvingNonSubmitters": "아직 제출하지 않은 사람을 확인하는 중…",
@@ -2060,7 +2083,14 @@
       "overriddenTitle": "이 점수는 직접 설정되었으며 재정의가 지워질 때까지 자동 채점으로 변경되지 않습니다.",
       "notCollectedYet": "아직 수집되지 않음",
       "notCollectedYetTitle": "이 학생은 아직 수집되지 않은 작업을 푸시했으므로 기록된 제출 시간이 없습니다. \"지금 제출 동기화\"를 실행하여 수집하세요.",
-      "viewSubmissionsTitle": "제출 보기"
+      "emptyNoGroupsBody": "그룹 저장소는 창설자가 과제를 수락할 때 생성됩니다. 그룹은 형성되는 대로 여기에 표시됩니다.",
+      "emptyNoGroupsTitle": "아직 그룹 없음",
+      "noRepoYetTitle": "아직 저장소 없음 — 학생이 과제를 수락하지 않았습니다",
+      "notAcceptedTitle": "이 학생은 아직 초대 링크를 열지 않아 저장소가 존재하지 않습니다. 공유 버튼에서 과제 링크를 공유하세요.",
+      "sortByLastSubmitted": "마지막 제출순 정렬",
+      "sortByName": "이름순 정렬",
+      "viewSubmissionsTitleEveryPush": "기본 브랜치의 커밋이 제출로 계산됩니다. 보려면 클릭하세요.",
+      "viewSubmissionsTitleTag": "태그된 릴리스가 제출로 계산됩니다. 보려면 클릭하세요."
     },
     "reviewModal": {
       "errorTitle": "피드백 PR을 확인할 수 없습니다",
@@ -2129,7 +2159,11 @@
       "detailsTitle": "내 제출",
       "notSubmittedYet": "아직 제출하지 않음",
       "submittedAwaitingGrading": "제출됨 — 채점 대기 중",
-      "tableCaption": "이 과제에 대한 내 제출"
+      "tableCaption": "이 과제에 대한 내 제출",
+      "colYourRepo": "내 저장소",
+      "statusNotSubmitted": "아직 제출한 것이 없습니다.",
+      "statusNotSubmittedCta": "제출하는 방법 보기",
+      "statusSubmitted": "제출됨 — 마지막 제출 {{relative}}"
     },
     "viewSourceRepo": "템플릿 보기",
     "menu": {
@@ -2400,18 +2434,6 @@
       "working": "저장소 업데이트 중"
     },
     "closedNotice": "제출이 마감되었습니다. 새 학생은 이 과제를 수락할 수 없습니다. 여기서 마감하면 수락한 학생의 저장소가 읽기 전용으로 설정됩니다; 기존 작업은 보존됩니다. 다시 제출을 허용하려면 작업 메뉴에서 다시 여세요.",
-    "migrateTracking": {
-      "apply": "구성 마이그레이션",
-      "bannerAction": "구성 마이그레이션",
-      "bannerText": "이 강의실의 구성이 이전 형식을 사용합니다. 최신 스키마로 마이그레이션하여 최신 과제 및 제출 기능을 활성화하세요.",
-      "error": "과제를 업데이트할 수 없었습니다. 다시 시도하세요.",
-      "resultHeadline_one": "과제 {{count}}개를 마이그레이션했습니다.",
-      "resultHeadline_other": "과제 {{count}}개를 마이그레이션했습니다.",
-      "subtitle": "이 강의실의 과제를 최신 구성 스키마로 업데이트하세요.",
-      "title": "강의실 구성 마이그레이션",
-      "warning": "이 작업은 각 과제의 설정을 명시적으로 기록하여 모든 도구가 이를 동일하게 읽고, 최신 기능(예: 실시간 제출 추적)이 활성화되도록 합니다. 점수, 마감일, 학생의 접근 권한은 변경하지 않으며, 이전과 동일하게 계속 작업할 수 있습니다.",
-      "working": "과제 업데이트 중"
-    },
     "rowAutograde": {
       "outcome": {
         "failed": "자동 채점 상태를 변경할 수 없었습니다 — 다시 시도하세요.",
@@ -2440,11 +2462,11 @@
       "title": "자동 채점 트리거 업데이트"
     },
     "details": {
-      "emptyEveryPush": "기본 브랜치에 아직 푸시가 없습니다. 저장소는 여전히 존재합니다 — 열어서 코드를 확인하세요.",
+      "emptyEveryPush": "아직 기본 브랜치에 커밋이 없습니다. 저장소는 여전히 존재하며 — 열어서 코드를 확인하세요.",
       "emptyLinkDefaultBranch": "저장소 보기",
       "emptyLinkTags": "태그 보기",
       "emptyTag": "아직 태그가 붙은 제출이 없습니다. 저장소는 여전히 존재합니다 — 태그를 열어 제출이 들어오는 대로 확인하세요.",
-      "pushEntry": "푸시 #{{number}}",
+      "pushEntry": "커밋 #{{number}}",
       "tagEntry": "제출 #{{number}}",
       "unavailable": "사용 불가",
       "viewCommit": "커밋 보기",
@@ -2456,7 +2478,7 @@
     "grading": {
       "badgeBuiltIn": "자동 채점",
       "badgeEmptyRepo": "자동 채점 없음",
-      "badgeNoAutograder": "내장 자동 채점 없음",
+      "badgeNoAutograder": "사용자 지정 자동 채점",
       "titleEmptyRepo": "이 과제는 빈 저장소를 사용합니다 — 자동 채점, 점수, 피드백 풀 리퀘스트가 비활성화됩니다. 표에는 누가 수락했는지 표시됩니다.",
       "titleNoAutograder": "교사가 템플릿에 자체 CI를 제공합니다. 내장 점수와 재채점은 비활성화되지만, 활성화된 경우 피드백 풀 리퀘스트는 여전히 작동합니다."
     },
@@ -2488,14 +2510,19 @@
       "titleOverride": "점수 재정의"
     },
     "type": {
-      "badgeEveryPush": "기본 브랜치에 대한 모든 푸시가 집계됨",
-      "badgeTag": "태그로 제출됨",
-      "countEveryPush_one": "기본 브랜치에 대한 푸시 {{count}}회",
-      "countEveryPush_other": "기본 브랜치에 대한 푸시 {{count}}회",
-      "countTag_one": "태그가 붙은 제출 {{count}}개",
-      "countTag_other": "태그가 붙은 제출 {{count}}개",
+      "badgeEveryPush": "모든 푸시에서 제출",
+      "badgeTag": "태그로 제출",
+      "countEveryPush_one": "커밋 {{count}}개",
+      "countEveryPush_other": "커밋 {{count}}개",
+      "countTag_one": "태그 {{count}}개",
+      "countTag_other": "태그 {{count}}개",
       "tagGroupCount_one": "{{pattern}} · 태그 {{count}}개",
       "tagGroupCount_other": "{{pattern}} · 태그 {{count}}개"
+    },
+    "funnel": {
+      "showNotSubmitted": "제출하지 않은 사람 보기",
+      "submittedTitle": "전체 학생 {{total}}명 중 {{submitted}}명이 제출했습니다",
+      "submittedTitleGroup": "수락한 그룹 {{accepted}}개 중 {{submitted}}개가 제출했습니다"
     }
   },
   "orgMembers": {
@@ -2915,7 +2942,6 @@
       "empty": "Classroom 50이 설정된 조직이 아직 없습니다.",
       "expires": "{{date}}에 만료",
       "heading": "서비스 토큰 관리",
-      "loading": "조직 확인 중…",
       "manage": "관리",
       "subheading": "소유한 모든 조직의 서비스 토큰 상태입니다. 점수 수집이 계속 작동하도록 토큰이 만료되기 전에 교체하세요."
     },

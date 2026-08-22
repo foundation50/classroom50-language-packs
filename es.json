@@ -58,7 +58,6 @@
     "manageGroup": "Gestionar grupo",
     "acceptAssignment": "Aceptar tarea",
     "myClasses": "Mis clases",
-    "myAssignments": "Mis tareas",
     "published": "Publicado",
     "members": "Miembros",
     "organizations": "Organizaciones",
@@ -228,7 +227,6 @@
     "resendFailed": "Falló el reenvío de la invitación a {{username}} ({{error}}).",
     "resend": "Reenviar",
     "dismiss": "Descartar",
-    "loadingRoster": "Cargando lista...",
     "inviteStudents": "Invitar estudiantes",
     "groupBySection": "Agrupar por sección",
     "noSection": "Sin sección",
@@ -592,7 +590,8 @@
     "classroomSlugRequired": "El slug de la clase es obligatorio.",
     "classroomSlugTaken": "Ese slug de clase ya está en uso.",
     "assignmentSlugTaken": "Ya existe una tarea «{{slug}}» en esta clase.",
-    "groupSizeRange": "El tamaño del grupo debe ser un número entero entre {{min}} y {{max}}."
+    "groupSizeRange": "El tamaño del grupo debe ser un número entero entre {{min}} y {{max}}.",
+    "classroomSlugInvalid": "El identificador de la clase debe ser {{description}}."
   },
   "toasts": {
     "classroomSettingsSaved": "Configuración del aula guardada. Publicando en el sitio del estudiante ahora; el aviso de arriba muestra el progreso.",
@@ -799,7 +798,8 @@
         "studentPermissionInvalid": "El acceso al repositorio del estudiante debe ser uno de pull, triage, push, maintain o admin.",
         "gradingMaxPointsInvalid": "Los puntos máximos deben ser un número entero de al menos {{min}}.",
         "gradingModeInvalid": "La calificación debe ser «off», «auto» o «manual».",
-        "submissionModeInvalid": "El disparador de autocalificación debe ser «every-push» o «tag»."
+        "submissionModeInvalid": "El disparador de autocalificación debe ser «every-push» o «tag».",
+        "slugInvalid": "El identificador de la tarea debe ser {{description}}."
       },
       "allowedFilesTip": "Patrones ordenados al estilo de {{gitignore}}, uno por línea, que definen qué archivos pertenecen a una entrega (gana la última coincidencia, {{bang}} vuelve a incluir). Por ejemplo, {{star}} y luego {{example}} permite solo {{result}}. En blanco se permiten todos los archivos.",
       "containerUserTip": "El usuario con el que se ejecuta el contenedor. Establece root si el checkout falla con un error de permisos. GitHub Actions ejecuta los pasos del contenedor con el usuario del runner anfitrión, por lo que una imagen sin root a menudo no puede escribir en el espacio de trabajo.",
@@ -953,7 +953,7 @@
           "tag": "Una confirmación etiquetada"
         },
         "editWarning": "Cambiar esto solo afecta a los repositorios creados a partir de ahora. Los repositorios que los estudiantes ya aceptaron conservan la configuración anterior hasta que los actualices. Usa «Actualizar disparadores de autocalificación» en la página de entregas o gh teacher assignment submission-mode. Los estudiantes deben hacer pull tras la actualización.",
-        "help": "«Cada push a la rama predeterminada» cuenta cada push después del commit inicial. «Un commit etiquetado» cuenta solo los commits etiquetados, por lo que los pushes ordinarios no usan minutos de Actions; un estudiante entrega haciendo push de una etiqueta o ejecutando gh student submit.",
+        "help": "«Cada push a la rama predeterminada» cuenta cada commit del estudiante posterior al commit inicial (no cuentan los commits de aceptación ni de actualización del autocorrector propios de la herramienta). «Un commit etiquetado» solo cuenta los commits etiquetados, de modo que los push habituales no consumen minutos de Actions; un estudiante envía su trabajo haciendo push de una etiqueta o ejecutando gh student submit.",
         "label": "Tipo de entrega"
       },
       "submissionSection": "Entrega y calificación",
@@ -1027,7 +1027,6 @@
       "colAssignment": "Tarea",
       "colType": "Tipo",
       "colDueDate": "Fecha límite",
-      "colSubmissions": "Entregas",
       "colActions": "Acciones",
       "empty": "No se ha creado ninguna tarea.",
       "individual": "Individual",
@@ -1063,12 +1062,23 @@
       "unlockSuccess": "{{name}} desbloqueada.",
       "unlockTitle": "Desbloquear tarea",
       "unlockTitleModal": "¿Desbloquear tarea?",
-      "openSubmissionsAria": "Abrir las entregas de {{name}}"
+      "openSubmissionsAria": "Abrir las entregas de {{name}}",
+      "acceptedTitle": "{{accepted}} de {{total}} estudiantes aceptaron la tarea",
+      "colAccepted": "Aceptada",
+      "colSubmitted": "Entregada",
+      "groupsAcceptedTitle": "Grupos que aceptaron — repositorios de grupo existentes",
+      "noGroupsYet": "Aún no hay grupos",
+      "noGroupsYetTitle": "Aún no hay grupos — el repositorio de un grupo se crea cuando su fundador acepta",
+      "notCollectedYet": "Aún sin recopilar",
+      "sortByDue": "Ordenar por fecha de entrega",
+      "sortByName": "Ordenar por nombre",
+      "submittedTitle": "{{submitted}} de {{total}} estudiantes entregaron",
+      "submittedTitleGroup": "{{submitted}} de {{accepted}} grupos entregaron"
     },
     "template": {
       "label": "Repositorio de plantilla",
-      "placeholder": "<owner>/<repo>",
-      "help": "Opcional. Los estudiantes reciben una copia de este repositorio. Déjalo vacío para una tarea sin plantilla: los estudiantes obtienen un repositorio inicializado con un README y los archivos de autocalificación.",
+      "placeholder": "Busca plantillas, o pega <owner>/<repo>",
+      "help": "Opcional. Los estudiantes reciben una copia de este repositorio. Busca entre los repositorios de plantilla de tu organización, o escribe <owner>/<repo> o pega una URL de GitHub para usar uno de cualquier lugar. Déjalo en blanco para una tarea sin plantilla: los estudiantes obtienen un repositorio inicializado con un README y los archivos de autocorrección.",
       "checking": "Comprobando el acceso a la plantilla…",
       "fallbackOrg": "tu organización",
       "notVisible": "{{owner}}/{{repo}} no es visible para ti. Hazlo público o cópialo en {{org}}.",
@@ -1105,7 +1115,7 @@
         "pending": "Concediendo…",
         "success": "Se ha confirmado el acceso de lectura del equipo de la clase a la plantilla."
       },
-      "noBranch": "{{owner}}/{{repo}} no tiene rama predeterminada. Haz un commit o añade <hint/>.",
+      "noBranch": "{{owner}}/{{repo}} no tiene rama predeterminada. Haz push de un commit y vuelve a intentarlo.",
       "nonMainBranch": "La rama predeterminada de esta plantilla es <branch>{{branch}}</branch>, no «main». La tarea la usará, y el autocorrector de los estudiantes se basa en esa rama.",
       "okPrivate": "Plantilla privada en {{owner}}, rama <branch>{{branch}}</branch>. Los estudiantes pueden acceder a ella.",
       "okPrivateInOrg": "Plantilla privada, rama <branch>{{branch}}</branch>. Los estudiantes pueden acceder a ella.",
@@ -1123,7 +1133,26 @@
       "restrictedItemFork": "Si {{repo}} es una bifurcación, aprueba Classroom 50 también en la organización de origen de la bifurcación: el acceso de una bifurcación privada sigue la política de la organización de origen.",
       "restrictedItemOther": "De lo contrario, puede tratarse de un 403 diferente; consulta el mensaje de GitHub a continuación.",
       "viewTemplateRepo": "Abrir {{owner}}/{{repo}} en GitHub",
-      "emptyTemplate": "{{owner}}/{{repo}} es una plantilla pero no tiene confirmaciones. Añade al menos una confirmación (p. ej. un README) y vuelve a intentarlo."
+      "emptyTemplate": "{{owner}}/{{repo}} es una plantilla pero no tiene confirmaciones. Añade al menos una confirmación (p. ej. un README) y vuelve a intentarlo.",
+      "branchIgnored": "Se especificó una rama personalizada (<branch>{{branch}}</branch>) que se ignorará: la tarea copia la rama predeterminada de la plantilla. Para usar otra rama, cambia la rama predeterminada del repositorio de la plantilla.",
+      "invalid": {
+        "empty": "Introduce un repositorio de plantilla.",
+        "notGithubHost": "«{{raw}}» está en {{host}}, no en github.com. Classroom 50 solo puede copiar plantillas alojadas en GitHub.",
+        "shape": "«{{raw}}» no es una referencia a un repositorio. Usa <owner>/<repo>, un nombre de repositorio, o pega una URL de repositorio de GitHub.",
+        "urlShape": "«{{raw}}» no es una URL de repositorio de GitHub. Enlaza al repositorio en sí, como https://github.com/<owner>/<repo>."
+      },
+      "search": {
+        "loading": "Cargando plantillas…",
+        "noMatches": "Ningún repositorio de plantilla de esta organización coincide con «{{query}}». Aún puedes escribir <owner>/<repo> o pegar una URL de GitHub.",
+        "noTemplates": "No se encontraron repositorios de plantilla en esta organización. Activa «Repositorio de plantilla» en la configuración de un repositorio, o pega una URL de GitHub.",
+        "privateRepo": "Repositorio privado",
+        "showing": "Mostrando {{shown}} de {{total}} plantillas.",
+        "truncated": "Se buscó entre los {{scanned}} repositorios actualizados más recientemente. Si tu plantilla no aparece, escribe <owner>/<repo>.",
+        "typeInstead": "Escribe un nombre de repositorio, <owner>/<repo>, o pega una URL de GitHub.",
+        "unavailable": "No se pudieron cargar las plantillas de esta organización. Escribe el nombre del repositorio en su lugar.",
+        "unfiltered": "GitHub no indicó cuáles de estos repositorios son plantillas, así que se listan todos. Comprueba la configuración del repositorio si una copia falla.",
+        "updated": "Actualizado {{when}}"
+      }
     },
     "toolbar": {
       "clear": "Limpiar",
@@ -1149,12 +1178,8 @@
     },
     "discover": {
       "accept": "Aceptar tarea",
-      "due": "Fecha límite {{date}}",
       "emptyBody": "Cuando un profesor publique tareas para esta clase, aparecerán aquí.",
       "emptyTitle": "Aún no hay tareas",
-      "modeGroup": "Grupo",
-      "modeIndividual": "Individual",
-      "noDue": "Sin fecha límite",
       "noResults": {
         "body": "Prueba con otra búsqueda o borra los filtros.",
         "title": "Ninguna tarea coincide con tus filtros"
@@ -1180,16 +1205,15 @@
         "typeAll": "Todos los tipos",
         "typeAria": "Filtrar por tipo",
         "typeGroup": "Grupo",
-        "typeIndividual": "Individual",
-        "view": {
-          "gridLabel": "Vista de cuadrícula",
-          "label": "Vista",
-          "listLabel": "Vista de lista"
-        }
+        "typeIndividual": "Individual"
       },
       "viewSubmission": "Ver mi entrega",
       "linkOnlyBody": "Las tareas de esta clase se abren desde el enlace de invitación que comparte tu profesor. Abre ese enlace para aceptar una tarea; después aparecerá aquí junto con las que tu profesor haya publicado para todos.",
-      "linkOnlyTitle": "Abre tu enlace de invitación para empezar"
+      "linkOnlyTitle": "Abre tu enlace de invitación para empezar",
+      "accepted": "Aceptada",
+      "colAction": "Acción",
+      "colStatus": "Estado",
+      "tableCaption": "Tareas publicadas y tu estado en cada una"
     },
     "archivedNotice": "Esta clase está archivada: las nuevas tareas y las aceptaciones de estudiantes están deshabilitadas. Desarchívala desde <settingsLink>Configuración de la clase</settingsLink> para hacer cambios.",
     "studentViewAll": "Ver todas las tareas de la clase <classroom>{{classroom}}</classroom>."
@@ -1336,7 +1360,6 @@
       "validating": "Validando…",
       "saveButton": "Guardar token",
       "cancelRename": "Cancelar",
-      "checking": "Comprobando…",
       "expiryRange": "Introduce {{min}}–{{max}} días",
       "expiryUntrackedHint": "La caducidad de este token no se está siguiendo. Establece un nuevo token para que Classroom 50 pueda avisarte antes de que caduque.",
       "generateHelp": "Abre el formulario de token de GitHub con el nombre, la caducidad y los ámbitos requeridos ya rellenados. Establece el acceso a repositorios en Todos los repositorios.",
@@ -1610,7 +1633,6 @@
     "viewAssignments": "Ver tareas",
     "githubOrganization": "Organización de GitHub",
     "myClasses": "Mis clases",
-    "myAssignments": "Mis tareas",
     "manageSubtitle": "Gestiona tus clases y tareas.",
     "newClass": "Nueva clase",
     "empty": {
@@ -1848,7 +1870,9 @@
       "orgRepoCreationDenied": "Puede que {{org}} no permita a los miembros crear repositorios privados, por lo que no se pudo crear tu repositorio (HTTP {{status}}). Pídele a tu docente que lo habilite y luego acepta de nuevo.",
       "orgRepoCreationDeniedStep": "{{org}} no permitió que se creara tu repositorio (HTTP {{status}}).",
       "forkParentRestricted": "No se pudo copiar la plantilla {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Esta plantilla es una bifurcación de un repositorio de la organización {{parentOwner}}, y copiar una bifurcación está regido por las restricciones de aplicaciones de terceros de esa organización. Pídele a tu profesor que apruebe la aplicación Classroom 50 para {{parentOwner}}, o que use un repositorio de plantilla nuevo (no bifurcado), y luego acepta de nuevo.",
-      "forkParentRestrictedStep": "{{parentOwner}} no ha aprobado Classroom 50 para el origen de la bifurcación (HTTP {{status}})."
+      "forkParentRestrictedStep": "{{parentOwner}} no ha aprobado Classroom 50 para el origen de la bifurcación (HTTP {{status}}).",
+      "repoNameTooLong": "El nombre de tu repositorio «{{name}}» tiene {{length}} caracteres, superando el límite de 100 caracteres de GitHub, por lo que no se pudo crear (HTTP {{status}}).{{detail}} Pídele a tu profesorado que acorte el identificador de la clase o de la tarea y vuelve a aceptarla.",
+      "repoNameTooLongStep": "El nombre del repositorio «{{name}}» es demasiado largo ({{length}} caracteres)."
     },
     "errors": {
       "emptyRepoWithTemplate": "La tarea «{{assignmentSlug}}» define a la vez un repositorio vacío y una plantilla, lo cual no es válido. Pídele a tu docente que vuelva a ejecutar la configuración de la tarea.",
@@ -2048,7 +2072,6 @@
       "noGradingTitle": "La autocalificación está desactivada para esta tarea",
       "liveLatest": "Último push {{date}} · aún sin calificar",
       "liveLatestTitle": "Se hizo push de una entrega más reciente tras la última recopilación, así que todavía no está calificada. Ejecuta «Sincronizar entregas ahora» para corregirla y puntuarla.",
-      "loading": "Cargando entregas…",
       "pendingGrade": "Pendiente",
       "pendingGradeTitle": "Entregado — calificación aún no recopilada. Ejecuta «Sincronizar entregas ahora» para recopilarla.",
       "resolvingNonSubmitters": "Comprobando quién aún no ha entregado…",
@@ -2060,7 +2083,14 @@
       "overriddenTitle": "Esta puntuación se estableció a mano y la autocalificación no la cambiará hasta que se borre la anulación.",
       "notCollectedYet": "Aún no recopilada",
       "notCollectedYetTitle": "Este estudiante ha enviado trabajo que aún no se ha recopilado, por lo que no hay una hora de entrega registrada. Ejecuta «Sincronizar entregas ahora» para recopilarlo.",
-      "viewSubmissionsTitle": "Ver entregas"
+      "emptyNoGroupsBody": "El repositorio de un grupo se crea cuando su fundador acepta la tarea. Los grupos aparecen aquí a medida que se forman.",
+      "emptyNoGroupsTitle": "Aún no hay grupos",
+      "noRepoYetTitle": "Aún no hay repositorio — el estudiante no ha aceptado la tarea",
+      "notAcceptedTitle": "Este estudiante aún no ha abierto el enlace de invitación, así que no existe ningún repositorio. Comparte el enlace de la tarea desde el botón Compartir.",
+      "sortByLastSubmitted": "Ordenar por última entrega",
+      "sortByName": "Ordenar por nombre",
+      "viewSubmissionsTitleEveryPush": "Los commits en la rama predeterminada cuentan como entregas. Haz clic para verlos.",
+      "viewSubmissionsTitleTag": "Las versiones etiquetadas cuentan como entregas. Haz clic para verlas."
     },
     "reviewModal": {
       "errorTitle": "No se pudo comprobar si hay una PR de comentarios",
@@ -2129,7 +2159,11 @@
       "detailsTitle": "Tus entregas",
       "notSubmittedYet": "Aún no entregada",
       "submittedAwaitingGrading": "Entregada — pendiente de calificación",
-      "tableCaption": "Tu entrega para esta tarea"
+      "tableCaption": "Tu entrega para esta tarea",
+      "colYourRepo": "Tu repositorio",
+      "statusNotSubmitted": "Aún no has entregado nada.",
+      "statusNotSubmittedCta": "Muéstrame cómo entregar",
+      "statusSubmitted": "Entregado — última entrega {{relative}}"
     },
     "viewSourceRepo": "Ver plantilla",
     "menu": {
@@ -2400,18 +2434,6 @@
       "working": "Actualizando repositorios"
     },
     "closedNotice": "Las entregas están cerradas. Los estudiantes nuevos no pueden aceptar esta tarea. Cuando cierras desde aquí, los repositorios de los estudiantes que aceptaron se establecen como de solo lectura; el trabajo existente se conserva. Reábrela desde el menú Acciones para volver a permitir entregas.",
-    "migrateTracking": {
-      "apply": "Migrar la configuración",
-      "bannerAction": "Migrar la configuración",
-      "bannerText": "La configuración de esta clase usa un formato más antiguo. Migra al esquema más reciente para habilitar las funciones más nuevas de tareas y entregas.",
-      "error": "No se pudieron actualizar las tareas. Vuelve a intentarlo.",
-      "resultHeadline_one": "Se migró {{count}} tarea.",
-      "resultHeadline_other": "Se migraron {{count}} tareas.",
-      "subtitle": "Actualiza las tareas de esta clase al esquema de configuración más reciente.",
-      "title": "Migrar la configuración de la clase",
-      "warning": "Esto registra la configuración de cada tarea de forma explícita para que todas las herramientas la lean de la misma manera y se habiliten las funciones más nuevas (como el seguimiento de entregas en vivo). No cambia ninguna puntuación, fecha de entrega ni acceso de estudiante, y puedes seguir trabajando como antes.",
-      "working": "Actualizando tareas"
-    },
     "rowAutograde": {
       "outcome": {
         "failed": "No se pudo cambiar el estado de autocalificación: vuelve a intentarlo.",
@@ -2440,11 +2462,11 @@
       "title": "Actualizar disparador de autocalificación"
     },
     "details": {
-      "emptyEveryPush": "Aún no hay pushes a la rama predeterminada. El repositorio sigue existiendo: ábrelo para ver el código.",
+      "emptyEveryPush": "Aún no hay commits en la rama predeterminada. El repositorio existe: ábrelo para ver el código.",
       "emptyLinkDefaultBranch": "Ver repositorio",
       "emptyLinkTags": "Ver etiquetas",
       "emptyTag": "Aún no hay entregas etiquetadas. El repositorio sigue existiendo: abre sus etiquetas para ver las entregas a medida que llegan.",
-      "pushEntry": "Push n.º {{number}}",
+      "pushEntry": "Commit n.º {{number}}",
       "tagEntry": "Entrega n.º {{number}}",
       "unavailable": "No disponible",
       "viewCommit": "Ver commit",
@@ -2456,7 +2478,7 @@
     "grading": {
       "badgeBuiltIn": "Autocalificada",
       "badgeEmptyRepo": "Sin calificación automática",
-      "badgeNoAutograder": "Sin autocalificación integrada",
+      "badgeNoAutograder": "Autocorrección personalizada",
       "titleEmptyRepo": "Esta tarea usa repositorios vacíos: la calificación automática, las puntuaciones y la solicitud de incorporación de comentarios están desactivadas. La tabla muestra quién ha aceptado.",
       "titleNoAutograder": "El profesor proporciona su propia CI en la plantilla. Las puntuaciones integradas y la recalificación están desactivadas; la solicitud de incorporación de comentarios sigue funcionando cuando está habilitada."
     },
@@ -2488,14 +2510,19 @@
       "titleOverride": "Anular puntuación"
     },
     "type": {
-      "badgeEveryPush": "Cada push a la rama predeterminada cuenta",
-      "badgeTag": "Entregada por etiqueta",
-      "countEveryPush_one": "{{count}} push a la rama predeterminada",
-      "countEveryPush_other": "{{count}} pushes a la rama predeterminada",
-      "countTag_one": "{{count}} entrega etiquetada",
-      "countTag_other": "{{count}} entregas etiquetadas",
+      "badgeEveryPush": "Entrega en cada push",
+      "badgeTag": "Entrega por etiqueta",
+      "countEveryPush_one": "{{count}} commit",
+      "countEveryPush_other": "{{count}} commits",
+      "countTag_one": "{{count}} etiqueta",
+      "countTag_other": "{{count}} etiquetas",
       "tagGroupCount_one": "{{pattern}} · {{count}} etiqueta",
       "tagGroupCount_other": "{{pattern}} · {{count}} etiquetas"
+    },
+    "funnel": {
+      "showNotSubmitted": "Mostrar quién no ha entregado",
+      "submittedTitle": "{{submitted}} de {{total}} estudiantes entregaron",
+      "submittedTitleGroup": "{{submitted}} de {{accepted}} grupos entregaron"
     }
   },
   "orgMembers": {
@@ -2915,7 +2942,6 @@
       "empty": "Aún no hay organizaciones con Classroom 50 configurado.",
       "expires": "Caduca {{date}}",
       "heading": "Gestionar tokens de servicio",
-      "loading": "Comprobando tus organizaciones…",
       "manage": "Gestionar",
       "subheading": "Estado del token de servicio en todas las organizaciones que posees. Rota un token antes de que caduque para que la recopilación de puntuaciones siga funcionando."
     },

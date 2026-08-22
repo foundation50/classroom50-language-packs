@@ -58,7 +58,6 @@
     "manageGroup": "Zarządzaj grupą",
     "acceptAssignment": "Zaakceptuj zadanie",
     "myClasses": "Moje klasy",
-    "myAssignments": "Moje zadania",
     "published": "Opublikowane",
     "members": "Członkowie",
     "organizations": "Organizacje",
@@ -228,7 +227,6 @@
     "resendFailed": "Ponowne wysłanie zaproszenia dla {{username}} nie powiodło się ({{error}}).",
     "resend": "Wyślij ponownie",
     "dismiss": "Odrzuć",
-    "loadingRoster": "Ładowanie listy...",
     "inviteStudents": "Zaproś uczniów",
     "groupBySection": "Grupuj według grupy",
     "noSection": "Brak grupy",
@@ -594,7 +592,8 @@
     "classroomSlugRequired": "Identyfikator (slug) zajęć jest wymagany.",
     "classroomSlugTaken": "Ten identyfikator (slug) zajęć jest już zajęty.",
     "assignmentSlugTaken": "Zadanie „{{slug}}” już istnieje w tych zajęciach.",
-    "groupSizeRange": "Rozmiar grupy musi być liczbą całkowitą z zakresu od {{min}} do {{max}}."
+    "groupSizeRange": "Rozmiar grupy musi być liczbą całkowitą z zakresu od {{min}} do {{max}}.",
+    "classroomSlugInvalid": "Identyfikator klasy musi być {{description}}."
   },
   "toasts": {
     "classroomSettingsSaved": "Ustawienia zajęć zostały zapisane. Trwa teraz publikowanie na stronie dla uczniów — baner powyżej pokazuje postęp.",
@@ -801,7 +800,8 @@
         "studentPermissionInvalid": "Dostęp ucznia do repozytorium musi być jednym z: pull, triage, push, maintain lub admin.",
         "gradingMaxPointsInvalid": "Maksymalna liczba punktów musi być liczbą całkowitą wynoszącą co najmniej {{min}}.",
         "gradingModeInvalid": "Ocenianie musi mieć wartość „off”, „auto” lub „manual”.",
-        "submissionModeInvalid": "Wyzwalacz autoceniania musi mieć wartość „every-push” lub „tag”."
+        "submissionModeInvalid": "Wyzwalacz autoceniania musi mieć wartość „every-push” lub „tag”.",
+        "slugInvalid": "Identyfikator zadania musi być {{description}}."
       },
       "allowedFilesTip": "Uporządkowane wzorce w stylu {{gitignore}}, jeden w wierszu, określające, które pliki należą do zgłoszenia (decyduje ostatnie dopasowanie, {{bang}} ponownie dołącza). Np. {{star}}, a następnie {{example}} zezwala tylko na {{result}}. Puste pole zezwala na każdy plik.",
       "containerUserTip": "Użytkownik, jako który uruchamiany jest kontener. Ustaw root, jeśli checkout kończy się błędem uprawnień. GitHub Actions uruchamia kroki kontenera jako użytkownik hosta runnera, więc obraz non-root często nie może zapisywać w obszarze roboczym.",
@@ -955,7 +955,7 @@
           "tag": "Otagowany commit"
         },
         "editWarning": "Ta zmiana dotyczy wyłącznie repozytoriów utworzonych od tej chwili. Repozytoria już zaakceptowane przez uczniów zachowują stare ustawienie, dopóki ich nie zaktualizujesz. Użyj „Zaktualizuj wyzwalacze automatycznego oceniania” na stronie zgłoszeń lub gh teacher assignment submission-mode. Uczniowie muszą pobrać zmiany po aktualizacji.",
-        "help": "„Każdy push do domyślnej gałęzi” liczy każdy push po commicie startowym. „Otagowany commit” liczy tylko otagowane commity, więc zwykłe pushe nie zużywają minut Actions; uczeń zgłasza pracę, wypychając tag lub uruchamiając gh student submit.",
+        "help": "„Każdy push do gałęzi domyślnej” liczy każdy commit ucznia po commicie startowym (własne commity narzędzia z akceptacji i aktualizacji autograderu się nie liczą). „Otagowany commit” liczy tylko otagowane commity, więc zwykłe pushe nie zużywają minut Actions; uczeń zgłasza pracę, wypychając tag lub uruchamiając gh student submit.",
         "label": "Typ zgłoszenia"
       },
       "submissionSection": "Zgłoszenie i ocenianie",
@@ -1029,7 +1029,6 @@
       "colAssignment": "Zadanie",
       "colType": "Typ",
       "colDueDate": "Termin",
-      "colSubmissions": "Prace",
       "colActions": "Akcje",
       "empty": "Nie utworzono żadnych zadań.",
       "individual": "Indywidualne",
@@ -1065,12 +1064,23 @@
       "unlockSuccess": "Odblokowano {{name}}.",
       "unlockTitle": "Odblokuj zadanie",
       "unlockTitleModal": "Odblokować zadanie?",
-      "openSubmissionsAria": "Otwórz zgłoszenia dla {{name}}"
+      "openSubmissionsAria": "Otwórz zgłoszenia dla {{name}}",
+      "acceptedTitle": "{{accepted}} z {{total}} uczniów zaakceptowało zadanie",
+      "colAccepted": "Zaakceptowane",
+      "colSubmitted": "Zgłoszone",
+      "groupsAcceptedTitle": "Grupy, które zaakceptowały — istniejące repozytoria grupowe",
+      "noGroupsYet": "Brak grup",
+      "noGroupsYetTitle": "Brak grup — repozytorium grupowe powstaje, gdy jej założyciel zaakceptuje",
+      "notCollectedYet": "Jeszcze nie zebrano",
+      "sortByDue": "Sortuj według terminu",
+      "sortByName": "Sortuj według nazwy",
+      "submittedTitle": "{{submitted}} z {{total}} uczniów zgłosiło pracę",
+      "submittedTitleGroup": "{{submitted}} z {{accepted}} grup zgłosiło pracę"
     },
     "template": {
       "label": "Repozytorium szablonu",
-      "placeholder": "<owner>/<repo>",
-      "help": "Opcjonalne. Uczniowie otrzymują kopię tego repozytorium. Pozostaw puste dla zadania bez szablonu: uczniowie otrzymają zainicjowane repozytorium z plikiem README i plikami autooceny.",
+      "placeholder": "Wyszukaj szablony lub wklej <owner>/<repo>",
+      "help": "Opcjonalne. Uczniowie otrzymują kopię tego repozytorium. Wyszukaj repozytoria szablonów w swojej organizacji, wpisz <owner>/<repo> lub wklej adres URL GitHuba, aby użyć dowolnego. Pozostaw puste dla zadania bez szablonu: uczniowie otrzymają zainicjowane repozytorium z plikiem README i plikami autograderu.",
       "checking": "Sprawdzanie dostępu do szablonu…",
       "fallbackOrg": "Twoja organizacja",
       "notVisible": "{{owner}}/{{repo}} nie jest dla Ciebie widoczne. Ustaw je jako publiczne lub skopiuj do {{org}}.",
@@ -1107,7 +1117,7 @@
         "pending": "Nadawanie…",
         "success": "Dostęp zespołu klasy do odczytu szablonu został potwierdzony."
       },
-      "noBranch": "{{owner}}/{{repo}} nie ma domyślnej gałęzi. Wypchnij commit lub dodaj <hint/>.",
+      "noBranch": "{{owner}}/{{repo}} nie ma domyślnej gałęzi. Wypchnij do niego commit, a następnie spróbuj ponownie.",
       "nonMainBranch": "Domyślna gałąź tego szablonu to <branch>{{branch}}</branch>, a nie „main”. Zadanie jej użyje, a autograding uczniów opiera się na tej gałęzi.",
       "okPrivate": "Prywatny szablon w {{owner}}, gałąź <branch>{{branch}}</branch>. Uczniowie mają do niego dostęp.",
       "okPrivateInOrg": "Prywatny szablon, gałąź <branch>{{branch}}</branch>. Uczniowie mają do niego dostęp.",
@@ -1125,7 +1135,26 @@
       "restrictedItemFork": "Jeśli {{repo}} jest forkiem, zatwierdź aplikację Classroom 50 również w organizacji źródłowej forka — dostęp prywatnego forka podlega polityce organizacji źródłowej.",
       "restrictedItemOther": "W przeciwnym razie może to być inny błąd 403; zobacz komunikat GitHub poniżej.",
       "viewTemplateRepo": "Otwórz {{owner}}/{{repo}} na GitHub",
-      "emptyTemplate": "{{owner}}/{{repo}} jest szablonem, ale nie ma commitów. Dodaj co najmniej jeden commit (np. README), a następnie spróbuj ponownie."
+      "emptyTemplate": "{{owner}}/{{repo}} jest szablonem, ale nie ma commitów. Dodaj co najmniej jeden commit (np. README), a następnie spróbuj ponownie.",
+      "branchIgnored": "Podano niestandardową gałąź (<branch>{{branch}}</branch>), która zostanie zignorowana — zadanie kopiuje domyślną gałąź szablonu. Aby użyć innej gałęzi, zmień domyślną gałąź repozytorium szablonu.",
+      "invalid": {
+        "empty": "Podaj repozytorium szablonu.",
+        "notGithubHost": "„{{raw}}” znajduje się na {{host}}, a nie na github.com. Classroom 50 może kopiować tylko szablony hostowane na GitHubie.",
+        "shape": "„{{raw}}” nie jest odwołaniem do repozytorium. Użyj <owner>/<repo>, nazwy repozytorium lub wklej adres URL repozytorium GitHuba.",
+        "urlShape": "„{{raw}}” nie jest adresem URL repozytorium GitHuba. Podaj link do samego repozytorium, np. https://github.com/<owner>/<repo>."
+      },
+      "search": {
+        "loading": "Ładowanie szablonów…",
+        "noMatches": "Żadne repozytorium szablonu w tej organizacji nie pasuje do „{{query}}”. Nadal możesz wpisać <owner>/<repo> lub wkleić adres URL GitHuba.",
+        "noTemplates": "Nie znaleziono repozytoriów szablonów w tej organizacji. Włącz opcję „Template repository” w ustawieniach repozytorium lub wklej adres URL GitHuba.",
+        "privateRepo": "Repozytorium prywatne",
+        "showing": "Wyświetlanie {{shown}} z {{total}} szablonów.",
+        "truncated": "Przeszukano {{scanned}} ostatnio zaktualizowanych repozytoriów. Jeśli Twojego szablonu nie ma na liście, wpisz <owner>/<repo>.",
+        "typeInstead": "Wpisz nazwę repozytorium, <owner>/<repo> lub wklej adres URL GitHuba.",
+        "unavailable": "Nie udało się załadować szablonów tej organizacji. Wpisz nazwę repozytorium ręcznie.",
+        "unfiltered": "GitHub nie podał, które z tych repozytoriów są szablonami, więc wyświetlono wszystkie. Sprawdź ustawienia repozytorium, jeśli kopiowanie się nie powiedzie.",
+        "updated": "Zaktualizowano {{when}}"
+      }
     },
     "toolbar": {
       "clear": "Wyczyść",
@@ -1151,12 +1180,8 @@
     },
     "discover": {
       "accept": "Zaakceptuj zadanie",
-      "due": "Termin: {{date}}",
       "emptyBody": "Gdy nauczyciel opublikuje zadania dla tej klasy, pojawią się tutaj.",
       "emptyTitle": "Brak zadań",
-      "modeGroup": "Grupowe",
-      "modeIndividual": "Indywidualne",
-      "noDue": "Brak terminu",
       "noResults": {
         "body": "Spróbuj innego wyszukiwania lub wyczyść filtry.",
         "title": "Żadne zadanie nie pasuje do filtrów"
@@ -1182,16 +1207,15 @@
         "typeAll": "Wszystkie typy",
         "typeAria": "Filtruj według typu",
         "typeGroup": "Grupowe",
-        "typeIndividual": "Indywidualne",
-        "view": {
-          "gridLabel": "Widok siatki",
-          "label": "Widok",
-          "listLabel": "Widok listy"
-        }
+        "typeIndividual": "Indywidualne"
       },
       "viewSubmission": "Zobacz moją pracę",
       "linkOnlyBody": "Zadania w tej klasie otwiera się za pomocą linku z zaproszeniem udostępnianego przez nauczyciela. Otwórz ten link, aby zaakceptować zadanie; pojawi się ono wtedy tutaj obok tych, które nauczyciel udostępnił wszystkim.",
-      "linkOnlyTitle": "Otwórz link z zaproszeniem, aby zacząć"
+      "linkOnlyTitle": "Otwórz link z zaproszeniem, aby zacząć",
+      "accepted": "Zaakceptowane",
+      "colAction": "Akcja",
+      "colStatus": "Status",
+      "tableCaption": "Opublikowane zadania i Twój status dla każdego z nich"
     },
     "archivedNotice": "Ta klasa jest zarchiwizowana — tworzenie nowych zadań i przyjmowanie ich przez uczniów jest wyłączone. Przywróć ją z archiwum w <settingsLink>Ustawieniach klasy</settingsLink>, aby wprowadzać zmiany.",
     "studentViewAll": "Zobacz wszystkie zadania klasy <classroom>{{classroom}}</classroom>."
@@ -1338,7 +1362,6 @@
       "validating": "Weryfikowanie…",
       "saveButton": "Zapisz token",
       "cancelRename": "Anuluj",
-      "checking": "Sprawdzanie…",
       "expiryRange": "Podaj od {{min}} do {{max}} dni",
       "expiryUntrackedHint": "Wygaśnięcie tego tokenu nie jest śledzone. Ustaw nowy token, aby Classroom 50 mogło ostrzec Cię przed jego wygaśnięciem.",
       "generateHelp": "Otwiera formularz tokenu GitHub z wstępnie wypełnioną nazwą, wygaśnięciem i wymaganymi zakresami. Ustaw dostęp do repozytoriów na Wszystkie repozytoria.",
@@ -1612,7 +1635,6 @@
     "viewAssignments": "Zobacz zadania",
     "githubOrganization": "Organizacja GitHub",
     "myClasses": "Moje klasy",
-    "myAssignments": "Moje zadania",
     "manageSubtitle": "Zarządzaj swoimi klasami i zadaniami.",
     "newClass": "Nowe zajęcia",
     "empty": {
@@ -1850,7 +1872,9 @@
       "orgRepoCreationDenied": "Organizacja {{org}} może nie zezwalać członkom na tworzenie prywatnych repozytoriów, więc nie udało się utworzyć Twojego repozytorium (HTTP {{status}}). Poproś nauczyciela o włączenie tej opcji, a następnie zaakceptuj zadanie ponownie.",
       "orgRepoCreationDeniedStep": "Organizacja {{org}} nie pozwoliła na utworzenie Twojego repozytorium (HTTP {{status}}).",
       "forkParentRestricted": "Nie udało się skopiować szablonu {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Ten szablon jest forkiem repozytorium w organizacji {{parentOwner}}, a kopiowanie forka podlega ograniczeniom aplikacji zewnętrznych tej organizacji. Poproś nauczyciela o zatwierdzenie aplikacji Classroom 50 dla {{parentOwner}} lub o użycie nowego repozytorium szablonu (niebędącego forkiem), a następnie zaakceptuj ponownie.",
-      "forkParentRestrictedStep": "{{parentOwner}} nie zatwierdził aplikacji Classroom 50 dla źródła forka (HTTP {{status}})."
+      "forkParentRestrictedStep": "{{parentOwner}} nie zatwierdził aplikacji Classroom 50 dla źródła forka (HTTP {{status}}).",
+      "repoNameTooLong": "Nazwa Twojego repozytorium „{{name}}” ma {{length}} znaków i przekracza limit 100 znaków GitHuba, więc nie udało się go utworzyć (HTTP {{status}}).{{detail}} Poproś nauczyciela o skrócenie identyfikatora klasy lub zadania, a następnie zaakceptuj ponownie.",
+      "repoNameTooLongStep": "Nazwa repozytorium „{{name}}” jest zbyt długa ({{length}} znaków)."
     },
     "errors": {
       "emptyRepoWithTemplate": "Zadanie „{{assignmentSlug}}” ustawia jednocześnie puste repozytorium i szablon, co jest nieprawidłowe. Poproś nauczyciela o ponowne uruchomienie konfiguracji zadania.",
@@ -2050,7 +2074,6 @@
       "noGradingTitle": "Autoocena jest wyłączona dla tego zadania",
       "liveLatest": "Ostatni push {{date}} · jeszcze nieoceniony",
       "liveLatestTitle": "Nowsze rozwiązanie zostało wypchnięte po ostatnim zbieraniu, więc nie jest jeszcze ocenione. Uruchom „Synchronizuj rozwiązania teraz”, aby je ocenić i przyznać punkty.",
-      "loading": "Ładowanie rozwiązań…",
       "pendingGrade": "Oczekuje",
       "pendingGradeTitle": "Zgłoszone — ocena jeszcze niezebrana. Uruchom „Synchronizuj zgłoszenia teraz”, aby ją zebrać.",
       "resolvingNonSubmitters": "Sprawdzanie, kto jeszcze nie przesłał rozwiązania…",
@@ -2062,7 +2085,14 @@
       "overriddenTitle": "Ten wynik został ustawiony ręcznie i nie zostanie zmieniony przez autoocenianie, dopóki nadpisanie nie zostanie usunięte.",
       "notCollectedYet": "Jeszcze niezebrane",
       "notCollectedYetTitle": "Ten uczeń wypchnął pracę, która nie została jeszcze zebrana, więc nie ma zapisanego czasu zgłoszenia. Uruchom „Synchronizuj zgłoszenia teraz”, aby ją zebrać.",
-      "viewSubmissionsTitle": "Wyświetl zgłoszenia"
+      "emptyNoGroupsBody": "Repozytorium grupowe powstaje, gdy jej założyciel zaakceptuje zadanie. Grupy pojawiają się tutaj w miarę ich tworzenia.",
+      "emptyNoGroupsTitle": "Brak grup",
+      "noRepoYetTitle": "Brak repozytorium — uczeń nie zaakceptował zadania",
+      "notAcceptedTitle": "Ten uczeń nie otworzył jeszcze linku z zaproszeniem, więc repozytorium nie istnieje. Udostępnij link do zadania za pomocą przycisku Udostępnij.",
+      "sortByLastSubmitted": "Sortuj według ostatniego zgłoszenia",
+      "sortByName": "Sortuj według nazwy",
+      "viewSubmissionsTitleEveryPush": "Commity w gałęzi domyślnej liczą się jako zgłoszenia. Kliknij, aby wyświetlić.",
+      "viewSubmissionsTitleTag": "Otagowane wydania liczą się jako zgłoszenia. Kliknij, aby wyświetlić."
     },
     "reviewModal": {
       "errorTitle": "Nie udało się sprawdzić PR z opinią",
@@ -2131,7 +2161,11 @@
       "detailsTitle": "Twoje zgłoszenia",
       "notSubmittedYet": "Jeszcze nie zgłoszono",
       "submittedAwaitingGrading": "Zgłoszono — oczekuje na ocenę",
-      "tableCaption": "Twoje zgłoszenie do tego zadania"
+      "tableCaption": "Twoje zgłoszenie do tego zadania",
+      "colYourRepo": "Twoje repozytorium",
+      "statusNotSubmitted": "Nic jeszcze nie zgłoszono.",
+      "statusNotSubmittedCta": "Pokaż mi, jak zgłosić pracę",
+      "statusSubmitted": "Zgłoszono — ostatnie zgłoszenie {{relative}}"
     },
     "viewSourceRepo": "Zobacz szablon",
     "menu": {
@@ -2402,18 +2436,6 @@
       "working": "Aktualizowanie repozytoriów"
     },
     "closedNotice": "Zgłoszenia są zamknięte. Nowi uczniowie nie mogą zaakceptować tego zadania. Gdy zamkniesz stąd, repozytoria zaakceptowanych uczniów są ustawiane jako tylko do odczytu; istniejąca praca jest zachowana. Otwórz ponownie z menu Akcje, aby ponownie zezwolić na zgłoszenia.",
-    "migrateTracking": {
-      "apply": "Migruj konfigurację",
-      "bannerAction": "Migruj konfigurację",
-      "bannerText": "Konfiguracja tej klasy używa starszego formatu. Zmigruj ją do najnowszego schematu, aby włączyć najnowsze funkcje zadań i zgłoszeń.",
-      "error": "Nie udało się zaktualizować zadań. Spróbuj ponownie.",
-      "resultHeadline_one": "Zmigrowano {{count}} zadanie.",
-      "resultHeadline_other": "Zmigrowano {{count}} zadań.",
-      "subtitle": "Zaktualizuj zadania tej klasy do najnowszego schematu konfiguracji.",
-      "title": "Migruj konfigurację klasy",
-      "warning": "Zapisuje to jawnie ustawienia każdego zadania, aby każde narzędzie odczytywało je tak samo i aby włączone były najnowsze funkcje (takie jak śledzenie zgłoszeń na żywo). Nie zmienia żadnego wyniku, terminu ani dostępu ucznia i możesz pracować dalej jak dotychczas.",
-      "working": "Aktualizowanie zadań"
-    },
     "rowAutograde": {
       "outcome": {
         "failed": "Nie udało się zmienić stanu autoceniania — spróbuj ponownie.",
@@ -2442,11 +2464,11 @@
       "title": "Aktualizuj wyzwalacz autoceniania"
     },
     "details": {
-      "emptyEveryPush": "Brak jeszcze wypchnięć do gałęzi domyślnej. Repozytorium nadal istnieje — otwórz je, aby zobaczyć kod.",
+      "emptyEveryPush": "Brak commitów w gałęzi domyślnej. Repozytorium nadal istnieje — otwórz je, aby zobaczyć kod.",
       "emptyLinkDefaultBranch": "Wyświetl repozytorium",
       "emptyLinkTags": "Wyświetl tagi",
       "emptyTag": "Brak jeszcze otagowanych zgłoszeń. Repozytorium nadal istnieje — otwórz jego tagi, aby zobaczyć zgłoszenia w miarę ich napływania.",
-      "pushEntry": "Wypchnięcie nr {{number}}",
+      "pushEntry": "Commit #{{number}}",
       "tagEntry": "Zgłoszenie nr {{number}}",
       "unavailable": "Niedostępne",
       "viewCommit": "Wyświetl commit",
@@ -2458,7 +2480,7 @@
     "grading": {
       "badgeBuiltIn": "Autooceniane",
       "badgeEmptyRepo": "Brak autooceniania",
-      "badgeNoAutograder": "Brak wbudowanego autooceniania",
+      "badgeNoAutograder": "Własne ocenianie",
       "titleEmptyRepo": "To zadanie używa pustych repozytoriów — autoocenianie, wyniki i pull request z opinią są wyłączone. Tabela pokazuje, kto zaakceptował.",
       "titleNoAutograder": "Nauczyciel dostarcza własne CI w szablonie. Wbudowane wyniki i ponowne ocenianie są wyłączone; pull request z opinią nadal działa, gdy jest włączony."
     },
@@ -2490,14 +2512,19 @@
       "titleOverride": "Nadpisz wynik"
     },
     "type": {
-      "badgeEveryPush": "Liczy się każde wypchnięcie do gałęzi domyślnej",
-      "badgeTag": "Zgłaszane tagiem",
-      "countEveryPush_one": "{{count}} wypchnięcie do gałęzi domyślnej",
-      "countEveryPush_other": "{{count}} wypchnięć do gałęzi domyślnej",
-      "countTag_one": "{{count}} otagowane zgłoszenie",
-      "countTag_other": "{{count}} otagowanych zgłoszeń",
+      "badgeEveryPush": "Zgłasza przy każdym pushu",
+      "badgeTag": "Zgłasza przez tag",
+      "countEveryPush_one": "{{count}} commit",
+      "countEveryPush_other": "{{count}} commita",
+      "countTag_one": "{{count}} tag",
+      "countTag_other": "{{count}} tagu",
       "tagGroupCount_one": "{{pattern}} · {{count}} tag",
       "tagGroupCount_other": "{{pattern}} · {{count}} tagów"
+    },
+    "funnel": {
+      "showNotSubmitted": "Pokaż, kto nie zgłosił pracy",
+      "submittedTitle": "{{submitted}} z {{total}} uczniów zgłosiło pracę",
+      "submittedTitleGroup": "{{submitted}} z {{accepted}} grup zgłosiło pracę"
     }
   },
   "orgMembers": {
@@ -2917,7 +2944,6 @@
       "empty": "Brak organizacji ze skonfigurowanym Classroom 50.",
       "expires": "Wygasa {{date}}",
       "heading": "Zarządzaj tokenami usługi",
-      "loading": "Sprawdzanie Twoich organizacji…",
       "manage": "Zarządzaj",
       "subheading": "Stan tokenów usługowych we wszystkich organizacjach, których jesteś właścicielem. Rotuj token przed jego wygaśnięciem, aby zbieranie wyników nadal działało."
     },

@@ -90,7 +90,6 @@
     "manageGroup": "Gérer le groupe",
     "acceptAssignment": "Accepter le devoir",
     "myClasses": "Mes cours",
-    "myAssignments": "Mes devoirs",
     "published": "Publié",
     "members": "Membres",
     "activity": "Activité",
@@ -274,7 +273,6 @@
     "resendFailed": "Le renvoi de l'invitation pour {{username}} a échoué ({{error}}).",
     "resend": "Renvoyer",
     "dismiss": "Ignorer",
-    "loadingRoster": "Chargement de la liste…",
     "rosterLoadError": "Impossible de charger la liste depuis GitHub. La liste des inscrits peut être incomplète — il s'agit d'une erreur de chargement, pas d'une classe vide.",
     "rosterRetry": "Réessayer",
     "rosterParseError": "roster.csv est mal formé et n'a pas pu être entièrement lu. Corrigez ces lignes pour que la liste reste exacte :",
@@ -621,7 +619,8 @@
     "classroomSlugRequired": "Le slug du cours est obligatoire.",
     "classroomSlugTaken": "Ce slug de cours est déjà utilisé.",
     "assignmentSlugTaken": "Un devoir « {{slug}} » existe déjà dans ce cours.",
-    "groupSizeRange": "La taille du groupe doit être un nombre entier compris entre {{min}} et {{max}}."
+    "groupSizeRange": "La taille du groupe doit être un nombre entier compris entre {{min}} et {{max}}.",
+    "classroomSlugInvalid": "L'identifiant de la classe doit être {{description}}."
   },
   "toasts": {
     "classroomSettingsSaved": "Paramètres de la classe enregistrés. Publication sur le site étudiant en cours — la bannière ci-dessus suit la progression.",
@@ -764,10 +763,6 @@
       "accept": "Accepter le devoir",
       "notAccepted": "Non accepté",
       "viewSubmission": "Voir ma remise",
-      "modeIndividual": "Individuel",
-      "modeGroup": "Groupe",
-      "due": "À rendre le {{date}}",
-      "noDue": "Aucune date limite",
       "emptyTitle": "Aucun devoir pour le moment",
       "emptyBody": "Lorsqu'un·e enseignant·e publiera des devoirs pour ce cours, ils apparaîtront ici.",
       "protectedNoSecret": "Les devoirs de ce cours s'ouvrent depuis le lien d'invitation partagé par votre enseignant·e. Ouvrez ce lien pour les accepter et les voir ici.",
@@ -790,19 +785,18 @@
         "sortDueDesc": "Échéance la plus lointaine",
         "sortNameAsc": "Nom (A–Z)",
         "sortNameDesc": "Nom (Z–A)",
-        "clear": "Effacer les filtres",
-        "view": {
-          "label": "Affichage",
-          "gridLabel": "Vue en grille",
-          "listLabel": "Vue en liste"
-        }
+        "clear": "Effacer les filtres"
       },
       "noResults": {
         "title": "Aucun devoir ne correspond à vos filtres",
         "body": "Essayez une autre recherche ou effacez les filtres."
       },
       "linkOnlyBody": "Les devoirs de cette classe s'ouvrent depuis le lien d'invitation partagé par votre enseignant. Ouvrez ce lien pour accepter un devoir ; il apparaîtra ensuite ici, avec ceux que votre enseignant a publiés pour tout le monde.",
-      "linkOnlyTitle": "Ouvrez votre lien d'invitation pour commencer"
+      "linkOnlyTitle": "Ouvrez votre lien d'invitation pour commencer",
+      "accepted": "Accepté",
+      "colAction": "Action",
+      "colStatus": "Statut",
+      "tableCaption": "Devoirs publiés et votre statut pour chacun"
     },
     "newButton": {
       "assignment": "Devoir",
@@ -911,7 +905,8 @@
         "studentPermissionInvalid": "L'accès au dépôt de l'étudiant doit être l'un des suivants : pull, triage, push, maintain ou admin.",
         "gradingMaxPointsInvalid": "Le nombre de points maximum doit être un entier d'au moins {{min}}.",
         "gradingModeInvalid": "La notation doit être « off », « auto » ou « manual ».",
-        "submissionModeInvalid": "Le déclencheur de correction automatique doit être « every-push » ou « tag »."
+        "submissionModeInvalid": "Le déclencheur de correction automatique doit être « every-push » ou « tag ».",
+        "slugInvalid": "L'identifiant du devoir doit être {{description}}."
       },
       "availableFrom": "Date de publication ({{tz}})",
       "availableFromTz": "Les heures sont indiquées dans votre fuseau horaire local ({{tz}}).",
@@ -1028,7 +1023,7 @@
           "tag": "Un commit étiqueté"
         },
         "editWarning": "Modifier ceci ne concerne que les dépôts créés à partir de maintenant. Les dépôts que les étudiants ont déjà acceptés conservent l'ancien réglage jusqu'à ce que vous les mettiez à jour. Utilisez « Mettre à jour les déclencheurs d'autonotation » sur la page des soumissions ou gh teacher assignment submission-mode. Les étudiants doivent faire un pull après la mise à jour.",
-        "help": "« Chaque push sur la branche par défaut » compte chaque push après le commit de départ. « Un commit étiqueté » ne compte que les commits étiquetés, donc les pushs ordinaires n'utilisent aucune minute d'Actions ; un étudiant soumet en poussant une étiquette ou en exécutant gh student submit.",
+        "help": "« Chaque push sur la branche par défaut » compte chaque commit de l'élève après le commit de départ (les propres commits d'acceptation et de mise à jour de l'autocorrection de l'outil ne comptent pas). « Un commit balisé » ne compte que les commits balisés, de sorte que les push ordinaires n'utilisent aucune minute Actions ; un élève soumet en poussant une balise ou en exécutant gh student submit.",
         "label": "Type de rendu"
       },
       "submissionSection": "Rendu et notation",
@@ -1102,7 +1097,6 @@
       "colAssignment": "Devoir",
       "colType": "Type",
       "colDueDate": "Date limite",
-      "colSubmissions": "Rendus",
       "colActions": "Actions",
       "empty": "Aucun devoir créé.",
       "individual": "Individuel",
@@ -1138,7 +1132,18 @@
       "unlockSuccess": "{{name}} déverrouillé.",
       "unlockTitle": "Déverrouiller le devoir",
       "unlockTitleModal": "Déverrouiller le devoir ?",
-      "openSubmissionsAria": "Ouvrir les rendus de {{name}}"
+      "openSubmissionsAria": "Ouvrir les rendus de {{name}}",
+      "acceptedTitle": "{{accepted}} élèves sur {{total}} ont accepté le devoir",
+      "colAccepted": "Accepté",
+      "colSubmitted": "Soumis",
+      "groupsAcceptedTitle": "Groupes ayant accepté — dépôts de groupe existants",
+      "noGroupsYet": "Aucun groupe pour l'instant",
+      "noGroupsYetTitle": "Aucun groupe pour l'instant — un dépôt de groupe est créé lorsque son fondateur accepte",
+      "notCollectedYet": "Pas encore collecté",
+      "sortByDue": "Trier par date d'échéance",
+      "sortByName": "Trier par nom",
+      "submittedTitle": "{{submitted}} élèves sur {{total}} ont soumis",
+      "submittedTitleGroup": "{{submitted}} groupes sur {{accepted}} ont soumis"
     },
     "toolbar": {
       "searchPlaceholder": "Rechercher des devoirs…",
@@ -1164,8 +1169,8 @@
     },
     "template": {
       "label": "Dépôt modèle",
-      "placeholder": "<owner>/<repo>",
-      "help": "Facultatif. Les étudiants reçoivent une copie de ce dépôt. Laissez vide pour un devoir sans modèle : les étudiants obtiennent un dépôt initialisé avec un README et les fichiers d'autonotation.",
+      "placeholder": "Rechercher des modèles ou coller <owner>/<repo>",
+      "help": "Facultatif. Les élèves reçoivent une copie de ce dépôt. Recherchez les dépôts modèles de votre organisation, ou saisissez <owner>/<repo> ou collez une URL GitHub pour en utiliser un provenant de n'importe où. Laissez vide pour un devoir sans modèle : les élèves obtiennent un dépôt initialisé avec un README et les fichiers d'autocorrection.",
       "checking": "Vérification de l'accès au modèle…",
       "fallbackOrg": "votre organisation",
       "privateHasAccess": "Modèle privé dans {{owner}} (branche <branch>{{branch}}</branch>). L'équipe de la classe a déjà un accès en lecture — les élèves peuvent le copier.",
@@ -1186,7 +1191,7 @@
       "privateForkNoParent": "{{owner}}/{{repo}} est un fork privé (branche <branch>{{branch}}</branch>). <important>Important : l'organisation en amont du fork doit maintenir Classroom 50 approuvé — si cette approbation est retirée, les étudiants ne pourront pas accepter (HTTP 403).</important> Pour éviter de dépendre de l'organisation en amont, utilisez un nouveau dépôt (sans fork) : créez un nouveau dépôt et copiez-y le contenu du fork.",
       "unknown": "Impossible de vérifier {{owner}}/{{repo}} pour le moment. La vérification est refaite lorsque les élèves acceptent.",
       "privateOutOfOrg": "{{owner}}/{{repo}} est privé et en dehors de {{org}}. Rendez-le public ou copiez-le dans {{org}}.",
-      "noBranch": "{{owner}}/{{repo}} n'a pas de branche par défaut. Poussez un commit, ou ajoutez <hint/>.",
+      "noBranch": "{{owner}}/{{repo}} n'a pas de branche par défaut. Poussez-y un commit, puis réessayez.",
       "rateLimited": "Limite de débit GitHub atteinte. Réessayez sous peu.",
       "policyLink": "Vérifier la politique d'applications OAuth de {{owner}}",
       "reconcile": {
@@ -1220,7 +1225,26 @@
       "restrictedItemFork": "Si {{repo}} est un fork, approuvez aussi Classroom 50 dans l'organisation en amont du fork — l'accès d'un fork privé suit la politique de l'organisation en amont.",
       "restrictedItemOther": "Sinon, il peut s'agir d'un autre 403 ; voyez le message de GitHub ci-dessous.",
       "viewTemplateRepo": "Ouvrir {{owner}}/{{repo}} sur GitHub",
-      "emptyTemplate": "{{owner}}/{{repo}} est un modèle mais ne contient aucun commit. Ajoutez au moins un commit (par ex. un README), puis réessayez."
+      "emptyTemplate": "{{owner}}/{{repo}} est un modèle mais ne contient aucun commit. Ajoutez au moins un commit (par ex. un README), puis réessayez.",
+      "branchIgnored": "Une branche personnalisée (<branch>{{branch}}</branch>) a été spécifiée et sera ignorée — le devoir copie la branche par défaut du modèle. Pour utiliser une autre branche, changez la branche par défaut du dépôt modèle.",
+      "invalid": {
+        "empty": "Saisissez un dépôt modèle.",
+        "notGithubHost": "« {{raw}} » se trouve sur {{host}}, et non sur github.com. Classroom 50 ne peut copier que des modèles hébergés sur GitHub.",
+        "shape": "« {{raw}} » n'est pas une référence de dépôt. Utilisez <owner>/<repo>, un nom de dépôt, ou collez une URL de dépôt GitHub.",
+        "urlShape": "« {{raw}} » n'est pas une URL de dépôt GitHub. Faites un lien vers le dépôt lui-même, comme https://github.com/<owner>/<repo>."
+      },
+      "search": {
+        "loading": "Chargement des modèles…",
+        "noMatches": "Aucun dépôt modèle de cette organisation ne correspond à « {{query}} ». Vous pouvez toujours saisir <owner>/<repo> ou coller une URL GitHub.",
+        "noTemplates": "Aucun dépôt modèle trouvé dans cette organisation. Activez « Dépôt modèle » dans les paramètres d'un dépôt, ou collez une URL GitHub.",
+        "privateRepo": "Dépôt privé",
+        "showing": "Affichage de {{shown}} modèles sur {{total}}.",
+        "truncated": "Recherche effectuée sur les {{scanned}} dépôts mis à jour le plus récemment. Si votre modèle n'apparaît pas, saisissez <owner>/<repo>.",
+        "typeInstead": "Saisissez un nom de dépôt, <owner>/<repo>, ou collez une URL GitHub.",
+        "unavailable": "Impossible de charger les modèles de cette organisation. Saisissez plutôt le nom du dépôt.",
+        "unfiltered": "GitHub n'a pas indiqué lesquels de ces dépôts sont des modèles ; ils sont donc tous listés. Vérifiez les paramètres du dépôt en cas d'échec de copie.",
+        "updated": "Mis à jour {{when}}"
+      }
     }
   },
   "published": {
@@ -1399,7 +1423,6 @@
       "validating": "Validation en cours…",
       "saveButton": "Enregistrer le jeton",
       "cancelRename": "Annuler",
-      "checking": "Vérification…",
       "expiryRange": "Saisissez {{min}}–{{max}} jours",
       "expiryUntrackedHint": "L'expiration de ce jeton n'est pas suivie. Définissez un nouveau jeton pour que Classroom 50 puisse vous avertir avant son expiration.",
       "generateHelp": "Ouvre le formulaire de jeton de GitHub avec le nom, l'expiration et les portées requises préremplis. Réglez l'accès aux dépôts sur Tous les dépôts.",
@@ -1717,7 +1740,6 @@
     "viewAssignments": "Voir les devoirs",
     "githubOrganization": "Organisation GitHub",
     "myClasses": "Mes cours",
-    "myAssignments": "Mes devoirs",
     "manageSubtitle": "Gérez vos cours et vos devoirs.",
     "newClass": "Nouveau cours",
     "empty": {
@@ -1915,7 +1937,9 @@
       "orgRepoCreationDenied": "{{org}} n'autorise peut-être pas les membres à créer des dépôts privés, de sorte que votre dépôt n'a pas pu être créé (HTTP {{status}}). Demandez à votre enseignant de l'activer, puis acceptez à nouveau.",
       "orgRepoCreationDeniedStep": "{{org}} n'a pas autorisé la création de votre dépôt (HTTP {{status}}).",
       "forkParentRestricted": "Impossible de copier le modèle {{owner}}/{{repo}} (HTTP {{status}}).{{detail}} Ce modèle est un fork d'un dépôt de l'organisation {{parentOwner}}, et la copie d'un fork est régie par les restrictions d'applications tierces de cette organisation. Demandez à votre enseignant d'approuver l'application Classroom 50 pour {{parentOwner}}, ou d'utiliser un nouveau dépôt de modèle (sans fork), puis acceptez à nouveau.",
-      "forkParentRestrictedStep": "{{parentOwner}} n'a pas approuvé Classroom 50 pour l'organisation en amont du fork (HTTP {{status}})."
+      "forkParentRestrictedStep": "{{parentOwner}} n'a pas approuvé Classroom 50 pour l'organisation en amont du fork (HTTP {{status}}).",
+      "repoNameTooLong": "Le nom de votre dépôt « {{name}} » comporte {{length}} caractères, ce qui dépasse la limite de 100 caractères de GitHub, il n'a donc pas pu être créé (HTTP {{status}}).{{detail}} Demandez à votre enseignant de raccourcir l'identifiant de la classe ou du devoir, puis acceptez à nouveau.",
+      "repoNameTooLongStep": "Le nom du dépôt « {{name}} » est trop long ({{length}} caractères)."
     },
     "notFound": {
       "badge": "Devoir indisponible",
@@ -2163,7 +2187,6 @@
       "noDetails": "Aucun détail pour l'instant",
       "noGradingTitle": "La correction automatique est désactivée pour ce devoir",
       "resolvingNonSubmitters": "Vérification de qui n'a pas encore rendu…",
-      "loading": "Chargement des rendus…",
       "pendingGrade": "En attente",
       "pendingGradeTitle": "Soumis — note pas encore collectée. Exécutez « Synchroniser les soumissions maintenant » pour la collecter.",
       "notSubmitted": "Non rendu",
@@ -2179,7 +2202,14 @@
       "overriddenTitle": "Ce score a été défini à la main et ne sera pas modifié par la correction automatique tant que la substitution n'est pas effacée.",
       "notCollectedYet": "Pas encore collecté",
       "notCollectedYetTitle": "Cet étudiant a poussé un travail qui n'a pas encore été collecté ; il n'y a donc aucun horaire de rendu enregistré. Exécutez « Synchroniser les rendus maintenant » pour le collecter.",
-      "viewSubmissionsTitle": "Voir les rendus"
+      "emptyNoGroupsBody": "Un dépôt de groupe est créé lorsque son fondateur accepte le devoir. Les groupes apparaissent ici au fur et à mesure de leur formation.",
+      "emptyNoGroupsTitle": "Aucun groupe pour l'instant",
+      "noRepoYetTitle": "Aucun dépôt pour l'instant — l'élève n'a pas accepté le devoir",
+      "notAcceptedTitle": "Cet élève n'a pas encore ouvert le lien d'invitation, aucun dépôt n'existe donc. Partagez le lien du devoir depuis le bouton Partager.",
+      "sortByLastSubmitted": "Trier par dernière soumission",
+      "sortByName": "Trier par nom",
+      "viewSubmissionsTitleEveryPush": "Les commits sur la branche par défaut comptent comme des soumissions. Cliquez pour voir.",
+      "viewSubmissionsTitleTag": "Les publications balisées comptent comme des soumissions. Cliquez pour voir."
     },
     "reviewModal": {
       "errorTitle": "Impossible de vérifier la présence d'une PR de retour",
@@ -2248,7 +2278,11 @@
       "detailsTitle": "Vos rendus",
       "notSubmittedYet": "Pas encore rendu",
       "submittedAwaitingGrading": "Rendu — en attente de notation",
-      "tableCaption": "Votre rendu pour ce devoir"
+      "tableCaption": "Votre rendu pour ce devoir",
+      "colYourRepo": "Votre dépôt",
+      "statusNotSubmitted": "Rien de soumis pour l'instant.",
+      "statusNotSubmittedCta": "Montrez-moi comment soumettre",
+      "statusSubmitted": "Soumis — dernière soumission {{relative}}"
     },
     "openAllPrs": {
       "blockedHint": "Leur branche de retour pointe vers le mauvais commit, de sorte que l'ouverture de la PR afficherait une différence vide. Un administrateur de l'organisation doit supprimer chaque branche de retour avant de relancer cette action — réessayer seul ne les corrigera pas.",
@@ -2497,18 +2531,6 @@
       "working": "Mise à jour des dépôts"
     },
     "closedNotice": "Les rendus sont fermés. Les nouveaux étudiants ne peuvent pas accepter ce devoir. Lorsque vous fermez depuis ici, les dépôts des étudiants ayant accepté sont mis en lecture seule ; le travail existant est préservé. Rouvrez depuis le menu Actions pour autoriser de nouveau les rendus.",
-    "migrateTracking": {
-      "apply": "Migrer la configuration",
-      "bannerAction": "Migrer la configuration",
-      "bannerText": "La configuration de cette classe utilise un format plus ancien. Migrez-la vers le schéma le plus récent pour activer les fonctionnalités les plus récentes des devoirs et des rendus.",
-      "error": "Les devoirs n'ont pas pu être mis à jour. Réessayez.",
-      "resultHeadline_one": "{{count}} devoir migré.",
-      "resultHeadline_other": "{{count}} devoirs migrés.",
-      "subtitle": "Mettez à jour les devoirs de cette classe vers le schéma de configuration le plus récent.",
-      "title": "Migrer la configuration de la classe",
-      "warning": "Ceci enregistre explicitement les paramètres de chaque devoir afin que chaque outil les interprète de la même façon et que les fonctionnalités les plus récentes (comme le suivi des soumissions en direct) soient activées. Cela ne change aucun score, date d'échéance ou accès d'étudiant, et vous pouvez continuer à travailler comme avant.",
-      "working": "Mise à jour des devoirs"
-    },
     "rowAutograde": {
       "outcome": {
         "failed": "Impossible de changer l'état de la correction automatique — réessayez.",
@@ -2537,11 +2559,11 @@
       "title": "Mettre à jour le déclencheur de correction automatique"
     },
     "details": {
-      "emptyEveryPush": "Aucun push vers la branche par défaut pour l'instant. Le dépôt existe toujours — ouvrez-le pour voir le code.",
+      "emptyEveryPush": "Aucun commit sur la branche par défaut pour l'instant. Le dépôt existe toujours — ouvrez-le pour voir le code.",
       "emptyLinkDefaultBranch": "Voir le dépôt",
       "emptyLinkTags": "Voir les tags",
       "emptyTag": "Aucun rendu par tag pour l'instant. Le dépôt existe toujours — ouvrez ses tags pour voir les rendus au fur et à mesure de leur arrivée.",
-      "pushEntry": "Push nº{{number}}",
+      "pushEntry": "Commit nº {{number}}",
       "tagEntry": "Rendu nº{{number}}",
       "unavailable": "Indisponible",
       "viewCommit": "Voir le commit",
@@ -2553,7 +2575,7 @@
     "grading": {
       "badgeBuiltIn": "Corrigé automatiquement",
       "badgeEmptyRepo": "Aucune correction automatique",
-      "badgeNoAutograder": "Aucune correction automatique intégrée",
+      "badgeNoAutograder": "Autocorrection personnalisée",
       "titleEmptyRepo": "Ce devoir utilise des dépôts vides — la correction automatique, les notes et la pull request de retour sont désactivées. Le tableau indique qui a accepté.",
       "titleNoAutograder": "L'enseignant fournit sa propre CI dans le modèle. Les notes intégrées et la nouvelle correction sont désactivées ; la pull request de retour fonctionne toujours si elle est activée."
     },
@@ -2585,14 +2607,19 @@
       "titleOverride": "Substituer la note"
     },
     "type": {
-      "badgeEveryPush": "Chaque push vers la branche par défaut compte",
-      "badgeTag": "Rendu par tag",
-      "countEveryPush_one": "{{count}} push vers la branche par défaut",
-      "countEveryPush_other": "{{count}} pushs vers la branche par défaut",
-      "countTag_one": "{{count}} rendu par tag",
-      "countTag_other": "{{count}} rendus par tag",
+      "badgeEveryPush": "Soumet à chaque push",
+      "badgeTag": "Soumet par balise",
+      "countEveryPush_one": "{{count}} commit",
+      "countEveryPush_other": "{{count}} commits",
+      "countTag_one": "{{count}} balise",
+      "countTag_other": "{{count}} balises",
       "tagGroupCount_one": "{{pattern}} · {{count}} tag",
       "tagGroupCount_other": "{{pattern}} · {{count}} tags"
+    },
+    "funnel": {
+      "showNotSubmitted": "Afficher qui n'a pas soumis",
+      "submittedTitle": "{{submitted}} élèves sur {{total}} ont soumis",
+      "submittedTitleGroup": "{{submitted}} groupes sur {{accepted}} ont soumis"
     }
   },
   "orgActivity": {
@@ -2915,7 +2942,6 @@
       "empty": "Aucune organisation avec Classroom 50 configuré pour l'instant.",
       "expires": "Expire le {{date}}",
       "heading": "Gérer les jetons de service",
-      "loading": "Vérification de vos organisations…",
       "manage": "Gérer",
       "subheading": "État des jetons de service dans chaque organisation dont vous êtes propriétaire. Renouvelez un jeton avant son expiration pour que la collecte des scores continue de fonctionner."
     },
