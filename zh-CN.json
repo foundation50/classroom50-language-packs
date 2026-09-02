@@ -144,7 +144,10 @@
       "publishClassroom": "正在发布“{{name}}”的设置",
       "collectScores": "正在收集成绩",
       "regrade": "正在重新评分",
-      "generic": "GitHub Actions 工作流"
+      "generic": "GitHub Actions 工作流",
+      "collectScoresAssignment": "正在收集“{{classroom}}”中“{{assignment}}”的成绩",
+      "collectScoresClassroom": "正在收集“{{classroom}}”中每个作业的成绩",
+      "probeToken": "正在测试服务令牌"
     }
   },
   "common": {
@@ -261,7 +264,9 @@
     "aboutDiagnosticsHint": "复制技术细节以附加到错误报告或支持帖子中。不会向任何地方发送数据；仅填入你的剪贴板。",
     "aboutDiagnosticsShow": "显示诊断信息",
     "aboutDiagnosticsCopy": "复制诊断信息",
-    "aboutDiagnosticsCopied": "已复制"
+    "aboutDiagnosticsCopied": "已复制",
+    "manageGroups": "管理小组",
+    "mySubmissionTeam": "小组提交"
   },
   "auth": {
     "signInTitle": "登录",
@@ -356,7 +361,9 @@
     "classes": "课堂",
     "mySubmission": "我的提交",
     "submissions": "提交",
-    "activity": "活动"
+    "activity": "活动",
+    "manageGroups": "管理小组",
+    "mySubmissionTeam": "小组提交"
   },
   "students": {
     "addTitle": "添加成员",
@@ -795,7 +802,8 @@
     "chooseAnotherFile": "选择其他文件",
     "usernameLabel": "GitHub 用户名",
     "firstNameLabel": "名",
-    "lastNameLabel": "姓"
+    "lastNameLabel": "姓",
+    "rosterFromCsvNotice": "此列表来自名册文件上次同步时的状态，因为你的角色无法查看班级的 GitHub 团队。此后新增的成员会在老师打开名册后出现。组织所有者可看到实时成员情况。"
   },
   "language": {
     "baseName": "英语（基础）",
@@ -1082,7 +1090,7 @@
         "typeAria": "按类型筛选",
         "typeAll": "所有类型",
         "typeIndividual": "个人",
-        "typeGroup": "小组",
+        "typeGroup": "小组（旧版）",
         "dueAria": "按截止日期筛选",
         "dueAll": "任意截止日期",
         "dueOverdue": "已逾期",
@@ -1091,12 +1099,16 @@
         "sortDueDesc": "最晚截止",
         "sortNameAsc": "名称（A–Z）",
         "sortNameDesc": "名称（Z–A）",
-        "clear": "清除筛选"
+        "clear": "清除筛选",
+        "typeTeam": "小组"
       },
       "noResults": {
         "title": "没有符合筛选条件的作业",
         "body": "换个搜索词试试，或清除筛选条件。"
-      }
+      },
+      "viewGroup": "查看小组",
+      "viewGroupTitle": "你的小组",
+      "viewSubmissionTeam": "查看小组提交"
     },
     "newButton": {
       "assignment": "作业",
@@ -1136,7 +1148,7 @@
       "availableFromTz": "时间采用你的本地时区（{{tz}}）。",
       "type": "作业类型",
       "typeIndividual": "个人",
-      "typeGroup": "小组项目",
+      "typeGroup": "小组（旧版）",
       "typeLockedHelp": "创建后无法更改。切换它会使现有提交失效。",
       "maxGroupSize": "小组最大人数",
       "maxGroupSizeTitle": "必须是介于 {{min}} 和 {{max}} 之间的整数",
@@ -1357,8 +1369,17 @@
         "releaseAssetsInvalidPath": "{{path}} 不是精确的相对于工作区的文件路径。",
         "releaseAssetsInvalidBasename": "{{basename}} 不是安全的发布文件名，或是保留名称。",
         "releaseAssetsDuplicatePath": "{{path}} 列出了多次；每个发布文件路径必须唯一。",
-        "releaseAssetsDuplicateBasename": "{{basename}} 会被上传多次；发布文件名必须唯一。"
-      }
+        "releaseAssetsDuplicateBasename": "{{basename}} 会被上传多次；发布文件名必须唯一。",
+        "teamFormationInvalid": "请选择由谁组建小组。"
+      },
+      "teamFormation": "小组组建方式",
+      "teamFormationStudent": "由学生组建小组",
+      "teamFormationStudentHelp": "第一名学生在接受作业时创建小组，然后添加组员，直至达到小组人数上限。",
+      "teamFormationTeacher": "由老师分配小组",
+      "teamFormationTeacherHelp": "你在作业设置页面创建小组并添加学生。未加入小组的学生无法接受作业。",
+      "typeTeam": "小组",
+      "typeTeamDisabledHelp": "小组作业需要组织成员能够创建团队：第一名学生在接受作业时创建小组的团队。请在组织设置页面的“成员团队创建”部分中开启“允许成员创建团队”，或在 GitHub 上组织的成员权限中开启。",
+      "typeTeamRecommended": "推荐"
     },
     "autograder": {
       "heading": "自动评分测试",
@@ -1425,6 +1446,20 @@
           "label": "Python (pytest)",
           "hint": "运行一个 pytest 命令；分数会在评分时按发现的测试用例平均分配。"
         }
+      },
+      "runCommandHint": "在学生仓库的检出目录中运行。上传的测试文件位于 $CLASSROOM50_BUNDLE_DIR 下。",
+      "teacherFiles": {
+        "button": "上传测试文件",
+        "example": "在 wiki 中查看完整演练",
+        "howTo": "点击<strong>打开上传页面</strong>，放入你的文件并提交。它们会存放到 <code>{{path}}</code>；如有需要 GitHub 会自动创建文件夹。提交后需要几分钟完成发布。",
+        "note": "请勿上传名为 <code>autograder.py</code> 的文件：它会替换此页面上的测试。",
+        "openUpload": "打开上传页面",
+        "readableBody": "这些文件会发布到你所在组织的公开 GitHub Pages 站点上。请勿放入完整答案和私密数据，并使用<strong>向学生展示的失败详情</strong>来隐藏预期输出。",
+        "readableTitle": "学生无法更改这些文件，但可以读取它们",
+        "subtitle": "学生会得到模板中的每个文件。请把不能让他们看到的测试脚本和测试装置改放到 classroom50 仓库中。",
+        "title": "上传仅教师可见的测试文件",
+        "unsaved": "请先创建作业。测试文件放在以作业命名的文件夹中，因此该文件夹存在后此指引才会打开。",
+        "usage": "测试命令会在 <code>$CLASSROOM50_BUNDLE_DIR</code> 找到该文件夹。例如，一个调用已上传的 <code>check.sh</code> 的“运行命令”测试："
       }
     },
     "table": {
@@ -1489,7 +1524,10 @@
       "unlockConfirm": "解锁作业",
       "lockCancel": "取消",
       "lockSuccess": "已锁定 {{name}}。",
-      "unlockSuccess": "已解锁 {{name}}。"
+      "unlockSuccess": "已解锁 {{name}}。",
+      "acceptedVisibleTitle": "{{total}} 名学生中有 {{accepted}} 名拥有你可见的仓库。可能还有其他人也已接受：下次成绩收集时会授予你的团队访问权限。",
+      "groupLegacy": "小组（旧版）",
+      "groupsVisibleTitle": "你可见的小组仓库。可能还有更多：下次成绩收集时会授予你的团队访问权限。"
     },
     "manageModal": {
       "open": "管理作业",
@@ -1517,7 +1555,7 @@
       "typeAria": "按类型筛选",
       "typeAll": "所有类型",
       "typeIndividual": "个人",
-      "typeGroup": "小组",
+      "typeGroup": "小组（旧版）",
       "dueAria": "按截止日期筛选",
       "dueAll": "所有截止日期",
       "dueHas": "有截止日期",
@@ -1525,7 +1563,8 @@
       "dueOverdue": "已逾期",
       "clear": "清除",
       "noResultsTitle": "没有匹配的作业",
-      "noResultsBody": "没有作业与你的搜索或筛选条件匹配。请尝试调整。"
+      "noResultsBody": "没有作业与你的搜索或筛选条件匹配。请尝试调整。",
+      "typeTeam": "小组"
     },
     "template": {
       "label": "模板仓库",
@@ -1860,7 +1899,20 @@
       "validating": "正在验证……",
       "saveButton": "保存令牌",
       "saved": "服务令牌已保存。",
-      "savedNoMetadata": "服务令牌已保存，但无法记录其到期时间和名称——健康状态标签可能显示“到期时间未跟踪”，直到你再次保存。"
+      "savedNoMetadata": "服务令牌已保存，但无法记录其到期时间和名称——健康状态标签可能显示“到期时间未跟踪”，直到你再次保存。",
+      "test": {
+        "button": "测试令牌",
+        "failedLoading": "正在读取检查结果…",
+        "failedNext": "请创建一个具有所需权限的新令牌，然后使用“设置新令牌”将其保存。",
+        "failedNoDetails": "检查未报告缺少哪些权限。请打开运行以查看日志。",
+        "failedTitle": "该令牌缺少权限。",
+        "help": "在你的 classroom50 仓库中运行一项只读检查，测试该令牌所需的每项权限，包括在保存时无法验证的那些权限。",
+        "passed": "该令牌拥有 Classroom 50 所需的每项权限。",
+        "running": "正在测试…",
+        "startFailed": "无法启动令牌检查：{{reason}}",
+        "timeout": "检查耗时超出预期。请打开运行，待其完成后查看结果。",
+        "workflowMissing": "此组织的工作流文件尚未包含令牌检查。请<updateLink>更新工作流文件</updateLink>，然后再次测试。"
+      }
     },
     "audit": {
       "detail": {
@@ -2079,6 +2131,22 @@
         "why": "规则集会在组织创建的每个仓库上强制执行课程护栏（受保护分支、限制删除）。",
         "remediation": "打开组织的规则集页面进行查看，或重新运行设置以重新应用。规则集可能需要 GitHub Team 或 Enterprise。"
       }
+    },
+    "teamCreation": {
+      "applying": "正在更新…",
+      "description": "允许组织成员创建团队。由学生自行组建小组的小组作业需要此项：第一名学生在接受作业时创建小组的团队。",
+      "disabledToast": "已关闭成员团队创建。",
+      "enabledToast": "已开启成员团队创建。",
+      "loading": "正在检查状态…",
+      "offNotice": "学生无法创建团队，因此由学生自行组建小组的小组作业无法运作。此项关闭时，新建作业表单会禁用“小组”类型。",
+      "openSettings": "打开成员权限",
+      "statusOff": "关闭",
+      "statusOn": "开启",
+      "title": "成员团队创建",
+      "toggleFailed": "无法更新成员团队创建：{{message}}",
+      "toggleHint": "与 GitHub 上组织成员权限中的“允许成员创建团队”设置一致。",
+      "toggleLabel": "允许成员创建团队",
+      "unknownNotice": "无法从 GitHub 读取此设置。请改在成员权限页面上检查它。"
     }
   },
   "appUpdate": {
@@ -2246,7 +2314,8 @@
       "details": "详情",
       "descriptionModalTitle": "作业说明",
       "emptyTitle": "暂无作业仓库",
-      "emptyBody": "为此组织创建作业后，你有写入权限的仓库会显示在这里。"
+      "emptyBody": "为此组织创建作业后，你有写入权限的仓库会显示在这里。",
+      "groupLegacy": "小组（旧版）"
     },
     "student": {
       "emptyTitle": "暂无课堂",
@@ -2425,7 +2494,8 @@
       "repo": "正在创建你的仓库",
       "access": "正在设置你的仓库访问权限",
       "setup": "正在设置自动评分",
-      "feedback": "正在打开反馈拉取请求"
+      "feedback": "正在打开反馈拉取请求",
+      "team": "正在查找你的小组"
     },
     "stepDone": {
       "account": "已检查你的 GitHub 账户",
@@ -2442,7 +2512,8 @@
       "setupSkippedEmptyRepo": "无需设置：此作业使用空仓库",
       "feedback": "反馈拉取请求已就绪",
       "feedbackSkipped": "此作业没有反馈拉取请求",
-      "feedbackDeferred": "现在无法打开反馈拉取请求：请再次接受作业以重试（如果已启用自动评分，则会在你首次提交时打开）"
+      "feedbackDeferred": "现在无法打开反馈拉取请求：请再次接受作业以重试（如果已启用自动评分，则会在你首次提交时打开）",
+      "team": "已找到小组"
     },
     "stepActions": {
       "account": "无法读取你的 GitHub 账户。请退出登录后重新登录，然后再次接受作业。",
@@ -2451,7 +2522,8 @@
       "autograder": "无法解析“{{assignmentSlug}}”的自动评分器。请让你的老师确认它已发布，然后再次接受作业。",
       "repo": "无法创建 {{org}}/{{repo}}。请确认你是 {{org}} 的成员，并让你的老师核实该作业的模板仓库配置是否正确，然后再次接受作业。",
       "access": "已创建你的仓库 {{org}}/{{repo}}，但设置你（{{username}}）在该仓库上的访问权限失败。这通常意味着你的 GitHub 用户名已更改，或你已退出 {{org}}。请确认你是 {{org}} 的成员，然后使用“重新运行安装”。",
-      "setup": "你的仓库 {{org}}/{{repo}} 已存在，但将设置文件写入分支“{{branch}}”失败了。它可能仍在初始化中。请等待一分钟，然后使用“重新运行设置”。"
+      "setup": "你的仓库 {{org}}/{{repo}} 已存在，但将设置文件写入分支“{{branch}}”失败了。它可能仍在初始化中。请等待一分钟，然后使用“重新运行设置”。",
+      "team": "请确认你已加入此作业的某个小组，然后重试。"
     },
     "stepErrors": {
       "rateLimited": "{{label}} 触发了 GitHub 的速率限制。请等待一分钟，然后再次尝试接受作业。",
@@ -2463,7 +2535,10 @@
       "emptyRepoWithTemplate": "作业“{{assignmentSlug}}”同时设置了空仓库和模板，这是无效的。请让你的老师重新运行作业设置。",
       "noAutograderWithEmptyRepo": "作业“{{assignmentSlug}}”同时设置为不使用内置自动评分器和空仓库，这是无效的。请让老师重新运行作业设置。",
       "initShimInvalidCombo": "作业“{{assignmentSlug}}”将“在空仓库上使用内置自动评分器”的设置与模板、空仓库或“不使用内置自动评分器”组合在一起，这是无效的。请让老师重新运行作业设置。",
-      "incoherentMode": "作业“{{slug}}”的小组人数为 {{maxGroupSize}}，但被设置为“{{mode}}”，因此其发布的设置不一致。请让你的老师重新运行作业设置。"
+      "incoherentMode": "作业“{{slug}}”的小组人数为 {{maxGroupSize}}，但被设置为“{{mode}}”，因此其发布的设置不一致。请让你的老师重新运行作业设置。",
+      "teamRequired": "你还没有加入此作业的任何小组。请创建一个小组，或请组员将你添加进来，然后重试。",
+      "teamSelfCreated": "此作业由你的老师分配小组，而小组 {{n}} 不是你的老师创建的。请让你的老师把你加入他们分配的小组之一，然后重新打开此链接。",
+      "teamTeacherAssigns": "你还没有加入此作业的任何小组。此作业由你的老师分配小组。请让你的老师把你加入某个小组，然后重新打开此链接。"
     },
     "progress": {
       "error": "设置失败——请查看各步骤",
@@ -2476,6 +2551,36 @@
       "havingTrouble": "遇到问题？",
       "hint": "自动评分未运行，或设置文件缺失？重新运行设置以修复你的仓库。",
       "rerun": "重新运行设置"
+    },
+    "acceptHeadingTeam": "接受此作业以获取你所在小组的初始代码仓库副本。",
+    "alreadyAcceptedHeadingTeam": "你所在的小组已经接受了此作业。",
+    "createGroup": {
+      "body": "这是一个小组作业，最多可容纳 {{max}} 人。创建一个小组即可开始：你将成为它的第一名成员，接受作业后可以添加组员。",
+      "bodyNoMax": "这是一个小组作业。创建一个小组即可开始：你将成为它的第一名成员，接受作业后可以添加组员。",
+      "createButton": "创建小组",
+      "createForbidden": "你所在的组织不允许成员创建团队，因此 Classroom 50 无法为你创建小组。请让你的老师为你创建小组。",
+      "nameHelp": "会向你的老师和组员显示。留空则使用小组编号。",
+      "nameLabel": "小组名称（可选）",
+      "namePlaceholder": "The Segfaults"
+    },
+    "joinGroup": {
+      "full": "已满",
+      "help": "申请加入会在 GitHub 上打开该小组的页面。在那里选择“Request to join”；小组在该页面审核申请，你也可以在那里取消自己的申请。加入成功后，回到这里。",
+      "memberCountOfMax_one": "{{count}}/{{max}}",
+      "memberCountOfMax_other": "{{count}}/{{max}}",
+      "memberCount_one": "{{count}} 名成员",
+      "memberCount_other": "{{count}} 名成员",
+      "or": "或",
+      "recheck": "重新检查",
+      "request": "申请加入",
+      "title": "加入小组"
+    },
+    "manageGroupButton": "管理我的小组",
+    "modeTeam": "小组作业",
+    "teamBlocked": {
+      "badge": "等待你的小组",
+      "body": "此作业由你的老师分配小组。请让你的老师把你加入某个小组，然后重新打开此链接。",
+      "title": "你还没有加入任何小组"
     }
   },
   "submissions": {
@@ -2519,7 +2624,8 @@
     "funnel": {
       "submittedTitle": "共 {{total}} 名学生中已有 {{submitted}} 名提交",
       "submittedTitleGroup": "共 {{accepted}} 个小组中已有 {{submitted}} 个提交",
-      "showNotSubmitted": "显示尚未提交的学生"
+      "showNotSubmitted": "显示尚未提交的学生",
+      "checkingAccepted": "正在检查谁已接受…"
     },
     "downloadCsv": "下载分数（CSV）",
     "viewSourceRepo": "查看模板",
@@ -2543,7 +2649,10 @@
       "neverCollected": "尚未收集提交数据",
       "stale": "已过期",
       "staleHelp": "自上次收集以来有新的推送。立即收集以对最新的作业进行评分。",
-      "collectHelp": "立即收集以对最新的推送进行评分。"
+      "collectHelp": "立即收集以对最新的推送进行评分。",
+      "collectRestricted": "只有老师和首席助教可以收集成绩。请让其中一人运行一次收集，以为最新的推送评分。",
+      "refreshHelp": "重新读取最新收集的提交数据和实时仓库状态。",
+      "refreshLabel": "刷新"
     },
     "live": {
       "incomplete_one": "有 {{count}} 个仓库无法读取，因此实时提交状态可能不完整。请重试，或运行“立即收集”。",
@@ -2577,9 +2686,6 @@
       "title": "立即收集提交",
       "titleEmptyRoster": "收集前请先向名册添加学生",
       "titleRegrading": "请等待重新评分完成后再收集",
-      "statusDispatching": "正在开始收集……",
-      "statusRunning": "收集进行中。收集完成后本页面将自动刷新。",
-      "statusCompleted": "收集已完成。下方的提交为最新内容。",
       "statusFailed": "本次收集运行未能成功完成。",
       "statusFailedWithReason": "无法开始收集：{{reason}}",
       "statusFailedHint": "你可以在 GitHub 上手动检查或触发它。",
@@ -2593,8 +2699,6 @@
       "titleEmptyRoster": "重新评分前请先向名册添加学生",
       "titleCollecting": "请等待收集完成后再重新评分",
       "titleRegrading": "已有重新评分正在进行",
-      "statusDispatching": "正在开始重新评分……",
-      "statusRunning": "重新评分进行中。正在对每个已提交的仓库重新运行自动评分器；在此期间收集将暂停。",
       "statusCompleted": "重新评分已开始。每个仓库正在后台重新评分。几分钟后使用<collectLabel>{{collectLabel}}</collectLabel>来拉取新分数。",
       "statusFailed": "本次重新评分未能成功开始。",
       "statusFailedWithReason": "无法开始重新评分：{{reason}}",
@@ -2656,7 +2760,8 @@
       "sortOldest": "最早在前",
       "sortNameFirst": "按名字",
       "sortNameLast": "按姓氏",
-      "pendingHiddenHint": "刚提交但尚未收集的作业可能不会出现在此排序或筛选下。切换到按姓名排序，或运行“立即收集”，即可看到它。"
+      "pendingHiddenHint": "刚提交但尚未收集的作业可能不会出现在此排序或筛选下。切换到按姓名排序，或运行“立即收集”，即可看到它。",
+      "repoNotVisible": "不可见"
     },
     "table": {
       "captionGroup": "小组提交",
@@ -2688,7 +2793,6 @@
       "liveLatestTitle": "在上次收集之后推送了更新的提交，因此它尚未评分。运行“立即收集”以对其进行评分和记分。",
       "notCollectedYet": "尚未收集",
       "notCollectedYetTitle": "此学生推送了尚未被收集的作业，因此没有记录的提交时间。运行“立即收集”以收集它。",
-      "members": "成员",
       "openRepoLabel": "打开仓库 {{repo}}",
       "viewRepo": "查看仓库",
       "openFeedbackPrLabel": "打开 {{repo}} 的反馈拉取请求",
@@ -2714,7 +2818,19 @@
       "noGroup": "不在任何计分小组中",
       "noGroupTitle": "此学生未被记入任何小组的仓库。小组成员在收集时读取自各仓库的协作者，因此从未加入小组的学生——或上次收集时无法读取其小组成员的学生——会显示在此处。评分前请打开小组仓库确认。",
       "review": "评审",
-      "reviewAria": "打开反馈拉取请求"
+      "reviewAria": "打开反馈拉取请求",
+      "colMembers": "成员",
+      "manageMembersLabel": "查看和管理 {{name}} 的成员",
+      "noTeam": "未加入小组",
+      "noTeamTitle": "此学生不是此作业任何小组团队的成员。请在作业设置页面将其加入某个小组。",
+      "openGroupTeam": "在 GitHub 上打开小组的团队",
+      "recoverTeamLabel": "重新创建 {{name}} 的小组团队",
+      "repoNotVisible": "不可见",
+      "repoNotVisibleTitle": "你看不到此学生的仓库。可能是他们尚未接受作业，或你的团队尚未获得对它的访问权限。访问权限会在下次成绩收集时授予。",
+      "teamMissing": "小组团队缺失",
+      "teamMissingTitle": "此小组背后的 GitHub 团队已不存在。它很可能已被删除，因此在重新创建之前，评分无法记入其成员的成绩。",
+      "teamNoRepo": "还没有仓库",
+      "teamNoRepoTitle": "当小组成员接受作业时会创建小组的仓库。请分享作业链接，以便某位成员接受。"
     },
     "scoreOverride": {
       "notGraded": "未评分",
@@ -3078,7 +3194,8 @@
       "detailsDescription": "在 GitHub 上打开自动评分结果",
       "regradeDescription": "在最新提交上重新运行自动评分器",
       "downloadDescription": "将提交保存为 zip 压缩包",
-      "membersDescription": "查看并管理小组的成员"
+      "membersDescription": "查看并管理小组的成员",
+      "manageGroup": "管理小组"
     },
     "publicRepo": {
       "badge": "公开",
@@ -3137,8 +3254,15 @@
         "reservedPath": "已跳过“{{path}}”：该路径由 Classroom 50 管理，无法上传。"
       },
       "fallbackTitle": "提交",
-      "missingParams": "此链接缺少班级或作业信息。请向你的老师索取一个新链接。"
-    }
+      "missingParams": "此链接缺少班级或作业信息。请向你的老师索取一个新链接。",
+      "colYourRepoTeam": "小组仓库",
+      "detailsTitleTeam": "你所在小组的提交",
+      "loadErrorTeam": "无法加载你所在小组的提交。请刷新后重试。",
+      "modeTeam": "小组",
+      "notAcceptedTeam": "你还没有加入已接受此作业的小组。请<acceptLink>接受作业</acceptLink>以获取你所在小组的仓库，然后推送你的工作以进行评分。",
+      "tableCaptionTeam": "你所在小组对此作业的提交"
+    },
+    "rosterFromCsvNotice": "学生列表来自名册文件上次同步时的状态，因为你的角色无法查看班级的 GitHub 团队。此后注册的学生会在老师打开名册后出现。组织所有者可看到实时成员情况。"
   },
   "orgActivity": {
     "heading": "活动",
@@ -3519,9 +3643,168 @@
         "slugLabel": "{{classroom}} 中的 slug（用于仓库名称的短名称）",
         "uniqueHint": "在此课堂中必须唯一。"
       }
+    },
+    "groupTeamMembers": {
+      "add": "添加",
+      "addAriaLabel": "通过 GitHub 用户名添加组员",
+      "addPlaceholder": "GitHub 用户名",
+      "groupFull": "小组已满（最多 {{max}} 名成员）。请移除一人后再添加其他人。",
+      "leave": "退出小组",
+      "leaveBody": "你将失去对小组仓库的访问权限，你的工作会保留在小组中。重新加入需要额外步骤：你必须在 GitHub 上再次申请加入，并等待小组或你的老师批准。",
+      "leaveConfirm": "退出小组",
+      "leaveTitle": "退出 {{name}}？",
+      "loadFailed": "无法加载小组成员。请刷新后重试。",
+      "loading": "正在加载小组成员…",
+      "maintainerBadge": "维护者",
+      "maintainerCannotLeave": "你是此小组的维护者，因此无法退出。请让你的老师将你转移出去。",
+      "memberCountOfMax_one": "{{max}} 名成员中的 {{count}} 名",
+      "memberCountOfMax_other": "{{max}} 名成员中的 {{count}} 名",
+      "memberCount_one": "{{count}} 名成员",
+      "memberCount_other": "{{count}} 名成员",
+      "noMembers": "还没有成员",
+      "removeUser": "将 {{username}} 移出小组",
+      "reviewJoinRequests": "在 GitHub 上审核加入申请",
+      "title": "小组成员",
+      "youBadge": "你"
     }
   },
   "formatDate": {
     "invalidDate": "无效日期"
+  },
+  "groupTeams": {
+    "defaultName": "小组 {{n}}",
+    "errors": {
+      "counterExhausted": "尝试 {{attempts}} 次后仍未找到可用的小组编号。请稍后重试。",
+      "groupFull": "此小组已满（最多 {{max}} 名成员）。请移除一名成员后再添加其他人。",
+      "idMismatch": "团队 {{slug}} 并非此作业创建的团队，因此未被删除。如果你确定，请在 GitHub 上将其移除。",
+      "leaveForbidden": "GitHub 阻止了退出小组。该团队的成员资格可能由你的学校管理。请让你的老师将你移除，或在该团队的 GitHub 页面上退出。",
+      "maintainerCannotLeave": "你是此小组的维护者，因此无法退出。请让你的老师将你转移出去。",
+      "notAGroupTeam": "{{slug}} 不是 Classroom 50 创建的小组团队，因此未被更改。",
+      "notOnRoster": "{{username}} 不在班级名册上。请先将其添加到名册，然后再加入小组。",
+      "recordMismatch": "团队 {{slug}} 未携带此作业的小组记录，因此未被删除。如果你确定，请在 GitHub 上将其移除。",
+      "recreateNameTaken": "团队 {{slug}} 已再次存在，因此未重新创建任何内容。请刷新页面以加载当前的小组。"
+    }
+  },
+  "manageGroups": {
+    "addMemberAriaLabel": "向 {{name}} 添加学生",
+    "addMemberButton": "添加",
+    "addMemberPlaceholder": "选择一名学生",
+    "archivedNotice": "此班级已归档，因此其小组为只读。请在<settingsLink>班级设置</settingsLink>中取消归档以管理小组。",
+    "copy": {
+      "addMemberAriaLabel": "向 {{name}} 添加学生",
+      "button": "复制小组",
+      "createFailed": "已创建 {{total}} 个小组中的 {{created}} 个，随后创建 {{name}} 失败：{{error}} 未创建的小组仍保留在方案中。请修复问题后再次保存。",
+      "dropGroupAriaLabel": "从方案中移除 {{name}}",
+      "dropGroupButton": "移除小组",
+      "emptyPlan": "没有可创建的小组了。请选择其他作业或关闭此对话框。",
+      "existingNote_one": "此作业已有 {{count}} 个小组。复制的小组将并列添加，编号继续沿用。",
+      "existingNote_other": "此作业已有 {{count}} 个小组。复制的小组将并列添加，编号继续沿用。",
+      "loadingGroups": "正在加载小组…",
+      "memberWarningItem": "{{name}}：{{username}}（{{error}}）",
+      "memberWarningsIntro": "有些成员无法添加到已创建的小组中。请从每个小组的“管理”对话框中添加他们：",
+      "noSources": "没有其他小组作业",
+      "noSourcesBody": "小组可以从此班级中的另一个小组作业复制。此班级尚无此类作业。",
+      "numberingNote": "此处显示的小组编号只是占位符。真实编号会在小组创建时分配。",
+      "overCapacity": "此小组有 {{members}} 名成员，但此作业最多允许 {{max}} 名。请在保存前移除成员。",
+      "planHeading": "计划中的小组",
+      "progress": "正在创建第 {{current}} 个小组，共 {{total}} 个…",
+      "removeMemberAriaLabel": "从此计划小组中移除 {{username}}",
+      "saveButtonEmpty": "创建小组",
+      "saveButton_one": "创建 {{count}} 个小组",
+      "saveButton_other": "创建 {{count}} 个小组",
+      "sourceEmpty": "所选作业没有可复制的小组。",
+      "sourceHint": "每个小组的名称和成员都会复制到一个可在下方编辑的方案中。在你保存之前不会创建任何内容。",
+      "sourceLabel": "来源作业",
+      "sourcePlaceholder": "选择一个作业",
+      "takenMembers": "以下成员已在此作业的某个小组中：{{logins}}。请在保存前将他们移除。",
+      "title": "从另一个作业复制小组"
+    },
+    "createButton": "创建小组",
+    "createNameHint": "可选。会在此页面及向小组成员显示。留空则使用带编号的名称。",
+    "createNameLabel": "小组名称",
+    "createTitle": "创建小组",
+    "deleteBody": "这将删除 {{name}} 的 GitHub 团队。成员将失去该团队授予的访问权限。小组的仓库不会被删除。",
+    "deleteConfirm": "删除小组",
+    "deleteTitle": "删除小组",
+    "driftBadge": "自上次刷新以来成员已发生变化",
+    "emptyStudent": "学生创建小组后会显示在这里。",
+    "emptyTeacher": "先创建第一个小组，然后从名册中添加学生。",
+    "emptyTitle": "还没有小组",
+    "errors": {
+      "createForbidden": "GitHub 阻止了创建团队。此组织将团队创建限制为仅所有者可用。请让所有者允许成员创建团队，或由所有者创建小组。",
+      "membershipForbidden": "GitHub 阻止了成员资格的更改。此团队的成员资格可能由你的身份提供商管理。请在那里更新成员资格，或询问组织所有者。"
+    },
+    "groupFull": "小组已满（最多 {{max}} 名成员）。",
+    "heading": "小组",
+    "loading": "正在加载小组…",
+    "manage": {
+      "dangerBody": "删除此小组会移除其 GitHub 团队及该团队授予的访问权限。小组的仓库不会被删除。",
+      "dangerHeading": "危险区域",
+      "membersError": "有些成员资格更改无法保存：{{error}} 未保存的更改仍列在这里。请再次保存以重试。",
+      "membersHeading": "成员",
+      "pendingNote": "计数包含未保存的更改。",
+      "saveMembers": "保存更改",
+      "title": "管理 {{name}}",
+      "undo": "撤销",
+      "willBeAdded": "将被添加",
+      "willBeRemoved": "将被移除"
+    },
+    "manageAriaLabel": "管理 {{name}}",
+    "manageButton": "管理",
+    "memberCountOfMax_one": "{{max}} 名成员中的 {{count}} 名",
+    "memberCountOfMax_other": "{{max}} 名成员中的 {{count}} 名",
+    "memberCount_one": "{{count}} 名成员",
+    "memberCount_other": "{{count}} 名成员",
+    "missingParams": "此链接缺少所属的组织、班级或作业。请检查地址后重试。",
+    "noMembers": "还没有成员",
+    "notTeamMode": "此作业不使用小组，因此这里没有可管理的内容。请在<settingsLink>作业设置</settingsLink>中查看其设置。",
+    "recover": {
+      "applying": "正在重新创建小组…",
+      "intro": "此小组的 GitHub 团队已不存在，但其仓库仍然存在。在重新创建团队之前，评分无法记入小组成员的成绩。请选择成员，然后重新创建小组。",
+      "maintainerHint": "可选。维护者可以在 GitHub 上管理小组成员，例如创建该小组的学生。",
+      "maintainerLabel": "团队维护者",
+      "maintainerNone": "无维护者",
+      "noSuggestions": "在仓库的提交历史中未找到名册中的学生。请从下方名册中添加成员。",
+      "overCapacity": "此小组已选择 {{members}} 名成员，但此作业最多允许 {{max}} 名。请在重新创建前移除成员。",
+      "submitButton": "重新创建小组",
+      "suggestedHint": "在仓库提交历史中找到的成员已预先勾选。请取消勾选不应在小组中的任何人，或从名册中添加更多人。",
+      "suggestionsLoading": "正在提交历史中查找成员…",
+      "title": "重新创建 {{name}}",
+      "warnAddMember": "无法添加 {{username}}：{{error}} 请从小组的“管理”对话框中添加他们。",
+      "warnAttachRepo": "无法将仓库关联到新团队：{{error}} 请在 GitHub 的仓库设置中授予该团队推送权限。",
+      "warnNotifications": "无法为该团队重新启用通知：{{error}} 请在团队的 GitHub 页面上将其打开。",
+      "warnTeacherDrop": "你已被添加到新团队但无法被移除：{{error}} 请在其 GitHub 页面上退出该团队。",
+      "warningsIntro": "小组已重新创建，但有些步骤未完成："
+    },
+    "refreshSnapshot": "刷新小组信息",
+    "removeAriaLabel": "将 {{username}} 移出小组",
+    "rename": {
+      "help": "会在此页面及向小组成员显示。仓库名称不会更改。",
+      "saveButton": "保存名称"
+    },
+    "repo": {
+      "createdBadge": "仓库已创建",
+      "noRepoBadge": "还没有仓库",
+      "noRepoHelp": "当小组成员接受作业时会创建仓库。"
+    },
+    "studentFormationHint": "学生在接受作业时自行组建小组。如有需要你可以调整成员。",
+    "teacherFormationHint": "此作业由你分配小组。未加入小组的学生无法接受作业。",
+    "title": "管理小组",
+    "unassigned": {
+      "addAriaLabel": "将 {{name}} 添加到所选小组",
+      "addButton": "添加",
+      "empty": "名册中的每个人都已加入某个小组。",
+      "groupPlaceholder": "选择一个小组",
+      "heading": "未分配的学生",
+      "hint": "名册中尚未加入小组的学生。请选择一个还有空位的小组，然后将他们添加进去。",
+      "loading": "正在加载学生…",
+      "selectAriaLabel": "为 {{name}} 选择小组"
+    },
+    "visibility": {
+      "help": "可见的小组可以被同学浏览，并在 GitHub 上接收加入申请。隐藏的小组仅对其成员和组织所有者可见。",
+      "hidden": "隐藏",
+      "label": "可见性",
+      "visible": "可见"
+    }
   }
 }
