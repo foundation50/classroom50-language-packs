@@ -865,7 +865,8 @@
     "invited": "已邀请 {{who}} 加入 {{org}} 组织。",
     "staffAdded": "已将 @{{username}} 添加为{{role}}。",
     "classroomCreateFailed": "无法创建课堂：{{message}}",
-    "classroomSaveFailed": "无法保存课堂设置：{{message}}"
+    "classroomSaveFailed": "无法保存课堂设置：{{message}}",
+    "assignmentCreatedLocked": "作业已创建并锁定。在你通过其设置或操作菜单解锁之前，学生无法看到或接受该作业。"
   },
   "orgs": {
     "headingCl50": "Classroom 50 组织",
@@ -1124,7 +1125,7 @@
       "repositorySetupSection": "仓库设置",
       "submissionSection": "提交与评分",
       "submissionSectionHelp": "定义此作业的提交内容：自动评分器何时运行，以及学生可推送哪些标签来提交。",
-      "scheduleSection": "排期",
+      "scheduleSection": "日程与访问",
       "reset": "重置",
       "resetSection": "将此部分重置为默认设置",
       "discardChanges": "放弃更改",
@@ -1379,7 +1380,9 @@
       "teamFormationTeacherHelp": "你在作业设置页面创建小组并添加学生。未加入小组的学生无法接受作业。",
       "typeTeam": "小组",
       "typeTeamDisabledHelp": "小组作业需要组织成员能够创建团队：第一名学生在接受作业时创建小组的团队。请在组织设置页面的“成员团队创建”部分中开启“允许成员创建团队”，或在 GitHub 上组织的成员权限中开启。",
-      "typeTeamRecommended": "推荐"
+      "typeTeamRecommended": "推荐",
+      "lockAssignment": "锁定作业",
+      "lockAssignmentTip": "学生无法看到或接受被锁定的作业，包括已经接受的学生。如果使用了组织内的私有模板，在你解锁前，班级团队会失去对该模板的读取权限。教职人员的权限和已有的学生仓库不受影响。可用于筹备限时评估，待考试开始时再解锁。"
     },
     "autograder": {
       "heading": "自动评分测试",
@@ -1459,7 +1462,8 @@
         "subtitle": "学生会得到模板中的每个文件。请把不能让他们看到的测试脚本和测试装置改放到 classroom50 仓库中。",
         "title": "上传仅教师可见的测试文件",
         "unsaved": "请先创建作业。测试文件放在以作业命名的文件夹中，因此该文件夹存在后此指引才会打开。",
-        "usage": "测试命令会在 <code>$CLASSROOM50_BUNDLE_DIR</code> 找到该文件夹。例如，一个调用已上传的 <code>check.sh</code> 的“运行命令”测试："
+        "usage": "测试命令会在 <code>$CLASSROOM50_BUNDLE_DIR</code> 找到该文件夹。例如，一个调用已上传的 <code>check.sh</code> 的“运行命令”测试：",
+        "copyCommand": "复制运行命令"
       }
     },
     "table": {
@@ -1842,12 +1846,23 @@
     "collaboratorsHint_one": "为此作业仓库添加或移除协作者。除组长外，此作业最多允许 <count>{{count}}</count> 名学生。",
     "collaboratorsHint_other": "为此作业仓库添加或移除协作者。除组长外，此作业最多允许 <count>{{count}}</count> 名学生。",
     "manageCollaborators": "管理协作者",
-    "provisioningConfirm": {
-      "title": "在学生接受后更改配置设置？",
-      "body_one": "已有 {{count}} 名学生接受了此作业。此更改仅影响从现在起接受的仓库；现有的 {{count}} 个仓库将保留其原始的初始代码和设置。如果关闭自动评分，这些仓库的自动评分运行将开始失败，并从收集的分数中被剔除；如果更改评分模式，以旧模式记录的分数读取时可能会有所不同。任何不一致之处需要你自行解决。",
-      "body_other": "已有 {{count}} 名学生接受了此作业。此更改仅影响从现在起接受的仓库；现有的 {{count}} 个仓库将保留其原始的初始代码和设置。如果关闭自动评分，这些仓库的自动评分运行将开始失败，并从收集的分数中被剔除；如果更改评分模式，以旧模式记录的分数读取时可能会有所不同。任何不一致之处需要你自行解决。",
-      "confirm": "仍然保存更改",
-      "cancel": "取消"
+    "editConfirm": {
+      "access": {
+        "lock": "锁定作业：学生将无法看到或接受该作业，包括已经接受的学生。如果使用了组织内的私有模板，班级团队会失去对该模板的读取权限。已有的学生仓库将保留。",
+        "unlock": "解锁作业：学生可以重新看到并接受它。如果使用了组织内的私有模板，班级团队会重新获得对该模板的读取权限。"
+      },
+      "cancel": "取消",
+      "confirm": "保存更改",
+      "provisioning": {
+        "autograder": "内置自动评分器：关闭后，已有仓库的自动评分运行将会失败，并从已收集的成绩中被剔除。",
+        "grading_mode": "评分模式：以旧模式记录的成绩显示方式可能有所不同。",
+        "repo_source": "仓库来源：已有仓库将保留其原始的初始内容。",
+        "repo_visibility": "仓库可见性：在提交页面上修改已有仓库。",
+        "student_permission": "学生仓库权限：在提交页面上修改已有仓库。"
+      },
+      "provisioningIntro_one": "已有 {{count}} 名学生接受了作业。这些更改仅适用于此后接受的仓库；现有仓库将保持其当前设置：",
+      "provisioningIntro_other": "已有 {{count}} 名学生接受了作业。这些更改仅适用于此后接受的仓库；现有的 {{count}} 个仓库将保持其当前设置：",
+      "title": "保存前请检查更改"
     }
   },
   "serviceTokenHealth": {
@@ -1912,6 +1927,19 @@
         "startFailed": "无法启动令牌检查：{{reason}}",
         "timeout": "检查耗时超出预期。请打开运行，待其完成后查看结果。",
         "workflowMissing": "此组织的工作流文件尚未包含令牌检查。请<updateLink>更新工作流文件</updateLink>，然后再次测试。"
+      },
+      "validate": {
+        "configRepoMissing": "在 {{org}} 中找不到 {{repo}} 仓库。请检查组织是否正确，以及是否已为其运行过初始化设置。这不一定是令牌的问题。",
+        "empty": "保存前请输入令牌。",
+        "invalid": "此令牌无效、已过期或已被吊销。请创建一个新的细粒度令牌后重试。",
+        "noAccess": "此令牌无法访问 {{org}}/{{repo}}。{{hint}}",
+        "noAdmin": "此令牌可以读写 {{org}}/{{repo}}，但无法进行管理。收集成绩时会向教职团队（例如助教）授予对学生仓库的读取权限，这需要将 Administration 设置为 Read and write。{{hint}}",
+        "noMembersRead": "此令牌可以读取 {{org}}/{{repo}}，但无法读取组织成员。收集成绩时会列出班级团队，这需要在 Organization permissions 下将 Members 设置为 Read。{{hint}}",
+        "readOnly": "此令牌可以读取 {{org}}/{{repo}}，但无法写入。收集成绩需要读取权限，重新评分需要写入权限。{{hint}}",
+        "scopeHint": "请创建一个细粒度个人访问令牌，将 Resource owner 设置为 {{org}}，并将 Repository access 设置为 All repositories。在 Repository permissions 下，将 Contents、Actions 和 Administration 设置为 Read and write：收集成绩会读取学生仓库并向教职团队授予对它们的访问权限，重新评分会重新运行自动评分工作流，并可能推送提交标签。在 Organization permissions 下，将 Members 设置为 Read：收集时会列出班级团队，这一点没有任何仓库权限可以覆盖。如果你的组织要求令牌审批，而你不是所有者，则必须先由所有者批准该令牌。",
+        "selectedRepos": "此令牌可以读取 {{org}}/{{repo}}，但无法读取 {{org}}/{{probe}}，说明其 Repository access 仅限于选定的仓库，或其 Resource owner 不是 {{org}}。收集成绩会读取每个学生仓库并向教职团队授予对它们的访问权限。请重新创建令牌，将 Resource owner 设置为 {{org}}，并将 Repository access 设置为 All repositories，同时保持相同的权限。",
+        "unreachable": "无法连接 GitHub 以验证令牌。请检查你的网络连接后重试。（{{reason}}）",
+        "unverified": "无法针对 {{org}}/{{repo}} 验证令牌：{{reason}}"
       }
     },
     "audit": {
@@ -2652,7 +2680,8 @@
       "collectHelp": "立即收集以对最新的推送进行评分。",
       "collectRestricted": "只有老师和首席助教可以收集成绩。请让其中一人运行一次收集，以为最新的推送评分。",
       "refreshHelp": "重新读取最新收集的提交数据和实时仓库状态。",
-      "refreshLabel": "刷新"
+      "refreshLabel": "刷新",
+      "refreshing": "正在刷新……"
     },
     "live": {
       "incomplete_one": "有 {{count}} 个仓库无法读取，因此实时提交状态可能不完整。请重试，或运行“立即收集”。",
