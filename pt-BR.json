@@ -324,7 +324,8 @@
       "removeRowsSelected_other": "Remover {{count}} linhas não vinculadas da lista de participantes",
       "removeRowsTitle": "Remover linhas não vinculadas da lista de participantes",
       "removedRowsHeadline_one": "{{count}} linha não vinculada removida.",
-      "removedRowsHeadline_other": "{{count}} linhas não vinculadas removidas."
+      "removedRowsHeadline_other": "{{count}} linhas não vinculadas removidas.",
+      "confirmUnenrollWarning": "Rematricular significa adicionar cada aluno à lista novamente. Os repositórios de atividades deles não são excluídos."
     },
     "classroomTeamLabel": "Equipe da turma",
     "confirmResendBody": "Reenviar o convite pendente da organização para {{label}}? O convite atual dele(a) é cancelado e um novo é enviado para {{org}}.",
@@ -989,7 +990,7 @@
         "templateContentWarning": "Herdar um modelo privado também copia o conteúdo do seu Wiki, Issues e Projects, portanto mantenha os gabaritos fora de um modelo do qual você herda."
       },
       "setAvailableFrom": "Definir uma data de liberação",
-      "setAvailableFromTip": "As atividades ficam ocultas da página de atividades do estudante por padrão, então os estudantes só podem aceitar pelo link de convite. Defina uma data de liberação para listá-la a todos assim que a data passar. Estudantes que já aceitaram sempre a veem. Isso controla apenas a listagem, não o acesso.",
+      "setAvailableFromTip": "As atividades ficam ocultas na página de atividades do aluno por padrão, então os alunos só podem aceitá-las pelo link de convite. Defina uma data de liberação para listá-la para todos assim que a data passar. Alunos que já aceitaram sempre a veem. A data de liberação controla apenas a listagem, não o acesso: um modelo privado na sua organização continua legível para a equipe da turma. Para ocultar um modelo até a liberação, bloqueie a atividade.",
       "setupTimeout": "Tempo limite da configuração (segundos)",
       "setupTimeoutTip": "Novos comandos de configuração começam com {{default}} segundos. Defina 0 para usar o padrão de 10 segundos do runner, ou escolha um número inteiro de 1 a {{max}}.",
       "studentPermission": {
@@ -1111,7 +1112,10 @@
       "teamFormationTeacherHelp": "Você cria os grupos e adiciona alunos na página de configurações da tarefa. Alunos que não estão em um grupo não podem aceitar.",
       "typeTeam": "Grupo",
       "typeTeamDisabledHelp": "Tarefas em grupo exigem que os membros da organização possam criar equipes: o primeiro aluno cria a equipe do grupo ao aceitar. Ative \"Permitir que membros criem equipes\" na seção Criação de equipes por membros da página de configurações da organização, ou nos privilégios de membro da organização no GitHub.",
-      "typeTeamRecommended": "Recomendado"
+      "typeTeamRecommended": "Recomendado",
+      "releaseLockedReminder": "Bloqueado. A data de liberação não desbloqueia a atividade: desative Bloquear atividade na data de liberação para que os alunos possam aceitá-la.",
+      "releaseTemplateReadableBody": "A data de liberação controla apenas a listagem. Ao salvar, a equipe da turma recebe acesso de leitura a este modelo privado imediatamente. Para manter o modelo oculto, bloqueie a atividade agora e desbloqueie-a na data de liberação.",
+      "releaseTemplateReadableTitle": "Os alunos podem ler este modelo antes da data de liberação"
     },
     "autograder": {
       "heading": "Testes de correção automática",
@@ -1267,7 +1271,8 @@
       "hiddenStaffReposTitle_other": "Nenhum estudante inscrito ainda. {{count}} repositórios da equipe docente não são contabilizados. Para contabilizá-los, ative Incluir equipe docente.",
       "noStudentsYet": "Nenhum estudante ainda",
       "noStudentsYetTitle": "Nenhum estudante inscrito ainda, então não há nada para contabilizar. Adicione estudantes na página de Turma.",
-      "submittedTitleWithStaff": "{{submitted}} de {{total}} estudantes e membros da equipe docente enviaram"
+      "submittedTitleWithStaff": "{{submitted}} de {{total}} estudantes e membros da equipe docente enviaram",
+      "deleteWarning": "Os alunos perdem o acesso à página da atividade, e seu prazo, modelo e configurações de correção são removidos."
     },
     "template": {
       "label": "Repositório de template",
@@ -1784,7 +1789,8 @@
       "rateLimitedPartial_other": "O GitHub limitou a taxa das exclusões após {{count}} já terem sido excluídos, e essas exclusões são permanentes. Aguarde um momento e execute a desmontagem novamente para concluir.",
       "ssoRequired": "O GitHub recusou a exclusão dos repositórios (403). Esta organização exige logon único SAML. Autorize sua sessão para esta organização no GitHub e execute a desmontagem novamente.",
       "ssoRequiredPartial_one": "O GitHub recusou a exclusão dos repositórios (403) após {{count}} já ter sido excluído, e essa exclusão é permanente. Esta organização exige logon único SAML. Autorize sua sessão para ela no GitHub e execute a desmontagem novamente para concluir.",
-      "ssoRequiredPartial_other": "O GitHub recusou a exclusão dos repositórios (403) após {{count}} já terem sido excluídos, e essas exclusões são permanentes. Esta organização exige logon único SAML. Autorize sua sessão para ela no GitHub e execute a desmontagem novamente para concluir."
+      "ssoRequiredPartial_other": "O GitHub recusou a exclusão dos repositórios (403) após {{count}} já terem sido excluídos, e essas exclusões são permanentes. Esta organização exige logon único SAML. Autorize sua sessão para ela no GitHub e execute a desmontagem novamente para concluir.",
+      "confirmWarning": "Os alunos perdem qualquer trabalho que ainda não esteja nos próprios computadores. Baixe tudo o que ainda precisar antes."
     },
     "preflight": {
       "categoryServiceToken": "token de serviço",
@@ -2136,7 +2142,8 @@
     "viewRosterAria": "Ver lista de participantes de {{classroom}}",
     "loadError": "Não foi possível carregar as turmas do GitHub. É um erro de carregamento, então suas turmas não foram perdidas.",
     "retry": "Tentar novamente",
-    "roleLoadError": "Não foi possível verificar seu papel nesta organização."
+    "roleLoadError": "Não foi possível verificar seu papel nesta organização.",
+    "deleteClassroomWarning": "Isso não pode ser desfeito. A lista de alunos, a lista de atividades e as equipes da turma são excluídas, então trazer a turma de volta significa recriá-la e matricular cada aluno novamente."
   },
   "accept": {
     "githubUser": "Usuário do GitHub",
@@ -2175,7 +2182,8 @@
       "setup": "Configurando a correção automática",
       "membership": "Confirmando sua participação na turma",
       "feedback": "Abrindo pull request de feedback",
-      "team": "Localizando seu grupo"
+      "team": "Localizando seu grupo",
+      "setupWaiting": "Configurando a autocorreção (o GitHub ainda está inicializando seu repositório, o que pode levar até um minuto)"
     },
     "progress": {
       "error": "A configuração falhou. Revise as etapas.",
@@ -2304,6 +2312,11 @@
       "badge": "Aguardando seu grupo",
       "body": "Seu professor define os grupos desta tarefa. Peça ao seu professor para adicionar você a um grupo e abra este link novamente.",
       "title": "Você ainda não está em um grupo"
+    },
+    "keepTabOpen": "Mantenha esta aba aberta até a configuração terminar. Fechá-la antes do tempo pode deixar seu repositório configurado pela metade.",
+    "setupIncomplete": {
+      "body": "Seu repositório existe, mas seus arquivos de configuração estão ausentes, então a autocorreção não será executada e seu professor não poderá deixar feedback. Execute a configuração novamente para concluir. Isso é seguro e mantém qualquer trabalho que você já tenha enviado.",
+      "title": "A configuração não foi concluída"
     }
   },
   "submissions": {
@@ -2580,10 +2593,14 @@
       "summaryLead": "Processamento de <b>{{total}}</b> repositórios concluído.",
       "summaryOpened_one": "{{count}} PR de feedback aberto",
       "summaryOpened_other": "{{count}} PRs de feedback abertos",
-      "summaryUnsupported_one": "{{count}} repositório pulado (sem código inicial para comparar)",
-      "summaryUnsupported_other": "{{count}} repositórios pulados (sem código inicial para comparar)",
+      "summaryUnsupported_one": "{{count}} repositório ignorado (não encontrado)",
+      "summaryUnsupported_other": "{{count}} repositórios ignorados (não encontrados)",
       "title": "Abrir PRs de feedback para todos os repositórios",
-      "titleEmptyRoster": "Adicione alunos à lista primeiro"
+      "titleEmptyRoster": "Adicione alunos à lista primeiro",
+      "incompleteHint": "O aceite de cada aluno parou antes de os arquivos de configuração serem gravados, então a autocorreção não será executada e nenhum PR de feedback pode ser aberto. Peça a cada aluno para abrir o link da atividade e escolher Executar configuração novamente, depois execute esta ação de novo.",
+      "incompleteTitle": "Estes repositórios nunca concluíram a configuração:",
+      "summaryIncomplete_one": "{{count}} repositório nunca concluiu a configuração",
+      "summaryIncomplete_other": "{{count}} repositórios nunca concluíram a configuração"
     },
     "repairPr": {
       "alreadyExists": "Já existe um pull request de feedback para {{repo}}.",
@@ -2591,7 +2608,7 @@
       "created": "Pull request de feedback aberto para {{repo}}.",
       "failed": "Não foi possível abrir o pull request de feedback: {{reason}}. Tente novamente.",
       "hint": "Se o aluno aceitou, mas a abertura do PR falhou (uma queda do GitHub ou um erro transitório), você pode abri-lo agora.",
-      "noBaseline": "Este repositório não tem código inicial para comparar (por exemplo, uma tarefa de repositório vazio), então não é possível abrir um pull request de feedback. Nada a reparar.",
+      "noBaseline": "Este repositório está sem seus arquivos de configuração do Classroom 50, o que significa que o aceite do aluno parou pela metade. Até a configuração terminar, a autocorreção não será executada e um pull request de feedback não pode ser aberto. Peça ao aluno para abrir o link da atividade e escolher Executar configuração novamente, depois repare o PR de novo.",
       "repair": "Reparar PR de feedback",
       "repairing": "Reparando…",
       "repoNotFound": "Não foi possível encontrar o repositório {{repo}}. O estudante talvez ainda não tenha aceitado."
@@ -2702,7 +2719,10 @@
       "autogradingPausedByGitHub": "Pausada pelo GitHub",
       "visibility": "Visibilidade",
       "visibilityPrivate": "Privado",
-      "manageGroup": "Gerenciar grupo"
+      "manageGroup": "Gerenciar grupo",
+      "setup": "Configuração",
+      "setupIncomplete": "Incompleta",
+      "setupIncompleteHint": "O aceite do aluno parou antes de os arquivos de configuração serem gravados, então a autocorreção não será executada e nenhum PR de feedback pode ser aberto. Peça ao aluno para abrir o link da atividade e escolher Executar configuração novamente."
     },
     "rowDownload": {
       "aria": "Baixar o envio de {{owner}}",
@@ -2959,7 +2979,8 @@
       "outcome": {
         "private": "O repositório agora é privado.",
         "public": "O repositório agora é público."
-      }
+      },
+      "confirmWarning": "Qualquer pessoa que visualizar ou clonar o repositório enquanto ele estiver público mantém essa cópia, mesmo depois de você torná-lo privado novamente."
     },
     "rosterFromCsvNotice": "A lista de estudantes vem do arquivo de turma na última sincronização, porque seu papel não pode visualizar a equipe do GitHub da turma. Um estudante matriculado desde então aparece depois que um professor abre a lista da turma. Os proprietários da organização veem a associação ao vivo.",
     "skipPastTable": "Pular a tabela de entregas",
@@ -3090,7 +3111,8 @@
       "resultRemoved": "Removidos",
       "unenrolledDetail_one": "Desvinculado de {{count}} turma ({{classrooms}}).",
       "unenrolledDetail_other": "Desvinculado de {{count}} turmas ({{classrooms}}).",
-      "viewerUnverified": "Não foi possível verificar sua conta, então nenhum membro foi removido. Tente de novo."
+      "viewerUnverified": "Não foi possível verificar sua conta, então nenhum membro foi removido. Tente de novo.",
+      "confirmRemoveOrgWarning": "Os membros removidos perdem o acesso a todos os repositórios da organização, incluindo os próprios repositórios de atividades, e precisam de um novo convite para voltar."
     },
     "confirmInviteBody": "Enviar um convite da organização para {{label}}? O convite é enviado para a conta do GitHub dele por id e ele voltará a {{org}} com seu acesso anterior à turma assim que aceitar.",
     "filterAllClassrooms": "Todas as turmas",
@@ -3182,7 +3204,6 @@
       "confirm": "Confirmar",
       "no": "Cancelar",
       "yesContinue": "Continuar",
-      "dangerousPrompt": "Isso pode ser difícil ou impossível de desfazer. Continuar?",
       "genericError": "Algo deu errado. Tente novamente.",
       "typeAriaLabel": "Digite {{text}} para confirmar",
       "typeToConfirm": "Para confirmar, digite <text>{{text}}</text> abaixo."

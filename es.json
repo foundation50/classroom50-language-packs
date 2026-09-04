@@ -324,7 +324,8 @@
       "removeRowsSelected_other": "Quitar {{count}} filas de la lista sin vincular",
       "removeRowsTitle": "Quitar filas de la lista sin vincular",
       "removedRowsHeadline_one": "Se quitó {{count}} fila sin vincular.",
-      "removedRowsHeadline_other": "Se quitaron {{count}} filas sin vincular."
+      "removedRowsHeadline_other": "Se quitaron {{count}} filas sin vincular.",
+      "confirmUnenrollWarning": "Volver a inscribir significa añadir de nuevo a cada estudiante a la lista de miembros. Sus repositorios de tareas no se eliminan."
     },
     "classroomTeamLabel": "Equipo de la clase",
     "confirmResendBody": "¿Reenviar la invitación pendiente a la organización a {{label}}? Su invitación actual se cancela y se envía una nueva para {{org}}.",
@@ -989,7 +990,7 @@
         "templateContentWarning": "Heredar una plantilla privada también copia el contenido de su Wiki, Incidencias y Proyectos, así que mantén las soluciones fuera de una plantilla de la que heredes."
       },
       "setAvailableFrom": "Establecer una fecha de publicación",
-      "setAvailableFromTip": "Las tareas están ocultas de la página de tareas del estudiante de forma predeterminada, por lo que los estudiantes solo pueden aceptar mediante el enlace de invitación. Establece una fecha de publicación para mostrarla a todos una vez pasada la fecha. Los estudiantes que ya aceptaron siempre la ven. Esto controla solo el listado, no el acceso.",
+      "setAvailableFromTip": "De forma predeterminada, las tareas están ocultas en la página de tareas del estudiante, por lo que solo pueden aceptarlas mediante el enlace de invitación. Establece una fecha de publicación para incluirla en la lista de todos una vez que pase la fecha. Los estudiantes que ya la aceptaron siempre la ven. La fecha de publicación controla solo el listado, no el acceso: una plantilla privada en tu organización sigue siendo legible para el equipo del aula. Para ocultar una plantilla hasta la publicación, bloquea la tarea.",
       "setupTimeout": "Tiempo de espera de configuración (segundos)",
       "setupTimeoutTip": "Los nuevos comandos de configuración comienzan en {{default}} segundos. Establece 0 para usar el valor predeterminado de 10 segundos del ejecutor, o elige un número entero de 1 a {{max}}.",
       "studentPermission": {
@@ -1111,7 +1112,10 @@
       "teamFormationTeacherHelp": "Tú creas los grupos y añades estudiantes en la página de configuración de la tarea. Los estudiantes que no estén en un grupo no pueden aceptar.",
       "typeTeam": "Grupo",
       "typeTeamDisabledHelp": "Las tareas en grupo requieren que los integrantes de la organización puedan crear equipos: el primer estudiante crea el equipo del grupo al aceptar. Activa «Allow members to create teams» en la sección Creación de equipos por integrantes de la página de configuración de la organización, o en los privilegios de integrantes de la organización en GitHub.",
-      "typeTeamRecommended": "Recomendado"
+      "typeTeamRecommended": "Recomendado",
+      "releaseLockedReminder": "Bloqueada. La fecha de publicación no desbloquea la tarea: desactiva Bloquear tarea en la fecha de publicación para que los estudiantes puedan aceptarla.",
+      "releaseTemplateReadableBody": "La fecha de publicación controla solo el listado. Al guardar, el equipo del aula obtiene acceso de lectura a esta plantilla privada de inmediato. Para mantener la plantilla oculta, bloquea la tarea ahora y desbloquéala en la fecha de publicación.",
+      "releaseTemplateReadableTitle": "Los estudiantes pueden leer esta plantilla antes de la fecha de publicación"
     },
     "autograder": {
       "heading": "Pruebas de autocalificación",
@@ -1267,7 +1271,8 @@
       "hiddenStaffReposTitle_other": "Todavía no hay estudiantes inscritos. No se cuentan {{count}} repositorios del personal docente. Para contarlos, activa Incluir personal docente.",
       "noStudentsYet": "Aún no hay estudiantes",
       "noStudentsYetTitle": "Todavía no hay estudiantes inscritos, así que no hay nada con qué comparar. Agrega estudiantes en la página de Lista.",
-      "submittedTitleWithStaff": "{{submitted}} de {{total}} estudiantes y personal docente entregaron"
+      "submittedTitleWithStaff": "{{submitted}} de {{total}} estudiantes y personal docente entregaron",
+      "deleteWarning": "Los estudiantes pierden el acceso a la página de la tarea, y se eliminan su fecha límite, plantilla y ajustes de calificación."
     },
     "template": {
       "label": "Repositorio de plantilla",
@@ -1784,7 +1789,8 @@
       "rateLimitedPartial_other": "GitHub limitó la tasa de las eliminaciones después de que {{count}} ya se hubieran eliminado, y esas eliminaciones son permanentes. Espera un momento y luego vuelve a ejecutar el desmantelamiento para terminar.",
       "ssoRequired": "GitHub se negó a eliminar los repositorios (403). Esta organización requiere inicio de sesión único SAML. Autoriza tu sesión para esta organización en GitHub y luego vuelve a ejecutar el desmantelamiento.",
       "ssoRequiredPartial_one": "GitHub se negó a eliminar los repositorios (403) después de que {{count}} ya se hubiera eliminado, y esa eliminación es permanente. Esta organización requiere inicio de sesión único SAML. Autoriza tu sesión para ella en GitHub y luego vuelve a ejecutar el desmantelamiento para terminar.",
-      "ssoRequiredPartial_other": "GitHub se negó a eliminar los repositorios (403) después de que {{count}} ya se hubieran eliminado, y esas eliminaciones son permanentes. Esta organización requiere inicio de sesión único SAML. Autoriza tu sesión para ella en GitHub y luego vuelve a ejecutar el desmantelamiento para terminar."
+      "ssoRequiredPartial_other": "GitHub se negó a eliminar los repositorios (403) después de que {{count}} ya se hubieran eliminado, y esas eliminaciones son permanentes. Esta organización requiere inicio de sesión único SAML. Autoriza tu sesión para ella en GitHub y luego vuelve a ejecutar el desmantelamiento para terminar.",
+      "confirmWarning": "Los estudiantes pierden todo el trabajo que no esté ya en sus propios equipos. Descarga primero todo lo que aún necesites."
     },
     "preflight": {
       "categoryServiceToken": "token de servicio",
@@ -2136,7 +2142,8 @@
     "viewRosterAria": "Ver la lista de estudiantes de {{classroom}}",
     "loadError": "No se pudieron cargar las clases desde GitHub. Es un error de carga, así que tus clases no han desaparecido.",
     "retry": "Reintentar",
-    "roleLoadError": "No se pudo comprobar tu rol en esta organización."
+    "roleLoadError": "No se pudo comprobar tu rol en esta organización.",
+    "deleteClassroomWarning": "Esto no se puede deshacer. La lista de miembros, la lista de tareas y los equipos del aula se eliminan, por lo que recuperar el aula implica volver a crearla e inscribir de nuevo a todos los estudiantes."
   },
   "accept": {
     "githubUser": "Usuario de GitHub",
@@ -2175,7 +2182,8 @@
       "setup": "Configurando la autocorrección",
       "membership": "Confirmando tu pertenencia a la clase",
       "feedback": "Abriendo la pull request de comentarios",
-      "team": "Buscando tu grupo"
+      "team": "Buscando tu grupo",
+      "setupWaiting": "Configurando la calificación automática (GitHub aún está inicializando tu repositorio, lo que puede tardar hasta un minuto)"
     },
     "progress": {
       "error": "La configuración falló. Revisa los pasos.",
@@ -2304,6 +2312,11 @@
       "badge": "Esperando a tu grupo",
       "body": "Tu docente asigna los grupos de esta tarea. Pide a tu docente que te añada a un grupo y luego abre este enlace de nuevo.",
       "title": "Todavía no estás en un grupo"
+    },
+    "keepTabOpen": "Mantén esta pestaña abierta hasta que finalice la configuración. Cerrarla antes de tiempo puede dejar tu repositorio configurado a medias.",
+    "setupIncomplete": {
+      "body": "Tu repositorio existe, pero faltan sus archivos de configuración, por lo que la calificación automática no se ejecutará y tu profesor no podrá dejar comentarios. Vuelve a ejecutar la configuración para terminarla. Es seguro y conserva el trabajo que ya hayas subido.",
+      "title": "La configuración no terminó"
     }
   },
   "submissions": {
@@ -2580,10 +2593,14 @@
       "summaryLead": "Se terminó de procesar <b>{{total}}</b> repositorios.",
       "summaryOpened_one": "{{count}} PR de comentarios abierta",
       "summaryOpened_other": "{{count}} PR de comentarios abiertas",
-      "summaryUnsupported_one": "{{count}} repositorio omitido (sin código inicial con el que comparar)",
-      "summaryUnsupported_other": "{{count}} repositorios omitidos (sin código inicial con el que comparar)",
+      "summaryUnsupported_one": "{{count}} repositorio omitido (no encontrado)",
+      "summaryUnsupported_other": "{{count}} repositorios omitidos (no encontrados)",
       "title": "Abrir PR de comentarios para cada repositorio",
-      "titleEmptyRoster": "Añade primero estudiantes a la lista de la clase"
+      "titleEmptyRoster": "Añade primero estudiantes a la lista de la clase",
+      "incompleteHint": "La aceptación de cada estudiante se detuvo antes de que se escribieran los archivos de configuración, por lo que la calificación automática no se ejecutará y no se puede abrir ningún PR de comentarios. Pide a cada estudiante que abra el enlace de la tarea y elija Volver a ejecutar la configuración, luego ejecuta esta acción de nuevo.",
+      "incompleteTitle": "Estos repositorios nunca terminaron la configuración:",
+      "summaryIncomplete_one": "{{count}} repositorio nunca terminó la configuración",
+      "summaryIncomplete_other": "{{count}} repositorios nunca terminaron la configuración"
     },
     "repairPr": {
       "alreadyExists": "Ya existe una solicitud de incorporación de comentarios para {{repo}}.",
@@ -2591,7 +2608,7 @@
       "created": "Se abrió la solicitud de incorporación de comentarios para {{repo}}.",
       "failed": "No se pudo abrir la solicitud de incorporación de comentarios: {{reason}}. Inténtalo de nuevo.",
       "hint": "Si el estudiante aceptó pero falló la apertura de la PR (una caída de GitHub o un error transitorio), puedes abrirla ahora.",
-      "noBaseline": "Este repositorio no tiene código inicial con el que comparar (por ejemplo, una tarea de repositorio vacío), así que no se puede abrir una solicitud de incorporación de comentarios. No hay nada que reparar.",
+      "noBaseline": "A este repositorio le faltan sus archivos de configuración de Classroom 50, lo que significa que la aceptación del estudiante se detuvo a medias. Hasta que finalice la configuración, la calificación automática no se ejecutará y no se puede abrir una solicitud de incorporación de cambios de comentarios. Pide al estudiante que abra el enlace de la tarea y elija Volver a ejecutar la configuración, luego repara el PR de nuevo.",
       "repair": "Reparar PR de comentarios",
       "repairing": "Reparando…",
       "repoNotFound": "No se pudo encontrar el repositorio {{repo}}. Es posible que el estudiante aún no haya aceptado."
@@ -2702,7 +2719,10 @@
       "autogradingPausedByGitHub": "Pausada por GitHub",
       "visibility": "Visibilidad",
       "visibilityPrivate": "Privado",
-      "manageGroup": "Gestionar grupo"
+      "manageGroup": "Gestionar grupo",
+      "setup": "Configuración",
+      "setupIncomplete": "Incompleta",
+      "setupIncompleteHint": "La aceptación del estudiante se detuvo antes de que se escribieran los archivos de configuración, por lo que la calificación automática no se ejecutará y no se puede abrir ningún PR de comentarios. Pide al estudiante que abra el enlace de la tarea y elija Volver a ejecutar la configuración."
     },
     "rowDownload": {
       "aria": "Descargar la entrega de {{owner}}",
@@ -2959,7 +2979,8 @@
       "outcome": {
         "private": "El repositorio ahora es privado.",
         "public": "El repositorio ahora es público."
-      }
+      },
+      "confirmWarning": "Cualquier persona que vea o clone el repositorio mientras es público conserva esa copia, incluso después de que lo vuelvas a hacer privado."
     },
     "rosterFromCsvNotice": "La lista de estudiantes proviene del archivo de la lista tal como estaba en su última sincronización, porque tu rol no puede ver el equipo de GitHub de la clase. Un estudiante inscrito desde entonces aparece después de que un docente abra la lista. Los propietarios de la organización ven la membresía en vivo.",
     "skipPastTable": "Saltar la tabla de entregas",
@@ -3090,7 +3111,8 @@
       "resultRemoved": "Eliminados",
       "unenrolledDetail_one": "Dado de baja de {{count}} aula ({{classrooms}}).",
       "unenrolledDetail_other": "Dado de baja de {{count}} aulas ({{classrooms}}).",
-      "viewerUnverified": "No se pudo verificar tu cuenta, así que no se quitó a ningún miembro. Inténtalo de nuevo."
+      "viewerUnverified": "No se pudo verificar tu cuenta, así que no se quitó a ningún miembro. Inténtalo de nuevo.",
+      "confirmRemoveOrgWarning": "Los miembros eliminados pierden el acceso a todos los repositorios de la organización, incluidos sus propios repositorios de tareas, y necesitan una nueva invitación para regresar."
     },
     "confirmInviteBody": "¿Enviar una invitación a la organización a {{label}}? La invitación se envía a su cuenta de GitHub por id y volverá a unirse a {{org}} con su acceso anterior a la clase una vez que la acepte.",
     "filterAllClassrooms": "Todas las clases",
@@ -3182,7 +3204,6 @@
       "confirm": "Confirmar",
       "no": "Cancelar",
       "yesContinue": "Continuar",
-      "dangerousPrompt": "Esto puede ser difícil o imposible de deshacer. ¿Continuar?",
       "genericError": "Algo salió mal. Vuelve a intentarlo.",
       "typeAriaLabel": "Escribe {{text}} para confirmar",
       "typeToConfirm": "Para confirmar, escribe <text>{{text}}</text> abajo."

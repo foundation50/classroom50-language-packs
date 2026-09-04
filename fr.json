@@ -426,7 +426,8 @@
       "removeRowsSelected_other": "Supprimer {{count}} lignes de liste non liées",
       "removeRowsTitle": "Supprimer les lignes de liste non liées",
       "removedRowsHeadline_one": "{{count}} ligne non liée supprimée.",
-      "removedRowsHeadline_other": "{{count}} lignes non liées supprimées."
+      "removedRowsHeadline_other": "{{count}} lignes non liées supprimées.",
+      "confirmUnenrollWarning": "Réinscrire signifie ajouter à nouveau chaque étudiant à la liste d'inscrits. Leurs dépôts de devoirs ne sont pas supprimés."
     },
     "emptyTitle": "Aucun membre pour le moment",
     "emptyBody": "Invitez des étudiants depuis la liste pour les inscrire, ou ajoutez des enseignants et des TA dans les Paramètres. Le lien d'intégration permet uniquement à un étudiant déjà invité d'accepter ; il n'ajoute personne par lui-même. Une fois que les personnes ont accepté l'invitation et se sont connectées, elles apparaîtront ici.",
@@ -1066,7 +1067,7 @@
         "templateContentWarning": "Hériter d'un modèle privé copie aussi le contenu de son wiki, de ses issues et de ses projets ; gardez donc les corrigés hors d'un modèle dont vous héritez."
       },
       "setAvailableFrom": "Définir une date de publication",
-      "setAvailableFromTip": "Les devoirs sont masqués de la page des devoirs de l'étudiant par défaut, si bien que les étudiants ne peuvent l'accepter que via le lien d'invitation. Définissez une date de publication pour le lister pour tout le monde une fois la date passée. Les étudiants qui l'ont déjà accepté le voient toujours. Cela contrôle uniquement l'affichage dans la liste, pas l'accès.",
+      "setAvailableFromTip": "Les devoirs sont masqués par défaut de la page des devoirs des étudiants, qui ne peuvent donc les accepter que via le lien d'invitation. Définissez une date de publication pour le lister pour tout le monde une fois la date passée. Les étudiants qui l'ont déjà accepté le voient toujours. La date de publication ne contrôle que l'affichage dans la liste, pas l'accès : un modèle privé dans votre organisation reste lisible par l'équipe du cours. Pour masquer un modèle jusqu'à la publication, verrouillez le devoir.",
       "setupTimeout": "Délai de configuration (secondes)",
       "setupTimeoutTip": "Les nouvelles commandes de configuration démarrent à {{default}} secondes. Mettez 0 pour utiliser le délai par défaut de 10 secondes du runner, ou choisissez un nombre entier de 1 à {{max}}.",
       "studentPermission": {
@@ -1188,7 +1189,10 @@
       "teamFormationTeacherHelp": "Vous créez les groupes et ajoutez les étudiants sur la page des paramètres du devoir. Les étudiants qui ne sont dans aucun groupe ne peuvent pas accepter.",
       "typeTeam": "Groupe",
       "typeTeamDisabledHelp": "Les devoirs de groupe nécessitent que les membres de l'organisation puissent créer des équipes : le premier étudiant crée l'équipe du groupe lors de l'acceptation. Activez « Allow members to create teams » dans la section Création d'équipes par les membres de la page des paramètres de l'organisation, ou dans les privilèges des membres de l'organisation sur GitHub.",
-      "typeTeamRecommended": "Recommandé"
+      "typeTeamRecommended": "Recommandé",
+      "releaseLockedReminder": "Verrouillé. La date de publication ne déverrouille pas le devoir : désactivez « Verrouiller le devoir » à la date de publication pour que les étudiants puissent l'accepter.",
+      "releaseTemplateReadableBody": "La date de publication ne contrôle que l'affichage dans la liste. En enregistrant, vous donnez immédiatement à l'équipe du cours un accès en lecture à ce modèle privé. Pour garder le modèle masqué, verrouillez le devoir maintenant et déverrouillez-le à la date de publication.",
+      "releaseTemplateReadableTitle": "Les étudiants peuvent lire ce modèle avant la date de publication"
     },
     "autograder": {
       "heading": "Tests de correction automatique",
@@ -1344,7 +1348,8 @@
       "hiddenStaffReposTitle_other": "Aucun étudiant n'est encore inscrit. {{count}} dépôts de l'équipe pédagogique ne sont pas comptabilisés. Pour les comptabiliser, activez Inclure l'équipe pédagogique.",
       "noStudentsYet": "Aucun étudiant pour l'instant",
       "noStudentsYetTitle": "Aucun étudiant n'est encore inscrit, il n'y a donc rien à comptabiliser. Ajoutez des étudiants sur la page Liste des membres.",
-      "submittedTitleWithStaff": "{{submitted}} des {{total}} étudiants et membres de l'équipe pédagogique ont rendu leur travail"
+      "submittedTitleWithStaff": "{{submitted}} des {{total}} étudiants et membres de l'équipe pédagogique ont rendu leur travail",
+      "deleteWarning": "Les étudiants perdent l'accès à la page du devoir, et sa date limite, son modèle et ses paramètres de notation sont supprimés."
     },
     "toolbar": {
       "searchPlaceholder": "Rechercher des devoirs",
@@ -1878,7 +1883,8 @@
       "rateLimitedPartial_other": "GitHub a limité le débit des suppressions après que {{count}} ont déjà été supprimés, et ces suppressions sont définitives. Attendez un moment, puis relancez le démantèlement pour terminer.",
       "ssoRequired": "GitHub a refusé de supprimer les dépôts (403). Cette organisation nécessite l'authentification unique SAML. Autorisez votre session pour cette organisation sur GitHub, puis relancez le démantèlement.",
       "ssoRequiredPartial_one": "GitHub a refusé de supprimer les dépôts (403) après que {{count}} a déjà été supprimé, et cette suppression est définitive. Cette organisation nécessite l'authentification unique SAML. Autorisez votre session pour elle sur GitHub, puis relancez le démantèlement pour terminer.",
-      "ssoRequiredPartial_other": "GitHub a refusé de supprimer les dépôts (403) après que {{count}} ont déjà été supprimés, et ces suppressions sont définitives. Cette organisation nécessite l'authentification unique SAML. Autorisez votre session pour elle sur GitHub, puis relancez le démantèlement pour terminer."
+      "ssoRequiredPartial_other": "GitHub a refusé de supprimer les dépôts (403) après que {{count}} ont déjà été supprimés, et ces suppressions sont définitives. Cette organisation nécessite l'authentification unique SAML. Autorisez votre session pour elle sur GitHub, puis relancez le démantèlement pour terminer.",
+      "confirmWarning": "Les étudiants perdent tout travail qui ne se trouve pas déjà sur leur propre ordinateur. Téléchargez d'abord tout ce dont vous avez encore besoin."
     },
     "preflight": {
       "categoryServiceToken": "jeton de service",
@@ -2236,7 +2242,8 @@
     "viewRosterAria": "Voir la liste de {{classroom}}",
     "loadError": "Impossible de charger les classes depuis GitHub. C'est une erreur de chargement, donc vos classes n'ont pas disparu.",
     "retry": "Réessayer",
-    "roleLoadError": "Impossible de vérifier votre rôle dans cette organisation."
+    "roleLoadError": "Impossible de vérifier votre rôle dans cette organisation.",
+    "deleteClassroomWarning": "Cette action est irréversible. La liste d'inscrits, la liste des devoirs et les équipes du cours sont supprimées ; rétablir le cours signifie donc le recréer et réinscrire chaque étudiant."
   },
   "accept": {
     "githubUser": "Utilisateur GitHub",
@@ -2289,7 +2296,8 @@
       "access": "Définition de l'accès à votre dépôt",
       "setup": "Configuration de l'autograding",
       "feedback": "Ouverture de la pull request de retour",
-      "team": "Recherche de votre groupe"
+      "team": "Recherche de votre groupe",
+      "setupWaiting": "Configuration de l'autonotation (GitHub initialise encore votre dépôt, ce qui peut prendre jusqu'à une minute)"
     },
     "progress": {
       "error": "La configuration a échoué. Examinez les étapes.",
@@ -2404,6 +2412,11 @@
       "badge": "En attente de votre groupe",
       "body": "Votre enseignant attribue les groupes pour ce devoir. Demandez à votre enseignant de vous ajouter à un groupe, puis rouvrez ce lien.",
       "title": "Vous n'êtes pas encore dans un groupe"
+    },
+    "keepTabOpen": "Gardez cet onglet ouvert jusqu'à la fin de la configuration. Le fermer trop tôt peut laisser votre dépôt à moitié configuré.",
+    "setupIncomplete": {
+      "body": "Votre dépôt existe, mais ses fichiers de configuration sont manquants ; l'autonotation ne s'exécutera donc pas et votre enseignant ne pourra pas laisser de retours. Relancez la configuration pour terminer. C'est sans risque et cela conserve tout travail que vous avez déjà poussé.",
+      "title": "La configuration ne s'est pas terminée"
     }
   },
   "submissions": {
@@ -2680,10 +2693,14 @@
       "summaryLead": "Traitement de <b>{{total}}</b> dépôts terminé.",
       "summaryOpened_one": "{{count}} PR de retour ouverte",
       "summaryOpened_other": "{{count}} PR de retour ouvertes",
-      "summaryUnsupported_one": "{{count}} dépôt ignoré (aucun code de départ pour la comparaison)",
-      "summaryUnsupported_other": "{{count}} dépôts ignorés (aucun code de départ pour la comparaison)",
+      "summaryUnsupported_one": "{{count}} dépôt ignoré (introuvable)",
+      "summaryUnsupported_other": "{{count}} dépôts ignorés (introuvables)",
       "title": "Ouvrir les PR de retour pour chaque dépôt",
-      "titleEmptyRoster": "Ajoutez d'abord des élèves à la liste"
+      "titleEmptyRoster": "Ajoutez d'abord des élèves à la liste",
+      "incompleteHint": "L'acceptation de chaque étudiant s'est arrêtée avant l'écriture des fichiers de configuration ; l'autonotation ne s'exécutera donc pas et aucune PR de retour ne peut être ouverte. Demandez à chaque étudiant d'ouvrir le lien du devoir et de choisir Relancer la configuration, puis relancez cette action.",
+      "incompleteTitle": "Ces dépôts n'ont jamais terminé leur configuration :",
+      "summaryIncomplete_one": "{{count}} dépôt n'a jamais terminé sa configuration",
+      "summaryIncomplete_other": "{{count}} dépôts n'ont jamais terminé leur configuration"
     },
     "repairPr": {
       "alreadyExists": "Une pull request de retour existe déjà pour {{repo}}.",
@@ -2691,7 +2708,7 @@
       "created": "Pull request de retour ouverte pour {{repo}}.",
       "failed": "Impossible d'ouvrir la pull request de retour : {{reason}}. Réessayez.",
       "hint": "Si l'élève a accepté mais que l'ouverture de la PR a échoué (une panne GitHub ou une erreur transitoire), vous pouvez l'ouvrir maintenant.",
-      "noBaseline": "Ce dépôt n'a aucun code de départ pour la comparaison (par exemple, un devoir à dépôt vide), une pull request de retour ne peut donc pas être ouverte. Rien à réparer.",
+      "noBaseline": "Ce dépôt ne contient pas ses fichiers de configuration Classroom 50, ce qui signifie que l'acceptation de l'étudiant s'est arrêtée en cours de route. Tant que la configuration n'est pas terminée, l'autonotation ne s'exécutera pas et aucune pull request de retour ne peut être ouverte. Demandez à l'étudiant d'ouvrir le lien du devoir et de choisir Relancer la configuration, puis réparez à nouveau la PR.",
       "repair": "Réparer la PR de retour",
       "repairing": "Réparation…",
       "repoNotFound": "Impossible de trouver le dépôt {{repo}}. L'étudiant n'a peut-être pas encore accepté."
@@ -2802,7 +2819,10 @@
       "autogradingPausedByGitHub": "Mise en pause par GitHub",
       "visibility": "Visibilité",
       "visibilityPrivate": "Privé",
-      "manageGroup": "Gérer le groupe"
+      "manageGroup": "Gérer le groupe",
+      "setup": "Configuration",
+      "setupIncomplete": "Incomplète",
+      "setupIncompleteHint": "L'acceptation de l'étudiant s'est arrêtée avant l'écriture des fichiers de configuration ; l'autonotation ne s'exécutera donc pas et aucune PR de retour ne peut être ouverte. Demandez à l'étudiant d'ouvrir le lien du devoir et de choisir Relancer la configuration."
     },
     "rowDownload": {
       "aria": "Télécharger la soumission de {{owner}}",
@@ -3059,7 +3079,8 @@
       "outcome": {
         "private": "Le dépôt est maintenant privé.",
         "public": "Le dépôt est maintenant public."
-      }
+      },
+      "confirmWarning": "Quiconque consulte ou clone le dépôt pendant qu'il est public en conserve une copie, même après que vous l'ayez de nouveau rendu privé."
     },
     "rosterFromCsvNotice": "La liste des étudiants provient du fichier de liste tel qu'il était lors de sa dernière synchronisation, car votre rôle ne permet pas de consulter l'équipe GitHub de la classe. Un étudiant inscrit depuis apparaît une fois qu'un enseignant ouvre la liste. Les propriétaires de l'organisation voient l'appartenance en direct.",
     "skipPastTable": "Passer le tableau des soumissions",
@@ -3262,7 +3283,8 @@
       "resultRemoved": "Retirés",
       "unenrolledDetail_one": "Désinscrit de {{count}} cours ({{classrooms}}).",
       "unenrolledDetail_other": "Désinscrit de {{count}} cours ({{classrooms}}).",
-      "viewerUnverified": "Impossible de vérifier votre compte ; aucun membre n'a donc été retiré. Réessayez."
+      "viewerUnverified": "Impossible de vérifier votre compte ; aucun membre n'a donc été retiré. Réessayez.",
+      "confirmRemoveOrgWarning": "Les membres retirés perdent l'accès à tous les dépôts de l'organisation, y compris leurs propres dépôts de devoirs, et ont besoin d'une nouvelle invitation pour revenir."
     },
     "inviteMalformedId": "Impossible d'inviter {{who}} : « {{githubId}} » n'est pas un identifiant GitHub valide. Corrigez la cellule github_id dans roster.csv.",
     "inviteMissingId": "Impossible d'inviter {{who}} : aucun identifiant GitHub enregistré.",
@@ -3337,7 +3359,6 @@
       "confirm": "Confirmer",
       "no": "Annuler",
       "yesContinue": "Continuer",
-      "dangerousPrompt": "Cette action peut être difficile ou impossible à annuler. Continuer ?",
       "genericError": "Une erreur s'est produite. Réessayez.",
       "typeToConfirm": "Pour confirmer, saisissez <text>{{text}}</text> ci-dessous.",
       "typeAriaLabel": "Saisissez {{text}} pour confirmer"
