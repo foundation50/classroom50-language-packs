@@ -596,7 +596,8 @@
       "confirmInviteTitle_one": "邀请 {{count}} 名学生？",
       "confirmInviteTitle_other": "邀请 {{count}} 名学生？",
       "confirmInviteBodyPlain_one": "向所选的 {{count}} 名学生发送组织邀请？他们接受后将加入组织及其班级团队。",
-      "confirmInviteBodyPlain_other": "向所选的 {{count}} 名学生发送组织邀请？他们接受后将加入组织及其班级团队。"
+      "confirmInviteBodyPlain_other": "向所选的 {{count}} 名学生发送组织邀请？他们接受后将加入组织及其班级团队。",
+      "confirmUnenrollWarning": "重新登记意味着要再次将每名学生加入花名册。他们的作业仓库不会被删除。"
     },
     "emptyTitle": "还没有成员",
     "emptyBody": "先从名册邀请学生以将其加入（或在设置中添加教师和助教）——引导链接本身不会添加任何人，它只是让已受邀的学生能够接受。当有人接受邀请并登录后，他们就会显示在这里。",
@@ -1148,7 +1149,7 @@
       "dueDateTz": "时间以你的本地时区为准（{{tz}}）。",
       "availableFrom": "发布日期（{{tz}}）",
       "setAvailableFrom": "设置发布日期",
-      "setAvailableFromTip": "作业默认从学生作业页面中隐藏，因此学生只能通过邀请链接接受。设置发布日期后，一旦日期过去便会为所有人列出该作业。已接受的学生始终可见。这仅控制列出与否，不控制访问权限。",
+      "setAvailableFromTip": "作业默认在学生作业页面中隐藏，因此学生只能通过邀请链接接受。设置发布日期后，一旦过了该日期，作业就会列给所有人看。已经接受的学生始终能看到它。发布日期仅控制列表显示，而非访问权限：你组织中的私有模板对课堂团队仍然可读。若要在发布前隐藏模板，请锁定作业。",
       "availableFromTz": "时间采用你的本地时区（{{tz}}）。",
       "type": "作业类型",
       "typeIndividual": "个人",
@@ -1385,7 +1386,10 @@
       "typeTeamDisabledHelp": "小组作业需要组织成员能够创建团队：第一名学生在接受作业时创建小组的团队。请在组织设置页面的“成员团队创建”部分中开启“允许成员创建团队”，或在 GitHub 上组织的成员权限中开启。",
       "typeTeamRecommended": "推荐",
       "lockAssignment": "锁定作业",
-      "lockAssignmentTip": "学生无法看到或接受被锁定的作业，包括已经接受的学生。如果使用了组织内的私有模板，在你解锁前，班级团队会失去对该模板的读取权限。教职人员的权限和已有的学生仓库不受影响。可用于筹备限时评估，待考试开始时再解锁。"
+      "lockAssignmentTip": "学生无法看到或接受被锁定的作业，包括已经接受的学生。如果使用了组织内的私有模板，在你解锁前，班级团队会失去对该模板的读取权限。教职人员的权限和已有的学生仓库不受影响。可用于筹备限时评估，待考试开始时再解锁。",
+      "releaseLockedReminder": "已锁定。发布日期不会解锁作业：在发布日期请关闭“锁定作业”，学生才能接受作业。",
+      "releaseTemplateReadableBody": "发布日期仅控制列表显示。保存后会立即让课堂团队获得此私有模板的读取权限。若要保持模板隐藏，请现在锁定作业，并在发布日期解锁。",
+      "releaseTemplateReadableTitle": "在发布日期之前，学生就能读取此模板"
     },
     "autograder": {
       "heading": "自动评分测试",
@@ -1541,7 +1545,8 @@
       "hiddenStaffReposTitle_other": "尚无学生加入。有 {{count}} 个来自教学人员的仓库未被计入。若要计入，请开启“包含教学人员”。",
       "noStudentsYet": "尚无学生",
       "noStudentsYetTitle": "尚无学生加入，因此没有可作为对照的对象。请在“花名册”页面添加学生。",
-      "submittedTitleWithStaff": "{{total}} 名学生和教学人员中已有 {{submitted}} 名提交"
+      "submittedTitleWithStaff": "{{total}} 名学生和教学人员中已有 {{submitted}} 名提交",
+      "deleteWarning": "学生将失去对作业页面的访问权限，其截止日期、模板和评分设置也会被移除。"
     },
     "manageModal": {
       "open": "管理作业",
@@ -2081,7 +2086,8 @@
       "forbiddenPartial_other": "在已删除 {{count}} 个仓库后，GitHub 拒绝删除仓库（403），且这些删除是永久性的。你的权限看起来足够，因此很可能是组织策略或受保护的仓库正在阻止其余部分。请检查组织设置，然后重新运行拆除以完成。",
       "rateLimited": "在删除任何仓库之前，GitHub 对删除操作进行了速率限制。请稍候片刻，然后重新运行拆除。",
       "rateLimitedPartial_one": "在已删除 {{count}} 个仓库后，GitHub 对删除操作进行了速率限制，且该删除是永久性的。请稍候片刻，然后重新运行拆除以完成。",
-      "rateLimitedPartial_other": "在已删除 {{count}} 个仓库后，GitHub 对删除操作进行了速率限制，且这些删除是永久性的。请稍候片刻，然后重新运行拆除以完成。"
+      "rateLimitedPartial_other": "在已删除 {{count}} 个仓库后，GitHub 对删除操作进行了速率限制，且这些删除是永久性的。请稍候片刻，然后重新运行拆除以完成。",
+      "confirmWarning": "学生将失去尚未保存到自己电脑上的任何工作内容。请先下载你仍然需要的所有内容。"
     },
     "preflight": {
       "categoryServiceToken": "服务令牌",
@@ -2439,7 +2445,8 @@
       "cancelInvite": "取消邀请",
       "cancelledToast": "已取消 {{who}} 的邀请。",
       "cancelFailed": "无法取消 {{who}} 的邀请：{{error}}"
-    }
+    },
+    "deleteClassroomWarning": "此操作无法撤销。花名册、作业列表和课堂团队都会被删除，因此要恢复该课堂就意味着重新创建它并重新登记每一名学生。"
   },
   "pagesErrors": {
     "autograderLabel": "自动评分器“{{autograderName}}”",
@@ -2537,7 +2544,8 @@
       "access": "正在设置你的仓库访问权限",
       "setup": "正在设置自动评分",
       "feedback": "正在打开反馈拉取请求",
-      "team": "正在查找你的小组"
+      "team": "正在查找你的小组",
+      "setupWaiting": "正在设置自动评分（GitHub 仍在初始化你的仓库，最多可能需要一分钟）"
     },
     "stepDone": {
       "account": "已检查你的 GitHub 账户",
@@ -2623,6 +2631,11 @@
       "badge": "等待你的小组",
       "body": "此作业由你的老师分配小组。请让你的老师把你加入某个小组，然后重新打开此链接。",
       "title": "你还没有加入任何小组"
+    },
+    "keepTabOpen": "在设置完成前请保持此标签页打开。过早关闭可能导致你的仓库处于半配置状态。",
+    "setupIncomplete": {
+      "body": "你的仓库已存在，但缺少设置文件，因此自动评分无法运行，你的老师也无法留下反馈。请重新运行设置以完成配置。此操作是安全的，并会保留你已推送的任何工作内容。",
+      "title": "设置未完成"
     }
   },
   "submissions": {
@@ -2916,7 +2929,7 @@
       "repairing": "正在修复…",
       "created": "已为 {{repo}} 打开反馈拉取请求。",
       "alreadyExists": "{{repo}} 已存在反馈拉取请求。",
-      "noBaseline": "此仓库没有可供对比的作业基线（例如空仓库作业），因此无法为其打开反馈拉取请求。无需修复。",
+      "noBaseline": "此仓库缺少其 Classroom 50 设置文件，这意味着该学生的接受过程中途停止了。在设置完成之前，自动评分无法运行，也无法打开反馈拉取请求。请让该学生打开作业链接并选择“重新运行设置”，然后再次修复该 PR。",
       "repoNotFound": "找不到仓库 {{repo}}。该学生可能尚未接受作业。",
       "baseMismatch": "此仓库的反馈分支指向了错误的提交，因此在此打开 PR 会显示空的差异。组织管理员必须先删除该反馈分支，才能正确重新创建它。重新运行无法解决此问题。",
       "failed": "无法打开反馈拉取请求：{{reason}}。请重试。"
@@ -2936,8 +2949,8 @@
       "summaryOpened_other": "已打开 {{count}} 个反馈 PR",
       "summaryExisted_one": "{{count}} 个仓库已有反馈 PR",
       "summaryExisted_other": "{{count}} 个仓库已有反馈 PR",
-      "summaryUnsupported_one": "跳过 {{count}} 个仓库（无可供对比的作业基线）",
-      "summaryUnsupported_other": "跳过 {{count}} 个仓库（无可供对比的作业基线）",
+      "summaryUnsupported_one": "跳过 {{count}} 个仓库（未找到）",
+      "summaryUnsupported_other": "跳过 {{count}} 个仓库（未找到）",
       "summaryBlocked_one": "{{count}} 个仓库被阻止（需要组织管理员）",
       "summaryBlocked_other": "{{count}} 个仓库被阻止（需要组织管理员）",
       "summaryFailed_one": "{{count}} 个仓库失败",
@@ -2945,7 +2958,11 @@
       "failedTitle": "无法处理这些仓库：",
       "failedHint": "这通常是暂时性的 GitHub 错误。再次运行此操作，仅重试仍缺少 PR 的仓库。",
       "blockedTitle": "这些仓库需要组织管理员处理：",
-      "blockedHint": "它们的反馈分支指向了错误的提交，因此打开 PR 会显示空的差异。组织管理员必须先删除每个反馈分支，才能重新运行此操作。仅重试无法解决问题。"
+      "blockedHint": "它们的反馈分支指向了错误的提交，因此打开 PR 会显示空的差异。组织管理员必须先删除每个反馈分支，才能重新运行此操作。仅重试无法解决问题。",
+      "incompleteHint": "每名学生的接受过程都在写入设置文件之前中断了，因此自动评分无法运行，也无法打开反馈 PR。请让每名学生打开作业链接并选择“重新运行设置”，然后再次执行此操作。",
+      "incompleteTitle": "这些仓库从未完成设置：",
+      "summaryIncomplete_one": "{{count}} 个仓库从未完成设置",
+      "summaryIncomplete_other": "{{count}} 个仓库从未完成设置"
     },
     "downloadAll": {
       "menuLabel": "下载所有提交",
@@ -3165,7 +3182,8 @@
       "outcome": {
         "public": "仓库现已设为公开。",
         "private": "仓库现已设为私有。"
-      }
+      },
+      "confirmWarning": "任何人在仓库处于公开状态时查看或克隆了它，即使你之后再将其设为私有，也会保留那份副本。"
     },
     "bulkAutograde": {
       "pauseMenuLabel": "暂停自动评分",
@@ -3240,7 +3258,10 @@
       "regradeDescription": "在最新提交上重新运行自动评分器",
       "downloadDescription": "将提交保存为 zip 压缩包",
       "membersDescription": "查看并管理小组的成员",
-      "manageGroup": "管理小组"
+      "manageGroup": "管理小组",
+      "setup": "设置",
+      "setupIncomplete": "未完成",
+      "setupIncompleteHint": "该学生的接受过程在写入设置文件之前中断了，因此自动评分无法运行，也无法打开反馈 PR。请让该学生打开作业链接并选择“重新运行设置”。"
     },
     "publicRepo": {
       "badge": "公开",
@@ -3514,7 +3535,8 @@
         "resolve-failed": "无法解析其当前的 GitHub 账户。",
         "self": "这是你已登录的账户，因此无法在此处移除。",
         "no-username": "档案中没有 GitHub 用户名——组织移除操作以用户名为键。"
-      }
+      },
+      "confirmRemoveOrgWarning": "被移除的成员将失去对组织中所有仓库的访问权限，包括他们自己的作业仓库，需要重新邀请才能返回。"
     }
   },
   "components": {
@@ -3556,7 +3578,6 @@
       "confirm": "确认",
       "no": "取消",
       "yesContinue": "继续",
-      "dangerousPrompt": "此操作可能难以撤销或无法撤销。确定要继续吗？",
       "genericError": "出错了，请重试。",
       "typeToConfirm": "如需确认，请在下方输入 <text>{{text}}</text>。",
       "typeAriaLabel": "输入 {{text}} 以确认"

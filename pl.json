@@ -326,7 +326,8 @@
       "removeRowsSelected_other": "Usuń {{count}} niepowiązanych wierszy listy",
       "removeRowsTitle": "Usuń niepowiązane wiersze listy",
       "removedRowsHeadline_one": "Usunięto {{count}} niepowiązany wiersz.",
-      "removedRowsHeadline_other": "Usunięto {{count}} niepowiązanych wierszy."
+      "removedRowsHeadline_other": "Usunięto {{count}} niepowiązanych wierszy.",
+      "confirmUnenrollWarning": "Ponowne zapisanie oznacza dodanie każdego ucznia do listy uczniów na nowo. Ich repozytoria zadań nie są usuwane."
     },
     "classroomTeamLabel": "Zespół klasy",
     "confirmResendBody": "Wysłać ponownie oczekujące zaproszenie do organizacji dla {{label}}? Bieżące zaproszenie zostanie anulowane, a nowe wysłane dla {{org}}.",
@@ -991,7 +992,7 @@
         "templateContentWarning": "Dziedziczenie prywatnego szablonu kopiuje również jego zawartość Wiki, Issues i Projects, więc trzymaj klucze odpowiedzi z dala od szablonu, po którym dziedziczysz."
       },
       "setAvailableFrom": "Ustaw datę udostępnienia",
-      "setAvailableFromTip": "Zadania są domyślnie ukryte na stronie zadań ucznia, więc uczniowie mogą je zaakceptować tylko przez link z zaproszeniem. Ustaw datę udostępnienia, aby wylistować je dla wszystkich po jej upływie. Uczniowie, którzy już je zaakceptowali, zawsze je widzą. Steruje to jedynie wyświetlaniem, a nie dostępem.",
+      "setAvailableFromTip": "Zadania są domyślnie ukryte na stronie zadań ucznia, więc uczniowie mogą je zaakceptować tylko przez link zaproszenia. Ustaw datę udostępnienia, aby wyświetlić zadanie dla wszystkich po jej upływie. Uczniowie, którzy już je zaakceptowali, zawsze je widzą. Data udostępnienia kontroluje tylko wyświetlanie na liście, a nie dostęp: prywatny szablon w Twojej organizacji pozostaje czytelny dla zespołu zajęć. Aby ukryć szablon do momentu udostępnienia, zablokuj zadanie.",
       "setupTimeout": "Limit czasu konfiguracji (sekundy)",
       "setupTimeoutTip": "Nowe polecenia konfiguracji zaczynają od {{default}} sekund. Ustaw 0, aby użyć domyślnych 10 sekund runnera, lub wybierz liczbę całkowitą od 1 do {{max}}.",
       "studentPermission": {
@@ -1113,7 +1114,10 @@
       "teamFormationTeacherHelp": "Tworzysz grupy i dodajesz studentów na stronie ustawień zadania. Studenci, którzy nie są w grupie, nie mogą zaakceptować.",
       "typeTeam": "Grupowe",
       "typeTeamDisabledHelp": "Zadania grupowe wymagają, aby członkowie organizacji mogli tworzyć zespoły: pierwszy student tworzy zespół grupy podczas akceptacji. Włącz opcję „Allow members to create teams” w sekcji Tworzenie zespołów przez członków na stronie ustawień organizacji lub w uprawnieniach członków organizacji na GitHubie.",
-      "typeTeamRecommended": "Zalecane"
+      "typeTeamRecommended": "Zalecane",
+      "releaseLockedReminder": "Zablokowane. Data udostępnienia nie odblokowuje zadania: wyłącz opcję Zablokuj zadanie w dniu udostępnienia, aby uczniowie mogli je zaakceptować.",
+      "releaseTemplateReadableBody": "Data udostępnienia kontroluje tylko wyświetlanie na liście. Zapisanie od razu przyznaje zespołowi zajęć dostęp do odczytu tego prywatnego szablonu. Aby szablon pozostał ukryty, zablokuj zadanie teraz i odblokuj je w dniu udostępnienia.",
+      "releaseTemplateReadableTitle": "Uczniowie mogą przeczytać ten szablon przed datą udostępnienia"
     },
     "autograder": {
       "heading": "Testy autooceny",
@@ -1269,7 +1273,8 @@
       "hiddenStaffReposTitle_other": "Nie zapisano jeszcze żadnych uczniów. {{count}} repozytoriów kadry dydaktycznej nie jest liczonych. Aby je zliczyć, włącz opcję Uwzględnij kadrę dydaktyczną.",
       "noStudentsYet": "Brak uczniów",
       "noStudentsYetTitle": "Nie zapisano jeszcze żadnych uczniów, więc nie ma czego zliczać. Dodaj uczniów na stronie Lista uczniów.",
-      "submittedTitleWithStaff": "{{submitted}} z {{total}} uczniów i kadry dydaktycznej przesłało pracę"
+      "submittedTitleWithStaff": "{{submitted}} z {{total}} uczniów i kadry dydaktycznej przesłało pracę",
+      "deleteWarning": "Uczniowie tracą dostęp do strony zadania, a jego termin, szablon i ustawienia oceniania zostają usunięte."
     },
     "template": {
       "label": "Repozytorium szablonu",
@@ -1786,7 +1791,8 @@
       "rateLimitedPartial_other": "GitHub ograniczył liczbę żądań usuwania po tym, jak {{count}} zostało już usuniętych, a te usunięcia są trwałe. Odczekaj chwilę, a następnie uruchom likwidację ponownie, aby dokończyć.",
       "ssoRequired": "GitHub odmówił usunięcia repozytoriów (403). Ta organizacja wymaga logowania jednokrotnego SAML (SSO). Autoryzuj swoją sesję dla tej organizacji na GitHubie, a następnie uruchom likwidację ponownie.",
       "ssoRequiredPartial_one": "GitHub odmówił usunięcia repozytoriów (403) po tym, jak {{count}} zostało już usunięte, a to usunięcie jest trwałe. Ta organizacja wymaga logowania jednokrotnego SAML. Autoryzuj dla niej swoją sesję na GitHubie, a następnie uruchom likwidację ponownie, aby dokończyć.",
-      "ssoRequiredPartial_other": "GitHub odmówił usunięcia repozytoriów (403) po tym, jak {{count}} zostało już usuniętych, a te usunięcia są trwałe. Ta organizacja wymaga logowania jednokrotnego SAML. Autoryzuj dla niej swoją sesję na GitHubie, a następnie uruchom likwidację ponownie, aby dokończyć."
+      "ssoRequiredPartial_other": "GitHub odmówił usunięcia repozytoriów (403) po tym, jak {{count}} zostało już usuniętych, a te usunięcia są trwałe. Ta organizacja wymaga logowania jednokrotnego SAML. Autoryzuj dla niej swoją sesję na GitHubie, a następnie uruchom likwidację ponownie, aby dokończyć.",
+      "confirmWarning": "Uczniowie tracą wszelką pracę, której nie mają już na własnych komputerach. Najpierw pobierz wszystko, co jeszcze potrzebne."
     },
     "preflight": {
       "categoryServiceToken": "token serwisowy",
@@ -2138,7 +2144,8 @@
     "viewRosterAria": "Wyświetl listę dla {{classroom}}",
     "loadError": "Nie udało się załadować klas z GitHub. To błąd wczytywania, więc Twoje klasy nie zniknęły.",
     "retry": "Spróbuj ponownie",
-    "roleLoadError": "Nie udało się sprawdzić Twojej roli w tej organizacji."
+    "roleLoadError": "Nie udało się sprawdzić Twojej roli w tej organizacji.",
+    "deleteClassroomWarning": "Tej operacji nie można cofnąć. Lista uczniów, lista zadań i zespoły zajęć zostają usunięte, więc przywrócenie zajęć oznacza utworzenie ich od nowa i ponowne zapisanie każdego ucznia."
   },
   "accept": {
     "githubUser": "Użytkownik GitHub",
@@ -2177,7 +2184,8 @@
       "setup": "Konfigurowanie autooceniania",
       "membership": "Potwierdzanie Twojej przynależności do klasy",
       "feedback": "Otwieranie pull requesta z opinią",
-      "team": "Wyszukiwanie Twojej grupy"
+      "team": "Wyszukiwanie Twojej grupy",
+      "setupWaiting": "Konfigurowanie autogradera (GitHub wciąż inicjalizuje Twoje repozytorium, co może potrwać do minuty)"
     },
     "progress": {
       "error": "Konfiguracja nie powiodła się. Przejrzyj kroki.",
@@ -2306,6 +2314,11 @@
       "badge": "Oczekiwanie na Twoją grupę",
       "body": "Nauczyciel przydziela grupy do tego zadania. Poproś nauczyciela o dodanie Cię do grupy, a następnie ponownie otwórz ten link.",
       "title": "Nie jesteś jeszcze w grupie"
+    },
+    "keepTabOpen": "Nie zamykaj tej karty, dopóki konfiguracja się nie zakończy. Wcześniejsze zamknięcie może pozostawić repozytorium skonfigurowane tylko w połowie.",
+    "setupIncomplete": {
+      "body": "Twoje repozytorium istnieje, ale brakuje w nim plików konfiguracyjnych, więc autograder nie zadziała, a nauczyciel nie może zostawić informacji zwrotnej. Uruchom konfigurację ponownie, aby ją dokończyć. Jest to bezpieczne i zachowuje wszystko, co już wypchnąłeś.",
+      "title": "Konfiguracja się nie zakończyła"
     }
   },
   "submissions": {
@@ -2582,10 +2595,14 @@
       "summaryLead": "Zakończono przetwarzanie <b>{{total}}</b> repozytoriów.",
       "summaryOpened_one": "otwarto {{count}} PR z opinią",
       "summaryOpened_other": "otwarto {{count}} PR z opinią",
-      "summaryUnsupported_one": "pominięto {{count}} repozytorium (brak kodu startowego do porównania)",
-      "summaryUnsupported_other": "pominięto {{count}} repozytoriów (brak kodu startowego do porównania)",
+      "summaryUnsupported_one": "{{count}} repozytorium pominięte (nie znaleziono)",
+      "summaryUnsupported_other": "{{count}} repozytorium pominięte (nie znaleziono)",
       "title": "Otwórz PR z opinią dla każdego repozytorium",
-      "titleEmptyRoster": "Najpierw dodaj uczniów do listy"
+      "titleEmptyRoster": "Najpierw dodaj uczniów do listy",
+      "incompleteHint": "Akceptacja każdego z tych uczniów zatrzymała się przed zapisaniem plików konfiguracyjnych, więc autograder nie zadziała i nie można otworzyć PR z informacją zwrotną. Poproś każdego ucznia, aby otworzył link do zadania i wybrał opcję Uruchom konfigurację ponownie, a następnie ponów tę czynność.",
+      "incompleteTitle": "Te repozytoria nigdy nie ukończyły konfiguracji:",
+      "summaryIncomplete_one": "{{count}} repozytorium nigdy nie ukończyło konfiguracji",
+      "summaryIncomplete_other": "{{count}} repozytorium nigdy nie ukończyło konfiguracji"
     },
     "repairPr": {
       "alreadyExists": "Pull request z opinią już istnieje dla {{repo}}.",
@@ -2593,7 +2610,7 @@
       "created": "Otwarto pull request z opinią dla {{repo}}.",
       "failed": "Nie udało się otworzyć pull requesta z opinią: {{reason}}. Spróbuj ponownie.",
       "hint": "Jeśli uczeń zaakceptował zadanie, ale otwarcie PR-a nie powiodło się (awaria GitHub lub błąd przejściowy), możesz otworzyć go teraz.",
-      "noBaseline": "To repozytorium nie ma kodu startowego do porównania (na przykład zadanie z pustym repozytorium), więc nie można otworzyć pull requesta z opinią. Nie ma nic do naprawienia.",
+      "noBaseline": "W tym repozytorium brakuje plików konfiguracyjnych Classroom 50, co oznacza, że akceptacja ucznia zatrzymała się w połowie. Dopóki konfiguracja się nie zakończy, autograder nie zadziała i nie można otworzyć pull requesta z informacją zwrotną. Poproś ucznia, aby otworzył link do zadania i wybrał opcję Uruchom konfigurację ponownie, a następnie napraw PR jeszcze raz.",
       "repair": "Napraw PR z opinią",
       "repairing": "Naprawianie…",
       "repoNotFound": "Nie udało się odnaleźć repozytorium {{repo}}. Uczeń mógł jeszcze nie zaakceptować."
@@ -2704,7 +2721,10 @@
       "autogradingPausedByGitHub": "Wstrzymane przez GitHub",
       "visibility": "Widoczność",
       "visibilityPrivate": "Prywatne",
-      "manageGroup": "Zarządzaj grupą"
+      "manageGroup": "Zarządzaj grupą",
+      "setup": "Konfiguracja",
+      "setupIncomplete": "Niekompletna",
+      "setupIncompleteHint": "Akceptacja ucznia zatrzymała się przed zapisaniem plików konfiguracyjnych, więc autograder nie zadziała i nie można otworzyć PR z informacją zwrotną. Poproś ucznia, aby otworzył link do zadania i wybrał opcję Uruchom konfigurację ponownie."
     },
     "rowDownload": {
       "aria": "Pobierz zgłoszenie użytkownika {{owner}}",
@@ -2961,7 +2981,8 @@
       "outcome": {
         "private": "Repozytorium jest teraz prywatne.",
         "public": "Repozytorium jest teraz publiczne."
-      }
+      },
+      "confirmWarning": "Każdy, kto obejrzy lub sklonuje repozytorium, gdy jest publiczne, zachowuje tę kopię, nawet po ponownym ustawieniu go jako prywatne."
     },
     "rosterFromCsvNotice": "Lista uczniów pochodzi z pliku listy z chwili jej ostatniej synchronizacji, ponieważ Twoja rola nie może przeglądać zespołu GitHub tej klasy. Uczeń zapisany od tego czasu pojawi się po otwarciu listy przez nauczyciela. Właściciele organizacji widzą członkostwo na żywo.",
     "skipPastTable": "Pomiń tabelę przesłań",
@@ -3092,7 +3113,8 @@
       "resultRemoved": "Usunięto",
       "unenrolledDetail_one": "Wypisano z {{count}} zajęć ({{classrooms}}).",
       "unenrolledDetail_other": "Wypisano z {{count}} zajęć ({{classrooms}}).",
-      "viewerUnverified": "Nie udało się zweryfikować Twojego konta, więc nie usunięto żadnych członków. Spróbuj ponownie."
+      "viewerUnverified": "Nie udało się zweryfikować Twojego konta, więc nie usunięto żadnych członków. Spróbuj ponownie.",
+      "confirmRemoveOrgWarning": "Usunięci członkowie tracą dostęp do każdego repozytorium w organizacji, w tym do własnych repozytoriów zadań, i potrzebują nowego zaproszenia, aby wrócić."
     },
     "confirmInviteBody": "Wysłać zaproszenie do organizacji dla {{label}}? Zaproszenie jest wysyłane na jego konto GitHub według identyfikatora i po zaakceptowaniu ponownie dołączy do {{org}} ze swoim poprzednim dostępem do klas.",
     "filterAllClassrooms": "Wszystkie klasy",
@@ -3184,7 +3206,6 @@
       "confirm": "Potwierdź",
       "no": "Anuluj",
       "yesContinue": "Kontynuuj",
-      "dangerousPrompt": "Tego może być trudno lub niemożliwie cofnąć. Kontynuować?",
       "genericError": "Coś poszło nie tak. Spróbuj ponownie.",
       "typeAriaLabel": "Wpisz {{text}}, aby potwierdzić",
       "typeToConfirm": "Aby potwierdzić, wpisz poniżej <text>{{text}}</text>."

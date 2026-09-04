@@ -597,7 +597,8 @@
       "confirmInviteTitle_one": "학생 {{count}}명을 초대할까요?",
       "confirmInviteTitle_other": "학생 {{count}}명을 초대할까요?",
       "confirmInviteBodyPlain_one": "선택한 학생 {{count}}명에게 조직 초대를 보낼까요? 수락하면 조직과 클래스룸 팀에 참여합니다.",
-      "confirmInviteBodyPlain_other": "선택한 학생 {{count}}명에게 조직 초대를 보낼까요? 수락하면 조직과 클래스룸 팀에 참여합니다."
+      "confirmInviteBodyPlain_other": "선택한 학생 {{count}}명에게 조직 초대를 보낼까요? 수락하면 조직과 클래스룸 팀에 참여합니다.",
+      "confirmUnenrollWarning": "다시 등록하려면 각 학생을 명단에 다시 추가해야 합니다. 학생의 과제 저장소는 삭제되지 않습니다."
     },
     "emptyTitle": "아직 구성원이 없습니다",
     "emptyBody": "학생을 등록하려면 명단에서 초대하세요(또는 설정에서 선생님과 TA를 추가하세요) — 온보딩 링크는 스스로 누구도 추가하지 않으며, 이미 초대된 학생이 수락할 수 있게 할 뿐입니다. 사람들이 초대를 수락하고 로그인하면 여기에 나타납니다.",
@@ -1148,7 +1149,7 @@
       "dueDateTz": "시간은 사용자의 현지 시간대({{tz}}) 기준입니다.",
       "availableFrom": "공개일 ({{tz}})",
       "setAvailableFrom": "공개일 설정",
-      "setAvailableFromTip": "과제는 기본적으로 학생 과제 페이지에서 숨겨져 있어, 학생은 초대 링크로만 수락할 수 있습니다. 공개 날짜를 설정하면 해당 날짜가 지난 후 모두에게 목록으로 표시됩니다. 이미 수락한 학생은 항상 볼 수 있습니다. 이는 목록 표시만 제어하며, 접근을 제어하지 않습니다.",
+      "setAvailableFromTip": "과제는 기본적으로 학생 과제 페이지에서 숨겨지므로, 학생은 초대 링크를 통해서만 수락할 수 있습니다. 공개일을 설정하면 그 날짜가 지난 뒤 모두에게 목록으로 표시됩니다. 이미 수락한 학생에게는 항상 표시됩니다. 공개일은 접근이 아니라 목록 표시만 제어합니다. 조직 내 비공개 템플릿은 강의실 팀이 계속 읽을 수 있습니다. 공개일까지 템플릿을 숨기려면 과제를 잠그세요.",
       "availableFromTz": "시간은 사용자의 현지 시간대({{tz}}) 기준입니다.",
       "lockAssignment": "과제 잠금",
       "lockAssignmentTip": "잠긴 과제는 이미 수락한 학생을 포함하여 학생이 볼 수도 수락할 수도 없습니다. 조직 내 비공개 템플릿의 경우, 잠금을 해제할 때까지 강의실 팀이 템플릿에 대한 읽기 액세스를 잃습니다. 스태프 액세스와 기존 학생 저장소는 변경되지 않습니다. 시간제한 평가를 준비해 두었다가 세션이 시작될 때 잠금을 해제하는 데 사용하세요.",
@@ -1385,7 +1386,10 @@
       "teamFormationTeacher": "교사가 그룹을 배정",
       "teamFormationTeacherHelp": "과제 설정 페이지에서 그룹을 만들고 학생을 추가합니다. 그룹에 속하지 않은 학생은 수락할 수 없습니다.",
       "teamFormationStudent": "학생이 그룹을 구성",
-      "teamFormationStudentHelp": "첫 번째 학생이 수락할 때 그룹을 만들고, 이후 최대 그룹 인원까지 팀원을 추가합니다."
+      "teamFormationStudentHelp": "첫 번째 학생이 수락할 때 그룹을 만들고, 이후 최대 그룹 인원까지 팀원을 추가합니다.",
+      "releaseLockedReminder": "잠김 상태입니다. 공개일은 과제 잠금을 해제하지 않습니다. 공개일에 학생이 수락할 수 있도록 과제 잠금을 꺼 두세요.",
+      "releaseTemplateReadableBody": "공개일은 목록 표시만 제어합니다. 저장하면 강의실 팀이 이 비공개 템플릿에 대한 읽기 권한을 즉시 갖게 됩니다. 템플릿을 계속 숨기려면 지금 과제를 잠그고 공개일에 잠금을 해제하세요.",
+      "releaseTemplateReadableTitle": "학생이 공개일 전에 이 템플릿을 읽을 수 있습니다"
     },
     "autograder": {
       "heading": "자동 채점 테스트",
@@ -1541,7 +1545,8 @@
       "hiddenStaffReposTitle_other": "아직 등록된 학생이 없습니다. 교직원의 저장소 {{count}}개는 집계되지 않습니다. 집계하려면 교직원 포함을 켜세요.",
       "noStudentsYet": "아직 학생 없음",
       "noStudentsYetTitle": "아직 등록된 학생이 없어 집계할 대상이 없습니다. 로스터 페이지에서 학생을 추가하세요.",
-      "submittedTitleWithStaff": "학생 및 교직원 {{total}}명 중 {{submitted}}명이 제출했습니다"
+      "submittedTitleWithStaff": "학생 및 교직원 {{total}}명 중 {{submitted}}명이 제출했습니다",
+      "deleteWarning": "학생은 과제 페이지에 대한 접근 권한을 잃고, 마감일, 템플릿, 채점 설정이 삭제됩니다."
     },
     "manageModal": {
       "open": "과제 관리",
@@ -2219,7 +2224,8 @@
       "forbiddenPartial_other": "{{count}}개가 이미 삭제된 후 GitHub이 저장소 삭제를 거부했으며(403), 그 삭제들은 영구적입니다. 권한은 충분해 보이므로 조직 정책이나 보호된 저장소가 나머지를 차단하고 있을 가능성이 큽니다. 조직 설정을 확인한 다음 해체를 다시 실행하여 완료하세요.",
       "rateLimited": "저장소가 하나도 삭제되기 전에 GitHub이 삭제 요청의 속도를 제한했습니다. 잠시 기다린 다음 해체를 다시 실행하세요.",
       "rateLimitedPartial_one": "{{count}}개가 이미 삭제된 후 GitHub이 삭제 요청의 속도를 제한했으며, 그 삭제는 영구적입니다. 잠시 기다린 다음 해체를 다시 실행하여 완료하세요.",
-      "rateLimitedPartial_other": "{{count}}개가 이미 삭제된 후 GitHub이 삭제 요청의 속도를 제한했으며, 그 삭제들은 영구적입니다. 잠시 기다린 다음 해체를 다시 실행하여 완료하세요."
+      "rateLimitedPartial_other": "{{count}}개가 이미 삭제된 후 GitHub이 삭제 요청의 속도를 제한했으며, 그 삭제들은 영구적입니다. 잠시 기다린 다음 해체를 다시 실행하여 완료하세요.",
+      "confirmWarning": "학생은 아직 자신의 컴퓨터에 없는 작업을 모두 잃게 됩니다. 필요한 것은 먼저 내려받으세요."
     },
     "preflight": {
       "categoryServiceToken": "서비스 토큰",
@@ -2561,7 +2567,8 @@
       "cancelInvite": "초대 취소",
       "cancelledToast": "{{who}}에 대한 초대를 취소했습니다.",
       "cancelFailed": "{{who}}에 대한 초대를 취소하지 못했습니다: {{error}}"
-    }
+    },
+    "deleteClassroomWarning": "이 작업은 되돌릴 수 없습니다. 명단, 과제 목록, 강의실 팀이 삭제되므로 강의실을 되살리려면 다시 만들고 모든 학생을 다시 등록해야 합니다."
   },
   "pagesErrors": {
     "autograderLabel": "자동 채점기 \"{{autograderName}}\"",
@@ -2662,7 +2669,8 @@
       "access": "저장소 액세스 권한 설정 중",
       "setup": "자동 채점 설정 중",
       "feedback": "피드백 풀 리퀘스트 여는 중",
-      "team": "회원님의 그룹 찾는 중"
+      "team": "회원님의 그룹 찾는 중",
+      "setupWaiting": "자동 채점 설정 중(GitHub이 아직 저장소를 초기화하고 있으며, 최대 1분 정도 걸릴 수 있습니다)"
     },
     "stepDone": {
       "account": "회원님의 GitHub 계정을 확인했습니다",
@@ -2745,6 +2753,11 @@
       "help": "참여를 요청하면 GitHub에서 그룹 페이지가 열립니다. 거기서 \"Request to join\"을 선택하세요. 그룹은 해당 페이지에서 요청을 검토하며, 회원님도 그곳에서 요청을 취소할 수 있습니다. 참여되면 이곳으로 돌아오세요.",
       "recheck": "다시 확인",
       "or": "또는"
+    },
+    "keepTabOpen": "설정이 끝날 때까지 이 탭을 열어 두세요. 일찍 닫으면 저장소가 절반만 설정된 상태로 남을 수 있습니다.",
+    "setupIncomplete": {
+      "body": "저장소는 존재하지만 설정 파일이 없어서 자동 채점이 실행되지 않고 선생님이 피드백을 남길 수 없습니다. 설정을 다시 실행해 마무리하세요. 이 작업은 안전하며 이미 푸시한 작업은 그대로 유지됩니다.",
+      "title": "설정이 완료되지 않았습니다"
     }
   },
   "submissions": {
@@ -3039,7 +3052,7 @@
       "repairing": "복구하는 중…",
       "created": "{{repo}}에 대한 피드백 PR을 열었습니다.",
       "alreadyExists": "{{repo}}에 대한 피드백 PR이 이미 존재합니다.",
-      "noBaseline": "이 저장소에는 비교할 과제 기준선이 없어(예: 빈 저장소 과제) 피드백 PR을 열 수 없습니다. 복구할 항목이 없습니다.",
+      "noBaseline": "이 저장소에는 Classroom 50 설정 파일이 없으며, 이는 학생의 수락이 도중에 중단되었음을 의미합니다. 설정이 끝날 때까지 자동 채점이 실행되지 않고 피드백 풀 리퀘스트를 열 수 없습니다. 학생에게 과제 링크를 열고 설정 다시 실행을 선택하도록 요청한 뒤 PR을 다시 복구하세요.",
       "repoNotFound": "저장소 {{repo}}를 찾을 수 없습니다 — 학생이 아직 수락하지 않았을 수 있습니다.",
       "baseMismatch": "이 저장소의 피드백 브랜치가 잘못된 커밋을 가리키고 있어, 여기서 PR을 열면 빈 diff가 표시됩니다. 올바르게 다시 생성할 수 있도록 조직 관리자가 피드백 브랜치를 삭제해야 합니다. 다시 실행해도 해결되지 않습니다.",
       "failed": "피드백 PR을 열 수 없습니다: {{reason}}. 다시 시도하세요."
@@ -3059,8 +3072,8 @@
       "summaryOpened_other": "피드백 PR {{count}}개 열림",
       "summaryExisted_one": "저장소 {{count}}개는 이미 있음",
       "summaryExisted_other": "저장소 {{count}}개는 이미 있음",
-      "summaryUnsupported_one": "저장소 {{count}}개 건너뜀(비교할 과제 기준선 없음)",
-      "summaryUnsupported_other": "저장소 {{count}}개 건너뜀(비교할 과제 기준선 없음)",
+      "summaryUnsupported_one": "저장소 {{count}}개 건너뜀(찾을 수 없음)",
+      "summaryUnsupported_other": "저장소 {{count}}개 건너뜀(찾을 수 없음)",
       "summaryBlocked_one": "저장소 {{count}}개 차단됨(조직 관리자 필요)",
       "summaryBlocked_other": "저장소 {{count}}개 차단됨(조직 관리자 필요)",
       "summaryFailed_one": "저장소 {{count}}개 실패",
@@ -3068,7 +3081,11 @@
       "failedTitle": "이 저장소들은 처리할 수 없었습니다:",
       "failedHint": "일시적인 GitHub 오류인 경우가 많습니다 — 작업을 다시 실행하면 아직 PR이 없는 저장소만 재시도합니다.",
       "blockedTitle": "이 저장소들은 조직 관리자가 필요합니다:",
-      "blockedHint": "해당 피드백 브랜치가 잘못된 커밋을 가리키고 있어 PR을 열면 빈 diff가 표시됩니다. 이 작업을 다시 실행하기 전에 조직 관리자가 각 피드백 브랜치를 삭제해야 하며, 재시도만으로는 해결되지 않습니다."
+      "blockedHint": "해당 피드백 브랜치가 잘못된 커밋을 가리키고 있어 PR을 열면 빈 diff가 표시됩니다. 이 작업을 다시 실행하기 전에 조직 관리자가 각 피드백 브랜치를 삭제해야 하며, 재시도만으로는 해결되지 않습니다.",
+      "incompleteHint": "각 학생의 수락이 설정 파일을 쓰기 전에 중단되어, 자동 채점이 실행되지 않고 피드백 PR을 열 수 없습니다. 각 학생에게 과제 링크를 열고 설정 다시 실행을 선택하도록 요청한 뒤 이 작업을 다시 실행하세요.",
+      "incompleteTitle": "이 저장소들은 설정을 끝내지 못했습니다:",
+      "summaryIncomplete_one": "저장소 {{count}}개가 설정을 끝내지 못함",
+      "summaryIncomplete_other": "저장소 {{count}}개가 설정을 끝내지 못함"
     },
     "downloadAll": {
       "menuLabel": "모든 제출물 다운로드",
@@ -3288,7 +3305,8 @@
       "outcome": {
         "public": "리포지터리가 이제 공개입니다.",
         "private": "리포지터리가 이제 비공개입니다."
-      }
+      },
+      "confirmWarning": "저장소가 공개되어 있는 동안 이를 보거나 복제한 사람은 다시 비공개로 전환한 후에도 그 사본을 그대로 갖고 있게 됩니다."
     },
     "bulkAutograde": {
       "pauseMenuLabel": "자동 채점 일시 중지",
@@ -3363,7 +3381,10 @@
       "regradeDescription": "최신 커밋에 대해 자동 채점 다시 실행",
       "downloadDescription": "제출물을 zip 아카이브로 저장",
       "manageGroup": "그룹 관리",
-      "membersDescription": "그룹 구성원 보기 및 관리"
+      "membersDescription": "그룹 구성원 보기 및 관리",
+      "setup": "설정",
+      "setupIncomplete": "미완료",
+      "setupIncompleteHint": "학생의 수락이 설정 파일을 쓰기 전에 중단되어, 자동 채점이 실행되지 않고 피드백 PR을 열 수 없습니다. 학생에게 과제 링크를 열고 설정 다시 실행을 선택하도록 요청하세요."
     },
     "publicRepo": {
       "badge": "공개",
@@ -3636,7 +3657,8 @@
         "resolve-failed": "현재 GitHub 계정을 확인할 수 없습니다.",
         "self": "로그인한 본인 계정이므로 여기서 제거할 수 없습니다.",
         "no-username": "등록된 GitHub 사용자 이름이 없음 — 조직 제거는 사용자 이름을 기준으로 합니다."
-      }
+      },
+      "confirmRemoveOrgWarning": "제거된 구성원은 자신의 과제 저장소를 포함해 조직 내 모든 저장소에 대한 접근 권한을 잃으며, 돌아오려면 새 초대가 필요합니다."
     }
   },
   "components": {
@@ -3678,7 +3700,6 @@
       "confirm": "확인",
       "no": "취소",
       "yesContinue": "계속",
-      "dangerousPrompt": "이 작업은 되돌리기 어렵거나 불가능할 수 있습니다. 계속하시겠습니까?",
       "genericError": "문제가 발생했습니다. 다시 시도하세요.",
       "typeToConfirm": "확인하려면 아래에 <text>{{text}}</text>을(를) 입력하세요.",
       "typeAriaLabel": "확인하려면 {{text}}을(를) 입력하세요"

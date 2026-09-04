@@ -324,7 +324,8 @@
       "removeRowsSelected_other": "移除 {{count}} 列未連結的名冊列",
       "removeRowsTitle": "移除未連結的名冊列",
       "removedRowsHeadline_one": "已移除 {{count}} 列未連結的列。",
-      "removedRowsHeadline_other": "已移除 {{count}} 列未連結的列。"
+      "removedRowsHeadline_other": "已移除 {{count}} 列未連結的列。",
+      "confirmUnenrollWarning": "重新登記代表要再次將每位學生加入名冊。他們的作業儲存庫不會被刪除。"
     },
     "classroomTeamLabel": "課程團隊",
     "confirmResendBody": "要重新發送給 {{label}} 的待處理組織邀請嗎？他們目前的邀請會被取消，並為 {{org}} 發送一個新的邀請。",
@@ -989,7 +990,7 @@
         "templateContentWarning": "繼承私人範本也會複製其 Wiki、Issues 與 Projects 的內容，因此請勿在你所繼承的範本中放入解答金鑰。"
       },
       "setAvailableFrom": "設定發布日期",
-      "setAvailableFromTip": "作業預設會從學生作業頁面隱藏，因此學生只能透過邀請連結接受。設定發布日期，讓它在該日期過後對所有人列出。已接受的學生一律看得到。此設定僅控制列出與否，不控制存取權。",
+      "setAvailableFromTip": "作業預設會從學生作業頁面隱藏，因此學生只能透過邀請連結接受。設定發布日期後，過了該日期便會為所有人列出。已接受的學生始終可見。發布日期只控制列出與否，而非存取權限：組織中的私有範本對班級團隊仍可讀取。若要在發布前隱藏範本，請鎖定作業。",
       "setupTimeout": "設定逾時（秒）",
       "setupTimeoutTip": "新的設定指令從 {{default}} 秒開始。設為 0 以使用執行器的預設 10 秒，或選擇 1 到 {{max}} 之間的整數。",
       "studentPermission": {
@@ -1111,7 +1112,10 @@
       "teamFormationTeacherHelp": "由你在作業設定頁面建立群組並加入學生。不在任何群組中的學生無法接受作業。",
       "typeTeam": "群組",
       "typeTeamDisabledHelp": "群組作業需要組織成員能夠建立團隊：第一位學生接受作業時會建立該群組的團隊。請在組織設定頁面的「成員團隊建立」區段中，或在 GitHub 上組織的成員權限中，開啟「允許成員建立團隊」。",
-      "typeTeamRecommended": "建議"
+      "typeTeamRecommended": "建議",
+      "releaseLockedReminder": "已鎖定。發布日期不會解鎖作業：請在發布日期關閉「鎖定作業」，學生才能接受。",
+      "releaseTemplateReadableBody": "發布日期只控制列出與否。儲存後會立即讓班級團隊擁有讀取此私有範本的權限。若要保持範本隱藏，請立即鎖定作業，並在發布日期解鎖。",
+      "releaseTemplateReadableTitle": "學生在發布日期前即可讀取此範本"
     },
     "autograder": {
       "heading": "自動評分測試",
@@ -1267,7 +1271,8 @@
       "hiddenStaffReposTitle_other": "目前尚無學生註冊。有 {{count}} 個來自教學團隊的存放庫未被計入。若要計入，請開啟「納入教學團隊」。",
       "noStudentsYet": "尚無學生",
       "noStudentsYetTitle": "目前尚無學生註冊，因此沒有可供計算的對象。請在名冊頁面新增學生。",
-      "submittedTitleWithStaff": "{{total}} 位學生和教學團隊中有 {{submitted}} 位已繳交"
+      "submittedTitleWithStaff": "{{total}} 位學生和教學團隊中有 {{submitted}} 位已繳交",
+      "deleteWarning": "學生會失去對作業頁面的存取權，且其截止日期、範本與評分設定都會被移除。"
     },
     "template": {
       "label": "範本儲存庫",
@@ -1784,7 +1789,8 @@
       "rateLimitedPartial_other": "在已刪除 {{count}} 個之後，GitHub 對刪除操作進行了速率限制，而那些刪除是永久的。請稍候片刻，然後再次執行拆除以完成。",
       "ssoRequired": "GitHub 拒絕刪除儲存庫（403）。此組織需要 SAML 單一登入。請在 GitHub 上為此組織授權你的工作階段，然後再次執行拆除。",
       "ssoRequiredPartial_one": "在已刪除 {{count}} 個之後，GitHub 拒絕刪除儲存庫（403），而該刪除是永久的。此組織需要 SAML 單一登入。請在 GitHub 上為其授權你的工作階段，然後再次執行拆除以完成。",
-      "ssoRequiredPartial_other": "在已刪除 {{count}} 個之後，GitHub 拒絕刪除儲存庫（403），而那些刪除是永久的。此組織需要 SAML 單一登入。請在 GitHub 上為其授權你的工作階段，然後再次執行拆除以完成。"
+      "ssoRequiredPartial_other": "在已刪除 {{count}} 個之後，GitHub 拒絕刪除儲存庫（403），而那些刪除是永久的。此組織需要 SAML 單一登入。請在 GitHub 上為其授權你的工作階段，然後再次執行拆除以完成。",
+      "confirmWarning": "學生會失去尚未存在自己電腦上的任何工作。請先下載你仍需要的任何內容。"
     },
     "preflight": {
       "categoryServiceToken": "服務權杖",
@@ -2136,7 +2142,8 @@
     "retry": "重試",
     "roleLoadError": "無法確認你在這個組織中的角色。",
     "viewRoster": "檢視名冊",
-    "viewRosterAria": "檢視 {{classroom}} 的名冊"
+    "viewRosterAria": "檢視 {{classroom}} 的名冊",
+    "deleteClassroomWarning": "此操作無法復原。名冊、作業清單與班級團隊都會被刪除，因此若要恢復班級，就必須重新建立並重新登記每位學生。"
   },
   "accept": {
     "githubUser": "GitHub 使用者",
@@ -2175,7 +2182,8 @@
       "setup": "正在設定自動評分",
       "membership": "正在確認你的課程成員資格",
       "feedback": "正在開啟回饋拉取請求",
-      "team": "正在尋找你的小組"
+      "team": "正在尋找你的小組",
+      "setupWaiting": "正在設定自動評分（GitHub 仍在初始化你的儲存庫，最多可能需要一分鐘）"
     },
     "progress": {
       "error": "設定失敗。請檢視各步驟。",
@@ -2304,6 +2312,11 @@
       "badge": "等待你的小組",
       "body": "這份作業的小組由你的老師指派。請老師把你加進小組，然後重新開啟此連結。",
       "title": "你尚未加入任何小組"
+    },
+    "keepTabOpen": "在設定完成前，請保持此分頁開啟。太早關閉可能導致你的儲存庫只設定到一半。",
+    "setupIncomplete": {
+      "body": "你的儲存庫已存在，但缺少設定檔案，因此自動評分不會執行，老師也無法留下回饋。請重新執行設定以完成。此操作是安全的，並會保留你已推送的任何工作。",
+      "title": "設定未完成"
     }
   },
   "submissions": {
@@ -2580,10 +2593,14 @@
       "summaryLead": "已完成處理 <b>{{total}}</b> 個儲存庫。",
       "summaryOpened_one": "已開啟 {{count}} 個回饋合併請求",
       "summaryOpened_other": "已開啟 {{count}} 個回饋合併請求",
-      "summaryUnsupported_one": "略過 {{count}} 個儲存庫（沒有可比對的起始程式碼）",
-      "summaryUnsupported_other": "略過 {{count}} 個儲存庫（沒有可比對的起始程式碼）",
+      "summaryUnsupported_one": "{{count}} 個儲存庫已略過（找不到）",
+      "summaryUnsupported_other": "{{count}} 個儲存庫已略過（找不到）",
       "title": "為每個儲存庫開啟回饋合併請求",
-      "titleEmptyRoster": "請先將學生加入名冊"
+      "titleEmptyRoster": "請先將學生加入名冊",
+      "incompleteHint": "每位學生的接受流程都在寫入設定檔案之前中斷了，因此自動評分不會執行，也無法開啟回饋 PR。請每位學生開啟作業連結並選擇「重新執行設定」，然後再次執行此動作。",
+      "incompleteTitle": "這些儲存庫從未完成設定：",
+      "summaryIncomplete_one": "{{count}} 個儲存庫從未完成設定",
+      "summaryIncomplete_other": "{{count}} 個儲存庫從未完成設定"
     },
     "repairPr": {
       "alreadyExists": "{{repo}} 已有回饋合併請求。",
@@ -2591,7 +2608,7 @@
       "created": "已為 {{repo}} 開啟回饋合併請求。",
       "failed": "無法開啟回饋合併請求：{{reason}}。請再試一次。",
       "hint": "如果學生已接受作業，但開啟 PR 失敗（GitHub 中斷或暫時性錯誤），你現在可以開啟它。",
-      "noBaseline": "此儲存庫沒有可比對的起始程式碼（例如空白儲存庫作業），因此無法開啟回饋合併請求。無須修復。",
+      "noBaseline": "此儲存庫缺少 Classroom 50 的設定檔案，代表學生的接受流程中途停止了。在設定完成之前，自動評分不會執行，也無法開啟回饋合併請求。請學生開啟作業連結並選擇「重新執行設定」，然後再次修復此 PR。",
       "repair": "修復回饋合併請求",
       "repairing": "修復中…",
       "repoNotFound": "找不到儲存庫 {{repo}}。該學生可能尚未接受。"
@@ -2702,7 +2719,10 @@
       "autogradingPausedByGitHub": "已被 GitHub 暫停",
       "manageGroup": "管理組別",
       "visibility": "可見性",
-      "visibilityPrivate": "私有"
+      "visibilityPrivate": "私有",
+      "setup": "設定",
+      "setupIncomplete": "未完成",
+      "setupIncompleteHint": "學生的接受流程在寫入設定檔案之前就中斷了，因此自動評分不會執行，也無法開啟回饋 PR。請學生開啟作業連結並選擇「重新執行設定」。"
     },
     "rowDownload": {
       "aria": "下載 {{owner}} 的提交",
@@ -2960,7 +2980,8 @@
       "outcome": {
         "private": "儲存庫現在為私有。",
         "public": "儲存庫現在為公開。"
-      }
+      },
+      "confirmWarning": "在儲存庫公開期間檢視或複製它的任何人都會保有那份副本，即使你之後再將它設為私有也一樣。"
     },
     "skipPastTable": "略過繳交表格",
     "slugTitle": "作業代稱：此作業的唯一識別碼。顯示名稱可以重複。"
@@ -3090,7 +3111,8 @@
       "resultRemoved": "已移除",
       "unenrolledDetail_one": "已從 {{count}} 個班級退出（{{classrooms}}）。",
       "unenrolledDetail_other": "已從 {{count}} 個班級退出（{{classrooms}}）。",
-      "viewerUnverified": "無法驗證你的帳號，因此未移除任何成員。請再試一次。"
+      "viewerUnverified": "無法驗證你的帳號，因此未移除任何成員。請再試一次。",
+      "confirmRemoveOrgWarning": "被移除的成員會失去對組織中所有儲存庫的存取權，包括他們自己的作業儲存庫，且需要新的邀請才能重新加入。"
     },
     "confirmInviteBody": "要傳送組織邀請給 {{label}} 嗎？此邀請會依 id 傳送到他們的 GitHub 帳號，一旦接受，他們就會以先前的課程存取權重新加入 {{org}}。",
     "filterAllClassrooms": "所有課程",
@@ -3182,7 +3204,6 @@
       "confirm": "確認",
       "no": "取消",
       "yesContinue": "繼續",
-      "dangerousPrompt": "此動作可能難以或無法復原，要繼續嗎？",
       "genericError": "發生錯誤，請再試一次。",
       "typeAriaLabel": "輸入 {{text}} 以確認",
       "typeToConfirm": "若要確認，請在下方輸入 <text>{{text}}</text>。"

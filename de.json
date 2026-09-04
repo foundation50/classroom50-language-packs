@@ -324,7 +324,8 @@
       "removeRowsSelected_other": "{{count}} nicht verknüpfte Rosterzeilen entfernen",
       "removeRowsTitle": "Nicht verknüpfte Rosterzeilen entfernen",
       "removedRowsHeadline_one": "{{count}} nicht verknüpfte Zeile entfernt.",
-      "removedRowsHeadline_other": "{{count}} nicht verknüpfte Zeilen entfernt."
+      "removedRowsHeadline_other": "{{count}} nicht verknüpfte Zeilen entfernt.",
+      "confirmUnenrollWarning": "Eine erneute Einschreibung bedeutet, jeden Studierenden erneut zur Teilnehmerliste hinzuzufügen. Ihre Aufgaben-Repositories werden nicht gelöscht."
     },
     "classroomTeamLabel": "Kursteam",
     "confirmResendBody": "Die ausstehende Organisationseinladung erneut an {{label}} senden? Ihre aktuelle Einladung wird storniert und eine neue für {{org}} wird gesendet.",
@@ -989,7 +990,7 @@
         "templateContentWarning": "Das Erben einer privaten Vorlage kopiert auch deren Wiki-, Issues- und Projects-Inhalte, halte also Lösungsschlüssel aus einer Vorlage heraus, von der du erbst."
       },
       "setAvailableFrom": "Freigabedatum festlegen",
-      "setAvailableFromTip": "Aufgaben sind auf der Aufgabenseite der Studierenden standardmäßig ausgeblendet, sodass Studierende sie nur über den Einladungslink akzeptieren können. Legen Sie ein Veröffentlichungsdatum fest, um sie nach Ablauf des Datums für alle aufzulisten. Studierende, die bereits akzeptiert haben, sehen sie immer. Dies steuert nur die Auflistung, nicht den Zugriff.",
+      "setAvailableFromTip": "Aufgaben sind standardmäßig auf der Aufgabenseite der Studierenden verborgen, sodass Studierende nur über den Einladungslink annehmen können. Lege ein Freigabedatum fest, um sie nach Ablauf des Datums für alle aufzulisten. Studierende, die bereits angenommen haben, sehen sie immer. Das Freigabedatum steuert nur die Auflistung, nicht den Zugriff: Ein privates Template in deiner Organisation bleibt für das Kursraum-Team lesbar. Um ein Template bis zur Freigabe zu verbergen, sperre die Aufgabe.",
       "setupTimeout": "Setup-Timeout (Sekunden)",
       "setupTimeoutTip": "Neue Setup-Befehle beginnen bei {{default}} Sekunden. Setze 0, um den 10-Sekunden-Standard des Runners zu verwenden, oder wähle eine ganze Zahl von 1 bis {{max}}.",
       "studentPermission": {
@@ -1111,7 +1112,10 @@
       "teamFormationTeacherHelp": "Du erstellst die Gruppen und fügst Studierende auf der Aufgabeneinstellungsseite hinzu. Studierende, die in keiner Gruppe sind, können nicht annehmen.",
       "typeTeam": "Gruppe",
       "typeTeamDisabledHelp": "Gruppenaufgaben setzen voraus, dass Organisationsmitglieder Teams erstellen können: Der oder die erste Studierende erstellt das Team der Gruppe beim Annehmen. Aktiviere „Mitgliedern erlauben, Teams zu erstellen“ im Bereich zur Team-Erstellung durch Mitglieder auf der Organisationseinstellungsseite oder in den Mitgliederrechten der Organisation auf GitHub.",
-      "typeTeamRecommended": "Empfohlen"
+      "typeTeamRecommended": "Empfohlen",
+      "releaseLockedReminder": "Gesperrt. Das Freigabedatum entsperrt die Aufgabe nicht: Schalte am Freigabedatum „Aufgabe sperren“ aus, damit Studierende annehmen können.",
+      "releaseTemplateReadableBody": "Das Freigabedatum steuert nur die Auflistung. Beim Speichern erhält das Kursraum-Team sofort Lesezugriff auf dieses private Template. Um das Template verborgen zu halten, sperre die Aufgabe jetzt und entsperre sie am Freigabedatum.",
+      "releaseTemplateReadableTitle": "Studierende können dieses Template vor dem Freigabedatum lesen"
     },
     "autograder": {
       "heading": "Autograding-Tests",
@@ -1267,7 +1271,8 @@
       "hiddenStaffReposTitle_other": "Noch sind keine Studierenden eingeschrieben. {{count}} Repositories vom Lehrpersonal werden nicht mitgezählt. Aktiviere „Lehrpersonal einbeziehen“, um sie mitzuzählen.",
       "noStudentsYet": "Noch keine Studierenden",
       "noStudentsYetTitle": "Noch sind keine Studierenden eingeschrieben, daher gibt es nichts, wogegen gezählt werden kann. Füge Studierende auf der Seite „Teilnehmerliste“ hinzu.",
-      "submittedTitleWithStaff": "{{submitted}} von {{total}} Studierenden und Lehrpersonal haben eingereicht"
+      "submittedTitleWithStaff": "{{submitted}} von {{total}} Studierenden und Lehrpersonal haben eingereicht",
+      "deleteWarning": "Studierende verlieren den Zugriff auf die Aufgabenseite, und ihre Frist, ihr Template und ihre Bewertungseinstellungen werden entfernt."
     },
     "template": {
       "label": "Vorlagen-Repository",
@@ -1784,7 +1789,8 @@
       "rateLimitedPartial_other": "GitHub hat die Löschungen aufgrund des Ratenlimits gestoppt, nachdem {{count}} bereits gelöscht wurden, und diese Löschungen sind dauerhaft. Warten Sie einen Moment und führen Sie den Abbau dann erneut aus, um ihn abzuschließen.",
       "ssoRequired": "GitHub hat das Löschen von Repositories abgelehnt (403). Diese Organisation erfordert SAML-Single-Sign-on. Autorisieren Sie Ihre Sitzung für diese Organisation auf GitHub und führen Sie den Abbau dann erneut aus.",
       "ssoRequiredPartial_one": "GitHub hat das Löschen von Repositories abgelehnt (403), nachdem {{count}} bereits gelöscht wurde, und diese Löschung ist dauerhaft. Diese Organisation erfordert SAML-Single-Sign-on. Autorisieren Sie Ihre Sitzung dafür auf GitHub und führen Sie den Abbau dann erneut aus, um ihn abzuschließen.",
-      "ssoRequiredPartial_other": "GitHub hat das Löschen von Repositories abgelehnt (403), nachdem {{count}} bereits gelöscht wurden, und diese Löschungen sind dauerhaft. Diese Organisation erfordert SAML-Single-Sign-on. Autorisieren Sie Ihre Sitzung dafür auf GitHub und führen Sie den Abbau dann erneut aus, um ihn abzuschließen."
+      "ssoRequiredPartial_other": "GitHub hat das Löschen von Repositories abgelehnt (403), nachdem {{count}} bereits gelöscht wurden, und diese Löschungen sind dauerhaft. Diese Organisation erfordert SAML-Single-Sign-on. Autorisieren Sie Ihre Sitzung dafür auf GitHub und führen Sie den Abbau dann erneut aus, um ihn abzuschließen.",
+      "confirmWarning": "Studierende verlieren alle Arbeiten, die nicht bereits auf ihren eigenen Computern gespeichert sind. Lade zuerst alles herunter, was du noch benötigst."
     },
     "preflight": {
       "categoryServiceToken": "Service-Token",
@@ -2136,7 +2142,8 @@
     "viewRosterAria": "Teilnehmerliste für {{classroom}} ansehen",
     "loadError": "Kursräume konnten nicht von GitHub geladen werden. Dies ist ein Ladefehler, Ihre Kursräume sind also nicht verschwunden.",
     "retry": "Erneut versuchen",
-    "roleLoadError": "Ihre Rolle in dieser Organisation konnte nicht überprüft werden."
+    "roleLoadError": "Ihre Rolle in dieser Organisation konnte nicht überprüft werden.",
+    "deleteClassroomWarning": "Dies kann nicht rückgängig gemacht werden. Die Teilnehmerliste, die Aufgabenliste und die Kursraum-Teams werden gelöscht, sodass eine Wiederherstellung des Kursraums bedeutet, ihn neu zu erstellen und jeden Studierenden erneut einzuschreiben."
   },
   "accept": {
     "githubUser": "GitHub-Benutzer",
@@ -2175,7 +2182,8 @@
       "setup": "Autograding wird eingerichtet",
       "membership": "Deine Kurszugehörigkeit wird bestätigt",
       "feedback": "Feedback-Pull-Request wird geöffnet",
-      "team": "Deine Gruppe wird gesucht"
+      "team": "Deine Gruppe wird gesucht",
+      "setupWaiting": "Automatisches Bewerten wird eingerichtet (GitHub initialisiert dein Repository noch, was bis zu einer Minute dauern kann)"
     },
     "progress": {
       "error": "Einrichtung fehlgeschlagen. Überprüfe die Schritte.",
@@ -2304,6 +2312,11 @@
       "badge": "Warten auf deine Gruppe",
       "body": "Deine Lehrkraft weist die Gruppen für diese Aufgabe zu. Bitte deine Lehrkraft, dich einer Gruppe hinzuzufügen, und öffne dann diesen Link erneut.",
       "title": "Du bist noch in keiner Gruppe"
+    },
+    "keepTabOpen": "Lass diesen Tab geöffnet, bis die Einrichtung abgeschlossen ist. Ein zu frühes Schließen kann dein Repository halb eingerichtet zurücklassen.",
+    "setupIncomplete": {
+      "body": "Dein Repository existiert, aber seine Einrichtungsdateien fehlen, daher läuft das automatische Bewerten nicht und deine Lehrkraft kann kein Feedback hinterlassen. Führe die Einrichtung erneut aus, um sie abzuschließen. Das ist sicher und behält alle bereits gepushten Arbeiten.",
+      "title": "Einrichtung nicht abgeschlossen"
     }
   },
   "submissions": {
@@ -2580,10 +2593,14 @@
       "summaryLead": "Verarbeitung von <b>{{total}}</b> Repositorys abgeschlossen.",
       "summaryOpened_one": "{{count}} Feedback-PR geöffnet",
       "summaryOpened_other": "{{count}} Feedback-PRs geöffnet",
-      "summaryUnsupported_one": "{{count}} Repository übersprungen (kein Startcode zum Vergleichen vorhanden)",
-      "summaryUnsupported_other": "{{count}} Repositorys übersprungen (kein Startcode zum Vergleichen vorhanden)",
+      "summaryUnsupported_one": "{{count}} Repository übersprungen (nicht gefunden)",
+      "summaryUnsupported_other": "{{count}} Repositories übersprungen (nicht gefunden)",
       "title": "Feedback-PRs für jedes Repository öffnen",
-      "titleEmptyRoster": "Füge zuerst Studierende zum Verzeichnis hinzu"
+      "titleEmptyRoster": "Füge zuerst Studierende zum Verzeichnis hinzu",
+      "incompleteHint": "Die Annahme jedes Studierenden wurde abgebrochen, bevor die Einrichtungsdateien geschrieben wurden, daher läuft das automatische Bewerten nicht und es kann keine Feedback-PR geöffnet werden. Bitte jeden Studierenden, den Aufgabenlink zu öffnen und „Einrichtung erneut ausführen“ zu wählen, und führe diese Aktion dann erneut aus.",
+      "incompleteTitle": "Diese Repositories haben die Einrichtung nie abgeschlossen:",
+      "summaryIncomplete_one": "{{count}} Repository hat die Einrichtung nie abgeschlossen",
+      "summaryIncomplete_other": "{{count}} Repositories haben die Einrichtung nie abgeschlossen"
     },
     "repairPr": {
       "alreadyExists": "Für {{repo}} existiert bereits ein Feedback-Pull-Request.",
@@ -2591,7 +2608,7 @@
       "created": "Feedback-Pull-Request für {{repo}} geöffnet.",
       "failed": "Feedback-Pull-Request konnte nicht geöffnet werden: {{reason}}. Versuche es erneut.",
       "hint": "Wenn die·der Studierende angenommen hat, das Öffnen des PR aber fehlgeschlagen ist (ein GitHub-Ausfall oder ein vorübergehender Fehler), kannst du ihn jetzt öffnen.",
-      "noBaseline": "Dieses Repository hat keinen Startcode zum Vergleichen (zum Beispiel eine Aufgabe mit leerem Repository), daher kann kein Feedback-Pull-Request geöffnet werden. Es gibt nichts zu reparieren.",
+      "noBaseline": "In diesem Repository fehlen seine Classroom-50-Einrichtungsdateien, was bedeutet, dass die Annahme des Studierenden auf halbem Weg abgebrochen wurde. Bis die Einrichtung abgeschlossen ist, läuft das automatische Bewerten nicht und es kann keine Feedback-Pull-Request geöffnet werden. Bitte den Studierenden, den Aufgabenlink zu öffnen und „Einrichtung erneut ausführen“ zu wählen, und repariere die PR dann erneut.",
       "repair": "Feedback-PR reparieren",
       "repairing": "Wird repariert…",
       "repoNotFound": "Das Repository {{repo}} konnte nicht gefunden werden. Die Lernenden haben es möglicherweise noch nicht angenommen."
@@ -2702,7 +2719,10 @@
       "autogradingPausedByGitHub": "Von GitHub pausiert",
       "visibility": "Sichtbarkeit",
       "visibilityPrivate": "Privat",
-      "manageGroup": "Gruppe verwalten"
+      "manageGroup": "Gruppe verwalten",
+      "setup": "Einrichtung",
+      "setupIncomplete": "Unvollständig",
+      "setupIncompleteHint": "Die Annahme des Studierenden wurde abgebrochen, bevor die Einrichtungsdateien geschrieben wurden, daher läuft das automatische Bewerten nicht und es kann keine Feedback-PR geöffnet werden. Bitte den Studierenden, den Aufgabenlink zu öffnen und „Einrichtung erneut ausführen“ zu wählen."
     },
     "rowDownload": {
       "aria": "Abgabe von {{owner}} herunterladen",
@@ -2959,7 +2979,8 @@
       "outcome": {
         "private": "Das Repository ist jetzt privat.",
         "public": "Das Repository ist jetzt öffentlich."
-      }
+      },
+      "confirmWarning": "Wer das Repository ansieht oder klont, während es öffentlich ist, behält diese Kopie, auch nachdem du es wieder privat gemacht hast."
     },
     "rosterFromCsvNotice": "Die Liste der Lernenden stammt aus der Namenslistendatei zum Zeitpunkt der letzten Synchronisierung, da deine Rolle das GitHub-Team des Kurses nicht einsehen kann. Ein seither eingeschriebener Lernender erscheint, nachdem eine Lehrkraft die Namensliste öffnet. Organisationsbesitzer sehen die Live-Mitgliedschaft.",
     "skipPastTable": "Über die Abgabetabelle hinweg springen",
@@ -3090,7 +3111,8 @@
       "resultRemoved": "Entfernt",
       "unenrolledDetail_one": "Aus {{count}} Kurs abgemeldet ({{classrooms}}).",
       "unenrolledDetail_other": "Aus {{count}} Kursen abgemeldet ({{classrooms}}).",
-      "viewerUnverified": "Ihr Konto konnte nicht verifiziert werden, daher wurden keine Mitglieder entfernt. Versuchen Sie es erneut."
+      "viewerUnverified": "Ihr Konto konnte nicht verifiziert werden, daher wurden keine Mitglieder entfernt. Versuchen Sie es erneut.",
+      "confirmRemoveOrgWarning": "Entfernte Mitglieder verlieren den Zugriff auf jedes Repository in der Organisation, einschließlich ihrer eigenen Aufgaben-Repositories, und benötigen eine neue Einladung, um zurückzukehren."
     },
     "confirmInviteBody": "Eine Organisationseinladung an {{label}} senden? Die Einladung wird per ID an ihr GitHub-Konto gesendet, und sie treten {{org}} mit ihrem früheren Kurszugriff wieder bei, sobald sie sie annehmen.",
     "filterAllClassrooms": "Alle Kurse",
@@ -3182,7 +3204,6 @@
       "confirm": "Bestätigen",
       "no": "Abbrechen",
       "yesContinue": "Fortfahren",
-      "dangerousPrompt": "Dies lässt sich möglicherweise nur schwer oder gar nicht rückgängig machen. Fortfahren?",
       "genericError": "Etwas ist schiefgelaufen. Versuchen Sie es erneut.",
       "typeAriaLabel": "Geben Sie zur Bestätigung {{text}} ein",
       "typeToConfirm": "Gib zur Bestätigung unten <text>{{text}}</text> ein."
