@@ -3626,7 +3626,7 @@
       "heading": "Rapports",
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
-      "vpatWcagDesc": "Rapport de conformité en matière d'accessibilité selon WCAG 2.2 (VPAT 2.5Rev).",
+      "vpatWcagDesc": "Rapport de conformité en accessibilité au regard des WCAG 2.0, 2.1 et 2.2, niveaux A et AA (VPAT 2.5Rev).",
       "vpatWcagTitle": "VPAT : édition WCAG"
     },
     "legend": {
@@ -3644,7 +3644,7 @@
       "statement": "Déclaration",
       "vpat": "Conformité"
     },
-    "pageSubtitle": "Comment l'application web Classroom 50 se conforme au niveau AA de WCAG 2.2, vérifié automatiquement à chaque build.",
+    "pageSubtitle": "Comment l'application web Classroom 50 se conforme aux WCAG 2.0, 2.1 et 2.2 aux niveaux A et AA, avec un contraste des couleurs vérifié à chaque build.",
     "pageTitle": "Accessibilité",
     "preview": {
       "open": "Voir les détails de la couleur",
@@ -3655,9 +3655,11 @@
       "colColors": "Couleurs (pp / af)",
       "contrastMeta": "Ratios de contraste WCAG par paire pour chaque couleur auditée, dans les deux thèmes. Généré le {{date}}.",
       "contrastTitle": "Audit du contraste des couleurs",
-      "reportMeta": "Norme : WCAG {{standard}}, niveau cible {{target}}. Date du rapport : {{date}}.",
-      "reportTitle": "Rapport de conformité en accessibilité : {{product}}",
-      "vpatSummary": "Résumé ({{total}} critères applicables) : {{supports}} Pris en charge, {{partially}} Partiellement pris en charge, {{doesNotSupport}} Non pris en charge, {{notApplicable}} Non applicable, {{notEvaluated}} Non évalué."
+      "reportMeta": "Norme : {{standard}}, niveau cible {{target}}. Normes applicables : WCAG {{versions}}, niveaux A et AA. Date du rapport : {{date}}.",
+      "reportTitle": "Rapport de conformité en accessibilité de {{vendor}}",
+      "vpatSummary": "Résumé ({{total}} critères) : {{supports}} Conforme, {{partially}} Partiellement conforme, {{doesNotSupport}} Non conforme, {{notApplicable}} Non applicable, {{notEvaluated}} Non évalué.",
+      "productWithVersion": "{{product}}, version {{version}}",
+      "reportProduct": "Édition WCAG (basée sur VPAT 2.5Rev). Nom du produit/de la version : {{product}}."
     },
     "statement": {
       "feedback": "Si quelque chose est difficile à utiliser,",
@@ -3667,7 +3669,7 @@
       "intro": "Nous voulons que tout le monde puisse utiliser Classroom 50, y compris les personnes qui utilisent un clavier, un lecteur d'écran ou d'autres technologies d'assistance.",
       "limitations": "Quelques critères sont marqués « Partiellement pris en charge » dans le rapport de conformité, chacun accompagné d'une note sur ce qu'il reste à faire. Nous les corrigeons au fur et à mesure de l'avancement des travaux.",
       "limitationsHeading": "Limitations connues",
-      "target": "Nous visons le niveau AA de WCAG 2.2. Le contraste des couleurs est vérifié à chaque build ; le reste est vérifié manuellement au clavier et au lecteur d'écran. Le rapport de conformité indique où nous en sommes pour chaque critère.",
+      "target": "Nous visons le niveau AA des WCAG 2.2, qui couvre également les critères de niveaux A et AA des WCAG 2.0 et 2.1. Le contraste des couleurs est vérifié à chaque build ; le reste est vérifié à la main, au clavier et avec un lecteur d'écran. Le rapport de conformité répertorie chaque critère de niveaux A et AA, y compris ceux qui ne s'appliquent pas à cette application et pourquoi.",
       "targetHeading": "Où nous en sommes",
       "updated": "Dernière révision le {{date}}."
     },
@@ -3709,7 +3711,18 @@
         "notEvaluated": "Non évalué",
         "partially": "Partiellement pris en charge",
         "supports": "Pris en charge"
-      }
+      },
+      "principle": {
+        "Operable": "Utilisable",
+        "Perceivable": "Perceptible",
+        "Robust": "Robuste",
+        "Understandable": "Compréhensible"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 et 2.2",
+        "wcag22": "WCAG 2.2 uniquement"
+      },
+      "tabAll": "Tous"
     }
   },
   "groupTeams": {
@@ -3847,5 +3860,10 @@
       "label": "Visibilité",
       "visible": "Visible"
     }
+  },
+  "backgroundPass": {
+    "failed": "La synchronisation avec GitHub ne s'est pas terminée. Elle sera relancée à votre prochaine ouverture de la classe.",
+    "synced": "Synchronisé avec GitHub.",
+    "syncing": "Synchronisation avec GitHub…"
   }
 }

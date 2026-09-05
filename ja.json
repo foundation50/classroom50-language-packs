@@ -3626,7 +3626,7 @@
       "heading": "レポート",
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
-      "vpatWcagDesc": "WCAG 2.2 に対するアクセシビリティ適合レポート（VPAT 2.5Rev）。",
+      "vpatWcagDesc": "WCAG 2.0、2.1、2.2 のレベル A および AA に対する適合性レポート（VPAT 2.5Rev）。",
       "vpatWcagTitle": "VPAT：WCAG 版"
     },
     "legend": {
@@ -3644,7 +3644,7 @@
       "statement": "声明",
       "vpat": "適合状況"
     },
-    "pageSubtitle": "Classroom 50 ウェブアプリが WCAG 2.2 レベル AA にどの程度適合しているか。ビルドごとに自動でチェックしています。",
+    "pageSubtitle": "Classroom 50 ウェブアプリが WCAG 2.0、2.1、2.2 のレベル A および AA にどのように適合しているか。色のコントラストはビルドごとにチェックしています。",
     "pageTitle": "アクセシビリティ",
     "preview": {
       "open": "色の詳細を表示",
@@ -3655,9 +3655,11 @@
       "colColors": "色（前景 / 背景）",
       "contrastMeta": "監査対象のすべての色について、両テーマのペアごとの WCAG コントラスト比。生成日時 {{date}}。",
       "contrastTitle": "カラーコントラスト監査",
-      "reportMeta": "規格: WCAG {{standard}}、目標レベル {{target}}。レポート日: {{date}}。",
-      "reportTitle": "アクセシビリティ適合レポート：{{product}}",
-      "vpatSummary": "概要（適用基準 {{total}} 件）: 対応 {{supports}}、部分対応 {{partially}}、非対応 {{doesNotSupport}}、非該当 {{notApplicable}}、未評価 {{notEvaluated}}。"
+      "reportMeta": "規格：{{standard}}、目標レベル {{target}}。適用規格：WCAG {{versions}}、レベル A および AA。レポート日：{{date}}。",
+      "reportTitle": "{{vendor}} アクセシビリティ適合性レポート",
+      "vpatSummary": "概要（基準 {{total}} 件）：適合 {{supports}} 件、部分的に適合 {{partially}} 件、非適合 {{doesNotSupport}} 件、非該当 {{notApplicable}} 件、未評価 {{notEvaluated}} 件。",
+      "productWithVersion": "{{product}} バージョン {{version}}",
+      "reportProduct": "WCAG 版（VPAT 2.5Rev に基づく）。製品名／バージョン：{{product}}。"
     },
     "statement": {
       "feedback": "使いにくい点があれば、",
@@ -3667,7 +3669,7 @@
       "intro": "キーボード、スクリーンリーダー、その他の支援技術を使う方を含め、誰もが Classroom 50 を利用できることを目指しています。",
       "limitations": "適合レポートでは、いくつかの基準が「部分対応」とされ、それぞれ残された作業について注記があります。作業が進むにつれて修正していきます。",
       "limitationsHeading": "既知の制限事項",
-      "target": "WCAG 2.2 レベル AA の達成を目指しています。カラーコントラストはビルドごとにチェックし、それ以外はキーボードとスクリーンリーダーで手動チェックしています。適合レポートには、各基準についての現状が記載されています。",
+      "target": "WCAG 2.2 レベル AA への適合を目指しており、これは WCAG 2.0 および 2.1 のレベル A・AA の基準も含みます。色のコントラストはビルドごとにチェックし、それ以外はキーボードとスクリーンリーダーを使って手作業で確認しています。適合性レポートにはレベル A および AA のすべての基準を記載しており、このアプリに該当しないものとその理由も含みます。",
       "targetHeading": "達成状況",
       "updated": "最終レビュー日 {{date}}。"
     },
@@ -3709,7 +3711,18 @@
         "notEvaluated": "未評価",
         "partially": "部分対応",
         "supports": "対応"
-      }
+      },
+      "principle": {
+        "Operable": "操作可能",
+        "Perceivable": "知覚可能",
+        "Robust": "堅牢",
+        "Understandable": "理解可能"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 および 2.2",
+        "wcag22": "WCAG 2.2 のみ"
+      },
+      "tabAll": "すべて"
     }
   },
   "groupTeams": {
@@ -3847,5 +3860,10 @@
       "label": "表示",
       "visible": "表示中"
     }
+  },
+  "backgroundPass": {
+    "failed": "GitHub との同期が完了しませんでした。次にクラスルームを開いたときに再度実行されます。",
+    "synced": "GitHub と同期しました。",
+    "syncing": "GitHub と同期しています…"
   }
 }

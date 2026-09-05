@@ -2,7 +2,7 @@
   "accessibility": {
     "title": "Auditoria de contrast de color",
     "pageTitle": "Accessibilitat",
-    "pageSubtitle": "Com l'aplicació web de Classroom 50 s'ajusta al nivell AA de les WCAG 2.2, verificat automàticament a cada compilació.",
+    "pageSubtitle": "Com l'aplicació web de Classroom 50 s'ajusta a les WCAG 2.0, 2.1 i 2.2 en nivell A i AA, amb el contrast de color comprovat a cada compilació.",
     "nav": {
       "contrast": "Contrast de color",
       "vpat": "Conformitat",
@@ -13,7 +13,7 @@
       "heading": "Declaració d'accessibilitat",
       "intro": "Volem que tothom pugui utilitzar Classroom 50, incloses les persones que fan servir un teclat, un lector de pantalla o altres tecnologies d'assistència.",
       "targetHeading": "Com ens en sortim",
-      "target": "El nostre objectiu és complir el nivell AA de les WCAG 2.2. El contrast de color es verifica a cada compilació; la resta es comprova manualment amb un teclat i un lector de pantalla. L'informe de conformitat indica com estem en cada criteri.",
+      "target": "Volem complir el nivell AA de les WCAG 2.2, que també cobreix els criteris de nivell A i AA de les WCAG 2.0 i 2.1. El contrast de color es comprova a cada compilació; la resta es comprova manualment amb un teclat i un lector de pantalla. L'informe de conformitat enumera tots els criteris de nivell A i AA, inclosos els que no s'apliquen a aquesta aplicació i per què.",
       "limitationsHeading": "Limitacions conegudes",
       "limitations": "Alguns criteris estan marcats com a «Compatibilitat parcial» a l'informe de conformitat, cadascun amb una nota sobre el que queda per fer. Els resolem a mesura que avança la feina.",
       "feedbackHeading": "Feu-nos arribar comentaris",
@@ -26,20 +26,22 @@
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
       "vpatWcagTitle": "VPAT: edició WCAG",
-      "vpatWcagDesc": "Informe de conformitat d'accessibilitat respecte a les WCAG 2.2 (VPAT 2.5Rev).",
+      "vpatWcagDesc": "Informe de conformitat d'accessibilitat respecte a les WCAG 2.0, 2.1 i 2.2, nivell A i AA (VPAT 2.5Rev).",
       "contrastTitle": "Auditoria de contrast de color",
       "contrastDesc": "Ràtios de contrast per parella per a cada color auditat, en ambdós temes.",
       "fullTitle": "Informe complet",
       "fullDesc": "El VPAT i l'auditoria de contrast de color en un únic document."
     },
     "print": {
-      "reportTitle": "Informe de conformitat d'accessibilitat: {{product}}",
-      "reportMeta": "Estàndard: WCAG {{standard}}, nivell objectiu {{target}}. Data de l'informe: {{date}}.",
-      "vpatSummary": "Resum ({{total}} criteris aplicables): {{supports}} amb compatibilitat, {{partially}} amb compatibilitat parcial, {{doesNotSupport}} sense compatibilitat, {{notApplicable}} no aplicables, {{notEvaluated}} no avaluats.",
+      "reportTitle": "Informe de conformitat d'accessibilitat de {{vendor}}",
+      "reportMeta": "Estàndard: {{standard}}, nivell objectiu {{target}}. Estàndards aplicables: WCAG {{versions}}, nivell A i AA. Data de l'informe: {{date}}.",
+      "vpatSummary": "Resum ({{total}} criteris): {{supports}} Compatible, {{partially}} Parcialment compatible, {{doesNotSupport}} No compatible, {{notApplicable}} No aplicable, {{notEvaluated}} No avaluat.",
       "contrastTitle": "Auditoria de contrast de color",
       "contrastMeta": "Ràtios de contrast WCAG per parella per a cada color auditat, en ambdós temes. Generat el {{date}}.",
       "colColors": "Colors (text / fons)",
-      "belowMargin": "(per sota del recomanat de {{margin}}:1)"
+      "belowMargin": "(per sota del recomanat de {{margin}}:1)",
+      "productWithVersion": "{{product}}, versió {{version}}",
+      "reportProduct": "Edició WCAG (basada en VPAT 2.5Rev). Nom del producte/versió: {{product}}."
     },
     "loadError": "No s'ha pogut carregar l'informe de l'auditoria de contrast.",
     "summaryPass": "Les {{total}} parelles de colors auditades assoleixen el llindar mínim de contrast de les WCAG.",
@@ -120,7 +122,18 @@
         "doesNotSupport": "Sense compatibilitat",
         "notApplicable": "No aplicable",
         "notEvaluated": "No avaluat"
-      }
+      },
+      "principle": {
+        "Operable": "Operable",
+        "Perceivable": "Perceptible",
+        "Robust": "Robust",
+        "Understandable": "Comprensible"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 i 2.2",
+        "wcag22": "Només WCAG 2.2"
+      },
+      "tabAll": "Tots"
     }
   },
   "actionsBanner": {
@@ -3847,5 +3860,10 @@
       "leaveForbidden": "GitHub ha bloquejat la sortida del grup. Pot ser que la pertinença de l'equip la gestioni el vostre centre. Demaneu al vostre docent que us elimini, o sortiu des de la pàgina de l'equip a GitHub.",
       "maintainerCannotLeave": "Sou el mantenidor d'aquest grup, així que no en podeu sortir. Demaneu al vostre docent que us traslladi."
     }
+  },
+  "backgroundPass": {
+    "failed": "La sincronització amb GitHub no s'ha completat. Es tornarà a executar la pròxima vegada que obris l'aula.",
+    "synced": "Sincronitzat amb GitHub.",
+    "syncing": "S'està sincronitzant amb GitHub…"
   }
 }
