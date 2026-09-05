@@ -2,7 +2,7 @@
   "accessibility": {
     "title": "颜色对比度审查",
     "pageTitle": "无障碍",
-    "pageSubtitle": "Classroom 50 网页应用如何符合 WCAG 2.2 AA 级，并在每次构建时自动检查。",
+    "pageSubtitle": "Classroom 50 网页应用如何符合 WCAG 2.0、2.1 和 2.2 的 A 级和 AA 级标准，并在每次构建时检查颜色对比度。",
     "nav": {
       "contrast": "颜色对比度",
       "vpat": "符合性",
@@ -13,7 +13,7 @@
       "heading": "无障碍声明",
       "intro": "我们希望每个人都能使用 Classroom 50，包括使用键盘、屏幕阅读器或其他辅助技术的人。",
       "targetHeading": "我们的达标情况",
-      "target": "我们的目标是符合 WCAG 2.2 AA 级。颜色对比度在每次构建时检查；其余部分通过键盘和屏幕阅读器手动检查。符合性报告列出了我们在每项标准上的现状。",
+      "target": "我们的目标是达到 WCAG 2.2 AA 级，该级别同时涵盖 WCAG 2.0 和 2.1 的 A 级和 AA 级标准。颜色对比度在每次构建时都会检查；其余部分则使用键盘和屏幕阅读器手动检查。合规报告列出了每一项 A 级和 AA 级标准，包括不适用于本应用的标准及其原因。",
       "limitationsHeading": "已知限制",
       "limitations": "符合性报告中有少数几项标记为“部分支持”，每项都附有说明尚待完成的工作。我们会随着工作的推进逐一修复。",
       "feedbackHeading": "向我们反馈",
@@ -26,20 +26,22 @@
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
       "vpatWcagTitle": "VPAT——WCAG 版",
-      "vpatWcagDesc": "针对 WCAG 2.2 的无障碍符合性报告（VPAT 2.5Rev）。",
+      "vpatWcagDesc": "针对 WCAG 2.0、2.1 和 2.2 的 A 级和 AA 级无障碍合规报告（VPAT 2.5Rev）。",
       "contrastTitle": "颜色对比度审查",
       "contrastDesc": "每一组已审查颜色在两种主题下的逐对对比度。",
       "fullTitle": "完整报告",
       "fullDesc": "将 VPAT 与颜色对比度审查合并为一份文档。"
     },
     "print": {
-      "reportTitle": "无障碍符合性报告——{{product}}",
-      "reportMeta": "标准：WCAG {{standard}}，目标级别 {{target}}。报告日期：{{date}}。",
-      "vpatSummary": "摘要（{{total}} 项适用标准）：{{supports}} 项支持，{{partially}} 项部分支持，{{doesNotSupport}} 项不支持，{{notApplicable}} 项不适用，{{notEvaluated}} 项未评估。",
+      "reportTitle": "{{vendor}} 无障碍合规报告",
+      "reportMeta": "标准：{{standard}}，目标级别 {{target}}。适用标准：WCAG {{versions}}，A 级和 AA 级。报告日期：{{date}}。",
+      "vpatSummary": "摘要（共 {{total}} 项标准）：支持 {{supports}} 项，部分支持 {{partially}} 项，不支持 {{doesNotSupport}} 项，不适用 {{notApplicable}} 项，未评估 {{notEvaluated}} 项。",
       "contrastTitle": "颜色对比度审查",
       "contrastMeta": "每一组已审查颜色在两种主题下的逐对 WCAG 对比度。生成于 {{date}}。",
       "colColors": "颜色（前景 / 背景）",
-      "belowMargin": "（低于推荐的 {{margin}}:1）"
+      "belowMargin": "（低于推荐的 {{margin}}:1）",
+      "productWithVersion": "{{product}}，版本 {{version}}",
+      "reportProduct": "WCAG 版（基于 VPAT 2.5Rev）。产品名称/版本：{{product}}。"
     },
     "loadError": "无法加载对比度审查报告。",
     "summaryPass": "全部 {{total}} 组已审查颜色配对均达到其 WCAG 对比度下限。",
@@ -120,7 +122,18 @@
         "doesNotSupport": "不支持",
         "notApplicable": "不适用",
         "notEvaluated": "未评估"
-      }
+      },
+      "principle": {
+        "Operable": "可操作",
+        "Perceivable": "可感知",
+        "Robust": "健壮性",
+        "Understandable": "可理解"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 和 2.2",
+        "wcag22": "仅 WCAG 2.2"
+      },
+      "tabAll": "全部"
     }
   },
   "actionsBanner": {
@@ -3847,5 +3860,10 @@
       "label": "可见性",
       "visible": "可见"
     }
+  },
+  "backgroundPass": {
+    "failed": "与 GitHub 的同步未能完成。下次打开该课堂时会再次运行。",
+    "synced": "已与 GitHub 同步。",
+    "syncing": "正在与 GitHub 同步…"
   }
 }

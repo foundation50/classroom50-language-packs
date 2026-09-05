@@ -3626,7 +3626,7 @@
       "heading": "報告",
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
-      "vpatWcagDesc": "依 WCAG 2.2（VPAT 2.5Rev）製作的無障礙符合性報告。",
+      "vpatWcagDesc": "依據 WCAG 2.0、2.1 及 2.2 的 A 級與 AA 級標準所產生的無障礙符合性報告（VPAT 2.5Rev）。",
       "vpatWcagTitle": "VPAT：WCAG 版"
     },
     "legend": {
@@ -3644,7 +3644,7 @@
       "statement": "聲明",
       "vpat": "符合性"
     },
-    "pageSubtitle": "Classroom 50 網頁應用程式如何符合 WCAG 2.2 AA 級標準，並在每次建置時自動檢查。",
+    "pageSubtitle": "說明 Classroom 50 網頁應用程式如何符合 WCAG 2.0、2.1 及 2.2 的 A 級與 AA 級標準，並在每次組建時檢查色彩對比。",
     "pageTitle": "無障礙",
     "preview": {
       "open": "檢視色彩細節",
@@ -3655,9 +3655,11 @@
       "colColors": "色彩（前景／背景）",
       "contrastMeta": "兩種主題中每個受稽核色彩的逐配對 WCAG 對比比值。產生於 {{date}}。",
       "contrastTitle": "色彩對比稽核",
-      "reportMeta": "標準：WCAG {{standard}}，目標級別 {{target}}。報告日期：{{date}}。",
-      "reportTitle": "無障礙符合性報告：{{product}}",
-      "vpatSummary": "摘要（{{total}} 項適用準則）：{{supports}} 項支援、{{partially}} 項部分支援、{{doesNotSupport}} 項不支援、{{notApplicable}} 項不適用、{{notEvaluated}} 項未評估。"
+      "reportMeta": "標準：{{standard}}，目標等級 {{target}}。適用標準：WCAG {{versions}}，A 級與 AA 級。報告日期：{{date}}。",
+      "reportTitle": "{{vendor}} 無障礙符合性報告",
+      "vpatSummary": "摘要（共 {{total}} 項準則）：支援 {{supports}} 項、部分支援 {{partially}} 項、不支援 {{doesNotSupport}} 項、不適用 {{notApplicable}} 項、未評估 {{notEvaluated}} 項。",
+      "productWithVersion": "{{product}}，版本 {{version}}",
+      "reportProduct": "WCAG 版（基於 VPAT 2.5Rev）。產品／版本名稱：{{product}}。"
     },
     "statement": {
       "feedback": "如果有任何難以使用的地方，",
@@ -3667,7 +3669,7 @@
       "intro": "我們希望每個人都能使用 Classroom 50，包括使用鍵盤、螢幕閱讀器或其他輔助技術的人。",
       "limitations": "在符合性報告中，有少數準則標示為「部分支援」，每項都附有待辦事項說明。我們會隨著開發進度逐一修正。",
       "limitationsHeading": "已知限制",
-      "target": "我們的目標是符合 WCAG 2.2 AA 級。色彩對比在每次建置時檢查；其餘部分則以鍵盤與螢幕閱讀器手動檢查。符合性報告列出我們在每項準則上的狀態。",
+      "target": "我們以達到 WCAG 2.2 AA 級為目標，其同時涵蓋 WCAG 2.0 與 2.1 的 A 級與 AA 級準則。色彩對比會在每次組建時檢查；其餘項目則以鍵盤和螢幕閱讀器手動檢查。符合性報告列出每一項 A 級與 AA 級準則，包括不適用於本應用程式的項目及其原因。",
       "targetHeading": "我們的達成狀況",
       "updated": "最後檢視於 {{date}}。"
     },
@@ -3709,7 +3711,18 @@
         "notEvaluated": "未評估",
         "partially": "部分支援",
         "supports": "支援"
-      }
+      },
+      "principle": {
+        "Operable": "可操作",
+        "Perceivable": "可感知",
+        "Robust": "穩健",
+        "Understandable": "可理解"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 與 2.2",
+        "wcag22": "僅 WCAG 2.2"
+      },
+      "tabAll": "全部"
     }
   },
   "groupTeams": {
@@ -3847,5 +3860,10 @@
       "label": "可見性",
       "visible": "可見"
     }
+  },
+  "backgroundPass": {
+    "failed": "與 GitHub 的同步未完成。下次開啟課堂時會再次執行。",
+    "synced": "已與 GitHub 同步。",
+    "syncing": "正在與 GitHub 同步…"
   }
 }

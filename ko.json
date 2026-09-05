@@ -37,7 +37,7 @@
       "heading": "보고서",
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
-      "vpatWcagDesc": "WCAG 2.2에 대한 접근성 준수 보고서(VPAT 2.5Rev).",
+      "vpatWcagDesc": "WCAG 2.0, 2.1, 2.2의 레벨 A 및 AA에 대한 접근성 준수 보고서(VPAT 2.5Rev)입니다.",
       "vpatWcagTitle": "VPAT — WCAG 에디션"
     },
     "legend": {
@@ -55,7 +55,7 @@
       "statement": "성명",
       "vpat": "준수"
     },
-    "pageSubtitle": "Classroom 50 웹 앱이 WCAG 2.2 레벨 AA를 어떻게 준수하는지, 모든 빌드마다 자동으로 확인합니다.",
+    "pageSubtitle": "Classroom 50 웹 앱이 WCAG 2.0, 2.1, 2.2의 레벨 A 및 AA를 어떻게 준수하는지, 그리고 모든 빌드에서 색상 대비를 어떻게 검사하는지 설명합니다.",
     "pageTitle": "접근성",
     "preview": {
       "open": "색상 세부 정보 보기",
@@ -66,9 +66,11 @@
       "colColors": "색상(전경 / 배경)",
       "contrastMeta": "감사한 모든 색상의 쌍별 WCAG 대비 비율, 두 테마 모두. {{date}} 생성됨.",
       "contrastTitle": "색상 대비 감사",
-      "reportMeta": "표준: WCAG {{standard}}, 목표 레벨 {{target}}. 보고서 날짜: {{date}}.",
-      "reportTitle": "접근성 준수 보고서 — {{product}}",
-      "vpatSummary": "요약(적용 기준 {{total}}개): 지원 {{supports}}개, 부분 지원 {{partially}}개, 미지원 {{doesNotSupport}}개, 해당 없음 {{notApplicable}}개, 미평가 {{notEvaluated}}개."
+      "reportMeta": "표준: {{standard}}, 목표 레벨 {{target}}. 적용 가능한 표준: WCAG {{versions}}, 레벨 A 및 AA. 보고서 날짜: {{date}}.",
+      "reportTitle": "{{vendor}} 접근성 준수 보고서",
+      "vpatSummary": "요약(기준 {{total}}개): 지원 {{supports}}개, 부분 지원 {{partially}}개, 지원 안 함 {{doesNotSupport}}개, 해당 없음 {{notApplicable}}개, 미평가 {{notEvaluated}}개.",
+      "productWithVersion": "{{product}}, 버전 {{version}}",
+      "reportProduct": "WCAG 에디션(VPAT 2.5Rev 기반). 제품/버전 이름: {{product}}."
     },
     "statement": {
       "feedback": "사용하기 어려운 부분을 발견하셨나요? 부디",
@@ -78,7 +80,7 @@
       "intro": "키보드, 화면 낭독기 또는 기타 보조 기술을 사용하는 분들을 포함하여 모든 사람이 Classroom 50을 사용할 수 있기를 바랍니다.",
       "limitations": "준수 보고서에서 일부 기준은 \"부분 지원\"으로 표시되어 있으며, 각각 남은 작업에 대한 설명이 있습니다. 작업이 진행되는 대로 수정합니다.",
       "limitationsHeading": "알려진 제한 사항",
-      "target": "WCAG 2.2 레벨 AA 충족을 목표로 합니다. 색상 대비는 모든 빌드마다 확인하고, 나머지는 키보드와 화면 낭독기로 수동 확인합니다. 준수 보고서에 각 기준의 현황이 나열되어 있습니다.",
+      "target": "저희는 WCAG 2.2 레벨 AA 준수를 목표로 하며, 여기에는 WCAG 2.0 및 2.1의 레벨 A 및 AA 기준도 포함됩니다. 색상 대비는 모든 빌드에서 검사하고, 나머지는 키보드와 스크린 리더로 직접 검사합니다. 준수 보고서에는 이 앱에 해당하지 않는 기준과 그 이유를 포함해 모든 레벨 A 및 AA 기준이 나열되어 있습니다.",
       "targetHeading": "우리의 수준",
       "updated": "최종 검토 {{date}}."
     },
@@ -120,7 +122,18 @@
         "notEvaluated": "미평가",
         "partially": "부분 지원",
         "supports": "지원"
-      }
+      },
+      "principle": {
+        "Operable": "운용 가능",
+        "Perceivable": "인식 가능",
+        "Robust": "견고함",
+        "Understandable": "이해 가능"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 및 2.2",
+        "wcag22": "WCAG 2.2 전용"
+      },
+      "tabAll": "전체"
     }
   },
   "actionsBanner": {
@@ -3847,5 +3860,10 @@
       "leaveForbidden": "GitHub에서 그룹 나가기를 차단했습니다. 이 팀의 구성원은 학교에서 관리할 수 있습니다. 선생님에게 나를 제거해 달라고 요청하거나 GitHub의 팀 페이지에서 나가세요.",
       "maintainerCannotLeave": "이 그룹을 관리하고 있으므로 나갈 수 없습니다. 선생님에게 나를 옮겨 달라고 요청하세요."
     }
+  },
+  "backgroundPass": {
+    "failed": "GitHub와의 동기화가 완료되지 않았습니다. 다음에 클래스룸을 열 때 다시 실행됩니다.",
+    "synced": "GitHub와 동기화되었습니다.",
+    "syncing": "GitHub와 동기화하는 중…"
   }
 }
