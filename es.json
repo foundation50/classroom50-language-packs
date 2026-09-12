@@ -27,7 +27,10 @@
     "clear": "Borrar",
     "clearFilter": "Borrar filtro",
     "checkingOrgAccess": "Comprobando tu acceso a esta organización…",
-    "resolvingRole": "Comprobando tu rol…"
+    "resolvingRole": "Comprobando tu rol…",
+    "actionWithCount": "{{label}} ({{count}})",
+    "actions": "Acciones",
+    "clearSelection": "Borrar selección"
   },
   "notFound": {
     "title": "Página no encontrada",
@@ -211,7 +214,7 @@
   },
   "students": {
     "addTitle": "Añadir miembro",
-    "addHint": "Introduce un nombre de usuario de GitHub para añadir un estudiante con sus datos, o un correo electrónico para enviar una invitación a la organización. Una invitación por correo conserva el nombre y la sección que introduzcas en una fila de registro pendiente hasta que el estudiante la acepte.",
+    "addHint": "Introduce un nombre de usuario de GitHub para añadir a un estudiante con sus datos, o un correo electrónico para enviar una invitación a la organización. Una invitación por correo electrónico conserva el nombre y la sección que introduzcas en una fila de lista pendiente hasta que el estudiante acepte.",
     "usernamePlaceholder": "github-username",
     "emailPlaceholder": "estudiante@universidad.edu",
     "sectionPlaceholder": "Periodo 3",
@@ -227,8 +230,8 @@
     "onboardingLinkHint": "Los estudiantes aceptan la invitación e inician sesión en Classroom 50 en un solo paso. Este es el enlace que comparten la mayoría de las aulas.",
     "onboardingLinkAria": "Enlace de incorporación para estudiantes",
     "copyOnboardingLinkAria": "Copiar enlace de incorporación",
-    "resendMissingId": "No se puede reenviar la invitación para {{username}}: falta el id de GitHub. Vuelve a añadirlo a la lista.",
-    "resendFailed": "Falló el reenvío de la invitación para {{username}} ({{error}}).",
+    "resendMissingId": "No se puede reenviar la invitación a {{username}}: su fila de la lista no tiene un id de GitHub. Quita la fila y luego añádelo de nuevo.",
+    "resendFailed": "No se pudo reenviar la invitación a {{username}}: {{error}}",
     "resend": "Reenviar",
     "dismiss": "Descartar",
     "noSection": "Sin sección",
@@ -263,25 +266,24 @@
     "alreadyEnrolled": "{{label}} ya está inscrito en esta clase.",
     "bulk": {
       "alreadyRemoved": "Ya se eliminó.",
-      "clearSelection": "Borrar selección",
-      "confirmInviteBodyPlain_one": "¿Enviar una invitación a la organización a {{count}} estudiante seleccionado? Se unirá a la organización y a su equipo de clase una vez que la acepte.",
-      "confirmInviteBodyPlain_other": "¿Enviar invitaciones a la organización a {{count}} estudiantes seleccionados? Se unirán a la organización y a su equipo de clase una vez que las acepten.",
-      "confirmInviteTitle_one": "¿Invitar a {{count}} estudiante?",
-      "confirmInviteTitle_other": "¿Invitar a {{count}} estudiantes?",
+      "confirmInviteBodyPlain_one": "¿Enviar una nueva invitación a la organización al estudiante seleccionado? Una invitación pendiente se cancela y se vuelve a enviar, y una caducada se reemplaza. Se une a la organización y al equipo de la clase cuando acepte.",
+      "confirmInviteBodyPlain_other": "¿Enviar nuevas invitaciones a la organización a los {{count}} estudiantes seleccionados? Las invitaciones pendientes se cancelan y se vuelven a enviar, y las caducadas se reemplazan. Los estudiantes se unen a la organización y al equipo de la clase cuando aceptan.",
+      "confirmInviteTitle_one": "¿Enviar {{count}} invitación?",
+      "confirmInviteTitle_other": "¿Enviar {{count}} invitaciones?",
       "confirmUnenrollBody_one": "Esto elimina a {{count}} estudiante del equipo de la clase y quita su fila de la lista. No lo elimina de la organización.",
       "confirmUnenrollBody_other": "Esto elimina a {{count}} estudiantes del equipo de la clase y quita sus filas de la lista. No los elimina de la organización.",
       "confirmUnenrollTitle_one": "¿Dar de baja a {{count}} estudiante?",
       "confirmUnenrollTitle_other": "¿Dar de baja a {{count}} estudiantes?",
       "done": "Listo",
-      "invite": "Invitar",
-      "inviteNoneInvitable": "Selecciona al menos un estudiante que no esté en la organización o que tenga invitación pendiente para invitar.",
-      "inviteSelected_one": "Invitar a {{count}} estudiante a la organización",
-      "inviteSelected_other": "Invitar a {{count}} estudiantes a la organización",
-      "inviteTitle": "Invitar estudiantes a la organización",
-      "invitedHeadline_one": "Se invitó a {{count}} estudiante.",
-      "invitedHeadline_other": "Se invitó a {{count}} estudiantes.",
+      "invite": "Enviar invitaciones",
+      "inviteNoneInvitable": "Selecciona estudiantes con una invitación pendiente o caducada, o que aún no estén en la organización. Una fila sin dirección de correo electrónico ni nombre de usuario de GitHub no se puede invitar.",
+      "inviteSelected_one": "Enviar una invitación a {{count}} estudiante",
+      "inviteSelected_other": "Enviar invitaciones a {{count}} estudiantes",
+      "inviteTitle": "Enviar invitaciones",
+      "invitedHeadline_one": "Se envió {{count}} invitación.",
+      "invitedHeadline_other": "Se enviaron {{count}} invitaciones.",
       "keepTabOpen": "Mantén esta pestaña abierta hasta que se complete la acción.",
-      "noInviteId": "Esta invitación no tiene ningún id registrado. Quita la fila y vuelve a añadir al estudiante.",
+      "noInviteId": "Esta fila no tiene un id de GitHub, así que no se puede reenviar la invitación. Quita la fila y luego añade al estudiante de nuevo.",
       "progressProcessed": "{{processed}} de {{total}}",
       "resultFailed": "Fallidas",
       "resultSkipped": "Omitidas",
@@ -299,7 +301,7 @@
       "unenrolledHeadline_one": "Se dio de baja a {{count}} estudiante.",
       "unenrolledHeadline_other": "Se dio de baja a {{count}} estudiantes.",
       "cancelAlreadyGone": "Ya no existe (ya no está pendiente)",
-      "cancelInvite": "Cancelar",
+      "cancelInvite": "Cancelar invitaciones",
       "cancelNoneCancellable": "Selecciona al menos una invitación pendiente para cancelar.",
       "cancelSelected_one": "Cancelar {{count}} invitación pendiente",
       "cancelSelected_other": "Cancelar {{count}} invitaciones pendientes",
@@ -310,9 +312,8 @@
       "confirmCancelBody_other": "Esto cancela {{count}} invitaciones pendientes de la organización. Esas personas no se unirán a menos que se les vuelva a invitar.",
       "confirmCancelTitle_one": "¿Cancelar {{count}} invitación?",
       "confirmCancelTitle_other": "¿Cancelar {{count}} invitaciones?",
-      "noneSelectable": "Las acciones en bloque (dar de baja, invitar) se aplican solo a estudiantes. Gestiona al personal (docentes, TA principales y TA) en la Configuración del aula.",
-      "malformedInviteId": "El github_id de roster.csv no es válido. Corrige esa celda.",
-      "actions": "Acciones",
+      "noneSelectable": "Las acciones en lote (enviar invitaciones, dar de baja) se aplican solo a estudiantes. Gestiona al personal (profesores, TA principales y TA) en la Configuración de la clase.",
+      "malformedInviteId": "El github_id en roster.csv no es válido, así que no se puede reenviar la invitación. Corrige esa celda y luego inténtalo de nuevo.",
       "confirmRemoveRowsBody_one": "¿Quitar {{count}} fila de la lista que no está vinculada a una cuenta de GitHub? Esto solo elimina la fila de roster.csv. No hay ninguna cuenta ni invitación que modificar, y se puede restaurar desde el historial del repositorio del aula.",
       "confirmRemoveRowsBody_other": "¿Quitar {{count}} filas de la lista que no están vinculadas a una cuenta de GitHub? Esto solo elimina las filas de roster.csv. No hay cuentas ni invitaciones que modificar, y se pueden restaurar desde el historial del repositorio del aula.",
       "confirmRemoveRowsTitle_one": "¿Quitar {{count}} fila sin vincular?",
@@ -325,10 +326,14 @@
       "removeRowsTitle": "Quitar filas de la lista sin vincular",
       "removedRowsHeadline_one": "Se quitó {{count}} fila sin vincular.",
       "removedRowsHeadline_other": "Se quitaron {{count}} filas sin vincular.",
-      "confirmUnenrollWarning": "Volver a inscribir significa añadir de nuevo a cada estudiante a la lista de miembros. Sus repositorios de tareas no se eliminan."
+      "confirmUnenrollWarning": "Volver a inscribir significa añadir de nuevo a cada estudiante a la lista de miembros. Sus repositorios de tareas no se eliminan.",
+      "alreadyInvitedOrMember": "Ya invitado o ya es miembro. No se envió nada nuevo.",
+      "cancelInviteConfirm_one": "Cancelar invitación",
+      "cancelInviteConfirm_other": "Cancelar invitaciones",
+      "nextBatch": "Preparando el siguiente lote…"
     },
     "classroomTeamLabel": "Equipo de la clase",
-    "confirmResendBody": "¿Reenviar la invitación pendiente a la organización a {{label}}? Su invitación actual se cancela y se envía una nueva para {{org}}.",
+    "confirmResendBody": "¿Reenviar la invitación a la organización a {{label}}? La invitación actual se cancela y se envía una nueva para {{org}}.",
     "detailTitle": "Detalles del miembro",
     "emailColumn": "Correo",
     "emptyBody": "Invita a estudiantes desde la lista para inscribirlos, o añade docentes y TA en la Configuración. El enlace de incorporación solo permite aceptar a un estudiante ya invitado; no añade a nadie por sí solo. Una vez que las personas acepten la invitación e inicien sesión, aparecerán aquí.",
@@ -338,7 +343,7 @@
     "filterAllSections": "Todas las secciones",
     "filterBySectionLabel": "Filtrar miembros por sección",
     "filterEnrolled": "Inscritos",
-    "filterPending": "Pendientes",
+    "filterPending": "Invitación pendiente",
     "inviteLinksHint": "Estos enlaces no invitan a nadie. Invita primero a los estudiantes desde la lista y luego comparte un enlace para que cada estudiante pueda aceptar la invitación e iniciar sesión.",
     "inviteToOrg": "Invitar a la organización",
     "invited": "Se envió una invitación a la organización a {{label}}.",
@@ -354,7 +359,7 @@
     "pendingOwnerOnly": "Las invitaciones pendientes solo son visibles para los propietarios de la organización, por lo que no se muestran aquí. Los miembros inscritos (abajo) siempre se muestran.",
     "pendingReview": "Revisar",
     "remove": "Eliminar",
-    "resendAllRateLimitedShort": "Se reenviaron {{resent}} invitaciones y luego se alcanzó el límite de tasa de GitHub. Vuelve a intentar el resto en un minuto.",
+    "resendAllRateLimitedShort": "Se enviaron {{resent}} invitaciones y luego se alcanzó el límite de frecuencia de GitHub. Las demás no se enviaron. Espera unos minutos y luego inténtalo de nuevo.",
     "rosterLoadError": "No se pudo cargar la lista desde GitHub. La lista de inscritos puede estar incompleta. Es un error de carga, no un aula vacía.",
     "rosterRetry": "Reintentar",
     "searchLabel": "Buscar miembros por nombre, nombre de usuario o correo electrónico",
@@ -390,12 +395,7 @@
     "detectedFormat": "Leer el archivo como",
     "emailInviteSkippedDetail": "Ya es miembro o ya fue invitado, así que no se envió ninguna invitación nueva.",
     "expectedHeaders": "Añade una fila de encabezado con al menos una de estas columnas: {{headers}}. También puedes incluir first_name, last_name, name, section y role. O sube un archivo de texto con un nombre de usuario de GitHub o una dirección de correo por línea.",
-    "failedInviteDismissError": "No se pudo descartar la invitación fallida: {{error}}",
-    "failedInviteNoTarget": "Esta invitación no tiene ningún nombre de usuario de GitHub ni correo electrónico, así que no se puede reinvitar. Descártala y vuelve a añadir a la persona.",
-    "failedInviteReinviteError": "No se pudo volver a invitar: {{error}}",
-    "failedInvitesTitle_one": "{{count}} invitación falló o caducó.",
-    "failedInvitesTitle_other": "{{count}} invitaciones fallaron o caducaron.",
-    "filterNeedsAttentionInOrg": "Necesita un rol",
+    "filterNeedsAttentionInOrg": "No matriculado",
     "filterNeedsAttentionNotInOrg": "No está en la organización",
     "importAndInviteMembers_one": "Importar e invitar a {{count}} miembro",
     "importAndInviteMembers_other": "Importar e invitar a {{count}} miembros",
@@ -403,12 +403,12 @@
     "importMembers_other": "Importar {{count}} miembros",
     "inviteDeferredDetail": "GitHub limitó la tasa de las invitaciones. Vuelve a ejecutar la importación en breve para invitar al resto.",
     "invitePassFailed": "La lista se guardó, pero el envío de invitaciones falló: {{message}}. Vuelve a ejecutar la importación para reintentar las invitaciones.",
-    "inviteRosterDeferred": "GitHub limitó la tasa de la invitación a {{label}}. Inténtalo de nuevo en breve.",
+    "inviteRosterDeferred": "GitHub limitó la frecuencia de la invitación a {{label}}. Espera unos minutos y luego inténtalo de nuevo.",
     "inviteRosterFailed": "No se pudo invitar a {{label}}: {{error}}",
     "inviteRosterNoUsername": "{{label}} no tiene ningún nombre de usuario de GitHub registrado. Añade uno antes de invitar.",
-    "inviteRosterNoneSent": "No se envió ninguna invitación a {{label}}. Inténtalo de nuevo.",
+    "inviteRosterNoneSent": "No se envió ninguna invitación a {{label}}. GitHub indica que ya está invitado o ya es miembro. Actualiza la lista para ver el estado actual.",
     "invitingUploaded": "Enviando invitaciones a la organización…",
-    "keepInvite": "Mantener invitación",
+    "keepInvite": "Conservar invitación",
     "malformedCsv": "Este archivo no se pudo analizar como CSV.",
     "manageOwnerOnly": "La gestión de invitaciones y de la membresía está disponible solo para los propietarios de la organización.",
     "membersEnrolledCount_one": "{{count}} miembro inscrito",
@@ -443,7 +443,7 @@
     "rosterParseErrorLine": "Línea {{line}}: {{message}}",
     "rosterRecheck": "Volver a comprobar roster.csv",
     "rosterRechecking": "Volviendo a verificar…",
-    "statusNeedsAttentionInOrg": "Asignar un rol",
+    "statusNeedsAttentionInOrg": "Sin matricular",
     "statusNeedsAttentionNotInOrg": "No está en la organización",
     "taCount_one": "{{count}} AT",
     "taCount_other": "{{count}} AT",
@@ -457,8 +457,6 @@
     "uploadTitle": "Subir lista",
     "addRoleLabel": "Rol",
     "addStaffHint": "Los docentes, los TA principales y los TA se añaden por nombre de usuario de GitHub. Los docentes y los TA principales obtienen acceso de escritura al repositorio classroom50; los TA obtienen solo lectura. A un docente se le concede propietario de la organización.",
-    "failedInviteNotSent": "No se envió ninguna invitación a {{who}}. Inténtalo de nuevo.",
-    "failedInviteRateLimited": "GitHub limitó la tasa de la reinvitación a {{who}}. Inténtalo de nuevo.",
     "roleTeacher": "Profesor",
     "teacherCount_one": "{{count}} profesor",
     "teacherCount_other": "{{count}} profesores",
@@ -469,7 +467,7 @@
       "colRole": "Rol",
       "colSection": "Sección",
       "empty": "Todavía no hay nadie en roster.csv.",
-      "notice": "Lista CSV de roster.csv (mantenida por el docente). La lista autoritativa basada en equipos y la gestión de invitaciones están disponibles para los docentes.",
+      "notice": "Lista CSV desde roster.csv (mantenida por el profesor). La lista autoritativa basada en equipos y la gestión de invitaciones están disponibles para los profesores.",
       "invitePending": "Invitado por correo electrónico, aún no se ha unido"
     },
     "githubIdentity": "GitHub: <username>@{{username}}</username> (id {{id}})",
@@ -490,7 +488,7 @@
     "preflightMetadataReviewHint_one": "Se actualizarán los datos de {{count}} estudiante. Revisa las celdas resaltadas de abajo (pasa el cursor para ver detalles) antes de confirmar.",
     "preflightMetadataReviewHint_other": "Se actualizarán los datos de {{count}} estudiantes. Revisa las celdas resaltadas de abajo (pasa el cursor para ver detalles) antes de confirmar.",
     "preflightRoleChangeMetadataNotice": "Algunos de estos miembros también tienen datos actualizados (mostrados arriba), que se guardarán junto con el cambio de equipo.",
-    "resendMalformedId": "No se puede reenviar la invitación para {{username}}: «{{githubId}}» no es un id de GitHub válido. Corrige la celda github_id en roster.csv.",
+    "resendMalformedId": "No se puede reenviar la invitación a {{username}}: \"{{githubId}}\" no es un id de GitHub válido. Corrige la celda github_id en roster.csv y luego inténtalo de nuevo.",
     "rolePreviousHint": "era {{role}}",
     "summaryHideDetails": "Ocultar detalles",
     "summaryNoChanges": "Este archivo coincide con tu lista, así que no hay nada que añadir ni actualizar.",
@@ -526,7 +524,7 @@
     "importSkipped_other": "Se omitieron {{count}} líneas: no tienen nombre de usuario de GitHub, github_id ni dirección de correo, por lo que aún no hay forma de contactar con esos estudiantes. Todos los demás de abajo se importarán igualmente.",
     "importedAndInvitedCount": "Se añadieron {{added}} estudiante(s) y se enviaron {{invited}} invitación(es) por correo.",
     "inviteEmailLocked": "Esta dirección identifica la invitación pendiente, por lo que no se puede cambiar aquí. Para usar otra, cancela esta invitación e invita la nueva dirección.",
-    "inviteMetadataFailed": "No se pudo preparar la invitación para {{email}} ({{message}}), así que no se envió ninguna invitación. Inténtalo de nuevo; si sigue fallando, elimina el equipo sobrante nombrado en el mensaje y luego reinténtalo.",
+    "inviteMetadataFailed": "No se pudo preparar la invitación para {{email}} ({{message}}), así que no se envió nada. Inténtalo de nuevo; si sigue fallando, elimina el equipo sobrante mencionado en el mensaje y reintenta.",
     "invitingEmails": "Enviando invitaciones por correo electrónico…",
     "missingIdentityHeader": "Este archivo no tiene ninguna columna que identifique a un estudiante.",
     "noRosterRowNoEdit": "Los datos del perfil se pueden editar una vez que esta persona tenga una entrada en el registro.",
@@ -620,8 +618,8 @@
     "emailLinkBinding": "{{email}} → @{{login}} ({{classroom}})",
     "emailLinksConfirm": "Vincular estas direcciones a las cuentas de GitHub coincidentes",
     "emailLinksDegraded": "No se pudieron leer algunas aulas, así que puede que se puedan vincular más direcciones de las que se muestran.",
-    "emailLinksNotice_one": "{{count}} dirección coincide con un estudiante de la lista de un aula anterior y se inscribirá directamente en lugar de invitarse.",
-    "emailLinksNotice_other": "{{count}} direcciones coinciden con estudiantes de las listas de aulas anteriores y se inscribirán directamente en lugar de invitarse.",
+    "emailLinksNotice_one": "{{count}} dirección coincide con un estudiante que ya tiene una cuenta de GitHub de una clase anterior. Se vinculará a esa cuenta y se matriculará directamente en lugar de invitarse.",
+    "emailLinksNotice_other": "{{count}} direcciones coinciden con estudiantes que ya tienen cuentas de GitHub de clases anteriores. Se vincularán a esas cuentas y se matricularán directamente en lugar de invitarse.",
     "filterUnlinked": "Sin vincular",
     "linkFailed": "No se pudo vincular a {{label}}: {{error}}",
     "linkIncludeOrgMembers": "Incluir miembros de la organización que no están en ningún aula",
@@ -648,7 +646,38 @@
     "unlinkedKeptNotice_one": "Se conservó {{count}} fila en la lista sin cuenta de GitHub (una fila solo con nombre, o una dirección que no se pudo invitar). Vincúlala a un miembro de la organización desde el filtro Sin vincular de la lista.",
     "unlinkedKeptNotice_other": "Se conservaron {{count}} filas en la lista sin cuenta de GitHub (filas solo con nombre, o direcciones que no se pudieron invitar). Vincúlalas a miembros de la organización desde el filtro Sin vincular de la lista.",
     "unlinkedRosterNotice_one": "{{count}} fila tiene un nombre pero no tiene nombre de usuario de GitHub, github_id ni correo electrónico. Se conservará en la lista como una fila sin vincular que podrás vincular más tarde a un miembro de la organización.",
-    "unlinkedRosterNotice_other": "{{count}} filas tienen un nombre pero no tienen nombre de usuario de GitHub, github_id ni correo electrónico. Se conservarán en la lista como filas sin vincular que podrás vincular más tarde a miembros de la organización."
+    "unlinkedRosterNotice_other": "{{count}} filas tienen un nombre pero no tienen nombre de usuario de GitHub, github_id ni correo electrónico. Se conservarán en la lista como filas sin vincular que podrás vincular más tarde a miembros de la organización.",
+    "completedRow": "Se vinculó a {{label}} con la fila de lista existente de {{row}}.",
+    "emailInviteAlreadyPendingDetail": "Ya tiene una invitación pendiente, así que no se envió nada nuevo. Para enviarla de nuevo, usa Reenviar en su fila de la lista.",
+    "emailLinksDeclinedNotice_one": "{{count}} dirección coincide con un estudiante que ya tiene una cuenta de GitHub, pero no se vinculará. En su lugar recibe una invitación por correo electrónico, y su fila queda sin vincular hasta que la vincules desde la lista.",
+    "emailLinksDeclinedNotice_other": "{{count}} direcciones coinciden con estudiantes que ya tienen cuentas de GitHub, pero no se vincularán. En su lugar reciben invitaciones por correo electrónico, y sus filas quedan sin vincular hasta que las vincules desde la lista.",
+    "emailLinksUnlinkBody_one": "Esta persona ya es miembro de la organización con una cuenta de GitHub conocida. GitHub omite una invitación por correo electrónico a un miembro existente, así que su fila queda sin vincular hasta que la vincules a mano desde la lista.",
+    "emailLinksUnlinkBody_other": "Estas personas ya son miembros de la organización con cuentas de GitHub conocidas. GitHub omite una invitación por correo electrónico a un miembro existente, así que sus filas quedan sin vincular hasta que las vincules a mano desde la lista.",
+    "emailLinksUnlinkConfirm": "No vincular",
+    "emailLinksUnlinkTitle": "¿Enviar invitaciones por correo electrónico en lugar de vincular?",
+    "filterInviteExpired": "Invitación caducada",
+    "identityConflict": "Una fila de la lista ya usa el nombre de usuario {{label}} para una cuenta de GitHub distinta, o otra fila ya lleva ese nombre de usuario. Edita o quita la fila en conflicto de la lista y luego añade a {{label}} de nuevo.",
+    "inviteDailyLimit": "Se ha agotado el límite diario de invitaciones de GitHub para esta organización. Las organizaciones con menos de un mes o en el plan gratuito pueden enviar 50 invitaciones al día, las demás 500. Inténtalo de nuevo mañana.",
+    "linkAccountAction": "Vincular cuenta",
+    "needsAttentionExpiredHelp": "La invitación a {{label}} caducó antes de que la aceptara. Las invitaciones de GitHub duran 7 días. Invítalo de nuevo para matricularlo.",
+    "needsAttentionFailedHelp": "GitHub no pudo entregar la invitación a {{label}} ({{reason}}). Invítalo de nuevo para matricularlo.",
+    "previewAlreadyPending": "Invitación ya pendiente",
+    "previewResendExpired": "Reenviar invitación (caducada)",
+    "previewResendFailed": "Reenviar invitación (no entregada)",
+    "reinviteRowAlreadyInvited": "No se envió nada. GitHub ya tiene una invitación activa o un miembro para {{email}}, posiblemente de otra clase de esta organización. Consulta la página de Personas de la organización en GitHub, o vincula esta fila a ese miembro una vez que acepte.",
+    "reinviteRowFailed": "No se pudo volver a invitar a {{email}}: {{error}}",
+    "reinviteRowRateLimited": "GitHub limitó la frecuencia de la invitación a {{email}}. Espera unos minutos y luego inténtalo de nuevo.",
+    "resendNotSent": "No se envió ninguna invitación nueva a {{label}}. GitHub indica que la dirección ya está invitada o ya es miembro. Actualiza la lista para ver el estado actual.",
+    "resendRateLimited": "GitHub limitó la frecuencia del reenvío a {{label}}. Espera unos minutos y luego inténtalo de nuevo.",
+    "statusInviteExpired": "Invitación caducada",
+    "statusInviteFailed": "Invitación fallida",
+    "unlinkedEmailIntro": "Esta fila no está vinculada a ninguna cuenta de GitHub y {{email}} no tiene ninguna invitación pendiente. Es posible que la invitación caducara o se cancelara. Vuelve a invitar a la persona, vincula la fila a un miembro de la organización o elimina la fila.",
+    "unlinkedExpiredIntro": "La invitación a {{email}} caducó antes de aceptarse. Las invitaciones de GitHub duran 7 días. Vuelve a invitar a la persona, vincula la fila a un miembro de la organización o elimina la fila.",
+    "unlinkedFailedIntro": "GitHub no pudo entregar la invitación a {{email}} ({{reason}}). Comprueba la dirección y, a continuación, vuelve a invitar a la persona, vincula la fila a un miembro de la organización o elimina la fila.",
+    "uploadBlockedChecking": "Comprobando la pertenencia actual…",
+    "uploadBlockedDetails": "Confirma las actualizaciones de datos anteriores para continuar.",
+    "uploadBlockedRoles": "Confirma los cambios de rol anteriores para continuar.",
+    "uploadBlockedUsernames": "Confirma los cambios de nombre de usuario anteriores para continuar."
   },
   "language": {
     "baseName": "Inglés (base)",
@@ -814,7 +843,7 @@
       "description": "Descripción",
       "descriptionPlaceholder": "Una breve descripción de esta organización",
       "displayName": "Nombre para mostrar",
-      "displayNamePlaceholder": "Classroom 50 Summer Dev",
+      "displayNamePlaceholder": "CS1 Otoño 2026",
       "edit": "Editar perfil",
       "editOnGitHub": "Editar en GitHub",
       "email": "Correo de contacto",
@@ -917,7 +946,10 @@
         "slugNoRoom": "La clase «{{classroom}}» no deja espacio para ningún slug de tarea: su nombre corto más un nombre de usuario puede superar el límite de {{limit}} caracteres de GitHub para nombres de repositorio. Crea una clase con un slug más corto (como máximo {{max}} caracteres) y añade la tarea allí.",
         "slugOverBudget": "Los repositorios de los estudiantes se nombran «{{classroom}}-<slug>-<username>», que GitHub limita a {{limit}} caracteres. Este slug puede tener como máximo {{budget}} caracteres (actualmente {{length}}).",
         "slugReserved": "«{{slug}}» es el slug anterior de una tarea renombrada y está reservado. Reutilizarlo rompería las redirecciones de las que dependen los repositorios renombrados de los estudiantes. Elige otro slug.",
-        "teamFormationInvalid": "Elige quién forma los grupos."
+        "teamFormationInvalid": "Elige quién forma los grupos.",
+        "pagesBranchInvalid": "Introduce un nombre de rama sin espacios, de un máximo de 255 caracteres, o déjalo en blanco para la rama predeterminada.",
+        "pagesPathInvalid": "La carpeta de Pages debe ser / o /docs.",
+        "pagesSourceInvalid": "GitHub Pages debe ser «Desactivado», «GitHub Actions» o «Una rama»."
       },
       "allowedFilesTip": "Patrones ordenados de estilo {{gitignore}}, uno por línea, que definen qué archivos pertenecen a una entrega (gana la última coincidencia, {{bang}} vuelve a incluir). Por ejemplo, {{star}} y luego {{example}} permite solo {{result}}. En blanco permite todos los archivos.",
       "containerUserTip": "El usuario con el que se ejecuta el contenedor. Establece root si el checkout falla con un error de permisos. GitHub Actions ejecuta los pasos del contenedor con el usuario del runner anfitrión, por lo que una imagen sin root a menudo no puede escribir en el espacio de trabajo.",
@@ -996,7 +1028,7 @@
       "studentPermission": {
         "default": "Predeterminado: {{level}}",
         "groupHelp": "Los miembros del grupo se unen con al menos permiso de administrador para que el propietario del grupo pueda añadir compañeros. Esto se aplica a los repositorios creados a partir de ahora; usa la página de entregas para cambiar los existentes.",
-        "help": "El rol que se otorga a cada estudiante en su propio repositorio de tarea en el momento de aceptar. Push (escritura) es el valor predeterminado. Elige Administrador para permitir que los estudiantes gestionen la configuración del repositorio y activen GitHub Pages. Esto se aplica a los estudiantes que acepten a partir de ahora; usa la página de entregas para cambiar los repositorios ya creados.",
+        "help": "El rol que se concede a cada estudiante en su propio repositorio de la tarea en el momento de aceptar. Push (escritura) es el valor predeterminado. Elige Administrador para permitir que los estudiantes gestionen la configuración del repositorio ellos mismos. Esto se aplica a los estudiantes que aceptan de ahora en adelante; usa la página de entregas para cambiar los repositorios ya creados.",
         "label": "Acceso al repositorio del estudiante",
         "learnMore": "Más información",
         "levels": {
@@ -1115,7 +1147,28 @@
       "typeTeamRecommended": "Recomendado",
       "releaseLockedReminder": "Bloqueada. La fecha de publicación no desbloquea la tarea: desactiva Bloquear tarea en la fecha de publicación para que los estudiantes puedan aceptarla.",
       "releaseTemplateReadableBody": "La fecha de publicación controla solo el listado. Al guardar, el equipo del aula obtiene acceso de lectura a esta plantilla privada de inmediato. Para mantener la plantilla oculta, bloquea la tarea ahora y desbloquéala en la fecha de publicación.",
-      "releaseTemplateReadableTitle": "Los estudiantes pueden leer esta plantilla antes de la fecha de publicación"
+      "releaseTemplateReadableTitle": "Los estudiantes pueden leer esta plantilla antes de la fecha de publicación",
+      "pages": {
+        "branch": {
+          "help": "La rama que GitHub publica. Déjalo en blanco para usar la rama predeterminada del repositorio. Una rama con nombre debe existir en el repositorio de cada estudiante cuando acepta (por ejemplo, copiada de la plantilla con «Incluir todas las ramas»).",
+          "label": "Rama",
+          "placeholder": "Rama predeterminada"
+        },
+        "choices": {
+          "branch": "Una rama",
+          "off": "Desactivado",
+          "workflow": "GitHub Actions"
+        },
+        "editHelp": "Esto se aplica a los repositorios creados de ahora en adelante; usa la página de entregas para habilitar Pages en los existentes.",
+        "emptyRepoHint": "No disponible para un repositorio vacío: todavía no hay ninguna rama que publicar.",
+        "help": "Publica el repositorio de cada estudiante como un sitio web con GitHub Pages, configurado automáticamente cuando el estudiante acepta, de modo que nunca necesitan acceso de administrador. Desactivado es el valor predeterminado. «GitHub Actions» despliega a través de un flujo de trabajo en el repositorio del estudiante (para sitios con un paso de compilación). «Una rama» publica los archivos de una rama directamente, sin necesidad de flujo de trabajo (para HTML, CSS y JavaScript sencillos). El sitio es público en Internet incluso cuando el repositorio es privado, y se sirve cada archivo de la rama y carpeta publicadas; solo GitHub Enterprise Cloud puede restringir quién lo ve. Pages en repositorios privados requiere un plan de GitHub que lo incluya; en GitHub Free para organizaciones, haz público el repositorio o el sitio no se crea.",
+        "label": "GitHub Pages",
+        "path": {
+          "help": "La carpeta de esa rama que se publica: la raíz del repositorio (/) o /docs. GitHub solo permite estas dos.",
+          "label": "Carpeta"
+        },
+        "workflowNote": "Desplegar a través de GitHub Actions requiere un flujo de trabajo en el repositorio de cada estudiante que publique en Pages: debe conceder los permisos pages: write e id-token: write y usar actions/upload-pages-artifact y actions/deploy-pages. Ponlo en tu plantilla o haz que los estudiantes lo añadan. El sitio se crea cuando el estudiante acepta, así que la primera ejecución del flujo de trabajo lo despliega."
+      }
     },
     "autograder": {
       "heading": "Pruebas de autocalificación",
@@ -1406,7 +1459,8 @@
         "typeAria": "Filtrar por tipo",
         "typeGroup": "Grupo (heredado)",
         "typeIndividual": "Individual",
-        "typeTeam": "Grupo"
+        "typeTeam": "Grupo",
+        "statusSubmitted": "Entregada"
       },
       "viewSubmission": "Ver mi entrega",
       "linkOnlyBody": "Las tareas de esta clase se abren desde el enlace de invitación que comparte tu profesor. Abre ese enlace para aceptar una tarea; después aparecerá aquí junto con las que tu profesor haya publicado para todos.",
@@ -1417,7 +1471,9 @@
       "tableCaption": "Tareas publicadas y tu estado en cada una",
       "viewGroup": "Ver grupo",
       "viewGroupTitle": "Tu grupo",
-      "viewSubmissionTeam": "Ver entrega del grupo"
+      "viewSubmissionTeam": "Ver entrega del grupo",
+      "submissionUnknown": "No se pudieron comprobar las entregas. Actualiza para intentarlo de nuevo.",
+      "submitted": "Entregada"
     },
     "archivedNotice": "Esta clase está archivada, por lo que se han desactivado las nuevas tareas y las aceptaciones de los estudiantes. Desarchívala desde <settingsLink>Configuración de la clase</settingsLink> para hacer cambios.",
     "studentViewAll": "Ver todas las tareas de la clase <classroom>{{classroom}}</classroom>.",
@@ -1502,7 +1558,57 @@
     "includeStaff": "Incluir personal docente",
     "includeStaffHelp": "Cuenta a profesores, TA principales y TA junto con los estudiantes en las columnas Aceptado y Entregado. Útil cuando el personal docente prueba una tarea antes que los estudiantes.",
     "staffCount_one": "{{count}} miembro del personal docente",
-    "staffCount_other": "{{count}} miembros del personal docente"
+    "staffCount_other": "{{count}} miembros del personal docente",
+    "bulk": {
+      "delete": "Eliminar",
+      "deleteBody": "Esto quita las tareas seleccionadas del archivo assignments.json de la clase en una sola confirmación. Los repositorios de los estudiantes y sus entregas no se eliminan. Permanecen en la organización y se puede seguir accediendo a ellos por su nombre.",
+      "deleteConfirmWord": "eliminar",
+      "deleteDone_one": "{{count}} tarea eliminada.",
+      "deleteDone_other": "{{count}} tareas eliminadas.",
+      "deleteNoChange": "Todas las tareas seleccionadas ya no existían; no se confirmó nada.",
+      "deleteTitle_one": "¿Eliminar {{count}} tarea?",
+      "deleteTitle_other": "¿Eliminar {{count}} tareas?",
+      "deleteWarning": "Los estudiantes pierden el acceso a las páginas de la tarea, y se eliminan la fecha límite, la plantilla y la configuración de calificación de cada tarea.",
+      "lock": "Bloquear",
+      "lockAllLocked": "Todas las tareas seleccionadas ya están bloqueadas.",
+      "lockBody": "Los estudiantes pierden el acceso a las tareas seleccionadas en la página de aceptación, la lista de tareas, la vista de entregas y la CLI. Los repositorios existentes de los estudiantes no se eliminan. Es una única confirmación en el archivo assignments.json de la clase, así que se aplica a todas o a ninguna.",
+      "lockDone_one": "{{count}} tarea bloqueada.",
+      "lockDone_other": "{{count}} tareas bloqueadas.",
+      "lockNoChange": "Todas las tareas seleccionadas ya estaban en ese estado; no se confirmó nada.",
+      "lockTitle_one": "¿Bloquear {{count}} tarea?",
+      "lockTitle_other": "¿Bloquear {{count}} tareas?",
+      "missingSkipped_one": "{{count}} tarea seleccionada ya no existía y se omitió.",
+      "missingSkipped_other": "{{count}} tareas seleccionadas ya no existían y se omitieron.",
+      "reuse": "Reutilizar",
+      "reuseBody": "Copia las tareas seleccionadas en otra clase de esta organización. Elige el destino y luego comprueba el slug que tomará cada copia. Cuando un slug ya se usa allí, se completa con un sufijo numerado, y puedes sobrescribir cualquiera de ellos antes de copiar.",
+      "reuseDone_one": "{{count}} tarea copiada.",
+      "reuseDone_other": "{{count}} tareas copiadas.",
+      "reuseFailedTitle": "Excluidas de la copia",
+      "reuseFailed_one": "No se pudo copiar {{count}} tarea.",
+      "reuseFailed_other": "No se pudieron copiar {{count}} tareas.",
+      "reuseNoTargets": "No hay otra clase en {{org}} donde copiar.",
+      "reuseRenamedTitle": "Copiadas con un slug diferente",
+      "reuseSlugDuplicate": "Otra tarea de esta copia ya usa este slug.",
+      "reuseSlugLabel": "Slug para {{assignment}}",
+      "reuseSlugRequired": "Se requiere un slug.",
+      "reuseTargetError": "No se pudieron leer las tareas de la clase de destino, así que no se puede resolver un conflicto de slug. Inténtalo de nuevo.",
+      "reuseTemplateWarnTitle": "Copiadas, pero no se pudo conceder el acceso a la plantilla",
+      "reuseTitle_one": "Reutilizar {{count}} tarea",
+      "reuseTitle_other": "Reutilizar {{count}} tareas",
+      "selectAll": "Seleccionar todas las tareas",
+      "selectRow": "Seleccionar {{assignment}}",
+      "selectedCount_one": "{{count}} tarea seleccionada",
+      "selectedCount_other": "{{count}} tareas seleccionadas",
+      "templateWarnings_one": "Se actualizó {{count}} tarea, pero no se pudo actualizar el acceso del equipo de estudiantes a su plantilla: {{slugs}}. Compruébalo en GitHub o vuelve a ejecutar la acción sobre esta selección.",
+      "templateWarnings_other": "Se actualizaron {{count}} tareas, pero no se pudo actualizar el acceso del equipo de estudiantes a sus plantillas: {{slugs}}. Compruébalo en GitHub o vuelve a ejecutar la acción sobre esta selección.",
+      "unlock": "Desbloquear",
+      "unlockBody": "Esto vuelve a abrir las tareas seleccionadas a los estudiantes. Cuando se usa una plantilla privada, se restaura el acceso de lectura del equipo de estudiantes para que puedan volver a aceptar.",
+      "unlockDone_one": "{{count}} tarea desbloqueada.",
+      "unlockDone_other": "{{count}} tareas desbloqueadas.",
+      "unlockNoneLocked": "Ninguna de las tareas seleccionadas está bloqueada.",
+      "unlockTitle_one": "¿Desbloquear {{count}} tarea?",
+      "unlockTitle_other": "¿Desbloquear {{count}} tareas?"
+    }
   },
   "published": {
     "pageHeading": "Recursos publicados",
@@ -1556,7 +1662,13 @@
     "public": "Público",
     "publicNote": "Estos archivos son públicos: el alumnado y el corrector automático los obtienen sin iniciar sesión. Todo lo demás en el repositorio classroom50 permanece privado.",
     "siteTitle": "Tu sitio público",
-    "unlistedNote": "Los archivos de esta aula se sirven en una URL no listada. Cualquiera que tenga el enlace puede leerlos igualmente, así que comparte el enlace de invitación de cada tarea solo con tu alumnado."
+    "unlistedNote": "Los archivos de esta aula se sirven en una URL no listada. Cualquiera que tenga el enlace puede leerlos igualmente, así que comparte el enlace de invitación de cada tarea solo con tu alumnado.",
+    "republish": {
+      "button": "Publicar de nuevo",
+      "failed": "No se pudo iniciar la publicación: {{detail}}. Comprueba que puedes ejecutar flujos de trabajo en el repositorio classroom50 y luego inténtalo de nuevo.",
+      "help": "Vuelve a desplegar el sitio desde el repositorio classroom50 tal como está, sin cambiar nada en él. Úsalo cuando un archivo de abajo muestre Sin publicar o Inaccesible tras una publicación fallida.",
+      "started": "Publicando en el sitio del estudiante ahora. El aviso de arriba muestra el progreso."
+    }
   },
   "getStarted": {
     "badge": "Incorporación",
@@ -1621,7 +1733,8 @@
         "grading_mode": "Modo de calificación: las calificaciones registradas con el modo anterior pueden interpretarse de forma diferente.",
         "repo_source": "Origen del repositorio: los repositorios existentes conservan su contenido inicial original.",
         "repo_visibility": "Visibilidad del repositorio: cambia los repositorios existentes desde la página de entregas.",
-        "student_permission": "Acceso al repositorio del estudiante: cambia los repositorios existentes desde la página de entregas."
+        "student_permission": "Acceso al repositorio del estudiante: cambia los repositorios existentes desde la página de entregas.",
+        "pages": "GitHub Pages: habilítalo en los repositorios existentes desde la página de entregas."
       },
       "provisioningIntro_one": "{{count}} estudiante ya ha aceptado. Estos cambios solo se aplican a los repositorios aceptados a partir de ahora; el repositorio existente conserva su configuración actual:",
       "provisioningIntro_other": "{{count}} estudiantes ya han aceptado. Estos cambios solo se aplican a los repositorios aceptados a partir de ahora; los {{count}} repositorios existentes conservan su configuración actual:",
@@ -2042,7 +2155,7 @@
       "confirmRemoveTitle": "¿Eliminar a @{{login}} de {{role}}?",
       "pendingBadge": "Pendiente",
       "resend": "Reenviar invitación",
-      "resendEmailOnly": "Esta invitación no tiene nombre de usuario de GitHub, así que no se puede reenviar. Cancélala y vuelve a añadir a la persona.",
+      "resendEmailOnly": "Esta invitación no tiene nombre de usuario de GitHub, así que no se puede reenviar aquí. Cancélala y luego vuelve a añadir a la persona.",
       "resendFailed": "No se pudo reenviar la invitación a {{who}}: {{error}}",
       "resentToast": "Se reenvió la invitación a {{who}}.",
       "roleTeacherPlural": "Profesores",
@@ -2246,7 +2359,14 @@
       "setup": "Autocalificación configurada",
       "setupSkippedEmptyRepo": "No se necesita configuración: esta tarea usa un repositorio vacío",
       "repoVisibilityFellBack": "Se creó {{org}}/{{repo}} como privado. La organización no te permite crear repositorios públicos; tu docente puede hacerlo público más adelante.",
-      "team": "Grupo encontrado"
+      "team": "Grupo encontrado",
+      "pagesSkipped": {
+        "access": "Autocalificación configurada. GitHub Pages no se habilitó: no tienes permiso para cambiar la configuración de Pages en este repositorio. Tu profesor puede habilitarlo desde la página de entregas.",
+        "branch": "Autocalificación configurada. GitHub Pages no se habilitó: la rama desde la que se publica todavía no existe en tu repositorio. Tu profesor puede habilitarlo desde la página de entregas.",
+        "plan": "Autocalificación configurada. GitHub Pages no se habilitó: el plan de GitHub de esta organización no permite Pages en repositorios privados. Tu profesor puede hacer público el repositorio y habilitar Pages desde la página de entregas.",
+        "policy": "Autocalificación configurada. GitHub Pages no se habilitó: la organización no permite que los miembros publiquen sitios de Pages. Tu profesor puede habilitarlo desde la página de entregas.",
+        "unknown": "Autocalificación configurada. GitHub Pages no se pudo habilitar en este momento. Tu profesor puede habilitarlo desde la página de entregas."
+      }
     },
     "stepErrors": {
       "generic": "{{label}} falló (HTTP {{status}}). {{actions}}",
@@ -2317,6 +2437,10 @@
     "setupIncomplete": {
       "body": "Tu repositorio existe, pero faltan sus archivos de configuración, por lo que la calificación automática no se ejecutará y tu profesor no podrá dejar comentarios. Vuelve a ejecutar la configuración para terminarla. Es seguro y conserva el trabajo que ya hayas subido.",
       "title": "La configuración no terminó"
+    },
+    "pagesSite": {
+      "enabled": "GitHub Pages está habilitado para esta tarea",
+      "help": "Tu repositorio puede publicar un sitio web en {{url}}. Cualquiera en Internet puede verlo, incluso cuando el repositorio es privado."
     }
   },
   "submissions": {
@@ -2380,22 +2504,6 @@
       "shareWithCount_other": "Se comparte con <count>{{count}} estudiantes</count> que pueden aceptar esta tarea.",
       "warnNoStudents": "Todavía ningún estudiante puede aceptar este enlace en <classroom>{{classroom}}</classroom>. Primero agrega estudiantes a la lista e invítalos a la organización.",
       "copied": "Copiado"
-    },
-    "stats": {
-      "submitted": "Entregadas",
-      "groupsSubmitted": "Grupos que han entregado",
-      "classAverage": "Promedio de la clase",
-      "passing": "Aprobando",
-      "accepted": "Aceptadas",
-      "notAvailable": "N/D",
-      "showFailing": "Mostrar estudiantes que suspenden",
-      "failingCount_one": "{{count}} suspendiendo",
-      "failingCount_other": "{{count}} suspendiendo",
-      "showAcceptedNotSubmitted": "Mostrar estudiantes que aceptaron pero no han entregado",
-      "notYetSubmitted_one": "{{count}} aún no ha entregado",
-      "notYetSubmitted_other": "{{count}} aún no han entregado",
-      "ungradedNote_one": ", {{count}} sin calificar",
-      "ungradedNote_other": ", {{count}} sin calificar"
     },
     "filters": {
       "searchGroupPlaceholder": "Buscar grupo o integrante",
@@ -2491,7 +2599,9 @@
       "teamMissingTitle": "El equipo de GitHub detrás de este grupo ya no existe. Es probable que se haya eliminado, así que la calificación no puede acreditar a sus integrantes hasta que se vuelva a crear.",
       "teamNoRepo": "Aún no hay repositorio",
       "teamNoRepoTitle": "El repositorio del grupo se crea cuando un integrante del grupo acepta la tarea. Comparte el enlace de la tarea para que un integrante pueda aceptarla.",
-      "staffRowTitle": "Un profesor, TA principal o TA que aceptó esta tarea, normalmente para probarla. Esta fila no es la de un estudiante."
+      "staffRowTitle": "Un profesor, TA principal o TA que aceptó esta tarea, normalmente para probarla. Esta fila no es la de un estudiante.",
+      "openSiteLabel": "Abrir el sitio de GitHub Pages de {{repo}}",
+      "viewSite": "Abrir el sitio de GitHub Pages"
     },
     "reviewModal": {
       "errorTitle": "No se pudo comprobar si hay una PR de comentarios",
@@ -2529,7 +2639,15 @@
         "copyMilestone": "Copiar el comando de etiqueta de hito",
         "milestoneStep": "O envía una etiqueta de hito que tu profesor haya configurado (por ejemplo, {{tags}}):",
         "tagIntro": "Tu docente califica instantáneas etiquetadas de tu trabajo. Haz commit y push como de costumbre, luego ejecuta el comando de entrega de abajo. Etiqueta tu trabajo más reciente para la calificación.",
-        "tagStep2": "Desde dentro del repositorio, entrega tu trabajo. Esto sube una etiqueta de entrega que activa la calificación:"
+        "tagStep2": "Desde dentro del repositorio, entrega tu trabajo. Esto sube una etiqueta de entrega que activa la calificación:",
+        "cloneHint": "SSH necesita una clave SSH añadida a tu cuenta de GitHub. GitHub CLI necesita el comando gh instalado.",
+        "cloneMethod": {
+          "cli": "GitHub CLI",
+          "https": "HTTPS",
+          "ssh": "SSH"
+        },
+        "cloneMethodAria": "Método de clonación",
+        "teacherNote": "Tu docente puede pedirte que clones o entregues de una forma concreta. En ese caso, sigue sus instrucciones."
       },
       "notAccepted": "Aún no has aceptado esta tarea. <acceptLink>Acéptala</acceptLink> para obtener tu repositorio y luego haz push de tu trabajo para que se corrija.",
       "locked": "Esta tarea está bloqueada por tu profesor y no está disponible en este momento. Vuelve más tarde o pídele a tu profesor que la desbloquee.",
@@ -2551,11 +2669,7 @@
     "viewSourceRepo": "Ver plantilla",
     "menu": {
       "actions": "Acciones",
-      "metrics": "Métricas",
       "share": "Compartir"
-    },
-    "metrics": {
-      "title": "Métricas de entregas"
     },
     "freshness": {
       "collected": "Datos de entregas recopilados {{when}}",
@@ -2722,7 +2836,11 @@
       "manageGroup": "Gestionar grupo",
       "setup": "Configuración",
       "setupIncomplete": "Incompleta",
-      "setupIncompleteHint": "La aceptación del estudiante se detuvo antes de que se escribieran los archivos de configuración, por lo que la calificación automática no se ejecutará y no se puede abrir ningún PR de comentarios. Pide al estudiante que abra el enlace de la tarea y elija Volver a ejecutar la configuración."
+      "setupIncompleteHint": "La aceptación del estudiante se detuvo antes de que se escribieran los archivos de configuración, por lo que la calificación automática no se ejecutará y no se puede abrir ningún PR de comentarios. Pide al estudiante que abra el enlace de la tarea y elija Volver a ejecutar la configuración.",
+      "pages": "GitHub Pages",
+      "pagesBuildErrored": "Error de compilación",
+      "pagesBuilding": "Compilando",
+      "pagesNotEnabled": "No activado"
     },
     "rowDownload": {
       "aria": "Descargar la entrega de {{owner}}",
@@ -2876,9 +2994,9 @@
     "grading": {
       "badgeBuiltIn": "Autocalificada",
       "badgeEmptyRepo": "Sin calificación automática",
-      "badgeNoAutograder": "Autocorrección personalizada",
-      "titleEmptyRepo": "Esta tarea usa repositorios vacíos, así que la autocalificación, las puntuaciones y la solicitud de incorporación de comentarios están desactivadas. La tabla muestra quién ha aceptado.",
-      "titleNoAutograder": "La plantilla incluye su propio flujo de trabajo de calificación. Las puntuaciones integradas y la recalificación están desactivadas; la solicitud de incorporación de comentarios sigue funcionando cuando está activada."
+      "badgeNoAutograder": "Sin autocorrector integrado",
+      "titleEmptyRepo": "Esta tarea usa repositorios vacíos, por lo que la autocorrección, las puntuaciones y la solicitud de incorporación de cambios de retroalimentación están desactivadas. La tabla muestra quién ha aceptado y quién ha subido cambios.",
+      "titleNoAutograder": "Esta tarea no usa el autocorrector integrado, por lo que las puntuaciones integradas y la recorrección están desactivadas. El flujo de trabajo de corrección propio de una plantilla sigue ejecutándose, y la solicitud de incorporación de cambios de retroalimentación sigue funcionando cuando está activada."
     },
     "scoreOverride": {
       "add": "Añadir puntuación",
@@ -2984,41 +3102,78 @@
     },
     "rosterFromCsvNotice": "La lista de estudiantes proviene del archivo de la lista tal como estaba en su última sincronización, porque tu rol no puede ver el equipo de GitHub de la clase. Un estudiante inscrito desde entonces aparece después de que un docente abra la lista. Los propietarios de la organización ven la membresía en vivo.",
     "skipPastTable": "Saltar la tabla de entregas",
-    "slugTitle": "Slug de la tarea: el identificador único de esta tarea. Los nombres para mostrar pueden repetirse."
+    "slugTitle": "Slug de la tarea: el identificador único de esta tarea. Los nombres para mostrar pueden repetirse.",
+    "bulkPages": {
+      "apply": "Activar en todos",
+      "deferredDetail": "Omitido. Vuelve a ejecutar para activarlo.",
+      "deferredSection_one": "No se procesó {{count}} repositorio",
+      "deferredSection_other": "No se procesaron {{count}} repositorios",
+      "failedSection_one": "No se pudo activar en {{count}} repositorio",
+      "failedSection_other": "No se pudo activar en {{count}} repositorios",
+      "infoBranch_one": "Esto configura GitHub Pages para publicar una rama en el repositorio de {{count}} estudiante. Los repositorios que ya tienen un sitio se dejan como están. Los repositorios que los estudiantes acepten más adelante se configuran automáticamente.",
+      "infoBranch_other": "Esto configura GitHub Pages para publicar una rama en los repositorios de {{count}} estudiantes. Los repositorios que ya tienen un sitio se dejan como están. Los repositorios que los estudiantes acepten más adelante se configuran automáticamente.",
+      "infoWorkflow_one": "Esto configura GitHub Pages para desplegar mediante GitHub Actions en el repositorio de {{count}} estudiante. Los repositorios que ya tienen un sitio se dejan como están. Los repositorios que los estudiantes acepten más adelante se configuran automáticamente.",
+      "infoWorkflow_other": "Esto configura GitHub Pages para desplegar mediante GitHub Actions en los repositorios de {{count}} estudiantes. Los repositorios que ya tienen un sitio se dejan como están. Los repositorios que los estudiantes acepten más adelante se configuran automáticamente.",
+      "menuLabel": "Activar GitHub Pages",
+      "menuTitle": "Configura el sitio de GitHub Pages de esta tarea en todos los repositorios aceptados",
+      "noRepos": "Aún no hay estudiantes que hayan aceptado, así que no hay nada que activar.",
+      "progress": "Procesados {{processed}} de {{total}}",
+      "resultHeadline": "GitHub Pages está activado en {{count}} de {{total}} repositorios.",
+      "resultHeadlineThrottled": "Se activó GitHub Pages en {{count}} de {{total}} repositorios antes de que GitHub limitara la frecuencia de la solicitud. Vuelve a ejecutar para completar el resto.",
+      "subtitle_one": "Se aplica a {{count}} estudiante que ha aceptado esta tarea.",
+      "subtitle_other": "Se aplica a {{count}} estudiantes que han aceptado esta tarea.",
+      "title": "Activar GitHub Pages",
+      "titleEmptyRoster": "Aún no hay estudiantes que hayan aceptado",
+      "working": "Activando GitHub Pages"
+    },
+    "rowPages": {
+      "aria": "Activar GitHub Pages en {{repo}}",
+      "description": "Configura el sitio que espera esta tarea en este repositorio. Úsalo para un repositorio aceptado antes de que se activara Pages, o cuando su activación al aceptar falló.",
+      "outcome": {
+        "enabled": "GitHub Pages activado. El sitio estará disponible en {{url}} tras la primera compilación."
+      },
+      "refused": {
+        "access": "No se activó GitHub Pages en {{repo}}: necesitas acceso de administrador a este repositorio.",
+        "branch": "No se activó GitHub Pages en {{repo}}: la rama desde la que se publica aún no existe en este repositorio.",
+        "plan": "No se activó GitHub Pages en {{repo}}: el plan de GitHub de esta organización no permite Pages en repositorios privados. Haz público el repositorio y vuelve a intentarlo.",
+        "policy": "No se activó GitHub Pages en {{repo}}: la organización no permite que los miembros publiquen sitios de Pages. Revisa la configuración de Pages de la organización y vuelve a intentarlo.",
+        "unknown": "No se pudo activar GitHub Pages en {{repo}} en este momento. Vuelve a intentarlo dentro de un momento."
+      },
+      "title": "Activar GitHub Pages"
+    }
   },
   "orgMembers": {
     "heading": "Miembros",
     "manageMembersOnGitHub": "Gestionar los miembros de la organización en GitHub",
-    "discrepancy_one": "{{count}} estudiante está en una lista de clase pero no es miembro de la organización.",
-    "discrepancy_other": "{{count}} estudiantes están en una lista de clase pero no son miembros de la organización.",
+    "discrepancy_one": "{{count}} estudiante está en una lista pero no es miembro de la organización. Usa Invitar en su fila para enviar una invitación.",
+    "discrepancy_other": "{{count}} estudiantes están en una lista pero no son miembros de la organización. Usa Invitar en cada fila para enviar una invitación.",
     "searchPlaceholder": "Buscar por nombre, nombre de usuario o correo",
     "searchLabel": "Buscar miembros",
-    "loadError": "No se pudieron cargar los miembros de la organización.",
+    "loadError": "No se pudieron cargar los miembros de la organización. Comprueba tu conexión y que sigues siendo propietario de esta organización, luego reintenta.",
     "noMatch": "Ningún miembro coincide con tu búsqueda.",
     "invite": "Invitar",
     "classroomCount_one": "{{count}} clase",
     "classroomCount_other": "{{count}} clases",
-    "badgeNotMember": "No es miembro de la organización",
+    "badgeNotMember": "No está en la organización",
     "badgeNoClassroom": "Sin clase",
     "badgeMember": "Miembro",
-    "noGitHubUsername": "sin nombre de usuario de GitHub",
+    "noGitHubUsername": "Sin nombre de usuario de GitHub",
     "detailTitle": "Detalles del miembro",
     "manageOnGitHub": "Gestionar en GitHub",
     "classroomAccess": "Acceso a las clases",
     "noRoster": "No está en ninguna lista de clase.",
-    "archived": "archivada",
+    "archived": "Archivada",
     "selfNotice": "Esta es la cuenta con la que has iniciado sesión, por lo que no se puede eliminar de la organización desde aquí.",
     "inviting": "Invitando…",
     "inviteToOrg": "Invitar a la organización",
-    "notMemberNoId": "Este estudiante está en un registro pero no es miembro de la organización. Todavía no tiene un id de GitHub registrado, así que invítalo desde la página de registro de su clase.",
     "removing": "Quitando…",
     "removeFromOrg": "Eliminar de la organización",
     "inviteFailed": "No se pudo invitar a {{label}}: {{reason}}",
-    "somethingWrong": "la acción no pudo completarse",
+    "somethingWrong": "Algo salió mal. Actualiza e inténtalo de nuevo.",
     "removed": "{{label}} fue eliminado de la organización {{org}}.",
     "removedWithUnenroll_one": "{{label}} fue eliminado de la organización {{org}} y dado de baja de {{count}} clase.",
     "removedWithUnenroll_other": "{{label}} fue eliminado de la organización {{org}} y dado de baja de {{count}} clases.",
-    "removeFailed": "No se pudo eliminar a {{label}}: {{reason}}",
+    "removeFailed": "No se pudo quitar a {{label}}: {{reason}}. Inténtalo de nuevo, o quítalo desde la página de Personas de la organización en GitHub.",
     "warnArchived": "{{who}} sigue en la clase archivada «{{classroom}}»; desarchívala para eliminarlo de esa lista.",
     "warnUnenrollFailed": "No se pudo dar de baja a {{who}} de «{{classroom}}» ({{reason}}); se eliminó de las demás.",
     "badgeOwner": "Propietario",
@@ -3028,12 +3183,11 @@
       "addedHeadline_one": "Se agregó {{count}} miembro a {{classroom}}.",
       "addedHeadline_other": "Se agregaron {{count}} miembros a {{classroom}}.",
       "classroomLabel": "Clase",
-      "clearSelection": "Borrar selección",
-      "confirmAddBody_one": "Esto agrega al miembro seleccionado a la lista y al equipo de la clase {{classroom}}, invitándolo a la organización si aún no es miembro.",
-      "confirmAddBody_other": "Esto agrega a los miembros seleccionados a la lista y al equipo de la clase {{classroom}}, invitándolos a la organización si aún no son miembros.",
+      "confirmAddBody_one": "Esto añade al miembro seleccionado a la lista de la clase {{classroom}} y a su equipo. Aquí solo se pueden añadir miembros de la organización; invita primero desde su fila a quien todavía no sea miembro.",
+      "confirmAddBody_other": "Esto añade a los miembros seleccionados a la lista de la clase {{classroom}} y a su equipo. Aquí solo se pueden añadir miembros de la organización; invita primero desde su fila a quien todavía no sea miembro.",
       "confirmRemoveBody_one": "Esto elimina al miembro seleccionado de la lista y del equipo de la clase {{classroom}}. Su pertenencia a la organización y sus repositorios de tareas no se ven afectados.",
       "confirmRemoveBody_other": "Esto elimina a los miembros seleccionados de la lista y del equipo de la clase {{classroom}}. Su pertenencia a la organización y sus repositorios de tareas no se ven afectados.",
-      "couldNotAddToTeam": "No se pudo agregar al equipo de la clase.",
+      "couldNotAddToTeam": "No se pudo añadir al equipo de la clase. Abre su fila en la lista de la clase y usa Añadir a la clase para reintentarlo.",
       "done": "Listo",
       "keepTabOpen": "Mantén esta pestaña abierta hasta que finalice la acción.",
       "memberCount_one": "{{count}} miembro",
@@ -3058,16 +3212,16 @@
         "already-on-classroom": "Ya está en esta clase.",
         "already-removed": "Ya se eliminó de esta clase.",
         "archived": "La clase está archivada. Desarchívala para cambiar la pertenencia.",
-        "no-id": "No hay un id de GitHub registrado para ubicarlo.",
+        "no-id": "No hay un id de GitHub registrado, así que no se pueden asociar a una cuenta de GitHub.",
         "not-member": "No es miembro de la organización. Invítalo primero.",
         "not-on-classroom": "No está en esta clase.",
-        "resolve-failed": "No se pudo resolver su cuenta actual de GitHub.",
+        "resolve-failed": "No se pudo consultar su cuenta de GitHub actual. Inténtalo de nuevo.",
         "pending-email-invite": "Invitado por correo y aún no ha aceptado. Cancela la invitación desde la página de la lista de la clase.",
-        "no-username": "Sin nombre de usuario de GitHub registrado. La eliminación de la organización se basa en el nombre de usuario.",
-        "self": "Esta es tu cuenta con la que has iniciado sesión, así que no se puede eliminar aquí."
+        "no-username": "No hay un nombre de usuario de GitHub registrado, así que su pertenencia a la organización no se puede quitar desde aquí. Quítalos desde la página de Personas de la organización en GitHub.",
+        "self": "Esta es tu cuenta con la que has iniciado sesión, así que no se puede eliminar aquí.",
+        "unlinked-row": "Sin vincular a una cuenta de GitHub. Vuelve a invitar, vincula o quita la fila desde la página de Lista de la clase."
       },
       "starting": "Iniciando…",
-      "actions": "Acciones",
       "addModalTitle_one": "Añadir {{count}} miembro seleccionado a un aula",
       "addModalTitle_other": "Añadir {{count}} miembros seleccionados a un aula",
       "addToClassroomMenu": "Añadir al aula",
@@ -3093,18 +3247,18 @@
       "previewSkipAlreadyOn_other": "{{count}} omitidos: ya están en esta clase.",
       "previewSkipArchived_one": "{{count}} omitido: inscrito en una instancia archivada de esta clase.",
       "previewSkipArchived_other": "{{count}} omitidos: inscritos en una instancia archivada de esta clase.",
-      "previewSkipNoUsername_one": "{{count}} omitido: sin nombre de usuario de GitHub registrado.",
-      "previewSkipNoUsername_other": "{{count}} omitidos: sin nombre de usuario de GitHub registrado.",
+      "previewSkipNoUsername_one": "{{count}} omitido: sin nombre de usuario de GitHub registrado, así que su pertenencia a la organización no se puede quitar desde aquí.",
+      "previewSkipNoUsername_other": "{{count}} omitidos: sin nombre de usuario de GitHub registrado, así que su pertenencia a la organización no se puede quitar desde aquí.",
       "previewSkipNotMember_one": "{{count}} omitido: no es miembro de la organización; invítalo primero.",
       "previewSkipNotMember_other": "{{count}} omitidos: no son miembros de la organización; invítalos primero.",
       "previewSkipNotOn_one": "{{count}} omitido: no está en esta clase.",
       "previewSkipNotOn_other": "{{count}} omitidos: no están en esta clase.",
-      "previewSkipPendingEmail_one": "{{count}} omitido: invitado por correo y aún no ha aceptado.",
-      "previewSkipPendingEmail_other": "{{count}} omitidos: invitados por correo y aún no han aceptado.",
+      "previewSkipPendingEmail_one": "{{count}} omitido: invitado por correo electrónico y aún sin aceptar. Cancela la invitación desde la página de Lista de la clase.",
+      "previewSkipPendingEmail_other": "{{count}} omitidos: invitados por correo electrónico y aún sin aceptar. Cancela las invitaciones desde la página de Lista de la clase.",
       "removeFromClassroomMenu": "Eliminar del aula",
       "removeModalTitle_one": "Eliminar {{count}} miembro seleccionado de un aula",
       "removeModalTitle_other": "Eliminar {{count}} miembros seleccionados de un aula",
-      "removeNoneOnClassroom": "Ninguno de los miembros seleccionados está en la lista de un aula.",
+      "removeNoneOnClassroom": "Ninguno de los miembros seleccionados está en una lista de clase de la que se les pueda quitar.",
       "removeOrgTitle": "Eliminar miembros de la organización {{org}}",
       "removedFromOrgHeadline_one": "Se eliminó {{count}} miembro de la organización {{org}}.",
       "removedFromOrgHeadline_other": "Se eliminaron {{count}} miembros de la organización {{org}}.",
@@ -3112,33 +3266,53 @@
       "unenrolledDetail_one": "Dado de baja de {{count}} aula ({{classrooms}}).",
       "unenrolledDetail_other": "Dado de baja de {{count}} aulas ({{classrooms}}).",
       "viewerUnverified": "No se pudo verificar tu cuenta, así que no se quitó a ningún miembro. Inténtalo de nuevo.",
-      "confirmRemoveOrgWarning": "Los miembros eliminados pierden el acceso a todos los repositorios de la organización, incluidos sus propios repositorios de tareas, y necesitan una nueva invitación para regresar."
+      "confirmRemoveOrgWarning": "Los miembros eliminados pierden el acceso a todos los repositorios de la organización, incluidos sus propios repositorios de tareas, y necesitan una nueva invitación para regresar.",
+      "addNoneMembers": "Ninguna de las filas seleccionadas corresponde a miembros de la organización. Invítalos primero y luego añádelos a una clase.",
+      "confirmInviteBody_one": "¿Enviar una invitación a la organización al estudiante seleccionado? Va a su cuenta de GitHub por id e incluye sus equipos de clase, así que queda inscrito en cuanto acepta. Se omite a cualquiera que ya tenga una invitación pendiente o que ya sea miembro.",
+      "confirmInviteBody_other": "¿Enviar invitaciones a la organización a los {{count}} estudiantes seleccionados? Cada una va a su cuenta de GitHub por id e incluye sus equipos de clase, así que quedan inscritos en cuanto aceptan. Se omite a cualquiera que ya tenga una invitación pendiente o que ya sea miembro.",
+      "confirmInviteTitle_one": "¿Enviar {{count}} invitación?",
+      "confirmInviteTitle_other": "¿Enviar {{count}} invitaciones?",
+      "inviteNoneInvitable": "Selecciona estudiantes que estén en una lista pero no en la organización. Las filas pendientes, caducadas y sin vincular se gestionan desde la lista de su clase.",
+      "inviteRateLimited": "Se enviaron {{sent}} invitaciones y luego se alcanzó el límite de frecuencia de GitHub. El resto no se enviaron. Espera unos minutos y vuelve a intentarlo.",
+      "inviteSelected_one": "Enviar una invitación a la organización a {{count}} estudiante",
+      "inviteSelected_other": "Enviar invitaciones a la organización a {{count}} estudiantes",
+      "inviteSkipReason": {
+        "already-member": "Ya es miembro de la organización. No se envió nada nuevo.",
+        "already-pending": "Ya tiene una invitación pendiente. No se envió nada nuevo.",
+        "not-invitable": "No se puede invitar desde aquí: no tiene un id de GitHub registrado, o la fila no corresponde a un estudiante que no esté en la organización."
+      },
+      "inviteTitle": "Enviar invitaciones a la organización {{org}}",
+      "invitedHeadline_one": "Se envió {{count}} invitación.",
+      "invitedHeadline_other": "Se enviaron {{count}} invitaciones.",
+      "previewSkipUnlinked_one": "{{count}} omitido: sin vincular a una cuenta de GitHub. Vuelve a invitar, vincula o quita la fila desde la página de Lista de la clase.",
+      "previewSkipUnlinked_other": "{{count}} omitidos: sin vincular a una cuenta de GitHub. Vuelve a invitar, vincula o quita las filas desde la página de Lista de la clase.",
+      "removeOrgNoneEligible": "Ninguna de las filas seleccionadas corresponde a miembros de la organización con un nombre de usuario de GitHub.",
+      "sendInvitations": "Enviar invitaciones"
     },
-    "confirmInviteBody": "¿Enviar una invitación a la organización a {{label}}? La invitación se envía a su cuenta de GitHub por id y volverá a unirse a {{org}} con su acceso anterior a la clase una vez que la acepte.",
+    "confirmInviteBody": "¿Enviar una invitación a la organización a {{label}}? Va dirigida a su cuenta de GitHub por id e incluye sus equipos de clase, así que quedará matriculado de nuevo en cuanto acepte.",
     "filterAllClassrooms": "Todas las clases",
     "filterByClassroomLabel": "Filtrar por clase",
     "filterNoClassroom": "Sin clase",
     "noMembersInClassroom": "No hay miembros en {{classroom}}.",
     "noMembersNoClassroom": "No hay miembros sin clase.",
     "unprovisionedAccessBadge": "No está en el equipo",
-    "unprovisionedAccessTitle": "Está en la lista de esta clase pero no en su equipo de GitHub, por lo que la recopilación de calificaciones lo pasaría por alto. Vuelve a añadirlo a la clase para solucionarlo.",
+    "unprovisionedAccessTitle": "En la lista de esta clase pero no en su equipo de GitHub, así que la recopilación de calificaciones no lo tendría en cuenta. Añádelo de nuevo a la clase para solucionarlo.",
     "unprovisionedBadge": "No inscrito",
-    "unprovisionedTitle": "En la lista pero no en el equipo de la clase: {{classrooms}}. Las calificaciones se recopilan a través del equipo, por lo que su trabajo se perdería. Vuelve a añadirlo a la clase para solucionarlo.",
+    "unprovisionedTitle": "En la lista pero no en el equipo de la clase: {{classrooms}}. Las calificaciones se recopilan a través del equipo, así que se perdería su trabajo. Añádelo de nuevo a la clase para solucionarlo.",
     "confirmRemove": "{{label}} se eliminará de la organización <org>{{org}}</org>.",
     "confirmUnenroll_one": "Primero se dará de baja a {{label}} de <count>{{count}} clase</count> ({{classrooms}}) y luego se le eliminará de la organización <org>{{org}}</org>. Sus repositorios de tareas no se eliminan.",
     "confirmUnenroll_other": "Primero se dará de baja a {{label}} de <count>{{count}} clases</count> ({{classrooms}}) y luego se le eliminará de la organización <org>{{org}}</org>. Sus repositorios de tareas no se eliminan.",
-    "noUsernameWithId": "<missing>sin nombre de usuario de GitHub</missing> <meta>· id {{id}}</meta>",
-    "notMember": "{{label}} está en la lista de una clase pero <emphasis>no es miembro de la organización</emphasis>. Invítalo para restaurar su acceso. La invitación se envía a su cuenta de GitHub por id, así que funciona incluso si su nombre de usuario cambió.",
+    "noUsernameWithId": "<missing>Sin nombre de usuario de GitHub</missing> <meta>· id {{id}}</meta>",
+    "notMember": "{{label}} está en una lista de clase pero <emphasis>no es miembro de la organización</emphasis>. Invítalo para restaurar su acceso. La invitación va dirigida a su cuenta de GitHub por id, así que funciona aunque haya cambiado su nombre de usuario, e incluye sus equipos de clase.",
     "subtitle": "Todas las personas de la organización de GitHub <orgLink>{{org}}</orgLink> y las clases a las que pertenecen.",
     "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
     "inviteMalformedId": "No se puede invitar a {{who}}: «{{githubId}}» no es un id de GitHub válido. Corrige la celda github_id en roster.csv.",
-    "inviteMissingId": "No se puede invitar a {{who}}: no hay ningún id de GitHub registrado.",
+    "inviteMissingId": "No se puede invitar a {{who}}: su fila de la lista no tiene un id de GitHub. Abre su fila en la lista de la clase para invitarlo por nombre de usuario, o quita la fila y añádelo de nuevo.",
     "badgeInvitePending": "Invitación pendiente",
-    "invitePendingNotice": "Este estudiante fue invitado por correo y aún no ha aceptado, así que no tiene ninguna cuenta de GitHub registrada. No pasa nada: sus datos se rellenarán automáticamente cuando se una. Puedes cancelar la invitación desde la página de la lista de su clase.",
     "details": {
       "email_one": "Correo electrónico",
       "email_other": "Correos electrónicos",
-      "githubId": "ID de GitHub",
+      "githubId": "Id de GitHub",
       "name": "Nombre",
       "notSet": "Sin establecer",
       "orgRole": "Rol",
@@ -3149,7 +3323,7 @@
     "filterInvitationPending": "Invitación pendiente",
     "filterMembers": "Miembros",
     "filterNotEnrolled": "No inscritos",
-    "filterNotInOrg": "No es miembro de la org.",
+    "filterNotInOrg": "No está en la organización",
     "filterOwners": "Propietarios",
     "filterShowLabel": "Filtrar miembros",
     "sharedOrgNotice": "Esta página muestra a todos los miembros de la organización de GitHub {{org}}, no solo a tus estudiantes. Si otros profesores comparten esta organización, incluso sin usar Classroom 50, sus miembros también aparecen aquí, así que ten cuidado al eliminar a alguien.",
@@ -3163,7 +3337,44 @@
       "colStatus": "Estado",
       "colUsername": "Nombre de usuario"
     },
-    "retry": "Reintentar"
+    "retry": "Reintentar",
+    "archivedParen": "(archivada)",
+    "badgeUnlinked": "Sin vincular",
+    "filterInviteExpired": "Invitación caducada",
+    "filterUnlinked": "Sin vincular",
+    "invitationsRetry": "Reintentar",
+    "invitationsUnavailable": "No se pudieron leer las invitaciones de la organización, así que no se muestran las invitaciones pendientes ni caducadas, y algunas filas pueden aparecer como sin vincular o no pertenecientes a la organización. Reintenta antes de invitar a nadie.",
+    "inviteAlreadyMember": "{{who}} ya es miembro de {{org}}, así que no se envió nada nuevo. Actualiza para ver el estado actual.",
+    "inviteAlreadyPending": "{{who}} ya tiene una invitación pendiente a {{org}}, así que no se envió nada nuevo. Reenvíala o cancélala desde su fila en la lista de la clase.",
+    "notMemberExpired": "La invitación a {{label}} caducó antes de que la aceptara. Las invitaciones de GitHub duran 7 días. Invítalo de nuevo para restaurar su acceso.",
+    "notMemberFailed": "GitHub no pudo entregar la invitación a {{label}} ({{reason}}). Invítalo de nuevo para restaurar su acceso.",
+    "openInRoster": "Abrir en la lista de {{classroom}}",
+    "orphanedInviteExpired": "Caducada",
+    "orphanedInviteFailed": "Fallida",
+    "orphanedInvitesBody": "GitHub sigue mostrando estas invitaciones caducadas o no entregables, pero ninguna lista de clase ni miembro de la organización coincide con ellas, así que aquí no se puede volver a invitar a esas personas. Normalmente la fila de la lista se quitó después de que la invitación caducara. Descártalas para limpiar la lista de invitaciones fallidas de GitHub, o deja las que enviaras con otro propósito.",
+    "orphanedInvitesDeferred_one": "GitHub limitó la frecuencia de la solicitud, así que {{count}} invitación fallida no se descartó. Inténtalo de nuevo en unos minutos.",
+    "orphanedInvitesDeferred_other": "GitHub limitó la frecuencia de la solicitud, así que {{count}} invitaciones fallidas no se descartaron. Inténtalo de nuevo en unos minutos.",
+    "orphanedInvitesDismiss": "Descartar",
+    "orphanedInvitesDismissAll": "Descartar todas",
+    "orphanedInvitesDismissFailed_one": "No se pudo descartar {{count}} invitación fallida: {{error}}",
+    "orphanedInvitesDismissFailed_other": "No se pudieron descartar {{count}} invitaciones fallidas: {{error}}",
+    "orphanedInvitesDismissed_one": "Se descartó {{count}} invitación fallida.",
+    "orphanedInvitesDismissed_other": "Se descartaron {{count}} invitaciones fallidas.",
+    "orphanedInvitesHide": "Ocultar detalles",
+    "orphanedInvitesTitle_one": "{{count}} invitación fallida no está en ninguna lista.",
+    "orphanedInvitesTitle_other": "{{count}} invitaciones fallidas no están en ninguna lista.",
+    "orphanedInvitesView": "Ver detalles",
+    "removeSelf": "No puedes quitar tu propia cuenta de la organización desde aquí.",
+    "removeViewerUnverified": "No se pudo verificar tu cuenta, así que no se quitó al miembro. Inténtalo de nuevo.",
+    "rosterReadFailed": "No se pudo leer la lista de {{classroom}}, así que no se muestran sus estudiantes. Revisa el roster.csv de la clase y luego actualiza.",
+    "strandedExpired": "La invitación a {{who}} caducó antes de aceptarse. Las invitaciones de GitHub duran 7 días. Abre su fila en la lista de la clase para volver a invitarlo, vincular la fila a un miembro de la organización o quitarla.",
+    "strandedFailed": "GitHub no pudo entregar la invitación a {{who}} ({{reason}}). Abre su fila en la lista de la clase para comprobar la dirección y volver a invitarlo, vincular la fila a un miembro de la organización o quitarla.",
+    "strandedNoId": "{{who}} está en una lista pero no es miembro de la organización, y su fila no tiene un id de GitHub, así que no se puede invitar desde aquí. Abre su fila en la lista de la clase para invitarlo.",
+    "strandedPendingAccount": "{{who}} tiene una invitación a la organización pendiente y aún no la ha aceptado. Su fila se actualiza automáticamente cuando se una. Para reenviar o cancelar la invitación, abre su fila en la lista de la clase.",
+    "strandedPendingEmail": "{{who}} fue invitado por correo electrónico y aún no ha aceptado, así que no hay ninguna cuenta de GitHub registrada. Sus datos se completan automáticamente cuando se una. Para reenviar o cancelar la invitación, abre su fila en la lista de la clase.",
+    "strandedUnlinked": "Esta fila no está vinculada a una cuenta de GitHub y {{who}} no tiene ninguna invitación pendiente. Abre su fila en la lista de la clase para volver a invitarlo, vincular la fila a un miembro de la organización o quitarla.",
+    "warnNoUsername": "No se pudo quitar a {{who}} de la organización: su fila no tiene un nombre de usuario de GitHub. Quítalo desde la página de Personas de la organización en GitHub.",
+    "warnOrgRemoveFailed": "No se pudo quitar a {{who}} de la organización ({{reason}}). Inténtalo de nuevo, o quítalo desde la página de Personas de la organización en GitHub."
   },
   "components": {
     "avatar": {
@@ -3332,7 +3543,13 @@
       "removeUser": "Eliminar a {{username}} del grupo",
       "reviewJoinRequests": "Revisar solicitudes para unirse en GitHub",
       "title": "Miembros del grupo",
-      "youBadge": "Tú"
+      "youBadge": "Tú",
+      "overCapacity": "Este grupo tiene {{count}} miembros, pero esta tarea permite {{max}}. Tu profesor también ve esta advertencia. Pide al responsable del grupo, o a tu profesor, que quite miembros hasta que el grupo tenga {{max}} o menos.",
+      "overCapacityManage": "Este grupo tiene {{count}} miembros, pero esta tarea permite {{max}}. Tu profesor también ve esta advertencia. Quita miembros hasta que el grupo tenga {{max}} o menos."
+    },
+    "groupOverCapacity": {
+      "badge": "Por encima del límite",
+      "title": "Este grupo tiene {{count}} miembros, pero esta tarea permite {{max}}. Alguien añadió miembros directamente en GitHub. Quita miembros del grupo o califica el grupo tal como está."
     }
   },
   "formatDate": {
@@ -3362,7 +3579,19 @@
       "failed": "{{label}}: falló",
       "pending": "{{label}}: iniciando…",
       "running": "{{label}}…",
-      "success": "{{label}}: listo"
+      "success": "{{label}}: listo",
+      "superseded": "{{label}}: incluido en una publicación más reciente"
+    },
+    "publishFailure": {
+      "deployLockCleared": "La publicación anterior que bloqueaba esta ya ha finalizado. Tu cambio está guardado. Reinténtalo para publicarlo ahora.",
+      "deployLocked": "GitHub Pages todavía está terminando una publicación anterior, así que esta no pudo iniciarse. Tu cambio está guardado. La publicación anterior suele resolverse en 10 minutos: reinténtalo entonces o cancélala ahora.",
+      "outage": "GitHub Pages devolvió un error del servidor. Tu cambio está guardado. Consulta githubstatus.com y luego reinténtalo.",
+      "pagesDisabled": "GitHub Pages está desactivado para el repositorio classroom50, así que nada puede llegar al sitio de los estudiantes. Tu cambio está guardado. Vuelve a ejecutar la configuración en los ajustes de la organización para reactivar Pages y luego reinténtalo.",
+      "permission": "El flujo de trabajo de publicación no tiene permiso para escribir en GitHub Pages. Tu cambio está guardado. Actualiza los archivos de flujo de trabajo de la organización (aparece un aviso cuando hay una actualización disponible) y luego reinténtalo.",
+      "timeout": "GitHub Pages no terminó de desplegarse en 10 minutos. Tu cambio está guardado. Normalmente es una ralentización de GitHub: reinténtalo y consulta githubstatus.com si sigue ocurriendo.",
+      "unstick": "Cancelar la publicación atascada y reintentar",
+      "unstickFailed": "No se pudo cancelar la publicación anterior: {{detail}}. Se resuelve por sí sola en unos 10 minutos. Reinténtalo entonces.",
+      "unsticking": "Cancelando…"
     }
   },
   "skeletonDrift": {
@@ -3626,7 +3855,7 @@
       "heading": "Informes",
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
-      "vpatWcagDesc": "Informe de conformidad de accesibilidad frente a WCAG 2.2 (VPAT 2.5Rev).",
+      "vpatWcagDesc": "Informe de conformidad de accesibilidad respecto a WCAG 2.0, 2.1 y 2.2, nivel A y AA (VPAT 2.5Rev).",
       "vpatWcagTitle": "VPAT: edición WCAG"
     },
     "legend": {
@@ -3644,7 +3873,7 @@
       "statement": "Declaración",
       "vpat": "Conformidad"
     },
-    "pageSubtitle": "Cómo la aplicación web de Classroom 50 cumple con el nivel AA de WCAG 2.2, comprobado automáticamente en cada compilación.",
+    "pageSubtitle": "Cómo la aplicación web de Classroom 50 cumple con WCAG 2.0, 2.1 y 2.2 en los niveles A y AA, con el contraste de color comprobado en cada compilación.",
     "pageTitle": "Accesibilidad",
     "preview": {
       "open": "Ver detalles del color",
@@ -3655,9 +3884,11 @@
       "colColors": "Colores (primer plano / fondo)",
       "contrastMeta": "Relaciones de contraste de WCAG por par para cada color auditado, en ambos temas. Generado el {{date}}.",
       "contrastTitle": "Auditoría de contraste de color",
-      "reportMeta": "Estándar: WCAG {{standard}}, nivel objetivo {{target}}. Fecha del informe: {{date}}.",
-      "reportTitle": "Informe de conformidad de accesibilidad: {{product}}",
-      "vpatSummary": "Resumen ({{total}} criterios aplicables): {{supports}} Compatible, {{partially}} Parcialmente compatible, {{doesNotSupport}} No compatible, {{notApplicable}} No aplicable, {{notEvaluated}} No evaluado."
+      "reportMeta": "Estándar: {{standard}}, nivel objetivo {{target}}. Estándares aplicables: WCAG {{versions}}, nivel A y AA. Fecha del informe: {{date}}.",
+      "reportTitle": "Informe de conformidad de accesibilidad de {{vendor}}",
+      "vpatSummary": "Resumen ({{total}} criterios): {{supports}} Compatible, {{partially}} Parcialmente compatible, {{doesNotSupport}} No compatible, {{notApplicable}} No aplicable, {{notEvaluated}} No evaluado.",
+      "productWithVersion": "{{product}}, versión {{version}}",
+      "reportProduct": "Edición WCAG (basada en VPAT 2.5Rev). Nombre del producto/versión: {{product}}."
     },
     "statement": {
       "feedback": "Si algo resulta difícil de usar,",
@@ -3667,7 +3898,7 @@
       "intro": "Queremos que todo el mundo pueda usar Classroom 50, incluidas las personas que utilizan un teclado, un lector de pantalla u otra tecnología de asistencia.",
       "limitations": "Algunos criterios están marcados como «Parcialmente compatible» en el informe de conformidad, cada uno con una nota sobre lo que queda por hacer. Los corregimos a medida que avanza el trabajo.",
       "limitationsHeading": "Limitaciones conocidas",
-      "target": "Aspiramos a cumplir el nivel AA de WCAG 2.2. El contraste de color se comprueba en cada compilación; el resto se comprueba a mano con un teclado y un lector de pantalla. El informe de conformidad detalla nuestra situación en cada criterio.",
+      "target": "Nuestro objetivo es cumplir con WCAG 2.2 nivel AA, que también abarca los criterios de nivel A y AA de WCAG 2.0 y 2.1. El contraste de color se comprueba en cada compilación; el resto se verifica manualmente con un teclado y un lector de pantalla. El informe de conformidad enumera cada criterio de nivel A y AA, incluidos los que no se aplican a esta aplicación y por qué.",
       "targetHeading": "Cómo cumplimos",
       "updated": "Revisado por última vez el {{date}}."
     },
@@ -3709,7 +3940,18 @@
         "notEvaluated": "No evaluado",
         "partially": "Parcialmente compatible",
         "supports": "Compatible"
-      }
+      },
+      "principle": {
+        "Operable": "Operable",
+        "Perceivable": "Perceptible",
+        "Robust": "Robusto",
+        "Understandable": "Comprensible"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 y 2.2",
+        "wcag22": "Solo WCAG 2.2"
+      },
+      "tabAll": "Todos"
     }
   },
   "groupTeams": {
@@ -3788,7 +4030,8 @@
       "title": "Gestionar {{name}}",
       "undo": "Deshacer",
       "willBeAdded": "Se añadirá",
-      "willBeRemoved": "Se quitará"
+      "willBeRemoved": "Se quitará",
+      "overCapacity": "Este grupo tiene {{count}} miembros, pero esta tarea permite {{max}}. Alguien añadió miembros directamente en GitHub. Quita miembros hasta que el grupo tenga {{max}} o menos y luego selecciona Guardar cambios."
     },
     "manageAriaLabel": "Gestionar {{name}}",
     "manageButton": "Gestionar",
@@ -3847,5 +4090,10 @@
       "label": "Visibilidad",
       "visible": "Visible"
     }
+  },
+  "backgroundPass": {
+    "failed": "La sincronización con GitHub no se completó. Se ejecuta de nuevo la próxima vez que abras la clase.",
+    "synced": "Sincronizado con GitHub.",
+    "syncing": "Sincronizando con GitHub…"
   }
 }

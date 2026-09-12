@@ -13,7 +13,8 @@
       "pending": "{{label}}: başlatılıyor…",
       "running": "{{label}}…",
       "success": "{{label}}: tamamlandı",
-      "failed": "{{label}}: başarısız"
+      "failed": "{{label}}: başarısız",
+      "superseded": "{{label}}: daha yeni bir yayımlamaya dahil edildi"
     },
     "workflow": {
       "publishPages": "Öğrenci sitesinde yayımlanıyor",
@@ -24,6 +25,17 @@
       "collectScoresAssignment": "\"{{classroom}}\" içindeki \"{{assignment}}\" için puanlar toplanıyor",
       "collectScoresClassroom": "\"{{classroom}}\" içindeki her ödev için puanlar toplanıyor",
       "probeToken": "Hizmet belirteci sınanıyor"
+    },
+    "publishFailure": {
+      "deployLockCleared": "Bunu engelleyen önceki yayımlama tamamlandı. Değişikliğiniz kaydedildi. Şimdi yayımlamak için yeniden deneyin.",
+      "deployLocked": "GitHub Pages hâlâ önceki bir yayımlamayı bitiriyor, bu yüzden bu yayımlama başlatılamadı. Değişikliğiniz kaydedildi. Önceki yayımlama genellikle 10 dakika içinde temizlenir: o zaman yeniden deneyin ya da şimdi iptal edin.",
+      "outage": "GitHub Pages bir sunucu hatası döndürdü. Değişikliğiniz kaydedildi. githubstatus.com'u kontrol edin, ardından yeniden deneyin.",
+      "pagesDisabled": "GitHub Pages, classroom50 deposu için kapalı; bu yüzden öğrenci sitesine hiçbir şey ulaşamaz. Değişikliğiniz kaydedildi. Pages'i tekrar açmak için kuruluşun ayarlarından kurulumu yeniden çalıştırın, ardından yeniden deneyin.",
+      "permission": "Yayımlama iş akışının GitHub Pages'e yazmasına izin verilmiyor. Değişikliğiniz kaydedildi. Kuruluşun iş akışı dosyalarını güncelleyin (bir güncelleme mevcut olduğunda bir afiş görünür), ardından yeniden deneyin.",
+      "timeout": "GitHub Pages, dağıtımı 10 dakika içinde tamamlamadı. Değişikliğiniz kaydedildi. Bu genellikle bir GitHub yavaşlamasıdır: yeniden deneyin ve sorun sürerse githubstatus.com'u kontrol edin.",
+      "unstick": "Takılan yayımlamayı iptal edip yeniden dene",
+      "unstickFailed": "Önceki yayımlama iptal edilemedi: {{detail}}. Yaklaşık 10 dakika içinde kendiliğinden temizlenir. O zaman yeniden deneyin.",
+      "unsticking": "İptal ediliyor…"
     }
   },
   "common": {
@@ -54,7 +66,10 @@
     "clear": "Temizle",
     "clearFilter": "Filtreyi temizle",
     "checkingOrgAccess": "Bu organizasyona erişiminiz kontrol ediliyor…",
-    "resolvingRole": "Rolünüz kontrol ediliyor…"
+    "resolvingRole": "Rolünüz kontrol ediliyor…",
+    "actionWithCount": "{{label}} ({{count}})",
+    "actions": "Eylemler",
+    "clearSelection": "Seçimi temizle"
   },
   "notFound": {
     "title": "Sayfa bulunamadı",
@@ -243,7 +258,7 @@
   },
   "students": {
     "addTitle": "Üye ekle",
-    "addHint": "Bir öğrenciyi ayrıntılarıyla eklemek için bir GitHub kullanıcı adı girin veya organizasyon daveti göndermek için bir e-posta girin. Bir e-posta daveti, öğrenci kabul edene kadar girdiğiniz adı ve şubeyi bekleyen bir liste satırında tutar.",
+    "addHint": "Bir öğrenciyi ayrıntılarıyla eklemek için bir GitHub kullanıcı adı, ya da organizasyon daveti göndermek için bir e-posta girin. Bir e-posta daveti, öğrenci kabul edene kadar girdiğiniz ad ve şubeyi bekleyen bir kayıt listesi satırında tutar.",
     "addRoleLabel": "Rol",
     "addStaffHint": "Öğretmenler, baş TA'lar ve TA'lar GitHub kullanıcı adıyla eklenir. Öğretmenler ve baş TA'lar classroom50 deposuna yazma erişimi alır; TA'lar salt okunur alır. Bir öğretmene organizasyon sahipliği verilir.",
     "usernamePlaceholder": "github-kullanici-adi",
@@ -252,7 +267,7 @@
     "keepStudent": "Öğrenciyi koru",
     "unenrollStudent": "Öğrencinin kaydını sil",
     "added": "{{label}} eklendi.",
-    "invited": "{{label}} kişisine bir kuruluş daveti gönderildi.",
+    "invited": "{{label}} kişisine bir organizasyon daveti gönderildi.",
     "alreadyEnrolled": "{{label}} bu sınıfa zaten kayıtlı.",
     "addFailed": "{{label}} eklenemedi: {{message}}",
     "membersEnrolledCount_one": "{{count}} üye kaydoldu",
@@ -276,8 +291,8 @@
     "onboardingLinkHint": "Öğrenciler daveti kabul eder ve tek adımda Classroom 50'ye giriş yaparlar. Çoğu sınıfın paylaştığı bağlantı budur.",
     "onboardingLinkAria": "Öğrenci katılım bağlantısı",
     "copyOnboardingLinkAria": "Katılım bağlantısını kopyala",
-    "resendMissingId": "{{username}} için davet yeniden gönderilemez: GitHub kimliği eksik. Onları kayıt listesine yeniden ekleyin.",
-    "resendFailed": "{{username}} için davetin yeniden gönderilmesi başarısız oldu ({{error}}).",
+    "resendMissingId": "{{username}} kişisine davet yeniden gönderilemiyor: kayıt listesi satırlarında GitHub kimliği yok. Satırı kaldırın, ardından onları tekrar ekleyin.",
+    "resendFailed": "{{username}} kişisine davet yeniden gönderilemedi: {{error}}",
     "resend": "Yeniden gönder",
     "dismiss": "Kapat",
     "rosterLoadError": "Kayıt listesi GitHub'dan yüklenemedi. Kayıtlı liste eksik olabilir. Bu bir yükleme hatasıdır, boş bir sınıf değil.",
@@ -287,13 +302,13 @@
     "rosterEditOnGitHub": "roster.csv dosyasını GitHub'da düzenle",
     "rosterRecheck": "roster.csv dosyasını yeniden kontrol et",
     "rosterRechecking": "Yeniden kontrol ediliyor…",
-    "statusPending": "Bekleyen davet",
+    "statusPending": "Davet beklemede",
     "statusEnrolled": "Kayıtlı",
-    "statusNeedsAttentionInOrg": "Bir rol ata",
+    "statusNeedsAttentionInOrg": "Kaydolmadı",
     "statusNeedsAttentionNotInOrg": "Organizasyonda değil",
     "viewCsvOnGitHub": "roster.csv dosyasını görüntüle",
     "csvRoster": {
-      "notice": "roster.csv dosyasından CSV liste (öğretmen tarafından yönetilir). Yetkili, ekip tabanlı liste ve davet yönetimi öğretmenlere açıktır.",
+      "notice": "roster.csv'den CSV kayıt listesi (öğretmen tarafından tutulur). Yetkili, ekip odaklı kayıt listesi ve davet yönetimi öğretmenlere açıktır.",
       "caption": "roster.csv dosyasından CSV liste",
       "colName": "Ad",
       "colSection": "Şube",
@@ -307,9 +322,9 @@
     "sectionGithub": "GitHub ve kayıt",
     "sectionProfile": "Profil",
     "notSet": "Ayarlanmadı",
-    "confirmResendBody": "{{label}} kişisine bekleyen kuruluş daveti yeniden gönderilsin mi? Mevcut davetleri iptal edilir ve {{org}} için yeni bir tane gönderilir.",
+    "confirmResendBody": "{{label}} kişisine organizasyon daveti yeniden gönderilsin mi? Mevcut davet iptal edilir ve {{org}} için yeni bir davet gönderilir.",
     "cancelInvite": "Daveti iptal et",
-    "keepInvite": "Daveti tut",
+    "keepInvite": "Daveti koru",
     "confirmCancelInviteBody": "{{label}} için bekleyen kuruluş daveti iptal edilsin mi? {{org}} kuruluşunun bekleyen davetlerinden kaldırılacaklar ve yeniden davet edilmedikçe katılmayacaklar.",
     "cancelInviteMissingId": "{{label}} için davet iptal edilemiyor: kayıtlı davet kimliği yok.",
     "cancelInviteFailed": "{{label}} için davet iptal edilemedi: {{error}}",
@@ -317,14 +332,7 @@
     "inviteToOrg": "Kuruluşa davet et",
     "pendingBanner_one": "{{count}} bekleyen davet henüz kabul edilmedi.",
     "pendingBanner_other": "{{count}} bekleyen davet henüz kabul edilmedi.",
-    "failedInvitesTitle_one": "{{count}} davet başarısız oldu veya süresi doldu.",
-    "failedInvitesTitle_other": "{{count}} davet başarısız oldu veya süresi doldu.",
-    "failedInviteDismissError": "Başarısız olan davet kapatılamadı: {{error}}",
     "reinvite": "Yeniden davet et",
-    "failedInviteReinviteError": "Yeniden davet edilemedi: {{error}}",
-    "failedInviteRateLimited": "GitHub, {{who}} kişisine yeniden daveti hız sınırladı. Tekrar deneyin.",
-    "failedInviteNotSent": "{{who}} kişisine davet gönderilmedi. Tekrar deneyin.",
-    "failedInviteNoTarget": "Bu davetin GitHub kullanıcı adı veya e-postası yok, bu yüzden yeniden davet edilemez. Kapatın ve kişiyi yeniden ekleyin.",
     "pendingReview": "İncele",
     "inviteLinksHint": "Bu bağlantılar kimseyi davet etmez. Önce öğrencileri kayıt listesinden davet edin, ardından her öğrencinin daveti kabul edip oturum açabilmesi için bir bağlantı paylaşın.",
     "onboardingLinkLabel": "Sınıf katılım bağlantısı",
@@ -345,12 +353,12 @@
     "manageOwnerOnly": "Davetleri ve üyeliği yönetmek yalnızca kuruluş sahiplerine açıktır.",
     "inviteRosterFailed": "{{label}} davet edilemedi: {{error}}",
     "inviteRosterNoUsername": "{{label}} için kayıtlı GitHub kullanıcı adı yok. Davet etmeden önce bir tane ekleyin.",
-    "inviteRosterDeferred": "GitHub, {{label}} kişisine daveti hız sınırladı. Kısa süre içinde tekrar deneyin.",
-    "inviteRosterNoneSent": "{{label}} kişisine davet gönderilmedi. Tekrar deneyin.",
+    "inviteRosterDeferred": "GitHub, {{label}} kişisine daveti hız sınırladı. Birkaç dakika bekleyin, ardından tekrar deneyin.",
+    "inviteRosterNoneSent": "{{label}} kişisine davet gönderilmedi. GitHub, zaten davet edildiklerini veya üye olduklarını bildiriyor. Güncel durumu görmek için kayıt listesini yenileyin.",
     "filterAll": "Tüm üyeler",
     "filterEnrolled": "Kayıtlı",
-    "filterPending": "Beklemede",
-    "filterNeedsAttentionInOrg": "Rol gerekli",
+    "filterPending": "Davet bekliyor",
+    "filterNeedsAttentionInOrg": "Kaydedilmedi",
     "filterNeedsAttentionNotInOrg": "Organizasyonda değil",
     "searchPlaceholder": "Üyelerde ara",
     "searchLabel": "Üyeleri ada, kullanıcı adına veya e-postaya göre ara",
@@ -367,26 +375,25 @@
       "selectAll": "Tüm öğrencileri seç",
       "selectRow": "{{label}} öğesini seç",
       "selfNotSelectable": "Kendi kaydınızı toplu olarak silemezsiniz.",
-      "noneSelectable": "Toplu eylemler (kayıt silme, davet) yalnızca öğrenciler için geçerlidir. Görevlileri (öğretmenler, baş TA'lar ve TA'lar) sınıf Ayarları'ndan yönetin.",
+      "noneSelectable": "Toplu işlemler (davet gönderme, kaydı silme) yalnızca öğrenciler için geçerlidir. Ekip üyelerini (öğretmenler, baş TA'lar ve TA'lar) sınıf Ayarları'nda yönetin.",
       "selectedCount_one": "{{count}} seçildi",
       "selectedCount_other": "{{count}} seçildi",
       "unenroll": "Kaydı sil",
       "unenrollSelected_one": "{{count}} öğrencinin kaydını sil",
       "unenrollSelected_other": "{{count}} öğrencinin kaydını sil",
-      "clearSelection": "Seçimi temizle",
       "starting": "Başlatılıyor…",
       "keepTabOpen": "İşlem tamamlanana kadar bu sekmeyi açık tutun.",
       "progressProcessed": "{{total}} öğeden {{processed}} tanesi",
       "done": "Tamam",
-      "noInviteId": "Bu davetin kayıtlı bir kimliği yok. Satırı kaldırın, ardından öğrenciyi yeniden ekleyin.",
-      "invite": "Davet et",
-      "inviteSelected_one": "{{count}} öğrenciyi kuruluşa davet et",
-      "inviteSelected_other": "{{count}} öğrenciyi kuruluşa davet et",
-      "inviteNoneInvitable": "Davet etmek için kuruluşta olmayan veya beklemede olan en az bir öğrenci seçin.",
-      "inviteTitle": "Öğrencileri kuruluşa davet et",
-      "invitedHeadline_one": "{{count}} öğrenci davet edildi.",
-      "invitedHeadline_other": "{{count}} öğrenci davet edildi.",
-      "cancelInvite": "İptal et",
+      "noInviteId": "Bu satırda GitHub kimliği yok, bu nedenle davet yeniden gönderilemez. Satırı kaldırın, ardından öğrenciyi tekrar ekleyin.",
+      "invite": "Davet gönder",
+      "inviteSelected_one": "{{count}} öğrenciye davet gönder",
+      "inviteSelected_other": "{{count}} öğrenciye davet gönder",
+      "inviteNoneInvitable": "Bekleyen veya süresi dolmuş daveti olan ya da henüz organizasyonda olmayan öğrencileri seçin. E-posta adresi veya GitHub kullanıcı adı olmayan bir satır davet edilemez.",
+      "inviteTitle": "Davet gönder",
+      "invitedHeadline_one": "{{count}} davet gönderildi.",
+      "invitedHeadline_other": "{{count}} davet gönderildi.",
+      "cancelInvite": "Davetleri iptal et",
       "cancelSelected_one": "{{count}} bekleyen daveti iptal et",
       "cancelSelected_other": "{{count}} bekleyen daveti iptal et",
       "cancelNoneCancellable": "İptal etmek için en az bir bekleyen davet seçin.",
@@ -409,12 +416,11 @@
       "confirmUnenrollTitle_other": "{{count}} öğrencinin kaydı silinsin mi?",
       "confirmUnenrollBody_one": "Bu, {{count}} öğrenciyi sınıf ekibinden çıkarır ve liste satırını kaldırır. Onları kuruluştan çıkarmaz.",
       "confirmUnenrollBody_other": "Bu, {{count}} öğrenciyi sınıf ekibinden çıkarır ve liste satırlarını kaldırır. Onları kuruluştan çıkarmaz.",
-      "confirmInviteTitle_one": "{{count}} öğrenci davet edilsin mi?",
-      "confirmInviteTitle_other": "{{count}} öğrenci davet edilsin mi?",
-      "confirmInviteBodyPlain_one": "Seçilen {{count}} öğrenciye bir kuruluş daveti gönderilsin mi? Kabul ettiklerinde kuruluşa ve sınıf ekibine katılırlar.",
-      "confirmInviteBodyPlain_other": "Seçilen {{count}} öğrenciye kuruluş davetleri gönderilsin mi? Kabul ettiklerinde kuruluşa ve sınıf ekibine katılırlar.",
-      "malformedInviteId": "roster.csv dosyasındaki github_id geçerli değil. O hücreyi düzeltin.",
-      "actions": "Eylemler",
+      "confirmInviteTitle_one": "{{count}} davet gönderilsin mi?",
+      "confirmInviteTitle_other": "{{count}} davet gönderilsin mi?",
+      "confirmInviteBodyPlain_one": "Seçili öğrenciye yeni bir organizasyon daveti gönderilsin mi? Bekleyen bir davet iptal edilip yeniden gönderilir, süresi dolmuş olan ise değiştirilir. Kabul ettiklerinde organizasyona ve sınıf ekibine katılırlar.",
+      "confirmInviteBodyPlain_other": "Seçili {{count}} öğrenciye yeni organizasyon davetleri gönderilsin mi? Bekleyen davetler iptal edilip yeniden gönderilir, süresi dolmuş olanlar ise değiştirilir. Öğrenciler kabul ettiklerinde organizasyona ve sınıf ekibine katılırlar.",
+      "malformedInviteId": "roster.csv içindeki github_id geçerli değil, bu nedenle davet yeniden gönderilemez. Bu hücreyi düzeltin, ardından tekrar deneyin.",
       "confirmRemoveRowsBody_one": "Bir GitHub hesabına bağlı olmayan {{count}} liste satırı kaldırılsın mı? Bu, yalnızca satırı roster.csv dosyasından siler. Dokunulacak hesap veya davet yoktur ve sınıf deposunun geçmişinden geri yüklenebilir.",
       "confirmRemoveRowsBody_other": "Bir GitHub hesabına bağlı olmayan {{count}} liste satırı kaldırılsın mı? Bu, yalnızca satırları roster.csv dosyasından siler. Dokunulacak hesap veya davet yoktur ve sınıf deposunun geçmişinden geri yüklenebilir.",
       "confirmRemoveRowsTitle_one": "{{count}} bağlantısız satır kaldırılsın mı?",
@@ -427,7 +433,11 @@
       "removeRowsTitle": "Bağlantısız liste satırlarını kaldır",
       "removedRowsHeadline_one": "{{count}} bağlantısız satır kaldırıldı.",
       "removedRowsHeadline_other": "{{count}} bağlantısız satır kaldırıldı.",
-      "confirmUnenrollWarning": "Yeniden kaydetmek, her öğrenciyi tekrar sınıf listesine eklemek anlamına gelir. Ödev depoları silinmez."
+      "confirmUnenrollWarning": "Yeniden kaydetmek, her öğrenciyi tekrar sınıf listesine eklemek anlamına gelir. Ödev depoları silinmez.",
+      "alreadyInvitedOrMember": "Zaten davet edilmiş veya zaten üye. Yeni bir şey gönderilmedi.",
+      "cancelInviteConfirm_one": "Daveti iptal et",
+      "cancelInviteConfirm_other": "Davetleri iptal et",
+      "nextBatch": "Sonraki grup hazırlanıyor…"
     },
     "emptyTitle": "Henüz üye yok",
     "emptyBody": "Öğrencileri kaydetmek için kayıt listesinden davet edin veya Ayarlar'dan öğretmen ve TA ekleyin. Katılım bağlantısı yalnızca zaten davet edilmiş bir öğrencinin kabul etmesine izin verir; kendi başına kimseyi eklemez. İnsanlar daveti kabul edip oturum açtıklarında burada görünürler.",
@@ -437,7 +447,7 @@
     "syncAdded_one": "Listeye {{count}} ekip üyesi eklendi.",
     "syncAdded_other": "Listeye {{count}} ekip üyesi eklendi.",
     "syncFailed": "Kayıt listesi yenilenemedi: {{error}}",
-    "resendAllRateLimitedShort": "{{resent}} davet yeniden gönderildi, ardından GitHub'ın hız sınırına ulaşıldı. Geri kalanları bir dakika içinde tekrar deneyin.",
+    "resendAllRateLimitedShort": "{{resent}} davet gönderildi, ardından GitHub'ın hız sınırına takıldı. Geri kalanlar gönderilmedi. Birkaç dakika bekleyin, ardından tekrar deneyin.",
     "noSection": "Şube yok",
     "addButton": "Üye ekle",
     "submitting": "Gönderiliyor…",
@@ -522,7 +532,7 @@
     "preflightMetadataReviewHint_one": "{{count}} öğrencinin bilgileri güncellenecek. Onaylamadan önce aşağıdaki vurgulanan hücreleri (ayrıntılar için üzerine gelin) gözden geçirin.",
     "preflightMetadataReviewHint_other": "{{count}} öğrencinin bilgileri güncellenecek. Onaylamadan önce aşağıdaki vurgulanan hücreleri (ayrıntılar için üzerine gelin) gözden geçirin.",
     "preflightRoleChangeMetadataNotice": "Bu üyelerin bazılarının ayrıca güncellenmiş bilgileri var (yukarıda gösterilmiştir); bunlar takım değişikliğiyle birlikte kaydedilecek.",
-    "resendMalformedId": "{{username}} için davet yeniden gönderilemez: \"{{githubId}}\" geçerli bir GitHub kimliği değil. roster.csv dosyasındaki github_id hücresini düzeltin.",
+    "resendMalformedId": "{{username}} kişisine davet yeniden gönderilemiyor: \"{{githubId}}\" geçerli bir GitHub kimliği değil. roster.csv içindeki github_id hücresini düzeltin, ardından tekrar deneyin.",
     "rolePreviousHint": "eski: {{role}}",
     "summaryHideDetails": "Ayrıntıları gizle",
     "summaryNoChanges": "Bu dosya kayıt listenizle eşleşiyor, bu yüzden eklenecek veya güncellenecek bir şey yok.",
@@ -558,7 +568,7 @@
     "importSkipped_other": "{{count}} satır atlandı: GitHub kullanıcı adı, github_id veya e-posta adresi yok, bu yüzden o öğrencilere henüz ulaşmanın bir yolu yok. Aşağıdaki diğer herkes yine de içe aktarılacak.",
     "importedAndInvitedCount": "{{added}} öğrenci eklendi ve {{invited}} e-posta daveti gönderildi.",
     "inviteEmailLocked": "Bu adres, bekleyen daveti tanımlar, bu yüzden burada değiştirilemez. Farklı bir tane kullanmak için bu daveti iptal edin ve yeni adresi davet edin.",
-    "inviteMetadataFailed": "{{email}} için davet hazırlanamadı ({{message}}), bu yüzden hiçbir davet gönderilmedi. Tekrar deneyin; sürekli başarısız oluyorsa mesajda belirtilen kalan takımı silin, sonra tekrar deneyin.",
+    "inviteMetadataFailed": "{{email}} için davet hazırlanamadı ({{message}}), bu nedenle hiçbir şey gönderilmedi. Tekrar deneyin; başarısız olmaya devam ederse mesajda adı geçen artık ekibi silin, ardından tekrar deneyin.",
     "invitingEmails": "E-posta davetleri gönderiliyor…",
     "missingIdentityHeader": "Bu dosyada bir öğrenciyi tanımlayan hiçbir sütun yok.",
     "noRosterRowNoEdit": "Bu kişinin bir liste girdisi olduğunda profil ayrıntıları düzenlenebilir.",
@@ -621,8 +631,8 @@
     "emailLinkBinding": "{{email}} → @{{login}} ({{classroom}})",
     "emailLinksConfirm": "Bu adresleri eşleşen GitHub hesaplarına bağla",
     "emailLinksDegraded": "Bazı sınıflar okunamadı, bu yüzden gösterilenden daha fazla adres bağlanabilir olabilir.",
-    "emailLinksNotice_one": "{{count}} adres, önceki bir sınıfın kayıt listesindeki bir öğrenciyle eşleşiyor ve davet edilmek yerine doğrudan kaydedilecek.",
-    "emailLinksNotice_other": "{{count}} adres, önceki sınıfların kayıt listelerindeki öğrencilerle eşleşiyor ve davet edilmek yerine doğrudan kaydedilecek.",
+    "emailLinksNotice_one": "{{count}} adres, önceki bir sınıftan zaten GitHub hesabı olan bir öğrenciyle eşleşiyor. Davet edilmek yerine o hesaba bağlanıp doğrudan kaydedilirler.",
+    "emailLinksNotice_other": "{{count}} adres, önceki sınıflardan zaten GitHub hesabı olan öğrencilerle eşleşiyor. Davet edilmek yerine o hesaplara bağlanıp doğrudan kaydedilirler.",
     "filterShowLabel": "Üyeleri duruma veya role göre filtrele",
     "filterUnlinked": "Bağlanmamış",
     "firstNameLabel": "Ad",
@@ -680,7 +690,38 @@
     "unlinkedRosterNotice_one": "{{count}} satırın adı var ancak GitHub kullanıcı adı, github_id veya e-postası yok. Daha sonra bir organizasyon üyesine bağlayabileceğiniz bağlanmamış bir satır olarak kayıt listesinde tutulacak.",
     "unlinkedRosterNotice_other": "{{count}} satırın adı var ancak GitHub kullanıcı adı, github_id veya e-postası yok. Daha sonra organizasyon üyelerine bağlayabileceğiniz bağlanmamış satırlar olarak kayıt listesinde tutulacak.",
     "uploadEncodingFallbackNotice": "Bu dosya UTF-8 kodlamalı değil, bu yüzden Windows-1252 olarak okundu. Adların ve aksanların aşağıda doğru göründüğünü kontrol edin. En iyi sonuçlar için Excel'den \"CSV UTF-8\" olarak dışa aktarın.",
-    "usernameLabel": "GitHub kullanıcı adı"
+    "usernameLabel": "GitHub kullanıcı adı",
+    "completedRow": "{{label}}, {{row}} için mevcut kayıt listesi satırına bağlandı.",
+    "emailInviteAlreadyPendingDetail": "Zaten bekleyen bir daveti var, bu nedenle yeni bir şey gönderilmedi. Yeniden göndermek için kayıt listesi satırlarında Yeniden Gönder'i kullanın.",
+    "emailLinksDeclinedNotice_one": "{{count}} adres, zaten bir GitHub hesabı olan bir öğrenciyle eşleşiyor ancak bağlanmayacak. Bunun yerine bir e-posta daveti alır ve kayıt listesinden bağlayana kadar satırı bağlanmamış kalır.",
+    "emailLinksDeclinedNotice_other": "{{count}} adres, zaten GitHub hesabı olan öğrencilerle eşleşiyor ancak bağlanmayacak. Bunun yerine e-posta davetleri alırlar ve kayıt listesinden bağlayana kadar satırları bağlanmamış kalır.",
+    "emailLinksUnlinkBody_one": "Bu kişi, bilinen bir GitHub hesabı olan bir organizasyon üyesi zaten. GitHub, mevcut bir üyeye e-posta davetini atlar, bu nedenle kayıt listesinden elle bağlayana kadar satırı bağlanmamış kalır.",
+    "emailLinksUnlinkBody_other": "Bu kişiler, bilinen GitHub hesapları olan organizasyon üyeleri zaten. GitHub, mevcut bir üyeye e-posta davetini atlar, bu nedenle kayıt listesinden elle bağlayana kadar satırları bağlanmamış kalır.",
+    "emailLinksUnlinkConfirm": "Bağlama",
+    "emailLinksUnlinkTitle": "Bağlamak yerine e-posta davetleri gönderilsin mi?",
+    "filterInviteExpired": "Davet süresi doldu",
+    "identityConflict": "Bir kayıt listesi satırı {{label}} kullanıcı adını farklı bir GitHub hesabı için zaten kullanıyor ya da başka bir satır o kullanıcı adını taşıyor. Çakışan satırı kayıt listesinden düzenleyin veya kaldırın, ardından {{label}} kişisini tekrar ekleyin.",
+    "inviteDailyLimit": "GitHub'ın bu organizasyon için günlük davet sınırı doldu. Bir aydan yeni veya ücretsiz plandaki organizasyonlar günde 50 davet gönderebilir, diğerleri 500. Yarın tekrar deneyin.",
+    "linkAccountAction": "Hesabı bağla",
+    "needsAttentionExpiredHelp": "{{label}} kişisine gönderilen davet, kabul etmeden önce sona erdi. GitHub davetleri 7 gün geçerlidir. Onları kaydetmek için yeniden davet edin.",
+    "needsAttentionFailedHelp": "GitHub, {{label}} kişisine daveti ulaştıramadı ({{reason}}). Onları kaydetmek için yeniden davet edin.",
+    "previewAlreadyPending": "Davet zaten bekliyor",
+    "previewResendExpired": "Daveti yeniden gönder (süresi doldu)",
+    "previewResendFailed": "Daveti yeniden gönder (ulaştırılamadı)",
+    "reinviteRowAlreadyInvited": "Hiçbir şey gönderilmedi. GitHub'da, muhtemelen bu organizasyondaki başka bir sınıftan, {{email}} için etkin bir davet veya üye zaten var. GitHub'daki organizasyonun People sayfasını kontrol edin ya da kabul ettiklerinde bu satırı o üyeye bağlayın.",
+    "reinviteRowFailed": "{{email}} yeniden davet edilemedi: {{error}}",
+    "reinviteRowRateLimited": "GitHub, {{email}} adresine daveti hız sınırladı. Birkaç dakika bekleyin, ardından tekrar deneyin.",
+    "resendNotSent": "{{label}} kişisine yeni davet gönderilmedi. GitHub, adresin zaten davet edildiğini veya zaten üye olduğunu bildiriyor. Güncel durumu görmek için kayıt listesini yenileyin.",
+    "resendRateLimited": "GitHub, {{label}} kişisine yeniden göndermeyi hız sınırladı. Birkaç dakika bekleyin, ardından tekrar deneyin.",
+    "statusInviteExpired": "Davetin süresi doldu",
+    "statusInviteFailed": "Davet başarısız oldu",
+    "unlinkedEmailIntro": "Bu satır bir GitHub hesabına bağlı değil ve {{email}} için bekleyen bir davet yok. Davetin süresi dolmuş ya da iptal edilmiş olabilir. Yeniden davet edin, satırı bir kuruluş üyesine bağlayın veya satırı kaldırın.",
+    "unlinkedExpiredIntro": "{{email}} adresine gönderilen davetin süresi kabul edilmeden dolmuş. GitHub davetleri 7 gün geçerlidir. Yeniden davet edin, satırı bir kuruluş üyesine bağlayın veya satırı kaldırın.",
+    "unlinkedFailedIntro": "GitHub, {{email}} adresine daveti iletemedi ({{reason}}). Adresi kontrol edin, ardından yeniden davet edin, satırı bir kuruluş üyesine bağlayın veya satırı kaldırın.",
+    "uploadBlockedChecking": "Mevcut üyelik denetleniyor…",
+    "uploadBlockedDetails": "Devam etmek için yukarıdaki bilgi güncellemelerini onaylayın.",
+    "uploadBlockedRoles": "Devam etmek için yukarıdaki rol değişikliklerini onaylayın.",
+    "uploadBlockedUsernames": "Devam etmek için yukarıdaki kullanıcı adı değişikliklerini onaylayın."
   },
   "language": {
     "baseName": "İngilizce (temel)",
@@ -846,7 +887,7 @@
       "description": "Açıklama",
       "descriptionPlaceholder": "Bu organizasyonun kısa bir açıklaması",
       "displayName": "Görünen ad",
-      "displayNamePlaceholder": "Classroom 50 Summer Dev",
+      "displayNamePlaceholder": "CS1 Güz 2026",
       "edit": "Profili düzenle",
       "editOnGitHub": "GitHub'da düzenle",
       "email": "İletişim e-postası",
@@ -902,7 +943,8 @@
         "sortNameAsc": "Ad (A–Z)",
         "sortNameDesc": "Ad (Z–A)",
         "clear": "Filtreleri temizle",
-        "typeTeam": "Grup"
+        "typeTeam": "Grup",
+        "statusSubmitted": "Gönderildi"
       },
       "noResults": {
         "title": "Filtrelerinize uyan ödev yok",
@@ -916,7 +958,9 @@
       "tableCaption": "Yayımlanan ödevler ve her biri için durumunuz",
       "viewGroup": "Grubu görüntüle",
       "viewGroupTitle": "Grubunuz",
-      "viewSubmissionTeam": "Grup gönderimini görüntüle"
+      "viewSubmissionTeam": "Grup gönderimini görüntüle",
+      "submissionUnknown": "Gönderimler kontrol edilemedi. Yeniden denemek için yenileyin.",
+      "submitted": "Gönderildi"
     },
     "newButton": {
       "assignment": "Ödev",
@@ -1031,7 +1075,10 @@
         "slugNoRoom": "\"{{classroom}}\" sınıfı hiçbir ödev slug'ı için yer bırakmıyor: kısa adı ve bir kullanıcı adı, GitHub'ın {{limit}} karakterlik depo adı sınırını aşabilir. Daha kısa bir slug'a sahip bir sınıf (en fazla {{max}} karakter) oluşturun ve ödevi oraya ekleyin.",
         "slugOverBudget": "Öğrenci depoları \"{{classroom}}-<slug>-<username>\" olarak adlandırılır; GitHub bunu {{limit}} karakterle sınırlar. Bu slug en fazla {{budget}} karakter olabilir (şu anda {{length}}).",
         "slugReserved": "\"{{slug}}\", yeniden adlandırılmış bir ödevin önceki slug'ıdır ve rezervedir. Bunu yeniden kullanmak, öğrencilerin yeniden adlandırılmış depolarının dayandığı yönlendirmeleri bozar. Farklı bir slug seçin.",
-        "teamFormationInvalid": "Grupları kimin oluşturacağını seçin."
+        "teamFormationInvalid": "Grupları kimin oluşturacağını seçin.",
+        "pagesBranchInvalid": "Boşluksuz, en fazla 255 karakterlik bir dal adı girin veya varsayılan dal için boş bırakın.",
+        "pagesPathInvalid": "Pages klasörü / veya /docs olmalıdır.",
+        "pagesSourceInvalid": "GitHub Pages \"Kapalı\", \"GitHub Actions\" veya \"Bir dal\" olmalıdır."
       },
       "availableFrom": "Yayınlanma tarihi ({{tz}})",
       "availableFromTz": "Saatler yerel saat diliminizdedir ({{tz}}).",
@@ -1073,7 +1120,7 @@
       "studentPermission": {
         "default": "Varsayılan: {{level}}",
         "groupHelp": "Grup üyeleri en az yönetici (admin) düzeyinde katılır, böylece grup sahibi takım arkadaşlarını ekleyebilir. Bu, bundan sonra oluşturulan depolar için geçerlidir; mevcutları değiştirmek için gönderiler sayfasını kullanın.",
-        "help": "Her öğrenciye kabul anında kendi ödev deposunda verilen rol. Yazma (push) varsayılandır. Öğrencilerin depo ayarlarını yönetmesine ve GitHub Pages'i etkinleştirmesine izin vermek için Yönetici'yi seçin. Bu, bundan sonra kabul eden öğrenciler için geçerlidir; zaten oluşturulan depoları değiştirmek için gönderiler sayfasını kullanın.",
+        "help": "Her öğrenciye kabul anında kendi ödev deposunda verilen rol. Push (yazma) varsayılandır. Öğrencilerin depo ayarlarını kendilerinin yönetmesine izin vermek için Admin'i seçin. Bu, bundan sonra kabul eden öğrenciler için geçerlidir; halihazırda oluşturulmuş depoları değiştirmek için gönderimler sayfasını kullanın.",
         "label": "Öğrenci depo erişimi",
         "learnMore": "Daha fazla bilgi",
         "levels": {
@@ -1192,7 +1239,28 @@
       "typeTeamRecommended": "Önerilen",
       "releaseLockedReminder": "Kilitli. Yayın tarihi ödevin kilidini açmaz: öğrenciler kabul edebilsin diye yayın tarihinde Ödevi kilitle seçeneğini kapatın.",
       "releaseTemplateReadableBody": "Yayın tarihi yalnızca listelenmeyi denetler. Kaydetmek, bu özel şablona sınıf ekibine hemen okuma erişimi verir. Şablonu gizli tutmak için ödevi şimdi kilitleyin ve yayın tarihinde kilidini açın.",
-      "releaseTemplateReadableTitle": "Öğrenciler bu şablonu yayın tarihinden önce okuyabilir"
+      "releaseTemplateReadableTitle": "Öğrenciler bu şablonu yayın tarihinden önce okuyabilir",
+      "pages": {
+        "branch": {
+          "help": "GitHub'ın yayımladığı dal. Deponun varsayılan dalını kullanmak için boş bırakın. Adı belirtilen bir dal, öğrenciler kabul ettiğinde her öğrenci deposunda mevcut olmalıdır (örneğin, \"Tüm dalları dahil et\" ile şablondan kopyalanmış).",
+          "label": "Dal",
+          "placeholder": "Varsayılan dal"
+        },
+        "choices": {
+          "branch": "Bir dal",
+          "off": "Kapalı",
+          "workflow": "GitHub Actions"
+        },
+        "editHelp": "Bu, bundan sonra oluşturulan depolar için geçerlidir; mevcut depolarda Pages'i etkinleştirmek için gönderimler sayfasını kullanın.",
+        "emptyRepoHint": "Boş bir depo için kullanılamaz: henüz yayımlanacak bir dal yok.",
+        "help": "Her öğrenci deposunu GitHub Pages ile bir web sitesi olarak yayımlayın; öğrenci kabul ettiğinde otomatik yapılandırılır, böylece hiçbir zaman yönetici erişimine ihtiyaç duymazlar. Varsayılan Kapalı'dır. \"GitHub Actions\" öğrenci deposundaki bir iş akışı üzerinden dağıtım yapar (derleme adımı olan siteler için). \"Bir dal\", bir daldaki dosyaları doğrudan yayımlar, iş akışı gerekmez (düz HTML, CSS ve JavaScript için). Depo özel olsa bile site internette herkese açıktır ve yayımlanan dal ve klasördeki her dosya sunulur; kimlerin göreceğini yalnızca GitHub Enterprise Cloud kısıtlayabilir. Özel depolarda Pages, bunu içeren bir GitHub planı gerektirir; kuruluşlar için GitHub Free'de depoyu herkese açık yapın yoksa site oluşturulmaz.",
+        "label": "GitHub Pages",
+        "path": {
+          "help": "O dalda yayımlanacak klasör: depo kökü (/) veya /docs. GitHub yalnızca bu ikisine izin verir.",
+          "label": "Klasör"
+        },
+        "workflowNote": "GitHub Actions üzerinden dağıtım, her öğrenci deposunda Pages'e yayımlayan bir iş akışı gerektirir: pages: write ve id-token: write izinlerini vermeli ve actions/upload-pages-artifact ile actions/deploy-pages kullanmalıdır. Şablonunuza koyun veya öğrencilerin eklemesini sağlayın. Site öğrenci kabul ettiğinde oluşturulur, bu yüzden iş akışının ilk çalışması onu dağıtır."
+      }
     },
     "autograder": {
       "heading": "Otomatik değerlendirme testleri",
@@ -1534,7 +1602,57 @@
     "includeStaff": "Eğitim ekibini dahil et",
     "includeStaffHelp": "Kabul edilenler ve Gönderilenler sütunlarında öğretmenleri, baş asistanları ve asistanları öğrencilerle birlikte say. Eğitim ekibi bir ödevi öğrencilerden önce denediğinde faydalıdır.",
     "staffCount_one": "{{count}} eğitim ekibi üyesi",
-    "staffCount_other": "{{count}} eğitim ekibi üyesi"
+    "staffCount_other": "{{count}} eğitim ekibi üyesi",
+    "bulk": {
+      "delete": "Sil",
+      "deleteBody": "Bu işlem, seçili ödevleri tek bir işleme (commit) ile sınıfın assignments.json dosyasından kaldırır. Öğrenci depoları ve gönderimleri silinmez. Kuruluşta kalırlar ve ada göre yine erişilebilirler.",
+      "deleteConfirmWord": "sil",
+      "deleteDone_one": "{{count}} ödev silindi.",
+      "deleteDone_other": "{{count}} ödev silindi.",
+      "deleteNoChange": "Seçili her ödev zaten yoktu; hiçbir şey işlenmedi.",
+      "deleteTitle_one": "{{count}} ödev silinsin mi?",
+      "deleteTitle_other": "{{count}} ödev silinsin mi?",
+      "deleteWarning": "Öğrenciler ödev sayfalarına erişimi kaybeder ve her ödevin son teslim tarihi, şablon ve değerlendirme ayarları kaldırılır.",
+      "lock": "Kilitle",
+      "lockAllLocked": "Seçili her ödev zaten kilitli.",
+      "lockBody": "Öğrenciler, seçili ödevlere kabul sayfasında, ödev listesinde, gönderim görünümünde ve CLI'da erişimi kaybeder. Mevcut öğrenci depoları silinmez. Bu, sınıfın assignments.json dosyasına yapılan tek bir işlemdir; dolayısıyla ya hepsine ya da hiçbirine uygulanır.",
+      "lockDone_one": "{{count}} ödev kilitlendi.",
+      "lockDone_other": "{{count}} ödev kilitlendi.",
+      "lockNoChange": "Seçili her ödev zaten o durumdaydı; hiçbir şey işlenmedi.",
+      "lockTitle_one": "{{count}} ödev kilitlensin mi?",
+      "lockTitle_other": "{{count}} ödev kilitlensin mi?",
+      "missingSkipped_one": "{{count}} seçili ödev zaten yoktu ve atlandı.",
+      "missingSkipped_other": "{{count}} seçili ödev zaten yoktu ve atlandı.",
+      "reuse": "Yeniden kullan",
+      "reuseBody": "Seçili ödevleri bu kuruluştaki başka bir sınıfa kopyalayın. Hedefi seçin, ardından her kopyanın alacağı slug'ı kontrol edin. Bir slug orada zaten kullanılıyorsa, numaralı bir sonek eklenir ve kopyalamadan önce herhangi birinin üzerine yazabilirsiniz.",
+      "reuseDone_one": "{{count}} ödev kopyalandı.",
+      "reuseDone_other": "{{count}} ödev kopyalandı.",
+      "reuseFailedTitle": "Kopyalamanın dışında bırakıldı",
+      "reuseFailed_one": "{{count}} ödev kopyalanamadı.",
+      "reuseFailed_other": "{{count}} ödev kopyalanamadı.",
+      "reuseNoTargets": "{{org}} kuruluşunda kopyalanacak başka bir sınıf yok.",
+      "reuseRenamedTitle": "Farklı bir slug ile kopyalandı",
+      "reuseSlugDuplicate": "Bu kopyadaki başka bir ödev zaten bu slug'ı kullanıyor.",
+      "reuseSlugLabel": "{{assignment}} için slug",
+      "reuseSlugRequired": "Bir slug gereklidir.",
+      "reuseTargetError": "Hedef sınıfın ödevleri okunamadı, bu yüzden bir slug çakışması çözülemiyor. Yeniden deneyin.",
+      "reuseTemplateWarnTitle": "Kopyalandı, ancak şablon erişimi verilemedi",
+      "reuseTitle_one": "{{count}} ödevi yeniden kullan",
+      "reuseTitle_other": "{{count}} ödevi yeniden kullan",
+      "selectAll": "Tüm ödevleri seç",
+      "selectRow": "{{assignment}} öğesini seç",
+      "selectedCount_one": "{{count}} ödev seçildi",
+      "selectedCount_other": "{{count}} ödev seçildi",
+      "templateWarnings_one": "{{count}} ödev güncellendi, ancak öğrenci ekibinin şablonuna erişimi güncellenemedi: {{slugs}}. GitHub'da kontrol edin veya bu seçimde eylemi tekrar çalıştırın.",
+      "templateWarnings_other": "{{count}} ödev güncellendi, ancak öğrenci ekibinin şablonlarına erişimi güncellenemedi: {{slugs}}. GitHub'da kontrol edin veya bu seçimde eylemi tekrar çalıştırın.",
+      "unlock": "Kilidi aç",
+      "unlockBody": "Bu, seçili ödevleri öğrencilere yeniden açar. Özel bir şablon kullanılıyorsa, öğrenci ekibinin okuma erişimi geri yüklenir; böylece öğrenciler yeniden kabul edebilir.",
+      "unlockDone_one": "{{count}} ödevin kilidi açıldı.",
+      "unlockDone_other": "{{count}} ödevin kilidi açıldı.",
+      "unlockNoneLocked": "Seçili ödevlerin hiçbiri kilitli değil.",
+      "unlockTitle_one": "{{count}} ödevin kilidi açılsın mı?",
+      "unlockTitle_other": "{{count}} ödevin kilidi açılsın mı?"
+    }
   },
   "published": {
     "pageHeading": "Yayımlanan kaynaklar",
@@ -1588,7 +1706,13 @@
     "public": "Herkese açık",
     "publicNote": "Bu dosyalar herkese açıktır: öğrenciler ve otomatik notlandırıcı bunları oturum açmadan getirir. classroom50 deposundaki diğer her şey özel kalır.",
     "siteTitle": "Herkese açık siteniz",
-    "unlistedNote": "Bu sınıfın dosyaları listelenmemiş bir URL'de sunulur. Bağlantıya sahip olan herkes yine de bunları okuyabilir, bu yüzden her ödevin davet bağlantısını yalnızca öğrencilerinizle paylaşın."
+    "unlistedNote": "Bu sınıfın dosyaları listelenmemiş bir URL'de sunulur. Bağlantıya sahip olan herkes yine de bunları okuyabilir, bu yüzden her ödevin davet bağlantısını yalnızca öğrencilerinizle paylaşın.",
+    "republish": {
+      "button": "Tekrar yayımla",
+      "failed": "Yayımlama başlatılamadı: {{detail}}. classroom50 deposunda iş akışlarını çalıştırabildiğinizi kontrol edin, ardından tekrar deneyin.",
+      "help": "Siteyi, classroom50 deposunda hiçbir şey değiştirmeden mevcut hâliyle yeniden dağıtır. Aşağıdaki bir dosya başarısız bir yayımlamadan sonra Yayımlanmadı veya Ulaşılamıyor gösterdiğinde kullanın.",
+      "started": "Öğrenci sitesine şimdi yayımlanıyor. Yukarıdaki afiş ilerlemeyi izler."
+    }
   },
   "getStarted": {
     "badge": "Katılım",
@@ -1687,7 +1811,8 @@
         "grading_mode": "Değerlendirme kipi: eski kipte kaydedilen puanlar farklı okunabilir.",
         "repo_source": "Depo kaynağı: var olan depolar özgün başlangıç içeriğini korur.",
         "repo_visibility": "Depo görünürlüğü: var olan depoları gönderimler sayfasından değiştirin.",
-        "student_permission": "Öğrenci depo erişimi: var olan depoları gönderimler sayfasından değiştirin."
+        "student_permission": "Öğrenci depo erişimi: var olan depoları gönderimler sayfasından değiştirin.",
+        "pages": "GitHub Pages: mevcut depolarda gönderimler sayfasından etkinleştirin."
       },
       "provisioningIntro_one": "{{count}} öğrenci ödevi zaten kabul etti. Bu değişiklikler yalnızca bundan sonra kabul edilen depolara uygulanır; var olan depo geçerli kurulumunu korur:",
       "provisioningIntro_other": "{{count}} öğrenci ödevi zaten kabul etti. Bu değişiklikler yalnızca bundan sonra kabul edilen depolara uygulanır; var olan {{count}} depo geçerli kurulumlarını korur:",
@@ -2221,7 +2346,7 @@
       "confirmRemoveBody": "Bu, @{{login}} kullanıcısını {{role}} takımından ve classroom50 deposuna erişiminden çıkarır. Onları organizasyondan çıkarmaz.",
       "pendingBadge": "Beklemede",
       "resend": "Daveti yeniden gönder",
-      "resendEmailOnly": "Bu davette GitHub kullanıcı adı yok, bu yüzden yeniden gönderilemez. İptal edin ve kişiyi yeniden ekleyin.",
+      "resendEmailOnly": "Bu davetin bir GitHub kullanıcı adı yok, bu yüzden buradan yeniden gönderilemez. İptal edin, ardından kişiyi tekrar ekleyin.",
       "resentToast": "{{who}} kişisine davet yeniden gönderildi.",
       "resendFailed": "{{who}} kişisine davet yeniden gönderilemedi: {{error}}",
       "cancelInvite": "Daveti iptal et",
@@ -2346,7 +2471,14 @@
       "setup": "Otomatik değerlendirme yapılandırıldı",
       "setupSkippedEmptyRepo": "Kuruluma gerek yok: bu ödev boş bir depo kullanıyor",
       "repoVisibilityFellBack": "{{org}}/{{repo}} özel olarak oluşturuldu. Kuruluş herkese açık depolar oluşturmanıza izin vermiyor; öğretmeniniz daha sonra herkese açık hale getirebilir.",
-      "team": "Grup bulundu"
+      "team": "Grup bulundu",
+      "pagesSkipped": {
+        "access": "Otomatik değerlendirme yapılandırıldı. GitHub Pages etkinleştirilmedi: Bu depodaki Pages ayarlarını değiştirme izniniz yok. Öğretmeniniz gönderimler sayfasından etkinleştirebilir.",
+        "branch": "Otomatik değerlendirme yapılandırıldı. GitHub Pages etkinleştirilmedi: Yayımlanacağı dal henüz deponuzda yok. Öğretmeniniz gönderimler sayfasından etkinleştirebilir.",
+        "plan": "Otomatik değerlendirme yapılandırıldı. GitHub Pages etkinleştirilmedi: Bu kuruluşun GitHub planı özel depolarda Pages'e izin vermiyor. Öğretmeniniz depoyu herkese açık hale getirip gönderimler sayfasından Pages'i etkinleştirebilir.",
+        "policy": "Otomatik değerlendirme yapılandırıldı. GitHub Pages etkinleştirilmedi: Kuruluş, üyelerin Pages siteleri yayımlamasına izin vermiyor. Öğretmeniniz gönderimler sayfasından etkinleştirebilir.",
+        "unknown": "Otomatik değerlendirme yapılandırıldı. GitHub Pages şu anda etkinleştirilemedi. Öğretmeniniz gönderimler sayfasından etkinleştirebilir."
+      }
     },
     "stepErrors": {
       "generic": "{{label}} başarısız oldu (HTTP {{status}}). {{actions}}",
@@ -2417,6 +2549,10 @@
     "setupIncomplete": {
       "body": "Deponuz var, ancak kurulum dosyaları eksik; bu nedenle otomatik değerlendirme çalışmaz ve öğretmeniniz geri bildirim bırakamaz. Tamamlamak için kurulumu yeniden çalıştırın. Bu güvenlidir ve daha önce gönderdiğiniz her türlü çalışmayı korur.",
       "title": "Kurulum tamamlanmadı"
+    },
+    "pagesSite": {
+      "enabled": "Bu ödev için GitHub Pages etkin",
+      "help": "Deponuz {{url}} adresinde bir web sitesi yayımlayabilir. Depo özel olsa bile internetteki herkes bunu görüntüleyebilir."
     }
   },
   "submissions": {
@@ -2444,11 +2580,7 @@
     },
     "menu": {
       "actions": "İşlemler",
-      "metrics": "Metrikler",
       "share": "Paylaş"
-    },
-    "metrics": {
-      "title": "Teslim metrikleri"
     },
     "errors": {
       "gradebookLoad": "Toplanan puanlar yüklenemedi.",
@@ -2504,22 +2636,6 @@
       "shareWithCount_other": "Bu ödevi kabul edebilecek <count>{{count}} öğrenci</count> ile paylaşılıyor.",
       "warnNoStudents": "<classroom>{{classroom}}</classroom> sınıfında henüz hiçbir öğrenci bu bağlantıyı kabul edemez. Önce listeye öğrenci ekleyin ve onları organizasyona davet edin.",
       "copied": "Kopyalandı"
-    },
-    "stats": {
-      "submitted": "Teslim edildi",
-      "groupsSubmitted": "Gönderen gruplar",
-      "classAverage": "Sınıf ortalaması",
-      "passing": "Geçen",
-      "accepted": "Kabul edildi",
-      "notAvailable": "Yok",
-      "showFailing": "Kalan öğrencileri göster",
-      "failingCount_one": "{{count}} kalan",
-      "failingCount_other": "{{count}} kalan",
-      "ungradedNote_one": ", {{count}} değerlendirilmemiş",
-      "ungradedNote_other": ", {{count}} değerlendirilmemiş",
-      "showAcceptedNotSubmitted": "Kabul eden ancak teslim etmeyen öğrencileri göster",
-      "notYetSubmitted_one": "{{count}} henüz teslim etmedi",
-      "notYetSubmitted_other": "{{count}} henüz teslim etmedi"
     },
     "filters": {
       "searchGroupPlaceholder": "Grup veya üye ara",
@@ -2615,7 +2731,9 @@
       "teamNoRepo": "Henüz depo yok",
       "teamNoRepoTitle": "Grubun deposu, bir grup üyesi ödevi kabul ettiğinde oluşturulur. Bir üyenin kabul edebilmesi için ödev bağlantısını paylaşın.",
       "viewFeedbackPr": "Geri bildirim PR'ını görüntüle",
-      "staffRowTitle": "Bu ödevi, genellikle denemek amacıyla, kabul etmiş bir öğretmen, baş asistan veya asistan. Bu satır bir öğrenciye ait değildir."
+      "staffRowTitle": "Bu ödevi, genellikle denemek amacıyla, kabul etmiş bir öğretmen, baş asistan veya asistan. Bu satır bir öğrenciye ait değildir.",
+      "openSiteLabel": "{{repo}} için GitHub Pages sitesini aç",
+      "viewSite": "GitHub Pages sitesini aç"
     },
     "reviewModal": {
       "errorTitle": "Geri bildirim PR'ı kontrol edilemedi",
@@ -2652,7 +2770,15 @@
         "copyMilestone": "Aşama etiketi komutunu kopyala",
         "milestoneStep": "Ya da öğretmeninizin belirlediği bir aşama etiketini push edin (örneğin, {{tags}}):",
         "tagIntro": "Öğretmeniniz, çalışmanızın etiketlenmiş anlık görüntülerini notlandırır. Her zamanki gibi işleyip gönderin, ardından aşağıdaki gönderme komutunu çalıştırın. Bu, en son çalışmanızı notlandırma için etiketler.",
-        "tagStep2": "Deponun içinden çalışmanızı gönderin. Bu, notlandırmayı tetikleyen bir gönderim etiketi gönderir:"
+        "tagStep2": "Deponun içinden çalışmanızı gönderin. Bu, notlandırmayı tetikleyen bir gönderim etiketi gönderir:",
+        "cloneHint": "SSH, GitHub hesabınıza eklenmiş bir SSH anahtarı gerektirir. GitHub CLI, gh komutunun kurulu olmasını gerektirir.",
+        "cloneMethod": {
+          "cli": "GitHub CLI",
+          "https": "HTTPS",
+          "ssh": "SSH"
+        },
+        "cloneMethodAria": "Klonlama yöntemi",
+        "teacherNote": "Öğretmeniniz belirli bir şekilde klonlamanızı veya göndermenizi isteyebilir. Öyleyse onun talimatlarını izleyin."
       },
       "fallbackTitle": "Teslim",
       "missingParams": "Bu bağlantıda sınıfı veya ödevi eksik. Öğretmeninizden yeni bir bağlantı isteyin.",
@@ -2822,7 +2948,11 @@
       "visibilityPrivate": "Özel",
       "setup": "Kurulum",
       "setupIncomplete": "Tamamlanmadı",
-      "setupIncompleteHint": "Öğrencinin kabulü, kurulum dosyaları yazılmadan önce durdu; bu nedenle otomatik değerlendirme çalışmaz ve geri bildirim PR'ı açılamaz. Öğrenciden ödev bağlantısını açıp Kurulumu yeniden çalıştır seçeneğini seçmesini isteyin."
+      "setupIncompleteHint": "Öğrencinin kabulü, kurulum dosyaları yazılmadan önce durdu; bu nedenle otomatik değerlendirme çalışmaz ve geri bildirim PR'ı açılamaz. Öğrenciden ödev bağlantısını açıp Kurulumu yeniden çalıştır seçeneğini seçmesini isteyin.",
+      "pages": "GitHub Pages",
+      "pagesBuildErrored": "Derleme başarısız oldu",
+      "pagesBuilding": "Derleniyor",
+      "pagesNotEnabled": "Etkin değil"
     },
     "rowDownload": {
       "aria": "{{owner}} kullanıcısının gönderimini indir",
@@ -2976,9 +3106,9 @@
     "grading": {
       "badgeBuiltIn": "Otomatik değerlendirilir",
       "badgeEmptyRepo": "Otomatik değerlendirme yok",
-      "badgeNoAutograder": "Özel otomatik değerlendirme",
-      "titleEmptyRepo": "Bu ödev boş depolar kullanır, bu yüzden otomatik notlandırma, puanlar ve geri bildirim çekme isteği devre dışıdır. Tablo kimin kabul ettiğini gösterir.",
-      "titleNoAutograder": "Şablon kendi notlandırma iş akışını içerir. Yerleşik puanlar ve yeniden notlandırma devre dışıdır; geri bildirim çekme isteği, etkinleştirildiğinde yine de çalışır."
+      "badgeNoAutograder": "Yerleşik otomatik değerlendirici yok",
+      "titleEmptyRepo": "Bu ödev boş depolar kullanır, dolayısıyla otomatik değerlendirme, puanlar ve geri bildirim çekme isteği devre dışıdır. Tablo, kimlerin kabul ettiğini ve kimlerin gönderim yaptığını gösterir.",
+      "titleNoAutograder": "Bu ödev yerleşik otomatik değerlendiriciyi kullanmaz, bu nedenle yerleşik puanlar ve yeniden değerlendirme devre dışıdır. Bir şablonun kendi değerlendirme iş akışı hâlâ çalışır ve etkinleştirildiğinde geri bildirim çekme isteği de çalışmaya devam eder."
     },
     "scoreOverride": {
       "add": "Puan ekle",
@@ -3084,7 +3214,45 @@
       "confirmWarning": "Depo herkese açıkken onu görüntüleyen veya klonlayan herkes, siz onu tekrar özel yapsanız bile o kopyayı elinde tutar."
     },
     "skipPastTable": "Gönderimler tablosunu atla",
-    "slugTitle": "Ödev kısaltması: bu ödev için benzersiz tanımlayıcı. Görünen adlar tekrar edebilir."
+    "slugTitle": "Ödev kısaltması: bu ödev için benzersiz tanımlayıcı. Görünen adlar tekrar edebilir.",
+    "bulkPages": {
+      "apply": "Tümüne uygula",
+      "deferredDetail": "Atlandı. Etkinleştirmek için yeniden çalıştırın.",
+      "deferredSection_one": "{{count}} depo işlenmedi",
+      "deferredSection_other": "{{count}} depo işlenmedi",
+      "failedSection_one": "{{count}} depo etkinleştirilemedi",
+      "failedSection_other": "{{count}} depo etkinleştirilemedi",
+      "infoBranch_one": "Bu, {{count}} öğrencinin deposunda GitHub Pages'i bir dalı yayımlayacak şekilde yapılandırır. Zaten bir sitesi olan depolar olduğu gibi bırakılır. Öğrencilerin daha sonra kabul ettiği depolar otomatik olarak yapılandırılır.",
+      "infoBranch_other": "Bu, {{count}} öğrencinin deposunda GitHub Pages'i bir dalı yayımlayacak şekilde yapılandırır. Zaten bir sitesi olan depolar olduğu gibi bırakılır. Öğrencilerin daha sonra kabul ettiği depolar otomatik olarak yapılandırılır.",
+      "infoWorkflow_one": "Bu, {{count}} öğrencinin deposunda GitHub Pages'i GitHub Actions üzerinden dağıtacak şekilde yapılandırır. Zaten bir sitesi olan depolar olduğu gibi bırakılır. Öğrencilerin daha sonra kabul ettiği depolar otomatik olarak yapılandırılır.",
+      "infoWorkflow_other": "Bu, {{count}} öğrencinin deposunda GitHub Pages'i GitHub Actions üzerinden dağıtacak şekilde yapılandırır. Zaten bir sitesi olan depolar olduğu gibi bırakılır. Öğrencilerin daha sonra kabul ettiği depolar otomatik olarak yapılandırılır.",
+      "menuLabel": "GitHub Pages'i etkinleştir",
+      "menuTitle": "Bu ödevin GitHub Pages sitesini kabul edilmiş her depoda yapılandır",
+      "noRepos": "Henüz hiçbir öğrenci kabul etmedi, dolayısıyla etkinleştirilecek bir şey yok.",
+      "progress": "{{total}} depodan {{processed}} tanesi işlendi",
+      "resultHeadline": "GitHub Pages, {{total}} deponun {{count}} tanesinde etkinleştirildi.",
+      "resultHeadlineThrottled": "GitHub istek hızını sınırlamadan önce {{total}} deponun {{count}} tanesinde GitHub Pages etkinleştirildi. Geri kalanını tamamlamak için yeniden çalıştırın.",
+      "subtitle_one": "Bu ödevi kabul etmiş {{count}} öğrenciye uygulanır.",
+      "subtitle_other": "Bu ödevi kabul etmiş {{count}} öğrenciye uygulanır.",
+      "title": "GitHub Pages'i etkinleştir",
+      "titleEmptyRoster": "Henüz hiçbir öğrenci kabul etmedi",
+      "working": "GitHub Pages etkinleştiriliyor"
+    },
+    "rowPages": {
+      "aria": "{{repo}} deposunda GitHub Pages'i etkinleştir",
+      "description": "Bu ödevin beklediği siteyi bu depoda yapılandırın. Pages açılmadan önce kabul edilmiş bir depo için veya kabul sırasında etkinleştirme başarısız olduğunda kullanın.",
+      "outcome": {
+        "enabled": "GitHub Pages etkinleştirildi. Site, ilk derlemeden sonra {{url}} adresinde kullanılabilir olacak."
+      },
+      "refused": {
+        "access": "{{repo}} deposunda GitHub Pages etkinleştirilemedi: bu depoda yönetici erişimine ihtiyacınız var.",
+        "branch": "{{repo}} deposunda GitHub Pages etkinleştirilemedi: yayımlanacağı dal bu depoda henüz yok.",
+        "plan": "{{repo}} deposunda GitHub Pages etkinleştirilemedi: bu kuruluşun GitHub planı, özel depolarda Pages'e izin vermiyor. Depoyu herkese açık yapın, ardından tekrar deneyin.",
+        "policy": "{{repo}} deposunda GitHub Pages etkinleştirilemedi: kuruluş, üyelerin Pages siteleri yayımlamasına izin vermiyor. Kuruluşun Pages ayarlarını kontrol edin, ardından tekrar deneyin.",
+        "unknown": "{{repo}} deposunda GitHub Pages şu anda etkinleştirilemedi. Birazdan tekrar deneyin."
+      },
+      "title": "GitHub Pages'i etkinleştir"
+    }
   },
   "orgActivity": {
     "heading": "Etkinlik",
@@ -3145,28 +3313,28 @@
     "heading": "Üyeler",
     "subtitle": "<orgLink>{{org}}</orgLink> GitHub kuruluşundaki herkes ve bulundukları sınıflar.",
     "manageMembersOnGitHub": "Kuruluş üyelerini GitHub'da yönetin",
-    "discrepancy_one": "{{count}} öğrenci bir listede kayıtlı ama kuruluş üyesi değil.",
-    "discrepancy_other": "{{count}} öğrenci bir listede kayıtlı ama kuruluş üyesi değil.",
+    "discrepancy_one": "{{count}} öğrenci bir kayıt listesinde ama organizasyon üyesi değil. Davet göndermek için satırlarındaki Davet Et'i kullanın.",
+    "discrepancy_other": "{{count}} öğrenci bir kayıt listesinde ama organizasyon üyesi değil. Her satırdaki Davet Et'i kullanarak davet gönderin.",
     "searchPlaceholder": "Ada, kullanıcı adına veya e-postaya göre ara",
     "searchLabel": "Üyeleri ara",
     "filterByClassroomLabel": "Sınıfa göre filtrele",
     "filterAllClassrooms": "Tüm sınıflar",
     "filterNoClassroom": "Sınıf yok",
-    "loadError": "Kuruluş üyeleri yüklenemedi.",
+    "loadError": "Organizasyon üyeleri yüklenemedi. Bağlantınızı ve hâlâ bu organizasyonun sahibi olup olmadığınızı kontrol edin, ardından tekrar deneyin.",
     "noMatch": "Aramanızla eşleşen üye yok.",
     "noMembersInClassroom": "{{classroom}} sınıfında üye yok.",
     "noMembersNoClassroom": "Sınıfı olmayan üye yok.",
     "invite": "Davet et",
     "classroomCount_one": "{{count}} sınıf",
     "classroomCount_other": "{{count}} sınıf",
-    "badgeNotMember": "Kuruluş üyesi değil",
+    "badgeNotMember": "Kuruluşta değil",
     "badgeNoClassroom": "Sınıf yok",
     "badgeMember": "Üye",
     "badgeOwner": "Sahip",
     "unprovisionedBadge": "Kayıtlı değil",
-    "unprovisionedTitle": "Listede ama sınıf takımında değil: {{classrooms}}. Notlar takım üzerinden toplandığından çalışmaları kaçırılır. Düzeltmek için onları sınıfa yeniden ekleyin.",
+    "unprovisionedTitle": "Kayıt listesinde ama sınıf ekibinde değil: {{classrooms}}. Notlar ekip üzerinden toplandığından, çalışmaları atlanır. Bunu düzeltmek için onları sınıfa yeniden ekleyin.",
     "unprovisionedAccessBadge": "Ekipte değil",
-    "unprovisionedAccessTitle": "Bu sınıfın listesinde ama GitHub takımında değil, bu nedenle not toplamada gözden kaçarlar. Düzeltmek için onları sınıfa yeniden ekleyin.",
+    "unprovisionedAccessTitle": "Bu sınıfın kayıt listesinde ama GitHub ekibinde değil, bu nedenle not toplama işlemi onları atlar. Bunu düzeltmek için onları sınıfa yeniden ekleyin.",
     "noGitHubUsername": "GitHub kullanıcı adı yok",
     "usernameWithId": "<username>@{{username}}</username> <meta>· kimlik {{id}}</meta>",
     "noUsernameWithId": "<missing>GitHub kullanıcı adı yok</missing> <meta>· kimlik {{id}}</meta>",
@@ -3174,24 +3342,23 @@
     "manageOnGitHub": "GitHub'da yönet",
     "classroomAccess": "Sınıf erişimi",
     "noRoster": "Herhangi bir sınıf listesinde değil.",
-    "archived": "arşivlenmiş",
+    "archived": "Arşivlendi",
     "selfNotice": "Bu, oturum açtığınız hesap olduğu için buradan kuruluştan çıkarılamaz.",
-    "notMember": "{{label}} bir sınıf listesinde ama <emphasis>kuruluş üyesi değil</emphasis>. Erişimini geri kazandırmak için onu davet edin. Davet, GitHub hesabına kimliğine göre gönderilir; bu nedenle kullanıcı adı değişse bile çalışır.",
+    "notMember": "{{label}} bir sınıf kayıt listesinde ama <emphasis>organizasyon üyesi değil</emphasis>. Erişimlerini geri kazandırmak için onları davet edin. Davet, kimliğine göre GitHub hesaplarına gider, bu nedenle kullanıcı adları değişmiş olsa bile çalışır ve sınıf ekiplerini içerir.",
     "inviting": "Davet ediliyor…",
     "inviteToOrg": "Kuruluşa davet et",
-    "confirmInviteBody": "{{label}} kişisine bir kuruluş daveti gönderilsin mi? Davet, GitHub hesaplarına kimliklerine göre gönderilir ve kabul ettiklerinde önceki sınıf erişimleriyle birlikte {{org}} kuruluşuna yeniden katılırlar.",
-    "notMemberNoId": "Bu öğrenci bir listede ama organizasyon üyesi değil. Henüz kayıtlı bir GitHub kimliği yok, bu yüzden onları sınıflarının Liste sayfasından davet edin.",
+    "confirmInviteBody": "{{label}} kişisine organizasyon daveti gönderilsin mi? Davet, kimliğine göre GitHub hesabına gider ve sınıf ekiplerini içerir; böylece kabul eder etmez yeniden kaydedilirler.",
     "confirmUnenroll_one": "{{label}} önce <count>{{count}} sınıftan</count> ({{classrooms}}) kaydı silinecek, ardından <org>{{org}}</org> kuruluşundan çıkarılacak. Ödev depoları silinmez.",
     "confirmUnenroll_other": "{{label}} önce <count>{{count}} sınıftan</count> ({{classrooms}}) kaydı silinecek, ardından <org>{{org}}</org> kuruluşundan çıkarılacak. Ödev depoları silinmez.",
     "confirmRemove": "{{label}} <org>{{org}}</org> kuruluşundan çıkarılacak.",
     "removing": "Kaldırılıyor…",
     "removeFromOrg": "Kuruluştan çıkar",
     "inviteFailed": "{{label}} davet edilemedi: {{reason}}",
-    "somethingWrong": "eylem tamamlanamadı",
+    "somethingWrong": "Bir şeyler ters gitti. Yenileyip tekrar deneyin.",
     "removed": "{{label}}, {{org}} kuruluşundan çıkarıldı.",
     "removedWithUnenroll_one": "{{label}}, {{org}} kuruluşundan çıkarıldı ve {{count}} sınıftan kaydı silindi.",
     "removedWithUnenroll_other": "{{label}}, {{org}} kuruluşundan çıkarıldı ve {{count}} sınıftan kaydı silindi.",
-    "removeFailed": "{{label}} çıkarılamadı: {{reason}}",
+    "removeFailed": "{{label}} kaldırılamadı: {{reason}}. Tekrar deneyin ya da onları GitHub'daki organizasyonun People sayfasından kaldırın.",
     "warnArchived": "{{who}} hâlâ arşivlenmiş \"{{classroom}}\" sınıfında; onu o listeden çıkarmak için sınıfı arşivden çıkarın.",
     "warnUnenrollFailed": "{{who}} kişisinin \"{{classroom}}\" sınıfından kaydı silinemedi ({{reason}}); diğerleri çıkarıldı.",
     "bulk": {
@@ -3208,9 +3375,8 @@
       "remove": "Çıkar",
       "confirmRemoveBody_one": "Bu, seçilen üyeyi {{classroom}} sınıf listesinden ve ekibinden çıkarır. Kuruluş üyelikleri ve ödev depoları etkilenmez.",
       "confirmRemoveBody_other": "Bu, seçilen üyeleri {{classroom}} sınıf listesinden ve ekibinden çıkarır. Kuruluş üyelikleri ve ödev depoları etkilenmez.",
-      "confirmAddBody_one": "Bu, seçilen üyeyi {{classroom}} sınıf listesine ve ekibine ekler; henüz üye değilse kuruluşa davet eder.",
-      "confirmAddBody_other": "Bu, seçilen üyeleri {{classroom}} sınıf listesine ve ekibine ekler; henüz üye değillerse kuruluşa davet eder.",
-      "clearSelection": "Seçimi temizle",
+      "confirmAddBody_one": "Bu, seçili üyeyi {{classroom}} sınıf listesine ve ekibine ekler. Buraya yalnızca kuruluş üyeleri eklenebilir; henüz üye olmayan herkesi önce kendi satırından davet edin.",
+      "confirmAddBody_other": "Bu, seçili üyeleri {{classroom}} sınıf listesine ve ekibine ekler. Buraya yalnızca kuruluş üyeleri eklenebilir; henüz üye olmayan herkesi önce kendi satırından davet edin.",
       "addTitle": "{{classroom}} sınıfına üye ekle",
       "removeTitle": "{{classroom}} sınıfından üye çıkar",
       "starting": "Başlatılıyor…",
@@ -3226,20 +3392,20 @@
       "resultFailed": "Başarısız",
       "resultWarnings": "Uyarılar",
       "resultTeamFailures": "Ekibe ekleme hataları",
-      "couldNotAddToTeam": "Sınıf ekibine eklenemedi.",
+      "couldNotAddToTeam": "Sınıf ekibine eklenemedi. Sınıf listesindeki satırlarını açın ve yeniden denemek için Sınıfa ekle'yi kullanın.",
       "skipReason": {
         "not-member": "Organizasyon üyesi değil. Önce onları davet edin.",
-        "no-id": "Yerleştirmek için kayıtlı bir GitHub kimliği yok.",
+        "no-id": "Kayıtlı bir GitHub kimliği yok, bu nedenle bir GitHub hesabıyla eşleştirilemezler.",
         "already-on-classroom": "Zaten bu sınıfta.",
         "not-on-classroom": "Bu sınıfta değil.",
         "already-removed": "Bu sınıftan zaten çıkarılmış.",
         "archived": "Sınıf arşivlendi. Üyeliği değiştirmek için arşivden çıkarın.",
-        "resolve-failed": "Mevcut GitHub hesapları çözümlenemedi.",
+        "resolve-failed": "Mevcut GitHub hesapları bulunamadı. Tekrar deneyin.",
         "pending-email-invite": "E-postayla davet edildi ve henüz kabul edilmedi. Bunun yerine daveti sınıfın Liste sayfasından iptal edin.",
-        "no-username": "Kayıtlı GitHub kullanıcı adı yok. Organizasyondan kaldırma kullanıcı adına göre yapılır.",
-        "self": "Bu, oturum açtığınız hesap olduğu için buradan kaldırılamaz."
+        "no-username": "Kayıtlı bir GitHub kullanıcı adı yok, bu nedenle organizasyon üyelikleri buradan kaldırılamaz. Onları GitHub'daki organizasyonun People sayfasından kaldırın.",
+        "self": "Bu, oturum açtığınız hesap olduğu için buradan kaldırılamaz.",
+        "unlinked-row": "Bir GitHub hesabına bağlı değil. Sınıfın Kayıt Listesi sayfasından yeniden davet edin, bağlayın veya satırı kaldırın."
       },
-      "actions": "Eylemler",
       "addModalTitle_one": "Seçilen {{count}} üyeyi bir sınıfa ekle",
       "addModalTitle_other": "Seçilen {{count}} üyeyi bir sınıfa ekle",
       "addToClassroomMenu": "Sınıfa ekle",
@@ -3265,18 +3431,18 @@
       "previewSkipAlreadyOn_other": "{{count}} atlandı: zaten bu sınıfta.",
       "previewSkipArchived_one": "{{count}} atlandı: bu sınıfın arşivlenmiş bir örneğine kayıtlı.",
       "previewSkipArchived_other": "{{count}} atlandı: bu sınıfın arşivlenmiş bir örneğine kayıtlı.",
-      "previewSkipNoUsername_one": "{{count}} atlandı: kayıtlı GitHub kullanıcı adı yok.",
-      "previewSkipNoUsername_other": "{{count}} atlandı: kayıtlı GitHub kullanıcı adı yok.",
+      "previewSkipNoUsername_one": "{{count}} tanesi atlandı: kayıtlı bir GitHub kullanıcı adı yok, bu nedenle organizasyon üyelikleri buradan kaldırılamaz.",
+      "previewSkipNoUsername_other": "{{count}} tanesi atlandı: kayıtlı bir GitHub kullanıcı adı yok, bu nedenle organizasyon üyelikleri buradan kaldırılamaz.",
       "previewSkipNotMember_one": "{{count}} atlandı: organizasyon üyesi değil; önce onları davet edin.",
       "previewSkipNotMember_other": "{{count}} atlandı: organizasyon üyesi değiller; önce onları davet edin.",
       "previewSkipNotOn_one": "{{count}} atlandı: bu sınıfta değil.",
       "previewSkipNotOn_other": "{{count}} atlandı: bu sınıfta değil.",
-      "previewSkipPendingEmail_one": "{{count}} atlandı: e-postayla davet edildi ve henüz kabul edilmedi.",
-      "previewSkipPendingEmail_other": "{{count}} atlandı: e-postayla davet edildi ve henüz kabul edilmedi.",
+      "previewSkipPendingEmail_one": "{{count}} tanesi atlandı: e-posta ile davet edildi ve henüz kabul etmedi. Bunun yerine daveti sınıfın Kayıt Listesi sayfasından iptal edin.",
+      "previewSkipPendingEmail_other": "{{count}} tanesi atlandı: e-posta ile davet edildi ve henüz kabul etmedi. Bunun yerine davetleri sınıfın Kayıt Listesi sayfasından iptal edin.",
       "removeFromClassroomMenu": "Sınıftan çıkar",
       "removeModalTitle_one": "Seçilen {{count}} üyeyi bir sınıftan çıkar",
       "removeModalTitle_other": "Seçilen {{count}} üyeyi bir sınıftan çıkar",
-      "removeNoneOnClassroom": "Seçilen üyelerin hiçbiri bir sınıf listesinde değil.",
+      "removeNoneOnClassroom": "Seçili üyelerin hiçbiri, kaldırılabilecekleri bir sınıf kayıt listesinde değil.",
       "removeOrgTitle": "Üyeleri {{org}} organizasyonundan kaldır",
       "removedFromOrgHeadline_one": "{{count}} üye {{org}} organizasyonundan kaldırıldı.",
       "removedFromOrgHeadline_other": "{{count}} üye {{org}} organizasyonundan kaldırıldı.",
@@ -3284,12 +3450,32 @@
       "unenrolledDetail_one": "{{count}} sınıftan çıkarıldı ({{classrooms}}).",
       "unenrolledDetail_other": "{{count}} sınıftan çıkarıldı ({{classrooms}}).",
       "viewerUnverified": "Hesabınız doğrulanamadı, bu yüzden hiçbir üye kaldırılmadı. Tekrar deneyin.",
-      "confirmRemoveOrgWarning": "Kaldırılan üyeler, kendi ödev depoları dahil kuruluştaki her depoya erişimini kaybeder ve geri dönmek için yeni bir davete ihtiyaç duyar."
+      "confirmRemoveOrgWarning": "Kaldırılan üyeler, kendi ödev depoları dahil kuruluştaki her depoya erişimini kaybeder ve geri dönmek için yeni bir davete ihtiyaç duyar.",
+      "addNoneMembers": "Seçili satırların hiçbiri kuruluş üyesi değil. Önce onları davet edin, ardından bir sınıfa ekleyin.",
+      "confirmInviteBody_one": "Seçili öğrenciye bir kuruluş daveti gönderilsin mi? Davet, GitHub hesaplarına kimliğe göre gider ve sınıf ekiplerini içerir, böylece kabul eder etmez kaydolurlar. Zaten bekleyen bir daveti olan veya zaten üye olan herkes atlanır.",
+      "confirmInviteBody_other": "Seçili {{count}} öğrenciye kuruluş davetleri gönderilsin mi? Her biri GitHub hesaplarına kimliğe göre gider ve sınıf ekiplerini içerir, böylece kabul eder etmez kaydolurlar. Zaten bekleyen bir daveti olan veya zaten üye olan herkes atlanır.",
+      "confirmInviteTitle_one": "{{count}} davet gönderilsin mi?",
+      "confirmInviteTitle_other": "{{count}} davet gönderilsin mi?",
+      "inviteNoneInvitable": "Bir listede olup kuruluşta olmayan öğrencileri seçin. Bekleyen, süresi dolmuş ve bağlantısız satırlar kendi sınıf listelerinden yönetilir.",
+      "inviteRateLimited": "{{sent}} davet gönderildi, ardından GitHub'ın hız sınırına ulaşıldı. Geri kalanı gönderilmedi. Birkaç dakika bekleyin, ardından yeniden deneyin.",
+      "inviteSelected_one": "{{count}} öğrenciye bir kuruluş daveti gönder",
+      "inviteSelected_other": "{{count}} öğrenciye kuruluş davetleri gönder",
+      "inviteSkipReason": {
+        "already-member": "Zaten bir kuruluş üyesi. Yeni bir şey gönderilmedi.",
+        "already-pending": "Zaten bekleyen bir daveti var. Yeni bir şey gönderilmedi.",
+        "not-invitable": "Buradan davet edilemez: kayıtlı bir GitHub kimliği yok ya da satır, kuruluşta olmayan bir öğrenciye ait değil."
+      },
+      "inviteTitle": "{{org}} kuruluşuna davetler gönder",
+      "invitedHeadline_one": "{{count}} davet gönderildi.",
+      "invitedHeadline_other": "{{count}} davet gönderildi.",
+      "previewSkipUnlinked_one": "{{count}} tanesi atlandı: bir GitHub hesabına bağlı değil. Sınıfın Kayıt Listesi sayfasından yeniden davet edin, bağlayın veya satırı kaldırın.",
+      "previewSkipUnlinked_other": "{{count}} tanesi atlandı: bir GitHub hesabına bağlı değil. Sınıfın Kayıt Listesi sayfasından yeniden davet edin, bağlayın veya satırları kaldırın.",
+      "removeOrgNoneEligible": "Seçili satırların hiçbiri, GitHub kullanıcı adı olan organizasyon üyesi değil.",
+      "sendInvitations": "Davet gönder"
     },
     "inviteMalformedId": "{{who}} davet edilemiyor: \"{{githubId}}\" geçerli bir GitHub kimliği değil. roster.csv dosyasındaki github_id hücresini düzeltin.",
-    "inviteMissingId": "{{who}} davet edilemiyor: kayıtlı GitHub kimliği yok.",
+    "inviteMissingId": "{{who}} davet edilemiyor: kayıt listesi satırında GitHub kimliği yok. Onları kullanıcı adıyla davet etmek için sınıf kayıt listesindeki satırlarını açın ya da satırı kaldırıp tekrar ekleyin.",
     "badgeInvitePending": "Davet bekliyor",
-    "invitePendingNotice": "Bu öğrenci e-postayla davet edildi ve henüz kabul etmedi, bu yüzden kayıtlı bir GitHub hesabı yok. Yanlış bir şey yok: katıldığında ayrıntıları otomatik olarak doldurulur. Daveti sınıfının Liste sayfasından iptal edebilirsiniz.",
     "details": {
       "email_one": "E-posta",
       "email_other": "E-postalar",
@@ -3304,7 +3490,7 @@
     "filterInvitationPending": "Davet bekliyor",
     "filterMembers": "Üyeler",
     "filterNotEnrolled": "Kayıtlı değil",
-    "filterNotInOrg": "Organizasyon üyesi değil",
+    "filterNotInOrg": "Organizasyonda değil",
     "filterOwners": "Sahipler",
     "filterShowLabel": "Üyeleri filtrele",
     "retry": "Tekrar dene",
@@ -3318,7 +3504,44 @@
       "colSelect": "Seç",
       "colStatus": "Durum",
       "colUsername": "Kullanıcı adı"
-    }
+    },
+    "archivedParen": "(arşivlendi)",
+    "badgeUnlinked": "Bağlantısız",
+    "filterInviteExpired": "Davet süresi doldu",
+    "filterUnlinked": "Bağlanmamış",
+    "invitationsRetry": "Tekrar dene",
+    "invitationsUnavailable": "Organizasyonun davetleri okunamadı, bu nedenle bekleyen ve süresi dolmuş davetler gösterilmiyor ve satırlar bağlanmamış ya da organizasyonda değilmiş gibi görünebilir. Kimseyi davet etmeden önce tekrar deneyin.",
+    "inviteAlreadyMember": "{{who}} zaten {{org}} üyesi, bu nedenle yeni bir şey gönderilmedi. Güncel durumu görmek için yenileyin.",
+    "inviteAlreadyPending": "{{who}} kişisinin {{org}} organizasyonuna bekleyen bir daveti zaten var, bu nedenle yeni bir şey gönderilmedi. Sınıf kayıt listesindeki satırından yeniden gönderin veya iptal edin.",
+    "notMemberExpired": "{{label}} kişisine gönderilen davet, kabul etmeden önce sona erdi. GitHub davetleri 7 gün geçerlidir. Erişimlerini geri kazandırmak için onları yeniden davet edin.",
+    "notMemberFailed": "GitHub, {{label}} kişisine daveti ulaştıramadı ({{reason}}). Erişimlerini geri kazandırmak için onları yeniden davet edin.",
+    "openInRoster": "{{classroom}} kayıt listesinde aç",
+    "orphanedInviteExpired": "Süresi doldu",
+    "orphanedInviteFailed": "Başarısız",
+    "orphanedInvitesBody": "GitHub, süresi dolmuş veya ulaştırılamamış bu davetleri hâlâ listeliyor, ancak hiçbir sınıf kayıt listesi veya organizasyon üyesi onlarla eşleşmiyor, bu nedenle buradan yeniden davet edilemezler. Genellikle davet süresi dolduktan sonra kayıt listesi satırı kaldırılmıştır. GitHub'ın başarısız davetler listesini temizlemek için onları kapatın veya başka bir amaçla gönderdiklerinizi bırakın.",
+    "orphanedInvitesDeferred_one": "GitHub isteği hız sınırladı, bu nedenle {{count}} başarısız davet kapatılamadı. Birkaç dakika sonra tekrar deneyin.",
+    "orphanedInvitesDeferred_other": "GitHub isteği hız sınırladı, bu nedenle {{count}} başarısız davet kapatılamadı. Birkaç dakika sonra tekrar deneyin.",
+    "orphanedInvitesDismiss": "Kapat",
+    "orphanedInvitesDismissAll": "Tümünü kapat",
+    "orphanedInvitesDismissFailed_one": "{{count}} başarısız davet kapatılamadı: {{error}}",
+    "orphanedInvitesDismissFailed_other": "{{count}} başarısız davet kapatılamadı: {{error}}",
+    "orphanedInvitesDismissed_one": "{{count}} başarısız davet kapatıldı.",
+    "orphanedInvitesDismissed_other": "{{count}} başarısız davet kapatıldı.",
+    "orphanedInvitesHide": "Ayrıntıları gizle",
+    "orphanedInvitesTitle_one": "{{count}} başarısız davet hiçbir kayıt listesinde değil.",
+    "orphanedInvitesTitle_other": "{{count}} başarısız davet hiçbir kayıt listesinde değil.",
+    "orphanedInvitesView": "Ayrıntıları görüntüle",
+    "removeSelf": "Kendi hesabınızı buradan organizasyondan kaldıramazsınız.",
+    "removeViewerUnverified": "Hesabınız doğrulanamadı, bu nedenle üye kaldırılmadı. Tekrar deneyin.",
+    "rosterReadFailed": "{{classroom}} için kayıt listesi okunamadı, bu nedenle öğrencileri gösterilmiyor. Sınıfın roster.csv dosyasını kontrol edin, ardından yenileyin.",
+    "strandedExpired": "{{who}} kişisine gönderilen davet, kabul edilmeden önce sona erdi. GitHub davetleri 7 gün geçerlidir. Onları yeniden davet etmek, satırı bir organizasyon üyesine bağlamak veya kaldırmak için sınıf kayıt listesindeki satırlarını açın.",
+    "strandedFailed": "GitHub, {{who}} kişisine daveti ulaştıramadı ({{reason}}). Adresi kontrol edip yeniden davet etmek, satırı bir organizasyon üyesine bağlamak veya kaldırmak için sınıf kayıt listesindeki satırlarını açın.",
+    "strandedNoId": "{{who}} bir kayıt listesinde ama organizasyon üyesi değil ve satırlarında GitHub kimliği yok, bu nedenle buradan davet edilemezler. Onları davet etmek için sınıf kayıt listesindeki satırlarını açın.",
+    "strandedPendingAccount": "{{who}} kişisinin bekleyen bir organizasyon daveti var ve henüz kabul etmedi. Katıldıklarında satırları otomatik olarak güncellenir. Daveti yeniden göndermek veya iptal etmek için sınıf kayıt listesindeki satırlarını açın.",
+    "strandedPendingEmail": "{{who}} e-posta ile davet edildi ve henüz kabul etmedi, bu nedenle kayıtlı bir GitHub hesabı yok. Katıldıklarında ayrıntıları otomatik olarak doldurulur. Daveti yeniden göndermek veya iptal etmek için sınıf kayıt listesindeki satırlarını açın.",
+    "strandedUnlinked": "Bu satır bir GitHub hesabına bağlı değil ve {{who}} kişisinin bekleyen bir daveti yok. Onları yeniden davet etmek, satırı bir organizasyon üyesine bağlamak veya kaldırmak için sınıf kayıt listesindeki satırlarını açın.",
+    "warnNoUsername": "{{who}} organizasyondan kaldırılamadı: satırlarında GitHub kullanıcı adı yok. Onları GitHub'daki organizasyonun People sayfasından kaldırın.",
+    "warnOrgRemoveFailed": "{{who}} organizasyondan kaldırılırken hata oluştu ({{reason}}). Tekrar deneyin ya da onları GitHub'daki organizasyonun People sayfasından kaldırın."
   },
   "components": {
     "avatar": {
@@ -3487,7 +3710,13 @@
       "removeUser": "{{username}} kullanıcısını gruptan çıkar",
       "reviewJoinRequests": "GitHub'da katılma isteklerini incele",
       "title": "Grup üyeleri",
-      "youBadge": "Siz"
+      "youBadge": "Siz",
+      "overCapacity": "Bu grupta {{count}} üye var, ancak bu ödev {{max}} üyeye izin veriyor. Öğretmeniniz de bu uyarıyı görebilir. Grubun bakımcısından veya öğretmeninizden, grup {{max}} veya daha az üyeye ininceye kadar üye çıkarmasını isteyin.",
+      "overCapacityManage": "Bu grupta {{count}} üye var, ancak bu ödev {{max}} üyeye izin veriyor. Öğretmeniniz de bu uyarıyı görebilir. Grup {{max}} veya daha az üyeye ininceye kadar üye çıkarın."
+    },
+    "groupOverCapacity": {
+      "badge": "Sınırın üzerinde",
+      "title": "Bu grupta {{count}} üye var, ancak bu ödev {{max}} üyeye izin veriyor. Biri doğrudan GitHub'da üye eklemiş. Gruptan üye çıkarın veya grubu olduğu gibi değerlendirin."
     }
   },
   "formatDate": {
@@ -3626,7 +3855,7 @@
       "heading": "Raporlar",
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
-      "vpatWcagDesc": "WCAG 2.2 (VPAT 2.5Rev) uyarınca Erişilebilirlik Uygunluk Raporu.",
+      "vpatWcagDesc": "WCAG 2.0, 2.1 ve 2.2'ye, A ve AA Düzeyine yönelik Erişilebilirlik Uyumluluk Raporu (VPAT 2.5Rev).",
       "vpatWcagTitle": "VPAT: WCAG sürümü"
     },
     "legend": {
@@ -3644,7 +3873,7 @@
       "statement": "Beyan",
       "vpat": "Uygunluk"
     },
-    "pageSubtitle": "Classroom 50 web uygulamasının WCAG 2.2 AA Düzeyine nasıl uyduğu, her derlemede otomatik olarak kontrol edilir.",
+    "pageSubtitle": "Classroom 50 web uygulamasının WCAG 2.0, 2.1 ve 2.2 standartlarına A ve AA Düzeyinde nasıl uyduğu; renk kontrastı her derlemede denetlenir.",
     "pageTitle": "Erişilebilirlik",
     "preview": {
       "open": "Renk ayrıntılarını görüntüle",
@@ -3655,9 +3884,11 @@
       "colColors": "Renkler (ön / arka)",
       "contrastMeta": "Her iki temada, denetlenen her renk için çift bazında WCAG kontrast oranları. Oluşturma: {{date}}.",
       "contrastTitle": "Renk kontrast denetimi",
-      "reportMeta": "Standart: WCAG {{standard}}, hedef Düzey {{target}}. Rapor tarihi: {{date}}.",
-      "reportTitle": "Erişilebilirlik Uyumluluk Raporu: {{product}}",
-      "vpatSummary": "Özet ({{total}} geçerli kriter): {{supports}} Destekliyor, {{partially}} Kısmen Destekliyor, {{doesNotSupport}} Desteklemiyor, {{notApplicable}} Uygulanamaz, {{notEvaluated}} Değerlendirilmedi."
+      "reportMeta": "Standart: {{standard}}, hedef Düzey {{target}}. Geçerli standartlar: WCAG {{versions}}, A ve AA Düzeyi. Rapor tarihi: {{date}}.",
+      "reportTitle": "{{vendor}} Erişilebilirlik Uyumluluk Raporu",
+      "vpatSummary": "Özet ({{total}} ölçüt): {{supports}} Destekliyor, {{partially}} Kısmen Destekliyor, {{doesNotSupport}} Desteklemiyor, {{notApplicable}} Uygulanamaz, {{notEvaluated}} Değerlendirilmedi.",
+      "productWithVersion": "{{product}}, sürüm {{version}}",
+      "reportProduct": "WCAG Sürümü (VPAT 2.5Rev temel alınmıştır). Ürün adı/sürümü: {{product}}."
     },
     "statement": {
       "feedback": "Bir şeyin kullanımı zorsa,",
@@ -3667,7 +3898,7 @@
       "intro": "Klavye, ekran okuyucu veya diğer yardımcı teknolojileri kullananlar dahil herkesin Classroom 50'yi kullanabilmesini istiyoruz.",
       "limitations": "Uygunluk raporunda birkaç kriter, her biri yapılacaklara dair bir notla \"Kısmen Destekliyor\" olarak işaretlenmiştir. Bunları çalışmalar tamamlandıkça düzeltiyoruz.",
       "limitationsHeading": "Bilinen sınırlamalar",
-      "target": "WCAG 2.2 AA Düzeyini karşılamayı hedefliyoruz. Renk kontrastı her derlemede kontrol edilir; geri kalanı klavye ve ekran okuyucuyla elle kontrol edilir. Uygunluk raporu, her kriterde nerede durduğumuzu listeler.",
+      "target": "WCAG 2.2 AA Düzeyini karşılamayı hedefliyoruz; bu, WCAG 2.0 ve 2.1'in A ve AA Düzeyi ölçütlerini de kapsar. Renk kontrastı her derlemede denetlenir; geri kalanı ise klavye ve ekran okuyucuyla elle denetlenir. Uyumluluk raporu, bu uygulamaya uygulanmayanlar ve nedenleri dahil olmak üzere her A ve AA Düzeyi ölçütünü listeler.",
       "targetHeading": "Ne durumdayız",
       "updated": "Son inceleme {{date}}."
     },
@@ -3709,7 +3940,18 @@
         "notEvaluated": "Değerlendirilmedi",
         "partially": "Kısmen Destekliyor",
         "supports": "Destekliyor"
-      }
+      },
+      "principle": {
+        "Operable": "İşletilebilir",
+        "Perceivable": "Algılanabilir",
+        "Robust": "Sağlam",
+        "Understandable": "Anlaşılabilir"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 ve 2.2",
+        "wcag22": "Yalnızca WCAG 2.2"
+      },
+      "tabAll": "Tümü"
     }
   },
   "groupTeams": {
@@ -3788,7 +4030,8 @@
       "title": "{{name}} grubunu yönet",
       "undo": "Geri al",
       "willBeAdded": "Eklenecek",
-      "willBeRemoved": "Çıkarılacak"
+      "willBeRemoved": "Çıkarılacak",
+      "overCapacity": "Bu grupta {{count}} üye var, ancak bu ödev {{max}} üyeye izin veriyor. Biri doğrudan GitHub'da üye eklemiş. Grup {{max}} veya daha az üyeye ininceye kadar üye çıkarın, ardından Değişiklikleri kaydet'i seçin."
     },
     "manageAriaLabel": "{{name}} grubunu yönet",
     "manageButton": "Yönet",
@@ -3847,5 +4090,10 @@
       "label": "Görünürlük",
       "visible": "Görünür"
     }
+  },
+  "backgroundPass": {
+    "failed": "GitHub ile eşitleme tamamlanmadı. Sınıfı bir dahaki açışınızda yeniden çalışır.",
+    "synced": "GitHub ile eşitlendi.",
+    "syncing": "GitHub ile eşitleniyor…"
   }
 }

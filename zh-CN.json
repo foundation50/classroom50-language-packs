@@ -2,7 +2,7 @@
   "accessibility": {
     "title": "颜色对比度审查",
     "pageTitle": "无障碍",
-    "pageSubtitle": "Classroom 50 网页应用如何符合 WCAG 2.2 AA 级，并在每次构建时自动检查。",
+    "pageSubtitle": "Classroom 50 网页应用如何在 A 级和 AA 级上符合 WCAG 2.0、2.1 和 2.2，并在每次构建时检查颜色对比度。",
     "nav": {
       "contrast": "颜色对比度",
       "vpat": "符合性",
@@ -13,7 +13,7 @@
       "heading": "无障碍声明",
       "intro": "我们希望每个人都能使用 Classroom 50，包括使用键盘、屏幕阅读器或其他辅助技术的人。",
       "targetHeading": "我们的达标情况",
-      "target": "我们的目标是符合 WCAG 2.2 AA 级。颜色对比度在每次构建时检查；其余部分通过键盘和屏幕阅读器手动检查。符合性报告列出了我们在每项标准上的现状。",
+      "target": "我们力求达到 WCAG 2.2 AA 级，其中也涵盖了 WCAG 2.0 和 2.1 的 A 级和 AA 级标准。颜色对比度在每次构建时检查；其余部分则通过键盘和屏幕阅读器手动检查。合规报告列出了每一项 A 级和 AA 级标准，包括那些不适用于本应用的标准及其原因。",
       "limitationsHeading": "已知限制",
       "limitations": "符合性报告中有少数几项标记为“部分支持”，每项都附有说明尚待完成的工作。我们会随着工作的推进逐一修复。",
       "feedbackHeading": "向我们反馈",
@@ -26,20 +26,22 @@
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
       "vpatWcagTitle": "VPAT——WCAG 版",
-      "vpatWcagDesc": "针对 WCAG 2.2 的无障碍符合性报告（VPAT 2.5Rev）。",
+      "vpatWcagDesc": "针对 WCAG 2.0、2.1 和 2.2 的 A 级和 AA 级的无障碍合规报告（VPAT 2.5Rev）。",
       "contrastTitle": "颜色对比度审查",
       "contrastDesc": "每一组已审查颜色在两种主题下的逐对对比度。",
       "fullTitle": "完整报告",
       "fullDesc": "将 VPAT 与颜色对比度审查合并为一份文档。"
     },
     "print": {
-      "reportTitle": "无障碍符合性报告——{{product}}",
-      "reportMeta": "标准：WCAG {{standard}}，目标级别 {{target}}。报告日期：{{date}}。",
-      "vpatSummary": "摘要（{{total}} 项适用标准）：{{supports}} 项支持，{{partially}} 项部分支持，{{doesNotSupport}} 项不支持，{{notApplicable}} 项不适用，{{notEvaluated}} 项未评估。",
+      "reportTitle": "{{vendor}} 无障碍合规报告",
+      "reportMeta": "标准：{{standard}}，目标级别 {{target}}。适用标准：WCAG {{versions}}，A 级和 AA 级。报告日期：{{date}}。",
+      "vpatSummary": "摘要（共 {{total}} 项标准）：{{supports}} 项支持，{{partially}} 项部分支持，{{doesNotSupport}} 项不支持，{{notApplicable}} 项不适用，{{notEvaluated}} 项未评估。",
       "contrastTitle": "颜色对比度审查",
       "contrastMeta": "每一组已审查颜色在两种主题下的逐对 WCAG 对比度。生成于 {{date}}。",
       "colColors": "颜色（前景 / 背景）",
-      "belowMargin": "（低于推荐的 {{margin}}:1）"
+      "belowMargin": "（低于推荐的 {{margin}}:1）",
+      "productWithVersion": "{{product}}，版本 {{version}}",
+      "reportProduct": "WCAG 版（基于 VPAT 2.5Rev）。产品名称/版本：{{product}}。"
     },
     "loadError": "无法加载对比度审查报告。",
     "summaryPass": "全部 {{total}} 组已审查颜色配对均达到其 WCAG 对比度下限。",
@@ -120,7 +122,18 @@
         "doesNotSupport": "不支持",
         "notApplicable": "不适用",
         "notEvaluated": "未评估"
-      }
+      },
+      "principle": {
+        "Operable": "可操作",
+        "Perceivable": "可感知",
+        "Robust": "健壮",
+        "Understandable": "可理解"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 和 2.2",
+        "wcag22": "仅 WCAG 2.2"
+      },
+      "tabAll": "全部"
     }
   },
   "actionsBanner": {
@@ -137,7 +150,8 @@
       "pending": "{{label}}：正在启动…",
       "running": "{{label}}…",
       "success": "{{label}}：完成",
-      "failed": "{{label}}：失败"
+      "failed": "{{label}}：失败",
+      "superseded": "{{label}}：已包含在更新的一次发布中"
     },
     "workflow": {
       "publishPages": "正在发布到学生站点",
@@ -148,6 +162,17 @@
       "collectScoresAssignment": "正在收集“{{classroom}}”中“{{assignment}}”的成绩",
       "collectScoresClassroom": "正在收集“{{classroom}}”中每个作业的成绩",
       "probeToken": "正在测试服务令牌"
+    },
+    "publishFailure": {
+      "deployLockCleared": "此前阻塞本次发布的那次发布已完成。你的更改已保存。请重试以立即发布。",
+      "deployLocked": "GitHub Pages 仍在完成此前的一次发布，因此本次无法开始。你的更改已保存。此前的发布通常会在 10 分钟内结束：届时重试，或现在取消它。",
+      "outage": "GitHub Pages 返回了服务器错误。你的更改已保存。请查看 githubstatus.com，然后重试。",
+      "pagesDisabled": "classroom50 仓库的 GitHub Pages 已关闭，因此无法访问学生站点。你的更改已保存。请在组织设置中重新运行设置以重新开启 Pages，然后重试。",
+      "permission": "发布工作流无权写入 GitHub Pages。你的更改已保存。请更新组织的工作流文件（有可用更新时会出现横幅提示），然后重试。",
+      "timeout": "GitHub Pages 未能在 10 分钟内完成部署。你的更改已保存。这通常是 GitHub 变慢所致：请重试，如果持续发生，请查看 githubstatus.com。",
+      "unstick": "取消卡住的发布并重试",
+      "unstickFailed": "无法取消此前的发布：{{detail}}。它会在大约 10 分钟内自行结束。届时重试。",
+      "unsticking": "正在取消…"
     }
   },
   "common": {
@@ -178,7 +203,10 @@
       "navAria": "分页",
       "previous": "上一页",
       "next": "下一页"
-    }
+    },
+    "actionWithCount": "{{label}}（{{count}}）",
+    "actions": "操作",
+    "clearSelection": "清除选择"
   },
   "notFound": {
     "title": "找不到页面",
@@ -368,7 +396,7 @@
   "students": {
     "addTitle": "添加成员",
     "addMoreOptions": "更多添加选项",
-    "addHint": "输入 GitHub 用户名以连同学生详情添加一名学生，或输入邮箱以发送组织邀请。邮件邀请会在待处理名册行上保留你输入的姓名和分组，直到学生接受为止。",
+    "addHint": "输入 GitHub 用户名以添加学生及其详细信息，或输入邮箱以发送组织邀请。在学生接受之前，邮件邀请会将你输入的姓名和分组保留在待处理的花名册行上。",
     "addRoleLabel": "角色",
     "addStaffHint": "教师、首席助教和助教通过 GitHub 用户名添加。教师和首席助教获得 classroom50 仓库的写入权限；助教获得只读权限。教师会被授予组织所有者身份。",
     "usernamePlaceholder": "github-username",
@@ -379,7 +407,7 @@
     "added": "已添加 {{label}}。",
     "invited": "已向 {{label}} 发送组织邀请。",
     "emailInviteHint": "仅通过邮件邀请？该地址会立即进入名册，并在学生加入时与其 GitHub 账户匹配——请注意，这是你邀请的地址，不一定是其 GitHub 账户上的邮箱。",
-    "inviteMetadataFailed": "无法为 {{email}} 准备邀请（{{message}}），因此未发送邀请。请重试；如果持续失败，请删除消息中所指的残留团队，然后重试。",
+    "inviteMetadataFailed": "无法为 {{email}} 准备邀请（{{message}}），因此未发送任何内容。请重试；如果仍然失败，请删除消息中所提到的残留团队，然后重试。",
     "alreadyEnrolled": "{{label}} 已注册到此班级。",
     "addFailed": "无法添加 {{label}}：{{message}}",
     "membersEnrolledCount_one": "已注册 {{count}} 名成员",
@@ -403,9 +431,9 @@
     "onboardingLinkHint": "学生一步即可接受邀请并登录 Classroom 50。这是大多数教学班分享的链接。",
     "onboardingLinkAria": "学生引导链接",
     "copyOnboardingLinkAria": "复制引导链接",
-    "resendMissingId": "无法为 {{username}} 重新发送邀请：缺少 GitHub id。请将其重新添加到名册。",
-    "resendMalformedId": "无法为 {{username}} 重新发送邀请：“{{githubId}}”不是有效的 GitHub id。请修正 roster.csv 中的 github_id 单元格。",
-    "resendFailed": "为 {{username}} 重新发送邀请失败（{{error}}）。",
+    "resendMissingId": "无法向 {{username}} 重新发送邀请：其花名册行没有 GitHub id。请删除该行，然后重新添加他们。",
+    "resendMalformedId": "无法向 {{username}} 重新发送邀请：“{{githubId}}”不是有效的 GitHub id。请修正 roster.csv 中的 github_id 单元格，然后重试。",
+    "resendFailed": "无法向 {{username}} 重新发送邀请：{{error}}",
     "resend": "重新发送",
     "dismiss": "关闭",
     "rosterLoadError": "无法从 GitHub 加载花名册。已注册列表可能不完整 —— 这是加载错误，而非空班级。",
@@ -415,14 +443,14 @@
     "rosterEditOnGitHub": "在 GitHub 上编辑 roster.csv",
     "rosterRecheck": "重新检查 roster.csv",
     "rosterRechecking": "正在重新检查…",
-    "statusPending": "待处理邀请",
+    "statusPending": "邀请待接受",
     "statusEnrolled": "已注册",
-    "statusNeedsAttentionInOrg": "分配角色",
+    "statusNeedsAttentionInOrg": "未加入班级",
     "statusNeedsAttentionNotInOrg": "不在组织中",
     "statusUnlinked": "未关联",
     "viewCsvOnGitHub": "查看 roster.csv",
     "csvRoster": {
-      "notice": "来自 roster.csv 的 CSV 花名册（由教师维护）。权威的、基于团队的花名册和邀请管理仅供教师使用。",
+      "notice": "来自 roster.csv 的 CSV 花名册（由教师维护）。权威的、基于团队的花名册和邀请管理供教师使用。",
       "caption": "来自 roster.csv 的 CSV 花名册",
       "colName": "姓名",
       "colSection": "分组",
@@ -436,7 +464,7 @@
     "sectionGithub": "GitHub 与注册",
     "sectionProfile": "档案",
     "notSet": "未设置",
-    "confirmResendBody": "重新向 {{label}} 发送待处理的组织邀请？他们当前的邀请将被取消，并为 {{org}} 发送一个新邀请。",
+    "confirmResendBody": "向 {{label}} 重新发送组织邀请？当前邀请会被取消，并为 {{org}} 发送一份新邀请。",
     "cancelInvite": "取消邀请",
     "keepInvite": "保留邀请",
     "confirmCancelInviteBody": "取消对 {{label}} 的待处理组织邀请吗？他们将从 {{org}} 的待处理邀请中移除，除非重新邀请，否则不会加入。",
@@ -448,14 +476,7 @@
     "pendingBanner_other": "有 {{count}} 个待处理邀请尚未被接受。",
     "unlinkedBanner_one": "有 {{count}} 个名册行尚未关联到 GitHub 账户。",
     "unlinkedBanner_other": "有 {{count}} 个名册行尚未关联到 GitHub 账户。",
-    "failedInvitesTitle_one": "{{count}} 个邀请失败或已过期。",
-    "failedInvitesTitle_other": "{{count}} 个邀请失败或已过期。",
-    "failedInviteDismissError": "无法忽略失败的邀请：{{error}}",
     "reinvite": "重新邀请",
-    "failedInviteReinviteError": "无法重新邀请：{{error}}",
-    "failedInviteRateLimited": "GitHub 限制了对 {{who}} 的重新邀请频率——请重试。",
-    "failedInviteNotSent": "未向 {{who}} 发送邀请——请重试。",
-    "failedInviteNoTarget": "此邀请没有 GitHub 用户名或电子邮件，因此无法重新邀请 — 请忽略它并重新添加此人。",
     "pendingReview": "查看",
     "shareLinksTitle": "分享教学班链接",
     "inviteLinksHint": "这些链接不会邀请任何人。请先从名单中邀请学生，然后分享链接，以便每位学生都能接受邀请并登录。",
@@ -498,12 +519,12 @@
     "inviteRosterFailed": "无法邀请 {{label}}：{{error}}",
     "inviteRosterMalformedId": "无法邀请 {{username}}：“{{githubId}}”不是有效的 GitHub id。请修正 roster.csv 中的 github_id 单元格。",
     "inviteRosterNoUsername": "{{label}} 没有记录的 GitHub 用户名 — 请先添加一个再邀请。",
-    "inviteRosterDeferred": "GitHub 对给 {{label}} 的邀请进行了速率限制 — 请稍后重试。",
-    "inviteRosterNoneSent": "未向 {{label}} 发送邀请 — 请重试。",
+    "inviteRosterDeferred": "GitHub 对发给 {{label}} 的邀请进行了限流。请几分钟后再试。",
+    "inviteRosterNoneSent": "未向 {{label}} 发送邀请。GitHub 报告他们已被邀请或已是成员。刷新花名册以查看当前状态。",
     "filterAll": "所有成员",
     "filterEnrolled": "已注册",
-    "filterPending": "待处理",
-    "filterNeedsAttentionInOrg": "需要分配角色",
+    "filterPending": "邀请待处理",
+    "filterNeedsAttentionInOrg": "未入班",
     "filterNeedsAttentionNotInOrg": "不在组织中",
     "filterUnlinked": "未关联",
     "searchPlaceholder": "搜索成员",
@@ -537,28 +558,26 @@
       "selectAll": "全选学生",
       "selectRow": "选择 {{label}}",
       "selfNotSelectable": "你无法批量取消注册自己。",
-      "noneSelectable": "批量操作（取消注册、邀请）仅适用于学生。教职人员（教师、首席助教和助教）在课堂设置中管理。",
+      "noneSelectable": "批量操作（发送邀请、退班）仅适用于学生。请在班级设置中管理教职人员（教师、首席助教和助教）。",
       "selectedCount_one": "已选择 {{count}} 项",
       "selectedCount_other": "已选择 {{count}} 项",
-      "actions": "操作",
       "unenroll": "取消注册",
       "unenrollSelected_one": "取消注册 {{count}} 名学生",
       "unenrollSelected_other": "取消注册 {{count}} 名学生",
-      "clearSelection": "清除选择",
       "starting": "正在开始……",
       "keepTabOpen": "在操作完成前，请保持此标签页打开。",
       "progressProcessed": "已处理 {{total}} 个中的 {{processed}} 个",
       "done": "完成",
-      "noInviteId": "此邀请没有可解析的 id。请移除该行，然后重新添加学生。",
-      "malformedInviteId": "roster.csv 中的 github_id 无效。请修正该单元格。",
-      "invite": "邀请",
-      "inviteSelected_one": "邀请 {{count}} 名学生加入组织",
-      "inviteSelected_other": "邀请 {{count}} 名学生加入组织",
-      "inviteNoneInvitable": "请至少选择一名不在组织中或待处理的学生进行邀请。",
-      "inviteTitle": "邀请学生加入组织",
-      "invitedHeadline_one": "已邀请 {{count}} 名学生。",
-      "invitedHeadline_other": "已邀请 {{count}} 名学生。",
-      "cancelInvite": "取消",
+      "noInviteId": "该行没有 GitHub id，因此无法重新发送邀请。请删除该行，然后重新添加该学生。",
+      "malformedInviteId": "roster.csv 中的 github_id 无效，因此无法重新发送邀请。请修正该单元格，然后重试。",
+      "invite": "发送邀请",
+      "inviteSelected_one": "向 {{count}} 名学生发送邀请",
+      "inviteSelected_other": "向 {{count}} 名学生发送邀请",
+      "inviteNoneInvitable": "请选择有待处理或已过期邀请、或尚未加入组织的学生。没有邮箱地址或 GitHub 用户名的行无法邀请。",
+      "inviteTitle": "发送邀请",
+      "invitedHeadline_one": "已发送 {{count}} 份邀请。",
+      "invitedHeadline_other": "已发送 {{count}} 份邀请。",
+      "cancelInvite": "取消邀请",
       "cancelSelected_one": "取消 {{count}} 个待处理邀请",
       "cancelSelected_other": "取消 {{count}} 个待处理邀请",
       "cancelNoneCancellable": "请至少选择一个待处理的邀请以取消。",
@@ -593,11 +612,15 @@
       "confirmUnenrollTitle_other": "取消注册 {{count}} 名学生？",
       "confirmUnenrollBody_one": "这会将 {{count}} 名学生从班级团队中移除并删除其花名册记录。这不会将其从组织中移除。",
       "confirmUnenrollBody_other": "这会将 {{count}} 名学生从班级团队中移除并删除其花名册记录。这不会将其从组织中移除。",
-      "confirmInviteTitle_one": "邀请 {{count}} 名学生？",
-      "confirmInviteTitle_other": "邀请 {{count}} 名学生？",
-      "confirmInviteBodyPlain_one": "向所选的 {{count}} 名学生发送组织邀请？他们接受后将加入组织及其班级团队。",
-      "confirmInviteBodyPlain_other": "向所选的 {{count}} 名学生发送组织邀请？他们接受后将加入组织及其班级团队。",
-      "confirmUnenrollWarning": "重新登记意味着要再次将每名学生加入花名册。他们的作业仓库不会被删除。"
+      "confirmInviteTitle_one": "发送 {{count}} 份邀请？",
+      "confirmInviteTitle_other": "发送 {{count}} 份邀请？",
+      "confirmInviteBodyPlain_one": "向所选学生发送一份新的组织邀请？待处理的邀请会被取消并重新发送，已过期的会被替换。他们接受后将加入组织和班级团队。",
+      "confirmInviteBodyPlain_other": "向所选的 {{count}} 名学生发送新的组织邀请？待处理的邀请会被取消并重新发送，已过期的会被替换。学生接受后将加入组织和班级团队。",
+      "confirmUnenrollWarning": "重新登记意味着要再次将每名学生加入花名册。他们的作业仓库不会被删除。",
+      "alreadyInvitedOrMember": "已被邀请或已是成员。未发送新的邀请。",
+      "cancelInviteConfirm_one": "取消邀请",
+      "cancelInviteConfirm_other": "取消邀请",
+      "nextBatch": "正在准备下一批…"
     },
     "emptyTitle": "还没有成员",
     "emptyBody": "先从名册邀请学生以将其加入（或在设置中添加教师和助教）——引导链接本身不会添加任何人，它只是让已受邀的学生能够接受。当有人接受邀请并登录后，他们就会显示在这里。",
@@ -618,7 +641,7 @@
     "syncMatchedEmails_other": "已将 {{count}} 个受邀邮箱匹配到 GitHub 账户。",
     "syncRosterDone": "名册已更新。",
     "syncFailed": "无法刷新名册：{{error}}",
-    "resendAllRateLimitedShort": "已重新发送 {{resent}} 个邀请，随后触及了 GitHub 的速率限制。请一分钟后再重试其余的。",
+    "resendAllRateLimitedShort": "已发送 {{resent}} 份邀请，随后触发了 GitHub 的速率限制。其余未发送。请几分钟后再试。",
     "share": "分享",
     "groupBy": {
       "label": "分组方式",
@@ -722,8 +745,8 @@
     "preflightTeacherEmailNotice_other": "还将有 {{count}} 人被邀请为组织所有者（OWNER）。",
     "invitingEmails": "正在发送邮件邀请……",
     "emailInviteRosterNotice": "每个受邀地址会立即被添加到 roster.csv 中，附带文件中的任何姓名和分组，并在学生接受时与其 GitHub 账户匹配。在此之前，被邀请者显示为待处理。",
-    "emailLinksNotice_one": "有 {{count}} 个地址与先前某个课堂名册中的学生匹配，将直接注册而非邀请。",
-    "emailLinksNotice_other": "有 {{count}} 个地址与先前课堂名册中的学生匹配，将直接注册而非邀请。",
+    "emailLinksNotice_one": "有 {{count}} 个地址匹配到一名在之前班级已拥有 GitHub 账号的学生。他们将被关联到该账号并直接入班，而不是被邀请。",
+    "emailLinksNotice_other": "有 {{count}} 个地址匹配到在之前班级已拥有 GitHub 账号的学生。他们将被关联到这些账号并直接入班，而不是被邀请。",
     "emailLinksConfirm": "将这些地址关联到匹配的 GitHub 账户",
     "emailLinkBinding": "{{email}} → @{{login}}（{{classroom}}）",
     "emailLinksDegraded": "有些课堂无法读取，因此可关联的地址可能比显示的更多。",
@@ -804,7 +827,38 @@
     "usernameLabel": "GitHub 用户名",
     "firstNameLabel": "名",
     "lastNameLabel": "姓",
-    "rosterFromCsvNotice": "此列表来自名册文件上次同步时的状态，因为你的角色无法查看班级的 GitHub 团队。此后新增的成员会在老师打开名册后出现。组织所有者可看到实时成员情况。"
+    "rosterFromCsvNotice": "此列表来自名册文件上次同步时的状态，因为你的角色无法查看班级的 GitHub 团队。此后新增的成员会在老师打开名册后出现。组织所有者可看到实时成员情况。",
+    "completedRow": "已将 {{label}} 关联到 {{row}} 的现有花名册行。",
+    "emailInviteAlreadyPendingDetail": "已有一个待处理的邀请，因此未发送新邀请。若要再次发送，请在其花名册行使用“重新发送”。",
+    "emailLinksDeclinedNotice_one": "有 {{count}} 个地址匹配到一名已拥有 GitHub 账号的学生，但不会被关联。它将改为收到一份邮件邀请，其行会保持未关联，直到你从花名册中关联它。",
+    "emailLinksDeclinedNotice_other": "有 {{count}} 个地址匹配到已拥有 GitHub 账号的学生，但不会被关联。它们将改为收到邮件邀请，其行会保持未关联，直到你从花名册中关联它们。",
+    "emailLinksUnlinkBody_one": "此人已是拥有已知 GitHub 账号的组织成员。GitHub 会跳过向现有成员发送邮件邀请，因此其行会保持未关联，直到你从花名册中手动关联它。",
+    "emailLinksUnlinkBody_other": "这些人已是拥有已知 GitHub 账号的组织成员。GitHub 会跳过向现有成员发送邮件邀请，因此其行会保持未关联，直到你从花名册中手动关联它们。",
+    "emailLinksUnlinkConfirm": "不关联",
+    "emailLinksUnlinkTitle": "改为发送邮件邀请而不关联？",
+    "filterInviteExpired": "邀请已过期",
+    "identityConflict": "已有一个花名册行为另一个 GitHub 账号使用了用户名 {{label}}，或者另一行已携带该用户名。请编辑或从花名册中移除冲突的行，然后再次添加 {{label}}。",
+    "inviteDailyLimit": "此组织当天的 GitHub 邀请配额已用完。成立不足一个月或使用免费计划的组织每天可发送 50 份邀请，其他组织为 500 份。请明天再试。",
+    "linkAccountAction": "关联账号",
+    "needsAttentionExpiredHelp": "发给 {{label}} 的邀请在其接受之前已过期。GitHub 邀请有效期为 7 天。请再次邀请他们以入班。",
+    "needsAttentionFailedHelp": "GitHub 无法将邀请送达 {{label}}（{{reason}}）。请再次邀请他们以入班。",
+    "previewAlreadyPending": "邀请已在待处理",
+    "previewResendExpired": "重新发送邀请（已过期）",
+    "previewResendFailed": "重新发送邀请（未送达）",
+    "reinviteRowAlreadyInvited": "未发送任何内容。GitHub 中已有针对 {{email}} 的有效邀请或成员，可能来自本组织中的另一个班级。请查看组织在 GitHub 上的 People 页面，或在该成员接受后将此行关联到他们。",
+    "reinviteRowFailed": "无法重新邀请 {{email}}：{{error}}",
+    "reinviteRowRateLimited": "GitHub 对发给 {{email}} 的邀请进行了限流。请几分钟后再试。",
+    "resendNotSent": "未向 {{label}} 发送新邀请。GitHub 报告该地址已被邀请或已是成员。刷新花名册以查看当前状态。",
+    "resendRateLimited": "GitHub 对向 {{label}} 的重新发送进行了限流。请几分钟后再试。",
+    "statusInviteExpired": "邀请已过期",
+    "statusInviteFailed": "邀请发送失败",
+    "unlinkedEmailIntro": "此行尚未关联到 GitHub 账户，且 {{email}} 没有待接受的邀请。邀请可能已过期或被取消。可重新邀请该学生、将此行关联到某个组织成员，或删除此行。",
+    "unlinkedExpiredIntro": "发给 {{email}} 的邀请在被接受前已过期。GitHub 邀请的有效期为 7 天。可重新邀请该学生、将此行关联到某个组织成员，或删除此行。",
+    "unlinkedFailedIntro": "GitHub 无法将邀请送达 {{email}}（{{reason}}）。请检查该地址，然后重新邀请该学生、将此行关联到某个组织成员，或删除此行。",
+    "uploadBlockedChecking": "正在检查当前成员情况……",
+    "uploadBlockedDetails": "请先确认上方的详细信息更新以继续。",
+    "uploadBlockedRoles": "请先确认上方的角色变更以继续。",
+    "uploadBlockedUsernames": "请先确认上方的用户名变更以继续。"
   },
   "language": {
     "baseName": "英语（基础）",
@@ -953,7 +1007,7 @@
     },
     "detailsModal": {
       "displayName": "显示名称",
-      "displayNamePlaceholder": "例如 Classroom 50 Summer Dev",
+      "displayNamePlaceholder": "CS1 2026 秋季",
       "description": "描述",
       "descriptionPlaceholder": "该组织的简短描述",
       "website": "网站",
@@ -1105,7 +1159,8 @@
         "sortNameAsc": "名称（A–Z）",
         "sortNameDesc": "名称（Z–A）",
         "clear": "清除筛选",
-        "typeTeam": "小组"
+        "typeTeam": "小组",
+        "statusSubmitted": "已提交"
       },
       "noResults": {
         "title": "没有符合筛选条件的作业",
@@ -1113,7 +1168,9 @@
       },
       "viewGroup": "查看小组",
       "viewGroupTitle": "你的小组",
-      "viewSubmissionTeam": "查看小组提交"
+      "viewSubmissionTeam": "查看小组提交",
+      "submissionUnknown": "无法检查提交情况。请刷新后重试。",
+      "submitted": "已提交"
     },
     "newButton": {
       "assignment": "作业",
@@ -1198,7 +1255,7 @@
       "studentPermission": {
         "label": "学生仓库访问权限",
         "learnMore": "了解更多",
-        "help": "每个学生在接受时对自己作业仓库被授予的角色。Push（写入）为默认值。选择 Admin 可让学生管理仓库设置并启用 GitHub Pages。这适用于从现在起接受的学生；请使用提交页面更改已创建的仓库。",
+        "help": "学生在接受作业时对自己的作业仓库被授予的角色。Push（写入）为默认值。选择 Admin 可让学生自行管理仓库设置。此设置适用于此后接受作业的学生；可在提交页面上更改已创建的仓库。",
         "groupHelp": "小组成员至少以 admin 权限加入，以便组长可以添加队友。这适用于从现在起创建的仓库；请使用提交页面更改现有仓库。",
         "default": "默认：{{level}}",
         "levels": {
@@ -1375,7 +1432,10 @@
         "releaseAssetsInvalidBasename": "{{basename}} 不是安全的发布文件名，或是保留名称。",
         "releaseAssetsDuplicatePath": "{{path}} 列出了多次；每个发布文件路径必须唯一。",
         "releaseAssetsDuplicateBasename": "{{basename}} 会被上传多次；发布文件名必须唯一。",
-        "teamFormationInvalid": "请选择由谁组建小组。"
+        "teamFormationInvalid": "请选择由谁组建小组。",
+        "pagesBranchInvalid": "请输入不含空格、最多 255 个字符的分支名，或将其留空以使用默认分支。",
+        "pagesPathInvalid": "Pages 文件夹必须为 / 或 /docs。",
+        "pagesSourceInvalid": "GitHub Pages 必须为“关闭”、“GitHub Actions”或“某个分支”。"
       },
       "teamFormation": "小组组建方式",
       "teamFormationStudent": "由学生组建小组",
@@ -1389,7 +1449,28 @@
       "lockAssignmentTip": "学生无法看到或接受被锁定的作业，包括已经接受的学生。如果使用了组织内的私有模板，在你解锁前，班级团队会失去对该模板的读取权限。教职人员的权限和已有的学生仓库不受影响。可用于筹备限时评估，待考试开始时再解锁。",
       "releaseLockedReminder": "已锁定。发布日期不会解锁作业：在发布日期请关闭“锁定作业”，学生才能接受作业。",
       "releaseTemplateReadableBody": "发布日期仅控制列表显示。保存后会立即让课堂团队获得此私有模板的读取权限。若要保持模板隐藏，请现在锁定作业，并在发布日期解锁。",
-      "releaseTemplateReadableTitle": "在发布日期之前，学生就能读取此模板"
+      "releaseTemplateReadableTitle": "在发布日期之前，学生就能读取此模板",
+      "pages": {
+        "branch": {
+          "help": "GitHub 发布的分支。留空则使用仓库的默认分支。指定的分支名必须在学生接受作业时存在于其仓库中（例如，通过“包含所有分支”从模板复制而来）。",
+          "label": "分支",
+          "placeholder": "默认分支"
+        },
+        "choices": {
+          "branch": "某个分支",
+          "off": "关闭",
+          "workflow": "GitHub Actions"
+        },
+        "editHelp": "此设置适用于此后创建的仓库；可在提交页面上为现有仓库启用 Pages。",
+        "emptyRepoHint": "空仓库不可用：还没有可发布的分支。",
+        "help": "使用 GitHub Pages 将每个学生仓库发布为网站，学生接受作业时自动配置，因此他们无需管理员权限。默认为关闭。“GitHub Actions”通过学生仓库中的工作流部署（适用于需要构建步骤的站点）。“某个分支”直接发布分支中的文件，无需工作流（适用于纯 HTML、CSS 和 JavaScript）。即使仓库是私有的，站点在互联网上也是公开的，且已发布分支和文件夹中的每个文件都会被提供；只有 GitHub Enterprise Cloud 才能限制谁能查看。私有仓库上的 Pages 需要包含该功能的 GitHub 套餐；在面向组织的 GitHub Free 上，请将仓库设为公开，否则不会创建站点。",
+        "label": "GitHub Pages",
+        "path": {
+          "help": "该分支中用于发布的文件夹：仓库根目录（/）或 /docs。GitHub 仅允许这两者。",
+          "label": "文件夹"
+        },
+        "workflowNote": "通过 GitHub Actions 部署需要每个学生仓库中都有一个发布到 Pages 的工作流：它必须授予 pages: write 和 id-token: write 权限，并使用 actions/upload-pages-artifact 和 actions/deploy-pages。请将其放入你的模板中，或让学生自行添加。站点在学生接受作业时创建，因此工作流的首次运行会将其部署。"
+      }
     },
     "autograder": {
       "heading": "自动评分测试",
@@ -1724,7 +1805,57 @@
     "includeStaff": "包含教学人员",
     "includeStaffHelp": "在“已接受”和“已提交”列中，将教师、首席助教和助教与学生一并计入。当教学人员在学生之前先试做作业时会很有用。",
     "staffCount_one": "{{count}} 名教学人员",
-    "staffCount_other": "{{count}} 名教学人员"
+    "staffCount_other": "{{count}} 名教学人员",
+    "bulk": {
+      "delete": "删除",
+      "deleteBody": "这会在一次提交中将所选作业从班级的 assignments.json 中移除。学生仓库及其提交不会被删除。它们会保留在组织中，仍可按名称访问。",
+      "deleteConfirmWord": "delete",
+      "deleteDone_one": "已删除 {{count}} 个作业。",
+      "deleteDone_other": "已删除 {{count}} 个作业。",
+      "deleteNoChange": "所选作业都已被删除；未提交任何更改。",
+      "deleteTitle_one": "删除 {{count}} 个作业？",
+      "deleteTitle_other": "删除 {{count}} 个作业？",
+      "deleteWarning": "学生将失去对作业页面的访问权限，每个作业的截止日期、模板和评分设置都会被移除。",
+      "lock": "锁定",
+      "lockAllLocked": "所选作业都已锁定。",
+      "lockBody": "学生将无法在接受页面、作业列表、提交视图和命令行中访问所选作业。现有的学生仓库不会被删除。这是对班级 assignments.json 的一次提交，因此要么全部生效，要么全部不生效。",
+      "lockDone_one": "已锁定 {{count}} 个作业。",
+      "lockDone_other": "已锁定 {{count}} 个作业。",
+      "lockNoChange": "所选作业都已处于该状态；未提交任何更改。",
+      "lockTitle_one": "锁定 {{count}} 个作业？",
+      "lockTitle_other": "锁定 {{count}} 个作业？",
+      "missingSkipped_one": "{{count}} 个所选作业已不存在，已跳过。",
+      "missingSkipped_other": "{{count}} 个所选作业已不存在，已跳过。",
+      "reuse": "复用",
+      "reuseBody": "将所选作业复制到本组织的另一个班级。选定目标后，检查每份副本将使用的 slug。在目标处已被占用的 slug 会自动补上数字后缀，你可以在复制前覆盖其中任意一个。",
+      "reuseDone_one": "已复制 {{count}} 个作业。",
+      "reuseDone_other": "已复制 {{count}} 个作业。",
+      "reuseFailedTitle": "未纳入复制",
+      "reuseFailed_one": "{{count}} 个作业无法复制。",
+      "reuseFailed_other": "{{count}} 个作业无法复制。",
+      "reuseNoTargets": "{{org}} 中没有其他班级可供复制。",
+      "reuseRenamedTitle": "已以不同的 slug 复制",
+      "reuseSlugDuplicate": "本次复制中的另一个作业已在使用此 slug。",
+      "reuseSlugLabel": "{{assignment}} 的 slug",
+      "reuseSlugRequired": "slug 为必填项。",
+      "reuseTargetError": "无法读取目标班级的作业，因此无法解决 slug 冲突。请重试。",
+      "reuseTemplateWarnTitle": "已复制，但无法授予模板访问权限",
+      "reuseTitle_one": "复用 {{count}} 个作业",
+      "reuseTitle_other": "复用 {{count}} 个作业",
+      "selectAll": "选择所有作业",
+      "selectRow": "选择 {{assignment}}",
+      "selectedCount_one": "已选择 {{count}} 个作业",
+      "selectedCount_other": "已选择 {{count}} 个作业",
+      "templateWarnings_one": "已更新 {{count}} 个作业，但学生团队对其模板的访问权限无法更新：{{slugs}}。请在 GitHub 中检查，或在此选择上再次运行该操作。",
+      "templateWarnings_other": "已更新 {{count}} 个作业，但学生团队对其模板的访问权限无法更新：{{slugs}}。请在 GitHub 中检查，或在此选择上再次运行该操作。",
+      "unlock": "解锁",
+      "unlockBody": "这会向学生重新开放所选作业。若使用了私有模板，学生团队对该模板的读取权限会被恢复，以便学生可以再次接受作业。",
+      "unlockDone_one": "已解锁 {{count}} 个作业。",
+      "unlockDone_other": "已解锁 {{count}} 个作业。",
+      "unlockNoneLocked": "所选作业中没有任何一个被锁定。",
+      "unlockTitle_one": "解锁 {{count}} 个作业？",
+      "unlockTitle_other": "解锁 {{count}} 个作业？"
+    }
   },
   "published": {
     "pageHeading": "已发布资源",
@@ -1778,6 +1909,12 @@
         "label": "工作流文件：{{name}}",
         "description": "当学生接受一项使用此自动评分器的作业时，添加到其仓库中的 GitHub Actions 工作流。"
       }
+    },
+    "republish": {
+      "button": "再次发布",
+      "failed": "无法开始发布：{{detail}}。请确认你可以在 classroom50 仓库中运行工作流，然后重试。",
+      "help": "按 classroom50 仓库当前的状态重新部署站点，不会更改其中任何内容。当下方某个文件在发布失败后显示“未发布”或“无法访问”时使用。",
+      "started": "正在向学生站点发布。上方横幅会跟踪进度。"
     }
   },
   "getStarted": {
@@ -1877,7 +2014,8 @@
         "grading_mode": "评分模式：以旧模式记录的成绩显示方式可能有所不同。",
         "repo_source": "仓库来源：已有仓库将保留其原始的初始内容。",
         "repo_visibility": "仓库可见性：在提交页面上修改已有仓库。",
-        "student_permission": "学生仓库权限：在提交页面上修改已有仓库。"
+        "student_permission": "学生仓库权限：在提交页面上修改已有仓库。",
+        "pages": "GitHub Pages：可在提交页面上为现有仓库启用它。"
       },
       "provisioningIntro_one": "已有 {{count}} 名学生接受了作业。这些更改仅适用于此后接受的仓库；现有仓库将保持其当前设置：",
       "provisioningIntro_other": "已有 {{count}} 名学生接受了作业。这些更改仅适用于此后接受的仓库；现有的 {{count}} 个仓库将保持其当前设置：",
@@ -2439,7 +2577,7 @@
       "confirmRemoveBody": "此操作会将 @{{login}} 从{{role}}团队及其对 classroom50 仓库的访问权限中移除。这不会将其从组织中移除。",
       "pendingBadge": "待处理",
       "resend": "重新发送邀请",
-      "resendEmailOnly": "此邀请没有 GitHub 用户名，因此无法重新发送。请取消它并重新添加此人。",
+      "resendEmailOnly": "此邀请没有 GitHub 用户名，因此无法在此重新发送。请取消它，然后再次添加此人。",
       "resentToast": "已向 {{who}} 重新发送邀请。",
       "resendFailed": "无法向 {{who}} 重新发送邀请：{{error}}",
       "cancelInvite": "取消邀请",
@@ -2563,7 +2701,14 @@
       "feedback": "反馈拉取请求已就绪",
       "feedbackSkipped": "此作业没有反馈拉取请求",
       "feedbackDeferred": "现在无法打开反馈拉取请求：请再次接受作业以重试（如果已启用自动评分，则会在你首次提交时打开）",
-      "team": "已找到小组"
+      "team": "已找到小组",
+      "pagesSkipped": {
+        "access": "已配置自动评分。未启用 GitHub Pages：你没有权限更改此仓库的 Pages 设置。你的老师可以在提交页面上启用它。",
+        "branch": "已配置自动评分。未启用 GitHub Pages：它用于发布的分支在你的仓库中还不存在。你的老师可以在提交页面上启用它。",
+        "plan": "已配置自动评分。未启用 GitHub Pages：该组织的 GitHub 套餐不允许在私有仓库上使用 Pages。你的老师可以将仓库设为公开，然后在提交页面上启用 Pages。",
+        "policy": "已配置自动评分。未启用 GitHub Pages：该组织不允许成员发布 Pages 站点。你的老师可以在提交页面上启用它。",
+        "unknown": "已配置自动评分。目前无法启用 GitHub Pages。你的老师可以在提交页面上启用它。"
+      }
     },
     "stepActions": {
       "account": "无法读取你的 GitHub 账户。请退出登录后重新登录，然后再次接受作业。",
@@ -2636,6 +2781,10 @@
     "setupIncomplete": {
       "body": "你的仓库已存在，但缺少设置文件，因此自动评分无法运行，你的老师也无法留下反馈。请重新运行设置以完成配置。此操作是安全的，并会保留你已推送的任何工作内容。",
       "title": "设置未完成"
+    },
+    "pagesSite": {
+      "enabled": "此作业已启用 GitHub Pages",
+      "help": "你的仓库可以在 {{url}} 发布一个网站。即使仓库是私有的，互联网上的任何人都能查看它。"
     }
   },
   "submissions": {
@@ -2655,10 +2804,10 @@
     },
     "grading": {
       "badgeBuiltIn": "自动评分",
-      "badgeNoAutograder": "自定义自动评分",
-      "titleNoAutograder": "模板自带评分工作流。内置分数和重新评分已禁用；启用时反馈拉取请求仍然有效。",
+      "badgeNoAutograder": "无内置自动评分器",
+      "titleNoAutograder": "本作业未使用内置自动评分器，因此内置成绩和重新评分已停用。模板自带的评分工作流仍会运行，反馈拉取请求在启用时也仍然有效。",
       "badgeEmptyRepo": "无自动评分",
-      "titleEmptyRepo": "此作业使用空仓库，因此自动评分、分数和反馈拉取请求均已禁用。表格显示哪些人已接受。"
+      "titleEmptyRepo": "本作业使用空仓库，因此自动评分、成绩和反馈拉取请求均已停用。表格显示谁已接受作业以及谁已推送内容。"
     },
     "details": {
       "viewRepository": "查看仓库",
@@ -2717,11 +2866,7 @@
     },
     "menu": {
       "actions": "操作",
-      "metrics": "指标",
       "share": "分享"
-    },
-    "metrics": {
-      "title": "提交指标"
     },
     "errors": {
       "gradebookLoad": "无法加载已收集的分数。",
@@ -2777,22 +2922,6 @@
       "shareWithCount_one": "正在与 <count>{{count}} 名学生</count>分享，他们可以接受此作业。",
       "shareWithCount_other": "正在与 <count>{{count}} 名学生</count>分享，他们可以接受此作业。",
       "manageRoster": "管理名单"
-    },
-    "stats": {
-      "submitted": "已提交",
-      "groupsSubmitted": "已提交小组",
-      "classAverage": "课堂平均分",
-      "passing": "通过",
-      "accepted": "已接受",
-      "notAvailable": "无",
-      "showFailing": "显示未通过的学生",
-      "failingCount_one": "{{count}} 人未通过",
-      "failingCount_other": "{{count}} 人未通过",
-      "ungradedNote_one": "，{{count}} 项未评分",
-      "ungradedNote_other": "，{{count}} 项未评分",
-      "showAcceptedNotSubmitted": "显示已接受但尚未提交的学生",
-      "notYetSubmitted_one": "{{count}} 人尚未提交",
-      "notYetSubmitted_other": "{{count}} 人尚未提交"
     },
     "filters": {
       "searchGroupPlaceholder": "搜索小组或成员",
@@ -2888,7 +3017,9 @@
       "teamMissingTitle": "此小组背后的 GitHub 团队已不存在。它很可能已被删除，因此在重新创建之前，评分无法记入其成员的成绩。",
       "teamNoRepo": "还没有仓库",
       "teamNoRepoTitle": "当小组成员接受作业时会创建小组的仓库。请分享作业链接，以便某位成员接受。",
-      "staffRowTitle": "接受了此作业的教师、首席助教或助教，通常是为了试做一下。此行不属于学生。"
+      "staffRowTitle": "接受了此作业的教师、首席助教或助教，通常是为了试做一下。此行不属于学生。",
+      "openSiteLabel": "打开 {{repo}} 的 GitHub Pages 站点",
+      "viewSite": "打开 GitHub Pages 站点"
     },
     "scoreOverride": {
       "notGraded": "未评分",
@@ -3261,7 +3392,11 @@
       "manageGroup": "管理小组",
       "setup": "设置",
       "setupIncomplete": "未完成",
-      "setupIncompleteHint": "该学生的接受过程在写入设置文件之前中断了，因此自动评分无法运行，也无法打开反馈 PR。请让该学生打开作业链接并选择“重新运行设置”。"
+      "setupIncompleteHint": "该学生的接受过程在写入设置文件之前中断了，因此自动评分无法运行，也无法打开反馈 PR。请让该学生打开作业链接并选择“重新运行设置”。",
+      "pages": "GitHub Pages",
+      "pagesBuildErrored": "构建失败",
+      "pagesBuilding": "正在构建",
+      "pagesNotEnabled": "未启用"
     },
     "publicRepo": {
       "badge": "公开",
@@ -3292,7 +3427,15 @@
         "tagIntro": "你的老师会对你作业的带标签快照评分。像平常一样提交并推送，然后运行下面的提交命令。它会为你的最新作业打上标签以进行评分。",
         "tagStep2": "在仓库内提交你的作业。这会推送一个触发评分的提交标签：",
         "milestoneStep": "或者推送老师设置的里程碑标签（例如 {{tags}}）：",
-        "copyMilestone": "复制里程碑标签命令"
+        "copyMilestone": "复制里程碑标签命令",
+        "cloneHint": "SSH 需要将 SSH 密钥添加到你的 GitHub 账户。GitHub CLI 需要安装 gh 命令。",
+        "cloneMethod": {
+          "cli": "GitHub CLI",
+          "https": "HTTPS",
+          "ssh": "SSH"
+        },
+        "cloneMethodAria": "克隆方式",
+        "teacherNote": "你的老师可能要求你以特定方式克隆或提交。如果是这样，请按照老师的说明操作。"
       },
       "fallbackTitle": "提交",
       "missingParams": "此链接缺少班级或作业信息。请向你的老师索取一个新链接。",
@@ -3303,7 +3446,45 @@
       "notAcceptedTeam": "你还没有加入已接受此作业的小组。请<acceptLink>接受作业</acceptLink>以获取你所在小组的仓库，然后推送你的工作以进行评分。",
       "tableCaptionTeam": "你所在小组对此作业的提交"
     },
-    "rosterFromCsvNotice": "学生列表来自名册文件上次同步时的状态，因为你的角色无法查看班级的 GitHub 团队。此后注册的学生会在老师打开名册后出现。组织所有者可看到实时成员情况。"
+    "rosterFromCsvNotice": "学生列表来自名册文件上次同步时的状态，因为你的角色无法查看班级的 GitHub 团队。此后注册的学生会在老师打开名册后出现。组织所有者可看到实时成员情况。",
+    "bulkPages": {
+      "apply": "对全部启用",
+      "deferredDetail": "已跳过。重新运行即可启用。",
+      "deferredSection_one": "有 {{count}} 个仓库未处理",
+      "deferredSection_other": "有 {{count}} 个仓库未处理",
+      "failedSection_one": "有 {{count}} 个仓库无法启用",
+      "failedSection_other": "有 {{count}} 个仓库无法启用",
+      "infoBranch_one": "此操作会在 {{count}} 名学生的仓库上配置 GitHub Pages 发布某个分支。已有站点的仓库将保持不变。之后接受作业的学生的仓库会自动完成配置。",
+      "infoBranch_other": "此操作会在 {{count}} 名学生的仓库上配置 GitHub Pages 发布某个分支。已有站点的仓库将保持不变。之后接受作业的学生的仓库会自动完成配置。",
+      "infoWorkflow_one": "此操作会在 {{count}} 名学生的仓库上配置 GitHub Pages 通过 GitHub Actions 部署。已有站点的仓库将保持不变。之后接受作业的学生的仓库会自动完成配置。",
+      "infoWorkflow_other": "此操作会在 {{count}} 名学生的仓库上配置 GitHub Pages 通过 GitHub Actions 部署。已有站点的仓库将保持不变。之后接受作业的学生的仓库会自动完成配置。",
+      "menuLabel": "启用 GitHub Pages",
+      "menuTitle": "在每个已接受的仓库上配置本作业的 GitHub Pages 站点",
+      "noRepos": "还没有学生接受作业，因此没有可启用的对象。",
+      "progress": "已处理 {{processed}} / {{total}}",
+      "resultHeadline": "已在 {{total}} 个仓库中的 {{count}} 个上启用 GitHub Pages。",
+      "resultHeadlineThrottled": "已在 {{total}} 个仓库中的 {{count}} 个上启用 GitHub Pages，随后触发了 GitHub 的速率限制。请重新运行以完成其余部分。",
+      "subtitle_one": "适用于 {{count}} 名已接受本作业的学生。",
+      "subtitle_other": "适用于 {{count}} 名已接受本作业的学生。",
+      "title": "启用 GitHub Pages",
+      "titleEmptyRoster": "还没有学生接受作业",
+      "working": "正在启用 GitHub Pages"
+    },
+    "rowPages": {
+      "aria": "在 {{repo}} 上启用 GitHub Pages",
+      "description": "在此仓库上配置本作业所需的站点。适用于在开启 Pages 之前就已接受的仓库，或在接受时启用失败的情况。",
+      "outcome": {
+        "enabled": "已启用 GitHub Pages。首次构建完成后，站点将可在 {{url}} 访问。"
+      },
+      "refused": {
+        "access": "未能在 {{repo}} 上启用 GitHub Pages：你需要拥有此仓库的管理员权限。",
+        "branch": "未能在 {{repo}} 上启用 GitHub Pages：用于发布的分支在此仓库中尚不存在。",
+        "plan": "未能在 {{repo}} 上启用 GitHub Pages：本组织的 GitHub 套餐不允许在私有仓库上使用 Pages。请将仓库设为公开，然后重试。",
+        "policy": "未能在 {{repo}} 上启用 GitHub Pages：该组织不允许成员发布 Pages 站点。请检查组织的 Pages 设置，然后重试。",
+        "unknown": "目前无法在 {{repo}} 上启用 GitHub Pages。请稍后重试。"
+      },
+      "title": "启用 GitHub Pages"
+    }
   },
   "orgActivity": {
     "heading": "活动",
@@ -3362,13 +3543,13 @@
   },
   "orgMembers": {
     "heading": "成员",
-    "inviteMissingId": "无法邀请 {{who}}：档案中没有 GitHub id。",
+    "inviteMissingId": "无法邀请 {{who}}：其花名册行没有 GitHub id。请到其在班级花名册中所在行按用户名邀请，或删除该行后重新添加。",
     "inviteMalformedId": "无法邀请 {{who}}：“{{githubId}}”不是有效的 GitHub id。请修正 roster.csv 中的 github_id 单元格。",
     "subtitle": "<orgLink>{{org}}</orgLink> GitHub 组织中的所有成员及其所属班级。",
     "sharedOrgNotice": "此页面列出 {{org}} GitHub 组织的所有成员，而不仅仅是你的学生。如果其他老师共享此组织（即使未使用 Classroom 50），他们的成员也会显示在此处，因此移除任何人时请谨慎。",
     "manageMembersOnGitHub": "在 GitHub 上管理组织成员",
-    "discrepancy_one": "有 {{count}} 名学生在花名册上，但不是组织成员。",
-    "discrepancy_other": "有 {{count}} 名学生在花名册上，但不是组织成员。",
+    "discrepancy_one": "有 {{count}} 名学生在花名册中但不是组织成员。在其所在行使用“邀请”发送邀请。",
+    "discrepancy_other": "有 {{count}} 名学生在花名册中但不是组织成员。在各自所在行使用“邀请”发送邀请。",
     "searchPlaceholder": "按姓名、用户名或邮箱搜索",
     "searchLabel": "搜索成员",
     "filterByClassroomLabel": "按班级筛选",
@@ -3376,12 +3557,12 @@
     "filterNoClassroom": "无班级",
     "filterShowLabel": "筛选成员",
     "filterAll": "所有成员",
-    "filterNotInOrg": "非组织成员",
+    "filterNotInOrg": "不在组织中",
     "filterInvitationPending": "邀请待处理",
     "filterNotEnrolled": "未选课",
     "filterOwners": "所有者",
     "filterMembers": "成员",
-    "loadError": "无法加载组织成员。",
+    "loadError": "无法加载组织成员。请检查你的网络连接，并确认你仍是该组织的所有者，然后重试。",
     "retry": "重试",
     "noMatch": "没有成员符合你的搜索条件。",
     "noMembersInClassroom": "{{classroom}} 中没有成员。",
@@ -3399,15 +3580,15 @@
       "colStatus": "状态",
       "colActions": "操作"
     },
-    "badgeNotMember": "非组织成员",
+    "badgeNotMember": "不在组织中",
     "badgeInvitePending": "邀请待处理",
     "badgeNoClassroom": "无班级",
     "badgeMember": "成员",
     "badgeOwner": "所有者",
     "unprovisionedBadge": "未注册",
-    "unprovisionedTitle": "在花名册中，但不在班级团队中：{{classrooms}}。成绩收集以团队为准，因此会遗漏他们。请重新将其添加到班级以修复。",
+    "unprovisionedTitle": "在花名册中但不在班级团队中：{{classrooms}}。成绩通过团队收集，因此他们的作业会被遗漏。再次将其添加到班级即可修复。",
     "unprovisionedAccessBadge": "不在团队中",
-    "unprovisionedAccessTitle": "在此班级花名册中，但不在其 GitHub 团队中 —— 成绩收集会遗漏他们。请重新将其添加到班级以修复。",
+    "unprovisionedAccessTitle": "在此班级的花名册中但不在其 GitHub 团队中，因此成绩收集会遗漏他们。再次将其添加到班级即可修复。",
     "noGitHubUsername": "无 GitHub 用户名",
     "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
     "noUsernameWithId": "<missing>无 GitHub 用户名</missing> <meta>· id {{id}}</meta>",
@@ -3415,7 +3596,7 @@
     "details": {
       "name": "姓名",
       "username": "GitHub 用户名",
-      "githubId": "GitHub ID",
+      "githubId": "GitHub id",
       "email_one": "电子邮件",
       "email_other": "电子邮件",
       "orgRole": "角色",
@@ -3427,23 +3608,21 @@
     "noRoster": "不在任何班级的花名册中。",
     "archived": "已归档",
     "selfNotice": "这是你当前登录的账户，因此无法在此处将其从组织中移除。",
-    "notMember": "{{label}} 在某个班级花名册中，但<emphasis>不是组织成员</emphasis>。邀请他们以恢复其访问权限。邀请会按 id 发送到他们的 GitHub 账户，因此即使用户名已更改也能生效。",
+    "notMember": "{{label}} 在班级花名册中，但<emphasis>不是组织成员</emphasis>。邀请他们以恢复其访问权限。邀请将按 id 发送到其 GitHub 账号，因此即使其用户名更改也有效，并且包含其班级团队。",
     "inviting": "正在邀请……",
     "inviteToOrg": "邀请加入组织",
-    "confirmInviteBody": "向 {{label}} 发送组织邀请？该邀请会按 id 发送到其 GitHub 账户，他们接受后将带着之前的班级访问权限重新加入 {{org}}。",
-    "notMemberNoId": "此学生在某个花名册中，但不是组织成员。他们目前没有记录的 GitHub id，因此请从其班级的花名册页面邀请他们。",
-    "invitePendingNotice": "此学生是通过邮件邀请的，尚未接受，因此没有 GitHub 账户记录。这没有问题——他们加入时详情会自动填充。你可以在其班级的花名册页面取消邀请。",
+    "confirmInviteBody": "向 {{label}} 发送组织邀请？邀请将按 id 发送到其 GitHub 账号，并包含其班级团队，因此他们接受后即可重新入班。",
     "confirmUnenroll_one": "{{label}} 将首先从 <count>{{count}} 个班级</count>（{{classrooms}}）中退课，然后从 <org>{{org}}</org> 组织中被移除。他们的作业仓库不会被删除。",
     "confirmUnenroll_other": "{{label}} 将首先从 <count>{{count}} 个班级</count>（{{classrooms}}）中退课，然后从 <org>{{org}}</org> 组织中被移除。他们的作业仓库不会被删除。",
     "confirmRemove": "{{label}} 将从 <org>{{org}}</org> 组织中被移除。",
     "removing": "正在移除……",
     "removeFromOrg": "从组织中移除",
     "inviteFailed": "无法邀请 {{label}}：{{reason}}",
-    "somethingWrong": "该操作无法完成",
+    "somethingWrong": "出错了。请刷新后重试。",
     "removed": "{{label}} 已从 {{org}} 组织中移除。",
     "removedWithUnenroll_one": "{{label}} 已从 {{org}} 组织中移除，并从 {{count}} 个班级退课。",
     "removedWithUnenroll_other": "{{label}} 已从 {{org}} 组织中移除，并从 {{count}} 个班级退课。",
-    "removeFailed": "无法移除 {{label}}：{{reason}}",
+    "removeFailed": "无法移除 {{label}}：{{reason}}。请重试，或到组织在 GitHub 上的 People 页面移除。",
     "warnArchived": "{{who}} 仍在已归档的班级“{{classroom}}”中；请先取消归档该班级，才能将他们从该花名册中移除。",
     "warnUnenrollFailed": "无法将 {{who}} 从“{{classroom}}”退课（{{reason}}）；已移除其他班级。",
     "bulk": {
@@ -3455,10 +3634,9 @@
       "selectedCount_one": "已选择 {{count}} 项",
       "selectedCount_other": "已选择 {{count}} 项",
       "noClassrooms": "没有班级",
-      "actions": "操作",
       "addToClassroomMenu": "添加到班级",
       "removeFromClassroomMenu": "从班级中移除",
-      "removeNoneOnClassroom": "所选成员均不在任何班级花名册中。",
+      "removeNoneOnClassroom": "所选成员中没有人属于可从中移除的班级花名册。",
       "add": "添加",
       "remove": "移除",
       "removeModalTitle_one": "将 {{count}} 名所选成员从班级中移除",
@@ -3478,8 +3656,8 @@
       "confirmPhrase": "confirm",
       "addModalTitle_one": "将 {{count}} 名所选成员添加到班级",
       "addModalTitle_other": "将 {{count}} 名所选成员添加到班级",
-      "confirmAddBody_one": "这会将所选成员添加到 {{classroom}} 班级花名册及其团队；如果他们尚不是组织成员，则会邀请其加入组织。",
-      "confirmAddBody_other": "这会将所选成员添加到 {{classroom}} 班级花名册及其团队；如果他们尚不是组织成员，则会邀请其加入组织。",
+      "confirmAddBody_one": "这会将所选成员添加到 {{classroom}} 班级的名单及其团队中。此处只能添加组织成员；对于尚不是成员的人，请先在其行中邀请他们。",
+      "confirmAddBody_other": "这会将所选成员添加到 {{classroom}} 班级的名单及其团队中。此处只能添加组织成员；对于尚不是成员的人，请先在其行中邀请他们。",
       "destinationLabel": "目标班级",
       "classroomLabel": "班级",
       "previewAdd_one": "将向 {{classroom}} 添加 {{count}} 名成员。",
@@ -3496,11 +3674,10 @@
       "previewSkipNotOn_other": "已跳过 {{count}} 名——不在此班级中。",
       "previewSkipArchived_one": "已跳过 {{count}} 名——已加入此班级的某个已归档实例。",
       "previewSkipArchived_other": "已跳过 {{count}} 名——已加入此班级的某个已归档实例。",
-      "previewSkipPendingEmail_one": "已跳过 {{count}} 名——已通过电子邮件邀请但尚未接受。",
-      "previewSkipPendingEmail_other": "已跳过 {{count}} 名——已通过电子邮件邀请但尚未接受。",
-      "previewSkipNoUsername_one": "已跳过 {{count}} 名——档案中没有 GitHub 用户名。",
-      "previewSkipNoUsername_other": "已跳过 {{count}} 名——档案中没有 GitHub 用户名。",
-      "clearSelection": "清除选择",
+      "previewSkipPendingEmail_one": "已跳过 {{count}} 个：已通过邮件邀请但尚未接受。请改到该班级的花名册页面取消邀请。",
+      "previewSkipPendingEmail_other": "已跳过 {{count}} 个：已通过邮件邀请但尚未接受。请改到该班级的花名册页面取消邀请。",
+      "previewSkipNoUsername_one": "已跳过 {{count}} 个：档案中没有 GitHub 用户名，因此无法在此移除其组织成员资格。",
+      "previewSkipNoUsername_other": "已跳过 {{count}} 个：档案中没有 GitHub 用户名，因此无法在此移除其组织成员资格。",
       "addTitle": "将成员添加到 {{classroom}}",
       "removeTitle": "从 {{classroom}} 中移除成员",
       "removeOrgTitle": "从 {{org}} 组织中移除成员",
@@ -3523,21 +3700,80 @@
       "resultFailed": "失败",
       "resultWarnings": "警告",
       "resultTeamFailures": "团队添加失败",
-      "couldNotAddToTeam": "无法添加到班级团队。",
+      "couldNotAddToTeam": "无法添加到班级团队。请在班级名单中打开其行，并使用“添加到班级”重试。",
       "skipReason": {
         "not-member": "不是组织成员 —— 请先邀请他们。",
-        "no-id": "档案中没有可用于定位的 GitHub id。",
+        "no-id": "档案中没有 GitHub id，因此无法匹配到 GitHub 账号。",
         "already-on-classroom": "已在此班级中。",
         "not-on-classroom": "不在此班级中。",
         "already-removed": "已从此班级中移除。",
         "pending-email-invite": "已通过邮件邀请但尚未接受——请改为在班级的花名册页面取消该邀请。",
         "archived": "班级已归档 —— 请先取消归档才能更改成员身份。",
-        "resolve-failed": "无法解析其当前的 GitHub 账户。",
+        "resolve-failed": "无法查询其当前的 GitHub 账号。请重试。",
         "self": "这是你已登录的账户，因此无法在此处移除。",
-        "no-username": "档案中没有 GitHub 用户名——组织移除操作以用户名为键。"
+        "no-username": "档案中没有 GitHub 用户名，因此无法在此移除其组织成员资格。请到组织在 GitHub 上的 People 页面移除。",
+        "unlinked-row": "未关联到 GitHub 账号。请到该班级的花名册页面重新邀请、关联或移除该行。"
       },
-      "confirmRemoveOrgWarning": "被移除的成员将失去对组织中所有仓库的访问权限，包括他们自己的作业仓库，需要重新邀请才能返回。"
-    }
+      "confirmRemoveOrgWarning": "被移除的成员将失去对组织中所有仓库的访问权限，包括他们自己的作业仓库，需要重新邀请才能返回。",
+      "addNoneMembers": "所选行中没有组织成员。请先邀请他们，然后再将他们添加到班级中。",
+      "confirmInviteBody_one": "向所选学生发送组织邀请？邀请会按 id 发送到其 GitHub 账号，并包含其班级团队，因此他们一接受就会被注册。已有待处理邀请或已是成员的人会被跳过。",
+      "confirmInviteBody_other": "向所选的 {{count}} 名学生发送组织邀请？每份邀请都会按 id 发送到其 GitHub 账号，并包含其班级团队，因此他们一接受就会被注册。已有待处理邀请或已是成员的人会被跳过。",
+      "confirmInviteTitle_one": "发送 {{count}} 份邀请？",
+      "confirmInviteTitle_other": "发送 {{count}} 份邀请？",
+      "inviteNoneInvitable": "请选择已在名单上但不在组织中的学生。待处理、已过期和未关联的行可在其班级名单中处理。",
+      "inviteRateLimited": "已发送 {{sent}} 份邀请，随后触及 GitHub 的速率限制。其余的未发送。请等待几分钟后再试。",
+      "inviteSelected_one": "向 {{count}} 名学生发送组织邀请",
+      "inviteSelected_other": "向 {{count}} 名学生发送组织邀请",
+      "inviteSkipReason": {
+        "already-member": "已是组织成员。未发送任何新邀请。",
+        "already-pending": "已有待处理的邀请。未发送任何新邀请。",
+        "not-invitable": "无法从此处邀请：档案中没有 GitHub id，或该行不是不在组织中的学生。"
+      },
+      "inviteTitle": "向 {{org}} 组织发送邀请",
+      "invitedHeadline_one": "已发送 {{count}} 份邀请。",
+      "invitedHeadline_other": "已发送 {{count}} 份邀请。",
+      "previewSkipUnlinked_one": "已跳过 {{count}} 个：未关联到 GitHub 账号。请到该班级的花名册页面重新邀请、关联或移除该行。",
+      "previewSkipUnlinked_other": "已跳过 {{count}} 个：未关联到 GitHub 账号。请到该班级的花名册页面重新邀请、关联或移除这些行。",
+      "removeOrgNoneEligible": "所选行中没有带 GitHub 用户名的组织成员。",
+      "sendInvitations": "发送邀请"
+    },
+    "archivedParen": "（已归档）",
+    "badgeUnlinked": "未关联",
+    "filterInviteExpired": "邀请已过期",
+    "filterUnlinked": "未关联",
+    "invitationsRetry": "重试",
+    "invitationsUnavailable": "无法读取组织的邀请，因此不会显示待处理和已过期的邀请，行可能显示为未关联或不在组织中。邀请任何人之前请先重试。",
+    "inviteAlreadyMember": "{{who}} 已是 {{org}} 的成员，因此未发送新邀请。刷新以查看当前状态。",
+    "inviteAlreadyPending": "{{who}} 已有一个待接受的 {{org}} 邀请，因此未发送新邀请。请到其在班级花名册中所在行重新发送或取消。",
+    "notMemberExpired": "发给 {{label}} 的邀请在其接受之前已过期。GitHub 邀请有效期为 7 天。请再次邀请他们以恢复其访问权限。",
+    "notMemberFailed": "GitHub 无法将邀请送达 {{label}}（{{reason}}）。请再次邀请他们以恢复其访问权限。",
+    "openInRoster": "在 {{classroom}} 花名册中打开",
+    "orphanedInviteExpired": "已过期",
+    "orphanedInviteFailed": "已失败",
+    "orphanedInvitesBody": "GitHub 仍列出这些已过期或无法送达的邀请，但没有班级花名册或组织成员与之匹配，因此这里无法重新邀请他们。通常是邀请过期后花名册行已被删除。忽略它们以清除 GitHub 的失败邀请列表，或保留你出于其他目的发送的任何邀请。",
+    "orphanedInvitesDeferred_one": "GitHub 对请求进行了限流，因此有 {{count}} 个失败邀请未被忽略。请几分钟后再试。",
+    "orphanedInvitesDeferred_other": "GitHub 对请求进行了限流，因此有 {{count}} 个失败邀请未被忽略。请几分钟后再试。",
+    "orphanedInvitesDismiss": "忽略",
+    "orphanedInvitesDismissAll": "全部忽略",
+    "orphanedInvitesDismissFailed_one": "无法忽略 {{count}} 个失败邀请：{{error}}",
+    "orphanedInvitesDismissFailed_other": "无法忽略 {{count}} 个失败邀请：{{error}}",
+    "orphanedInvitesDismissed_one": "已忽略 {{count}} 个失败邀请。",
+    "orphanedInvitesDismissed_other": "已忽略 {{count}} 个失败邀请。",
+    "orphanedInvitesHide": "隐藏详情",
+    "orphanedInvitesTitle_one": "有 {{count}} 个失败邀请不在任何花名册中。",
+    "orphanedInvitesTitle_other": "有 {{count}} 个失败邀请不在任何花名册中。",
+    "orphanedInvitesView": "查看详情",
+    "removeSelf": "你无法在此从组织中移除自己的账号。",
+    "removeViewerUnverified": "无法验证你的账号，因此未移除该成员。请重试。",
+    "rosterReadFailed": "无法读取 {{classroom}} 的花名册，因此不显示其学生。请检查该班级的 roster.csv，然后刷新。",
+    "strandedExpired": "发给 {{who}} 的邀请在被接受之前已过期。GitHub 邀请有效期为 7 天。请到其在班级花名册中所在行重新邀请、将该行关联到组织成员，或移除该行。",
+    "strandedFailed": "GitHub 无法将邀请送达 {{who}}（{{reason}}）。请到其在班级花名册中所在行核对地址并重新邀请、将该行关联到组织成员，或移除该行。",
+    "strandedNoId": "{{who}} 在花名册中但不是组织成员，且其行没有 GitHub id，因此无法从此处邀请。请到其在班级花名册中所在行邀请他们。",
+    "strandedPendingAccount": "{{who}} 有一个待处理的组织邀请且尚未接受。他们加入后其行会自动更新。若要重新发送或取消邀请，请打开其在班级花名册中所在行。",
+    "strandedPendingEmail": "{{who}} 通过邮件被邀请且尚未接受，因此档案中没有 GitHub 账号。他们加入后其详细信息会自动填入。若要重新发送或取消邀请，请打开其在班级花名册中所在行。",
+    "strandedUnlinked": "该行未关联到 GitHub 账号，且 {{who}} 没有待处理的邀请。请到其在班级花名册中所在行重新邀请、将该行关联到组织成员，或移除该行。",
+    "warnNoUsername": "无法将 {{who}} 从组织中移除：其行没有 GitHub 用户名。请到组织在 GitHub 上的 People 页面移除。",
+    "warnOrgRemoveFailed": "将 {{who}} 从组织中移除失败（{{reason}}）。请重试，或到组织在 GitHub 上的 People 页面移除。"
   },
   "components": {
     "avatar": {
@@ -3706,7 +3942,13 @@
       "removeUser": "将 {{username}} 移出小组",
       "reviewJoinRequests": "在 GitHub 上审核加入申请",
       "title": "小组成员",
-      "youBadge": "你"
+      "youBadge": "你",
+      "overCapacity": "该组有 {{count}} 名成员，但此作业最多允许 {{max}} 名。你的老师也能看到此警告。请让该组的维护者或你的老师移除成员，直到该组成员数不超过 {{max}} 名。",
+      "overCapacityManage": "该组有 {{count}} 名成员，但此作业最多允许 {{max}} 名。你的老师也能看到此警告。请移除成员，直到该组成员数不超过 {{max}} 名。"
+    },
+    "groupOverCapacity": {
+      "badge": "超出上限",
+      "title": "该组有 {{count}} 名成员，但此作业最多允许 {{max}} 名。有人直接在 GitHub 上添加了成员。请从该组移除成员，或按现状为该组评分。"
     }
   },
   "formatDate": {
@@ -3788,7 +4030,8 @@
       "title": "管理 {{name}}",
       "undo": "撤销",
       "willBeAdded": "将被添加",
-      "willBeRemoved": "将被移除"
+      "willBeRemoved": "将被移除",
+      "overCapacity": "该组有 {{count}} 名成员，但此作业最多允许 {{max}} 名。有人直接在 GitHub 上添加了成员。请移除成员，直到该组成员数不超过 {{max}} 名，然后点击保存更改。"
     },
     "manageAriaLabel": "管理 {{name}}",
     "manageButton": "管理",
@@ -3847,5 +4090,10 @@
       "label": "可见性",
       "visible": "可见"
     }
+  },
+  "backgroundPass": {
+    "failed": "与 GitHub 的同步未完成。下次你打开班级时会再次运行。",
+    "synced": "已与 GitHub 同步。",
+    "syncing": "正在与 GitHub 同步…"
   }
 }

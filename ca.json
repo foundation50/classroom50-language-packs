@@ -2,7 +2,7 @@
   "accessibility": {
     "title": "Auditoria de contrast de color",
     "pageTitle": "Accessibilitat",
-    "pageSubtitle": "Com l'aplicació web de Classroom 50 s'ajusta al nivell AA de les WCAG 2.2, verificat automàticament a cada compilació.",
+    "pageSubtitle": "Com l'aplicació web de Classroom 50 compleix les WCAG 2.0, 2.1 i 2.2 en els nivells A i AA, amb el contrast de color comprovat en cada compilació.",
     "nav": {
       "contrast": "Contrast de color",
       "vpat": "Conformitat",
@@ -13,7 +13,7 @@
       "heading": "Declaració d'accessibilitat",
       "intro": "Volem que tothom pugui utilitzar Classroom 50, incloses les persones que fan servir un teclat, un lector de pantalla o altres tecnologies d'assistència.",
       "targetHeading": "Com ens en sortim",
-      "target": "El nostre objectiu és complir el nivell AA de les WCAG 2.2. El contrast de color es verifica a cada compilació; la resta es comprova manualment amb un teclat i un lector de pantalla. L'informe de conformitat indica com estem en cada criteri.",
+      "target": "El nostre objectiu és complir el nivell AA de les WCAG 2.2, que també cobreix els criteris de nivell A i AA de les WCAG 2.0 i 2.1. El contrast de color es comprova en cada compilació; la resta es comprova manualment amb un teclat i un lector de pantalla. L'informe de conformitat enumera tots els criteris de nivell A i AA, inclosos els que no s'apliquen a aquesta aplicació i el motiu.",
       "limitationsHeading": "Limitacions conegudes",
       "limitations": "Alguns criteris estan marcats com a «Compatibilitat parcial» a l'informe de conformitat, cadascun amb una nota sobre el que queda per fer. Els resolem a mesura que avança la feina.",
       "feedbackHeading": "Feu-nos arribar comentaris",
@@ -26,20 +26,22 @@
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
       "vpatWcagTitle": "VPAT: edició WCAG",
-      "vpatWcagDesc": "Informe de conformitat d'accessibilitat respecte a les WCAG 2.2 (VPAT 2.5Rev).",
+      "vpatWcagDesc": "Informe de conformitat d'accessibilitat respecte a les WCAG 2.0, 2.1 i 2.2, nivell A i AA (VPAT 2.5Rev).",
       "contrastTitle": "Auditoria de contrast de color",
       "contrastDesc": "Ràtios de contrast per parella per a cada color auditat, en ambdós temes.",
       "fullTitle": "Informe complet",
       "fullDesc": "El VPAT i l'auditoria de contrast de color en un únic document."
     },
     "print": {
-      "reportTitle": "Informe de conformitat d'accessibilitat: {{product}}",
-      "reportMeta": "Estàndard: WCAG {{standard}}, nivell objectiu {{target}}. Data de l'informe: {{date}}.",
-      "vpatSummary": "Resum ({{total}} criteris aplicables): {{supports}} amb compatibilitat, {{partially}} amb compatibilitat parcial, {{doesNotSupport}} sense compatibilitat, {{notApplicable}} no aplicables, {{notEvaluated}} no avaluats.",
+      "reportTitle": "Informe de conformitat d'accessibilitat de {{vendor}}",
+      "reportMeta": "Estàndard: {{standard}}, nivell objectiu {{target}}. Estàndards aplicables: WCAG {{versions}}, nivell A i AA. Data de l'informe: {{date}}.",
+      "vpatSummary": "Resum ({{total}} criteris): {{supports}} Admet, {{partially}} Admet parcialment, {{doesNotSupport}} No admet, {{notApplicable}} No aplicable, {{notEvaluated}} No avaluat.",
       "contrastTitle": "Auditoria de contrast de color",
       "contrastMeta": "Ràtios de contrast WCAG per parella per a cada color auditat, en ambdós temes. Generat el {{date}}.",
       "colColors": "Colors (text / fons)",
-      "belowMargin": "(per sota del recomanat de {{margin}}:1)"
+      "belowMargin": "(per sota del recomanat de {{margin}}:1)",
+      "productWithVersion": "{{product}}, versió {{version}}",
+      "reportProduct": "Edició WCAG (basada en la VPAT 2.5Rev). Nom del producte/versió: {{product}}."
     },
     "loadError": "No s'ha pogut carregar l'informe de l'auditoria de contrast.",
     "summaryPass": "Les {{total}} parelles de colors auditades assoleixen el llindar mínim de contrast de les WCAG.",
@@ -120,7 +122,18 @@
         "doesNotSupport": "Sense compatibilitat",
         "notApplicable": "No aplicable",
         "notEvaluated": "No avaluat"
-      }
+      },
+      "principle": {
+        "Operable": "Operable",
+        "Perceivable": "Perceptible",
+        "Robust": "Robust",
+        "Understandable": "Comprensible"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 i 2.2",
+        "wcag22": "Només WCAG 2.2"
+      },
+      "tabAll": "Tot"
     }
   },
   "actionsBanner": {
@@ -137,7 +150,8 @@
       "pending": "{{label}}: s'està iniciant…",
       "running": "{{label}}…",
       "success": "{{label}}: fet",
-      "failed": "{{label}}: ha fallat"
+      "failed": "{{label}}: ha fallat",
+      "superseded": "{{label}}: inclòs en una publicació més recent"
     },
     "workflow": {
       "publishPages": "S'està publicant al lloc de l'alumnat",
@@ -148,6 +162,17 @@
       "regrade": "S'està reavaluant",
       "probeToken": "S'està provant el testimoni de servei",
       "generic": "Flux de treball de GitHub Actions"
+    },
+    "publishFailure": {
+      "deployLockCleared": "La publicació anterior que bloquejava aquesta ha acabat. El teu canvi s'ha desat. Torna-ho a provar per publicar-lo ara.",
+      "deployLocked": "GitHub Pages encara està acabant una publicació anterior, així que aquesta no s'ha pogut iniciar. El teu canvi s'ha desat. La publicació anterior sol resoldre's en 10 minuts: torna-ho a provar llavors, o cancel·la-la ara.",
+      "outage": "GitHub Pages ha retornat un error de servidor. El teu canvi s'ha desat. Comprova githubstatus.com i, després, torna-ho a provar.",
+      "pagesDisabled": "GitHub Pages està desactivat per al repositori classroom50, així que res no pot arribar al lloc de l'alumnat. El teu canvi s'ha desat. Torna a executar la configuració a l'apartat de configuració de l'organització per tornar a activar Pages i, després, torna-ho a provar.",
+      "permission": "El flux de treball de publicació no té permís per escriure a GitHub Pages. El teu canvi s'ha desat. Actualitza els fitxers de flux de treball de l'organització (apareix un avís quan hi ha una actualització disponible) i, després, torna-ho a provar.",
+      "timeout": "GitHub Pages no ha acabat el desplegament en 10 minuts. El teu canvi s'ha desat. Normalment és una alentida de GitHub: torna-ho a provar i comprova githubstatus.com si continua passant.",
+      "unstick": "Cancel·la la publicació encallada i torna-ho a provar",
+      "unstickFailed": "No s'ha pogut cancel·lar la publicació anterior: {{detail}}. Es resol per si sola en uns 10 minuts. Torna-ho a provar llavors.",
+      "unsticking": "S'està cancel·lant…"
     }
   },
   "common": {
@@ -178,7 +203,10 @@
       "navAria": "Paginació",
       "previous": "Pàgina anterior",
       "next": "Pàgina següent"
-    }
+    },
+    "actionWithCount": "{{label}} ({{count}})",
+    "actions": "Accions",
+    "clearSelection": "Neteja la selecció"
   },
   "notFound": {
     "title": "No s'ha trobat la pàgina",
@@ -368,7 +396,7 @@
   "students": {
     "addTitle": "Afegeix un membre",
     "addMoreOptions": "Més opcions per afegir",
-    "addHint": "Introdueix un nom d'usuari de GitHub per afegir un estudiant amb les seves dades, o un correu electrònic per enviar una invitació a l'organització. Una invitació per correu manté el nom i la secció que introdueixis en una fila pendent del llistat fins que l'estudiant l'accepti.",
+    "addHint": "Introdueix un nom d'usuari de GitHub per afegir un estudiant amb les seves dades, o un correu electrònic per enviar una invitació a l'organització. Una invitació per correu electrònic conserva el nom i la secció que introdueixis en una fila pendent de la llista fins que l'estudiant l'accepti.",
     "addRoleLabel": "Rol",
     "addStaffHint": "El professorat, els TA principals i els TA s'afegeixen pel nom d'usuari de GitHub. El professorat i els TA principals obtenen accés d'escriptura al repositori classroom50; els TA, només de lectura. Al professorat se li concedeix la propietat de l'organització.",
     "usernamePlaceholder": "nom-usuari-github",
@@ -379,7 +407,7 @@
     "added": "S'ha afegit {{label}}.",
     "invited": "S'ha enviat una invitació a l'organització a {{label}}.",
     "emailInviteHint": "Convides només per correu electrònic? L'adreça s'afegeix al llistat immediatament i s'associa al compte de GitHub de l'estudiant quan s'hi uneixi. És l'adreça que has convidat, no necessàriament el correu del seu compte de GitHub.",
-    "inviteMetadataFailed": "No s'ha pogut preparar la invitació per a {{email}} ({{message}}), de manera que no se n'ha enviat cap. Torna-ho a provar; si continua fallant, elimina l'equip sobrant que s'esmenta al missatge i torna-ho a provar.",
+    "inviteMetadataFailed": "No s'ha pogut preparar la invitació per a {{email}} ({{message}}), de manera que no s'ha enviat res. Torna-ho a provar; si segueix fallant, elimina l'equip sobrant que s'esmenta al missatge i torna-ho a provar.",
     "alreadyEnrolled": "{{label}} ja està inscrit en aquesta aula.",
     "addFailed": "No s'ha pogut afegir {{label}}: {{message}}",
     "membersEnrolledCount_one": "{{count}} membre inscrit",
@@ -403,9 +431,9 @@
     "onboardingLinkHint": "Els estudiants accepten la invitació i inicien la sessió a Classroom 50 en un sol pas. Aquest és l'enllaç que comparteixen la majoria d'aules.",
     "onboardingLinkAria": "Enllaç d'incorporació per a estudiants",
     "copyOnboardingLinkAria": "Copia l'enllaç d'incorporació",
-    "resendMissingId": "No es pot tornar a enviar la invitació de {{username}}: falta l'id de GitHub. Torna a afegir-lo al llistat.",
-    "resendMalformedId": "No es pot tornar a enviar la invitació de {{username}}: «{{githubId}}» no és un id de GitHub vàlid. Corregeix la cel·la github_id a roster.csv.",
-    "resendFailed": "L'enviament de la invitació de {{username}} ha fallat ({{error}}).",
+    "resendMissingId": "No es pot tornar a enviar la invitació a {{username}}: la seva fila de la llista no té cap identificador de GitHub. Elimina la fila i torna a afegir-lo.",
+    "resendMalformedId": "No es pot tornar a enviar la invitació a {{username}}: «{{githubId}}» no és un identificador de GitHub vàlid. Corregeix la cel·la github_id de roster.csv i torna-ho a provar.",
+    "resendFailed": "No s'ha pogut tornar a enviar la invitació a {{username}}: {{error}}",
     "resend": "Torna a enviar",
     "dismiss": "Descarta",
     "rosterLoadError": "No s'ha pogut carregar el llistat des de GitHub. La llista d'inscrits pot estar incompleta. Es tracta d'un error de càrrega, no d'una aula buida.",
@@ -417,12 +445,12 @@
     "rosterRechecking": "S'està tornant a comprovar…",
     "statusPending": "Invitació pendent",
     "statusEnrolled": "Inscrit",
-    "statusNeedsAttentionInOrg": "Assigna un rol",
+    "statusNeedsAttentionInOrg": "No inscrit",
     "statusNeedsAttentionNotInOrg": "No és a l'organització",
     "statusUnlinked": "Sense vincular",
     "viewCsvOnGitHub": "Mostra roster.csv",
     "csvRoster": {
-      "notice": "Llistat CSV de roster.csv (mantingut pel docent). El llistat autoritzat basat en equips i la gestió d'invitacions estan disponibles per al professorat.",
+      "notice": "Llista CSV de roster.csv (mantinguda pel docent). La llista autoritzada basada en equips i la gestió d'invitacions estan disponibles per als docents.",
       "caption": "Llistat CSV de roster.csv",
       "colName": "Nom",
       "colSection": "Secció",
@@ -436,9 +464,9 @@
     "sectionGithub": "GitHub i inscripció",
     "sectionProfile": "Perfil",
     "notSet": "Sense definir",
-    "confirmResendBody": "Vols tornar a enviar la invitació pendent a l'organització per a {{label}}? La invitació actual es cancel·la i se n'envia una de nova per a {{org}}.",
+    "confirmResendBody": "Voleu tornar a enviar la invitació a l'organització a {{label}}? La invitació actual es cancel·la i se n'envia una de nova per a {{org}}.",
     "cancelInvite": "Cancel·la la invitació",
-    "keepInvite": "Mantén la invitació",
+    "keepInvite": "Conserva la invitació",
     "confirmCancelInviteBody": "Vols cancel·lar la invitació pendent a l'organització per a {{label}}? S'eliminaran de les invitacions pendents de {{org}} i no s'hi uniran tret que se'ls torni a convidar.",
     "cancelInviteMissingId": "No es pot cancel·lar la invitació de {{label}}: no hi ha cap id d'invitació registrat.",
     "cancelInviteFailed": "No s'ha pogut cancel·lar la invitació de {{label}}: {{error}}",
@@ -449,14 +477,7 @@
     "rosterFromCsvNotice": "Aquesta llista prové del fitxer del llistat tal com era en la darrera sincronització, perquè el teu rol no pot veure els equips de GitHub de l'aula. Un membre afegit des d'aleshores apareix quan un docent obre el llistat. Els propietaris de l'organització veuen la pertinença en directe.",
     "unlinkedBanner_one": "{{count}} fila del llistat encara no està vinculada a un compte de GitHub.",
     "unlinkedBanner_other": "{{count}} files del llistat encara no estan vinculades a un compte de GitHub.",
-    "failedInvitesTitle_one": "{{count}} invitació ha fallat o ha caducat.",
-    "failedInvitesTitle_other": "{{count}} invitacions han fallat o han caducat.",
-    "failedInviteDismissError": "No s'ha pogut descartar la invitació fallida: {{error}}",
     "reinvite": "Torna a convidar",
-    "failedInviteReinviteError": "No s'ha pogut tornar a convidar: {{error}}",
-    "failedInviteRateLimited": "GitHub ha limitat la freqüència de la reinvitació a {{who}}. Torna-ho a provar.",
-    "failedInviteNotSent": "No s'ha enviat cap invitació a {{who}}. Torna-ho a provar.",
-    "failedInviteNoTarget": "Aquesta invitació no té cap nom d'usuari de GitHub ni correu electrònic, de manera que no es pot tornar a enviar. Descarta-la i torna a afegir la persona.",
     "pendingReview": "Revisa",
     "shareLinksTitle": "Comparteix els enllaços de l'aula",
     "inviteLinksHint": "Aquests enllaços no conviden ningú. Convida primer els estudiants des del llistat i després comparteix un enllaç perquè cada estudiant pugui acceptar la invitació i iniciar la sessió.",
@@ -499,12 +520,12 @@
     "inviteRosterFailed": "No s'ha pogut convidar {{label}}: {{error}}",
     "inviteRosterMalformedId": "No es pot convidar {{username}}: «{{githubId}}» no és un id de GitHub vàlid. Corregeix la cel·la github_id a roster.csv.",
     "inviteRosterNoUsername": "{{label}} no té cap nom d'usuari de GitHub registrat. Afegeix-ne un abans de convidar.",
-    "inviteRosterDeferred": "GitHub ha limitat la freqüència de la invitació a {{label}}. Torna-ho a provar aviat.",
-    "inviteRosterNoneSent": "No s'ha enviat cap invitació a {{label}}. Torna-ho a provar.",
+    "inviteRosterDeferred": "GitHub ha limitat la freqüència de la invitació a {{label}}. Espera uns minuts i torna-ho a provar.",
+    "inviteRosterNoneSent": "No s'ha enviat cap invitació a {{label}}. GitHub informa que ja està convidat o ja és membre. Actualitza la llista per veure l'estat actual.",
     "filterAll": "Tots els membres",
     "filterEnrolled": "Inscrits",
-    "filterPending": "Pendents",
-    "filterNeedsAttentionInOrg": "Necessita un rol",
+    "filterPending": "Invitació pendent",
+    "filterNeedsAttentionInOrg": "No inscrit",
     "filterNeedsAttentionNotInOrg": "No és a l'organització",
     "filterUnlinked": "Sense vincular",
     "searchPlaceholder": "Cerca membres",
@@ -538,28 +559,26 @@
       "selectAll": "Selecciona tots els estudiants",
       "selectRow": "Selecciona {{label}}",
       "selfNotSelectable": "No pots donar-te de baixa a tu mateix de manera massiva.",
-      "noneSelectable": "Les accions massives (donar de baixa, convidar) s'apliquen només als estudiants. Gestiona el personal (docents, TA principals i TA) a la configuració de l'aula.",
+      "noneSelectable": "Les accions massives (enviar invitacions, donar de baixa) s'apliquen només als estudiants. Gestiona el personal (docents, TA principals i TA) a la Configuració de l'aula.",
       "selectedCount_one": "{{count}} seleccionat",
       "selectedCount_other": "{{count}} seleccionats",
-      "actions": "Accions",
       "unenroll": "Dona de baixa",
       "unenrollSelected_one": "Dona de baixa {{count}} estudiant",
       "unenrollSelected_other": "Dona de baixa {{count}} estudiants",
-      "clearSelection": "Neteja la selecció",
       "starting": "S'està iniciant…",
       "keepTabOpen": "Mantén aquesta pestanya oberta fins que l'acció s'hagi completat.",
       "progressProcessed": "{{processed}} de {{total}}",
       "done": "Fet",
-      "noInviteId": "Aquesta invitació no té cap id registrat. Elimina la fila i torna a afegir l'estudiant.",
-      "malformedInviteId": "El github_id de roster.csv no és vàlid. Corregeix aquesta cel·la.",
-      "invite": "Convida",
-      "inviteSelected_one": "Convida {{count}} estudiant a l'organització",
-      "inviteSelected_other": "Convida {{count}} estudiants a l'organització",
-      "inviteNoneInvitable": "Selecciona almenys un estudiant que no sigui a l'organització o que estigui pendent per convidar-lo.",
-      "inviteTitle": "Convida estudiants a l'organització",
-      "invitedHeadline_one": "S'ha convidat {{count}} estudiant.",
-      "invitedHeadline_other": "S'han convidat {{count}} estudiants.",
-      "cancelInvite": "Cancel·la",
+      "noInviteId": "Aquesta fila no té cap identificador de GitHub, de manera que la invitació no es pot tornar a enviar. Elimina la fila i torna a afegir l'estudiant.",
+      "malformedInviteId": "El github_id de roster.csv no és vàlid, de manera que la invitació no es pot tornar a enviar. Corregeix aquesta cel·la i torna-ho a provar.",
+      "invite": "Envia invitacions",
+      "inviteSelected_one": "Envia una invitació a {{count}} estudiant",
+      "inviteSelected_other": "Envia invitacions a {{count}} estudiants",
+      "inviteNoneInvitable": "Selecciona estudiants amb una invitació pendent o caducada, o que encara no siguin a l'organització. Una fila sense adreça de correu electrònic ni nom d'usuari de GitHub no es pot convidar.",
+      "inviteTitle": "Envia invitacions",
+      "invitedHeadline_one": "S'ha enviat {{count}} invitació.",
+      "invitedHeadline_other": "S'han enviat {{count}} invitacions.",
+      "cancelInvite": "Cancel·la invitacions",
       "cancelSelected_one": "Cancel·la {{count}} invitació pendent",
       "cancelSelected_other": "Cancel·la {{count}} invitacions pendents",
       "cancelNoneCancellable": "Selecciona almenys una invitació pendent per cancel·lar.",
@@ -594,11 +613,15 @@
       "confirmUnenrollTitle_other": "Vols donar de baixa {{count}} estudiants?",
       "confirmUnenrollBody_one": "Això elimina {{count}} alumne de l'equip de l'aula i suprimeix la seva fila del llistat. No l'elimina de l'organització.",
       "confirmUnenrollBody_other": "Això elimina {{count}} alumnes de l'equip de l'aula i suprimeix les seves files del llistat. No els elimina de l'organització.",
-      "confirmInviteTitle_one": "Voleu convidar {{count}} alumne?",
-      "confirmInviteTitle_other": "Voleu convidar {{count}} alumnes?",
-      "confirmInviteBodyPlain_one": "Voleu enviar una invitació a l'organització a {{count}} alumne seleccionat? S'unirà a l'organització i al seu equip d'aula un cop l'accepti.",
-      "confirmInviteBodyPlain_other": "Voleu enviar invitacions a l'organització a {{count}} alumnes seleccionats? S'uniran a l'organització i al seu equip d'aula un cop les acceptin.",
-      "confirmUnenrollWarning": "Tornar a inscriure vol dir afegir de nou cada estudiant a la llista de classe. Els seus repositoris de tasques no s'eliminen."
+      "confirmInviteTitle_one": "Voleu enviar {{count}} invitació?",
+      "confirmInviteTitle_other": "Voleu enviar {{count}} invitacions?",
+      "confirmInviteBodyPlain_one": "Voleu enviar una invitació nova a l'organització a l'estudiant seleccionat? Una invitació pendent es cancel·la i s'envia de nou, i una de caducada es reemplaça. S'uneix a l'organització i a l'equip de l'aula quan l'accepta.",
+      "confirmInviteBodyPlain_other": "Voleu enviar invitacions noves a l'organització als {{count}} estudiants seleccionats? Les invitacions pendents es cancel·len i s'envien de nou, i les caducades es reemplacen. Els estudiants s'uneixen a l'organització i a l'equip de l'aula quan les accepten.",
+      "confirmUnenrollWarning": "Tornar a inscriure vol dir afegir de nou cada estudiant a la llista de classe. Els seus repositoris de tasques no s'eliminen.",
+      "alreadyInvitedOrMember": "Ja convidat o ja és membre. No s'ha enviat res de nou.",
+      "cancelInviteConfirm_one": "Cancel·la la invitació",
+      "cancelInviteConfirm_other": "Cancel·la les invitacions",
+      "nextBatch": "S'està preparant el lot següent…"
     },
     "emptyTitle": "Encara no hi ha membres",
     "emptyBody": "Convideu alumnes des del llistat per inscriure'ls, o afegiu professors i auxiliars docents a Configuració. L'enllaç d'incorporació només permet acceptar a un alumne ja convidat; no afegeix ningú per si sol. Un cop les persones acceptin la invitació i iniciïn la sessió, apareixeran aquí.",
@@ -619,7 +642,7 @@
     "syncMatchedEmails_other": "S'han associat {{count}} correus convidats a comptes de GitHub.",
     "syncRosterDone": "Llistat actualitzat.",
     "syncFailed": "No s'ha pogut actualitzar el llistat: {{error}}",
-    "resendAllRateLimitedShort": "S'han reenviat {{resent}} invitacions i s'ha assolit el límit de sol·licituds de GitHub. Torneu-ho a provar amb la resta d'aquí a un minut.",
+    "resendAllRateLimitedShort": "S'han enviat {{resent}} invitacions, i després s'ha assolit el límit de freqüència de GitHub. La resta no s'han enviat. Espera uns minuts i torna-ho a provar.",
     "share": "Comparteix",
     "groupBy": {
       "label": "Agrupa per",
@@ -723,8 +746,8 @@
     "preflightTeacherEmailNotice_other": "{{count}} persones més seran convidades com a propietàries de l'organització.",
     "invitingEmails": "S'estan enviant les invitacions per correu electrònic…",
     "emailInviteRosterNotice": "Cada adreça convidada s'afegeix immediatament a roster.csv, amb qualsevol nom i grup del fitxer, i s'associa al compte de GitHub de l'alumne quan l'accepta. Fins llavors, els convidats apareixen com a pendents.",
-    "emailLinksNotice_one": "{{count}} adreça coincideix amb un alumne del llistat d'una aula anterior i s'inscriurà directament en lloc de ser convidat.",
-    "emailLinksNotice_other": "{{count}} adreces coincideixen amb alumnes de llistats d'aules anteriors i s'inscriuran directament en lloc de ser convidats.",
+    "emailLinksNotice_one": "{{count}} adreça coincideix amb un estudiant que ja té un compte de GitHub d'una aula anterior. Es vincularà a aquest compte i s'inscriurà directament en lloc de ser convidat.",
+    "emailLinksNotice_other": "{{count}} adreces coincideixen amb estudiants que ja tenen comptes de GitHub d'aules anteriors. Es vincularan a aquests comptes i s'inscriuran directament en lloc de ser convidats.",
     "emailLinksConfirm": "Vincula aquestes adreces als comptes de GitHub coincidents",
     "emailLinkBinding": "{{email}} → @{{login}} ({{classroom}})",
     "emailLinksDegraded": "No s'han pogut llegir algunes aules, de manera que hi pot haver més adreces vinculables de les que es mostren.",
@@ -804,7 +827,38 @@
     "chooseAnotherFile": "Trieu un altre fitxer",
     "usernameLabel": "Nom d'usuari de GitHub",
     "firstNameLabel": "Nom",
-    "lastNameLabel": "Cognoms"
+    "lastNameLabel": "Cognoms",
+    "completedRow": "S'ha vinculat {{label}} a la fila existent de la llista per a {{row}}.",
+    "emailInviteAlreadyPendingDetail": "Ja té una invitació pendent, de manera que no s'ha enviat res de nou. Per tornar a enviar-la, fes servir Torna a enviar a la seva fila de la llista.",
+    "emailLinksDeclinedNotice_one": "{{count}} adreça coincideix amb un estudiant que ja té un compte de GitHub, però no es vincularà. En lloc d'això rep una invitació per correu electrònic, i la seva fila queda sense vincular fins que la vinculis des de la llista.",
+    "emailLinksDeclinedNotice_other": "{{count}} adreces coincideixen amb estudiants que ja tenen comptes de GitHub, però no es vincularan. En lloc d'això reben invitacions per correu electrònic, i les seves files queden sense vincular fins que les vinculis des de la llista.",
+    "emailLinksUnlinkBody_one": "Aquesta persona ja és membre de l'organització amb un compte de GitHub conegut. GitHub omet enviar una invitació per correu electrònic a un membre existent, de manera que la seva fila queda sense vincular fins que la vinculis manualment des de la llista.",
+    "emailLinksUnlinkBody_other": "Aquestes persones ja són membres de l'organització amb comptes de GitHub coneguts. GitHub omet enviar una invitació per correu electrònic a un membre existent, de manera que les seves files queden sense vincular fins que les vinculis manualment des de la llista.",
+    "emailLinksUnlinkConfirm": "No vinculis",
+    "emailLinksUnlinkTitle": "Voleu enviar invitacions per correu electrònic en lloc de vincular?",
+    "filterInviteExpired": "Invitació caducada",
+    "identityConflict": "Una fila de la llista ja fa servir el nom d'usuari {{label}} per a un compte de GitHub diferent, o una altra fila ja porta aquest nom d'usuari. Edita o elimina la fila en conflicte de la llista, i torna a afegir {{label}}.",
+    "inviteDailyLimit": "S'ha esgotat el límit diari d'invitacions de GitHub per a aquesta organització. Les organitzacions de menys d'un mes o amb el pla gratuït poden enviar 50 invitacions al dia, i les altres 500. Torna-ho a provar demà.",
+    "linkAccountAction": "Vincula el compte",
+    "needsAttentionExpiredHelp": "La invitació a {{label}} va caducar abans que l'acceptés. Les invitacions de GitHub duren 7 dies. Torna a convidar-lo per inscriure'l.",
+    "needsAttentionFailedHelp": "GitHub no ha pogut lliurar la invitació a {{label}} ({{reason}}). Torna a convidar-lo per inscriure'l.",
+    "previewAlreadyPending": "Invitació ja pendent",
+    "previewResendExpired": "Torna a enviar la invitació (caducada)",
+    "previewResendFailed": "Torna a enviar la invitació (no lliurada)",
+    "reinviteRowAlreadyInvited": "No s'ha enviat res. GitHub ja té una invitació activa o un membre per a {{email}}, possiblement d'una altra aula d'aquesta organització. Comprova la pàgina Persones de l'organització a GitHub, o vincula aquesta fila a aquell membre quan l'accepti.",
+    "reinviteRowFailed": "No s'ha pogut tornar a convidar {{email}}: {{error}}",
+    "reinviteRowRateLimited": "GitHub ha limitat la freqüència de la invitació a {{email}}. Espera uns minuts i torna-ho a provar.",
+    "resendNotSent": "No s'ha enviat cap invitació nova a {{label}}. GitHub informa que l'adreça ja està convidada o ja és membre. Actualitza la llista per veure l'estat actual.",
+    "resendRateLimited": "GitHub ha limitat la freqüència del reenviament a {{label}}. Espera uns minuts i torna-ho a provar.",
+    "statusInviteExpired": "Invitació caducada",
+    "statusInviteFailed": "Ha fallat la invitació",
+    "unlinkedEmailIntro": "Aquesta fila no està vinculada a cap compte de GitHub, i {{email}} no té cap invitació pendent. És possible que la invitació hagi caducat o s'hagi cancel·lat. Torneu-los a convidar, vinculeu la fila a un membre de l'organització o elimineu-la.",
+    "unlinkedExpiredIntro": "La invitació a {{email}} va caducar abans que s'acceptés. Les invitacions de GitHub duren 7 dies. Torneu-los a convidar, vinculeu la fila a un membre de l'organització o elimineu-la.",
+    "unlinkedFailedIntro": "GitHub no ha pogut lliurar la invitació a {{email}} ({{reason}}). Comproveu l'adreça i, tot seguit, torneu-los a convidar, vinculeu la fila a un membre de l'organització o elimineu-la.",
+    "uploadBlockedChecking": "S'està comprovant la pertinença actual…",
+    "uploadBlockedDetails": "Confirmeu les actualitzacions de dades de dalt per continuar.",
+    "uploadBlockedRoles": "Confirmeu els canvis de rol de dalt per continuar.",
+    "uploadBlockedUsernames": "Confirmeu els canvis de nom d'usuari de dalt per continuar."
   },
   "language": {
     "baseName": "Anglès (base)",
@@ -953,7 +1007,7 @@
     },
     "detailsModal": {
       "displayName": "Nom visible",
-      "displayNamePlaceholder": "Classroom 50 Summer Dev",
+      "displayNamePlaceholder": "CS1 Tardor 2026",
       "description": "Descripció",
       "descriptionPlaceholder": "Una breu descripció d'aquesta organització",
       "website": "Lloc web",
@@ -1108,12 +1162,15 @@
         "sortDueDesc": "Lliurament més llunyà",
         "sortNameAsc": "Nom (A–Z)",
         "sortNameDesc": "Nom (Z–A)",
-        "clear": "Neteja els filtres"
+        "clear": "Neteja els filtres",
+        "statusSubmitted": "Lliurada"
       },
       "noResults": {
         "title": "Cap tasca coincideix amb els teus filtres",
         "body": "Prova una cerca diferent o neteja els filtres."
-      }
+      },
+      "submissionUnknown": "No s'han pogut comprovar els lliuraments. Actualitza per tornar-ho a provar.",
+      "submitted": "Lliurada"
     },
     "newButton": {
       "assignment": "Tasca",
@@ -1201,7 +1258,7 @@
       "studentPermission": {
         "label": "Accés al repositori de l'estudiant",
         "learnMore": "Més informació",
-        "help": "El rol que s'atorga a cada estudiant sobre el seu propi repositori de tasca en el moment d'acceptar. El valor per defecte és Escriptura (push). Tria Administrador per permetre que els estudiants gestionin la configuració del repositori i activin GitHub Pages. Això s'aplica als estudiants que acceptin a partir d'ara; utilitza la pàgina de lliuraments per canviar els repositoris ja creats.",
+        "help": "El rol que se li concedeix a cada alumne al seu propi repositori de la tasca en acceptar-la. Push (escriptura) és el valor per defecte. Tria Administrador per permetre que l'alumnat gestioni la configuració del repositori pel seu compte. Això s'aplica a l'alumnat que accepti a partir d'ara; utilitza la pàgina de lliuraments per canviar els repositoris ja creats.",
         "groupHelp": "Els membres del grup s'hi uneixen amb com a mínim administrador perquè el propietari del grup pugui afegir companys d'equip. Això s'aplica als repositoris creats a partir d'ara; utilitza la pàgina de lliuraments per canviar els existents.",
         "default": "Per defecte: {{level}}",
         "levels": {
@@ -1378,7 +1435,10 @@
         "releaseAssetsInvalidBasename": "{{basename}} no és un nom de fitxer de publicació segur o està reservat.",
         "releaseAssetsDuplicatePath": "{{path}} apareix més d'una vegada; cada camí de fitxer de publicació ha de ser únic.",
         "releaseAssetsDuplicateBasename": "{{basename}} es carregaria més d'una vegada; els noms de fitxer de publicació han de ser únics.",
-        "teamFormationInvalid": "Tria qui forma els grups."
+        "teamFormationInvalid": "Tria qui forma els grups.",
+        "pagesBranchInvalid": "Introdueix un nom de branca sense espais, de com a màxim 255 caràcters, o deixa-ho en blanc per a la branca per defecte.",
+        "pagesPathInvalid": "La carpeta de Pages ha de ser / o /docs.",
+        "pagesSourceInvalid": "GitHub Pages ha de ser «Desactivat», «GitHub Actions» o «Una branca»."
       },
       "typeTeam": "Grup",
       "typeTeamRecommended": "Recomanat",
@@ -1389,7 +1449,28 @@
       "teamFormationStudentHelp": "El primer estudiant crea el grup en acceptar-la, i després hi afegeix companys fins a la mida màxima del grup.",
       "releaseLockedReminder": "Bloquejada. La data de publicació no desbloqueja la tasca: desactiva Bloqueja la tasca a la data de publicació perquè l'alumnat la pugui acceptar.",
       "releaseTemplateReadableBody": "La data de publicació només controla el llistat. En desar, l'equip de l'aula obté accés de lectura a aquesta plantilla privada immediatament. Per mantenir la plantilla amagada, bloqueja la tasca ara i desbloqueja-la a la data de publicació.",
-      "releaseTemplateReadableTitle": "L'alumnat pot llegir aquesta plantilla abans de la data de publicació"
+      "releaseTemplateReadableTitle": "L'alumnat pot llegir aquesta plantilla abans de la data de publicació",
+      "pages": {
+        "branch": {
+          "help": "La branca que publica GitHub. Deixa-ho en blanc per usar la branca per defecte del repositori. Una branca amb nom ha d'existir a cada repositori de l'alumnat quan l'accepten (per exemple, copiada de la plantilla amb «Inclou totes les branques»).",
+          "label": "Branca",
+          "placeholder": "Branca per defecte"
+        },
+        "choices": {
+          "branch": "Una branca",
+          "off": "Desactivat",
+          "workflow": "GitHub Actions"
+        },
+        "editHelp": "Això s'aplica als repositoris creats a partir d'ara; utilitza la pàgina de lliuraments per activar Pages en els existents.",
+        "emptyRepoHint": "No disponible per a un repositori buit: encara no hi ha cap branca per publicar.",
+        "help": "Publica cada repositori de l'alumnat com un lloc web amb GitHub Pages, configurat automàticament quan l'alumne l'accepta perquè no necessiti mai accés d'administrador. Per defecte està desactivat. «GitHub Actions» desplega mitjançant un flux de treball al repositori de l'alumne (per a llocs amb un pas de compilació). «Una branca» publica directament els fitxers d'una branca, sense necessitat de flux de treball (per a HTML, CSS i JavaScript simples). El lloc és públic a internet fins i tot quan el repositori és privat, i se serveix cada fitxer de la branca i la carpeta publicades; només GitHub Enterprise Cloud pot restringir qui el veu. Pages en repositoris privats requereix un pla de GitHub que l'inclogui; a GitHub Free per a organitzacions, fes públic el repositori o el lloc no es crea.",
+        "label": "GitHub Pages",
+        "path": {
+          "help": "La carpeta d'aquesta branca que es publica: l'arrel del repositori (/) o /docs. GitHub només permet aquestes dues.",
+          "label": "Carpeta"
+        },
+        "workflowNote": "Desplegar mitjançant GitHub Actions requereix un flux de treball a cada repositori de l'alumnat que publiqui a Pages: ha de concedir els permisos pages: write i id-token: write i usar actions/upload-pages-artifact i actions/deploy-pages. Posa'l a la plantilla, o fes que l'alumnat l'afegeixi. El lloc es crea quan l'alumne l'accepta, així que la primera execució del flux de treball el desplega."
+      }
     },
     "autograder": {
       "heading": "Proves de correcció automàtica",
@@ -1724,7 +1805,57 @@
     "includeStaff": "Inclou l'equip docent",
     "includeStaffHelp": "Compta els professors, els caps de TA i els TA juntament amb l'alumnat a les columnes Acceptades i Lliurades. És útil quan l'equip docent prova una tasca abans que ho faci l'alumnat.",
     "staffCount_one": "{{count}} membre de l'equip docent",
-    "staffCount_other": "{{count}} membres de l'equip docent"
+    "staffCount_other": "{{count}} membres de l'equip docent",
+    "bulk": {
+      "delete": "Elimina",
+      "deleteBody": "Això elimina les tasques seleccionades del fitxer assignments.json de l'aula en un sol commit. Els repositoris de l'alumnat i els seus lliuraments no s'eliminen. Es mantenen a l'organització i encara s'hi pot accedir pel nom.",
+      "deleteConfirmWord": "elimina",
+      "deleteDone_one": "S'ha eliminat {{count}} tasca.",
+      "deleteDone_other": "S'han eliminat {{count}} tasques.",
+      "deleteNoChange": "Totes les tasques seleccionades ja havien desaparegut; no s'ha fet cap commit.",
+      "deleteTitle_one": "Voleu eliminar {{count}} tasca?",
+      "deleteTitle_other": "Voleu eliminar {{count}} tasques?",
+      "deleteWarning": "L'alumnat perd l'accés a les pàgines de la tasca, i s'eliminen la data límit, la plantilla i la configuració de qualificació de cada tasca.",
+      "lock": "Bloqueja",
+      "lockAllLocked": "Totes les tasques seleccionades ja estan bloquejades.",
+      "lockBody": "L'alumnat perd l'accés a les tasques seleccionades a la pàgina d'acceptació, la llista de tasques, la vista de lliurament i la CLI. Els repositoris existents de l'alumnat no s'eliminen. Això és un sol commit al fitxer assignments.json de l'aula, així que s'aplica a totes o a cap.",
+      "lockDone_one": "S'ha bloquejat {{count}} tasca.",
+      "lockDone_other": "S'han bloquejat {{count}} tasques.",
+      "lockNoChange": "Totes les tasques seleccionades ja estaven en aquest estat; no s'ha fet cap commit.",
+      "lockTitle_one": "Voleu bloquejar {{count}} tasca?",
+      "lockTitle_other": "Voleu bloquejar {{count}} tasques?",
+      "missingSkipped_one": "{{count}} tasca seleccionada ja havia desaparegut i s'ha omès.",
+      "missingSkipped_other": "{{count}} tasques seleccionades ja havien desaparegut i s'han omès.",
+      "reuse": "Reutilitza",
+      "reuseBody": "Copia les tasques seleccionades en una altra aula d'aquesta organització. Tria la destinació i, després, comprova l'slug que prendrà cada còpia. Quan un slug ja hi és en ús, s'hi afegeix un sufix numerat, i pots sobreescriure'n qualsevol abans de copiar.",
+      "reuseDone_one": "S'ha copiat {{count}} tasca.",
+      "reuseDone_other": "S'han copiat {{count}} tasques.",
+      "reuseFailedTitle": "Excloses de la còpia",
+      "reuseFailed_one": "No s'ha pogut copiar {{count}} tasca.",
+      "reuseFailed_other": "No s'han pogut copiar {{count}} tasques.",
+      "reuseNoTargets": "No hi ha cap altra aula a {{org}} on copiar-la.",
+      "reuseRenamedTitle": "Copiada amb un slug diferent",
+      "reuseSlugDuplicate": "Una altra tasca d'aquesta còpia ja fa servir aquest slug.",
+      "reuseSlugLabel": "Slug per a {{assignment}}",
+      "reuseSlugRequired": "Cal un slug.",
+      "reuseTargetError": "No s'han pogut llegir les tasques de l'aula de destinació, així que no es pot resoldre una col·lisió d'slugs. Torna-ho a provar.",
+      "reuseTemplateWarnTitle": "Copiada, però no s'ha pogut concedir l'accés a la plantilla",
+      "reuseTitle_one": "Reutilitza {{count}} tasca",
+      "reuseTitle_other": "Reutilitza {{count}} tasques",
+      "selectAll": "Selecciona totes les tasques",
+      "selectRow": "Selecciona {{assignment}}",
+      "selectedCount_one": "{{count}} tasca seleccionada",
+      "selectedCount_other": "{{count}} tasques seleccionades",
+      "templateWarnings_one": "S'ha actualitzat {{count}} tasca, però no s'ha pogut actualitzar l'accés de l'equip d'alumnat a la seva plantilla: {{slugs}}. Comprova-ho a GitHub, o torna a executar l'acció sobre aquesta selecció.",
+      "templateWarnings_other": "S'han actualitzat {{count}} tasques, però no s'ha pogut actualitzar l'accés de l'equip d'alumnat a les seves plantilles: {{slugs}}. Comprova-ho a GitHub, o torna a executar l'acció sobre aquesta selecció.",
+      "unlock": "Desbloqueja",
+      "unlockBody": "Això torna a obrir les tasques seleccionades a l'alumnat. Quan s'usa una plantilla privada, es restaura la lectura de l'equip d'alumnat sobre aquesta perquè l'alumnat pugui tornar a acceptar-la.",
+      "unlockDone_one": "S'ha desbloquejat {{count}} tasca.",
+      "unlockDone_other": "S'han desbloquejat {{count}} tasques.",
+      "unlockNoneLocked": "Cap de les tasques seleccionades no està bloquejada.",
+      "unlockTitle_one": "Voleu desbloquejar {{count}} tasca?",
+      "unlockTitle_other": "Voleu desbloquejar {{count}} tasques?"
+    }
   },
   "published": {
     "pageHeading": "Recursos publicats",
@@ -1778,6 +1909,12 @@
         "label": "Fitxer de workflow: {{name}}",
         "description": "El workflow de GitHub Actions que s'afegeix al repositori d'un estudiant quan accepta una tasca que utilitza aquest corrector automàtic."
       }
+    },
+    "republish": {
+      "button": "Torna a publicar",
+      "failed": "No s'ha pogut iniciar la publicació: {{detail}}. Comprova que pots executar fluxos de treball al repositori classroom50 i torna-ho a provar.",
+      "help": "Torna a desplegar el lloc des del repositori classroom50 tal com està, sense canviar-hi res. Fes-ho servir quan un fitxer de sota mostri No publicat o Inaccessible després d'una publicació fallida.",
+      "started": "S'està publicant al lloc de l'estudiant ara mateix. La bàner de sobre mostra el progrés."
     }
   },
   "getStarted": {
@@ -1878,7 +2015,8 @@
         "autograder": "Autoavaluador integrat: si el desactives, les execucions d'autoavaluació dels repositoris existents fallaran i quedaran fora de les puntuacions recollides.",
         "grading_mode": "Mode d'avaluació: les puntuacions registrades amb el mode anterior es poden interpretar de manera diferent.",
         "student_permission": "Accés de l'estudiant al repositori: canvia els repositoris existents des de la pàgina d'entregues.",
-        "repo_visibility": "Visibilitat del repositori: canvia els repositoris existents des de la pàgina d'entregues."
+        "repo_visibility": "Visibilitat del repositori: canvia els repositoris existents des de la pàgina d'entregues.",
+        "pages": "GitHub Pages: activa'l en els repositoris existents des de la pàgina de lliuraments."
       },
       "confirm": "Desa els canvis",
       "cancel": "Cancel·la"
@@ -1922,7 +2060,8 @@
       "pendingNote": "Els recomptes inclouen els canvis sense desar.",
       "membersError": "Alguns canvis de pertinença no s'han pogut desar: {{error}} Els canvis sense desar encara apareixen a la llista. Torna a desar per reintentar-los.",
       "dangerHeading": "Zona de perill",
-      "dangerBody": "Suprimir aquest grup n'elimina l'equip de GitHub i l'accés que atorgava. El repositori del grup no se suprimeix."
+      "dangerBody": "Suprimir aquest grup n'elimina l'equip de GitHub i l'accés que atorgava. El repositori del grup no se suprimeix.",
+      "overCapacity": "Aquest grup té {{count}} membres, però aquesta tasca en permet {{max}}. Algú ha afegit membres directament a GitHub. Elimina membres fins que el grup en tingui {{max}} o menys i, després, selecciona Desa els canvis."
     },
     "copy": {
       "button": "Copia els grups",
@@ -2561,7 +2700,7 @@
       "confirmRemoveBody": "Això elimina @{{login}} de l'equip de {{role}} i el seu accés al repositori classroom50. No l'elimina de l'organització.",
       "pendingBadge": "Pendent",
       "resend": "Torna a enviar la invitació",
-      "resendEmailOnly": "Aquesta invitació no té cap nom d'usuari de GitHub, així que no es pot tornar a enviar. Cancel·la-la i torna a afegir la persona.",
+      "resendEmailOnly": "Aquesta invitació no té nom d'usuari de GitHub, així que no es pot reenviar des d'aquí. Cancel·la-la i torna a afegir la persona.",
       "resentToast": "S'ha tornat a enviar la invitació a {{who}}.",
       "resendFailed": "No s'ha pogut tornar a enviar la invitació a {{who}}: {{error}}",
       "cancelInvite": "Cancel·la la invitació",
@@ -2688,7 +2827,14 @@
       "feedback": "La sol·licitud d'incorporació de comentaris està a punt",
       "feedbackSkipped": "No hi ha sol·licitud d'incorporació de comentaris per a aquesta tasca",
       "feedbackDeferred": "Ara no s'ha pogut obrir la sol·licitud d'incorporació de comentaris: torna a acceptar per tornar-ho a provar (o s'obre en el teu primer lliurament si la correcció automàtica està activada)",
-      "team": "Grup trobat"
+      "team": "Grup trobat",
+      "pagesSkipped": {
+        "access": "S'ha configurat la correcció automàtica. GitHub Pages no s'ha activat: no tens permís per canviar la configuració de Pages en aquest repositori. El teu docent el pot activar des de la pàgina de lliuraments.",
+        "branch": "S'ha configurat la correcció automàtica. GitHub Pages no s'ha activat: la branca des de la qual publica encara no existeix al teu repositori. El teu docent el pot activar des de la pàgina de lliuraments.",
+        "plan": "S'ha configurat la correcció automàtica. GitHub Pages no s'ha activat: el pla de GitHub d'aquesta organització no permet Pages en repositoris privats. El teu docent pot fer públic el repositori i activar Pages des de la pàgina de lliuraments.",
+        "policy": "S'ha configurat la correcció automàtica. GitHub Pages no s'ha activat: l'organització no permet als membres publicar llocs de Pages. El teu docent el pot activar des de la pàgina de lliuraments.",
+        "unknown": "S'ha configurat la correcció automàtica. GitHub Pages no s'ha pogut activar ara mateix. El teu docent el pot activar des de la pàgina de lliuraments."
+      }
     },
     "stepActions": {
       "account": "No s'ha pogut llegir el teu compte de GitHub. Tanca la sessió i torna a iniciar-la, i torna a acceptar.",
@@ -2758,6 +2904,10 @@
     "setupIncomplete": {
       "body": "El teu repositori existeix, però hi falten els fitxers de configuració, de manera que la correcció automàtica no s'executarà i el professorat no podrà deixar-hi comentaris. Torna a executar la configuració per completar-la. És segur i conserva qualsevol feina que ja hagis pujat.",
       "title": "La configuració no ha acabat"
+    },
+    "pagesSite": {
+      "enabled": "GitHub Pages està activat per a aquesta tasca",
+      "help": "El teu repositori pot publicar un lloc web a {{url}}. Qualsevol persona d'internet el pot veure, fins i tot quan el repositori és privat."
     }
   },
   "submissions": {
@@ -2777,10 +2927,10 @@
     },
     "grading": {
       "badgeBuiltIn": "Correcció automàtica",
-      "badgeNoAutograder": "Correcció automàtica personalitzada",
-      "titleNoAutograder": "La plantilla inclou el seu propi flux de correcció. Les puntuacions integrades i la recorrecció estan desactivades; la pull request de comentaris continua funcionant quan està activada.",
+      "badgeNoAutograder": "Sense corrector automàtic integrat",
+      "titleNoAutograder": "Aquesta tasca no fa servir el corrector automàtic integrat, de manera que les puntuacions integrades i la recorrecció estan desactivades. El flux de treball de correcció propi d'una plantilla continua executant-se, i la pull request de comentaris continua funcionant quan està activada.",
       "badgeEmptyRepo": "Sense correcció automàtica",
-      "titleEmptyRepo": "Aquesta activitat fa servir repositoris buits, de manera que la correcció automàtica, les puntuacions i la pull request de comentaris estan desactivades. La taula mostra qui l'ha acceptada."
+      "titleEmptyRepo": "Aquesta tasca fa servir repositoris buits, de manera que la correcció automàtica, les puntuacions i la pull request de comentaris estan desactivades. La taula mostra qui ha acceptat i qui ha fet push."
     },
     "details": {
       "viewRepository": "Veure el repositori",
@@ -2840,11 +2990,7 @@
     },
     "menu": {
       "actions": "Accions",
-      "metrics": "Mètriques",
       "share": "Comparteix"
-    },
-    "metrics": {
-      "title": "Mètriques d'entrega"
     },
     "errors": {
       "gradebookLoad": "No s'han pogut carregar les puntuacions recollides.",
@@ -2900,22 +3046,6 @@
       "shareWithCount_one": "Es comparteix amb <count>{{count}} estudiant</count> que pot acceptar aquesta activitat.",
       "shareWithCount_other": "Es comparteix amb <count>{{count}} estudiants</count> que poden acceptar aquesta activitat.",
       "manageRoster": "Gestiona la llista"
-    },
-    "stats": {
-      "submitted": "Entregat",
-      "groupsSubmitted": "Grups que han entregat",
-      "classAverage": "Mitjana de l'aula",
-      "passing": "Aprovats",
-      "accepted": "Acceptat",
-      "notAvailable": "N/D",
-      "showFailing": "Mostra els estudiants suspesos",
-      "failingCount_one": "{{count}} suspès",
-      "failingCount_other": "{{count}} suspesos",
-      "ungradedNote_one": ", {{count}} sense corregir",
-      "ungradedNote_other": ", {{count}} sense corregir",
-      "showAcceptedNotSubmitted": "Mostra els estudiants que han acceptat però no han entregat",
-      "notYetSubmitted_one": "{{count}} encara no ha entregat",
-      "notYetSubmitted_other": "{{count}} encara no han entregat"
     },
     "filters": {
       "searchGroupPlaceholder": "Cerca grup o membre",
@@ -3011,7 +3141,9 @@
       "openGroupTeam": "Obre l'equip del grup a GitHub",
       "colMembers": "Membres",
       "manageMembersLabel": "Visualitza i gestiona els membres de {{name}}",
-      "staffRowTitle": "Un professor, cap de TA o TA que ha acceptat aquesta tasca, normalment per provar-la. Aquesta fila no és la d'un estudiant."
+      "staffRowTitle": "Un professor, cap de TA o TA que ha acceptat aquesta tasca, normalment per provar-la. Aquesta fila no és la d'un estudiant.",
+      "openSiteLabel": "Obre el lloc de GitHub Pages de {{repo}}",
+      "viewSite": "Obre el lloc de GitHub Pages"
     },
     "scoreOverride": {
       "notGraded": "No corregit",
@@ -3384,7 +3516,11 @@
       "membersDescription": "Consulta i gestiona els membres del grup",
       "setup": "Configuració",
       "setupIncomplete": "Incompleta",
-      "setupIncompleteHint": "L'acceptació de l'estudiant s'ha aturat abans que s'escrivissin els fitxers de configuració, de manera que la correcció automàtica no s'executarà i no es pot obrir cap PR de comentaris. Demana a l'estudiant que obri l'enllaç de la tasca i triï Torna a executar la configuració."
+      "setupIncompleteHint": "L'acceptació de l'estudiant s'ha aturat abans que s'escrivissin els fitxers de configuració, de manera que la correcció automàtica no s'executarà i no es pot obrir cap PR de comentaris. Demana a l'estudiant que obri l'enllaç de la tasca i triï Torna a executar la configuració.",
+      "pages": "GitHub Pages",
+      "pagesBuildErrored": "Ha fallat la compilació",
+      "pagesBuilding": "S'està compilant",
+      "pagesNotEnabled": "No activat"
     },
     "publicRepo": {
       "badge": "Públic",
@@ -3420,11 +3556,57 @@
         "tagIntro": "El teu docent corregeix instantànies etiquetades de la teva feina. Fes commit i push com de costum, i després executa l'ordre de lliurament de sota. Això etiqueta la teva feina més recent perquè es corregeixi.",
         "tagStep2": "Des de dins del repositori, lliura la teva feina. Això fa push d'una etiqueta de lliurament que activa la correcció:",
         "milestoneStep": "O fes push d'una etiqueta de fita que el teu docent hagi configurat (per exemple, {{tags}}):",
-        "copyMilestone": "Copia l'ordre d'etiqueta de fita"
+        "copyMilestone": "Copia l'ordre d'etiqueta de fita",
+        "cloneHint": "SSH necessita una clau SSH afegida al vostre compte de GitHub. GitHub CLI necessita que l'ordre gh estigui instal·lada.",
+        "cloneMethod": {
+          "cli": "GitHub CLI",
+          "https": "HTTPS",
+          "ssh": "SSH"
+        },
+        "cloneMethodAria": "Mètode de clonatge",
+        "teacherNote": "És possible que el vostre professor us demani que cloneu o lliureu d'una manera concreta. Si és així, seguiu les seves instruccions."
       },
       "fallbackTitle": "Lliurament",
       "missingParams": "A aquest enllaç li falta l'aula o l'activitat. Demana al teu docent un enllaç nou.",
       "modeTeam": "En grup"
+    },
+    "bulkPages": {
+      "apply": "Activa-ho a tots",
+      "deferredDetail": "Omès. Torneu-ho a executar per activar-ho.",
+      "deferredSection_one": "No s'ha processat {{count}} repositori",
+      "deferredSection_other": "No s'han processat {{count}} repositoris",
+      "failedSection_one": "No s'ha pogut activar {{count}} repositori",
+      "failedSection_other": "No s'han pogut activar {{count}} repositoris",
+      "infoBranch_one": "Això configura GitHub Pages perquè publiqui una branca al repositori de {{count}} estudiant. Els repositoris que ja tenen un lloc web es deixen tal com estan. Els repositoris que els estudiants acceptin més endavant es configuren automàticament.",
+      "infoBranch_other": "Això configura GitHub Pages perquè publiqui una branca als repositoris de {{count}} estudiants. Els repositoris que ja tenen un lloc web es deixen tal com estan. Els repositoris que els estudiants acceptin més endavant es configuren automàticament.",
+      "infoWorkflow_one": "Això configura GitHub Pages perquè es desplegui mitjançant GitHub Actions al repositori de {{count}} estudiant. Els repositoris que ja tenen un lloc web es deixen tal com estan. Els repositoris que els estudiants acceptin més endavant es configuren automàticament.",
+      "infoWorkflow_other": "Això configura GitHub Pages perquè es desplegui mitjançant GitHub Actions als repositoris de {{count}} estudiants. Els repositoris que ja tenen un lloc web es deixen tal com estan. Els repositoris que els estudiants acceptin més endavant es configuren automàticament.",
+      "menuLabel": "Activa GitHub Pages",
+      "menuTitle": "Configura el lloc de GitHub Pages d'aquesta tasca a tots els repositoris acceptats",
+      "noRepos": "Encara no hi ha cap estudiant que hagi acceptat, així que no hi ha res per activar.",
+      "progress": "S'han processat {{processed}} de {{total}}",
+      "resultHeadline": "GitHub Pages està activat a {{count}} de {{total}} repositoris.",
+      "resultHeadlineThrottled": "S'ha activat GitHub Pages a {{count}} de {{total}} repositoris abans que GitHub limités la freqüència de la sol·licitud. Torneu-ho a executar per acabar la resta.",
+      "subtitle_one": "S'aplica a {{count}} estudiant que ha acceptat aquesta tasca.",
+      "subtitle_other": "S'aplica a {{count}} estudiants que han acceptat aquesta tasca.",
+      "title": "Activa GitHub Pages",
+      "titleEmptyRoster": "Encara no hi ha cap estudiant que hagi acceptat",
+      "working": "S'està activant GitHub Pages"
+    },
+    "rowPages": {
+      "aria": "Activa GitHub Pages a {{repo}}",
+      "description": "Configura el lloc web que aquesta tasca espera en aquest repositori. Feu-ho servir per a un repositori acceptat abans d'activar Pages, o quan l'activació en el moment de l'acceptació va fallar.",
+      "outcome": {
+        "enabled": "S'ha activat GitHub Pages. El lloc estarà disponible a {{url}} després de la primera compilació."
+      },
+      "refused": {
+        "access": "No s'ha activat GitHub Pages a {{repo}}: necessiteu accés d'administrador a aquest repositori.",
+        "branch": "No s'ha activat GitHub Pages a {{repo}}: la branca des de la qual publica encara no existeix en aquest repositori.",
+        "plan": "No s'ha activat GitHub Pages a {{repo}}: el pla de GitHub d'aquesta organització no permet Pages en repositoris privats. Feu públic el repositori i torneu-ho a provar.",
+        "policy": "No s'ha activat GitHub Pages a {{repo}}: l'organització no permet que els membres publiquin llocs de Pages. Comproveu la configuració de Pages de l'organització i torneu-ho a provar.",
+        "unknown": "No s'ha pogut activar GitHub Pages a {{repo}} ara mateix. Torneu-ho a provar d'aquí a un moment."
+      },
+      "title": "Activa GitHub Pages"
     }
   },
   "orgActivity": {
@@ -3484,13 +3666,13 @@
   },
   "orgMembers": {
     "heading": "Membres",
-    "inviteMissingId": "Impossible d'inviter {{who}} : aucun identifiant GitHub enregistré.",
+    "inviteMissingId": "No es pot convidar {{who}}: la seva fila de la llista no té cap identificador de GitHub. Obre la seva fila a la llista de l'aula per convidar-lo pel nom d'usuari, o elimina la fila i torna a afegir-lo.",
     "inviteMalformedId": "Impossible d'inviter {{who}} : « {{githubId}} » n'est pas un identifiant GitHub valide. Corrigez la cellule github_id dans roster.csv.",
     "subtitle": "Toutes les personnes de l'organisation GitHub <orgLink>{{org}}</orgLink> et les classes auxquelles elles appartiennent.",
     "sharedOrgNotice": "Cette page liste tous les membres de l'organisation GitHub {{org}}, pas uniquement vos élèves. Si d'autres enseignants partagent cette organisation, même sans utiliser Classroom 50, leurs membres apparaissent ici aussi ; soyez donc prudent avant de retirer quelqu'un.",
     "manageMembersOnGitHub": "Gérer les membres de l'organisation sur GitHub",
-    "discrepancy_one": "{{count}} élève figure sur une liste mais n'est pas membre de l'organisation.",
-    "discrepancy_other": "{{count}} élèves figurent sur une liste mais ne sont pas membres de l'organisation.",
+    "discrepancy_one": "{{count}} estudiant és en una llista però no és membre de l'organització. Fes servir Convida a la seva fila per enviar una invitació.",
+    "discrepancy_other": "{{count}} estudiants són en una llista però no són membres de l'organització. Fes servir Convida a cada fila per enviar una invitació.",
     "searchPlaceholder": "Rechercher par nom, nom d'utilisateur ou courriel",
     "searchLabel": "Rechercher des membres",
     "filterByClassroomLabel": "Filtrer par classe",
@@ -3498,12 +3680,12 @@
     "filterNoClassroom": "Aucune classe",
     "filterShowLabel": "Filtrer les membres",
     "filterAll": "Tous les membres",
-    "filterNotInOrg": "Non membre de l'organisation",
+    "filterNotInOrg": "No és a l'organització",
     "filterInvitationPending": "Invitation en attente",
     "filterNotEnrolled": "Non inscrit",
     "filterOwners": "Propriétaires",
     "filterMembers": "Membres",
-    "loadError": "Impossible de charger les membres de l'organisation.",
+    "loadError": "No s'han pogut carregar els membres de l'organització. Comprova la connexió i que encara ets propietari d'aquesta organització, i torna-ho a provar.",
     "retry": "Réessayer",
     "noMatch": "Aucun membre ne correspond à votre recherche.",
     "noMembersInClassroom": "Aucun membre dans {{classroom}}.",
@@ -3521,23 +3703,23 @@
       "colStatus": "Statut",
       "colActions": "Actions"
     },
-    "badgeNotMember": "Non membre de l'organisation",
+    "badgeNotMember": "No és a l'organització",
     "badgeInvitePending": "Invitation en attente",
     "badgeNoClassroom": "Aucune classe",
     "badgeMember": "Membre",
     "badgeOwner": "Propriétaire",
     "unprovisionedBadge": "Non inscrit",
-    "unprovisionedTitle": "Sur la liste mais pas dans l'équipe de la classe : {{classrooms}}. Les notes sont collectées via l'équipe, donc leur travail serait ignoré. Réajoutez-les à la classe pour corriger cela.",
+    "unprovisionedTitle": "És a la llista però no a l'equip de l'aula: {{classrooms}}. Les qualificacions es recopilen a través de l'equip, de manera que el seu treball no es tindria en compte. Torna a afegir-lo a l'aula per solucionar-ho.",
     "unprovisionedAccessBadge": "Absent de l'équipe",
-    "unprovisionedAccessTitle": "Sur la liste de cette classe mais pas dans son équipe GitHub, donc la collecte des notes les ignorerait. Réajoutez-les à la classe pour corriger cela.",
-    "noGitHubUsername": "aucun nom d'utilisateur GitHub",
+    "unprovisionedAccessTitle": "És a la llista d'aquesta aula però no al seu equip de GitHub, de manera que la recopilació de qualificacions se'l saltaria. Torna a afegir-lo a l'aula per solucionar-ho.",
+    "noGitHubUsername": "Sense nom d'usuari de GitHub",
     "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
-    "noUsernameWithId": "<missing>aucun nom d'utilisateur GitHub</missing> <meta>· id {{id}}</meta>",
+    "noUsernameWithId": "<missing>Sense nom d'usuari de GitHub</missing> <meta>· id {{id}}</meta>",
     "detailTitle": "Détails du membre",
     "details": {
       "name": "Nom",
       "username": "Nom d'utilisateur GitHub",
-      "githubId": "Identifiant GitHub",
+      "githubId": "Identificador de GitHub",
       "email_one": "Courriel",
       "email_other": "Courriels",
       "orgRole": "Rôle",
@@ -3547,25 +3729,23 @@
     "manageOnGitHub": "Gérer sur GitHub",
     "classroomAccess": "Accès aux classes",
     "noRoster": "Sur aucune liste de classe.",
-    "archived": "archivée",
+    "archived": "Arxivada",
     "selfNotice": "C'est le compte avec lequel vous êtes connecté, il ne peut donc pas être retiré de l'organisation ici.",
-    "notMember": "{{label}} figure sur la liste d'une classe mais <emphasis>n'est pas membre de l'organisation</emphasis>. Invitez cette personne pour rétablir son accès. L'invitation est envoyée à son compte GitHub par identifiant, elle fonctionne donc même si son nom d'utilisateur a changé.",
+    "notMember": "{{label}} és a una llista d'aula però <emphasis>no és membre de l'organització</emphasis>. Convida'l per restablir-li l'accés. La invitació s'envia al seu compte de GitHub per identificador, de manera que funciona encara que el nom d'usuari hagi canviat, i inclou els seus equips d'aula.",
     "inviting": "Invitation en cours…",
     "inviteToOrg": "Inviter dans l'organisation",
-    "confirmInviteBody": "Envoyer une invitation à l'organisation à {{label}} ? L'invitation est envoyée à son compte GitHub par identifiant et cette personne rejoindra {{org}} avec son accès aux classes précédent une fois qu'elle l'aura acceptée.",
-    "notMemberNoId": "Cet élève figure sur une liste mais n'est pas membre de l'organisation. Aucun identifiant GitHub n'est encore enregistré pour lui ; invitez-le depuis la page Liste de sa classe.",
-    "invitePendingNotice": "Cet élève a été invité par courriel et n'a pas encore accepté, il n'a donc pas de compte GitHub enregistré. Tout est normal : ses détails se rempliront automatiquement à son arrivée. Vous pouvez annuler l'invitation depuis la page Liste de sa classe.",
+    "confirmInviteBody": "Voleu enviar una invitació a l'organització a {{label}}? S'envia al seu compte de GitHub per identificador i inclou els seus equips d'aula, de manera que tornarà a quedar inscrit tan aviat com l'accepti.",
     "confirmUnenroll_one": "{{label}} sera d'abord désinscrit de <count>{{count}} classe</count> ({{classrooms}}), puis retiré de l'organisation <org>{{org}}</org>. Ses dépôts de devoirs ne seront pas supprimés.",
     "confirmUnenroll_other": "{{label}} sera d'abord désinscrit de <count>{{count}} classes</count> ({{classrooms}}), puis retiré de l'organisation <org>{{org}}</org>. Ses dépôts de devoirs ne seront pas supprimés.",
     "confirmRemove": "{{label}} sera retiré de l'organisation <org>{{org}}</org>.",
     "removing": "Retrait en cours…",
     "removeFromOrg": "Retirer de l'organisation",
     "inviteFailed": "Impossible d'inviter {{label}} : {{reason}}",
-    "somethingWrong": "l'action n'a pas pu aboutir",
+    "somethingWrong": "Hi ha hagut un problema. Actualitza i torna-ho a provar.",
     "removed": "{{label}} a été retiré de l'organisation {{org}}.",
     "removedWithUnenroll_one": "{{label}} a été retiré de l'organisation {{org}} et désinscrit de {{count}} classe.",
     "removedWithUnenroll_other": "{{label}} a été retiré de l'organisation {{org}} et désinscrit de {{count}} classes.",
-    "removeFailed": "Impossible de retirer {{label}} : {{reason}}",
+    "removeFailed": "No s'ha pogut eliminar {{label}}: {{reason}}. Torna-ho a provar, o elimina'l des de la pàgina Persones de l'organització a GitHub.",
     "warnArchived": "{{who}} figure toujours sur la classe archivée « {{classroom}} » ; désarchivez-la pour le retirer de cette liste.",
     "warnUnenrollFailed": "Impossible de désinscrire {{who}} de « {{classroom}} » ({{reason}}) ; les autres ont été retirés.",
     "bulk": {
@@ -3577,10 +3757,9 @@
       "selectedCount_one": "{{count}} sélectionné",
       "selectedCount_other": "{{count}} sélectionnés",
       "noClassrooms": "Aucune classe",
-      "actions": "Actions",
       "addToClassroomMenu": "Ajouter à une classe",
       "removeFromClassroomMenu": "Retirer d'une classe",
-      "removeNoneOnClassroom": "Aucun des membres sélectionnés ne figure sur la liste d'une classe.",
+      "removeNoneOnClassroom": "Cap dels membres seleccionats no és a cap llista d'aula d'on es pugui eliminar.",
       "add": "Ajouter",
       "remove": "Retirer",
       "removeModalTitle_one": "Retirer {{count}} membre sélectionné d'une classe",
@@ -3600,8 +3779,8 @@
       "confirmPhrase": "confirmer",
       "addModalTitle_one": "Ajouter {{count}} membre sélectionné à une classe",
       "addModalTitle_other": "Ajouter {{count}} membres sélectionnés à une classe",
-      "confirmAddBody_one": "Cela ajoute le membre sélectionné à la liste et à l'équipe de la classe {{classroom}}, en l'invitant à l'organisation s'il n'en est pas encore membre.",
-      "confirmAddBody_other": "Cela ajoute les membres sélectionnés à la liste et à l'équipe de la classe {{classroom}}, en les invitant à l'organisation s'ils n'en sont pas encore membres.",
+      "confirmAddBody_one": "Això afegeix l'alumne seleccionat a la llista de classe de l'aula {{classroom}} i al seu equip. Aquí només s'hi poden afegir membres de l'organització; convida des de la seva fila qualsevol que encara no en sigui membre.",
+      "confirmAddBody_other": "Això afegeix els alumnes seleccionats a la llista de classe de l'aula {{classroom}} i al seu equip. Aquí només s'hi poden afegir membres de l'organització; convida des de la seva fila qualsevol que encara no en sigui membre.",
       "destinationLabel": "Classe de destination",
       "classroomLabel": "Classe",
       "previewAdd_one": "{{count}} membre sera ajouté à {{classroom}}.",
@@ -3618,11 +3797,10 @@
       "previewSkipNotOn_other": "{{count}} ignorés : pas dans cette classe.",
       "previewSkipArchived_one": "{{count}} ignoré : inscrit sur une instance archivée de cette classe.",
       "previewSkipArchived_other": "{{count}} ignorés : inscrits sur une instance archivée de cette classe.",
-      "previewSkipPendingEmail_one": "{{count}} ignoré : invité par courriel et pas encore accepté.",
-      "previewSkipPendingEmail_other": "{{count}} ignorés : invités par courriel et pas encore acceptés.",
-      "previewSkipNoUsername_one": "{{count}} ignoré : aucun nom d'utilisateur GitHub enregistré.",
-      "previewSkipNoUsername_other": "{{count}} ignorés : aucun nom d'utilisateur GitHub enregistré.",
-      "clearSelection": "Effacer la sélection",
+      "previewSkipPendingEmail_one": "{{count}} omès: convidat per correu electrònic i encara no ha acceptat. En lloc d'això, cancel·la la invitació des de la pàgina de llista de l'aula.",
+      "previewSkipPendingEmail_other": "{{count}} omesos: convidats per correu electrònic i encara no han acceptat. En lloc d'això, cancel·la les invitacions des de la pàgina de llista de l'aula.",
+      "previewSkipNoUsername_one": "{{count}} omès: no té cap nom d'usuari de GitHub registrat, de manera que la seva pertinença a l'organització no es pot eliminar des d'aquí.",
+      "previewSkipNoUsername_other": "{{count}} omesos: no tenen cap nom d'usuari de GitHub registrat, de manera que la seva pertinença a l'organització no es pot eliminar des d'aquí.",
       "addTitle": "Ajouter des membres à {{classroom}}",
       "removeTitle": "Retirer des membres de {{classroom}}",
       "removeOrgTitle": "Retirer des membres de l'organisation {{org}}",
@@ -3645,21 +3823,80 @@
       "resultFailed": "Échoués",
       "resultWarnings": "Avertissements",
       "resultTeamFailures": "Échecs d'ajout à l'équipe",
-      "couldNotAddToTeam": "Impossible d'ajouter à l'équipe de la classe.",
+      "couldNotAddToTeam": "No s'ha pogut afegir a l'equip de l'aula. Obre la seva fila a la llista de classe i utilitza Afegeix a l'aula per tornar-ho a provar.",
       "skipReason": {
         "not-member": "Pas membre de l'organisation. Invitez-le d'abord.",
-        "no-id": "Aucun identifiant GitHub enregistré pour le placer.",
+        "no-id": "No té cap identificador de GitHub registrat, de manera que no es pot fer coincidir amb un compte de GitHub.",
         "already-on-classroom": "Déjà dans cette classe.",
         "not-on-classroom": "Pas dans cette classe.",
         "already-removed": "Déjà retiré de cette classe.",
         "pending-email-invite": "Invité par courriel et pas encore accepté. Annulez plutôt l'invitation depuis la page Liste de la classe.",
         "archived": "La classe est archivée. Désarchivez-la pour modifier l'appartenance.",
-        "resolve-failed": "Impossible de résoudre son compte GitHub actuel.",
+        "resolve-failed": "No s'ha pogut consultar el seu compte de GitHub actual. Torna-ho a provar.",
         "self": "C'est le compte avec lequel vous êtes connecté, il ne peut donc pas être retiré ici.",
-        "no-username": "Aucun nom d'utilisateur GitHub enregistré. Le retrait de l'organisation se base sur le nom d'utilisateur."
+        "no-username": "No té cap nom d'usuari de GitHub registrat, de manera que la seva pertinença a l'organització no es pot eliminar des d'aquí. Elimina'l des de la pàgina Persones de l'organització a GitHub.",
+        "unlinked-row": "No vinculat a cap compte de GitHub. Torna a convidar, vincula o elimina la fila des de la pàgina de llista de l'aula."
       },
-      "confirmRemoveOrgWarning": "Els membres eliminats perden l'accés a tots els repositoris de l'organització, inclosos els seus propis repositoris de tasques, i necessiten una nova invitació per tornar."
-    }
+      "confirmRemoveOrgWarning": "Els membres eliminats perden l'accés a tots els repositoris de l'organització, inclosos els seus propis repositoris de tasques, i necessiten una nova invitació per tornar.",
+      "addNoneMembers": "Cap de les files seleccionades no correspon a membres de l'organització. Convida'ls primer i, després, afegeix-los a una aula.",
+      "confirmInviteBody_one": "Voleu enviar una invitació a l'organització a l'alumne seleccionat? Va al seu compte de GitHub per id i inclou els seus equips d'aula, així que queda inscrit tan bon punt l'accepti. S'omet qualsevol persona que ja tingui una invitació pendent o que ja en sigui membre.",
+      "confirmInviteBody_other": "Voleu enviar invitacions a l'organització als {{count}} alumnes seleccionats? Cadascuna va al seu compte de GitHub per id i inclou els seus equips d'aula, així que queden inscrits tan bon punt l'acceptin. S'omet qualsevol persona que ja tingui una invitació pendent o que ja en sigui membre.",
+      "confirmInviteTitle_one": "Voleu enviar {{count}} invitació?",
+      "confirmInviteTitle_other": "Voleu enviar {{count}} invitacions?",
+      "inviteNoneInvitable": "Selecciona alumnes que siguin a una llista de classe però no a l'organització. Les files pendents, caducades i sense vincular es gestionen des de la seva llista de classe.",
+      "inviteRateLimited": "S'han enviat {{sent}} invitacions i, després, s'ha assolit el límit de freqüència de GitHub. La resta no s'han enviat. Espera uns minuts i torna-ho a provar.",
+      "inviteSelected_one": "Envia una invitació a l'organització a {{count}} alumne",
+      "inviteSelected_other": "Envia invitacions a l'organització a {{count}} alumnes",
+      "inviteSkipReason": {
+        "already-member": "Ja és membre de l'organització. No s'ha enviat res de nou.",
+        "already-pending": "Ja té una invitació pendent. No s'ha enviat res de nou.",
+        "not-invitable": "No es pot convidar des d'aquí: no hi ha cap id de GitHub registrat, o la fila no és d'un alumne que no és a l'organització."
+      },
+      "inviteTitle": "Envia invitacions a l'organització {{org}}",
+      "invitedHeadline_one": "S'ha enviat {{count}} invitació.",
+      "invitedHeadline_other": "S'han enviat {{count}} invitacions.",
+      "previewSkipUnlinked_one": "{{count}} omès: no vinculat a cap compte de GitHub. Torna a convidar, vincula o elimina la fila des de la pàgina de llista de l'aula.",
+      "previewSkipUnlinked_other": "{{count}} omesos: no vinculats a cap compte de GitHub. Torna a convidar, vincula o elimina les files des de la pàgina de llista de l'aula.",
+      "removeOrgNoneEligible": "Cap de les files seleccionades no correspon a membres de l'organització amb un nom d'usuari de GitHub.",
+      "sendInvitations": "Envia invitacions"
+    },
+    "archivedParen": "(arxivada)",
+    "badgeUnlinked": "Sense vincular",
+    "filterInviteExpired": "Invitació caducada",
+    "filterUnlinked": "Sense vincular",
+    "invitationsRetry": "Torna-ho a provar",
+    "invitationsUnavailable": "No s'han pogut llegir les invitacions de l'organització, de manera que no es mostren les invitacions pendents ni caducades i algunes files poden aparèixer com a no vinculades o fora de l'organització. Torna-ho a provar abans de convidar ningú.",
+    "inviteAlreadyMember": "{{who}} ja és membre de {{org}}, de manera que no s'ha enviat res de nou. Actualitza per veure l'estat actual.",
+    "inviteAlreadyPending": "{{who}} ja té una invitació pendent a {{org}}, de manera que no s'ha enviat res de nou. Torna a enviar-la o cancel·la-la des de la seva fila a la llista de l'aula.",
+    "notMemberExpired": "La invitació a {{label}} va caducar abans que l'acceptés. Les invitacions de GitHub duren 7 dies. Torna a convidar-lo per restablir-li l'accés.",
+    "notMemberFailed": "GitHub no ha pogut lliurar la invitació a {{label}} ({{reason}}). Torna a convidar-lo per restablir-li l'accés.",
+    "openInRoster": "Obre a la llista de {{classroom}}",
+    "orphanedInviteExpired": "Caducada",
+    "orphanedInviteFailed": "Fallida",
+    "orphanedInvitesBody": "GitHub encara mostra aquestes invitacions caducades o no lliurables, però cap llista d'aula ni membre de l'organització no hi coincideix, de manera que aquí no es pot tornar a convidar ningú. Normalment la fila de la llista es va eliminar després que la invitació caduqués. Descarta-les per netejar la llista d'invitacions fallides de GitHub, o deixa les que hagis enviat amb un altre propòsit.",
+    "orphanedInvitesDeferred_one": "GitHub ha limitat la freqüència de la petició, de manera que {{count}} invitació fallida no s'ha descartat. Torna-ho a provar d'aquí a uns minuts.",
+    "orphanedInvitesDeferred_other": "GitHub ha limitat la freqüència de la petició, de manera que {{count}} invitacions fallides no s'han descartat. Torna-ho a provar d'aquí a uns minuts.",
+    "orphanedInvitesDismiss": "Descarta",
+    "orphanedInvitesDismissAll": "Descarta-ho tot",
+    "orphanedInvitesDismissFailed_one": "No s'ha pogut descartar {{count}} invitació fallida: {{error}}",
+    "orphanedInvitesDismissFailed_other": "No s'han pogut descartar {{count}} invitacions fallides: {{error}}",
+    "orphanedInvitesDismissed_one": "S'ha descartat {{count}} invitació fallida.",
+    "orphanedInvitesDismissed_other": "S'han descartat {{count}} invitacions fallides.",
+    "orphanedInvitesHide": "Amaga els detalls",
+    "orphanedInvitesTitle_one": "{{count}} invitació fallida no és a cap llista.",
+    "orphanedInvitesTitle_other": "{{count}} invitacions fallides no són a cap llista.",
+    "orphanedInvitesView": "Mostra els detalls",
+    "removeSelf": "No pots eliminar el teu propi compte de l'organització des d'aquí.",
+    "removeViewerUnverified": "No s'ha pogut verificar el teu compte, de manera que el membre no s'ha eliminat. Torna-ho a provar.",
+    "rosterReadFailed": "No s'ha pogut llegir la llista de {{classroom}}, de manera que els seus estudiants no es mostren. Comprova el fitxer roster.csv de l'aula i actualitza.",
+    "strandedExpired": "La invitació a {{who}} va caducar abans de ser acceptada. Les invitacions de GitHub duren 7 dies. Obre la seva fila a la llista de l'aula per tornar a convidar-lo, vincular la fila a un membre de l'organització o eliminar-la.",
+    "strandedFailed": "GitHub no ha pogut lliurar la invitació a {{who}} ({{reason}}). Obre la seva fila a la llista de l'aula per comprovar l'adreça i tornar a convidar-lo, vincular la fila a un membre de l'organització o eliminar-la.",
+    "strandedNoId": "{{who}} és a una llista però no és membre de l'organització, i la seva fila no té cap identificador de GitHub, de manera que no es pot convidar des d'aquí. Obre la seva fila a la llista de l'aula per convidar-lo.",
+    "strandedPendingAccount": "{{who}} té una invitació a l'organització pendent i encara no l'ha acceptada. La seva fila s'actualitza automàticament quan s'hi uneixi. Per tornar a enviar o cancel·lar la invitació, obre la seva fila a la llista de l'aula.",
+    "strandedPendingEmail": "{{who}} va ser convidat per correu electrònic i encara no ha acceptat, de manera que no hi ha cap compte de GitHub registrat. Les seves dades s'ompliran automàticament quan s'hi uneixi. Per tornar a enviar o cancel·lar la invitació, obre la seva fila a la llista de l'aula.",
+    "strandedUnlinked": "Aquesta fila no està vinculada a cap compte de GitHub, i {{who}} no té cap invitació pendent. Obre la seva fila a la llista de l'aula per tornar a convidar-lo, vincular la fila a un membre de l'organització o eliminar-la.",
+    "warnNoUsername": "No s'ha pogut eliminar {{who}} de l'organització: la seva fila no té cap nom d'usuari de GitHub. Elimina'l des de la pàgina Persones de l'organització a GitHub.",
+    "warnOrgRemoveFailed": "L'eliminació de {{who}} de l'organització ha fallat ({{reason}}). Torna-ho a provar, o elimina'l des de la pàgina Persones de l'organització a GitHub."
   },
   "components": {
     "avatar": {
@@ -3828,7 +4065,13 @@
       "leave": "Surt del grup",
       "leaveTitle": "Vols sortir de {{name}}?",
       "leaveBody": "Perdràs l'accés al repositori del grup i la teva feina es queda amb el grup. Tornar-t'hi a unir requereix passos addicionals: has de sol·licitar unir-t'hi de nou a GitHub i esperar que el grup o el teu professor ho aprovin.",
-      "leaveConfirm": "Surt del grup"
+      "leaveConfirm": "Surt del grup",
+      "overCapacity": "Aquest grup té {{count}} membres, però aquesta tasca en permet {{max}}. El teu docent també veu aquest avís. Demana al responsable del grup, o al teu docent, que elimini membres fins que el grup en tingui {{max}} o menys.",
+      "overCapacityManage": "Aquest grup té {{count}} membres, però aquesta tasca en permet {{max}}. El teu docent també veu aquest avís. Elimina membres fins que el grup en tingui {{max}} o menys."
+    },
+    "groupOverCapacity": {
+      "badge": "Per sobre del límit",
+      "title": "Aquest grup té {{count}} membres, però aquesta tasca en permet {{max}}. Algú ha afegit membres directament a GitHub. Elimina membres del grup, o qualifica el grup tal com està."
     }
   },
   "formatDate": {
@@ -3847,5 +4090,10 @@
       "leaveForbidden": "GitHub ha bloquejat la sortida del grup. Pot ser que la pertinença de l'equip la gestioni el vostre centre. Demaneu al vostre docent que us elimini, o sortiu des de la pàgina de l'equip a GitHub.",
       "maintainerCannotLeave": "Sou el mantenidor d'aquest grup, així que no en podeu sortir. Demaneu al vostre docent que us traslladi."
     }
+  },
+  "backgroundPass": {
+    "failed": "La sincronització amb GitHub no ha acabat. Es torna a executar la propera vegada que obris l'aula.",
+    "synced": "Sincronitzat amb GitHub.",
+    "syncing": "S'està sincronitzant amb GitHub…"
   }
 }
