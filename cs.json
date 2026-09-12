@@ -27,7 +27,10 @@
     "clear": "Vymazat",
     "clearFilter": "Vymazat filtr",
     "checkingOrgAccess": "Kontroluje se váš přístup k této organizaci…",
-    "resolvingRole": "Kontroluje se vaše role…"
+    "resolvingRole": "Kontroluje se vaše role…",
+    "actionWithCount": "{{label}} ({{count}})",
+    "actions": "Akce",
+    "clearSelection": "Zrušit výběr"
   },
   "notFound": {
     "title": "Stránka nenalezena",
@@ -211,7 +214,7 @@
   },
   "students": {
     "addTitle": "Přidat člena",
-    "addHint": "Zadejte uživatelské jméno GitHubu pro přidání studenta s jeho údaji, nebo e-mail pro odeslání pozvánky do organizace. E-mailová pozvánka ponechá jméno a sekci, kterou zadáte, na nevyřízeném řádku rozvrhu, dokud student pozvánku nepřijme.",
+    "addHint": "Zadejte uživatelské jméno GitHub, chcete-li přidat studenta s jeho údaji, nebo e-mail, chcete-li odeslat organizační pozvánku. E-mailová pozvánka zachová jméno a sekci, které zadáte, na nevyřízeném řádku seznamu studentů, dokud student pozvánku nepřijme.",
     "usernamePlaceholder": "github-username",
     "emailPlaceholder": "student@univerzita.cz",
     "sectionPlaceholder": "3. hodina",
@@ -227,8 +230,8 @@
     "onboardingLinkHint": "Studenti přijmou pozvánku a přihlásí se do Classroom 50 v jednom kroku. Toto je odkaz, který sdílí většina učeben.",
     "onboardingLinkAria": "Onboardingový odkaz pro studenta",
     "copyOnboardingLinkAria": "Kopírovat onboardingový odkaz",
-    "resendMissingId": "Nelze znovu odeslat pozvánku pro {{username}}: chybí github id. Znovu je přidejte do seznamu.",
-    "resendFailed": "Opětovné odeslání pozvánky pro {{username}} selhalo ({{error}}).",
+    "resendMissingId": "Nelze znovu odeslat pozvánku uživateli {{username}}: jeho řádek seznamu studentů nemá GitHub id. Odeberte řádek a přidejte ho znovu.",
+    "resendFailed": "Nepodařilo se znovu odeslat pozvánku uživateli {{username}}: {{error}}",
     "resend": "Znovu odeslat",
     "dismiss": "Zavřít",
     "noSection": "Bez skupiny",
@@ -265,25 +268,24 @@
     "alreadyEnrolled": "{{label}} je již v této třídě zapsán.",
     "bulk": {
       "alreadyRemoved": "Již odebrán.",
-      "clearSelection": "Zrušit výběr",
-      "confirmInviteBodyPlain_one": "Odeslat pozvání do organizace {{count}} vybranému studentovi? Po přijetí se připojí do organizace a jejího týmu třídy.",
-      "confirmInviteBodyPlain_other": "Odeslat pozvání do organizace {{count}} vybraným studentům? Po přijetí se připojí do organizace a jejího týmu třídy.",
-      "confirmInviteTitle_one": "Pozvat {{count}} studenta?",
-      "confirmInviteTitle_other": "Pozvat {{count}} studentů?",
+      "confirmInviteBodyPlain_one": "Odeslat vybranému studentovi novou organizační pozvánku? Nevyřízená pozvánka se zruší a odešle znovu a vypršelá se nahradí. K organizaci a třídnímu týmu se připojí, jakmile ji přijme.",
+      "confirmInviteBodyPlain_other": "Odeslat {{count}} vybraným studentům nové organizační pozvánky? Nevyřízené pozvánky se zruší a odešlou znovu a vypršelé se nahradí. Studenti se k organizaci a třídnímu týmu připojí, jakmile pozvánku přijmou.",
+      "confirmInviteTitle_one": "Odeslat {{count}} pozvánku?",
+      "confirmInviteTitle_other": "Odeslat {{count}} pozvánek?",
       "confirmUnenrollBody_one": "Tímto se {{count}} student odebere z týmu třídy a zruší se jeho řádek v seznamu. Neodebere se z organizace.",
       "confirmUnenrollBody_other": "Tímto se {{count}} studentů odebere z týmu třídy a zruší se jejich řádky v seznamu. Neodeberou se z organizace.",
       "confirmUnenrollTitle_one": "Odhlásit {{count}} studenta?",
       "confirmUnenrollTitle_other": "Odhlásit {{count}} studentů?",
       "done": "Hotovo",
-      "invite": "Pozvat",
-      "inviteNoneInvitable": "Vyberte alespoň jednoho studenta mimo organizaci nebo s nevyřízeným pozváním, kterého lze pozvat.",
-      "inviteSelected_one": "Pozvat {{count}} studenta do organizace",
-      "inviteSelected_other": "Pozvat {{count}} studentů do organizace",
-      "inviteTitle": "Pozvat studenty do organizace",
-      "invitedHeadline_one": "Pozván {{count}} student.",
-      "invitedHeadline_other": "Pozváno {{count}} studentů.",
+      "invite": "Odeslat pozvánky",
+      "inviteNoneInvitable": "Vyberte studenty s nevyřízenou nebo vypršelou pozvánkou, případně ty, kteří ještě nejsou v organizaci. Řádek bez e-mailové adresy nebo uživatelského jména GitHub nelze pozvat.",
+      "inviteSelected_one": "Odeslat pozvánku {{count}} studentovi",
+      "inviteSelected_other": "Odeslat pozvánky {{count}} studentům",
+      "inviteTitle": "Odeslat pozvánky",
+      "invitedHeadline_one": "Odeslána {{count}} pozvánka.",
+      "invitedHeadline_other": "Odesláno {{count}} pozvánek.",
       "keepTabOpen": "Ponechte tuto kartu otevřenou, dokud se akce nedokončí.",
-      "noInviteId": "Tato pozvánka nemá v evidenci žádné id. Odeberte řádek a poté studenta znovu přidejte.",
+      "noInviteId": "Tento řádek nemá GitHub id, takže pozvánku nelze znovu odeslat. Odeberte řádek a přidejte studenta znovu.",
       "progressProcessed": "{{processed}} z {{total}}",
       "resultFailed": "Selhalo",
       "resultSkipped": "Přeskočeno",
@@ -301,7 +303,7 @@
       "unenrolledHeadline_one": "Odhlášen {{count}} student.",
       "unenrolledHeadline_other": "Odhlášeno {{count}} studentů.",
       "cancelAlreadyGone": "Již pryč (již nevyřízená)",
-      "cancelInvite": "Zrušit",
+      "cancelInvite": "Zrušit pozvánky",
       "cancelNoneCancellable": "Vyberte alespoň jednu nevyřízenou pozvánku ke zrušení.",
       "cancelSelected_one": "Zrušit {{count}} nevyřízenou pozvánku",
       "cancelSelected_other": "Zrušit {{count}} nevyřízených pozvánek",
@@ -312,9 +314,8 @@
       "confirmCancelBody_other": "Tímto se zruší {{count}} nevyřízených pozvánek do organizace. Tyto osoby se nepřipojí, dokud nebudou pozvány znovu.",
       "confirmCancelTitle_one": "Zrušit {{count}} pozvánku?",
       "confirmCancelTitle_other": "Zrušit {{count}} pozvánek?",
-      "noneSelectable": "Hromadné akce (vyřazení, pozvání) se vztahují pouze na studenty. Personál (učitele, hlavní asistenty a asistenty) spravujte v Nastavení třídy.",
-      "malformedInviteId": "Hodnota github_id v souboru roster.csv není platná. Opravte tuto buňku.",
-      "actions": "Akce",
+      "noneSelectable": "Hromadné akce (odeslání pozvánek, zrušení zápisu) platí pouze pro studenty. Personál (učitele, hlavní asistenty a asistenty) spravujte v Nastavení třídy.",
+      "malformedInviteId": "github_id v souboru roster.csv není platné, takže pozvánku nelze znovu odeslat. Opravte tuto buňku a zkuste to znovu.",
       "confirmRemoveRowsBody_one": "Odebrat {{count}} řádek seznamu, který není propojen s účtem GitHubu? Tím se pouze odstraní řádek ze souboru roster.csv. Není zde žádný účet ani pozvánka, kterých by se to dotklo, a lze jej obnovit z historie repozitáře třídy.",
       "confirmRemoveRowsBody_other": "Odebrat {{count}} řádků seznamu, které nejsou propojeny s účtem GitHubu? Tím se pouze odstraní řádky ze souboru roster.csv. Nejsou zde žádné účty ani pozvánky, kterých by se to dotklo, a lze je obnovit z historie repozitáře třídy.",
       "confirmRemoveRowsTitle_one": "Odebrat {{count}} nepropojený řádek?",
@@ -327,10 +328,14 @@
       "removeRowsTitle": "Odebrat nepropojené řádky seznamu",
       "removedRowsHeadline_one": "Odebrán {{count}} nepropojený řádek.",
       "removedRowsHeadline_other": "Odebráno {{count}} nepropojených řádků.",
-      "confirmUnenrollWarning": "Opětovný zápis znamená přidat každého studenta na seznam znovu. Jejich repozitáře úloh se neodstraňují."
+      "confirmUnenrollWarning": "Opětovný zápis znamená přidat každého studenta na seznam znovu. Jejich repozitáře úloh se neodstraňují.",
+      "alreadyInvitedOrMember": "Již pozván nebo již člen. Nic nového nebylo odesláno.",
+      "cancelInviteConfirm_one": "Zrušit pozvánku",
+      "cancelInviteConfirm_other": "Zrušit pozvánky",
+      "nextBatch": "Připravuje se další dávka…"
     },
     "classroomTeamLabel": "Tým třídy",
-    "confirmResendBody": "Znovu odeslat čekající pozvánku do organizace pro {{label}}? Jejich aktuální pozvánka bude zrušena a bude odeslána nová pro {{org}}.",
+    "confirmResendBody": "Odeslat organizační pozvánku uživateli {{label}} znovu? Stávající pozvánka se zruší a odešle se nová pro organizaci {{org}}.",
     "detailTitle": "Podrobnosti o členovi",
     "emailColumn": "E-mail",
     "emptyBody": "Pozvěte studenty ze seznamu, abyste je zapsali, nebo přidejte učitele a asistenty v Nastavení. Onboardingový odkaz umožňuje pouze již pozvanému studentovi přijmout pozvání; sám o sobě nikoho nepřidá. Jakmile lidé pozvání přijmou a přihlásí se, objeví se zde.",
@@ -340,10 +345,10 @@
     "filterAllSections": "Všechny sekce",
     "filterBySectionLabel": "Filtrovat členy podle skupiny",
     "filterEnrolled": "Zapsaní",
-    "filterPending": "Nevyřízené",
+    "filterPending": "Pozvánka nevyřízena",
     "inviteLinksHint": "Tyto odkazy nikoho nezvou. Nejprve pozvěte studenty ze seznamu, poté sdílejte odkaz, aby každý student mohl pozvánku přijmout a přihlásit se.",
     "inviteToOrg": "Pozvat do organizace",
-    "invited": "Odesláno pozvání do organizace uživateli {{label}}.",
+    "invited": "Odeslána organizační pozvánka uživateli {{label}}.",
     "nameColumn": "Jméno",
     "nativeInviteLabel": "Odkaz na pozvánku do GitHub organizace",
     "noMatch": "Žádní členové neodpovídají vašemu hledání.",
@@ -356,7 +361,7 @@
     "pendingOwnerOnly": "Nevyřízené pozvánky jsou viditelné pouze vlastníkům organizace, takže se zde nezobrazují. Zapsaní členové (níže) se zobrazují vždy.",
     "pendingReview": "Zkontrolovat",
     "remove": "Odebrat",
-    "resendAllRateLimitedShort": "Znovu odesláno {{resent}} pozvánek, poté byl dosažen limit rychlosti GitHubu. Zbytek zkuste znovu za minutu.",
+    "resendAllRateLimitedShort": "Odesláno {{resent}} pozvánek, poté byl dosažen rate limit GitHub. Zbytek nebyl odeslán. Počkejte pár minut a zkuste to znovu.",
     "rosterLoadError": "Nepodařilo se načíst seznam z GitHubu. Seznam zapsaných může být neúplný. Jde o chybu načítání, ne o prázdnou třídu.",
     "rosterRetry": "Zkusit znovu",
     "searchLabel": "Hledat členy podle jména, uživatelského jména nebo e-mailu",
@@ -366,7 +371,7 @@
     "sectionProfile": "Profil",
     "statusEnrolled": "Zapsán",
     "statusLabel": "Stav",
-    "statusPending": "Nevyřízené pozvání",
+    "statusPending": "Čeká na přijetí pozvánky",
     "syncAdded_one": "Přidán {{count}} člen týmu do seznamu.",
     "syncAdded_other": "Přidáno {{count}} členů týmu do seznamu.",
     "syncFailed": "Nepodařilo se obnovit seznam: {{error}}",
@@ -392,12 +397,7 @@
     "detectedFormat": "Soubor přečten jako",
     "emailInviteSkippedDetail": "Již člen nebo již pozván(a), takže nová pozvánka nebyla odeslána.",
     "expectedHeaders": "Přidejte řádek s hlavičkou obsahující alespoň jeden z těchto sloupců: {{headers}}. Můžete také zahrnout first_name, last_name, name, section a role. Nebo nahrajte textový soubor s jedním uživatelským jménem GitHubu nebo e-mailovou adresou na řádek.",
-    "failedInviteDismissError": "Nepodařilo se zavřít neúspěšnou pozvánku: {{error}}",
-    "failedInviteNoTarget": "Tato pozvánka nemá uživatelské jméno GitHubu ani e-mail, takže ji nelze znovu odeslat. Zavřete ji a osobu znovu přidejte.",
-    "failedInviteReinviteError": "Nepodařilo se znovu pozvat: {{error}}",
-    "failedInvitesTitle_one": "{{count}} pozvánka selhala nebo vypršela.",
-    "failedInvitesTitle_other": "{{count}} pozvánek selhalo nebo vypršelo.",
-    "filterNeedsAttentionInOrg": "Potřebuje roli",
+    "filterNeedsAttentionInOrg": "Nezapsán",
     "filterNeedsAttentionNotInOrg": "Není v organizaci",
     "importAndInviteMembers_one": "Importovat a pozvat {{count}} člena",
     "importAndInviteMembers_other": "Importovat a pozvat {{count}} členů",
@@ -405,10 +405,10 @@
     "importMembers_other": "Importovat {{count}} členů",
     "inviteDeferredDetail": "GitHub omezil rychlost pozvánek. Za chvíli spusťte import znovu a pozvěte zbytek.",
     "invitePassFailed": "Seznam studentů byl uložen, ale odeslání pozvánek selhalo: {{message}}. Spusťte import znovu a zkuste pozvánky odeslat opakovaně.",
-    "inviteRosterDeferred": "GitHub omezil rychlost pozvánky pro {{label}}. Zkuste to za chvíli znovu.",
+    "inviteRosterDeferred": "GitHub omezil pozvánku uživateli {{label}} kvůli rate limitu. Počkejte pár minut a zkuste to znovu.",
     "inviteRosterFailed": "Nepodařilo se pozvat {{label}}: {{error}}",
     "inviteRosterNoUsername": "{{label}} nemá v evidenci žádné uživatelské jméno GitHubu. Před pozváním je přidejte.",
-    "inviteRosterNoneSent": "Uživateli {{label}} nebyla odeslána žádná pozvánka. Zkuste to znovu.",
+    "inviteRosterNoneSent": "Uživateli {{label}} nebyla odeslána žádná pozvánka. GitHub hlásí, že už je pozván nebo už je členem. Aktualizací seznamu studentů zobrazíte aktuální stav.",
     "invitingUploaded": "Odesílání pozvánek do organizace…",
     "keepInvite": "Ponechat pozvánku",
     "malformedCsv": "Tento soubor nebylo možné zpracovat jako CSV.",
@@ -445,7 +445,7 @@
     "rosterParseErrorLine": "Řádek {{line}}: {{message}}",
     "rosterRecheck": "Znovu zkontrolovat roster.csv",
     "rosterRechecking": "Opětovná kontrola…",
-    "statusNeedsAttentionInOrg": "Přiřadit roli",
+    "statusNeedsAttentionInOrg": "Nezapsán",
     "statusNeedsAttentionNotInOrg": "Není v organizaci",
     "taCount_one": "{{count}} asistent",
     "taCount_other": "{{count}} asistentů",
@@ -459,8 +459,6 @@
     "uploadTitle": "Nahrát seznam",
     "addRoleLabel": "Role",
     "addStaffHint": "Vyučující, hlavní asistenti a asistenti se přidávají podle uživatelského jména GitHubu. Vyučující a hlavní asistenti získají přístup pro zápis do repozitáře classroom50; asistenti pouze pro čtení. Vyučujícímu je udělen vlastník organizace.",
-    "failedInviteNotSent": "Uživateli {{who}} nebyla odeslána žádná pozvánka. Zkuste to znovu.",
-    "failedInviteRateLimited": "GitHub omezil rychlost opětovné pozvánky pro {{who}}. Zkuste to znovu.",
     "roleTeacher": "Vyučující",
     "teacherCount_one": "{{count}} vyučující",
     "teacherCount_other": "{{count}} vyučujících",
@@ -471,7 +469,7 @@
       "colRole": "Role",
       "colSection": "Sekce",
       "empty": "V souboru roster.csv zatím nikdo není uveden.",
-      "notice": "Seznam členů CSV ze souboru roster.csv (spravovaný učitelem). Autoritativní seznam členů řízený týmem a správa pozvánek jsou dostupné učitelům.",
+      "notice": "CSV seznam studentů ze souboru roster.csv (spravováno učitelem). Autoritativní seznam studentů řízený týmy a správa pozvánek jsou k dispozici učitelům.",
       "invitePending": "Pozván(a) e-mailem, zatím se nepřipojil(a)"
     },
     "githubIdentity": "GitHub: <username>@{{username}}</username> (id {{id}})",
@@ -492,7 +490,7 @@
     "preflightMetadataReviewHint_one": "Údaje {{count}} studenta budou aktualizovány. Před potvrzením zkontrolujte zvýrazněné buňky níže (najetím myší zobrazíte podrobnosti).",
     "preflightMetadataReviewHint_other": "Údaje {{count}} studentů budou aktualizovány. Před potvrzením zkontrolujte zvýrazněné buňky níže (najetím myší zobrazíte podrobnosti).",
     "preflightRoleChangeMetadataNotice": "Někteří z těchto členů mají také aktualizované údaje (zobrazené výše), které se uloží společně se změnou týmu.",
-    "resendMalformedId": "Nelze znovu odeslat pozvánku pro {{username}}: „{{githubId}}“ není platné github id. Opravte buňku github_id v souboru roster.csv.",
+    "resendMalformedId": "Nelze znovu odeslat pozvánku uživateli {{username}}: „{{githubId}}“ není platné GitHub id. Opravte buňku github_id v souboru roster.csv a zkuste to znovu.",
     "rolePreviousHint": "bylo {{role}}",
     "summaryHideDetails": "Skrýt podrobnosti",
     "summaryNoChanges": "Tento soubor odpovídá vašemu seznamu, takže není co přidávat ani aktualizovat.",
@@ -528,7 +526,7 @@
     "importSkipped_other": "{{count}} řádků bylo přeskočeno: nemají žádné uživatelské jméno GitHubu, github_id ani e-mailovou adresu, takže tyto studenty zatím nelze zastihnout. Všichni ostatní níže budou přesto importováni.",
     "importedAndInvitedCount": "Přidáno {{added}} student(ů) a odesláno {{invited}} e-mailových pozvánek.",
     "inviteEmailLocked": "Tato adresa identifikuje nevyřízenou pozvánku, takže ji zde nelze změnit. Chcete-li použít jinou, zrušte tuto pozvánku a pozvěte novou adresu.",
-    "inviteMetadataFailed": "Nepodařilo se připravit pozvánku pro {{email}} ({{message}}), takže žádná pozvánka nebyla odeslána. Zkuste to znovu; pokud to stále selhává, smažte zbylý tým uvedený ve zprávě a poté opakujte pokus.",
+    "inviteMetadataFailed": "Nepodařilo se připravit pozvánku pro {{email}} ({{message}}), takže nic nebylo odesláno. Zkuste to znovu; pokud to stále selhává, odstraňte zbývající tým uvedený ve zprávě a poté to zopakujte.",
     "invitingEmails": "Odesílání e-mailových pozvánek…",
     "missingIdentityHeader": "Tento soubor nemá žádný sloupec, který identifikuje studenta.",
     "noRosterRowNoEdit": "Podrobnosti profilu lze upravovat, jakmile má tato osoba záznam v rozvrhu.",
@@ -622,8 +620,8 @@
     "emailLinkBinding": "{{email}} → @{{login}} ({{classroom}})",
     "emailLinksConfirm": "Propojit tyto adresy se spárovanými účty GitHubu",
     "emailLinksDegraded": "Některé třídy se nepodařilo přečíst, takže může být propojitelných více adres, než se zobrazuje.",
-    "emailLinksNotice_one": "{{count}} adresa odpovídá studentovi ze seznamu předchozí třídy a bude zapsán(a) přímo místo pozvání.",
-    "emailLinksNotice_other": "{{count}} adres odpovídá studentům ze seznamů předchozích tříd a budou zapsáni přímo místo pozvání.",
+    "emailLinksNotice_one": "{{count}} adresa odpovídá studentovi, který už má účet GitHub z předchozí třídy. Bude propojen s tímto účtem a zapsán přímo, místo aby byl pozván.",
+    "emailLinksNotice_other": "{{count}} adres odpovídá studentům, kteří už mají účty GitHub z předchozích tříd. Budou propojeni s těmito účty a zapsáni přímo, místo aby byli pozváni.",
     "filterUnlinked": "Nepropojené",
     "linkFailed": "Nepodařilo se propojit {{label}}: {{error}}",
     "linkIncludeOrgMembers": "Zahrnout členy organizace, kteří nejsou v žádné třídě",
@@ -650,7 +648,38 @@
     "unlinkedKeptNotice_one": "{{count}} řádek byl zachován v seznamu bez účtu GitHubu (řádek pouze se jménem nebo adresa, kterou nebylo možné pozvat). Propojte jej s členem organizace přes filtr Nepropojené v seznamu.",
     "unlinkedKeptNotice_other": "{{count}} řádků bylo zachováno v seznamu bez účtu GitHubu (řádky pouze se jménem nebo adresy, které nebylo možné pozvat). Propojte je s členy organizace přes filtr Nepropojené v seznamu.",
     "unlinkedRosterNotice_one": "{{count}} řádek má jméno, ale žádné uživatelské jméno GitHubu, github_id ani e-mail. Bude zachován v seznamu jako nepropojený řádek, který můžete později propojit s členem organizace.",
-    "unlinkedRosterNotice_other": "{{count}} řádků má jméno, ale žádné uživatelské jméno GitHubu, github_id ani e-mail. Budou zachovány v seznamu jako nepropojené řádky, které můžete později propojit s členy organizace."
+    "unlinkedRosterNotice_other": "{{count}} řádků má jméno, ale žádné uživatelské jméno GitHubu, github_id ani e-mail. Budou zachovány v seznamu jako nepropojené řádky, které můžete později propojit s členy organizace.",
+    "completedRow": "Propojen uživatel {{label}} s existujícím řádkem seznamu studentů pro {{row}}.",
+    "emailInviteAlreadyPendingDetail": "Již má nevyřízenou pozvánku, takže nic nového nebylo odesláno. Chcete-li ji odeslat znovu, použijte Znovu odeslat na jeho řádku seznamu studentů.",
+    "emailLinksDeclinedNotice_one": "{{count}} adresa odpovídá studentovi, který už má účet GitHub, ale propojena nebude. Místo toho dostane e-mailovou pozvánku a jeho řádek zůstane nepropojený, dokud jej nepropojíte ze seznamu studentů.",
+    "emailLinksDeclinedNotice_other": "{{count}} adres odpovídá studentům, kteří už mají účty GitHub, ale propojeny nebudou. Místo toho dostanou e-mailové pozvánky a jejich řádky zůstanou nepropojené, dokud je nepropojíte ze seznamu studentů.",
+    "emailLinksUnlinkBody_one": "Tato osoba už je členem organizace se známým účtem GitHub. GitHub e-mailovou pozvánku stávajícímu členovi přeskočí, takže její řádek zůstane nepropojený, dokud jej ručně nepropojíte ze seznamu studentů.",
+    "emailLinksUnlinkBody_other": "Tyto osoby už jsou členy organizace se známými účty GitHub. GitHub e-mailovou pozvánku stávajícímu členovi přeskočí, takže jejich řádky zůstanou nepropojené, dokud je ručně nepropojíte ze seznamu studentů.",
+    "emailLinksUnlinkConfirm": "Nepropojovat",
+    "emailLinksUnlinkTitle": "Odeslat e-mailové pozvánky místo propojení?",
+    "filterInviteExpired": "Pozvánka vypršela",
+    "identityConflict": "Nějaký řádek seznamu studentů už používá uživatelské jméno {{label}} pro jiný účet GitHub, nebo toto uživatelské jméno už nese jiný řádek. Upravte nebo odeberte kolidující řádek ze seznamu studentů a poté přidejte uživatele {{label}} znovu.",
+    "inviteDailyLimit": "Denní limit pozvánek GitHub pro tuto organizaci je vyčerpán. Organizace mladší než měsíc nebo na bezplatném plánu mohou odeslat 50 pozvánek denně, ostatní 500. Zkuste to zítra znovu.",
+    "linkAccountAction": "Propojit účet",
+    "needsAttentionExpiredHelp": "Pozvánka uživateli {{label}} vypršela dříve, než ji přijal. Pozvánky GitHub platí 7 dní. Pozvěte ho znovu, abyste ho zapsali.",
+    "needsAttentionFailedHelp": "GitHub nedokázal doručit pozvánku uživateli {{label}} ({{reason}}). Pozvěte ho znovu, abyste ho zapsali.",
+    "previewAlreadyPending": "Pozvánka již nevyřízena",
+    "previewResendExpired": "Znovu odeslat pozvánku (vypršela)",
+    "previewResendFailed": "Znovu odeslat pozvánku (nedoručena)",
+    "reinviteRowAlreadyInvited": "Nic nebylo odesláno. GitHub už má pro {{email}} aktivní pozvánku nebo člena, možná z jiné třídy v této organizaci. Zkontrolujte stránku People organizace na GitHubu, nebo tento řádek propojte s tímto členem, jakmile pozvánku přijme.",
+    "reinviteRowFailed": "Nepodařilo se znovu pozvat {{email}}: {{error}}",
+    "reinviteRowRateLimited": "GitHub omezil pozvánku pro {{email}} kvůli rate limitu. Počkejte pár minut a zkuste to znovu.",
+    "resendNotSent": "Uživateli {{label}} nebyla odeslána žádná nová pozvánka. GitHub hlásí, že adresa je již pozvána nebo již člen. Aktualizací seznamu studentů zobrazíte aktuální stav.",
+    "resendRateLimited": "GitHub omezil opětovné odeslání uživateli {{label}} kvůli rate limitu. Počkejte pár minut a zkuste to znovu.",
+    "statusInviteExpired": "Pozvánka vypršela",
+    "statusInviteFailed": "Pozvánka selhala",
+    "unlinkedEmailIntro": "Tento řádek není propojen s účtem GitHub a pro adresu {{email}} neexistuje žádná čekající pozvánka. Pozvánka mohla vypršet nebo být zrušena. Pozvěte studenta znovu, propojte řádek se členem organizace nebo řádek odstraňte.",
+    "unlinkedExpiredIntro": "Pozvánka pro adresu {{email}} vypršela dříve, než byla přijata. Pozvánky GitHub platí 7 dní. Pozvěte studenta znovu, propojte řádek se členem organizace nebo řádek odstraňte.",
+    "unlinkedFailedIntro": "GitHub nedokázal doručit pozvánku na adresu {{email}} ({{reason}}). Zkontrolujte adresu, pak studenta znovu pozvěte, propojte řádek se členem organizace nebo řádek odstraňte.",
+    "uploadBlockedChecking": "Kontroluje se aktuální členství…",
+    "uploadBlockedDetails": "Chcete-li pokračovat, potvrďte výše uvedené aktualizace údajů.",
+    "uploadBlockedRoles": "Chcete-li pokračovat, potvrďte výše uvedené změny rolí.",
+    "uploadBlockedUsernames": "Chcete-li pokračovat, potvrďte výše uvedené změny uživatelských jmen."
   },
   "language": {
     "baseName": "Angličtina (základní)",
@@ -816,7 +845,7 @@
       "description": "Popis",
       "descriptionPlaceholder": "Krátký popis této organizace",
       "displayName": "Zobrazovaný název",
-      "displayNamePlaceholder": "Classroom 50 Summer Dev",
+      "displayNamePlaceholder": "CS1 podzim 2026",
       "edit": "Upravit profil",
       "editOnGitHub": "Upravit na GitHubu",
       "email": "Kontaktní e-mail",
@@ -919,7 +948,10 @@
         "slugNoRoom": "Učebna „{{classroom}}“ neponechává žádný prostor pro jakoukoli identifikaci zadání: její krátký název plus uživatelské jméno může překročit limit GitHubu {{limit}} znaků pro název repozitáře. Vytvořte učebnu s kratší identifikací (nejvýše {{max}} znaků) a přidejte zadání tam.",
         "slugOverBudget": "Repozitáře studentů se pojmenovávají „{{classroom}}-<slug>-<username>“, což GitHub omezuje na {{limit}} znaků. Tato identifikace může mít nejvýše {{budget}} znaků (aktuálně {{length}}).",
         "slugReserved": "„{{slug}}“ je předchozí identifikace přejmenovaného zadání a je rezervovaná. Její opětovné použití by narušilo přesměrování, na kterých závisí přejmenované repozitáře studentů. Zvolte jinou identifikaci.",
-        "teamFormationInvalid": "Zvolte, kdo tvoří skupiny."
+        "teamFormationInvalid": "Zvolte, kdo tvoří skupiny.",
+        "pagesBranchInvalid": "Zadejte název větve bez mezer, nejvýše 255 znaků, nebo jej ponechte prázdný pro výchozí větev.",
+        "pagesPathInvalid": "Složka Pages musí být / nebo /docs.",
+        "pagesSourceInvalid": "GitHub Pages musí být „Vypnuto“, „GitHub Actions“ nebo „Větev“."
       },
       "allowedFilesTip": "Seřazené vzory ve stylu {{gitignore}}, jeden na řádek, určující, které soubory patří k odevzdání (rozhoduje poslední shoda, {{bang}} znovu zahrnuje). Například {{star}} a poté {{example}} povolí pouze {{result}}. Prázdné povolí každý soubor.",
       "containerUserTip": "Uživatel, pod kterým kontejner běží. Nastavte root, pokud checkout selže s chybou oprávnění. GitHub Actions spouští kroky v kontejneru pod uživatelem hostitelského runneru, takže obraz bez root často nemůže zapisovat do pracovního prostoru.",
@@ -998,7 +1030,7 @@
       "studentPermission": {
         "default": "Výchozí: {{level}}",
         "groupHelp": "Členové skupiny se připojují nejméně s právy správce, aby vlastník skupiny mohl přidávat spolužáky. Toto se týká repozitářů vytvořených od nynějška; ke změně existujících použijte stránku odevzdání.",
-        "help": "Role, která je každému studentovi udělena na jeho vlastním repozitáři úlohy v okamžiku přijetí. Výchozí je Push (zápis). Zvolte Správce, aby studenti mohli spravovat nastavení repozitáře a povolit GitHub Pages. Toto se týká studentů, kteří přijmou od nynějška; ke změně již vytvořených repozitářů použijte stránku odevzdání.",
+        "help": "Role, kterou každý student získá na svém vlastním repozitáři úkolu při jeho přijetí. Výchozí je Push (zápis). Vyberte Správce, aby si studenti mohli sami spravovat nastavení repozitáře. Toto platí pro studenty, kteří přijmou od této chvíle; k úpravě již vytvořených repozitářů použijte stránku odevzdání.",
         "label": "Přístup studenta k repozitáři",
         "learnMore": "Zjistit více",
         "levels": {
@@ -1117,7 +1149,28 @@
       "typeTeamRecommended": "Doporučeno",
       "releaseLockedReminder": "Uzamčeno. Datum zveřejnění úlohu neodemyká: vypněte Uzamknout úlohu v den zveřejnění, aby ji studenti mohli přijmout.",
       "releaseTemplateReadableBody": "Datum zveřejnění řídí pouze zařazení do seznamu. Uložením získá tým učebny okamžitě přístup ke čtení tohoto soukromého šablonového repozitáře. Chcete-li šablonu ponechat skrytou, uzamkněte úlohu nyní a odemkněte ji v den zveřejnění.",
-      "releaseTemplateReadableTitle": "Studenti mohou tuto šablonu číst před datem zveřejnění"
+      "releaseTemplateReadableTitle": "Studenti mohou tuto šablonu číst před datem zveřejnění",
+      "pages": {
+        "branch": {
+          "help": "Větev, kterou GitHub publikuje. Ponechte prázdné pro použití výchozí větve repozitáře. Pojmenovaná větev musí v repozitáři každého studenta existovat, když úkol přijme (například zkopírovaná ze šablony pomocí „Zahrnout všechny větve“).",
+          "label": "Větev",
+          "placeholder": "Výchozí větev"
+        },
+        "choices": {
+          "branch": "Větev",
+          "off": "Vypnuto",
+          "workflow": "GitHub Actions"
+        },
+        "editHelp": "Toto platí pro repozitáře vytvořené od této chvíle; k povolení Pages u existujících repozitářů použijte stránku odevzdání.",
+        "emptyRepoHint": "Není k dispozici pro prázdný repozitář: zatím není žádná větev k publikování.",
+        "help": "Publikujte repozitář každého studenta jako web pomocí GitHub Pages, nakonfigurovaný automaticky při přijetí studentem, takže nikdy nepotřebují přístup správce. Výchozí je vypnuto. „GitHub Actions“ nasazuje přes pracovní postup v repozitáři studenta (pro weby s krokem sestavení). „Větev“ publikuje soubory z větve přímo, bez potřeby pracovního postupu (pro čisté HTML, CSS a JavaScript). Web je veřejný na internetu, i když je repozitář soukromý, a každý soubor v publikované větvi a složce je poskytován; kdo jej vidí, může omezit pouze GitHub Enterprise Cloud. Pages u soukromých repozitářů vyžaduje plán GitHubu, který je zahrnuje; na GitHub Free pro organizace repozitář zveřejněte, jinak se web nevytvoří.",
+        "label": "GitHub Pages",
+        "path": {
+          "help": "Složka v této větvi k publikování: kořen repozitáře (/) nebo /docs. GitHub povoluje pouze tyto dvě.",
+          "label": "Složka"
+        },
+        "workflowNote": "Nasazení přes GitHub Actions vyžaduje v repozitáři každého studenta pracovní postup, který publikuje do Pages: musí udělit oprávnění pages: write a id-token: write a používat actions/upload-pages-artifact a actions/deploy-pages. Vložte jej do své šablony, nebo jej nechte přidat studenty. Web se vytvoří, když student přijme úkol, takže jej nasadí první spuštění pracovního postupu."
+      }
     },
     "autograder": {
       "heading": "Testy automatického hodnocení",
@@ -1408,7 +1461,8 @@
         "typeAria": "Filtrovat podle typu",
         "typeGroup": "Skupina (starší)",
         "typeIndividual": "Individuální",
-        "typeTeam": "Skupina"
+        "typeTeam": "Skupina",
+        "statusSubmitted": "Odevzdáno"
       },
       "viewSubmission": "Zobrazit moje odevzdání",
       "linkOnlyBody": "Úlohy v této třídě se otevírají z pozvánkového odkazu, který sdílí váš vyučující. Otevřete tento odkaz a přijměte úlohu; poté se zde zobrazí spolu s úlohami, které vyučující zpřístupnil(a) všem.",
@@ -1419,7 +1473,9 @@
       "tableCaption": "Publikované úlohy a váš stav u každé z nich",
       "viewGroup": "Zobrazit skupinu",
       "viewGroupTitle": "Vaše skupina",
-      "viewSubmissionTeam": "Zobrazit odevzdání skupiny"
+      "viewSubmissionTeam": "Zobrazit odevzdání skupiny",
+      "submissionUnknown": "Nepodařilo se zkontrolovat odevzdání. Obnovte stránku a zkuste to znovu.",
+      "submitted": "Odevzdáno"
     },
     "archivedNotice": "Tato učebna je archivovaná, takže nová zadání a přijímání zadání studenty jsou zakázána. Chcete-li provádět změny, zrušte archivaci v <settingsLink>Nastavení učebny</settingsLink>.",
     "studentViewAll": "Zobrazit všechna zadání pro učebnu <classroom>{{classroom}}</classroom>.",
@@ -1504,7 +1560,57 @@
     "includeStaff": "Zahrnout výukový personál",
     "includeStaffHelp": "Počítat učitele, vedoucí asistenty a asistenty společně se studenty ve sloupcích Přijato a Odevzdáno. Užitečné, když si výukový personál vyzkouší úlohu dříve než studenti.",
     "staffCount_one": "{{count}} člen výukového personálu",
-    "staffCount_other": "{{count}} členů výukového personálu"
+    "staffCount_other": "{{count}} členů výukového personálu",
+    "bulk": {
+      "delete": "Smazat",
+      "deleteBody": "Tímto se vybrané úkoly odeberou ze souboru assignments.json dané třídy v jednom commitu. Repozitáře studentů ani jejich odevzdání se nesmažou. Zůstávají v organizaci a lze je i nadále najít podle názvu.",
+      "deleteConfirmWord": "smazat",
+      "deleteDone_one": "{{count}} úkol smazán.",
+      "deleteDone_other": "Úkolů smazáno: {{count}}.",
+      "deleteNoChange": "Každý vybraný úkol už byl pryč; nic se necommitovalo.",
+      "deleteTitle_one": "Smazat {{count}} úkol?",
+      "deleteTitle_other": "Smazat úkoly ({{count}})?",
+      "deleteWarning": "Studenti ztratí přístup ke stránkám úkolů a u každého úkolu se odebere termín odevzdání, šablona a nastavení hodnocení.",
+      "lock": "Uzamknout",
+      "lockAllLocked": "Každý vybraný úkol je již uzamčen.",
+      "lockBody": "Studenti ztratí přístup k vybraným úkolům na stránce přijetí, v seznamu úkolů, v zobrazení odevzdání a v CLI. Existující repozitáře studentů se nesmažou. Jde o jeden commit do souboru assignments.json dané třídy, takže se to použije buď na všechny, nebo na žádný.",
+      "lockDone_one": "{{count}} úkol uzamčen.",
+      "lockDone_other": "Úkolů uzamčeno: {{count}}.",
+      "lockNoChange": "Každý vybraný úkol už byl v tomto stavu; nic se necommitovalo.",
+      "lockTitle_one": "Uzamknout {{count}} úkol?",
+      "lockTitle_other": "Uzamknout úkoly ({{count}})?",
+      "missingSkipped_one": "{{count}} vybraný úkol už byl pryč a byl přeskočen.",
+      "missingSkipped_other": "Vybrané úkoly ({{count}}) už byly pryč a byly přeskočeny.",
+      "reuse": "Znovu použít",
+      "reuseBody": "Zkopírujte vybrané úkoly do jiné třídy v této organizaci. Vyberte cíl a poté zkontrolujte slug, který každá kopie získá. Tam, kde je slug již použit, se doplní číslovaná přípona a před kopírováním můžete kterýkoli z nich přepsat.",
+      "reuseDone_one": "{{count}} úkol zkopírován.",
+      "reuseDone_other": "Úkolů zkopírováno: {{count}}.",
+      "reuseFailedTitle": "Vynecháno z kopírování",
+      "reuseFailed_one": "{{count}} úkol se nepodařilo zkopírovat.",
+      "reuseFailed_other": "Úkoly ({{count}}) se nepodařilo zkopírovat.",
+      "reuseNoTargets": "V organizaci {{org}} není žádná jiná třída, do které by šlo kopírovat.",
+      "reuseRenamedTitle": "Zkopírováno pod jiným slugem",
+      "reuseSlugDuplicate": "Jiný úkol v této kopii tento slug již používá.",
+      "reuseSlugLabel": "Slug pro {{assignment}}",
+      "reuseSlugRequired": "Slug je povinný.",
+      "reuseTargetError": "Nepodařilo se přečíst úkoly cílové třídy, takže kolizi slugů nelze vyřešit. Zkuste to znovu.",
+      "reuseTemplateWarnTitle": "Zkopírováno, ale přístup k šabloně nebylo možné udělit",
+      "reuseTitle_one": "Znovu použít {{count}} úkol",
+      "reuseTitle_other": "Znovu použít úkoly ({{count}})",
+      "selectAll": "Vybrat všechny úkoly",
+      "selectRow": "Vybrat {{assignment}}",
+      "selectedCount_one": "{{count}} úkol vybrán",
+      "selectedCount_other": "Vybráno úkolů: {{count}}",
+      "templateWarnings_one": "{{count}} úkol byl aktualizován, ale přístup studentského týmu k jeho šabloně nebylo možné aktualizovat: {{slugs}}. Zkontrolujte to na GitHubu, nebo akci na tomto výběru spusťte znovu.",
+      "templateWarnings_other": "Úkoly ({{count}}) byly aktualizovány, ale přístup studentského týmu k jejich šablonám nebylo možné aktualizovat: {{slugs}}. Zkontrolujte to na GitHubu, nebo akci na tomto výběru spusťte znovu.",
+      "unlock": "Odemknout",
+      "unlockBody": "Tímto se vybrané úkoly znovu otevřou studentům. Tam, kde je použita soukromá šablona, se obnoví čtecí přístup studentského týmu k ní, aby ji studenti mohli znovu přijmout.",
+      "unlockDone_one": "{{count}} úkol odemčen.",
+      "unlockDone_other": "Úkolů odemčeno: {{count}}.",
+      "unlockNoneLocked": "Žádný z vybraných úkolů není uzamčen.",
+      "unlockTitle_one": "Odemknout {{count}} úkol?",
+      "unlockTitle_other": "Odemknout úkoly ({{count}})?"
+    }
   },
   "published": {
     "pageHeading": "Publikované zdroje",
@@ -1558,7 +1664,13 @@
     "public": "Veřejné",
     "publicNote": "Tyto soubory jsou veřejné: studenti a autograder je stahují bez přihlášení. Vše ostatní v repozitáři classroom50 zůstává soukromé.",
     "siteTitle": "Váš veřejný web",
-    "unlistedNote": "Soubory této třídy jsou poskytovány na neveřejné URL. Kdokoli, kdo má odkaz, si je stále může přečíst, takže odkaz na přijetí každé úlohy sdílejte pouze se svými studenty."
+    "unlistedNote": "Soubory této třídy jsou poskytovány na neveřejné URL. Kdokoli, kdo má odkaz, si je stále může přečíst, takže odkaz na přijetí každé úlohy sdílejte pouze se svými studenty.",
+    "republish": {
+      "button": "Publikovat znovu",
+      "failed": "Nepodařilo se spustit publikování: {{detail}}. Zkontrolujte, že v repozitáři classroom50 můžete spouštět workflow, a zkuste to znovu.",
+      "help": "Znovu nasadí web z repozitáře classroom50 v jeho aktuální podobě, aniž by v něm cokoli měnil. Použijte ho, když soubor níže po neúspěšném publikování ukazuje Nepublikováno nebo Nedostupné.",
+      "started": "Nyní se publikuje na studentský web. Baner nahoře sleduje průběh."
+    }
   },
   "getStarted": {
     "badge": "Registrace",
@@ -1623,7 +1735,8 @@
         "grading_mode": "Režim hodnocení: skóre zaznamenaná v původním režimu se mohou zobrazovat jinak.",
         "repo_source": "Zdroj repozitáře: stávající repozitáře si zachovají svůj původní výchozí obsah.",
         "repo_visibility": "Viditelnost repozitáře: stávající repozitáře změňte na stránce odevzdání.",
-        "student_permission": "Přístup studenta k repozitáři: stávající repozitáře změňte na stránce odevzdání."
+        "student_permission": "Přístup studenta k repozitáři: stávající repozitáře změňte na stránce odevzdání.",
+        "pages": "GitHub Pages: povolte jej u existujících repozitářů na stránce odevzdání."
       },
       "provisioningIntro_one": "{{count}} student už zadání přijal. Tyto změny se týkají pouze repozitářů přijatých od nynějška; stávající repozitář si zachovává své aktuální nastavení:",
       "provisioningIntro_other": "{{count}} studentů už zadání přijalo. Tyto změny se týkají pouze repozitářů přijatých od nynějška; {{count}} stávajících repozitářů si zachovává své aktuální nastavení:",
@@ -2044,8 +2157,8 @@
       "confirmRemoveBody": "Tímto odeberete @{{login}} z týmu {{role}} a jeho přístup k repozitáři classroom50. Z organizace ho to neodebere.",
       "confirmRemoveTitle": "Odebrat @{{login}} z role {{role}}?",
       "pendingBadge": "Čeká",
-      "resend": "Znovu odeslat pozvánku",
-      "resendEmailOnly": "Tato pozvánka nemá uživatelské jméno na GitHubu, takže ji nelze znovu odeslat. Zrušte ji a osobu přidejte znovu.",
+      "resend": "Odeslat pozvánku znovu",
+      "resendEmailOnly": "Tato pozvánka nemá uživatelské jméno GitHub, takže ji zde nelze znovu odeslat. Zrušte ji a poté danou osobu přidejte znovu.",
       "resendFailed": "Nepodařilo se znovu odeslat pozvánku pro {{who}}: {{error}}",
       "resentToast": "Pozvánka pro {{who}} byla znovu odeslána.",
       "roleTeacherPlural": "Vyučující",
@@ -2249,7 +2362,14 @@
       "setup": "Automatické hodnocení nakonfigurováno",
       "setupSkippedEmptyRepo": "Není potřeba žádné nastavení: tato úloha používá prázdný repozitář",
       "repoVisibilityFellBack": "Repozitář {{org}}/{{repo}} byl vytvořen jako soukromý. Organizace vám neumožňuje vytvářet veřejné repozitáře; váš vyučující jej může později zveřejnit.",
-      "team": "Skupina nalezena"
+      "team": "Skupina nalezena",
+      "pagesSkipped": {
+        "access": "Automatické hodnocení nastaveno. GitHub Pages nebyl povolen: nemáte oprávnění měnit nastavení Pages v tomto repozitáři. Váš vyučující jej může povolit na stránce odevzdání.",
+        "branch": "Automatické hodnocení nastaveno. GitHub Pages nebyl povolen: větev, ze které publikuje, ve vašem repozitáři zatím neexistuje. Váš vyučující jej může povolit na stránce odevzdání.",
+        "plan": "Automatické hodnocení nastaveno. GitHub Pages nebyl povolen: plán GitHubu této organizace nedovoluje Pages u soukromých repozitářů. Váš vyučující může repozitář zveřejnit a povolit Pages na stránce odevzdání.",
+        "policy": "Automatické hodnocení nastaveno. GitHub Pages nebyl povolen: organizace neumožňuje členům publikovat weby Pages. Váš vyučující jej může povolit na stránce odevzdání.",
+        "unknown": "Automatické hodnocení nastaveno. GitHub Pages se momentálně nepodařilo povolit. Váš vyučující jej může povolit na stránce odevzdání."
+      }
     },
     "stepErrors": {
       "generic": "{{label}} selhalo (HTTP {{status}}). {{actions}}",
@@ -2320,6 +2440,10 @@
     "setupIncomplete": {
       "body": "Váš repozitář existuje, ale chybí jeho soubory nastavení, takže se nespustí automatické hodnocení a učitel vám nemůže zanechat zpětnou vazbu. Dokončete to opětovným spuštěním nastavení. Je to bezpečné a zachová se veškerá práce, kterou jste už odeslali.",
       "title": "Nastavení se nedokončilo"
+    },
+    "pagesSite": {
+      "enabled": "GitHub Pages je pro tento úkol povolen",
+      "help": "Váš repozitář může publikovat web na adrese {{url}}. Kdokoli na internetu si jej může prohlédnout, i když je repozitář soukromý."
     }
   },
   "submissions": {
@@ -2383,22 +2507,6 @@
       "shareWithCount_other": "Sdílíte s <count>{{count}} studenty</count>, kteří mohou tuto úlohu přijmout.",
       "warnNoStudents": "V třídě <classroom>{{classroom}}</classroom> zatím nemůže tento odkaz přijmout žádný student. Nejprve přidejte studenty do seznamu a pozvěte je do organizace.",
       "copied": "Zkopírováno"
-    },
-    "stats": {
-      "submitted": "Odevzdáno",
-      "groupsSubmitted": "Odevzdaných skupin",
-      "classAverage": "Průměr učebny",
-      "passing": "Prošlo",
-      "accepted": "Přijato",
-      "notAvailable": "–",
-      "showFailing": "Zobrazit neúspěšné studenty",
-      "failingCount_one": "{{count}} neúspěšný",
-      "failingCount_other": "{{count}} neúspěšných",
-      "showAcceptedNotSubmitted": "Zobrazit studenty, kteří úlohu přijali, ale neodevzdali",
-      "notYetSubmitted_one": "{{count}} zatím neodevzdal",
-      "notYetSubmitted_other": "{{count}} zatím neodevzdalo",
-      "ungradedNote_one": ", {{count}} neohodnocen",
-      "ungradedNote_other": ", {{count}} neohodnoceno"
     },
     "filters": {
       "searchGroupPlaceholder": "Hledat skupinu nebo člena",
@@ -2494,7 +2602,9 @@
       "teamMissingTitle": "Tým na GitHubu, na kterém tato skupina stojí, už neexistuje. Pravděpodobně byl smazán, takže hodnocení nemůže připsat body jeho členům, dokud nebude znovu vytvořen.",
       "teamNoRepo": "Zatím žádný repozitář",
       "teamNoRepoTitle": "Repozitář skupiny se vytvoří, když člen skupiny přijme úlohu. Sdílejte odkaz na úlohu, aby ji některý člen mohl přijmout.",
-      "staffRowTitle": "Učitel, vedoucí asistent nebo asistent, který přijal tuto úlohu, obvykle aby si ji vyzkoušel. Tento řádek nepatří studentovi."
+      "staffRowTitle": "Učitel, vedoucí asistent nebo asistent, který přijal tuto úlohu, obvykle aby si ji vyzkoušel. Tento řádek nepatří studentovi.",
+      "openSiteLabel": "Otevřít web GitHub Pages pro {{repo}}",
+      "viewSite": "Otevřít web GitHub Pages"
     },
     "reviewModal": {
       "errorTitle": "Nepodařilo se zkontrolovat pull request se zpětnou vazbou",
@@ -2532,7 +2642,15 @@
         "copyMilestone": "Kopírovat příkaz pro milníkový tag",
         "milestoneStep": "Nebo pushněte milníkový tag, který učitel nastavil (například {{tags}}):",
         "tagIntro": "Váš učitel hodnotí otagované snímky vaší práce. Commitujte a pushujte jako obvykle, poté spusťte příkaz pro odevzdání níže. Otaguje vaši nejnovější práci k hodnocení.",
-        "tagStep2": "Z repozitáře odevzdejte svou práci. Tímto se pushne tag odevzdání, který spustí hodnocení:"
+        "tagStep2": "Z repozitáře odevzdejte svou práci. Tímto se pushne tag odevzdání, který spustí hodnocení:",
+        "cloneHint": "SSH vyžaduje SSH klíč přidaný k vašemu účtu GitHub. GitHub CLI vyžaduje nainstalovaný příkaz gh.",
+        "cloneMethod": {
+          "cli": "GitHub CLI",
+          "https": "HTTPS",
+          "ssh": "SSH"
+        },
+        "cloneMethodAria": "Způsob klonování",
+        "teacherNote": "Váš vyučující vás může požádat, abyste klonovali nebo odevzdávali konkrétním způsobem. V takovém případě se řiďte jeho pokyny."
       },
       "notAccepted": "Toto zadání jste ještě nepřijali. <acceptLink>Přijměte jej</acceptLink>, abyste získali svůj repozitář, a poté odešlete svou práci push k ohodnocení.",
       "locked": "Tato úloha je uzamčená vaším vyučujícím a nyní není dostupná. Zkuste to později nebo požádejte vyučujícího o odemčení.",
@@ -2554,11 +2672,7 @@
     "viewSourceRepo": "Zobrazit šablonu",
     "menu": {
       "actions": "Akce",
-      "metrics": "Metriky",
       "share": "Sdílet"
-    },
-    "metrics": {
-      "title": "Metriky odevzdání"
     },
     "freshness": {
       "collected": "Data odevzdání sesbírána {{when}}",
@@ -2725,7 +2839,11 @@
       "manageGroup": "Spravovat skupinu",
       "setup": "Nastavení",
       "setupIncomplete": "Neúplné",
-      "setupIncompleteHint": "Přijetí studenta se zastavilo dříve, než se zapsaly soubory nastavení, takže se nespustí automatické hodnocení a nelze otevřít PR se zpětnou vazbou. Požádejte studenta, aby otevřel odkaz na úlohu a zvolil Znovu spustit nastavení."
+      "setupIncompleteHint": "Přijetí studenta se zastavilo dříve, než se zapsaly soubory nastavení, takže se nespustí automatické hodnocení a nelze otevřít PR se zpětnou vazbou. Požádejte studenta, aby otevřel odkaz na úlohu a zvolil Znovu spustit nastavení.",
+      "pages": "GitHub Pages",
+      "pagesBuildErrored": "Sestavení selhalo",
+      "pagesBuilding": "Sestavuje se",
+      "pagesNotEnabled": "Nezapnuto"
     },
     "rowDownload": {
       "aria": "Stáhnout odevzdání uživatele {{owner}}",
@@ -2879,9 +2997,9 @@
     "grading": {
       "badgeBuiltIn": "Automaticky hodnoceno",
       "badgeEmptyRepo": "Bez automatického hodnocení",
-      "badgeNoAutograder": "Vlastní autohodnocení",
-      "titleEmptyRepo": "Tento assignment používá prázdné repozitáře, takže autohodnocení, skóre a feedback pull request jsou zakázány. Tabulka ukazuje, kdo přijal.",
-      "titleNoAutograder": "Šablona přináší vlastní workflow hodnocení. Vestavěná skóre a přehodnocení jsou zakázány; feedback pull request stále funguje, když je zapnutý."
+      "badgeNoAutograder": "Bez vestavěného automatického hodnocení",
+      "titleEmptyRepo": "Tento úkol používá prázdné repozitáře, takže automatické hodnocení, skóre i pull request se zpětnou vazbou jsou vypnuty. Tabulka ukazuje, kdo úkol přijal a kdo odeslal push.",
+      "titleNoAutograder": "Tento úkol nepoužívá vestavěné automatické hodnocení, takže vestavěné skóre a přehodnocení jsou vypnuty. Vlastní hodnoticí workflow šablony stále běží a pull request se zpětnou vazbou stále funguje, pokud je zapnutý."
     },
     "scoreOverride": {
       "add": "Přidat skóre",
@@ -2987,41 +3105,78 @@
     },
     "rosterFromCsvNotice": "Seznam studentů pochází ze souboru rosteru podle jeho poslední synchronizace, protože vaše role nemůže zobrazit GitHub tým učebny. Student zapsaný od té doby se objeví poté, co učitel otevře roster. Vlastníci organizace vidí aktuální členství.",
     "skipPastTable": "Přeskočit za tabulku odevzdání",
-    "slugTitle": "Slug assignmentu: jedinečný identifikátor tohoto assignmentu. Zobrazované názvy se mohou opakovat."
+    "slugTitle": "Slug assignmentu: jedinečný identifikátor tohoto assignmentu. Zobrazované názvy se mohou opakovat.",
+    "bulkPages": {
+      "apply": "Zapnout u všech",
+      "deferredDetail": "Přeskočeno. Spusťte znovu pro zapnutí.",
+      "deferredSection_one": "{{count}} repozitář nebyl zpracován",
+      "deferredSection_other": "{{count}} repozitářů nebylo zpracováno",
+      "failedSection_one": "{{count}} repozitář se nepodařilo zapnout",
+      "failedSection_other": "{{count}} repozitářů se nepodařilo zapnout",
+      "infoBranch_one": "Tímto se GitHub Pages nastaví tak, aby publikovaly větev v repozitáři {{count}} studenta. Repozitáře, které již web mají, zůstanou beze změny. Repozitáře studentů, kteří přijmou později, se nastaví automaticky.",
+      "infoBranch_other": "Tímto se GitHub Pages nastaví tak, aby publikovaly větev v repozitářích {{count}} studentů. Repozitáře, které již web mají, zůstanou beze změny. Repozitáře studentů, kteří přijmou později, se nastaví automaticky.",
+      "infoWorkflow_one": "Tímto se GitHub Pages nastaví tak, aby nasazovaly přes GitHub Actions v repozitáři {{count}} studenta. Repozitáře, které již web mají, zůstanou beze změny. Repozitáře studentů, kteří přijmou později, se nastaví automaticky.",
+      "infoWorkflow_other": "Tímto se GitHub Pages nastaví tak, aby nasazovaly přes GitHub Actions v repozitářích {{count}} studentů. Repozitáře, které již web mají, zůstanou beze změny. Repozitáře studentů, kteří přijmou později, se nastaví automaticky.",
+      "menuLabel": "Zapnout GitHub Pages",
+      "menuTitle": "Nastavit web GitHub Pages tohoto úkolu v každém přijatém repozitáři",
+      "noRepos": "Zatím žádný student úkol nepřijal, takže není co zapínat.",
+      "progress": "Zpracováno {{processed}} z {{total}}",
+      "resultHeadline": "GitHub Pages jsou zapnuty u {{count}} z {{total}} repozitářů.",
+      "resultHeadlineThrottled": "GitHub Pages zapnuty u {{count}} z {{total}} repozitářů, než GitHub omezil požadavky kvůli limitu. Spusťte znovu pro dokončení zbytku.",
+      "subtitle_one": "Týká se {{count}} studenta, který tento úkol přijal.",
+      "subtitle_other": "Týká se {{count}} studentů, kteří tento úkol přijali.",
+      "title": "Zapnout GitHub Pages",
+      "titleEmptyRoster": "Zatím žádný student úkol nepřijal",
+      "working": "Zapínají se GitHub Pages"
+    },
+    "rowPages": {
+      "aria": "Zapnout GitHub Pages v repozitáři {{repo}}",
+      "description": "Nastavte web, který tento úkol očekává, v tomto repozitáři. Použijte to u repozitáře přijatého předtím, než byly Pages zapnuty, nebo když jejich zapnutí při přijetí selhalo.",
+      "outcome": {
+        "enabled": "GitHub Pages zapnuty. Web bude dostupný na {{url}} po prvním sestavení."
+      },
+      "refused": {
+        "access": "GitHub Pages nebyly v repozitáři {{repo}} zapnuty: k tomuto repozitáři potřebujete přístup správce.",
+        "branch": "GitHub Pages nebyly v repozitáři {{repo}} zapnuty: větev, ze které se publikuje, v tomto repozitáři zatím neexistuje.",
+        "plan": "GitHub Pages nebyly v repozitáři {{repo}} zapnuty: plán GitHub této organizace neumožňuje Pages v soukromých repozitářích. Zveřejněte repozitář a zkuste to znovu.",
+        "policy": "GitHub Pages nebyly v repozitáři {{repo}} zapnuty: organizace neumožňuje členům publikovat weby Pages. Zkontrolujte nastavení Pages organizace a zkuste to znovu.",
+        "unknown": "GitHub Pages se v repozitáři {{repo}} nyní nepodařilo zapnout. Zkuste to za chvíli znovu."
+      },
+      "title": "Zapnout GitHub Pages"
+    }
   },
   "orgMembers": {
     "heading": "Členové",
     "manageMembersOnGitHub": "Spravovat členy organizace na GitHubu",
-    "discrepancy_one": "{{count}} student je na seznamu, ale není členem organizace.",
-    "discrepancy_other": "{{count}} studentů je na seznamu, ale nejsou členy organizace.",
+    "discrepancy_one": "{{count}} student je na seznamu studentů, ale není členem organizace. Použijte Pozvat na jeho řádku a odešlete pozvánku.",
+    "discrepancy_other": "{{count}} studentů je na seznamu studentů, ale nejsou členy organizace. Použijte Pozvat na každém řádku a odešlete pozvánku.",
     "searchPlaceholder": "Hledat podle jména, uživatelského jména nebo e-mailu",
     "searchLabel": "Hledat členy",
-    "loadError": "Nepodařilo se načíst členy organizace.",
+    "loadError": "Nepodařilo se načíst členy organizace. Zkontrolujte připojení a to, že jste stále vlastníkem této organizace, a zkuste to znovu.",
     "noMatch": "Vašemu hledání neodpovídají žádní členové.",
     "invite": "Pozvat",
     "classroomCount_one": "{{count}} třída",
     "classroomCount_other": "{{count}} tříd",
-    "badgeNotMember": "Není členem organizace",
+    "badgeNotMember": "Není v organizaci",
     "badgeNoClassroom": "Žádná třída",
     "badgeMember": "Člen",
-    "noGitHubUsername": "žádné uživatelské jméno na GitHubu",
+    "noGitHubUsername": "Bez uživatelského jména GitHub",
     "detailTitle": "Podrobnosti o členovi",
     "manageOnGitHub": "Spravovat na GitHubu",
     "classroomAccess": "Přístup ke třídám",
     "noRoster": "Není na žádném seznamu třídy.",
-    "archived": "archivováno",
+    "archived": "Archivováno",
     "selfNotice": "Toto je váš přihlášený účet, takže jej odtud nelze z organizace odebrat.",
     "inviting": "Zve se…",
     "inviteToOrg": "Pozvat do organizace",
-    "notMemberNoId": "Tento student je na rozvrhu, ale není členem organizace. Zatím nemá evidované žádné id GitHubu, proto jej pozvěte ze stránky rozvrhu jeho třídy.",
     "removing": "Odebírá se…",
     "removeFromOrg": "Odebrat z organizace",
     "inviteFailed": "Nepodařilo se pozvat {{label}}: {{reason}}",
-    "somethingWrong": "akci se nepodařilo dokončit",
+    "somethingWrong": "Něco se pokazilo. Aktualizujte stránku a zkuste to znovu.",
     "removed": "{{label}} byl(a) odebrán(a) z organizace {{org}}.",
     "removedWithUnenroll_one": "{{label}} byl(a) odebrán(a) z organizace {{org}} a odhlášen(a) z {{count}} třídy.",
     "removedWithUnenroll_other": "{{label}} byl(a) odebrán(a) z organizace {{org}} a odhlášen(a) z {{count}} tříd.",
-    "removeFailed": "Nepodařilo se odebrat {{label}}: {{reason}}",
+    "removeFailed": "Nepodařilo se odebrat uživatele {{label}}: {{reason}}. Zkuste to znovu, nebo ho odeberte ze stránky People organizace na GitHubu.",
     "warnArchived": "{{who}} je stále v archivované třídě „{{classroom}}“; chcete-li je z tohoto seznamu odebrat, zrušte její archivaci.",
     "warnUnenrollFailed": "Nepodařilo se odhlásit {{who}} z třídy „{{classroom}}“ ({{reason}}); ostatní byli odebráni.",
     "badgeOwner": "Vlastník",
@@ -3031,12 +3186,11 @@
       "addedHeadline_one": "Přidán {{count}} člen do {{classroom}}.",
       "addedHeadline_other": "Přidáno {{count}} členů do {{classroom}}.",
       "classroomLabel": "Třída",
-      "clearSelection": "Zrušit výběr",
-      "confirmAddBody_one": "Tímto se vybraný člen přidá do seznamu třídy {{classroom}} a jejího týmu; pokud ještě není členem organizace, bude do ní pozván.",
-      "confirmAddBody_other": "Tímto se vybraní členové přidají do seznamu třídy {{classroom}} a jejího týmu; pokud ještě nejsou členy organizace, budou do ní pozváni.",
+      "confirmAddBody_one": "Tímto se vybraný člen přidá na seznam třídy {{classroom}} a do jejího týmu. Zde lze přidávat pouze členy organizace; kohokoli, kdo dosud není členem, nejprve pozvěte z jeho řádku.",
+      "confirmAddBody_other": "Tímto se vybraní členové přidají na seznam třídy {{classroom}} a do jejího týmu. Zde lze přidávat pouze členy organizace; kohokoli, kdo dosud není členem, nejprve pozvěte z jeho řádku.",
       "confirmRemoveBody_one": "Tímto se vybraný člen odebere ze seznamu třídy {{classroom}} a jejího týmu. Jeho členství v organizaci ani repozitáře úkolů nejsou dotčeny.",
       "confirmRemoveBody_other": "Tímto se vybraní členové odeberou ze seznamu třídy {{classroom}} a jejího týmu. Jejich členství v organizaci ani repozitáře úkolů nejsou dotčeny.",
-      "couldNotAddToTeam": "Nepodařilo se přidat do týmu třídy.",
+      "couldNotAddToTeam": "Nepodařilo se přidat do třídního týmu. Otevřete jejich řádek na seznamu třídy a pomocí Přidat do třídy to zkuste znovu.",
       "done": "Hotovo",
       "keepTabOpen": "Ponechte tuto kartu otevřenou, dokud se akce nedokončí.",
       "memberCount_one": "{{count}} člen",
@@ -3061,16 +3215,16 @@
         "already-on-classroom": "Již v této třídě.",
         "already-removed": "Již z této třídy odebrán.",
         "archived": "Učebna je archivovaná. Zrušte archivaci, abyste mohli měnit členství.",
-        "no-id": "Není uloženo žádné GitHub id pro jejich zařazení.",
+        "no-id": "V evidenci není žádné GitHub id, takže je nelze spárovat s účtem GitHub.",
         "not-member": "Není členem organizace. Nejprve jej pozvěte.",
         "not-on-classroom": "Není v této třídě.",
-        "resolve-failed": "Nepodařilo se zjistit jejich aktuální účet GitHub.",
+        "resolve-failed": "Nepodařilo se dohledat jejich aktuální účet GitHub. Zkuste to znovu.",
         "pending-email-invite": "Pozván e-mailem a zatím nepřijal. Zrušte pozvánku raději na stránce se seznamem učebny.",
-        "no-username": "V záznamu není žádné uživatelské jméno GitHubu. Odebrání z organizace se řídí uživatelským jménem.",
-        "self": "Toto je váš přihlášený účet, takže jej zde nelze odebrat."
+        "no-username": "V evidenci není žádné uživatelské jméno GitHub, takže jejich členství v organizaci odsud nelze odebrat. Odeberte je na stránce People organizace na GitHubu.",
+        "self": "Toto je váš přihlášený účet, takže jej zde nelze odebrat.",
+        "unlinked-row": "Není propojen s účtem GitHub. Znovu pozvěte, propojte nebo řádek odeberte na stránce Seznam studentů dané třídy."
       },
       "starting": "Spouštění…",
-      "actions": "Akce",
       "addModalTitle_one": "Přidat {{count}} vybraného člena do učebny",
       "addModalTitle_other": "Přidat {{count}} vybraných členů do učebny",
       "addToClassroomMenu": "Přidat do učebny",
@@ -3096,18 +3250,18 @@
       "previewSkipAlreadyOn_other": "{{count}} přeskočeno: již v této učebně.",
       "previewSkipArchived_one": "{{count}} přeskočen: zapsán do archivované instance této učebny.",
       "previewSkipArchived_other": "{{count}} přeskočeno: zapsáni do archivované instance této učebny.",
-      "previewSkipNoUsername_one": "{{count}} přeskočen: v záznamu není žádné uživatelské jméno GitHubu.",
-      "previewSkipNoUsername_other": "{{count}} přeskočeno: v záznamu není žádné uživatelské jméno GitHubu.",
+      "previewSkipNoUsername_one": "{{count}} přeskočen: v evidenci nemá uživatelské jméno GitHub, takže jeho členství v organizaci odsud nelze odebrat.",
+      "previewSkipNoUsername_other": "{{count}} přeskočeno: v evidenci nemají uživatelské jméno GitHub, takže jejich členství v organizaci odsud nelze odebrat.",
       "previewSkipNotMember_one": "{{count}} přeskočen: není členem organizace; nejprve jej pozvěte.",
       "previewSkipNotMember_other": "{{count}} přeskočeno: nejsou členy organizace; nejprve je pozvěte.",
       "previewSkipNotOn_one": "{{count}} přeskočen: není v této učebně.",
       "previewSkipNotOn_other": "{{count}} přeskočeno: nejsou v této učebně.",
-      "previewSkipPendingEmail_one": "{{count}} přeskočen: pozván e-mailem a zatím nepřijal.",
-      "previewSkipPendingEmail_other": "{{count}} přeskočeno: pozváni e-mailem a zatím nepřijali.",
+      "previewSkipPendingEmail_one": "{{count}} přeskočen: pozván e-mailem a dosud nepřijal. Pozvánku zrušte na stránce Seznam studentů dané třídy.",
+      "previewSkipPendingEmail_other": "{{count}} přeskočeno: pozváni e-mailem a dosud nepřijali. Pozvánky zrušte na stránce Seznam studentů dané třídy.",
       "removeFromClassroomMenu": "Odebrat z učebny",
       "removeModalTitle_one": "Odebrat {{count}} vybraného člena z učebny",
       "removeModalTitle_other": "Odebrat {{count}} vybraných členů z učebny",
-      "removeNoneOnClassroom": "Žádný z vybraných členů není na seznamu učebny.",
+      "removeNoneOnClassroom": "Žádný z vybraných členů není na seznamu studentů třídy, ze kterého by ho bylo možné odebrat.",
       "removeOrgTitle": "Odebrat členy z organizace {{org}}",
       "removedFromOrgHeadline_one": "Odebrán {{count}} člen z organizace {{org}}.",
       "removedFromOrgHeadline_other": "Odebráno {{count}} členů z organizace {{org}}.",
@@ -3115,33 +3269,53 @@
       "unenrolledDetail_one": "Vyřazen z {{count}} učebny ({{classrooms}}).",
       "unenrolledDetail_other": "Vyřazen z {{count}} učeben ({{classrooms}}).",
       "viewerUnverified": "Váš účet se nepodařilo ověřit, takže nebyl odebrán žádný člen. Zkuste to znovu.",
-      "confirmRemoveOrgWarning": "Odebraní členové ztratí přístup ke všem repozitářům v organizaci, včetně svých vlastních repozitářů úloh, a k návratu potřebují novou pozvánku."
+      "confirmRemoveOrgWarning": "Odebraní členové ztratí přístup ke všem repozitářům v organizaci, včetně svých vlastních repozitářů úloh, a k návratu potřebují novou pozvánku.",
+      "addNoneMembers": "Žádný z vybraných řádků není členem organizace. Nejprve je pozvěte a poté je přidejte do třídy.",
+      "confirmInviteBody_one": "Odeslat pozvánku do organizace vybranému studentovi? Jde na jeho účet GitHub podle id a zahrnuje jeho třídní týmy, takže je zapsán, jakmile ji přijme. Kdokoli, kdo již má čekající pozvánku nebo je již členem, se přeskočí.",
+      "confirmInviteBody_other": "Odeslat pozvánky do organizace vybraným studentům ({{count}})? Každá jde na jejich účet GitHub podle id a zahrnuje jejich třídní týmy, takže jsou zapsáni, jakmile ji přijmou. Kdokoli, kdo již má čekající pozvánku nebo je již členem, se přeskočí.",
+      "confirmInviteTitle_one": "Odeslat {{count}} pozvánku?",
+      "confirmInviteTitle_other": "Odeslat pozvánky ({{count}})?",
+      "inviteNoneInvitable": "Vyberte studenty, kteří jsou na seznamu, ale ne v organizaci. Čekající, prošlé a nepropojené řádky se řeší z jejich seznamu třídy.",
+      "inviteRateLimited": "Odesláno {{sent}} pozvánek, poté byl dosažen limit rychlosti GitHubu. Zbytek nebyl odeslán. Počkejte několik minut a zkuste to znovu.",
+      "inviteSelected_one": "Odeslat pozvánku do organizace {{count}} studentovi",
+      "inviteSelected_other": "Odeslat pozvánky do organizace {{count}} studentům",
+      "inviteSkipReason": {
+        "already-member": "Již je členem organizace. Nic nového nebylo odesláno.",
+        "already-pending": "Již má čekající pozvánku. Nic nového nebylo odesláno.",
+        "not-invitable": "Odsud nelze pozvat: není evidováno žádné GitHub id, nebo řádek není student mimo organizaci."
+      },
+      "inviteTitle": "Odeslat pozvánky do organizace {{org}}",
+      "invitedHeadline_one": "Odeslána {{count}} pozvánka.",
+      "invitedHeadline_other": "Odesláno pozvánek: {{count}}.",
+      "previewSkipUnlinked_one": "{{count}} přeskočen: není propojen s účtem GitHub. Znovu pozvěte, propojte nebo řádek odeberte na stránce Seznam studentů dané třídy.",
+      "previewSkipUnlinked_other": "{{count}} přeskočeno: nejsou propojeni s účtem GitHub. Znovu pozvěte, propojte nebo řádky odeberte na stránce Seznam studentů dané třídy.",
+      "removeOrgNoneEligible": "Žádný z vybraných řádků není členem organizace s uživatelským jménem GitHub.",
+      "sendInvitations": "Odeslat pozvánky"
     },
-    "confirmInviteBody": "Odeslat pozvání do organizace uživateli {{label}}? Pozvání se odesílá na jejich účet GitHub podle id a po přijetí se znovu připojí do {{org}} se svým dřívějším přístupem ke třídám.",
+    "confirmInviteBody": "Odeslat organizační pozvánku uživateli {{label}}? Míří na jeho účet GitHub podle id a zahrnuje jeho třídní týmy, takže bude znovu zapsán, jakmile ji přijme.",
     "filterAllClassrooms": "Všechny třídy",
     "filterByClassroomLabel": "Filtrovat podle třídy",
     "filterNoClassroom": "Žádná třída",
     "noMembersInClassroom": "V {{classroom}} nejsou žádní členové.",
     "noMembersNoClassroom": "Žádní členové bez třídy.",
     "unprovisionedAccessBadge": "Není v týmu",
-    "unprovisionedAccessTitle": "Na seznamu této učebny, ale ne v jejím GitHub týmu, takže by je sběr hodnocení vynechal. Opravíte to opětovným přidáním do učebny.",
+    "unprovisionedAccessTitle": "Je na seznamu studentů této třídy, ale ne v jejím týmu GitHub, takže by ho sběr hodnocení minul. Přidejte ho do třídy znovu, abyste to napravili.",
     "unprovisionedBadge": "Nezapsán",
-    "unprovisionedTitle": "Na seznamu, ale ne v týmu učebny: {{classrooms}}. Známky se sbírají prostřednictvím týmu, takže by jejich práce byla vynechána. Opravíte to opětovným přidáním do učebny.",
+    "unprovisionedTitle": "Na seznamu studentů, ale ne v třídním týmu: {{classrooms}}. Hodnocení se sbírá přes tým, takže by jejich práce byla vynechána. Přidejte je do třídy znovu, abyste to napravili.",
     "confirmRemove": "{{label}} bude odebrán(a) z organizace <org>{{org}}</org>.",
     "confirmUnenroll_one": "{{label}} bude nejprve odhlášen(a) z <count>{{count}} učebny</count> ({{classrooms}}) a poté odebrán(a) z organizace <org>{{org}}</org>. Repozitáře jejich zadání nebudou smazány.",
     "confirmUnenroll_other": "{{label}} bude nejprve odhlášen(a) z <count>{{count}} učeben</count> ({{classrooms}}) a poté odebrán(a) z organizace <org>{{org}}</org>. Repozitáře jejich zadání nebudou smazány.",
-    "noUsernameWithId": "<missing>žádné uživatelské jméno GitHub</missing> <meta>· id {{id}}</meta>",
-    "notMember": "{{label}} je na seznamu členů učebny, ale <emphasis>není členem organizace</emphasis>. Pozvěte je, abyste obnovili jejich přístup. Pozvánka se odesílá na jejich účet GitHub podle id, takže funguje, i když se změnilo jejich uživatelské jméno.",
+    "noUsernameWithId": "<missing>Bez uživatelského jména GitHub</missing> <meta>· id {{id}}</meta>",
+    "notMember": "{{label}} je na seznamu studentů třídy, ale <emphasis>není členem organizace</emphasis>. Pozvěte je, abyste obnovili jejich přístup. Pozvánka míří na jejich účet GitHub podle id, takže funguje i tehdy, když si změnili uživatelské jméno, a zahrnuje jejich třídní týmy.",
     "subtitle": "Všichni v organizaci GitHub <orgLink>{{org}}</orgLink> a učebny, do kterých patří.",
     "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
     "inviteMalformedId": "Nelze pozvat {{who}}: „{{githubId}}“ není platné GitHub id. Opravte buňku github_id v souboru roster.csv.",
-    "inviteMissingId": "Nelze pozvat {{who}}: v záznamu chybí GitHub id.",
+    "inviteMissingId": "Nelze pozvat uživatele {{who}}: jeho řádek na seznamu studentů nemá GitHub id. Otevřete jeho řádek na seznamu studentů třídy a pozvěte ho podle uživatelského jména, nebo řádek odeberte a přidejte ho znovu.",
     "badgeInvitePending": "Nevyřízená pozvánka",
-    "invitePendingNotice": "Tento student byl pozván e-mailem a zatím nepřijal, takže nemá v záznamu žádný účet GitHubu. Nic není špatně: jeho údaje se doplní automaticky, jakmile se připojí. Pozvánku můžete zrušit na stránce se seznamem jeho učebny.",
     "details": {
       "email_one": "E-mail",
       "email_other": "E-maily",
-      "githubId": "ID GitHubu",
+      "githubId": "GitHub id",
       "name": "Jméno",
       "notSet": "Nenastaveno",
       "orgRole": "Role",
@@ -3152,7 +3326,7 @@
     "filterInvitationPending": "Čekající pozvánka",
     "filterMembers": "Členové",
     "filterNotEnrolled": "Nezapsáno",
-    "filterNotInOrg": "Není členem organizace",
+    "filterNotInOrg": "Není v organizaci",
     "filterOwners": "Vlastníci",
     "filterShowLabel": "Filtrovat členy",
     "sharedOrgNotice": "Tato stránka uvádí každého člena GitHub organizace {{org}}, nejen vaše studenty. Pokud tuto organizaci sdílejí i další učitelé, byť bez použití Classroom 50, objeví se zde i jejich členové, takže při odebírání kohokoli buďte opatrní.",
@@ -3166,7 +3340,44 @@
       "colStatus": "Stav",
       "colUsername": "Uživatelské jméno"
     },
-    "retry": "Zkusit znovu"
+    "retry": "Zkusit znovu",
+    "archivedParen": "(archivováno)",
+    "badgeUnlinked": "Nepropojeno",
+    "filterInviteExpired": "Pozvánka vypršela",
+    "filterUnlinked": "Nepropojeno",
+    "invitationsRetry": "Zkusit znovu",
+    "invitationsUnavailable": "Nepodařilo se načíst pozvánky organizace, takže se nezobrazují nevyřízené a vypršelé pozvánky a řádky se mohou jevit jako nepropojené nebo mimo organizaci. Než někoho pozvete, zkuste to znovu.",
+    "inviteAlreadyMember": "{{who}} už je členem organizace {{org}}, takže nic nového nebylo odesláno. Aktualizací zobrazíte aktuální stav.",
+    "inviteAlreadyPending": "{{who}} už má nevyřízenou pozvánku do organizace {{org}}, takže nic nového nebylo odesláno. Znovu ji odešlete nebo zrušte z jeho řádku na seznamu studentů třídy.",
+    "notMemberExpired": "Pozvánka uživateli {{label}} vypršela dříve, než ji přijal. Pozvánky GitHub platí 7 dní. Pozvěte ho znovu, abyste obnovili jeho přístup.",
+    "notMemberFailed": "GitHub nedokázal doručit pozvánku uživateli {{label}} ({{reason}}). Pozvěte ho znovu, abyste obnovili jeho přístup.",
+    "openInRoster": "Otevřít v seznamu studentů třídy {{classroom}}",
+    "orphanedInviteExpired": "Vypršela",
+    "orphanedInviteFailed": "Selhala",
+    "orphanedInvitesBody": "GitHub tyto vypršelé nebo nedoručitelné pozvánky stále eviduje, ale neodpovídá jim žádný seznam studentů třídy ani člen organizace, takže je zde nelze znovu pozvat. Obvykle byl řádek na seznamu studentů odebrán poté, co pozvánka vypršela. Zavřením je vyčistíte ze seznamu selhaných pozvánek GitHub, nebo ponecháte ty, které jste odeslali za jiným účelem.",
+    "orphanedInvitesDeferred_one": "GitHub požadavek omezil kvůli rate limitu, takže {{count}} selhaná pozvánka nebyla zavřena. Zkuste to za pár minut znovu.",
+    "orphanedInvitesDeferred_other": "GitHub požadavek omezil kvůli rate limitu, takže {{count}} selhaných pozvánek nebylo zavřeno. Zkuste to za pár minut znovu.",
+    "orphanedInvitesDismiss": "Zavřít",
+    "orphanedInvitesDismissAll": "Zavřít vše",
+    "orphanedInvitesDismissFailed_one": "Nepodařilo se zavřít {{count}} selhanou pozvánku: {{error}}",
+    "orphanedInvitesDismissFailed_other": "Nepodařilo se zavřít {{count}} selhaných pozvánek: {{error}}",
+    "orphanedInvitesDismissed_one": "Zavřena {{count}} selhaná pozvánka.",
+    "orphanedInvitesDismissed_other": "Zavřeno {{count}} selhaných pozvánek.",
+    "orphanedInvitesHide": "Skrýt podrobnosti",
+    "orphanedInvitesTitle_one": "{{count}} selhaná pozvánka není na žádném seznamu studentů.",
+    "orphanedInvitesTitle_other": "{{count}} selhaných pozvánek není na žádném seznamu studentů.",
+    "orphanedInvitesView": "Zobrazit podrobnosti",
+    "removeSelf": "Svůj vlastní účet zde z organizace odebrat nemůžete.",
+    "removeViewerUnverified": "Nepodařilo se ověřit váš účet, takže člen nebyl odebrán. Zkuste to znovu.",
+    "rosterReadFailed": "Nepodařilo se načíst seznam studentů třídy {{classroom}}, takže se její studenti nezobrazují. Zkontrolujte soubor roster.csv dané třídy a poté stránku aktualizujte.",
+    "strandedExpired": "Pozvánka uživateli {{who}} vypršela dříve, než ji přijal. Pozvánky GitHub platí 7 dní. Otevřete jeho řádek na seznamu studentů třídy a znovu ho pozvěte, propojte řádek se členem organizace, nebo jej odeberte.",
+    "strandedFailed": "GitHub nedokázal doručit pozvánku uživateli {{who}} ({{reason}}). Otevřete jeho řádek na seznamu studentů třídy, zkontrolujte adresu a znovu ho pozvěte, propojte řádek se členem organizace, nebo jej odeberte.",
+    "strandedNoId": "{{who}} je na seznamu studentů, ale není členem organizace a jeho řádek nemá GitHub id, takže ho odsud nelze pozvat. Otevřete jeho řádek na seznamu studentů třídy a pozvěte ho.",
+    "strandedPendingAccount": "{{who}} má nevyřízenou organizační pozvánku a dosud ji nepřijal. Jeho řádek se automaticky aktualizuje, jakmile se připojí. Chcete-li pozvánku znovu odeslat nebo zrušit, otevřete jeho řádek na seznamu studentů třídy.",
+    "strandedPendingEmail": "{{who}} byl pozván e-mailem a dosud nepřijal, takže v evidenci není žádný účet GitHub. Jeho údaje se doplní automaticky, jakmile se připojí. Chcete-li pozvánku znovu odeslat nebo zrušit, otevřete jeho řádek na seznamu studentů třídy.",
+    "strandedUnlinked": "Tento řádek není propojen s účtem GitHub a {{who}} nemá žádnou nevyřízenou pozvánku. Otevřete jeho řádek na seznamu studentů třídy a znovu ho pozvěte, propojte řádek se členem organizace, nebo jej odeberte.",
+    "warnNoUsername": "Nepodařilo se odebrat uživatele {{who}} z organizace: jeho řádek nemá uživatelské jméno GitHub. Odeberte ho ze stránky People organizace na GitHubu.",
+    "warnOrgRemoveFailed": "Odebrání uživatele {{who}} z organizace selhalo ({{reason}}). Zkuste to znovu, nebo ho odeberte ze stránky People organizace na GitHubu."
   },
   "components": {
     "avatar": {
@@ -3335,7 +3546,13 @@
       "removeUser": "Odebrat {{username}} ze skupiny",
       "reviewJoinRequests": "Zkontrolovat žádosti o připojení na GitHubu",
       "title": "Členové skupiny",
-      "youBadge": "Vy"
+      "youBadge": "Vy",
+      "overCapacity": "Tato skupina má {{count}} členů, ale tento úkol povoluje {{max}}. Toto varování vidí i váš vyučující. Požádejte správce skupiny nebo vyučujícího, aby odebrali členy, dokud nebude mít skupina {{max}} nebo méně.",
+      "overCapacityManage": "Tato skupina má {{count}} členů, ale tento úkol povoluje {{max}}. Toto varování vidí i váš vyučující. Odebírejte členy, dokud nebude mít skupina {{max}} nebo méně."
+    },
+    "groupOverCapacity": {
+      "badge": "Nad limit",
+      "title": "Tato skupina má {{count}} členů, ale tento úkol povoluje {{max}}. Někdo přidal členy přímo na GitHubu. Odeberte členy ze skupiny, nebo skupinu ohodnoťte tak, jak je."
     }
   },
   "formatDate": {
@@ -3365,7 +3582,19 @@
       "failed": "{{label}}: selhalo",
       "pending": "{{label}}: spouští se…",
       "running": "{{label}}…",
-      "success": "{{label}}: hotovo"
+      "success": "{{label}}: hotovo",
+      "superseded": "{{label}}: zahrnuto v novější publikaci"
+    },
+    "publishFailure": {
+      "deployLockCleared": "Dřívější publikace, která tuto blokovala, byla dokončena. Vaše změna je uložena. Zkuste ji nyní publikovat znovu.",
+      "deployLocked": "GitHub Pages stále dokončuje dřívější publikaci, takže tato nemohla začít. Vaše změna je uložena. Dřívější publikace se obvykle uvolní do 10 minut: pak to zkuste znovu, nebo ji nyní zrušte.",
+      "outage": "GitHub Pages vrátil chybu serveru. Vaše změna je uložena. Zkontrolujte githubstatus.com a poté to zkuste znovu.",
+      "pagesDisabled": "GitHub Pages je pro repozitář classroom50 vypnutý, takže studentský web není dostupný. Vaše změna je uložena. Znovu spusťte nastavení v nastavení organizace, abyste Pages zapnuli, a poté to zkuste znovu.",
+      "permission": "Publikační pracovní postup nemá povoleno zapisovat do GitHub Pages. Vaše změna je uložena. Aktualizujte soubory pracovních postupů organizace (jakmile bude aktualizace k dispozici, objeví se banner) a poté to zkuste znovu.",
+      "timeout": "GitHub Pages nedokončil nasazení do 10 minut. Vaše změna je uložena. Obvykle jde o zpomalení GitHubu: zkuste to znovu a pokud to přetrvává, zkontrolujte githubstatus.com.",
+      "unstick": "Zrušit zaseknutou publikaci a zkusit znovu",
+      "unstickFailed": "Nepodařilo se zrušit dřívější publikaci: {{detail}}. Uvolní se sama přibližně do 10 minut. Pak to zkuste znovu.",
+      "unsticking": "Ruší se…"
     }
   },
   "skeletonDrift": {
@@ -3629,7 +3858,7 @@
       "heading": "Zprávy",
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
-      "vpatWcagDesc": "Zpráva o shodě s přístupností podle WCAG 2.2 (VPAT 2.5Rev).",
+      "vpatWcagDesc": "Zpráva o shodě přístupnosti podle WCAG 2.0, 2.1 a 2.2, úroveň A a AA (VPAT 2.5Rev).",
       "vpatWcagTitle": "VPAT: edice WCAG"
     },
     "legend": {
@@ -3647,7 +3876,7 @@
       "statement": "Prohlášení",
       "vpat": "Shoda"
     },
-    "pageSubtitle": "Jak webová aplikace Classroom 50 splňuje WCAG 2.2 úroveň AA, automaticky ověřováno při každém sestavení.",
+    "pageSubtitle": "Jak webová aplikace Classroom 50 splňuje WCAG 2.0, 2.1 a 2.2 na úrovni A a AA, s kontrolou barevného kontrastu při každém sestavení.",
     "pageTitle": "Přístupnost",
     "preview": {
       "open": "Zobrazit detaily barev",
@@ -3658,9 +3887,11 @@
       "colColors": "Barvy (popředí / pozadí)",
       "contrastMeta": "Poměry kontrastu WCAG pro každou dvojici u všech kontrolovaných barev, oba motivy. Vygenerováno {{date}}.",
       "contrastTitle": "Kontrola kontrastu barev",
-      "reportMeta": "Standard: WCAG {{standard}}, cílová úroveň {{target}}. Datum zprávy: {{date}}.",
-      "reportTitle": "Zpráva o shodě přístupnosti: {{product}}",
-      "vpatSummary": "Souhrn ({{total}} platných kritérií): {{supports}} Podporuje, {{partially}} Částečně podporuje, {{doesNotSupport}} Nepodporuje, {{notApplicable}} Nevztahuje se, {{notEvaluated}} Nevyhodnoceno."
+      "reportMeta": "Standard: {{standard}}, cílová úroveň {{target}}. Platné standardy: WCAG {{versions}}, úroveň A a AA. Datum zprávy: {{date}}.",
+      "reportTitle": "Zpráva o shodě přístupnosti {{vendor}}",
+      "vpatSummary": "Shrnutí ({{total}} kritérií): {{supports}} splňuje, {{partially}} částečně splňuje, {{doesNotSupport}} nesplňuje, {{notApplicable}} nerelevantní, {{notEvaluated}} nehodnoceno.",
+      "productWithVersion": "{{product}}, verze {{version}}",
+      "reportProduct": "Edice WCAG (na základě VPAT 2.5Rev). Název produktu/verze: {{product}}."
     },
     "statement": {
       "feedback": "Pokud se něco těžko používá,",
@@ -3670,7 +3901,7 @@
       "intro": "Chceme, aby Classroom 50 mohl používat každý, včetně lidí, kteří používají klávesnici, čtečku obrazovky nebo jiné asistivní technologie.",
       "limitations": "Několik kritérií je ve zprávě o shodě označeno jako „Částečně podporuje“, u každého s poznámkou, co ještě zbývá udělat. Opravujeme je průběžně, jak práce postupuje.",
       "limitationsHeading": "Známá omezení",
-      "target": "Usilujeme o splnění WCAG 2.2 úrovně AA. Kontrast barev je kontrolován při každém sestavení; zbytek se kontroluje ručně klávesnicí a čtečkou obrazovky. Zpráva o shodě uvádí, jak si stojíme u každého kritéria.",
+      "target": "Usilujeme o splnění WCAG 2.2 úrovně AA, která zahrnuje také kritéria úrovně A a AA z WCAG 2.0 a 2.1. Barevný kontrast se kontroluje při každém sestavení; zbytek se kontroluje ručně pomocí klávesnice a čtečky obrazovky. Zpráva o shodě uvádí každé kritérium úrovně A a AA, včetně těch, která se na tuto aplikaci nevztahují, a proč.",
       "targetHeading": "Jak si stojíme",
       "updated": "Naposledy zkontrolováno {{date}}."
     },
@@ -3712,7 +3943,18 @@
         "notEvaluated": "Nevyhodnoceno",
         "partially": "Částečně podporuje",
         "supports": "Podporuje"
-      }
+      },
+      "principle": {
+        "Operable": "Ovladatelné",
+        "Perceivable": "Vnímatelné",
+        "Robust": "Robustní",
+        "Understandable": "Srozumitelné"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 a 2.2",
+        "wcag22": "Pouze WCAG 2.2"
+      },
+      "tabAll": "Vše"
     }
   },
   "groupTeams": {
@@ -3791,7 +4033,8 @@
       "title": "Správa skupiny {{name}}",
       "undo": "Zpět",
       "willBeAdded": "Budou přidáni",
-      "willBeRemoved": "Budou odebráni"
+      "willBeRemoved": "Budou odebráni",
+      "overCapacity": "Tato skupina má {{count}} členů, ale tento úkol povoluje {{max}}. Někdo přidal členy přímo na GitHubu. Odebírejte členy, dokud nebude mít skupina {{max}} nebo méně, a poté vyberte Uložit změny."
     },
     "manageAriaLabel": "Spravovat skupinu {{name}}",
     "manageButton": "Spravovat",
@@ -3850,5 +4093,10 @@
       "label": "Viditelnost",
       "visible": "Viditelná"
     }
+  },
+  "backgroundPass": {
+    "failed": "Synchronizace s GitHubem nebyla dokončena. Spustí se znovu při příštím otevření třídy.",
+    "synced": "Synchronizováno s GitHubem.",
+    "syncing": "Synchronizace s GitHubem…"
   }
 }

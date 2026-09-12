@@ -27,7 +27,10 @@
     "clear": "クリア",
     "clearFilter": "フィルターをクリア",
     "checkingOrgAccess": "この組織へのアクセスを確認しています…",
-    "resolvingRole": "あなたのロールを確認しています…"
+    "resolvingRole": "あなたのロールを確認しています…",
+    "actionWithCount": "{{label}}（{{count}}）",
+    "actions": "操作",
+    "clearSelection": "選択を解除"
   },
   "notFound": {
     "title": "ページが見つかりません",
@@ -211,7 +214,7 @@
   },
   "students": {
     "addTitle": "メンバーを追加",
-    "addHint": "GitHub のユーザー名を入力すると学生を詳細付きで追加できます。メールアドレスを入力すると組織への招待を送信します。メール招待では、学生が承諾するまで、入力した名前とセクションを保留中の名簿行に保持します。",
+    "addHint": "学生をその詳細情報とともに追加するにはGitHubユーザー名を、組織への招待を送信するにはメールアドレスを入力してください。メール招待では、入力した名前とセクションが、学生が承諾するまで保留中のロスター行に保持されます。",
     "usernamePlaceholder": "github-username",
     "emailPlaceholder": "student@university.edu",
     "sectionPlaceholder": "3 時限目",
@@ -227,8 +230,8 @@
     "onboardingLinkHint": "学生は 1 つのステップで招待を承諾し、Classroom 50 にサインインします。ほとんどのクラスルームが共有するのはこのリンクです。",
     "onboardingLinkAria": "受講者オンボーディングリンク",
     "copyOnboardingLinkAria": "オンボーディングリンクをコピー",
-    "resendMissingId": "{{username}} への招待を再送できません：GitHub id がありません。名簿に再度追加してください。",
-    "resendFailed": "{{username}} への招待の再送に失敗しました（{{error}}）。",
+    "resendMissingId": "{{username}}への招待を再送信できません: そのロスター行にGitHub idがありません。行を削除してから、再度追加してください。",
+    "resendFailed": "{{username}}への招待を再送信できませんでした: {{error}}",
     "resend": "再送",
     "dismiss": "閉じる",
     "noSection": "クラスなし",
@@ -263,25 +266,24 @@
     "alreadyEnrolled": "{{label}} はすでにこのクラスに登録されています。",
     "bulk": {
       "alreadyRemoved": "すでに削除されています。",
-      "clearSelection": "選択を解除",
-      "confirmInviteBodyPlain_one": "選択した {{count}} 名の生徒に組織の招待を送信しますか？受諾すると組織とそのクラスチームに参加します。",
-      "confirmInviteBodyPlain_other": "選択した {{count}} 名の生徒に組織の招待を送信しますか？受諾すると組織とそのクラスチームに参加します。",
-      "confirmInviteTitle_one": "{{count}} 名の生徒を招待しますか？",
-      "confirmInviteTitle_other": "{{count}} 名の生徒を招待しますか？",
+      "confirmInviteBodyPlain_one": "選択した学生に新しい組織への招待を送信しますか？保留中の招待は取り消されて再送信され、期限切れの招待は置き換えられます。承諾すると組織とクラスルームチームに参加します。",
+      "confirmInviteBodyPlain_other": "選択した{{count}}名の学生に新しい組織への招待を送信しますか？保留中の招待は取り消されて再送信され、期限切れの招待は置き換えられます。承諾すると組織とクラスルームチームに参加します。",
+      "confirmInviteTitle_one": "{{count}}件の招待を送信しますか？",
+      "confirmInviteTitle_other": "{{count}}件の招待を送信しますか？",
       "confirmUnenrollBody_one": "{{count}} 名の生徒をクラスチームから削除し、その名簿の行を削除します。組織からは削除されません。",
       "confirmUnenrollBody_other": "{{count}} 名の生徒をクラスチームから削除し、その名簿の行を削除します。組織からは削除されません。",
       "confirmUnenrollTitle_one": "{{count}} 名の生徒の登録を解除しますか？",
       "confirmUnenrollTitle_other": "{{count}} 名の生徒の登録を解除しますか？",
       "done": "完了",
-      "invite": "招待",
-      "inviteNoneInvitable": "招待するには、組織に未所属または保留中の生徒を少なくとも 1 名選択してください。",
-      "inviteSelected_one": "{{count}} 名の生徒を組織に招待",
-      "inviteSelected_other": "{{count}} 名の生徒を組織に招待",
-      "inviteTitle": "生徒を組織に招待",
-      "invitedHeadline_one": "{{count}} 名の生徒を招待しました。",
-      "invitedHeadline_other": "{{count}} 名の生徒を招待しました。",
+      "invite": "招待を送信",
+      "inviteNoneInvitable": "保留中または期限切れの招待がある学生、またはまだ組織に参加していない学生を選択してください。メールアドレスもGitHubユーザー名もない行は招待できません。",
+      "inviteSelected_one": "{{count}}名の学生に招待を送信",
+      "inviteSelected_other": "{{count}}名の学生に招待を送信",
+      "inviteTitle": "招待を送信",
+      "invitedHeadline_one": "{{count}}件の招待を送信しました。",
+      "invitedHeadline_other": "{{count}}件の招待を送信しました。",
       "keepTabOpen": "処理が完了するまでこのタブを開いたままにしてください。",
-      "noInviteId": "この招待には登録された id がありません。行を削除してから、生徒を再度追加してください。",
+      "noInviteId": "この行にはGitHub idがないため、招待を再送信できません。行を削除してから、学生を再度追加してください。",
       "progressProcessed": "{{total}} 件中 {{processed}} 件",
       "resultFailed": "失敗",
       "resultSkipped": "スキップ",
@@ -299,7 +301,7 @@
       "unenrolledHeadline_one": "{{count}} 名の生徒を登録解除しました。",
       "unenrolledHeadline_other": "{{count}} 名の生徒を登録解除しました。",
       "cancelAlreadyGone": "すでに消滅しています（保留中ではありません）",
-      "cancelInvite": "キャンセル",
+      "cancelInvite": "招待を取り消す",
       "cancelNoneCancellable": "キャンセルする保留中の招待を1件以上選択してください。",
       "cancelSelected_one": "保留中の招待 {{count}} 件をキャンセル",
       "cancelSelected_other": "保留中の招待 {{count}} 件をキャンセル",
@@ -310,9 +312,8 @@
       "confirmCancelBody_other": "保留中の組織招待 {{count}} 件をキャンセルします。それらの人は再招待されない限り参加しません。",
       "confirmCancelTitle_one": "招待 {{count}} 件をキャンセルしますか？",
       "confirmCancelTitle_other": "招待 {{count}} 件をキャンセルしますか？",
-      "noneSelectable": "一括操作（登録解除、招待）は生徒にのみ適用されます。スタッフ（教師、ヘッド TA、TA）は教室の設定で管理してください。",
-      "malformedInviteId": "roster.csv の github_id が正しくありません。そのセルを修正してください。",
-      "actions": "アクション",
+      "noneSelectable": "一括操作（招待の送信、登録解除）は学生のみに適用されます。スタッフ（教師、ヘッドTA、TA）の管理はクラスルームの設定で行ってください。",
+      "malformedInviteId": "roster.csvのgithub_idが無効なため、招待を再送信できません。そのセルを修正してから、もう一度お試しください。",
       "confirmRemoveRowsBody_one": "GitHub アカウントに紐づいていない名簿行を {{count}} 件削除しますか？これは roster.csv からその行を削除するだけです。操作対象となるアカウントや招待はなく、教室リポジトリの履歴から復元できます。",
       "confirmRemoveRowsBody_other": "GitHub アカウントに紐づいていない名簿行を {{count}} 件削除しますか？これは roster.csv からそれらの行を削除するだけです。操作対象となるアカウントや招待はなく、教室リポジトリの履歴から復元できます。",
       "confirmRemoveRowsTitle_one": "未紐づけの行を {{count}} 件削除しますか？",
@@ -325,10 +326,14 @@
       "removeRowsTitle": "未紐づけの名簿行を削除",
       "removedRowsHeadline_one": "未紐づけの行を {{count}} 件削除しました。",
       "removedRowsHeadline_other": "未紐づけの行を {{count}} 件削除しました。",
-      "confirmUnenrollWarning": "再登録するには、各学生を改めて名簿に追加する必要があります。学生の課題リポジトリは削除されません。"
+      "confirmUnenrollWarning": "再登録するには、各学生を改めて名簿に追加する必要があります。学生の課題リポジトリは削除されません。",
+      "alreadyInvitedOrMember": "すでに招待済みまたはメンバーです。新しい招待は送信されませんでした。",
+      "cancelInviteConfirm_one": "招待を取り消す",
+      "cancelInviteConfirm_other": "招待を取り消す",
+      "nextBatch": "次のバッチを準備中…"
     },
     "classroomTeamLabel": "クラスチーム",
-    "confirmResendBody": "保留中の組織招待を {{label}} に再送しますか？現在の招待は取り消され、{{org}} 向けに新しい招待が送信されます。",
+    "confirmResendBody": "{{label}}に組織への招待を再送信しますか？現在の招待は取り消され、{{org}}向けに新しい招待が送信されます。",
     "detailTitle": "メンバーの詳細",
     "emailColumn": "メール",
     "emptyBody": "名簿から生徒を招待して登録するか、設定で教師や TA を追加してください。オンボーディングリンクは、すでに招待された生徒が承認するためのものにすぎず、それ自体で誰かを追加することはありません。招待を承認してサインインした人がここに表示されます。",
@@ -338,10 +343,10 @@
     "filterAllSections": "すべてのセクション",
     "filterBySectionLabel": "セクションでメンバーを絞り込む",
     "filterEnrolled": "登録済み",
-    "filterPending": "保留中",
+    "filterPending": "招待保留中",
     "inviteLinksHint": "これらのリンクは誰も招待しません。まず名簿から学生を招待し、その後リンクを共有すると、各学生が招待を承諾してサインインできます。",
     "inviteToOrg": "組織に招待",
-    "invited": "{{label}} に組織の招待を送信しました。",
+    "invited": "{{label}}に組織への招待を送信しました。",
     "nameColumn": "名前",
     "nativeInviteLabel": "GitHub 組織招待リンク",
     "noMatch": "検索に一致するメンバーがいません。",
@@ -354,7 +359,7 @@
     "pendingOwnerOnly": "保留中の招待は組織のオーナーのみが表示できるため、ここには表示されません。登録済みのメンバー（下記）は常に表示されます。",
     "pendingReview": "確認",
     "remove": "削除",
-    "resendAllRateLimitedShort": "{{resent}} 件の招待を再送しましたが、GitHub のレート制限に達しました。1 分後に残りを再試行してください。",
+    "resendAllRateLimitedShort": "{{resent}}件の招待を送信した後、GitHubのレート制限に達しました。残りは送信されませんでした。数分待ってから、もう一度お試しください。",
     "rosterLoadError": "GitHub から名簿を読み込めませんでした。登録済みの一覧が不完全な可能性があります。これは読み込みエラーであり、教室が空なわけではありません。",
     "rosterRetry": "再試行",
     "searchLabel": "名前、ユーザー名、またはメールでメンバーを検索",
@@ -364,7 +369,7 @@
     "sectionProfile": "プロフィール",
     "statusEnrolled": "登録済み",
     "statusLabel": "ステータス",
-    "statusPending": "保留中の招待",
+    "statusPending": "招待保留中",
     "syncAdded_one": "{{count}} 名のチームメンバーを名簿に追加しました。",
     "syncAdded_other": "{{count}} 名のチームメンバーを名簿に追加しました。",
     "syncFailed": "名簿を更新できませんでした：{{error}}",
@@ -377,7 +382,7 @@
     "assignRoleLabel": "役割",
     "assignRoleNoUsername": "{{label}} には GitHub ユーザー名が登録されていません。ロールを割り当てる前に追加してください。",
     "assignRoleNotMember": "{{label}} はもう組織のメンバーではありません。代わりに招待してください。",
-    "cancelInvite": "招待をキャンセル",
+    "cancelInvite": "招待を取り消す",
     "cancelInviteFailed": "{{label}} への招待をキャンセルできませんでした：{{error}}",
     "cancelInviteMissingId": "{{label}} への招待をキャンセルできません：招待 ID が記録されていません。",
     "changeRoleApply": "役割を変更",
@@ -390,12 +395,7 @@
     "detectedFormat": "ファイルの読み取り形式",
     "emailInviteSkippedDetail": "すでにメンバーであるか招待済みのため、新しい招待は送信されませんでした。",
     "expectedHeaders": "これらの列のうち少なくとも 1 つを含むヘッダー行を追加してください: {{headers}}。first_name、last_name、name、section、role も含められます。または、1 行に 1 つの GitHub ユーザー名かメールアドレスを記載したテキストファイルをアップロードしてください。",
-    "failedInviteDismissError": "失敗した招待を消去できませんでした：{{error}}",
-    "failedInviteNoTarget": "この招待には GitHub ユーザー名もメールアドレスもないため、再招待できません。これを消去してから、その人を再度追加してください。",
-    "failedInviteReinviteError": "再招待できませんでした：{{error}}",
-    "failedInvitesTitle_one": "招待 {{count}} 件が失敗または期限切れになりました。",
-    "failedInvitesTitle_other": "招待 {{count}} 件が失敗または期限切れになりました。",
-    "filterNeedsAttentionInOrg": "役割が必要",
+    "filterNeedsAttentionInOrg": "未登録",
     "filterNeedsAttentionNotInOrg": "組織に未参加",
     "importAndInviteMembers_one": "{{count}} 人のメンバーをインポートして招待",
     "importAndInviteMembers_other": "{{count}} 人のメンバーをインポートして招待",
@@ -403,10 +403,10 @@
     "importMembers_other": "{{count}} 人のメンバーをインポート",
     "inviteDeferredDetail": "GitHub が招待をレート制限しました。しばらくしてからインポートを再実行し、残りを招待してください。",
     "invitePassFailed": "名簿は保存されましたが、招待の送信に失敗しました：{{message}}。インポートを再実行して招待を再試行してください。",
-    "inviteRosterDeferred": "GitHub が {{label}} への招待をレート制限しました。しばらくしてから再試行してください。",
+    "inviteRosterDeferred": "GitHubが{{label}}への招待のレート制限を行いました。数分待ってから、もう一度お試しください。",
     "inviteRosterFailed": "{{label}} を招待できませんでした：{{error}}",
     "inviteRosterNoUsername": "{{label}} には GitHub ユーザー名が登録されていません。招待する前に追加してください。",
-    "inviteRosterNoneSent": "{{label}} に招待は送信されませんでした。再試行してください。",
+    "inviteRosterNoneSent": "{{label}}に招待は送信されませんでした。GitHubはすでに招待済みまたはメンバーであると報告しています。ロスターを更新して現在の状態を確認してください。",
     "invitingUploaded": "組織招待を送信中…",
     "keepInvite": "招待を保持",
     "malformedCsv": "このファイルを CSV として解析できませんでした。",
@@ -443,7 +443,7 @@
     "rosterParseErrorLine": "{{line}} 行目：{{message}}",
     "rosterRecheck": "roster.csv を再確認",
     "rosterRechecking": "再チェック中…",
-    "statusNeedsAttentionInOrg": "役割を割り当てる",
+    "statusNeedsAttentionInOrg": "未登録",
     "statusNeedsAttentionNotInOrg": "組織に未参加",
     "taCount_one": "{{count}} 人の TA",
     "taCount_other": "{{count}} 人の TA",
@@ -457,8 +457,6 @@
     "uploadTitle": "名簿をアップロード",
     "addRoleLabel": "役割",
     "addStaffHint": "先生、ヘッド TA、TA は GitHub のユーザー名で追加します。先生とヘッド TA は classroom50 リポジトリへの書き込みアクセスを、TA は読み取り専用を得ます。先生には組織オーナーが付与されます。",
-    "failedInviteNotSent": "{{who}} に招待は送信されませんでした。再試行してください。",
-    "failedInviteRateLimited": "GitHub が {{who}} への再招待をレート制限しました。再試行してください。",
     "roleTeacher": "先生",
     "teacherCount_one": "先生 {{count}} 人",
     "teacherCount_other": "先生 {{count}} 人",
@@ -469,7 +467,7 @@
       "colRole": "役割",
       "colSection": "セクション",
       "empty": "roster.csv にはまだ誰も登録されていません。",
-      "notice": "roster.csv からの CSV 名簿（教師が管理）。正式なチーム主導の名簿と招待管理は教師が利用できます。",
+      "notice": "roster.csvからのCSVロスター（教師管理）。正式なチーム主導のロスターと招待管理は教師が利用できます。",
       "invitePending": "メールで招待済み、未参加"
     },
     "githubIdentity": "GitHub: <username>@{{username}}</username>（id {{id}}）",
@@ -490,7 +488,7 @@
     "preflightMetadataReviewHint_one": "{{count}} 名の学生の詳細が更新されます。確認する前に、下でハイライトされたセルを確認してください（詳細はカーソルを合わせると表示されます）。",
     "preflightMetadataReviewHint_other": "{{count}} 名の学生の詳細が更新されます。確認する前に、下でハイライトされたセルを確認してください（詳細はカーソルを合わせると表示されます）。",
     "preflightRoleChangeMetadataNotice": "これらのメンバーの一部には更新された詳細（上に表示）もあり、チームの変更と一緒に保存されます。",
-    "resendMalformedId": "{{username}} への招待を再送できません：「{{githubId}}」は有効な GitHub id ではありません。roster.csv の github_id セルを修正してください。",
+    "resendMalformedId": "{{username}}への招待を再送信できません: 「{{githubId}}」は有効なGitHub idではありません。roster.csvのgithub_idセルを修正してから、もう一度お試しください。",
     "rolePreviousHint": "以前は {{role}}",
     "summaryHideDetails": "詳細を隠す",
     "summaryNoChanges": "このファイルは名簿と一致しているため、追加や更新するものはありません。",
@@ -526,7 +524,7 @@
     "importSkipped_other": "{{count}} 行がスキップされました: GitHub ユーザー名、github_id、メールアドレスがなく、それらの学生に連絡する手段がまだありません。下記のそれ以外の全員はインポートされます。",
     "importedAndInvitedCount": "{{added}} 名の学生を追加し、{{invited}} 件のメール招待を送信しました。",
     "inviteEmailLocked": "このアドレスは保留中の招待を識別するため、ここでは変更できません。別のアドレスを使うには、この招待をキャンセルして新しいアドレスを招待してください。",
-    "inviteMetadataFailed": "{{email}} の招待を準備できなかったため（{{message}}）、招待は送信されませんでした。もう一度お試しください。それでも失敗し続ける場合は、メッセージに記載された残ったチームを削除してから再試行してください。",
+    "inviteMetadataFailed": "{{email}}への招待を準備できなかったため（{{message}}）、何も送信されませんでした。もう一度試し、失敗が続く場合はメッセージに記載されている残ったチームを削除してから再試行してください。",
     "invitingEmails": "メール招待を送信中…",
     "missingIdentityHeader": "このファイルには学生を識別する列がありません。",
     "noRosterRowNoEdit": "この人物に名簿のエントリができると、プロフィール詳細を編集できます。",
@@ -620,8 +618,8 @@
     "emailLinkBinding": "{{email}} → @{{login}}（{{classroom}}）",
     "emailLinksConfirm": "これらのアドレスを一致した GitHub アカウントに紐づける",
     "emailLinksDegraded": "一部の教室を読み取れなかったため、表示されているよりも多くのアドレスが紐づけ可能な場合があります。",
-    "emailLinksNotice_one": "{{count}} 件のアドレスが過去の教室名簿の生徒と一致しており、招待せずに直接登録されます。",
-    "emailLinksNotice_other": "{{count}} 件のアドレスが過去の教室名簿の生徒と一致しており、招待せずに直接登録されます。",
+    "emailLinksNotice_one": "{{count}}件のアドレスが、以前のクラスルームからGitHubアカウントをすでに持つ学生と一致します。招待される代わりに、そのアカウントにリンクされて直接登録されます。",
+    "emailLinksNotice_other": "{{count}}件のアドレスが、以前のクラスルームからGitHubアカウントをすでに持つ学生と一致します。招待される代わりに、それらのアカウントにリンクされて直接登録されます。",
     "filterUnlinked": "未紐づけ",
     "linkFailed": "{{label}} を紐づけできませんでした：{{error}}",
     "linkIncludeOrgMembers": "どの教室にも属していない組織メンバーを含める",
@@ -648,7 +646,38 @@
     "unlinkedKeptNotice_one": "{{count}} 件の行は GitHub アカウントなしで名簿に保持されました（名前のみの行、または招待できなかったアドレス）。名簿の「未紐づけ」フィルターから組織メンバーに紐づけてください。",
     "unlinkedKeptNotice_other": "{{count}} 件の行は GitHub アカウントなしで名簿に保持されました（名前のみの行、または招待できなかったアドレス）。名簿の「未紐づけ」フィルターから組織メンバーに紐づけてください。",
     "unlinkedRosterNotice_one": "{{count}} 件の行には名前がありますが、GitHub ユーザー名、github_id、メールがありません。後で組織メンバーに紐づけられる未紐づけの行として名簿に保持されます。",
-    "unlinkedRosterNotice_other": "{{count}} 件の行には名前がありますが、GitHub ユーザー名、github_id、メールがありません。後で組織メンバーに紐づけられる未紐づけの行として名簿に保持されます。"
+    "unlinkedRosterNotice_other": "{{count}} 件の行には名前がありますが、GitHub ユーザー名、github_id、メールがありません。後で組織メンバーに紐づけられる未紐づけの行として名簿に保持されます。",
+    "completedRow": "{{label}}を{{row}}の既存のロスター行にリンクしました。",
+    "emailInviteAlreadyPendingDetail": "すでに保留中の招待があるため、新しいものは送信されませんでした。再送信するには、そのロスター行のResendを使用してください。",
+    "emailLinksDeclinedNotice_one": "{{count}}件のアドレスがすでにGitHubアカウントを持つ学生と一致しますが、リンクされません。代わりにメール招待が送信され、ロスターからリンクするまでその行は未リンクのままになります。",
+    "emailLinksDeclinedNotice_other": "{{count}}件のアドレスがすでにGitHubアカウントを持つ学生と一致しますが、リンクされません。代わりにメール招待が送信され、ロスターからリンクするまでそれらの行は未リンクのままになります。",
+    "emailLinksUnlinkBody_one": "この人はすでに既知のGitHubアカウントを持つ組織メンバーです。GitHubは既存メンバーへのメール招待をスキップするため、ロスターから手動でリンクするまでその行は未リンクのままになります。",
+    "emailLinksUnlinkBody_other": "これらの人々はすでに既知のGitHubアカウントを持つ組織メンバーです。GitHubは既存メンバーへのメール招待をスキップするため、ロスターから手動でリンクするまでそれらの行は未リンクのままになります。",
+    "emailLinksUnlinkConfirm": "リンクしない",
+    "emailLinksUnlinkTitle": "リンクの代わりにメール招待を送信しますか？",
+    "filterInviteExpired": "招待期限切れ",
+    "identityConflict": "あるロスター行がすでに別のGitHubアカウントに対してユーザー名{{label}}を使用しているか、別の行がすでにそのユーザー名を保持しています。ロスターから競合する行を編集または削除してから、{{label}}を再度追加してください。",
+    "inviteDailyLimit": "この組織のGitHubの1日あたりの招待上限に達しました。1か月未満の組織や無料プランの組織は1日50件、その他は500件送信できます。明日もう一度お試しください。",
+    "linkAccountAction": "アカウントをリンク",
+    "needsAttentionExpiredHelp": "{{label}}への招待は、承諾される前に期限切れになりました。GitHubの招待は7日間有効です。登録するには再度招待してください。",
+    "needsAttentionFailedHelp": "GitHubが{{label}}への招待を配信できませんでした（{{reason}}）。登録するには再度招待してください。",
+    "previewAlreadyPending": "招待はすでに保留中",
+    "previewResendExpired": "招待を再送信（期限切れ）",
+    "previewResendFailed": "招待を再送信（未配信）",
+    "reinviteRowAlreadyInvited": "何も送信されませんでした。GitHubにはすでに{{email}}に対する有効な招待またはメンバーがあります（この組織内の別のクラスルームからの可能性があります）。GitHubの組織のPeopleページを確認するか、そのメンバーが承諾したらこの行をそのメンバーにリンクしてください。",
+    "reinviteRowFailed": "{{email}}を再招待できませんでした: {{error}}",
+    "reinviteRowRateLimited": "GitHubが{{email}}への招待のレート制限を行いました。数分待ってから、もう一度お試しください。",
+    "resendNotSent": "{{label}}に新しい招待は送信されませんでした。GitHubはそのアドレスがすでに招待済みまたはメンバーであると報告しています。ロスターを更新して現在の状態を確認してください。",
+    "resendRateLimited": "GitHubが{{label}}への再送信のレート制限を行いました。数分待ってから、もう一度お試しください。",
+    "statusInviteExpired": "招待が期限切れ",
+    "statusInviteFailed": "招待に失敗",
+    "unlinkedEmailIntro": "この行は GitHub アカウントにリンクされておらず、{{email}} には保留中の招待もありません。招待が期限切れになったか、取り消された可能性があります。再度招待するか、この行を組織のメンバーにリンクするか、行を削除してください。",
+    "unlinkedExpiredIntro": "{{email}} への招待は受諾される前に期限切れになりました。GitHub の招待は 7 日間有効です。再度招待するか、この行を組織のメンバーにリンクするか、行を削除してください。",
+    "unlinkedFailedIntro": "GitHub は {{email}} への招待を配信できませんでした（{{reason}}）。アドレスを確認したうえで、再度招待するか、この行を組織のメンバーにリンクするか、行を削除してください。",
+    "uploadBlockedChecking": "現在のメンバーシップを確認中…",
+    "uploadBlockedDetails": "続行するには、上記の詳細情報の更新を確認してください。",
+    "uploadBlockedRoles": "続行するには、上記のロール変更を確認してください。",
+    "uploadBlockedUsernames": "続行するには、上記のユーザー名の変更を確認してください。"
   },
   "language": {
     "baseName": "English（ベース）",
@@ -806,7 +835,7 @@
       "roleMemberHint": "メンバーとして招待されています。受諾して参加すると、この組織のクラスと課題を表示できます。",
       "summary_one": "保留中の招待が {{count}} 件あります",
       "summary_other": "保留中の招待が {{count}} 件あります",
-      "viewOnGitHub": "GitHub で招待を表示"
+      "viewOnGitHub": "GitHubで招待を表示"
     },
     "detailsModal": {
       "cancel": "キャンセル",
@@ -814,7 +843,7 @@
       "description": "説明",
       "descriptionPlaceholder": "この組織の簡単な説明",
       "displayName": "表示名",
-      "displayNamePlaceholder": "Classroom 50 Summer Dev",
+      "displayNamePlaceholder": "CS1 Fall 2026",
       "edit": "プロフィールを編集",
       "editOnGitHub": "GitHub で編集",
       "email": "連絡先メールアドレス",
@@ -917,7 +946,10 @@
         "slugNoRoom": "クラスルーム「{{classroom}}」には、どの課題スラッグを入れる余地もありません。その短縮名にユーザー名を加えると、GitHub の {{limit}} 文字のリポジトリ名上限を超える可能性があります。より短いスラッグ（最大 {{max}} 文字）のクラスルームを作成し、そこに課題を追加してください。",
         "slugOverBudget": "学生リポジトリは「{{classroom}}-<slug>-<username>」という名前になり、GitHub はこれを {{limit}} 文字に制限します。このスラッグは最大 {{budget}} 文字にできます（現在は {{length}} 文字）。",
         "slugReserved": "「{{slug}}」はリネームされた課題の以前のスラッグであり、予約されています。再利用すると、リネームされた学生リポジトリが依存しているリダイレクトが壊れます。別のスラッグを選んでください。",
-        "teamFormationInvalid": "グループを誰が編成するかを選択してください。"
+        "teamFormationInvalid": "グループを誰が編成するかを選択してください。",
+        "pagesBranchInvalid": "スペースを含まないブランチ名を 255 文字以内で入力するか、デフォルトブランチを使う場合は空欄のままにしてください。",
+        "pagesPathInvalid": "Pages のフォルダーは / または /docs のいずれかにしてください。",
+        "pagesSourceInvalid": "GitHub Pages は「オフ」「GitHub Actions」「ブランチ」のいずれかにしてください。"
       },
       "allowedFilesTip": "1 行につき 1 つの、順序付きの {{gitignore}} 形式のパターンで、どのファイルが提出物に含まれるかを定義します（最後に一致したものが優先され、{{bang}} は再度含めます）。例えば、{{star}} の次に {{example}} とすると {{result}} のみを許可します。空欄の場合はすべてのファイルを許可します。",
       "containerUserTip": "コンテナを実行するユーザーです。チェックアウトが権限エラーで失敗する場合は root を設定してください。GitHub Actions はコンテナのステップをホストランナーのユーザーとして実行するため、非 root イメージではワークスペースに書き込めないことがよくあります。",
@@ -996,7 +1028,7 @@
       "studentPermission": {
         "default": "既定: {{level}}",
         "groupHelp": "グループメンバーは、グループオーナーがチームメイトを追加できるよう、少なくとも Admin で参加します。これは今後作成されるリポジトリに適用されます。既存のものを変更するには、提出物ページを使用してください。",
-        "help": "各学生が承諾時に自分の課題リポジトリに付与される権限です。Push（書き込み）が既定です。学生にリポジトリ設定の管理や GitHub Pages の有効化を許可するには Admin を選択してください。これは今後承諾する学生に適用されます。既に作成されたリポジトリを変更するには、提出物ページを使用してください。",
+        "help": "受け入れ時に各学生が自分の課題リポジトリに対して付与されるロールです。既定は Push（書き込み）です。学生自身がリポジトリ設定を管理できるようにするには Admin を選んでください。これは今後受け入れる学生に適用されます。既に作成されたリポジトリを変更するには提出物ページを使用してください。",
         "label": "学生リポジトリアクセス",
         "learnMore": "詳しく見る",
         "levels": {
@@ -1115,7 +1147,28 @@
       "typeTeamRecommended": "推奨",
       "releaseLockedReminder": "ロック中です。公開日が来ても課題のロックは解除されません。学生が受け取れるように、公開日に「課題をロック」をオフにしてください。",
       "releaseTemplateReadableBody": "公開日は一覧表示のみを制御します。保存すると、このプライベートテンプレートに対してクラスチームへの読み取りアクセスがただちに付与されます。テンプレートを非表示のままにするには、今すぐ課題をロックし、公開日にロックを解除してください。",
-      "releaseTemplateReadableTitle": "学生は公開日より前にこのテンプレートを読める状態になります"
+      "releaseTemplateReadableTitle": "学生は公開日より前にこのテンプレートを読める状態になります",
+      "pages": {
+        "branch": {
+          "help": "GitHub が公開するブランチです。空欄の場合はリポジトリのデフォルトブランチを使用します。名前付きのブランチは、学生が受け入れる時点で各学生リポジトリに存在している必要があります（例: 「すべてのブランチを含める」でテンプレートからコピー）。",
+          "label": "ブランチ",
+          "placeholder": "デフォルトブランチ"
+        },
+        "choices": {
+          "branch": "ブランチ",
+          "off": "オフ",
+          "workflow": "GitHub Actions"
+        },
+        "editHelp": "これは今後作成されるリポジトリに適用されます。既存のリポジトリで Pages を有効にするには提出物ページを使用してください。",
+        "emptyRepoHint": "空のリポジトリでは利用できません。まだ公開できるブランチがありません。",
+        "help": "各学生リポジトリを GitHub Pages で Web サイトとして公開します。学生が受け入れると自動的に構成されるため、管理者アクセスは不要です。既定はオフです。「GitHub Actions」は学生リポジトリ内のワークフローを通じてデプロイします（ビルド手順のあるサイト向け）。「ブランチ」はブランチ内のファイルを直接公開し、ワークフローは不要です（プレーンな HTML、CSS、JavaScript 向け）。リポジトリが非公開であっても、サイトはインターネット上に公開され、公開ブランチとフォルダー内のすべてのファイルが配信されます。閲覧者を制限できるのは GitHub Enterprise Cloud のみです。非公開リポジトリでの Pages には、それを含む GitHub プランが必要です。組織向けの GitHub Free では、リポジトリを公開にしないとサイトは作成されません。",
+        "label": "GitHub Pages",
+        "path": {
+          "help": "そのブランチ内で公開するフォルダー: リポジトリのルート（/）または /docs。GitHub ではこの 2 つのみが許可されています。",
+          "label": "フォルダー"
+        },
+        "workflowNote": "GitHub Actions を通じたデプロイには、各学生リポジトリに Pages へ公開するワークフローが必要です。pages: write と id-token: write の権限を付与し、actions/upload-pages-artifact と actions/deploy-pages を使用する必要があります。テンプレートに含めるか、学生に追加させてください。サイトは学生が受け入れた時点で作成されるため、ワークフローの初回実行でデプロイされます。"
+      }
     },
     "autograder": {
       "heading": "自動採点テスト",
@@ -1406,7 +1459,8 @@
         "typeAria": "種類で絞り込み",
         "typeGroup": "グループ（レガシー）",
         "typeIndividual": "個人",
-        "typeTeam": "グループ"
+        "typeTeam": "グループ",
+        "statusSubmitted": "提出済み"
       },
       "viewSubmission": "自分の提出を表示",
       "linkOnlyBody": "この classroom の課題は、先生が共有する招待リンクから開きます。そのリンクを開いて課題を受け取ってください。受け取ると、先生が全員に公開した課題と並んでここに表示されます。",
@@ -1417,7 +1471,9 @@
       "tableCaption": "公開された課題と、それぞれのあなたのステータス",
       "viewGroup": "グループを表示",
       "viewGroupTitle": "あなたのグループ",
-      "viewSubmissionTeam": "グループの提出物を表示"
+      "viewSubmissionTeam": "グループの提出物を表示",
+      "submissionUnknown": "提出物を確認できませんでした。更新してもう一度お試しください。",
+      "submitted": "提出済み"
     },
     "archivedNotice": "このクラスルームはアーカイブされているため、新しい課題の作成と学生の受け入れは無効になっています。変更するには <settingsLink>クラスルーム設定</settingsLink> でアーカイブを解除してください。",
     "studentViewAll": "<classroom>{{classroom}}</classroom> 教室のすべての課題を表示します。",
@@ -1502,7 +1558,57 @@
     "includeStaff": "指導スタッフを含める",
     "includeStaffHelp": "「受け入れ済み」列と「提出済み」列で、学生に加えて教師、ヘッドTA、TAもカウントします。学生より先に指導スタッフが課題を試す場合に便利です。",
     "staffCount_one": "指導スタッフ {{count}} 名",
-    "staffCount_other": "指導スタッフ {{count}} 名"
+    "staffCount_other": "指導スタッフ {{count}} 名",
+    "bulk": {
+      "delete": "削除",
+      "deleteBody": "選択した課題を、クラスの assignments.json から 1 回のコミットで削除します。学生のリポジトリとその提出物は削除されません。組織内に残り、名前で引き続きアクセスできます。",
+      "deleteConfirmWord": "delete",
+      "deleteDone_one": "{{count}} 件の課題を削除しました。",
+      "deleteDone_other": "{{count}} 件の課題を削除しました。",
+      "deleteNoChange": "選択した課題はすべて既に存在しませんでした。コミットは行われませんでした。",
+      "deleteTitle_one": "{{count}} 件の課題を削除しますか？",
+      "deleteTitle_other": "{{count}} 件の課題を削除しますか？",
+      "deleteWarning": "学生は課題ページにアクセスできなくなり、各課題の締め切り、テンプレート、採点設定が削除されます。",
+      "lock": "ロック",
+      "lockAllLocked": "選択した課題はすべて既にロックされています。",
+      "lockBody": "学生は受け入れページ、課題一覧、提出物ビュー、CLI で選択した課題にアクセスできなくなります。既存の学生リポジトリは削除されません。これはクラスの assignments.json への 1 回のコミットなので、すべてに適用されるか、まったく適用されないかのどちらかです。",
+      "lockDone_one": "{{count}} 件の課題をロックしました。",
+      "lockDone_other": "{{count}} 件の課題をロックしました。",
+      "lockNoChange": "選択した課題はすべて既にその状態でした。コミットは行われませんでした。",
+      "lockTitle_one": "{{count}} 件の課題をロックしますか？",
+      "lockTitle_other": "{{count}} 件の課題をロックしますか？",
+      "missingSkipped_one": "選択した課題のうち {{count}} 件は既に存在しなかったためスキップされました。",
+      "missingSkipped_other": "選択した課題のうち {{count}} 件は既に存在しなかったためスキップされました。",
+      "reuse": "再利用",
+      "reuseBody": "選択した課題をこの組織内の別のクラスにコピーします。コピー先を選び、各コピーが使用するスラッグを確認してください。既にそのスラッグが使われている場合は連番の接尾辞が自動入力され、コピー前にどれでも上書きできます。",
+      "reuseDone_one": "{{count}} 件の課題をコピーしました。",
+      "reuseDone_other": "{{count}} 件の課題をコピーしました。",
+      "reuseFailedTitle": "コピーから除外されたもの",
+      "reuseFailed_one": "{{count}} 件の課題をコピーできませんでした。",
+      "reuseFailed_other": "{{count}} 件の課題をコピーできませんでした。",
+      "reuseNoTargets": "{{org}} にはコピー先となる他のクラスがありません。",
+      "reuseRenamedTitle": "別のスラッグでコピーされたもの",
+      "reuseSlugDuplicate": "このコピー内の別の課題が既にこのスラッグを使用しています。",
+      "reuseSlugLabel": "{{assignment}} のスラッグ",
+      "reuseSlugRequired": "スラッグは必須です。",
+      "reuseTargetError": "コピー先クラスの課題を読み取れなかったため、スラッグの重複を解決できません。もう一度お試しください。",
+      "reuseTemplateWarnTitle": "コピーされましたが、テンプレートへのアクセスを付与できませんでした",
+      "reuseTitle_one": "{{count}} 件の課題を再利用",
+      "reuseTitle_other": "{{count}} 件の課題を再利用",
+      "selectAll": "すべての課題を選択",
+      "selectRow": "{{assignment}} を選択",
+      "selectedCount_one": "{{count}} 件の課題を選択中",
+      "selectedCount_other": "{{count}} 件の課題を選択中",
+      "templateWarnings_one": "{{count}} 件の課題は更新されましたが、そのテンプレートへの学生チームのアクセスを更新できませんでした: {{slugs}}。GitHub で確認するか、この選択に対してもう一度この操作を実行してください。",
+      "templateWarnings_other": "{{count}} 件の課題は更新されましたが、それらのテンプレートへの学生チームのアクセスを更新できませんでした: {{slugs}}。GitHub で確認するか、この選択に対してもう一度この操作を実行してください。",
+      "unlock": "ロック解除",
+      "unlockBody": "選択した課題を学生に再公開します。非公開テンプレートを使用している場合は、学生チームの読み取りアクセスが復元され、学生が再び受け入れられるようになります。",
+      "unlockDone_one": "{{count}} 件の課題のロックを解除しました。",
+      "unlockDone_other": "{{count}} 件の課題のロックを解除しました。",
+      "unlockNoneLocked": "選択した課題のいずれもロックされていません。",
+      "unlockTitle_one": "{{count}} 件の課題のロックを解除しますか？",
+      "unlockTitle_other": "{{count}} 件の課題のロックを解除しますか？"
+    }
   },
   "published": {
     "pageHeading": "公開リソース",
@@ -1556,7 +1662,13 @@
     "public": "公開",
     "publicNote": "これらのファイルは公開されています。学生とオートグレーダーはサインインせずに取得します。classroom50 リポジトリ内のその他のものはプライベートのままです。",
     "siteTitle": "あなたの公開サイト",
-    "unlistedNote": "このクラスのファイルは非公開リンク（リスト非掲載の URL）で配信されます。リンクを持っている人は誰でも読めるため、各課題の招待リンクは学生にのみ共有してください。"
+    "unlistedNote": "このクラスのファイルは非公開リンク（リスト非掲載の URL）で配信されます。リンクを持っている人は誰でも読めるため、各課題の招待リンクは学生にのみ共有してください。",
+    "republish": {
+      "button": "もう一度公開",
+      "failed": "公開を開始できませんでした: {{detail}}。classroom50リポジトリでワークフローを実行できることを確認してから、もう一度お試しください。",
+      "help": "classroom50リポジトリの内容を変更せず、現状のままサイトを再デプロイします。公開失敗後に下のファイルが「未公開」または「到達不能」と表示される場合に使用してください。",
+      "started": "学生サイトへの公開を実行中です。上のバナーで進捗を確認できます。"
+    }
   },
   "getStarted": {
     "badge": "オンボーディング",
@@ -1621,7 +1733,8 @@
         "grading_mode": "採点モード：以前のモードで記録されたスコアは異なって表示される場合があります。",
         "repo_source": "リポジトリソース：既存リポジトリは元のスターターコンテンツを保持します。",
         "repo_visibility": "リポジトリの公開範囲：既存リポジトリは提出物ページから変更してください。",
-        "student_permission": "学生リポジトリアクセス：既存リポジトリは提出物ページから変更してください。"
+        "student_permission": "学生リポジトリアクセス：既存リポジトリは提出物ページから変更してください。",
+        "pages": "GitHub Pages: 既存のリポジトリでは提出物ページから有効にしてください。"
       },
       "provisioningIntro_one": "すでに {{count}} 人の学生が受け入れています。これらの変更は今後受け入れられるリポジトリにのみ適用されます。既存のリポジトリは現在の設定を保持します：",
       "provisioningIntro_other": "すでに {{count}} 人の学生が受け入れています。これらの変更は今後受け入れられるリポジトリにのみ適用されます。既存の {{count}} 個のリポジトリは現在の設定を保持します：",
@@ -2042,7 +2155,7 @@
       "confirmRemoveTitle": "@{{login}} を {{role}} から削除しますか？",
       "pendingBadge": "保留中",
       "resend": "招待を再送",
-      "resendEmailOnly": "この招待には GitHub ユーザー名がないため再送できません。キャンセルして、その人を再度追加してください。",
+      "resendEmailOnly": "この招待には GitHub ユーザー名がないため、ここから再送できません。キャンセルしてから、その人をもう一度追加してください。",
       "resendFailed": "{{who}} への招待を再送できませんでした: {{error}}",
       "resentToast": "{{who}} への招待を再送しました。",
       "roleTeacherPlural": "先生",
@@ -2246,7 +2359,14 @@
       "setup": "自動採点を構成しました",
       "setupSkippedEmptyRepo": "セットアップは不要です: この課題は空のリポジトリを使用します",
       "repoVisibilityFellBack": "{{org}}/{{repo}} をプライベートとして作成しました。この組織ではパブリックリポジトリの作成が許可されていません。先生が後でパブリックにできます。",
-      "team": "グループが見つかりました"
+      "team": "グループが見つかりました",
+      "pagesSkipped": {
+        "access": "自動採点を設定しました。GitHub Pages は有効になりませんでした。このリポジトリの Pages 設定を変更する権限がありません。教員が提出物ページから有効にできます。",
+        "branch": "自動採点を設定しました。GitHub Pages は有効になりませんでした。公開元のブランチがあなたのリポジトリにまだ存在しません。教員が提出物ページから有効にできます。",
+        "plan": "自動採点を設定しました。GitHub Pages は有効になりませんでした。この組織の GitHub プランでは非公開リポジトリで Pages を利用できません。教員がリポジトリを公開に変更し、提出物ページから Pages を有効にできます。",
+        "policy": "自動採点を設定しました。GitHub Pages は有効になりませんでした。組織がメンバーによる Pages サイトの公開を許可していません。教員が提出物ページから有効にできます。",
+        "unknown": "自動採点を設定しました。GitHub Pages は現在有効にできませんでした。教員が提出物ページから有効にできます。"
+      }
     },
     "stepErrors": {
       "generic": "{{label}} が失敗しました（HTTP {{status}}）。{{actions}}",
@@ -2317,6 +2437,10 @@
     "setupIncomplete": {
       "body": "リポジトリは存在しますが、セットアップファイルが不足しているため、自動採点が実行されず、教員がフィードバックを残すこともできません。セットアップを再実行して完了させてください。この操作は安全で、すでにプッシュした作業はそのまま保持されます。",
       "title": "セットアップが完了しませんでした"
+    },
+    "pagesSite": {
+      "enabled": "この課題では GitHub Pages が有効になっています",
+      "help": "あなたのリポジトリは {{url}} で Web サイトを公開できます。リポジトリが非公開であっても、インターネット上の誰でも閲覧できます。"
     }
   },
   "submissions": {
@@ -2380,22 +2504,6 @@
       "shareWithCount_other": "この課題を受け入れられる<count>{{count}} 名の学生</count>と共有します。",
       "warnNoStudents": "<classroom>{{classroom}}</classroom>には、まだこのリンクを受け入れられる学生がいません。まず学生を名簿に追加し、組織に招待してください。",
       "copied": "コピーしました"
-    },
-    "stats": {
-      "submitted": "提出済み",
-      "groupsSubmitted": "提出したグループ",
-      "classAverage": "クラスルーム平均",
-      "passing": "合格",
-      "accepted": "受諾済み",
-      "notAvailable": "該当なし",
-      "showFailing": "不合格の学生を表示",
-      "failingCount_one": "不合格 {{count}} 人",
-      "failingCount_other": "不合格 {{count}} 人",
-      "showAcceptedNotSubmitted": "受諾したが未提出の学生を表示",
-      "notYetSubmitted_one": "未提出 {{count}} 人",
-      "notYetSubmitted_other": "未提出 {{count}} 人",
-      "ungradedNote_one": "、未採点 {{count}} 件",
-      "ungradedNote_other": "、未採点 {{count}} 件"
     },
     "filters": {
       "searchGroupPlaceholder": "グループまたはメンバーを検索",
@@ -2491,7 +2599,9 @@
       "teamMissingTitle": "このグループの基になっている GitHub チームがすでに存在しません。おそらく削除されたため、再作成するまで採点でメンバーに得点を反映できません。",
       "teamNoRepo": "リポジトリはまだありません",
       "teamNoRepoTitle": "グループのリポジトリは、グループのメンバーが課題を受け入れると作成されます。メンバーが受け入れられるよう、課題のリンクを共有してください。",
-      "staffRowTitle": "この課題を受け入れた教師、ヘッドTA、またはTAです。通常は試すために受け入れています。この行は学生のものではありません。"
+      "staffRowTitle": "この課題を受け入れた教師、ヘッドTA、またはTAです。通常は試すために受け入れています。この行は学生のものではありません。",
+      "openSiteLabel": "{{repo}} の GitHub Pages サイトを開く",
+      "viewSite": "GitHub Pages サイトを開く"
     },
     "reviewModal": {
       "errorTitle": "フィードバック PR を確認できませんでした",
@@ -2529,7 +2639,15 @@
         "copyMilestone": "マイルストーンタグのコマンドをコピー",
         "milestoneStep": "または、教師が設定したマイルストーンタグをプッシュします（例: {{tags}}）:",
         "tagIntro": "教員はあなたの作業のタグ付きスナップショットを採点します。いつものようにコミットしてプッシュし、その後に以下の submit コマンドを実行してください。これで最新の作業に採点用のタグが付きます。",
-        "tagStep2": "リポジトリ内から作業を提出します。これで採点をトリガーする提出タグがプッシュされます:"
+        "tagStep2": "リポジトリ内から作業を提出します。これで採点をトリガーする提出タグがプッシュされます:",
+        "cloneHint": "SSH には、GitHub アカウントに追加した SSH キーが必要です。GitHub CLI には、gh コマンドのインストールが必要です。",
+        "cloneMethod": {
+          "cli": "GitHub CLI",
+          "https": "HTTPS",
+          "ssh": "SSH"
+        },
+        "cloneMethodAria": "クローン方法",
+        "teacherNote": "先生から特定の方法でクローンや提出をするように指示される場合があります。その場合は、先生の指示に従ってください。"
       },
       "notAccepted": "この課題はまだ受け取っていません。<acceptLink>受け取る</acceptLink>とリポジトリが作成されるので、成果物をプッシュして採点を受けてください。",
       "locked": "この課題は先生によってロックされており、現在は利用できません。後でもう一度確認するか、ロックの解除を先生に依頼してください。",
@@ -2551,11 +2669,7 @@
     "viewSourceRepo": "テンプレートを表示",
     "menu": {
       "actions": "操作",
-      "metrics": "指標",
       "share": "共有"
-    },
-    "metrics": {
-      "title": "提出の指標"
     },
     "freshness": {
       "collected": "提出データを{{when}}に収集しました",
@@ -2722,7 +2836,11 @@
       "manageGroup": "グループを管理",
       "setup": "セットアップ",
       "setupIncomplete": "未完了",
-      "setupIncompleteHint": "この学生の受け取り処理はセットアップファイルが書き込まれる前に停止したため、自動採点は実行されず、フィードバック PR も開けません。学生に課題リンクを開いて「セットアップを再実行」を選ぶよう依頼してください。"
+      "setupIncompleteHint": "この学生の受け取り処理はセットアップファイルが書き込まれる前に停止したため、自動採点は実行されず、フィードバック PR も開けません。学生に課題リンクを開いて「セットアップを再実行」を選ぶよう依頼してください。",
+      "pages": "GitHub Pages",
+      "pagesBuildErrored": "ビルド失敗",
+      "pagesBuilding": "ビルド中",
+      "pagesNotEnabled": "無効"
     },
     "rowDownload": {
       "aria": "{{owner}} の提出物をダウンロード",
@@ -2876,9 +2994,9 @@
     "grading": {
       "badgeBuiltIn": "自動採点",
       "badgeEmptyRepo": "自動採点なし",
-      "badgeNoAutograder": "カスタム自動採点",
-      "titleEmptyRepo": "この課題は空のリポジトリを使用しているため、自動採点、スコア、フィードバックのプルリクエストは無効です。この表には受け入れた人が表示されます。",
-      "titleNoAutograder": "テンプレートには独自の採点ワークフローが含まれています。組み込みのスコアと再採点は無効ですが、フィードバックのプルリクエストは有効にすると引き続き機能します。"
+      "badgeNoAutograder": "組み込み自動採点なし",
+      "titleEmptyRepo": "この課題は空のリポジトリを使用するため、自動採点、スコア、フィードバックのプルリクエストは無効です。表には、誰が受諾し、誰がプッシュしたかが表示されます。",
+      "titleNoAutograder": "この課題は組み込みの自動採点機能を使用しないため、組み込みのスコアと再採点は無効です。テンプレート独自の採点ワークフローは引き続き実行され、フィードバックのプルリクエストも有効にすれば引き続き機能します。"
     },
     "scoreOverride": {
       "add": "スコアを追加",
@@ -2984,24 +3102,62 @@
     },
     "rosterFromCsvNotice": "あなたの役割ではクラスの GitHub チームを閲覧できないため、受講者一覧は名簿ファイルの最終同期時点のものです。それ以降に登録された受講者は、教員が名簿を開いた後に表示されます。組織のオーナーはライブのメンバーシップを確認できます。",
     "skipPastTable": "提出テーブルをスキップ",
-    "slugTitle": "課題スラッグ: この課題の一意の識別子です。表示名は重複することがあります。"
+    "slugTitle": "課題スラッグ: この課題の一意の識別子です。表示名は重複することがあります。",
+    "bulkPages": {
+      "apply": "すべてに有効化",
+      "deferredDetail": "スキップされました。再実行して有効化してください。",
+      "deferredSection_one": "{{count}} 件のリポジトリが処理されませんでした",
+      "deferredSection_other": "{{count}} 件のリポジトリが処理されませんでした",
+      "failedSection_one": "{{count}} 件のリポジトリを有効化できませんでした",
+      "failedSection_other": "{{count}} 件のリポジトリを有効化できませんでした",
+      "infoBranch_one": "これにより、{{count}} 人の学生のリポジトリで、ブランチを公開するように GitHub Pages を設定します。すでにサイトがあるリポジトリはそのまま残されます。以降に学生が受諾するリポジトリは自動的に設定されます。",
+      "infoBranch_other": "これにより、{{count}} 人の学生のリポジトリで、ブランチを公開するように GitHub Pages を設定します。すでにサイトがあるリポジトリはそのまま残されます。以降に学生が受諾するリポジトリは自動的に設定されます。",
+      "infoWorkflow_one": "これにより、{{count}} 人の学生のリポジトリで、GitHub Actions を通じてデプロイするように GitHub Pages を設定します。すでにサイトがあるリポジトリはそのまま残されます。以降に学生が受諾するリポジトリは自動的に設定されます。",
+      "infoWorkflow_other": "これにより、{{count}} 人の学生のリポジトリで、GitHub Actions を通じてデプロイするように GitHub Pages を設定します。すでにサイトがあるリポジトリはそのまま残されます。以降に学生が受諾するリポジトリは自動的に設定されます。",
+      "menuLabel": "GitHub Pages を有効化",
+      "menuTitle": "この課題の GitHub Pages サイトを、受諾済みのすべてのリポジトリに設定します",
+      "noRepos": "まだ受諾した学生がいないため、有効化する対象がありません。",
+      "progress": "{{total}} 件中 {{processed}} 件を処理しました",
+      "resultHeadline": "{{total}} 件中 {{count}} 件のリポジトリで GitHub Pages を有効化しました。",
+      "resultHeadlineThrottled": "GitHub のレート制限に達する前に、{{total}} 件中 {{count}} 件のリポジトリで GitHub Pages を有効化しました。再実行して残りを完了してください。",
+      "subtitle_one": "この課題を受諾した {{count}} 人の学生に適用されます。",
+      "subtitle_other": "この課題を受諾した {{count}} 人の学生に適用されます。",
+      "title": "GitHub Pages を有効化",
+      "titleEmptyRoster": "まだ受諾した学生がいません",
+      "working": "GitHub Pages を有効化中"
+    },
+    "rowPages": {
+      "aria": "{{repo}} で GitHub Pages を有効化",
+      "description": "この課題が想定するサイトをこのリポジトリに設定します。Pages を有効にする前に受諾されたリポジトリや、受諾時の有効化に失敗した場合に使用してください。",
+      "outcome": {
+        "enabled": "GitHub Pages を有効化しました。最初のビルド後、サイトは {{url}} で利用可能になります。"
+      },
+      "refused": {
+        "access": "{{repo}} で GitHub Pages を有効化できませんでした。このリポジトリへの管理者アクセスが必要です。",
+        "branch": "{{repo}} で GitHub Pages を有効化できませんでした。公開元となるブランチがこのリポジトリにまだ存在しません。",
+        "plan": "{{repo}} で GitHub Pages を有効化できませんでした。この組織の GitHub プランでは、プライベートリポジトリでの Pages が許可されていません。リポジトリを公開してから、もう一度お試しください。",
+        "policy": "{{repo}} で GitHub Pages を有効化できませんでした。この組織はメンバーによる Pages サイトの公開を許可していません。組織の Pages 設定を確認してから、もう一度お試しください。",
+        "unknown": "現在 {{repo}} で GitHub Pages を有効化できませんでした。しばらくしてからもう一度お試しください。"
+      },
+      "title": "GitHub Pages を有効化"
+    }
   },
   "orgMembers": {
     "heading": "メンバー",
     "manageMembersOnGitHub": "GitHub で組織のメンバーを管理",
-    "discrepancy_one": "{{count}} 名の受講者が名簿に登録されていますが、組織のメンバーではありません。",
-    "discrepancy_other": "{{count}} 名の受講者が名簿に登録されていますが、組織のメンバーではありません。",
+    "discrepancy_one": "{{count}}名の学生がロスターにいますが、組織メンバーではありません。その行のInviteで招待を送信してください。",
+    "discrepancy_other": "{{count}}名の学生がロスターにいますが、組織メンバーではありません。各行のInviteで招待を送信してください。",
     "searchPlaceholder": "名前・ユーザー名・メールで検索",
     "searchLabel": "メンバーを検索",
-    "loadError": "組織のメンバーを読み込めませんでした。",
+    "loadError": "組織メンバーを読み込めませんでした。接続と、まだこの組織のオーナーであることを確認してから再試行してください。",
     "noMatch": "検索条件に一致するメンバーはいません。",
     "invite": "招待",
     "classroomCount_one": "{{count}} クラス",
     "classroomCount_other": "{{count}} クラス",
-    "badgeNotMember": "組織の非メンバー",
+    "badgeNotMember": "組織に未参加",
     "badgeNoClassroom": "クラスなし",
     "badgeMember": "メンバー",
-    "noGitHubUsername": "GitHub ユーザー名なし",
+    "noGitHubUsername": "GitHubユーザー名なし",
     "detailTitle": "メンバーの詳細",
     "manageOnGitHub": "GitHub で管理",
     "classroomAccess": "クラスへのアクセス",
@@ -3010,15 +3166,14 @@
     "selfNotice": "これはあなたのサインイン中のアカウントのため、ここから組織を退会させることはできません。",
     "inviting": "招待中…",
     "inviteToOrg": "組織に招待",
-    "notMemberNoId": "この学生は名簿にありますが、組織のメンバーではありません。まだ GitHub id が登録されていないため、クラスの名簿ページから招待してください。",
     "removing": "削除中…",
     "removeFromOrg": "組織から削除",
     "inviteFailed": "{{label}} を招待できませんでした: {{reason}}",
-    "somethingWrong": "この操作を完了できませんでした",
+    "somethingWrong": "問題が発生しました。更新してもう一度お試しください。",
     "removed": "{{label}} を {{org}} 組織から削除しました。",
     "removedWithUnenroll_one": "{{label}} を {{org}} 組織から削除し、{{count}} クラスから登録解除しました。",
     "removedWithUnenroll_other": "{{label}} を {{org}} 組織から削除し、{{count}} クラスから登録解除しました。",
-    "removeFailed": "{{label}} を削除できませんでした: {{reason}}",
+    "removeFailed": "{{label}}を削除できませんでした: {{reason}}。もう一度試すか、GitHubの組織のPeopleページから削除してください。",
     "warnArchived": "{{who}} はアーカイブ済みのクラス「{{classroom}}」にまだ登録されています。その名簿から削除するには、アーカイブを解除してください。",
     "warnUnenrollFailed": "{{who}} を「{{classroom}}」から登録解除できませんでした（{{reason}}）。他のクラスからは削除しました。",
     "badgeOwner": "オーナー",
@@ -3028,12 +3183,11 @@
       "addedHeadline_one": "{{count}} 名のメンバーを {{classroom}} に追加しました。",
       "addedHeadline_other": "{{count}} 名のメンバーを {{classroom}} に追加しました。",
       "classroomLabel": "クラス",
-      "clearSelection": "選択を解除",
-      "confirmAddBody_one": "選択したメンバーを {{classroom}} クラスの名簿とチームに追加し、まだ組織のメンバーでない場合は組織へ招待します。",
-      "confirmAddBody_other": "選択したメンバーを {{classroom}} クラスの名簿とチームに追加し、まだ組織のメンバーでない場合は組織へ招待します。",
+      "confirmAddBody_one": "選択したメンバーを {{classroom}} クラスの名簿とチームに追加します。ここに追加できるのは組織メンバーのみです。まだメンバーでない人は、先にその行から招待してください。",
+      "confirmAddBody_other": "選択したメンバーを {{classroom}} クラスの名簿とチームに追加します。ここに追加できるのは組織メンバーのみです。まだメンバーでない人は、先にその行から招待してください。",
       "confirmRemoveBody_one": "選択したメンバーを {{classroom}} クラスの名簿とチームから削除します。組織のメンバーシップと課題リポジトリには影響しません。",
       "confirmRemoveBody_other": "選択したメンバーを {{classroom}} クラスの名簿とチームから削除します。組織のメンバーシップと課題リポジトリには影響しません。",
-      "couldNotAddToTeam": "クラスチームに追加できませんでした。",
+      "couldNotAddToTeam": "クラスチームに追加できませんでした。クラス名簿でその行を開き、「クラスに追加」で再試行してください。",
       "done": "完了",
       "keepTabOpen": "処理が完了するまでこのタブを開いたままにしてください。",
       "memberCount_one": "{{count}} 名のメンバー",
@@ -3058,16 +3212,16 @@
         "already-on-classroom": "すでにこのクラスに参加しています。",
         "already-removed": "すでにこのクラスから削除されています。",
         "archived": "クラスルームがアーカイブされています。メンバーシップを変更するにはアーカイブを解除してください。",
-        "no-id": "配置に使える GitHub id が登録されていません。",
+        "no-id": "GitHub idが記録されていないため、GitHubアカウントと照合できません。",
         "not-member": "組織のメンバーではありません。先に招待してください。",
         "not-on-classroom": "このクラスに参加していません。",
-        "resolve-failed": "現在の GitHub アカウントを解決できませんでした。",
+        "resolve-failed": "現在のGitHubアカウントを照会できませんでした。もう一度お試しください。",
         "pending-email-invite": "メールで招待済みで、まだ承諾されていません。代わりにクラスルームの名簿ページから招待をキャンセルしてください。",
-        "no-username": "GitHub ユーザー名が登録されていません。組織からの削除はユーザー名を基に行われます。",
-        "self": "これはあなたのサインイン中のアカウントのため、ここでは削除できません。"
+        "no-username": "GitHubユーザー名が記録されていないため、ここから組織メンバーシップを削除できません。GitHubの組織のPeopleページから削除してください。",
+        "self": "これはあなたのサインイン中のアカウントのため、ここでは削除できません。",
+        "unlinked-row": "GitHubアカウントにリンクされていません。クラスルームのロスターページから再招待、リンク、または行の削除を行ってください。"
       },
       "starting": "開始中…",
-      "actions": "アクション",
       "addModalTitle_one": "選択した {{count}} 人のメンバーをクラスルームに追加",
       "addModalTitle_other": "選択した {{count}} 人のメンバーをクラスルームに追加",
       "addToClassroomMenu": "クラスルームに追加",
@@ -3093,18 +3247,18 @@
       "previewSkipAlreadyOn_other": "{{count}} 件をスキップ: 既にこのクラスルームに所属しています。",
       "previewSkipArchived_one": "{{count}} 件をスキップ: このクラスルームのアーカイブされたインスタンスに登録されています。",
       "previewSkipArchived_other": "{{count}} 件をスキップ: このクラスルームのアーカイブされたインスタンスに登録されています。",
-      "previewSkipNoUsername_one": "{{count}} 件をスキップ: GitHub ユーザー名が登録されていません。",
-      "previewSkipNoUsername_other": "{{count}} 件をスキップ: GitHub ユーザー名が登録されていません。",
+      "previewSkipNoUsername_one": "{{count}}名をスキップ: GitHubユーザー名が記録されていないため、ここから組織メンバーシップを削除できません。",
+      "previewSkipNoUsername_other": "{{count}}名をスキップ: GitHubユーザー名が記録されていないため、ここから組織メンバーシップを削除できません。",
       "previewSkipNotMember_one": "{{count}} 件をスキップ: 組織のメンバーではありません。先に招待してください。",
       "previewSkipNotMember_other": "{{count}} 件をスキップ: 組織のメンバーではありません。先に招待してください。",
       "previewSkipNotOn_one": "{{count}} 件をスキップ: このクラスルームに所属していません。",
       "previewSkipNotOn_other": "{{count}} 件をスキップ: このクラスルームに所属していません。",
-      "previewSkipPendingEmail_one": "{{count}} 件をスキップ: メールで招待済みで、まだ承諾されていません。",
-      "previewSkipPendingEmail_other": "{{count}} 件をスキップ: メールで招待済みで、まだ承諾されていません。",
+      "previewSkipPendingEmail_one": "{{count}}名をスキップ: メールで招待済みでまだ承諾していません。代わりにクラスルームのロスターページから招待を取り消してください。",
+      "previewSkipPendingEmail_other": "{{count}}名をスキップ: メールで招待済みでまだ承諾していません。代わりにクラスルームのロスターページから招待を取り消してください。",
       "removeFromClassroomMenu": "クラスルームから削除",
       "removeModalTitle_one": "選択した {{count}} 人のメンバーをクラスルームから削除",
       "removeModalTitle_other": "選択した {{count}} 人のメンバーをクラスルームから削除",
-      "removeNoneOnClassroom": "選択したメンバーのうち、クラスルーム名簿に載っている人はいません。",
+      "removeNoneOnClassroom": "選択したメンバーには、削除できるクラスルームのロスターに登録されている人がいません。",
       "removeOrgTitle": "メンバーを {{org}} 組織から削除",
       "removedFromOrgHeadline_one": "{{count}} 人のメンバーを {{org}} 組織から削除しました。",
       "removedFromOrgHeadline_other": "{{count}} 人のメンバーを {{org}} 組織から削除しました。",
@@ -3112,33 +3266,53 @@
       "unenrolledDetail_one": "{{count}} 件のクラスルーム（{{classrooms}}）から登録解除しました。",
       "unenrolledDetail_other": "{{count}} 件のクラスルーム（{{classrooms}}）から登録解除しました。",
       "viewerUnverified": "アカウントを確認できなかったため、メンバーは削除されませんでした。もう一度お試しください。",
-      "confirmRemoveOrgWarning": "削除されたメンバーは、自分の課題リポジトリを含め、組織内のすべてのリポジトリへのアクセスを失い、再び参加するには新しい招待が必要になります。"
+      "confirmRemoveOrgWarning": "削除されたメンバーは、自分の課題リポジトリを含め、組織内のすべてのリポジトリへのアクセスを失い、再び参加するには新しい招待が必要になります。",
+      "addNoneMembers": "選択した行のいずれも組織メンバーではありません。先に招待してから、クラスに追加してください。",
+      "confirmInviteBody_one": "選択した学生に組織への招待を送りますか？ 招待は GitHub アカウントに ID で送られ、所属するクラスチームも含まれるため、承諾すると同時に登録されます。既に保留中の招待がある人や既にメンバーの人はスキップされます。",
+      "confirmInviteBody_other": "選択した {{count}} 人の学生に組織への招待を送りますか？ 各招待は GitHub アカウントに ID で送られ、所属するクラスチームも含まれるため、承諾すると同時に登録されます。既に保留中の招待がある人や既にメンバーの人はスキップされます。",
+      "confirmInviteTitle_one": "{{count}} 件の招待を送りますか？",
+      "confirmInviteTitle_other": "{{count}} 件の招待を送りますか？",
+      "inviteNoneInvitable": "名簿にはいるが組織に未参加の学生を選択してください。保留中・期限切れ・未リンクの行は、それぞれのクラス名簿から処理してください。",
+      "inviteRateLimited": "{{sent}} 件の招待を送りましたが、GitHub のレート制限に達しました。残りは送信されていません。数分待ってからもう一度お試しください。",
+      "inviteSelected_one": "{{count}} 人の学生に組織への招待を送る",
+      "inviteSelected_other": "{{count}} 人の学生に組織への招待を送る",
+      "inviteSkipReason": {
+        "already-member": "既に組織メンバーです。新たな招待は送信されませんでした。",
+        "already-pending": "既に保留中の招待があります。新たな招待は送信されませんでした。",
+        "not-invitable": "ここから招待できません: GitHub ID が登録されていないか、組織に未参加の学生の行ではありません。"
+      },
+      "inviteTitle": "{{org}} 組織への招待を送る",
+      "invitedHeadline_one": "{{count}} 件の招待を送りました。",
+      "invitedHeadline_other": "{{count}} 件の招待を送りました。",
+      "previewSkipUnlinked_one": "{{count}}名をスキップ: GitHubアカウントにリンクされていません。クラスルームのロスターページから再招待、リンク、または行の削除を行ってください。",
+      "previewSkipUnlinked_other": "{{count}}名をスキップ: GitHubアカウントにリンクされていません。クラスルームのロスターページから再招待、リンク、または行の削除を行ってください。",
+      "removeOrgNoneEligible": "選択した行には、GitHubユーザー名を持つ組織メンバーがいません。",
+      "sendInvitations": "招待を送信"
     },
-    "confirmInviteBody": "{{label}} に組織の招待を送信しますか？招待は id によってその GitHub アカウントに送られ、受諾すると以前のクラスアクセス権とともに {{org}} に再参加します。",
+    "confirmInviteBody": "{{label}}に組織への招待を送信しますか？招待はGitHubアカウントにidで送られ、そのクラスルームチームも含まれるため、承諾するとすぐに再登録されます。",
     "filterAllClassrooms": "すべてのクラス",
     "filterByClassroomLabel": "クラスで絞り込む",
     "filterNoClassroom": "クラスなし",
     "noMembersInClassroom": "{{classroom}} にメンバーがいません。",
     "noMembersNoClassroom": "クラスに属さないメンバーはいません。",
     "unprovisionedAccessBadge": "チーム未所属",
-    "unprovisionedAccessTitle": "このクラスルームの名簿にはいますが、その GitHub チームには入っていないため、成績収集で見落とされます。修正するには、このクラスルームに再度追加してください。",
+    "unprovisionedAccessTitle": "このクラスルームのロスターにはいますが、そのGitHubチームにはいないため、成績収集で見落とされます。修正するにはクラスルームに再度追加してください。",
     "unprovisionedBadge": "未登録",
-    "unprovisionedTitle": "名簿にはいますが、クラスルームチームに入っていません: {{classrooms}}。成績はチームを通じて収集されるため、その作業は見落とされます。修正するには、このクラスルームに再度追加してください。",
+    "unprovisionedTitle": "ロスターにはいますが、クラスルームチームにはいません: {{classrooms}}。成績はチームを通じて収集されるため、その課題が見落とされます。修正するにはクラスルームに再度追加してください。",
     "confirmRemove": "{{label}} を <org>{{org}}</org> 組織から削除します。",
     "confirmUnenroll_one": "{{label}} はまず <count>{{count}} 個の教室</count>（{{classrooms}}）から登録解除され、その後 <org>{{org}}</org> 組織から削除されます。課題リポジトリは削除されません。",
     "confirmUnenroll_other": "{{label}} はまず <count>{{count}} 個の教室</count>（{{classrooms}}）から登録解除され、その後 <org>{{org}}</org> 組織から削除されます。課題リポジトリは削除されません。",
-    "noUsernameWithId": "<missing>GitHub ユーザー名なし</missing> <meta>· id {{id}}</meta>",
-    "notMember": "{{label}} は教室の名簿にありますが、<emphasis>組織のメンバーではありません</emphasis>。招待してアクセスを復元してください。招待は id によってその GitHub アカウント宛てに送られるため、ユーザー名が変わっていても機能します。",
+    "noUsernameWithId": "<missing>GitHubユーザー名なし</missing> <meta>· id {{id}}</meta>",
+    "notMember": "{{label}}はクラスルームのロスターにいますが、<emphasis>組織メンバーではありません</emphasis>。アクセスを回復するには招待してください。招待はGitHubアカウントにidで送られるため、ユーザー名が変わっていても機能し、そのクラスルームチームも含まれます。",
     "subtitle": "<orgLink>{{org}}</orgLink> GitHub 組織の全員と、その所属教室です。",
     "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
     "inviteMalformedId": "{{who}} を招待できません: 「{{githubId}}」は有効な GitHub ID ではありません。roster.csv の github_id セルを修正してください。",
-    "inviteMissingId": "{{who}} を招待できません: GitHub ID が登録されていません。",
+    "inviteMissingId": "{{who}}を招待できません: ロスターの行にGitHub idがありません。クラスルームのロスターの行を開いてユーザー名で招待するか、行を削除してから追加し直してください。",
     "badgeInvitePending": "招待が保留中",
-    "invitePendingNotice": "この学生はメールで招待され、まだ承諾していないため、GitHub アカウントが登録されていません。問題はありません: 参加時に詳細が自動的に入力されます。招待はその学生のクラスルームの名簿ページからキャンセルできます。",
     "details": {
       "email_one": "メール",
       "email_other": "メール",
-      "githubId": "GitHub ID",
+      "githubId": "GitHub id",
       "name": "名前",
       "notSet": "未設定",
       "orgRole": "ロール",
@@ -3149,7 +3323,7 @@
     "filterInvitationPending": "招待保留中",
     "filterMembers": "メンバー",
     "filterNotEnrolled": "未登録",
-    "filterNotInOrg": "組織メンバーではない",
+    "filterNotInOrg": "組織に未参加",
     "filterOwners": "オーナー",
     "filterShowLabel": "メンバーを絞り込む",
     "sharedOrgNotice": "このページには、あなたの学生だけでなく {{org}} GitHub 組織のすべてのメンバーが一覧表示されます。他の先生がこの組織を Classroom 50 を使わずに共有している場合でも、そのメンバーがここに表示されるため、誰かを削除する際は注意してください。",
@@ -3163,7 +3337,44 @@
       "colStatus": "ステータス",
       "colUsername": "ユーザー名"
     },
-    "retry": "再試行"
+    "retry": "再試行",
+    "archivedParen": "（アーカイブ済み）",
+    "badgeUnlinked": "未リンク",
+    "filterInviteExpired": "招待期限切れ",
+    "filterUnlinked": "未リンク",
+    "invitationsRetry": "再試行",
+    "invitationsUnavailable": "組織の招待を読み取れなかったため、保留中および期限切れの招待は表示されず、行が未リンクまたは組織に未参加と表示される場合があります。誰かを招待する前に再試行してください。",
+    "inviteAlreadyMember": "{{who}}はすでに{{org}}のメンバーのため、新しい招待は送信されませんでした。更新して現在の状態を確認してください。",
+    "inviteAlreadyPending": "{{who}}はすでに{{org}}への保留中の招待があるため、新しい招待は送信されませんでした。クラスルームのロスターの行から再送信または取り消してください。",
+    "notMemberExpired": "{{label}}への招待は、承諾される前に期限切れになりました。GitHubの招待は7日間有効です。アクセスを回復するには再度招待してください。",
+    "notMemberFailed": "GitHubが{{label}}への招待を配信できませんでした（{{reason}}）。アクセスを回復するには再度招待してください。",
+    "openInRoster": "{{classroom}}のロスターで開く",
+    "orphanedInviteExpired": "期限切れ",
+    "orphanedInviteFailed": "失敗",
+    "orphanedInvitesBody": "GitHubはこれらの期限切れまたは配信不能な招待をまだ一覧に表示していますが、一致するクラスルームのロスターや組織メンバーがないため、ここから再招待できるものはありません。通常は招待が期限切れになった後にロスターの行が削除された場合です。GitHubの失敗した招待一覧をクリアするには破棄するか、別の目的で送信したものはそのままにしておいてください。",
+    "orphanedInvitesDeferred_one": "GitHubがリクエストのレート制限を行ったため、{{count}}件の失敗した招待は破棄されませんでした。数分後に再試行してください。",
+    "orphanedInvitesDeferred_other": "GitHubがリクエストのレート制限を行ったため、{{count}}件の失敗した招待は破棄されませんでした。数分後に再試行してください。",
+    "orphanedInvitesDismiss": "破棄",
+    "orphanedInvitesDismissAll": "すべて破棄",
+    "orphanedInvitesDismissFailed_one": "{{count}}件の失敗した招待を破棄できませんでした: {{error}}",
+    "orphanedInvitesDismissFailed_other": "{{count}}件の失敗した招待を破棄できませんでした: {{error}}",
+    "orphanedInvitesDismissed_one": "{{count}}件の失敗した招待を破棄しました。",
+    "orphanedInvitesDismissed_other": "{{count}}件の失敗した招待を破棄しました。",
+    "orphanedInvitesHide": "詳細を隠す",
+    "orphanedInvitesTitle_one": "{{count}}件の失敗した招待がどのロスターにもありません。",
+    "orphanedInvitesTitle_other": "{{count}}件の失敗した招待がどのロスターにもありません。",
+    "orphanedInvitesView": "詳細を表示",
+    "removeSelf": "ここでは自分自身のアカウントを組織から削除できません。",
+    "removeViewerUnverified": "アカウントを確認できなかったため、メンバーは削除されませんでした。もう一度お試しください。",
+    "rosterReadFailed": "{{classroom}}のロスターを読み取れなかったため、その学生は表示されません。クラスルームのroster.csvを確認してから更新してください。",
+    "strandedExpired": "{{who}}への招待は、承諾される前に期限切れになりました。GitHubの招待は7日間有効です。クラスルームのロスターの行を開いて再招待、組織メンバーへのリンク、または行の削除を行ってください。",
+    "strandedFailed": "GitHubが{{who}}への招待を配信できませんでした（{{reason}}）。クラスルームのロスターの行を開いてアドレスを確認して再招待、組織メンバーへのリンク、または行の削除を行ってください。",
+    "strandedNoId": "{{who}}はロスターにいますが組織メンバーではなく、その行にGitHub idがないため、ここから招待できません。クラスルームのロスターの行を開いて招待してください。",
+    "strandedPendingAccount": "{{who}}には保留中の組織への招待があり、まだ承諾していません。参加すると行は自動的に更新されます。招待を再送信または取り消すには、クラスルームのロスターの行を開いてください。",
+    "strandedPendingEmail": "{{who}}はメールで招待されており、まだ承諾していないため、GitHubアカウントは記録されていません。参加すると詳細は自動的に入力されます。招待を再送信または取り消すには、クラスルームのロスターの行を開いてください。",
+    "strandedUnlinked": "この行はGitHubアカウントにリンクされておらず、{{who}}には保留中の招待がありません。クラスルームのロスターの行を開いて再招待、組織メンバーへのリンク、または行の削除を行ってください。",
+    "warnNoUsername": "{{who}}を組織から削除できませんでした: その行にGitHubユーザー名がありません。GitHubの組織のPeopleページから削除してください。",
+    "warnOrgRemoveFailed": "{{who}}を組織から削除できませんでした（{{reason}}）。もう一度試すか、GitHubの組織のPeopleページから削除してください。"
   },
   "components": {
     "avatar": {
@@ -3332,7 +3543,13 @@
       "removeUser": "{{username}} をグループから外す",
       "reviewJoinRequests": "GitHub で参加リクエストを確認",
       "title": "グループメンバー",
-      "youBadge": "あなた"
+      "youBadge": "あなた",
+      "overCapacity": "このグループには {{count}} 人のメンバーがいますが、この課題では {{max}} 人までです。教員にもこの警告が表示されます。グループのメンテナー、または教員に、メンバーを {{max}} 人以下になるまで削除するよう依頼してください。",
+      "overCapacityManage": "このグループには {{count}} 人のメンバーがいますが、この課題では {{max}} 人までです。教員にもこの警告が表示されます。メンバーを {{max}} 人以下になるまで削除してください。"
+    },
+    "groupOverCapacity": {
+      "badge": "上限超過",
+      "title": "このグループには {{count}} 人のメンバーがいますが、この課題では {{max}} 人までです。誰かが GitHub 上で直接メンバーを追加しました。グループからメンバーを削除するか、このままグループを採点してください。"
     }
   },
   "formatDate": {
@@ -3362,7 +3579,19 @@
       "failed": "{{label}}：失敗しました",
       "pending": "{{label}}：開始しています…",
       "running": "{{label}}…",
-      "success": "{{label}}：完了しました"
+      "success": "{{label}}：完了しました",
+      "superseded": "{{label}}: より新しいパブリッシュに含まれました"
+    },
+    "publishFailure": {
+      "deployLockCleared": "このパブリッシュを妨げていた以前のパブリッシュが完了しました。変更は保存されています。再試行して今すぐパブリッシュしてください。",
+      "deployLocked": "GitHub Pages が以前のパブリッシュをまだ完了しておらず、このパブリッシュを開始できませんでした。変更は保存されています。以前のパブリッシュは通常 10 分以内に解消されます。その後に再試行するか、今すぐキャンセルしてください。",
+      "outage": "GitHub Pages がサーバーエラーを返しました。変更は保存されています。githubstatus.com を確認してから再試行してください。",
+      "pagesDisabled": "classroom50 リポジトリで GitHub Pages が無効になっているため、学生サイトに何も届きません。変更は保存されています。組織の設定でセットアップを再実行して Pages を再度有効にしてから、再試行してください。",
+      "permission": "パブリッシュ用ワークフローに GitHub Pages への書き込みが許可されていません。変更は保存されています。組織のワークフローファイルを更新してから（更新が利用できるとバナーが表示されます）、再試行してください。",
+      "timeout": "GitHub Pages のデプロイが 10 分以内に完了しませんでした。変更は保存されています。これは通常 GitHub の遅延です。再試行し、繰り返し起こる場合は githubstatus.com を確認してください。",
+      "unstick": "止まっているパブリッシュをキャンセルして再試行",
+      "unstickFailed": "以前のパブリッシュをキャンセルできませんでした: {{detail}}。約 10 分以内に自動的に解消されます。その後に再試行してください。",
+      "unsticking": "キャンセル中…"
     }
   },
   "skeletonDrift": {
@@ -3626,7 +3855,7 @@
       "heading": "レポート",
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
-      "vpatWcagDesc": "WCAG 2.2 に対するアクセシビリティ適合レポート（VPAT 2.5Rev）。",
+      "vpatWcagDesc": "WCAG 2.0、2.1、2.2 のレベル A および AA に対するアクセシビリティ適合性報告書（VPAT 2.5Rev）。",
       "vpatWcagTitle": "VPAT：WCAG 版"
     },
     "legend": {
@@ -3644,7 +3873,7 @@
       "statement": "声明",
       "vpat": "適合状況"
     },
-    "pageSubtitle": "Classroom 50 ウェブアプリが WCAG 2.2 レベル AA にどの程度適合しているか。ビルドごとに自動でチェックしています。",
+    "pageSubtitle": "Classroom 50 の Web アプリが WCAG 2.0、2.1、2.2 のレベル A および AA にどのように適合しているか。色のコントラストはビルドごとに検証しています。",
     "pageTitle": "アクセシビリティ",
     "preview": {
       "open": "色の詳細を表示",
@@ -3655,9 +3884,11 @@
       "colColors": "色（前景 / 背景）",
       "contrastMeta": "監査対象のすべての色について、両テーマのペアごとの WCAG コントラスト比。生成日時 {{date}}。",
       "contrastTitle": "カラーコントラスト監査",
-      "reportMeta": "規格: WCAG {{standard}}、目標レベル {{target}}。レポート日: {{date}}。",
-      "reportTitle": "アクセシビリティ適合レポート：{{product}}",
-      "vpatSummary": "概要（適用基準 {{total}} 件）: 対応 {{supports}}、部分対応 {{partially}}、非対応 {{doesNotSupport}}、非該当 {{notApplicable}}、未評価 {{notEvaluated}}。"
+      "reportMeta": "規格: {{standard}}、目標レベル {{target}}。適用規格: WCAG {{versions}}、レベル A および AA。報告日: {{date}}。",
+      "reportTitle": "{{vendor}} アクセシビリティ適合性報告書",
+      "vpatSummary": "概要（{{total}} 項目）: 適合 {{supports}}、部分適合 {{partially}}、非適合 {{doesNotSupport}}、非該当 {{notApplicable}}、未評価 {{notEvaluated}}。",
+      "productWithVersion": "{{product}}、バージョン {{version}}",
+      "reportProduct": "WCAG エディション（VPAT 2.5Rev に基づく）。製品名／バージョン: {{product}}。"
     },
     "statement": {
       "feedback": "使いにくい点があれば、",
@@ -3667,7 +3898,7 @@
       "intro": "キーボード、スクリーンリーダー、その他の支援技術を使う方を含め、誰もが Classroom 50 を利用できることを目指しています。",
       "limitations": "適合レポートでは、いくつかの基準が「部分対応」とされ、それぞれ残された作業について注記があります。作業が進むにつれて修正していきます。",
       "limitationsHeading": "既知の制限事項",
-      "target": "WCAG 2.2 レベル AA の達成を目指しています。カラーコントラストはビルドごとにチェックし、それ以外はキーボードとスクリーンリーダーで手動チェックしています。適合レポートには、各基準についての現状が記載されています。",
+      "target": "私たちは WCAG 2.2 レベル AA への適合を目指しており、これは WCAG 2.0 および 2.1 のレベル A・AA の達成基準も網羅します。色のコントラストはビルドごとに検証し、その他はキーボードとスクリーンリーダーを使って手動で確認しています。適合性報告書には、このアプリに該当しない基準とその理由を含め、すべてのレベル A・AA の達成基準を記載しています。",
       "targetHeading": "達成状況",
       "updated": "最終レビュー日 {{date}}。"
     },
@@ -3709,7 +3940,18 @@
         "notEvaluated": "未評価",
         "partially": "部分対応",
         "supports": "対応"
-      }
+      },
+      "principle": {
+        "Operable": "操作可能",
+        "Perceivable": "知覚可能",
+        "Robust": "堅牢",
+        "Understandable": "理解可能"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 および 2.2",
+        "wcag22": "WCAG 2.2 のみ"
+      },
+      "tabAll": "すべて"
     }
   },
   "groupTeams": {
@@ -3788,7 +4030,8 @@
       "title": "{{name}} を管理",
       "undo": "元に戻す",
       "willBeAdded": "追加されます",
-      "willBeRemoved": "削除されます"
+      "willBeRemoved": "削除されます",
+      "overCapacity": "このグループには {{count}} 人のメンバーがいますが、この課題では {{max}} 人までです。誰かが GitHub 上で直接メンバーを追加しました。メンバーを {{max}} 人以下になるまで削除してから、「変更を保存」を選択してください。"
     },
     "manageAriaLabel": "{{name}} を管理",
     "manageButton": "管理",
@@ -3847,5 +4090,10 @@
       "label": "表示",
       "visible": "表示中"
     }
+  },
+  "backgroundPass": {
+    "failed": "GitHub との同期が完了しませんでした。次にこのクラスを開いたときに再度実行されます。",
+    "synced": "GitHub と同期しました。",
+    "syncing": "GitHub と同期中…"
   }
 }

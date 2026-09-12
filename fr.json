@@ -13,7 +13,8 @@
       "pending": "{{label}} : démarrage…",
       "running": "{{label}}…",
       "success": "{{label}} : terminé",
-      "failed": "{{label}} : échec"
+      "failed": "{{label}} : échec",
+      "superseded": "{{label}} : intégré dans une publication plus récente"
     },
     "workflow": {
       "publishPages": "Publication sur le site étudiant",
@@ -24,6 +25,17 @@
       "collectScoresAssignment": "Collecte des scores de « {{assignment}} » dans « {{classroom}} »",
       "collectScoresClassroom": "Collecte des scores de chaque devoir de « {{classroom}} »",
       "probeToken": "Test du jeton de service"
+    },
+    "publishFailure": {
+      "deployLockCleared": "La publication précédente qui bloquait celle-ci est terminée. Votre modification est enregistrée. Réessayez pour la publier maintenant.",
+      "deployLocked": "GitHub Pages termine encore une publication précédente, donc celle-ci n'a pas pu démarrer. Votre modification est enregistrée. La publication précédente se débloque généralement en moins de 10 minutes : réessayez à ce moment-là, ou annulez-la dès maintenant.",
+      "outage": "GitHub Pages a renvoyé une erreur serveur. Votre modification est enregistrée. Consultez githubstatus.com, puis réessayez.",
+      "pagesDisabled": "GitHub Pages est désactivé pour le dépôt classroom50, donc rien ne peut atteindre le site des étudiants. Votre modification est enregistrée. Relancez la configuration dans les paramètres de l'organisation pour réactiver Pages, puis réessayez.",
+      "permission": "Le workflow de publication n'est pas autorisé à écrire sur GitHub Pages. Votre modification est enregistrée. Mettez à jour les fichiers de workflow de l'organisation (une bannière apparaît lorsqu'une mise à jour est disponible), puis réessayez.",
+      "timeout": "GitHub Pages n'a pas terminé le déploiement en moins de 10 minutes. Votre modification est enregistrée. Il s'agit généralement d'un ralentissement de GitHub : réessayez, et consultez githubstatus.com si le problème persiste.",
+      "unstick": "Annuler la publication bloquée et réessayer",
+      "unstickFailed": "Impossible d'annuler la publication précédente : {{detail}}. Elle se débloque d'elle-même en 10 minutes environ. Réessayez à ce moment-là.",
+      "unsticking": "Annulation…"
     }
   },
   "common": {
@@ -54,7 +66,10 @@
     "clear": "Effacer",
     "clearFilter": "Effacer le filtre",
     "checkingOrgAccess": "Vérification de votre accès à cette organisation…",
-    "resolvingRole": "Vérification de votre rôle…"
+    "resolvingRole": "Vérification de votre rôle…",
+    "actionWithCount": "{{label}} ({{count}})",
+    "actions": "Actions",
+    "clearSelection": "Effacer la sélection"
   },
   "notFound": {
     "title": "Page introuvable",
@@ -243,7 +258,7 @@
   },
   "students": {
     "addTitle": "Ajouter un membre",
-    "addHint": "Saisissez un nom d'utilisateur GitHub pour ajouter un étudiant avec ses détails, ou une adresse e-mail pour envoyer une invitation à l'organisation. Une invitation par e-mail conserve le nom et la section que vous saisissez sur une ligne de registre en attente jusqu'à ce que l'étudiant accepte.",
+    "addHint": "Saisissez un nom d'utilisateur GitHub pour ajouter un élève avec ses informations, ou une adresse courriel pour envoyer une invitation à l'organisation. Une invitation par courriel conserve le nom et la section que vous saisissez sur une ligne de liste en attente jusqu'à ce que l'élève accepte.",
     "addRoleLabel": "Rôle",
     "addStaffHint": "Les enseignants, les responsables d'AE et les AE sont ajoutés par nom d'utilisateur GitHub. Les enseignants et les responsables d'AE obtiennent un accès en écriture au dépôt classroom50 ; les AE obtiennent un accès en lecture seule. Un enseignant se voit accorder le rôle de propriétaire de l'organisation.",
     "usernamePlaceholder": "github-username",
@@ -276,8 +291,8 @@
     "onboardingLinkHint": "Les étudiants acceptent l'invitation et se connectent à Classroom 50 en une seule étape. C'est le lien que la plupart des cours partagent.",
     "onboardingLinkAria": "Lien d'accueil pour l'élève",
     "copyOnboardingLinkAria": "Copier le lien d'accueil",
-    "resendMissingId": "Impossible de renvoyer l'invitation pour {{username}} : github_id manquant. Rajoutez-le à la liste.",
-    "resendFailed": "Le renvoi de l'invitation pour {{username}} a échoué ({{error}}).",
+    "resendMissingId": "Impossible de renvoyer l'invitation à {{username}} : sa ligne de liste n'a pas d'id GitHub. Supprimez la ligne, puis ajoutez-le de nouveau.",
+    "resendFailed": "Impossible de renvoyer l'invitation à {{username}} : {{error}}",
     "resend": "Renvoyer",
     "dismiss": "Ignorer",
     "rosterLoadError": "Impossible de charger la liste depuis GitHub. La liste des inscrits peut être incomplète. C'est une erreur de chargement, pas une classe vide.",
@@ -289,11 +304,11 @@
     "rosterRechecking": "Nouvelle vérification…",
     "statusPending": "Invitation en attente",
     "statusEnrolled": "Inscrit",
-    "statusNeedsAttentionInOrg": "Attribuer un rôle",
+    "statusNeedsAttentionInOrg": "Non inscrit",
     "statusNeedsAttentionNotInOrg": "Pas dans l'organisation",
     "viewCsvOnGitHub": "Voir roster.csv",
     "csvRoster": {
-      "notice": "Liste CSV issue de roster.csv (maintenue par l'enseignant·e). La liste faisant autorité, pilotée par l'équipe, et la gestion des invitations sont accessibles aux enseignant·e·s.",
+      "notice": "Liste CSV issue de roster.csv (tenue par l'enseignant). La liste de référence pilotée par les équipes et la gestion des invitations sont accessibles aux enseignants.",
       "caption": "Liste CSV issue de roster.csv",
       "colName": "Nom",
       "colSection": "Section",
@@ -307,7 +322,7 @@
     "sectionGithub": "GitHub et inscription",
     "sectionProfile": "Profil",
     "notSet": "Non défini",
-    "confirmResendBody": "Renvoyer l'invitation à l'organisation en attente à {{label}} ? Son invitation actuelle est annulée et une nouvelle est envoyée pour {{org}}.",
+    "confirmResendBody": "Renvoyer l'invitation à l'organisation à {{label}} ? L'invitation actuelle est annulée et une nouvelle est envoyée pour {{org}}.",
     "cancelInvite": "Annuler l'invitation",
     "keepInvite": "Conserver l'invitation",
     "confirmCancelInviteBody": "Annuler l'invitation à l'organisation en attente pour {{label}} ? Il sera retiré des invitations en attente de {{org}} et ne rejoindra pas à moins d'être réinvité.",
@@ -317,14 +332,7 @@
     "inviteToOrg": "Inviter à l'organisation",
     "pendingBanner_one": "{{count}} invitation en attente n'a pas encore été acceptée.",
     "pendingBanner_other": "{{count}} invitations en attente n'ont pas encore été acceptées.",
-    "failedInvitesTitle_one": "{{count}} invitation a échoué ou a expiré.",
-    "failedInvitesTitle_other": "{{count}} invitations ont échoué ou ont expiré.",
-    "failedInviteDismissError": "Impossible d'ignorer l'invitation échouée : {{error}}",
     "reinvite": "Réinviter",
-    "failedInviteReinviteError": "Impossible de réinviter : {{error}}",
-    "failedInviteRateLimited": "GitHub a limité le débit de la ré-invitation de {{who}}. Réessayez.",
-    "failedInviteNotSent": "Aucune invitation n'a été envoyée à {{who}}. Réessayez.",
-    "failedInviteNoTarget": "Cette invitation n'a aucun nom d'utilisateur GitHub ni aucun e-mail, elle ne peut donc pas être renvoyée. Ignorez-la et rajoutez la personne.",
     "pendingReview": "Examiner",
     "inviteLinksHint": "Ces liens n'invitent personne. Invitez d'abord les étudiants depuis la liste, puis partagez un lien pour que chaque étudiant puisse accepter l'invitation et se connecter.",
     "onboardingLinkLabel": "Lien d'intégration à la classe",
@@ -345,12 +353,12 @@
     "manageOwnerOnly": "La gestion des invitations et des adhésions est réservée aux propriétaires de l'organisation.",
     "inviteRosterFailed": "Impossible d'inviter {{label}} : {{error}}",
     "inviteRosterNoUsername": "{{label}} n'a aucun nom d'utilisateur GitHub enregistré. Ajoutez-en un avant d'inviter.",
-    "inviteRosterDeferred": "GitHub a limité le débit de l'invitation à {{label}}. Réessayez sous peu.",
-    "inviteRosterNoneSent": "Aucune invitation n'a été envoyée à {{label}}. Réessayez.",
+    "inviteRosterDeferred": "GitHub a limité le débit de l'invitation à {{label}}. Attendez quelques minutes, puis réessayez.",
+    "inviteRosterNoneSent": "Aucune invitation n'a été envoyée à {{label}}. GitHub indique qu'il est déjà invité ou déjà membre. Actualisez la liste pour voir l'état actuel.",
     "filterAll": "Tous les membres",
     "filterEnrolled": "Inscrits",
-    "filterPending": "En attente",
-    "filterNeedsAttentionInOrg": "A besoin d'un rôle",
+    "filterPending": "Invitation en attente",
+    "filterNeedsAttentionInOrg": "Non inscrit",
     "filterNeedsAttentionNotInOrg": "Pas dans l'organisation",
     "searchPlaceholder": "Rechercher des membres",
     "searchLabel": "Rechercher des membres par nom, nom d'utilisateur ou e-mail",
@@ -367,26 +375,25 @@
       "selectAll": "Sélectionner tous les étudiants",
       "selectRow": "Sélectionner {{label}}",
       "selfNotSelectable": "Vous ne pouvez pas vous désinscrire vous-même en masse.",
-      "noneSelectable": "Les actions groupées (désinscription, invitation) ne s'appliquent qu'aux étudiants. Gérez le personnel (enseignants, TA en chef et TA) dans les Paramètres de la classe.",
+      "noneSelectable": "Les actions groupées (envoyer des invitations, désinscrire) s'appliquent uniquement aux élèves. Gérez le personnel (enseignants, assistants principaux et assistants) dans les Paramètres de l'espace de cours.",
       "selectedCount_one": "{{count}} sélectionné",
       "selectedCount_other": "{{count}} sélectionnés",
       "unenroll": "Désinscrire",
       "unenrollSelected_one": "Désinscrire {{count}} étudiant",
       "unenrollSelected_other": "Désinscrire {{count}} étudiants",
-      "clearSelection": "Effacer la sélection",
       "starting": "Démarrage…",
       "keepTabOpen": "Gardez cet onglet ouvert jusqu'à la fin de l'action.",
       "progressProcessed": "{{processed}} sur {{total}}",
       "done": "Terminé",
-      "noInviteId": "Cette invitation n'a aucun identifiant enregistré. Supprimez la ligne, puis rajoutez l'étudiant.",
-      "invite": "Inviter",
-      "inviteSelected_one": "Inviter {{count}} étudiant à l'organisation",
-      "inviteSelected_other": "Inviter {{count}} étudiants à l'organisation",
-      "inviteNoneInvitable": "Sélectionnez au moins un étudiant absent de l'organisation ou en attente à inviter.",
-      "inviteTitle": "Inviter des étudiants à l'organisation",
-      "invitedHeadline_one": "{{count}} étudiant invité.",
-      "invitedHeadline_other": "{{count}} étudiants invités.",
-      "cancelInvite": "Annuler",
+      "noInviteId": "Cette ligne n'a pas d'id GitHub, l'invitation ne peut donc pas être renvoyée. Supprimez la ligne, puis ajoutez l'élève de nouveau.",
+      "invite": "Envoyer des invitations",
+      "inviteSelected_one": "Envoyer une invitation à {{count}} élève",
+      "inviteSelected_other": "Envoyer des invitations à {{count}} élèves",
+      "inviteNoneInvitable": "Sélectionnez des élèves ayant une invitation en attente ou expirée, ou qui ne sont pas encore dans l'organisation. Une ligne sans adresse courriel ni nom d'utilisateur GitHub ne peut pas être invitée.",
+      "inviteTitle": "Envoyer des invitations",
+      "invitedHeadline_one": "{{count}} invitation envoyée.",
+      "invitedHeadline_other": "{{count}} invitations envoyées.",
+      "cancelInvite": "Annuler les invitations",
       "cancelSelected_one": "Annuler {{count}} invitation en attente",
       "cancelSelected_other": "Annuler {{count}} invitations en attente",
       "cancelNoneCancellable": "Sélectionnez au moins une invitation en attente à annuler.",
@@ -409,12 +416,11 @@
       "confirmUnenrollTitle_other": "Désinscrire {{count}} étudiants ?",
       "confirmUnenrollBody_one": "Cela retire {{count}} étudiant de l'équipe de la classe et supprime sa ligne de la liste. Cela ne le retire pas de l'organisation.",
       "confirmUnenrollBody_other": "Cela retire {{count}} étudiants de l'équipe de la classe et supprime leurs lignes de la liste. Cela ne les retire pas de l'organisation.",
-      "confirmInviteTitle_one": "Inviter {{count}} étudiant ?",
-      "confirmInviteTitle_other": "Inviter {{count}} étudiants ?",
-      "confirmInviteBodyPlain_one": "Envoyer une invitation à l'organisation à {{count}} étudiant sélectionné ? Il rejoindra l'organisation et l'équipe de la classe une fois qu'il aura accepté.",
-      "confirmInviteBodyPlain_other": "Envoyer des invitations à l'organisation à {{count}} étudiants sélectionnés ? Ils rejoindront l'organisation et l'équipe de la classe une fois qu'ils auront accepté.",
-      "malformedInviteId": "Le github_id dans roster.csv n'est pas valide. Corrigez cette cellule.",
-      "actions": "Actions",
+      "confirmInviteTitle_one": "Envoyer {{count}} invitation ?",
+      "confirmInviteTitle_other": "Envoyer {{count}} invitations ?",
+      "confirmInviteBodyPlain_one": "Envoyer une nouvelle invitation à l'organisation à l'élève sélectionné ? Une invitation en attente est annulée puis renvoyée, et une invitation expirée est remplacée. Il rejoint l'organisation et l'équipe de l'espace de cours dès qu'il accepte.",
+      "confirmInviteBodyPlain_other": "Envoyer de nouvelles invitations à l'organisation aux {{count}} élèves sélectionnés ? Les invitations en attente sont annulées puis renvoyées, et les invitations expirées sont remplacées. Les élèves rejoignent l'organisation et l'équipe de l'espace de cours dès qu'ils acceptent.",
+      "malformedInviteId": "Le github_id dans roster.csv n'est pas valide, l'invitation ne peut donc pas être renvoyée. Corrigez cette cellule, puis réessayez.",
       "confirmRemoveRowsBody_one": "Supprimer {{count}} ligne de liste qui n'est pas liée à un compte GitHub ? Cela supprime uniquement la ligne de roster.csv. Il n'y a aucun compte ni aucune invitation concernés, et elle peut être restaurée depuis l'historique du dépôt de la classe.",
       "confirmRemoveRowsBody_other": "Supprimer {{count}} lignes de liste qui ne sont pas liées à un compte GitHub ? Cela supprime uniquement les lignes de roster.csv. Il n'y a aucun compte ni aucune invitation concernés, et elles peuvent être restaurées depuis l'historique du dépôt de la classe.",
       "confirmRemoveRowsTitle_one": "Supprimer {{count}} ligne non liée ?",
@@ -427,7 +433,11 @@
       "removeRowsTitle": "Supprimer les lignes de liste non liées",
       "removedRowsHeadline_one": "{{count}} ligne non liée supprimée.",
       "removedRowsHeadline_other": "{{count}} lignes non liées supprimées.",
-      "confirmUnenrollWarning": "Réinscrire signifie ajouter à nouveau chaque étudiant à la liste d'inscrits. Leurs dépôts de devoirs ne sont pas supprimés."
+      "confirmUnenrollWarning": "Réinscrire signifie ajouter à nouveau chaque étudiant à la liste d'inscrits. Leurs dépôts de devoirs ne sont pas supprimés.",
+      "alreadyInvitedOrMember": "Déjà invité ou déjà membre. Rien de nouveau n'a été envoyé.",
+      "cancelInviteConfirm_one": "Annuler l'invitation",
+      "cancelInviteConfirm_other": "Annuler les invitations",
+      "nextBatch": "Préparation du lot suivant…"
     },
     "emptyTitle": "Aucun membre pour le moment",
     "emptyBody": "Invitez des étudiants depuis la liste pour les inscrire, ou ajoutez des enseignants et des TA dans les Paramètres. Le lien d'intégration permet uniquement à un étudiant déjà invité d'accepter ; il n'ajoute personne par lui-même. Une fois que les personnes ont accepté l'invitation et se sont connectées, elles apparaîtront ici.",
@@ -437,7 +447,7 @@
     "syncAdded_one": "{{count}} membre d'équipe ajouté à la liste.",
     "syncAdded_other": "{{count}} membres d'équipe ajoutés à la liste.",
     "syncFailed": "Impossible d'actualiser la liste : {{error}}",
-    "resendAllRateLimitedShort": "{{resent}} invitations renvoyées, puis atteinte de la limite de débit de GitHub. Réessayez les autres dans une minute.",
+    "resendAllRateLimitedShort": "{{resent}} invitations envoyées, puis la limite de débit de GitHub a été atteinte. Le reste n'a pas été envoyé. Attendez quelques minutes, puis réessayez.",
     "noSection": "Aucune section",
     "addButton": "Ajouter un membre",
     "submitting": "Envoi…",
@@ -522,7 +532,7 @@
     "preflightMetadataReviewHint_one": "Les coordonnées de {{count}} élève seront mises à jour. Vérifiez les cellules surlignées ci-dessous (survolez pour plus de détails) avant de confirmer.",
     "preflightMetadataReviewHint_other": "Les coordonnées de {{count}} élèves seront mises à jour. Vérifiez les cellules surlignées ci-dessous (survolez pour plus de détails) avant de confirmer.",
     "preflightRoleChangeMetadataNotice": "Certains de ces membres ont également des coordonnées mises à jour (indiquées ci-dessus), qui seront enregistrées en même temps que le changement d'équipe.",
-    "resendMalformedId": "Impossible de renvoyer l'invitation pour {{username}} : « {{githubId}} » n'est pas un github_id valide. Corrigez la cellule github_id dans roster.csv.",
+    "resendMalformedId": "Impossible de renvoyer l'invitation à {{username}} : « {{githubId}} » n'est pas un id GitHub valide. Corrigez la cellule github_id dans roster.csv, puis réessayez.",
     "rolePreviousHint": "était {{role}}",
     "summaryHideDetails": "Masquer les détails",
     "summaryNoChanges": "Ce fichier correspond à votre liste, il n'y a donc rien à ajouter ni à mettre à jour.",
@@ -558,7 +568,7 @@
     "importSkipped_other": "{{count}} lignes ont été ignorées : elles n'ont aucun nom d'utilisateur GitHub, github_id ou adresse e-mail, il n'y a donc pas encore moyen de joindre ces étudiants. Tous les autres ci-dessous seront tout de même importés.",
     "importedAndInvitedCount": "{{added}} étudiant(s) ajouté(s) et {{invited}} invitation(s) par e-mail envoyée(s).",
     "inviteEmailLocked": "Cette adresse identifie l'invitation en attente, elle ne peut donc pas être modifiée ici. Pour en utiliser une autre, annulez cette invitation et invitez la nouvelle adresse.",
-    "inviteMetadataFailed": "Impossible de préparer l'invitation pour {{email}} ({{message}}), aucune invitation n'a donc été envoyée. Réessayez ; si cela continue d'échouer, supprimez l'équipe résiduelle nommée dans le message, puis réessayez.",
+    "inviteMetadataFailed": "Impossible de préparer l'invitation pour {{email}} ({{message}}), rien n'a donc été envoyé. Réessayez ; si l'échec persiste, supprimez l'équipe résiduelle nommée dans le message, puis réessayez.",
     "invitingEmails": "Envoi des invitations par e-mail…",
     "missingIdentityHeader": "Ce fichier n'a aucune colonne qui identifie un étudiant.",
     "noRosterRowNoEdit": "Les détails du profil peuvent être modifiés une fois que cette personne a une entrée dans le registre.",
@@ -652,8 +662,8 @@
     "emailLinkBinding": "{{email}} → @{{login}} ({{classroom}})",
     "emailLinksConfirm": "Lier ces adresses aux comptes GitHub correspondants",
     "emailLinksDegraded": "Certaines classes n'ont pas pu être lues, il est donc possible que plus d'adresses soient liables que celles affichées.",
-    "emailLinksNotice_one": "{{count}} adresse correspond à un étudiant de la liste d'une classe précédente et sera inscrit directement au lieu d'être invité.",
-    "emailLinksNotice_other": "{{count}} adresses correspondent à des étudiants des listes de classes précédentes et seront inscrits directement au lieu d'être invités.",
+    "emailLinksNotice_one": "{{count}} adresse correspond à un élève qui a déjà un compte GitHub d'un espace de cours précédent. Il sera lié à ce compte et inscrit directement au lieu d'être invité.",
+    "emailLinksNotice_other": "{{count}} adresses correspondent à des élèves qui ont déjà un compte GitHub d'espaces de cours précédents. Ils seront liés à ces comptes et inscrits directement au lieu d'être invités.",
     "filterUnlinked": "Non liés",
     "linkFailed": "Impossible de lier {{label}} : {{error}}",
     "linkIncludeOrgMembers": "Inclure les membres de l'organisation qui ne sont dans aucune classe",
@@ -680,7 +690,38 @@
     "unlinkedKeptNotice_one": "{{count}} ligne a été conservée sur la liste sans compte GitHub (une ligne comportant uniquement un nom, ou une adresse qui n'a pas pu être invitée). Liez-la à un membre de l'organisation depuis le filtre « Non liés » de la liste.",
     "unlinkedKeptNotice_other": "{{count}} lignes ont été conservées sur la liste sans compte GitHub (lignes comportant uniquement un nom, ou adresses qui n'ont pas pu être invitées). Liez-les à des membres de l'organisation depuis le filtre « Non liés » de la liste.",
     "unlinkedRosterNotice_one": "{{count}} ligne a un nom mais aucun nom d'utilisateur GitHub, github_id ou e-mail. Elle sera conservée sur la liste comme une ligne non liée que vous pourrez lier plus tard à un membre de l'organisation.",
-    "unlinkedRosterNotice_other": "{{count}} lignes ont un nom mais aucun nom d'utilisateur GitHub, github_id ou e-mail. Elles seront conservées sur la liste comme des lignes non liées que vous pourrez lier plus tard à des membres de l'organisation."
+    "unlinkedRosterNotice_other": "{{count}} lignes ont un nom mais aucun nom d'utilisateur GitHub, github_id ou e-mail. Elles seront conservées sur la liste comme des lignes non liées que vous pourrez lier plus tard à des membres de l'organisation.",
+    "completedRow": "{{label}} lié à la ligne de liste existante pour {{row}}.",
+    "emailInviteAlreadyPendingDetail": "A déjà une invitation en attente, rien de nouveau n'a donc été envoyé. Pour la renvoyer, utilisez Renvoyer sur sa ligne de liste.",
+    "emailLinksDeclinedNotice_one": "{{count}} adresse correspond à un élève qui a déjà un compte GitHub, mais elle ne sera pas liée. Elle reçoit plutôt une invitation par courriel, et sa ligne reste non liée jusqu'à ce que vous la liiez depuis la liste.",
+    "emailLinksDeclinedNotice_other": "{{count}} adresses correspondent à des élèves qui ont déjà un compte GitHub, mais elles ne seront pas liées. Elles reçoivent plutôt des invitations par courriel, et leurs lignes restent non liées jusqu'à ce que vous les liiez depuis la liste.",
+    "emailLinksUnlinkBody_one": "Cette personne est déjà membre de l'organisation avec un compte GitHub connu. GitHub n'envoie pas d'invitation par courriel à un membre existant, sa ligne reste donc non liée jusqu'à ce que vous la liiez à la main depuis la liste.",
+    "emailLinksUnlinkBody_other": "Ces personnes sont déjà membres de l'organisation avec des comptes GitHub connus. GitHub n'envoie pas d'invitation par courriel à un membre existant, leurs lignes restent donc non liées jusqu'à ce que vous les liiez à la main depuis la liste.",
+    "emailLinksUnlinkConfirm": "Ne pas lier",
+    "emailLinksUnlinkTitle": "Envoyer des invitations par courriel au lieu de lier ?",
+    "filterInviteExpired": "Invitation expirée",
+    "identityConflict": "Une ligne de liste utilise déjà le nom d'utilisateur {{label}} pour un autre compte GitHub, ou une autre ligne porte déjà ce nom d'utilisateur. Modifiez ou supprimez la ligne en conflit dans la liste, puis ajoutez {{label}} de nouveau.",
+    "inviteDailyLimit": "La limite quotidienne d'invitations de GitHub pour cette organisation est atteinte. Les organisations de moins d'un mois ou sur le plan gratuit peuvent envoyer 50 invitations par jour, les autres 500. Réessayez demain.",
+    "linkAccountAction": "Lier le compte",
+    "needsAttentionExpiredHelp": "L'invitation adressée à {{label}} a expiré avant qu'il ne l'accepte. Les invitations GitHub durent 7 jours. Invitez-le de nouveau pour l'inscrire.",
+    "needsAttentionFailedHelp": "GitHub n'a pas pu remettre l'invitation à {{label}} ({{reason}}). Invitez-le de nouveau pour l'inscrire.",
+    "previewAlreadyPending": "Invitation déjà en attente",
+    "previewResendExpired": "Renvoyer l'invitation (expirée)",
+    "previewResendFailed": "Renvoyer l'invitation (non remise)",
+    "reinviteRowAlreadyInvited": "Rien n'a été envoyé. GitHub a déjà une invitation active ou un membre pour {{email}}, peut-être d'un autre espace de cours de cette organisation. Vérifiez la page People de l'organisation sur GitHub, ou liez cette ligne à ce membre une fois qu'il accepte.",
+    "reinviteRowFailed": "Impossible de réinviter {{email}} : {{error}}",
+    "reinviteRowRateLimited": "GitHub a limité le débit de l'invitation à {{email}}. Attendez quelques minutes, puis réessayez.",
+    "resendNotSent": "Aucune nouvelle invitation n'a été envoyée à {{label}}. GitHub indique que l'adresse est déjà invitée ou déjà membre. Actualisez la liste pour voir l'état actuel.",
+    "resendRateLimited": "GitHub a limité le débit du renvoi à {{label}}. Attendez quelques minutes, puis réessayez.",
+    "statusInviteExpired": "Invitation expirée",
+    "statusInviteFailed": "Échec de l'invitation",
+    "unlinkedEmailIntro": "Cette ligne n'est associée à aucun compte GitHub, et {{email}} n'a aucune invitation en attente. L'invitation a peut-être expiré ou été annulée. Réinvitez cette personne, associez la ligne à un membre de l'organisation, ou supprimez la ligne.",
+    "unlinkedExpiredIntro": "L'invitation envoyée à {{email}} a expiré avant d'être acceptée. Les invitations GitHub durent 7 jours. Réinvitez cette personne, associez la ligne à un membre de l'organisation, ou supprimez la ligne.",
+    "unlinkedFailedIntro": "GitHub n'a pas pu remettre l'invitation à {{email}} ({{reason}}). Vérifiez l'adresse, puis réinvitez cette personne, associez la ligne à un membre de l'organisation, ou supprimez la ligne.",
+    "uploadBlockedChecking": "Vérification de l'appartenance actuelle…",
+    "uploadBlockedDetails": "Confirmez les mises à jour de détails ci-dessus pour continuer.",
+    "uploadBlockedRoles": "Confirmez les changements de rôle ci-dessus pour continuer.",
+    "uploadBlockedUsernames": "Confirmez les changements de nom d'utilisateur ci-dessus pour continuer."
   },
   "language": {
     "baseName": "Anglais (base)",
@@ -846,7 +887,7 @@
       "description": "Description",
       "descriptionPlaceholder": "Une brève description de cette organisation",
       "displayName": "Nom affiché",
-      "displayNamePlaceholder": "Classroom 50 Summer Dev",
+      "displayNamePlaceholder": "CS1 Automne 2026",
       "edit": "Modifier le profil",
       "editOnGitHub": "Modifier sur GitHub",
       "email": "E-mail de contact",
@@ -902,7 +943,8 @@
         "sortNameAsc": "Nom (A–Z)",
         "sortNameDesc": "Nom (Z–A)",
         "clear": "Effacer les filtres",
-        "typeTeam": "Groupe"
+        "typeTeam": "Groupe",
+        "statusSubmitted": "Rendu"
       },
       "noResults": {
         "title": "Aucun devoir ne correspond à vos filtres",
@@ -916,7 +958,9 @@
       "tableCaption": "Devoirs publiés et votre statut pour chacun",
       "viewGroup": "Voir le groupe",
       "viewGroupTitle": "Votre groupe",
-      "viewSubmissionTeam": "Voir la soumission du groupe"
+      "viewSubmissionTeam": "Voir la soumission du groupe",
+      "submissionUnknown": "Impossible de vérifier les rendus. Actualisez pour réessayer.",
+      "submitted": "Rendu"
     },
     "newButton": {
       "assignment": "Devoir",
@@ -1031,7 +1075,10 @@
         "slugNoRoom": "Le cours « {{classroom}} » ne laisse aucune place pour un slug de devoir : son nom court plus un nom d'utilisateur peuvent dépasser la limite de {{limit}} caractères des noms de dépôts de GitHub. Créez un cours avec un slug plus court (au plus {{max}} caractères) et ajoutez-y le devoir.",
         "slugOverBudget": "Les dépôts d'étudiants sont nommés « {{classroom}}-<slug>-<username> », que GitHub plafonne à {{limit}} caractères. Ce slug peut compter au plus {{budget}} caractères (actuellement {{length}}).",
         "slugReserved": "« {{slug}} » est le slug précédent d'un devoir renommé et est réservé. Le réutiliser romprait les redirections dont dépendent les dépôts renommés des étudiants. Choisissez un autre slug.",
-        "teamFormationInvalid": "Choisissez qui forme les groupes."
+        "teamFormationInvalid": "Choisissez qui forme les groupes.",
+        "pagesBranchInvalid": "Saisissez un nom de branche sans espaces, de 255 caractères au maximum, ou laissez-le vide pour la branche par défaut.",
+        "pagesPathInvalid": "Le dossier Pages doit être / ou /docs.",
+        "pagesSourceInvalid": "GitHub Pages doit être « Désactivé », « GitHub Actions » ou « Une branche »."
       },
       "availableFrom": "Date de publication ({{tz}})",
       "availableFromTz": "Les heures sont indiquées dans votre fuseau horaire local ({{tz}}).",
@@ -1073,7 +1120,7 @@
       "studentPermission": {
         "default": "Par défaut : {{level}}",
         "groupHelp": "Les membres du groupe rejoignent avec au moins le rôle d'administrateur pour que le propriétaire du groupe puisse ajouter des coéquipiers. Cela s'applique aux dépôts créés à partir de maintenant ; utilisez la page des soumissions pour modifier les dépôts existants.",
-        "help": "Le rôle accordé à chaque étudiant sur son propre dépôt de devoir au moment de l'acceptation. Push (écriture) est la valeur par défaut. Choisissez Admin pour laisser les étudiants gérer les paramètres du dépôt et activer GitHub Pages. Cela s'applique aux étudiants qui acceptent à partir de maintenant ; utilisez la page des soumissions pour modifier les dépôts déjà créés.",
+        "help": "Le rôle accordé à chaque étudiant sur son propre dépôt de devoir au moment de l'acceptation. Push (écriture) est la valeur par défaut. Choisissez Admin pour laisser les étudiants gérer eux-mêmes les paramètres du dépôt. Cela s'applique aux étudiants qui acceptent à partir de maintenant ; utilisez la page des rendus pour modifier les dépôts déjà créés.",
         "label": "Accès des étudiants au dépôt",
         "learnMore": "En savoir plus",
         "levels": {
@@ -1192,7 +1239,28 @@
       "typeTeamRecommended": "Recommandé",
       "releaseLockedReminder": "Verrouillé. La date de publication ne déverrouille pas le devoir : désactivez « Verrouiller le devoir » à la date de publication pour que les étudiants puissent l'accepter.",
       "releaseTemplateReadableBody": "La date de publication ne contrôle que l'affichage dans la liste. En enregistrant, vous donnez immédiatement à l'équipe du cours un accès en lecture à ce modèle privé. Pour garder le modèle masqué, verrouillez le devoir maintenant et déverrouillez-le à la date de publication.",
-      "releaseTemplateReadableTitle": "Les étudiants peuvent lire ce modèle avant la date de publication"
+      "releaseTemplateReadableTitle": "Les étudiants peuvent lire ce modèle avant la date de publication",
+      "pages": {
+        "branch": {
+          "help": "La branche que GitHub publie. Laissez vide pour utiliser la branche par défaut du dépôt. Une branche nommée doit exister dans chaque dépôt étudiant au moment de l'acceptation (par exemple, copiée depuis le modèle avec « Inclure toutes les branches »).",
+          "label": "Branche",
+          "placeholder": "Branche par défaut"
+        },
+        "choices": {
+          "branch": "Une branche",
+          "off": "Désactivé",
+          "workflow": "GitHub Actions"
+        },
+        "editHelp": "Cela s'applique aux dépôts créés à partir de maintenant ; utilisez la page des rendus pour activer Pages sur les dépôts existants.",
+        "emptyRepoHint": "Non disponible pour un dépôt vide : il n'y a pas encore de branche à publier.",
+        "help": "Publiez chaque dépôt étudiant sous forme de site web avec GitHub Pages, configuré automatiquement quand l'étudiant accepte, de sorte qu'il n'a jamais besoin d'un accès admin. Désactivé par défaut. « GitHub Actions » déploie via un workflow dans le dépôt étudiant (pour les sites avec une étape de build). « Une branche » publie directement les fichiers d'une branche, sans workflow (pour du HTML, CSS et JavaScript simples). Le site est public sur Internet même lorsque le dépôt est privé, et chaque fichier de la branche et du dossier publiés est servi ; seul GitHub Enterprise Cloud peut restreindre qui le voit. Pages sur les dépôts privés nécessite un forfait GitHub qui l'inclut ; sur GitHub Free pour les organisations, rendez le dépôt public sinon le site n'est pas créé.",
+        "label": "GitHub Pages",
+        "path": {
+          "help": "Le dossier de cette branche à publier : la racine du dépôt (/) ou /docs. GitHub n'autorise que ces deux options.",
+          "label": "Dossier"
+        },
+        "workflowNote": "Le déploiement via GitHub Actions nécessite un workflow dans chaque dépôt étudiant qui publie sur Pages : il doit accorder les permissions pages: write et id-token: write et utiliser actions/upload-pages-artifact et actions/deploy-pages. Placez-le dans votre modèle, ou faites-le ajouter par les étudiants. Le site est créé quand l'étudiant accepte, donc la première exécution du workflow le déploie."
+      }
     },
     "autograder": {
       "heading": "Tests de correction automatique",
@@ -1534,7 +1602,57 @@
     "includeStaff": "Inclure l'équipe pédagogique",
     "includeStaffHelp": "Comptabiliser les enseignants, les assistants principaux et les assistants aux côtés des étudiants dans les colonnes Accepté et Rendu. Utile lorsque l'équipe pédagogique teste un devoir avant les étudiants.",
     "staffCount_one": "{{count}} membre de l'équipe pédagogique",
-    "staffCount_other": "{{count}} membres de l'équipe pédagogique"
+    "staffCount_other": "{{count}} membres de l'équipe pédagogique",
+    "bulk": {
+      "delete": "Supprimer",
+      "deleteBody": "Cela retire les devoirs sélectionnés du fichier assignments.json de la classe en un seul commit. Les dépôts des étudiants et leurs rendus ne sont pas supprimés. Ils restent dans l'organisation et sont toujours accessibles par leur nom.",
+      "deleteConfirmWord": "delete",
+      "deleteDone_one": "{{count}} devoir supprimé.",
+      "deleteDone_other": "{{count}} devoirs supprimés.",
+      "deleteNoChange": "Tous les devoirs sélectionnés avaient déjà disparu ; rien n'a été validé.",
+      "deleteTitle_one": "Supprimer {{count}} devoir ?",
+      "deleteTitle_other": "Supprimer {{count}} devoirs ?",
+      "deleteWarning": "Les étudiants perdent l'accès aux pages des devoirs, et l'échéance, le modèle et les paramètres de notation de chaque devoir sont supprimés.",
+      "lock": "Verrouiller",
+      "lockAllLocked": "Tous les devoirs sélectionnés sont déjà verrouillés.",
+      "lockBody": "Les étudiants perdent l'accès aux devoirs sélectionnés sur la page d'acceptation, la liste des devoirs, la vue des rendus et la CLI. Les dépôts existants des étudiants ne sont pas supprimés. Il s'agit d'un seul commit sur le fichier assignments.json de la classe, donc cela s'applique soit à tous, soit à aucun.",
+      "lockDone_one": "{{count}} devoir verrouillé.",
+      "lockDone_other": "{{count}} devoirs verrouillés.",
+      "lockNoChange": "Tous les devoirs sélectionnés étaient déjà dans cet état ; rien n'a été validé.",
+      "lockTitle_one": "Verrouiller {{count}} devoir ?",
+      "lockTitle_other": "Verrouiller {{count}} devoirs ?",
+      "missingSkipped_one": "{{count}} devoir sélectionné avait déjà disparu et a été ignoré.",
+      "missingSkipped_other": "{{count}} devoirs sélectionnés avaient déjà disparu et ont été ignorés.",
+      "reuse": "Réutiliser",
+      "reuseBody": "Copiez les devoirs sélectionnés dans une autre classe de cette organisation. Choisissez la destination, puis vérifiez le slug que prendra chaque copie. Lorsqu'un slug y est déjà utilisé, un suffixe numéroté est ajouté, et vous pouvez remplacer chacun d'eux avant de copier.",
+      "reuseDone_one": "{{count}} devoir copié.",
+      "reuseDone_other": "{{count}} devoirs copiés.",
+      "reuseFailedTitle": "Exclus de la copie",
+      "reuseFailed_one": "{{count}} devoir n'a pas pu être copié.",
+      "reuseFailed_other": "{{count}} devoirs n'ont pas pu être copiés.",
+      "reuseNoTargets": "Il n'y a aucune autre classe dans {{org}} vers laquelle copier.",
+      "reuseRenamedTitle": "Copié sous un slug différent",
+      "reuseSlugDuplicate": "Un autre devoir de cette copie utilise déjà ce slug.",
+      "reuseSlugLabel": "Slug pour {{assignment}}",
+      "reuseSlugRequired": "Un slug est requis.",
+      "reuseTargetError": "Impossible de lire les devoirs de la classe de destination, donc un conflit de slug ne peut pas être résolu. Réessayez.",
+      "reuseTemplateWarnTitle": "Copié, mais l'accès au modèle n'a pas pu être accordé",
+      "reuseTitle_one": "Réutiliser {{count}} devoir",
+      "reuseTitle_other": "Réutiliser {{count}} devoirs",
+      "selectAll": "Sélectionner tous les devoirs",
+      "selectRow": "Sélectionner {{assignment}}",
+      "selectedCount_one": "{{count}} devoir sélectionné",
+      "selectedCount_other": "{{count}} devoirs sélectionnés",
+      "templateWarnings_one": "{{count}} devoir a été mis à jour, mais l'accès de l'équipe étudiante à son modèle n'a pas pu être mis à jour : {{slugs}}. Vérifiez-le sur GitHub, ou relancez l'action sur cette sélection.",
+      "templateWarnings_other": "{{count}} devoirs ont été mis à jour, mais l'accès de l'équipe étudiante à leurs modèles n'a pas pu être mis à jour : {{slugs}}. Vérifiez-les sur GitHub, ou relancez l'action sur cette sélection.",
+      "unlock": "Déverrouiller",
+      "unlockBody": "Cela rouvre les devoirs sélectionnés aux étudiants. Lorsqu'un modèle privé est utilisé, l'accès en lecture de l'équipe étudiante est rétabli afin que les étudiants puissent à nouveau accepter.",
+      "unlockDone_one": "{{count}} devoir déverrouillé.",
+      "unlockDone_other": "{{count}} devoirs déverrouillés.",
+      "unlockNoneLocked": "Aucun des devoirs sélectionnés n'est verrouillé.",
+      "unlockTitle_one": "Déverrouiller {{count}} devoir ?",
+      "unlockTitle_other": "Déverrouiller {{count}} devoirs ?"
+    }
   },
   "published": {
     "pageHeading": "Ressources publiées",
@@ -1588,7 +1706,13 @@
     "public": "Public",
     "publicNote": "Ces fichiers sont publics : les étudiants et l'autonotateur les récupèrent sans se connecter. Tout le reste du dépôt classroom50 reste privé.",
     "siteTitle": "Votre site public",
-    "unlistedNote": "Les fichiers de cette classe sont servis à une URL non répertoriée. Toute personne disposant du lien peut tout de même les lire, alors ne partagez le lien d'invitation de chaque devoir qu'avec vos étudiants."
+    "unlistedNote": "Les fichiers de cette classe sont servis à une URL non répertoriée. Toute personne disposant du lien peut tout de même les lire, alors ne partagez le lien d'invitation de chaque devoir qu'avec vos étudiants.",
+    "republish": {
+      "button": "Publier de nouveau",
+      "failed": "Impossible de démarrer la publication : {{detail}}. Vérifiez que vous pouvez exécuter des workflows dans le dépôt classroom50, puis réessayez.",
+      "help": "Redéploie le site à partir du dépôt classroom50 tel quel, sans rien y modifier. À utiliser lorsqu'un fichier ci-dessous affiche Non publié ou Inaccessible après une publication en échec.",
+      "started": "Publication sur le site des élèves en cours. La bannière ci-dessus suit la progression."
+    }
   },
   "getStarted": {
     "badge": "Intégration",
@@ -1687,7 +1811,8 @@
         "grading_mode": "Mode de notation : les scores enregistrés selon l'ancien mode peuvent se lire différemment.",
         "repo_source": "Source du dépôt : les dépôts existants conservent leur contenu de départ d'origine.",
         "repo_visibility": "Visibilité du dépôt : modifiez les dépôts existants depuis la page des soumissions.",
-        "student_permission": "Accès des étudiants au dépôt : modifiez les dépôts existants depuis la page des soumissions."
+        "student_permission": "Accès des étudiants au dépôt : modifiez les dépôts existants depuis la page des soumissions.",
+        "pages": "GitHub Pages : activez-le sur les dépôts existants depuis la page des rendus."
       },
       "provisioningIntro_one": "{{count}} étudiant a déjà accepté. Ces modifications s'appliquent uniquement aux dépôts acceptés à partir de maintenant ; le dépôt existant conserve sa configuration actuelle :",
       "provisioningIntro_other": "{{count}} étudiants ont déjà accepté. Ces modifications s'appliquent uniquement aux dépôts acceptés à partir de maintenant ; les {{count}} dépôts existants conservent leur configuration actuelle :",
@@ -2221,7 +2346,7 @@
       "confirmRemoveBody": "Ceci retire @{{login}} de l'équipe {{role}} et son accès au dépôt classroom50. Cela ne le retire pas de l'organisation.",
       "pendingBadge": "En attente",
       "resend": "Renvoyer l'invitation",
-      "resendEmailOnly": "Cette invitation n'a pas de nom d'utilisateur GitHub, elle ne peut donc pas être renvoyée. Annulez-la et rajoutez la personne.",
+      "resendEmailOnly": "Cette invitation n'a pas de nom d'utilisateur GitHub, elle ne peut donc pas être renvoyée ici. Annulez-la, puis ajoutez à nouveau la personne.",
       "resentToast": "Invitation renvoyée à {{who}}.",
       "resendFailed": "Impossible de renvoyer l'invitation à {{who}} : {{error}}",
       "cancelInvite": "Annuler l'invitation",
@@ -2346,7 +2471,14 @@
       "setup": "Correction automatique configurée",
       "setupSkippedEmptyRepo": "Aucune configuration nécessaire : ce devoir utilise un dépôt vide",
       "repoVisibilityFellBack": "{{org}}/{{repo}} créé en privé. L'organisation ne vous autorise pas à créer des dépôts publics ; votre enseignant pourra le rendre public plus tard.",
-      "team": "Groupe trouvé"
+      "team": "Groupe trouvé",
+      "pagesSkipped": {
+        "access": "Notation automatique configurée. GitHub Pages n'a pas été activé : vous n'avez pas la permission de modifier les paramètres Pages de ce dépôt. Votre enseignant peut l'activer depuis la page des rendus.",
+        "branch": "Notation automatique configurée. GitHub Pages n'a pas été activé : la branche qui sert à la publication n'existe pas encore dans votre dépôt. Votre enseignant peut l'activer depuis la page des rendus.",
+        "plan": "Notation automatique configurée. GitHub Pages n'a pas été activé : le forfait GitHub de cette organisation n'autorise pas Pages sur les dépôts privés. Votre enseignant peut rendre le dépôt public et activer Pages depuis la page des rendus.",
+        "policy": "Notation automatique configurée. GitHub Pages n'a pas été activé : l'organisation n'autorise pas les membres à publier des sites Pages. Votre enseignant peut l'activer depuis la page des rendus.",
+        "unknown": "Notation automatique configurée. GitHub Pages n'a pas pu être activé pour le moment. Votre enseignant peut l'activer depuis la page des rendus."
+      }
     },
     "stepErrors": {
       "generic": "{{label}} a échoué (HTTP {{status}}). {{actions}}",
@@ -2417,6 +2549,10 @@
     "setupIncomplete": {
       "body": "Votre dépôt existe, mais ses fichiers de configuration sont manquants ; l'autonotation ne s'exécutera donc pas et votre enseignant ne pourra pas laisser de retours. Relancez la configuration pour terminer. C'est sans risque et cela conserve tout travail que vous avez déjà poussé.",
       "title": "La configuration ne s'est pas terminée"
+    },
+    "pagesSite": {
+      "enabled": "GitHub Pages est activé pour ce devoir",
+      "help": "Votre dépôt peut publier un site web à l'adresse {{url}}. N'importe qui sur Internet peut le consulter, même lorsque le dépôt est privé."
     }
   },
   "submissions": {
@@ -2444,11 +2580,7 @@
     },
     "menu": {
       "actions": "Actions",
-      "metrics": "Statistiques",
       "share": "Partager"
-    },
-    "metrics": {
-      "title": "Statistiques des rendus"
     },
     "errors": {
       "gradebookLoad": "Impossible de charger les scores collectés.",
@@ -2504,22 +2636,6 @@
       "shareWithCount_other": "Partagé avec <count>{{count}} étudiants</count> pouvant accepter ce devoir.",
       "warnNoStudents": "Aucun étudiant ne peut encore accepter ce lien dans la classe <classroom>{{classroom}}</classroom>. Ajoutez d'abord des étudiants à la liste et invitez-les à l'organisation.",
       "copied": "Copié"
-    },
-    "stats": {
-      "submitted": "Rendu",
-      "groupsSubmitted": "Groupes ayant remis",
-      "classAverage": "Moyenne du cours",
-      "passing": "Réussite",
-      "accepted": "Accepté",
-      "notAvailable": "N/A",
-      "showFailing": "Afficher les étudiants en échec",
-      "failingCount_one": "{{count}} en échec",
-      "failingCount_other": "{{count}} en échec",
-      "ungradedNote_one": ", {{count}} non évalué",
-      "ungradedNote_other": ", {{count}} non évalués",
-      "showAcceptedNotSubmitted": "Afficher les étudiants ayant accepté mais pas encore rendu",
-      "notYetSubmitted_one": "{{count}} pas encore rendu",
-      "notYetSubmitted_other": "{{count}} pas encore rendus"
     },
     "filters": {
       "searchGroupPlaceholder": "Rechercher un groupe ou un membre",
@@ -2615,7 +2731,9 @@
       "teamMissingTitle": "L'équipe GitHub derrière ce groupe n'existe plus. Elle a probablement été supprimée ; la notation ne peut donc pas créditer ses membres tant qu'elle n'est pas recréée.",
       "teamNoRepo": "Pas encore de dépôt",
       "teamNoRepoTitle": "Le dépôt du groupe est créé lorsqu'un membre du groupe accepte le devoir. Partagez le lien du devoir pour qu'un membre puisse l'accepter.",
-      "staffRowTitle": "Un enseignant, un assistant principal ou un assistant qui a accepté ce devoir, généralement pour l'essayer. Cette ligne n'est pas celle d'un étudiant."
+      "staffRowTitle": "Un enseignant, un assistant principal ou un assistant qui a accepté ce devoir, généralement pour l'essayer. Cette ligne n'est pas celle d'un étudiant.",
+      "openSiteLabel": "Ouvrir le site GitHub Pages pour {{repo}}",
+      "viewSite": "Ouvrir le site GitHub Pages"
     },
     "reviewModal": {
       "errorTitle": "Impossible de vérifier la présence d'une PR de retour",
@@ -2652,7 +2770,15 @@
         "copyMilestone": "Copier la commande de tag de jalon",
         "milestoneStep": "Ou poussez un tag de jalon configuré par votre enseignant (par exemple, {{tags}}) :",
         "tagIntro": "Votre enseignant corrige des instantanés tagués de votre travail. Committez et poussez comme d'habitude, puis exécutez la commande de soumission ci-dessous. Elle tague votre travail le plus récent pour correction.",
-        "tagStep2": "Depuis l'intérieur du dépôt, soumettez votre travail. Cela pousse un tag de soumission qui déclenche la correction :"
+        "tagStep2": "Depuis l'intérieur du dépôt, soumettez votre travail. Cela pousse un tag de soumission qui déclenche la correction :",
+        "cloneHint": "SSH nécessite une clé SSH ajoutée à votre compte GitHub. GitHub CLI nécessite l'installation de la commande gh.",
+        "cloneMethod": {
+          "cli": "GitHub CLI",
+          "https": "HTTPS",
+          "ssh": "SSH"
+        },
+        "cloneMethodAria": "Méthode de clonage",
+        "teacherNote": "Votre enseignant peut vous demander de cloner ou de soumettre d'une manière précise. Le cas échéant, suivez ses instructions."
       },
       "fallbackTitle": "Rendu",
       "missingParams": "Ce lien ne comporte pas sa classe ou son devoir. Demandez un nouveau lien à votre enseignant.",
@@ -2822,7 +2948,11 @@
       "manageGroup": "Gérer le groupe",
       "setup": "Configuration",
       "setupIncomplete": "Incomplète",
-      "setupIncompleteHint": "L'acceptation de l'étudiant s'est arrêtée avant l'écriture des fichiers de configuration ; l'autonotation ne s'exécutera donc pas et aucune PR de retour ne peut être ouverte. Demandez à l'étudiant d'ouvrir le lien du devoir et de choisir Relancer la configuration."
+      "setupIncompleteHint": "L'acceptation de l'étudiant s'est arrêtée avant l'écriture des fichiers de configuration ; l'autonotation ne s'exécutera donc pas et aucune PR de retour ne peut être ouverte. Demandez à l'étudiant d'ouvrir le lien du devoir et de choisir Relancer la configuration.",
+      "pages": "GitHub Pages",
+      "pagesBuildErrored": "Échec de la génération",
+      "pagesBuilding": "Génération en cours",
+      "pagesNotEnabled": "Non activé"
     },
     "rowDownload": {
       "aria": "Télécharger la soumission de {{owner}}",
@@ -2976,9 +3106,9 @@
     "grading": {
       "badgeBuiltIn": "Corrigé automatiquement",
       "badgeEmptyRepo": "Aucune correction automatique",
-      "badgeNoAutograder": "Autocorrection personnalisée",
-      "titleEmptyRepo": "Ce devoir utilise des dépôts vides ; la correction automatique, les notes et la pull request de retour sont donc désactivées. Le tableau indique qui a accepté.",
-      "titleNoAutograder": "Le modèle fournit son propre workflow de correction. Les notes intégrées et la nouvelle correction sont désactivées ; la pull request de retour fonctionne toujours lorsqu'elle est activée."
+      "badgeNoAutograder": "Pas de correcteur automatique intégré",
+      "titleEmptyRepo": "Cet assignment utilise des dépôts vides, donc la correction automatique, les scores et la pull request de retour sont désactivés. Le tableau montre qui a accepté et qui a poussé du code.",
+      "titleNoAutograder": "Cet assignment n'utilise pas le correcteur automatique intégré, donc les scores intégrés et la nouvelle correction sont désactivés. Le workflow de correction propre à un modèle s'exécute quand même, et la pull request de retour fonctionne toujours lorsqu'elle est activée."
     },
     "scoreOverride": {
       "add": "Ajouter une note",
@@ -3084,7 +3214,45 @@
     },
     "rosterFromCsvNotice": "La liste des étudiants provient du fichier de liste tel qu'il était lors de sa dernière synchronisation, car votre rôle ne permet pas de consulter l'équipe GitHub de la classe. Un étudiant inscrit depuis apparaît une fois qu'un enseignant ouvre la liste. Les propriétaires de l'organisation voient l'appartenance en direct.",
     "skipPastTable": "Passer le tableau des soumissions",
-    "slugTitle": "Slug du devoir : l'identifiant unique de ce devoir. Les noms affichés peuvent se répéter."
+    "slugTitle": "Slug du devoir : l'identifiant unique de ce devoir. Les noms affichés peuvent se répéter.",
+    "bulkPages": {
+      "apply": "Activer pour tous",
+      "deferredDetail": "Ignoré. Relancez pour activer.",
+      "deferredSection_one": "{{count}} dépôt n'a pas été traité",
+      "deferredSection_other": "{{count}} dépôts n'ont pas été traités",
+      "failedSection_one": "{{count}} dépôt n'a pas pu être activé",
+      "failedSection_other": "{{count}} dépôts n'ont pas pu être activés",
+      "infoBranch_one": "Ceci configure GitHub Pages pour publier une branche sur le dépôt de {{count}} étudiant. Les dépôts qui ont déjà un site restent inchangés. Les dépôts que les étudiants acceptent ensuite sont configurés automatiquement.",
+      "infoBranch_other": "Ceci configure GitHub Pages pour publier une branche sur les dépôts de {{count}} étudiants. Les dépôts qui ont déjà un site restent inchangés. Les dépôts que les étudiants acceptent ensuite sont configurés automatiquement.",
+      "infoWorkflow_one": "Ceci configure GitHub Pages pour déployer via GitHub Actions sur le dépôt de {{count}} étudiant. Les dépôts qui ont déjà un site restent inchangés. Les dépôts que les étudiants acceptent ensuite sont configurés automatiquement.",
+      "infoWorkflow_other": "Ceci configure GitHub Pages pour déployer via GitHub Actions sur les dépôts de {{count}} étudiants. Les dépôts qui ont déjà un site restent inchangés. Les dépôts que les étudiants acceptent ensuite sont configurés automatiquement.",
+      "menuLabel": "Activer GitHub Pages",
+      "menuTitle": "Configurer le site GitHub Pages de cet assignment sur chaque dépôt accepté",
+      "noRepos": "Aucun étudiant n'a encore accepté, il n'y a donc rien à activer.",
+      "progress": "{{processed}} sur {{total}} traités",
+      "resultHeadline": "GitHub Pages est activé sur {{count}} des {{total}} dépôts.",
+      "resultHeadlineThrottled": "GitHub Pages a été activé sur {{count}} des {{total}} dépôts avant que GitHub ne limite le débit de la requête. Relancez pour terminer le reste.",
+      "subtitle_one": "S'applique à {{count}} étudiant ayant accepté cet assignment.",
+      "subtitle_other": "S'applique à {{count}} étudiants ayant accepté cet assignment.",
+      "title": "Activer GitHub Pages",
+      "titleEmptyRoster": "Aucun étudiant n'a encore accepté",
+      "working": "Activation de GitHub Pages"
+    },
+    "rowPages": {
+      "aria": "Activer GitHub Pages sur {{repo}}",
+      "description": "Configurez le site que cet assignment attend sur ce dépôt. Utilisez cette option pour un dépôt accepté avant l'activation de Pages, ou lorsque son activation au moment de l'acceptation a échoué.",
+      "outcome": {
+        "enabled": "GitHub Pages activé. Le site sera disponible à {{url}} après la première génération."
+      },
+      "refused": {
+        "access": "GitHub Pages n'a pas été activé sur {{repo}} : vous avez besoin d'un accès admin sur ce dépôt.",
+        "branch": "GitHub Pages n'a pas été activé sur {{repo}} : la branche à publier n'existe pas encore dans ce dépôt.",
+        "plan": "GitHub Pages n'a pas été activé sur {{repo}} : le forfait GitHub de cette organisation n'autorise pas Pages sur les dépôts privés. Rendez le dépôt public, puis réessayez.",
+        "policy": "GitHub Pages n'a pas été activé sur {{repo}} : l'organisation n'autorise pas les membres à publier des sites Pages. Vérifiez les paramètres Pages de l'organisation, puis réessayez.",
+        "unknown": "GitHub Pages n'a pas pu être activé sur {{repo}} pour le moment. Réessayez dans un instant."
+      },
+      "title": "Activer GitHub Pages"
+    }
   },
   "orgActivity": {
     "detail": {
@@ -3145,53 +3313,52 @@
     "heading": "Membres",
     "subtitle": "Toutes les personnes de l'organisation GitHub <orgLink>{{org}}</orgLink> et les classes auxquelles elles appartiennent.",
     "manageMembersOnGitHub": "Gérer les membres de l'organisation sur GitHub",
-    "discrepancy_one": "{{count}} élève figure sur une liste de classe mais n'est pas membre de l'organisation.",
-    "discrepancy_other": "{{count}} élèves figurent sur une liste de classe mais ne sont pas membres de l'organisation.",
+    "discrepancy_one": "{{count}} élève figure sur une liste mais n'est pas membre de l'organisation. Utilisez Inviter sur sa ligne pour envoyer une invitation.",
+    "discrepancy_other": "{{count}} élèves figurent sur une liste mais ne sont pas membres de l'organisation. Utilisez Inviter sur chaque ligne pour envoyer une invitation.",
     "searchPlaceholder": "Rechercher par nom, nom d'utilisateur ou e-mail",
     "searchLabel": "Rechercher des membres",
     "filterByClassroomLabel": "Filtrer par classe",
     "filterAllClassrooms": "Toutes les classes",
     "filterNoClassroom": "Aucune classe",
-    "loadError": "Impossible de charger les membres de l'organisation.",
+    "loadError": "Impossible de charger les membres de l'organisation. Vérifiez votre connexion et que vous êtes toujours propriétaire de cette organisation, puis réessayez.",
     "noMatch": "Aucun membre ne correspond à votre recherche.",
     "noMembersInClassroom": "Aucun membre dans {{classroom}}.",
     "noMembersNoClassroom": "Aucun membre sans classe.",
     "invite": "Inviter",
     "classroomCount_one": "{{count}} classe",
     "classroomCount_other": "{{count}} classes",
-    "badgeNotMember": "Non membre de l'organisation",
+    "badgeNotMember": "Pas dans l'organisation",
     "badgeNoClassroom": "Aucune classe",
     "badgeMember": "Membre",
     "badgeOwner": "Propriétaire",
     "unprovisionedBadge": "Non inscrit",
-    "unprovisionedTitle": "Sur la liste mais pas dans l'équipe du cours : {{classrooms}}. Les notes sont collectées via l'équipe ; leur travail serait donc manqué. Ajoutez-les de nouveau au cours pour corriger.",
+    "unprovisionedTitle": "Sur la liste mais pas dans l'équipe de l'espace de cours : {{classrooms}}. Les notes sont collectées via l'équipe, son travail serait donc manqué. Ajoutez-le de nouveau à l'espace de cours pour corriger cela.",
     "unprovisionedAccessBadge": "Pas dans l'équipe",
-    "unprovisionedAccessTitle": "Sur la liste de ce cours mais pas dans son équipe GitHub ; la collecte des notes le manquerait donc. Ajoutez-le de nouveau au cours pour corriger.",
-    "noGitHubUsername": "aucun nom d'utilisateur GitHub",
+    "unprovisionedAccessTitle": "Sur la liste de cet espace de cours mais pas dans son équipe GitHub, la collecte des notes le manquerait donc. Ajoutez-le de nouveau à l'espace de cours pour corriger cela.",
+    "noGitHubUsername": "Aucun nom d'utilisateur GitHub",
     "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
-    "noUsernameWithId": "<missing>aucun nom d'utilisateur GitHub</missing> <meta>· id {{id}}</meta>",
+    "noUsernameWithId": "<missing>Aucun nom d'utilisateur GitHub</missing> <meta>· id {{id}}</meta>",
     "detailTitle": "Détails du membre",
     "manageOnGitHub": "Gérer sur GitHub",
     "classroomAccess": "Accès aux classes",
     "noRoster": "Ne figure sur aucune liste de classe.",
-    "archived": "archivée",
+    "archived": "Archivé",
     "selfNotice": "Il s'agit du compte avec lequel vous êtes connecté ; il ne peut donc pas être retiré de l'organisation ici.",
-    "notMember": "{{label}} figure sur une liste de classe mais n'est <emphasis>pas membre de l'organisation</emphasis>. Invitez-le pour rétablir son accès. L'invitation est envoyée à son compte GitHub par id, elle fonctionne donc même si son nom d'utilisateur a changé.",
+    "notMember": "{{label}} figure sur une liste d'espace de cours mais <emphasis>n'est pas membre de l'organisation</emphasis>. Invitez-le pour rétablir son accès. L'invitation est adressée à son compte GitHub par son id, elle fonctionne donc même si son nom d'utilisateur a changé, et inclut ses équipes d'espace de cours.",
     "inviting": "Invitation…",
     "inviteToOrg": "Inviter dans l'organisation",
-    "confirmInviteBody": "Envoyer une invitation à l'organisation à {{label}} ? L'invitation est envoyée à son compte GitHub par identifiant et il rejoindra {{org}} avec son accès de classe antérieur une fois qu'il l'aura acceptée.",
-    "notMemberNoId": "Cet étudiant figure dans un registre mais n'est pas membre de l'organisation. Il n'a pas encore d'id GitHub enregistré, invitez-le donc depuis la page du registre de sa classe.",
+    "confirmInviteBody": "Envoyer une invitation à l'organisation à {{label}} ? Elle est adressée à son compte GitHub par son id et inclut ses équipes d'espace de cours, de sorte qu'il est de nouveau inscrit dès qu'il l'accepte.",
     "confirmUnenroll_one": "{{label}} sera d'abord désinscrit de <count>{{count}} classe</count> ({{classrooms}}), puis retiré de l'organisation <org>{{org}}</org>. Ses dépôts de devoirs ne sont pas supprimés.",
     "confirmUnenroll_other": "{{label}} sera d'abord désinscrit de <count>{{count}} classes</count> ({{classrooms}}), puis retiré de l'organisation <org>{{org}}</org>. Ses dépôts de devoirs ne sont pas supprimés.",
     "confirmRemove": "{{label}} sera retiré de l'organisation <org>{{org}}</org>.",
     "removing": "Suppression…",
     "removeFromOrg": "Retirer de l'organisation",
     "inviteFailed": "Impossible d'inviter {{label}} : {{reason}}",
-    "somethingWrong": "l'action n'a pas pu aboutir",
+    "somethingWrong": "Une erreur s'est produite. Actualisez et réessayez.",
     "removed": "{{label}} a été retiré de l'organisation {{org}}.",
     "removedWithUnenroll_one": "{{label}} a été retiré de l'organisation {{org}} et désinscrit de {{count}} classe.",
     "removedWithUnenroll_other": "{{label}} a été retiré de l'organisation {{org}} et désinscrit de {{count}} classes.",
-    "removeFailed": "Impossible de retirer {{label}} : {{reason}}",
+    "removeFailed": "Impossible de retirer {{label}} : {{reason}}. Réessayez, ou retirez-le depuis la page People de l'organisation sur GitHub.",
     "warnArchived": "{{who}} figure toujours sur la classe archivée « {{classroom}} » ; désarchivez-la pour le retirer de cette liste.",
     "warnUnenrollFailed": "Impossible de désinscrire {{who}} de « {{classroom}} » ({{reason}}) ; les autres ont été retirés.",
     "bulk": {
@@ -3208,9 +3375,8 @@
       "remove": "Retirer",
       "confirmRemoveBody_one": "Cela retire le membre sélectionné de la liste et de l'équipe de la classe {{classroom}}. Son appartenance à l'organisation et ses dépôts de devoirs ne sont pas affectés.",
       "confirmRemoveBody_other": "Cela retire les membres sélectionnés de la liste et de l'équipe de la classe {{classroom}}. Leur appartenance à l'organisation et leurs dépôts de devoirs ne sont pas affectés.",
-      "confirmAddBody_one": "Cela ajoute le membre sélectionné à la liste et à l'équipe de la classe {{classroom}}, en l'invitant à l'organisation s'il n'en est pas encore membre.",
-      "confirmAddBody_other": "Cela ajoute les membres sélectionnés à la liste et à l'équipe de la classe {{classroom}}, en les invitant à l'organisation s'ils n'en sont pas encore membres.",
-      "clearSelection": "Effacer la sélection",
+      "confirmAddBody_one": "Cela ajoute le membre sélectionné au registre de la classe {{classroom}} et à son équipe. Seuls les membres de l'organisation peuvent être ajoutés ici ; invitez d'abord depuis leur ligne toute personne qui n'est pas encore membre.",
+      "confirmAddBody_other": "Cela ajoute les membres sélectionnés au registre de la classe {{classroom}} et à son équipe. Seuls les membres de l'organisation peuvent être ajoutés ici ; invitez d'abord depuis leur ligne toute personne qui n'est pas encore membre.",
       "addTitle": "Ajouter des membres à {{classroom}}",
       "removeTitle": "Retirer des membres de {{classroom}}",
       "starting": "Démarrage…",
@@ -3226,20 +3392,20 @@
       "resultFailed": "Échoués",
       "resultWarnings": "Avertissements",
       "resultTeamFailures": "Échecs d'ajout à l'équipe",
-      "couldNotAddToTeam": "Impossible de l'ajouter à l'équipe de la classe.",
+      "couldNotAddToTeam": "Impossible de l'ajouter à l'équipe de la classe. Ouvrez sa ligne dans le registre de la classe et utilisez Ajouter à la classe pour réessayer.",
       "skipReason": {
         "not-member": "N'est pas membre de l'organisation. Invitez-le d'abord.",
-        "no-id": "Aucun identifiant GitHub enregistré pour le placer.",
+        "no-id": "Aucun id GitHub enregistré, il ne peut donc pas être associé à un compte GitHub.",
         "already-on-classroom": "Déjà dans cette classe.",
         "not-on-classroom": "Pas dans cette classe.",
         "already-removed": "Déjà retiré de cette classe.",
         "archived": "Le cours est archivé. Désarchivez-le pour modifier l'appartenance.",
-        "resolve-failed": "Impossible de résoudre son compte GitHub actuel.",
+        "resolve-failed": "Impossible de retrouver son compte GitHub actuel. Réessayez.",
         "pending-email-invite": "Invité par e-mail et pas encore accepté. Annulez plutôt l'invitation depuis la page Liste du cours.",
-        "no-username": "Aucun nom d'utilisateur GitHub enregistré. Le retrait de l'organisation s'appuie sur le nom d'utilisateur.",
-        "self": "Il s'agit de votre compte connecté, il ne peut donc pas être retiré ici."
+        "no-username": "Aucun nom d'utilisateur GitHub enregistré, donc son appartenance à l'organisation ne peut pas être retirée d'ici. Retirez-le depuis la page People de l'organisation sur GitHub.",
+        "self": "Il s'agit de votre compte connecté, il ne peut donc pas être retiré ici.",
+        "unlinked-row": "Non lié à un compte GitHub. Réinvitez, liez ou supprimez la ligne depuis la page Liste de l'espace de cours."
       },
-      "actions": "Actions",
       "addModalTitle_one": "Ajouter {{count}} membre sélectionné à un cours",
       "addModalTitle_other": "Ajouter {{count}} membres sélectionnés à un cours",
       "addToClassroomMenu": "Ajouter à un cours",
@@ -3265,18 +3431,18 @@
       "previewSkipAlreadyOn_other": "{{count}} ignorés : déjà dans ce cours.",
       "previewSkipArchived_one": "{{count}} ignoré : inscrit sur une instance archivée de ce cours.",
       "previewSkipArchived_other": "{{count}} ignorés : inscrits sur une instance archivée de ce cours.",
-      "previewSkipNoUsername_one": "{{count}} ignoré : aucun nom d'utilisateur GitHub enregistré.",
-      "previewSkipNoUsername_other": "{{count}} ignorés : aucun nom d'utilisateur GitHub enregistré.",
+      "previewSkipNoUsername_one": "{{count}} ignoré : aucun nom d'utilisateur GitHub enregistré, donc son appartenance à l'organisation ne peut pas être retirée d'ici.",
+      "previewSkipNoUsername_other": "{{count}} ignorés : aucun nom d'utilisateur GitHub enregistré, donc leur appartenance à l'organisation ne peut pas être retirée d'ici.",
       "previewSkipNotMember_one": "{{count}} ignoré : n'est pas membre de l'organisation ; invitez-le d'abord.",
       "previewSkipNotMember_other": "{{count}} ignorés : ne sont pas membres de l'organisation ; invitez-les d'abord.",
       "previewSkipNotOn_one": "{{count}} ignoré : n'est pas dans ce cours.",
       "previewSkipNotOn_other": "{{count}} ignorés : ne sont pas dans ce cours.",
-      "previewSkipPendingEmail_one": "{{count}} ignoré : invité par e-mail et pas encore accepté.",
-      "previewSkipPendingEmail_other": "{{count}} ignorés : invités par e-mail et pas encore acceptés.",
+      "previewSkipPendingEmail_one": "{{count}} ignoré : invité par courriel et pas encore accepté. Annulez plutôt l'invitation depuis la page Liste de l'espace de cours.",
+      "previewSkipPendingEmail_other": "{{count}} ignorés : invités par courriel et pas encore acceptés. Annulez plutôt les invitations depuis la page Liste de l'espace de cours.",
       "removeFromClassroomMenu": "Retirer d'un cours",
       "removeModalTitle_one": "Retirer {{count}} membre sélectionné d'un cours",
       "removeModalTitle_other": "Retirer {{count}} membres sélectionnés d'un cours",
-      "removeNoneOnClassroom": "Aucun des membres sélectionnés n'est sur une liste de cours.",
+      "removeNoneOnClassroom": "Aucun des membres sélectionnés ne figure sur une liste d'espace de cours dont il puisse être retiré.",
       "removeOrgTitle": "Retirer des membres de l'organisation {{org}}",
       "removedFromOrgHeadline_one": "{{count}} membre retiré de l'organisation {{org}}.",
       "removedFromOrgHeadline_other": "{{count}} membres retirés de l'organisation {{org}}.",
@@ -3284,16 +3450,36 @@
       "unenrolledDetail_one": "Désinscrit de {{count}} cours ({{classrooms}}).",
       "unenrolledDetail_other": "Désinscrit de {{count}} cours ({{classrooms}}).",
       "viewerUnverified": "Impossible de vérifier votre compte ; aucun membre n'a donc été retiré. Réessayez.",
-      "confirmRemoveOrgWarning": "Les membres retirés perdent l'accès à tous les dépôts de l'organisation, y compris leurs propres dépôts de devoirs, et ont besoin d'une nouvelle invitation pour revenir."
+      "confirmRemoveOrgWarning": "Les membres retirés perdent l'accès à tous les dépôts de l'organisation, y compris leurs propres dépôts de devoirs, et ont besoin d'une nouvelle invitation pour revenir.",
+      "addNoneMembers": "Aucune des lignes sélectionnées ne correspond à des membres de l'organisation. Invitez-les d'abord, puis ajoutez-les à une classe.",
+      "confirmInviteBody_one": "Envoyer une invitation à l'organisation à l'étudiant sélectionné ? Elle est envoyée à son compte GitHub par identifiant et inclut ses équipes de classe, de sorte qu'il est inscrit dès qu'il accepte. Toute personne ayant déjà une invitation en attente ou déjà membre est ignorée.",
+      "confirmInviteBody_other": "Envoyer des invitations à l'organisation aux {{count}} étudiants sélectionnés ? Chacune est envoyée à leur compte GitHub par identifiant et inclut leurs équipes de classe, de sorte qu'ils sont inscrits dès qu'ils acceptent. Toute personne ayant déjà une invitation en attente ou déjà membre est ignorée.",
+      "confirmInviteTitle_one": "Envoyer {{count}} invitation ?",
+      "confirmInviteTitle_other": "Envoyer {{count}} invitations ?",
+      "inviteNoneInvitable": "Sélectionnez les étudiants qui figurent dans un registre mais ne sont pas dans l'organisation. Les lignes en attente, expirées et non liées se gèrent depuis le registre de leur classe.",
+      "inviteRateLimited": "{{sent}} invitations envoyées, puis la limite de débit de GitHub a été atteinte. Les autres n'ont pas été envoyées. Attendez quelques minutes, puis réessayez.",
+      "inviteSelected_one": "Envoyer une invitation à l'organisation à {{count}} étudiant",
+      "inviteSelected_other": "Envoyer des invitations à l'organisation à {{count}} étudiants",
+      "inviteSkipReason": {
+        "already-member": "Déjà membre de l'organisation. Rien de nouveau n'a été envoyé.",
+        "already-pending": "A déjà une invitation en attente. Rien de nouveau n'a été envoyé.",
+        "not-invitable": "Ne peut pas être invité d'ici : aucun identifiant GitHub enregistré, ou la ligne n'est pas un étudiant hors organisation."
+      },
+      "inviteTitle": "Envoyer des invitations à l'organisation {{org}}",
+      "invitedHeadline_one": "{{count}} invitation envoyée.",
+      "invitedHeadline_other": "{{count}} invitations envoyées.",
+      "previewSkipUnlinked_one": "{{count}} ignoré : non lié à un compte GitHub. Réinvitez, liez ou supprimez la ligne depuis la page Liste de l'espace de cours.",
+      "previewSkipUnlinked_other": "{{count}} ignorés : non liés à un compte GitHub. Réinvitez, liez ou supprimez les lignes depuis la page Liste de l'espace de cours.",
+      "removeOrgNoneEligible": "Aucune des lignes sélectionnées ne correspond à un membre de l'organisation ayant un nom d'utilisateur GitHub.",
+      "sendInvitations": "Envoyer des invitations"
     },
     "inviteMalformedId": "Impossible d'inviter {{who}} : « {{githubId}} » n'est pas un identifiant GitHub valide. Corrigez la cellule github_id dans roster.csv.",
-    "inviteMissingId": "Impossible d'inviter {{who}} : aucun identifiant GitHub enregistré.",
+    "inviteMissingId": "Impossible d'inviter {{who}} : sa ligne de liste n'a pas d'id GitHub. Ouvrez sa ligne dans la liste de l'espace de cours pour l'inviter par nom d'utilisateur, ou supprimez la ligne et ajoutez-le de nouveau.",
     "badgeInvitePending": "Invitation en attente",
-    "invitePendingNotice": "Cet élève a été invité par e-mail et n'a pas encore accepté ; il n'a donc aucun compte GitHub enregistré. Rien d'anormal : ses informations se remplissent automatiquement lorsqu'il rejoint. Vous pouvez annuler l'invitation depuis la page Liste de son cours.",
     "details": {
       "email_one": "Courriel",
       "email_other": "Courriels",
-      "githubId": "Identifiant GitHub",
+      "githubId": "Id GitHub",
       "name": "Nom",
       "notSet": "Non défini",
       "orgRole": "Rôle",
@@ -3304,7 +3490,7 @@
     "filterInvitationPending": "Invitation en attente",
     "filterMembers": "Membres",
     "filterNotEnrolled": "Non inscrit",
-    "filterNotInOrg": "Pas membre de l'org",
+    "filterNotInOrg": "Absent de l'organisation",
     "filterOwners": "Propriétaires",
     "filterShowLabel": "Filtrer les membres",
     "sharedOrgNotice": "Cette page liste tous les membres de l'organisation GitHub {{org}}, pas seulement vos étudiants. Si d'autres enseignants partagent cette organisation, même sans utiliser Classroom 50, leurs membres y apparaissent aussi, alors soyez prudent avant de retirer qui que ce soit.",
@@ -3318,7 +3504,44 @@
       "colStatus": "Statut",
       "colUsername": "Nom d'utilisateur"
     },
-    "retry": "Réessayer"
+    "retry": "Réessayer",
+    "archivedParen": "(archivé)",
+    "badgeUnlinked": "Non liée",
+    "filterInviteExpired": "Invitation expirée",
+    "filterUnlinked": "Non lié",
+    "invitationsRetry": "Réessayer",
+    "invitationsUnavailable": "Impossible de lire les invitations de l'organisation ; les invitations en attente et expirées ne sont donc pas affichées, et certaines lignes peuvent apparaître comme non liées ou absentes de l'organisation. Réessayez avant d'inviter quiconque.",
+    "inviteAlreadyMember": "{{who}} est déjà membre de {{org}}, aucune nouvelle invitation n'a donc été envoyée. Actualisez pour voir l'état actuel.",
+    "inviteAlreadyPending": "{{who}} a déjà une invitation en attente à {{org}}, aucune nouvelle invitation n'a donc été envoyée. Renvoyez-la ou annulez-la depuis sa ligne dans la liste de l'espace de cours.",
+    "notMemberExpired": "L'invitation adressée à {{label}} a expiré avant qu'il ne l'accepte. Les invitations GitHub durent 7 jours. Invitez-le de nouveau pour rétablir son accès.",
+    "notMemberFailed": "GitHub n'a pas pu remettre l'invitation à {{label}} ({{reason}}). Invitez-le de nouveau pour rétablir son accès.",
+    "openInRoster": "Ouvrir dans la liste de {{classroom}}",
+    "orphanedInviteExpired": "Expirée",
+    "orphanedInviteFailed": "Échec",
+    "orphanedInvitesBody": "GitHub liste encore ces invitations expirées ou non remises, mais aucune liste d'espace de cours ni aucun membre de l'organisation ne leur correspond, donc rien ici ne peut les réinviter. En général, la ligne de liste a été supprimée après l'expiration de l'invitation. Ignorez-les pour vider la liste des invitations en échec de GitHub, ou laissez celles que vous avez envoyées dans un autre but.",
+    "orphanedInvitesDeferred_one": "GitHub a limité le débit de la requête, donc {{count}} invitation en échec n'a pas été ignorée. Réessayez dans quelques minutes.",
+    "orphanedInvitesDeferred_other": "GitHub a limité le débit de la requête, donc {{count}} invitations en échec n'ont pas été ignorées. Réessayez dans quelques minutes.",
+    "orphanedInvitesDismiss": "Ignorer",
+    "orphanedInvitesDismissAll": "Tout ignorer",
+    "orphanedInvitesDismissFailed_one": "Impossible d'ignorer {{count}} invitation en échec : {{error}}",
+    "orphanedInvitesDismissFailed_other": "Impossible d'ignorer {{count}} invitations en échec : {{error}}",
+    "orphanedInvitesDismissed_one": "{{count}} invitation en échec ignorée.",
+    "orphanedInvitesDismissed_other": "{{count}} invitations en échec ignorées.",
+    "orphanedInvitesHide": "Masquer les détails",
+    "orphanedInvitesTitle_one": "{{count}} invitation en échec ne figure sur aucune liste.",
+    "orphanedInvitesTitle_other": "{{count}} invitations en échec ne figurent sur aucune liste.",
+    "orphanedInvitesView": "Voir les détails",
+    "removeSelf": "Vous ne pouvez pas retirer votre propre compte de l'organisation ici.",
+    "removeViewerUnverified": "Impossible de vérifier votre compte, le membre n'a donc pas été retiré. Réessayez.",
+    "rosterReadFailed": "Impossible de lire la liste de {{classroom}}, ses élèves ne sont donc pas affichés. Vérifiez le fichier roster.csv de l'espace de cours, puis actualisez.",
+    "strandedExpired": "L'invitation adressée à {{who}} a expiré avant d'être acceptée. Les invitations GitHub durent 7 jours. Ouvrez sa ligne dans la liste de l'espace de cours pour le réinviter, lier la ligne à un membre de l'organisation, ou la supprimer.",
+    "strandedFailed": "GitHub n'a pas pu remettre l'invitation à {{who}} ({{reason}}). Ouvrez sa ligne dans la liste de l'espace de cours pour vérifier l'adresse et le réinviter, lier la ligne à un membre de l'organisation, ou la supprimer.",
+    "strandedNoId": "{{who}} figure sur une liste mais n'est pas membre de l'organisation, et sa ligne n'a pas d'id GitHub ; il ne peut donc pas être invité d'ici. Ouvrez sa ligne dans la liste de l'espace de cours pour l'inviter.",
+    "strandedPendingAccount": "{{who}} a une invitation à l'organisation en attente et ne l'a pas encore acceptée. Sa ligne se met à jour automatiquement quand il rejoint. Pour renvoyer ou annuler l'invitation, ouvrez sa ligne dans la liste de l'espace de cours.",
+    "strandedPendingEmail": "{{who}} a été invité par courriel et n'a pas encore accepté ; aucun compte GitHub n'est donc enregistré. Ses informations se remplissent automatiquement quand il rejoint. Pour renvoyer ou annuler l'invitation, ouvrez sa ligne dans la liste de l'espace de cours.",
+    "strandedUnlinked": "Cette ligne n'est pas liée à un compte GitHub, et {{who}} n'a aucune invitation en attente. Ouvrez sa ligne dans la liste de l'espace de cours pour le réinviter, lier la ligne à un membre de l'organisation, ou la supprimer.",
+    "warnNoUsername": "Impossible de retirer {{who}} de l'organisation : sa ligne n'a pas de nom d'utilisateur GitHub. Retirez-le depuis la page People de l'organisation sur GitHub.",
+    "warnOrgRemoveFailed": "Le retrait de {{who}} de l'organisation a échoué ({{reason}}). Réessayez, ou retirez-le depuis la page People de l'organisation sur GitHub."
   },
   "components": {
     "avatar": {
@@ -3487,7 +3710,13 @@
       "removeUser": "Retirer {{username}} du groupe",
       "reviewJoinRequests": "Examiner les demandes d'adhésion sur GitHub",
       "title": "Membres du groupe",
-      "youBadge": "Vous"
+      "youBadge": "Vous",
+      "overCapacity": "Ce groupe compte {{count}} membres, mais ce devoir en autorise {{max}}. Votre enseignant voit également cet avertissement. Demandez au responsable du groupe, ou à votre enseignant, de retirer des membres jusqu'à ce que le groupe en compte {{max}} ou moins.",
+      "overCapacityManage": "Ce groupe compte {{count}} membres, mais ce devoir en autorise {{max}}. Votre enseignant voit également cet avertissement. Retirez des membres jusqu'à ce que le groupe en compte {{max}} ou moins."
+    },
+    "groupOverCapacity": {
+      "badge": "Au-delà de la limite",
+      "title": "Ce groupe compte {{count}} membres, mais ce devoir en autorise {{max}}. Quelqu'un a ajouté des membres directement sur GitHub. Retirez des membres du groupe, ou notez le groupe tel quel."
     }
   },
   "formatDate": {
@@ -3626,7 +3855,7 @@
       "heading": "Rapports",
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
-      "vpatWcagDesc": "Rapport de conformité en matière d'accessibilité selon WCAG 2.2 (VPAT 2.5Rev).",
+      "vpatWcagDesc": "Rapport de conformité en matière d'accessibilité par rapport aux WCAG 2.0, 2.1 et 2.2, niveaux A et AA (VPAT 2.5Rev).",
       "vpatWcagTitle": "VPAT : édition WCAG"
     },
     "legend": {
@@ -3644,7 +3873,7 @@
       "statement": "Déclaration",
       "vpat": "Conformité"
     },
-    "pageSubtitle": "Comment l'application web Classroom 50 se conforme au niveau AA de WCAG 2.2, vérifié automatiquement à chaque build.",
+    "pageSubtitle": "Comment l'application web Classroom 50 se conforme aux WCAG 2.0, 2.1 et 2.2 aux niveaux A et AA, avec un contraste des couleurs vérifié à chaque build.",
     "pageTitle": "Accessibilité",
     "preview": {
       "open": "Voir les détails de la couleur",
@@ -3655,9 +3884,11 @@
       "colColors": "Couleurs (pp / af)",
       "contrastMeta": "Ratios de contraste WCAG par paire pour chaque couleur auditée, dans les deux thèmes. Généré le {{date}}.",
       "contrastTitle": "Audit du contraste des couleurs",
-      "reportMeta": "Norme : WCAG {{standard}}, niveau cible {{target}}. Date du rapport : {{date}}.",
-      "reportTitle": "Rapport de conformité en accessibilité : {{product}}",
-      "vpatSummary": "Résumé ({{total}} critères applicables) : {{supports}} Pris en charge, {{partially}} Partiellement pris en charge, {{doesNotSupport}} Non pris en charge, {{notApplicable}} Non applicable, {{notEvaluated}} Non évalué."
+      "reportMeta": "Norme : {{standard}}, niveau visé {{target}}. Normes applicables : WCAG {{versions}}, niveaux A et AA. Date du rapport : {{date}}.",
+      "reportTitle": "Rapport de conformité en matière d'accessibilité de {{vendor}}",
+      "vpatSummary": "Résumé ({{total}} critères) : {{supports}} Pris en charge, {{partially}} Partiellement pris en charge, {{doesNotSupport}} Non pris en charge, {{notApplicable}} Non applicable, {{notEvaluated}} Non évalué.",
+      "productWithVersion": "{{product}}, version {{version}}",
+      "reportProduct": "Édition WCAG (basée sur VPAT 2.5Rev). Nom du produit/version : {{product}}."
     },
     "statement": {
       "feedback": "Si quelque chose est difficile à utiliser,",
@@ -3667,7 +3898,7 @@
       "intro": "Nous voulons que tout le monde puisse utiliser Classroom 50, y compris les personnes qui utilisent un clavier, un lecteur d'écran ou d'autres technologies d'assistance.",
       "limitations": "Quelques critères sont marqués « Partiellement pris en charge » dans le rapport de conformité, chacun accompagné d'une note sur ce qu'il reste à faire. Nous les corrigeons au fur et à mesure de l'avancement des travaux.",
       "limitationsHeading": "Limitations connues",
-      "target": "Nous visons le niveau AA de WCAG 2.2. Le contraste des couleurs est vérifié à chaque build ; le reste est vérifié manuellement au clavier et au lecteur d'écran. Le rapport de conformité indique où nous en sommes pour chaque critère.",
+      "target": "Nous visons le niveau AA des WCAG 2.2, qui couvre également les critères des niveaux A et AA des WCAG 2.0 et 2.1. Le contraste des couleurs est vérifié à chaque build ; le reste est vérifié manuellement au clavier et avec un lecteur d'écran. Le rapport de conformité liste chaque critère de niveau A et AA, y compris ceux qui ne s'appliquent pas à cette application, avec la raison.",
       "targetHeading": "Où nous en sommes",
       "updated": "Dernière révision le {{date}}."
     },
@@ -3709,7 +3940,18 @@
         "notEvaluated": "Non évalué",
         "partially": "Partiellement pris en charge",
         "supports": "Pris en charge"
-      }
+      },
+      "principle": {
+        "Operable": "Utilisable",
+        "Perceivable": "Perceptible",
+        "Robust": "Robuste",
+        "Understandable": "Compréhensible"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 et 2.2",
+        "wcag22": "WCAG 2.2 uniquement"
+      },
+      "tabAll": "Tous"
     }
   },
   "groupTeams": {
@@ -3788,7 +4030,8 @@
       "title": "Gérer {{name}}",
       "undo": "Annuler",
       "willBeAdded": "Sera ajouté",
-      "willBeRemoved": "Sera retiré"
+      "willBeRemoved": "Sera retiré",
+      "overCapacity": "Ce groupe compte {{count}} membres, mais ce devoir en autorise {{max}}. Quelqu'un a ajouté des membres directement sur GitHub. Retirez des membres jusqu'à ce que le groupe en compte {{max}} ou moins, puis sélectionnez Enregistrer les modifications."
     },
     "manageAriaLabel": "Gérer {{name}}",
     "manageButton": "Gérer",
@@ -3847,5 +4090,10 @@
       "label": "Visibilité",
       "visible": "Visible"
     }
+  },
+  "backgroundPass": {
+    "failed": "La synchronisation avec GitHub ne s'est pas terminée. Elle se relance à la prochaine ouverture de la classe.",
+    "synced": "Synchronisé avec GitHub.",
+    "syncing": "Synchronisation avec GitHub…"
   }
 }
