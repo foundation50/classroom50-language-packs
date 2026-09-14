@@ -27,7 +27,10 @@
     "clear": "Törlés",
     "clearFilter": "Szűrő törlése",
     "checkingOrgAccess": "A szervezethez való hozzáférésed ellenőrzése…",
-    "resolvingRole": "A szereped ellenőrzése…"
+    "resolvingRole": "A szereped ellenőrzése…",
+    "actionWithCount": "{{label}} ({{count}})",
+    "actions": "Műveletek",
+    "clearSelection": "Kijelölés törlése"
   },
   "notFound": {
     "title": "Az oldal nem található",
@@ -211,7 +214,7 @@
   },
   "students": {
     "addTitle": "Tag hozzáadása",
-    "addHint": "Adj meg egy GitHub-felhasználónevet egy tanuló és adatai hozzáadásához, vagy egy e-mailt szervezeti meghívó küldéséhez. Egy e-mailes meghívó megtartja a nevet és a szekciót, amelyet egy függőben lévő roster-soron adsz meg, amíg a tanuló el nem fogadja.",
+    "addHint": "Adj meg egy GitHub-felhasználónevet a diák adataival együtt történő hozzáadásához, vagy egy e-mail-címet szervezeti meghívó küldéséhez. Az e-mailes meghívó megtartja a megadott nevet és szekciót egy függőben lévő névsorsoron, amíg a diák el nem fogadja.",
     "usernamePlaceholder": "github-felhasznalonev",
     "emailPlaceholder": "tanulo@egyetem.hu",
     "sectionPlaceholder": "3. óra",
@@ -227,8 +230,8 @@
     "onboardingLinkHint": "A tanulók egyetlen lépésben elfogadják a meghívást és bejelentkeznek a Classroom 50-be. Ezt a hivatkozást osztja meg a legtöbb osztály.",
     "onboardingLinkAria": "Diák bevezető link",
     "copyOnboardingLinkAria": "Bevezető link másolása",
-    "resendMissingId": "Nem lehet újraküldeni a(z) {{username}} részére szóló meghívást: hiányzik a GitHub-azonosító. Add hozzá őket újra a névsorhoz.",
-    "resendFailed": "A(z) {{username}} részére szóló meghívás újraküldése sikertelen ({{error}}).",
+    "resendMissingId": "Nem lehet újraküldeni a meghívót {{username}} részére: a névsorsorának nincs GitHub-azonosítója. Távolítsd el a sort, majd add hozzá újra.",
+    "resendFailed": "Nem sikerült újraküldeni a meghívót {{username}} részére: {{error}}",
     "resend": "Újraküldés",
     "dismiss": "Elvetés",
     "noSection": "Nincs csoport",
@@ -263,25 +266,24 @@
     "alreadyEnrolled": "{{label}} már be van iratkozva ebbe az osztályterembe.",
     "bulk": {
       "alreadyRemoved": "Már eltávolítva.",
-      "clearSelection": "Kijelölés törlése",
-      "confirmInviteBodyPlain_one": "Küldesz szervezeti meghívást {{count}} kijelölt tanulónak? Az elfogadáskor csatlakoznak a szervezethez és annak osztálytermi csapatához.",
-      "confirmInviteBodyPlain_other": "Küldesz szervezeti meghívást {{count}} kijelölt tanulónak? Az elfogadáskor csatlakoznak a szervezethez és annak osztálytermi csapatához.",
-      "confirmInviteTitle_one": "Meghívsz {{count}} tanulót?",
-      "confirmInviteTitle_other": "Meghívsz {{count}} tanulót?",
+      "confirmInviteBodyPlain_one": "Elküldjük az új szervezeti meghívót a kiválasztott diáknak? A függőben lévő meghívót visszavonjuk és újraküldjük, a lejártat pedig lecseréljük. Csatlakoznak a szervezethez és a tantermi csapathoz, amint elfogadják.",
+      "confirmInviteBodyPlain_other": "Elküldjük az új szervezeti meghívókat a(z) {{count}} kiválasztott diáknak? A függőben lévő meghívókat visszavonjuk és újraküldjük, a lejártakat pedig lecseréljük. A diákok csatlakoznak a szervezethez és a tantermi csapathoz, amint elfogadják.",
+      "confirmInviteTitle_one": "Elküldünk {{count}} meghívót?",
+      "confirmInviteTitle_other": "Elküldünk {{count}} meghívót?",
       "confirmUnenrollBody_one": "Ez eltávolít {{count}} tanulót az osztályterem csapatából, és törli a névsorbeli sorát. Nem távolítja el őket a szervezetből.",
       "confirmUnenrollBody_other": "Ez eltávolít {{count}} tanulót az osztályterem csapatából, és törli a névsorbeli sorukat. Nem távolítja el őket a szervezetből.",
       "confirmUnenrollTitle_one": "Kiiratkoztatsz {{count}} tanulót?",
       "confirmUnenrollTitle_other": "Kiiratkoztatsz {{count}} tanulót?",
       "done": "Kész",
-      "invite": "Meghívás",
-      "inviteNoneInvitable": "Válassz ki legalább egy nem szervezeti tag vagy függőben lévő tanulót a meghíváshoz.",
-      "inviteSelected_one": "{{count}} tanuló meghívása a szervezetbe",
-      "inviteSelected_other": "{{count}} tanuló meghívása a szervezetbe",
-      "inviteTitle": "Tanulók meghívása a szervezetbe",
-      "invitedHeadline_one": "{{count}} tanuló meghívva.",
-      "invitedHeadline_other": "{{count}} tanuló meghívva.",
+      "invite": "Meghívók küldése",
+      "inviteNoneInvitable": "Válassz olyan diákokat, akiknek függőben lévő vagy lejárt meghívójuk van, vagy még nincsenek a szervezetben. Az e-mail-cím vagy GitHub-felhasználónév nélküli sorok nem hívhatók meg.",
+      "inviteSelected_one": "Meghívó küldése {{count}} diáknak",
+      "inviteSelected_other": "Meghívók küldése {{count}} diáknak",
+      "inviteTitle": "Meghívók küldése",
+      "invitedHeadline_one": "{{count}} meghívó elküldve.",
+      "invitedHeadline_other": "{{count}} meghívó elküldve.",
       "keepTabOpen": "Hagyd nyitva ezt a lapot, amíg a művelet befejeződik.",
-      "noInviteId": "Ehhez a meghíváshoz nincs rögzített azonosító. Távolítsd el a sort, majd add hozzá újra a hallgatót.",
+      "noInviteId": "Ennek a sornak nincs GitHub-azonosítója, így a meghívó nem küldhető újra. Távolítsd el a sort, majd add hozzá a diákot újra.",
       "progressProcessed": "{{processed}} / {{total}}",
       "resultFailed": "Sikertelen",
       "resultSkipped": "Kihagyva",
@@ -299,7 +301,7 @@
       "unenrolledHeadline_one": "{{count}} tanuló kiiratkoztatva.",
       "unenrolledHeadline_other": "{{count}} tanuló kiiratkoztatva.",
       "cancelAlreadyGone": "Már nincs (nem függőben)",
-      "cancelInvite": "Visszavonás",
+      "cancelInvite": "Meghívók visszavonása",
       "cancelNoneCancellable": "Válassz ki legalább egy függőben lévő meghívást a visszavonáshoz.",
       "cancelSelected_one": "{{count}} függőben lévő meghívás visszavonása",
       "cancelSelected_other": "{{count}} függőben lévő meghívás visszavonása",
@@ -310,9 +312,8 @@
       "confirmCancelBody_other": "Ez visszavon {{count}} függőben lévő szervezeti meghívást. Az érintettek nem csatlakoznak, hacsak újra meg nem hívod őket.",
       "confirmCancelTitle_one": "Visszavonsz {{count}} meghívást?",
       "confirmCancelTitle_other": "Visszavonsz {{count}} meghívást?",
-      "noneSelectable": "A tömeges műveletek (kiiratkoztatás, meghívás) csak hallgatókra vonatkoznak. A munkatársakat (tanárok, vezető TA-k és TA-k) a tantermi beállításokban kezeld.",
-      "malformedInviteId": "A roster.csv-ben lévő github_id érvénytelen. Javítsd azt a cellát.",
-      "actions": "Műveletek",
+      "noneSelectable": "A tömeges műveletek (meghívók küldése, kiiratkoztatás) csak diákokra vonatkoznak. Az oktatókat (tanárok, fő demonstrátorok és demonstrátorok) a tantermi Beállításokban kezelheted.",
+      "malformedInviteId": "A roster.csv fájlban lévő github_id nem érvényes, így a meghívó nem küldhető újra. Javítsd ki azt a cellát, majd próbáld újra.",
       "confirmRemoveRowsBody_one": "Eltávolítasz {{count}} névsorsort, amely nincs GitHub-fiókhoz kapcsolva? Ez csak a sort törli a roster.csv-ből. Nincs fiók vagy meghívás, amit érintene, és visszaállítható a tanterem tárolójának előzményeiből.",
       "confirmRemoveRowsBody_other": "Eltávolítasz {{count}} névsorsort, amely nincs GitHub-fiókhoz kapcsolva? Ez csak a sorokat törli a roster.csv-ből. Nincsenek fiókok vagy meghívások, amit érintene, és visszaállíthatók a tanterem tárolójának előzményeiből.",
       "confirmRemoveRowsTitle_one": "Eltávolítasz {{count}} nem kapcsolt sort?",
@@ -325,10 +326,14 @@
       "removeRowsTitle": "Nem kapcsolt névsorsorok eltávolítása",
       "removedRowsHeadline_one": "{{count}} nem kapcsolt sor eltávolítva.",
       "removedRowsHeadline_other": "{{count}} nem kapcsolt sor eltávolítva.",
-      "confirmUnenrollWarning": "Az újbóli beiratkozás azt jelenti, hogy minden diákot ismét fel kell venni a névsorba. A feladattárolóik nem törlődnek."
+      "confirmUnenrollWarning": "Az újbóli beiratkozás azt jelenti, hogy minden diákot ismét fel kell venni a névsorba. A feladattárolóik nem törlődnek.",
+      "alreadyInvitedOrMember": "Már meghívva vagy már tag. Semmi új nem lett elküldve.",
+      "cancelInviteConfirm_one": "Meghívó visszavonása",
+      "cancelInviteConfirm_other": "Meghívók visszavonása",
+      "nextBatch": "A következő köteg előkészítése…"
     },
     "classroomTeamLabel": "Osztályterem csapata",
-    "confirmResendBody": "Újraküldöd a függőben lévő szervezeti meghívást {{label}} számára? A jelenlegi meghívásuk visszavonásra kerül, és új meghívás kerül elküldésre a(z) {{org}} szervezethez.",
+    "confirmResendBody": "Újraküldjük a szervezeti meghívót {{label}} részére? A jelenlegi meghívót visszavonjuk, és új meghívót küldünk a(z) {{org}} szervezetbe.",
     "detailTitle": "Tag adatai",
     "emailColumn": "E-mail",
     "emptyBody": "Hívj meg hallgatókat a névsorból a beiratkoztatásukhoz, vagy adj hozzá tanárokat és TA-kat a Beállításokban. Az onboarding-link csak azt teszi lehetővé, hogy egy már meghívott hallgató elfogadja; magától nem ad hozzá senkit. Miután az emberek elfogadják a meghívást és bejelentkeznek, itt megjelennek.",
@@ -338,10 +343,10 @@
     "filterAllSections": "Minden tagozat",
     "filterBySectionLabel": "Tagok szűrése szekció szerint",
     "filterEnrolled": "Beiratkozott",
-    "filterPending": "Függőben",
+    "filterPending": "Meghívó függőben",
     "inviteLinksHint": "Ezek a hivatkozások nem hívnak meg senkit. Először hívd meg a tanulókat a névsorból, majd oszd meg a hivatkozást, hogy minden tanuló elfogadhassa a meghívást és bejelentkezhessen.",
     "inviteToOrg": "Meghívás a szervezetbe",
-    "invited": "Szervezeti meghívó elküldve a(z) {{label}} számára.",
+    "invited": "Szervezeti meghívót küldtünk {{label}} részére.",
     "nameColumn": "Név",
     "nativeInviteLabel": "GitHub-szervezeti meghívási hivatkozás",
     "noMatch": "Egyetlen tag sem felel meg a keresésnek.",
@@ -354,7 +359,7 @@
     "pendingOwnerOnly": "A függőben lévő meghívások csak a szervezet tulajdonosai számára láthatók, ezért itt nem jelennek meg. A beiratkozott tagok (lent) mindig láthatók.",
     "pendingReview": "Áttekintés",
     "remove": "Eltávolítás",
-    "resendAllRateLimitedShort": "{{resent}} meghívás újraküldve, majd elértük a GitHub sebességkorlátját. Próbáld újra a többit egy perc múlva.",
+    "resendAllRateLimitedShort": "{{resent}} meghívót küldtünk, majd elértük a GitHub sebességkorlátját. A többit nem küldtük el. Várj néhány percet, majd próbáld újra.",
     "rosterLoadError": "Nem sikerült betölteni a névsort a GitHubról. A beiratkozottak listája hiányos lehet. Ez betöltési hiba, nem üres tanterem.",
     "rosterRetry": "Újra",
     "searchLabel": "Tagok keresése név, felhasználónév vagy e-mail alapján",
@@ -364,7 +369,7 @@
     "sectionProfile": "Profil",
     "statusEnrolled": "Beiratkozott",
     "statusLabel": "Állapot",
-    "statusPending": "Függőben lévő meghívás",
+    "statusPending": "Meghívó függőben",
     "syncAdded_one": "{{count}} csapattag hozzáadva a névsorhoz.",
     "syncAdded_other": "{{count}} csapattag hozzáadva a névsorhoz.",
     "syncFailed": "Nem sikerült frissíteni a névsort: {{error}}",
@@ -377,7 +382,7 @@
     "assignRoleLabel": "Szerep",
     "assignRoleNoUsername": "{{label}} felhasználóhoz nincs GitHub-felhasználónév rögzítve. Szerep hozzárendelése előtt adj hozzá egyet.",
     "assignRoleNotMember": "{{label}} már nem tagja a szervezetnek. Inkább hívd meg őket.",
-    "cancelInvite": "Meghívás visszavonása",
+    "cancelInvite": "Meghívó visszavonása",
     "cancelInviteFailed": "Nem sikerült visszavonni a meghívást a következőnek: {{label}}: {{error}}",
     "cancelInviteMissingId": "Nem lehet visszavonni a meghívást a következőnek: {{label}}: nincs rögzített meghívásazonosító.",
     "changeRoleApply": "Szerep módosítása",
@@ -390,12 +395,7 @@
     "detectedFormat": "A fájl beolvasva mint",
     "emailInviteSkippedDetail": "Már tag vagy már meghívott, ezért nem küldtünk új meghívást.",
     "expectedHeaders": "Adj hozzá egy fejlécsort legalább az alábbi oszlopok egyikével: {{headers}}. A first_name, last_name, name, section és role oszlopokat is beveheted. Vagy tölts fel egy szövegfájlt soronként egy GitHub-felhasználónévvel vagy e-mail-címmel.",
-    "failedInviteDismissError": "Nem sikerült elvetni a sikertelen meghívást: {{error}}",
-    "failedInviteNoTarget": "Ehhez a meghíváshoz nincs GitHub-felhasználónév vagy e-mail, ezért nem hívható meg újra. Vesd el, és add hozzá újra a személyt.",
-    "failedInviteReinviteError": "Nem sikerült újra meghívni: {{error}}",
-    "failedInvitesTitle_one": "{{count}} meghívás sikertelen volt vagy lejárt.",
-    "failedInvitesTitle_other": "{{count}} meghívás sikertelen volt vagy lejárt.",
-    "filterNeedsAttentionInOrg": "Szerep szükséges",
+    "filterNeedsAttentionInOrg": "Nincs beiratkozva",
     "filterNeedsAttentionNotInOrg": "Nincs a szervezetben",
     "importAndInviteMembers_one": "{{count}} tag importálása és meghívása",
     "importAndInviteMembers_other": "{{count}} tag importálása és meghívása",
@@ -403,12 +403,12 @@
     "importMembers_other": "{{count}} tag importálása",
     "inviteDeferredDetail": "A GitHub sebességkorlátozta a meghívásokat. Futtasd újra az importálást hamarosan a többiek meghívásához.",
     "invitePassFailed": "A névsor mentve, de a meghívások kiküldése sikertelen: {{message}}. Futtasd újra az importálást a meghívások újrapróbálásához.",
-    "inviteRosterDeferred": "A GitHub sebességkorlátozta a(z) {{label}} részére szóló meghívást. Próbáld újra hamarosan.",
+    "inviteRosterDeferred": "A GitHub korlátozta a(z) {{label}} részére küldött meghívót. Várj néhány percet, majd próbáld újra.",
     "inviteRosterFailed": "Nem sikerült meghívni {{label}} felhasználót: {{error}}",
     "inviteRosterNoUsername": "{{label}} felhasználóhoz nincs GitHub-felhasználónév rögzítve. Meghívás előtt adj hozzá egyet.",
-    "inviteRosterNoneSent": "Nem küldtünk meghívást a következőnek: {{label}}. Próbáld újra.",
+    "inviteRosterNoneSent": "Nem küldtünk meghívót {{label}} részére. A GitHub szerint már meghívott vagy már tag. Frissítsd a névsort a jelenlegi állapot megtekintéséhez.",
     "invitingUploaded": "Szervezeti meghívások küldése…",
-    "keepInvite": "Meghívás megtartása",
+    "keepInvite": "Meghívó megtartása",
     "malformedCsv": "Ezt a fájlt nem sikerült CSV-ként értelmezni.",
     "manageOwnerOnly": "A meghívások és a tagság kezelése csak a szervezet tulajdonosai számára érhető el.",
     "membersEnrolledCount_one": "{{count}} tag beiratkozva",
@@ -443,7 +443,7 @@
     "rosterParseErrorLine": "{{line}}. sor: {{message}}",
     "rosterRecheck": "roster.csv újraellenőrzése",
     "rosterRechecking": "Újbóli ellenőrzés…",
-    "statusNeedsAttentionInOrg": "Szerep hozzárendelése",
+    "statusNeedsAttentionInOrg": "Nincs beiratkozva",
     "statusNeedsAttentionNotInOrg": "Nincs a szervezetben",
     "taCount_one": "{{count}} demonstrátor",
     "taCount_other": "{{count}} demonstrátor",
@@ -457,8 +457,6 @@
     "uploadTitle": "Névsor feltöltése",
     "addRoleLabel": "Szerepkör",
     "addStaffHint": "A tanárokat, vezető TA-kat és TA-kat GitHub-felhasználónévvel adhatod hozzá. A tanárok és vezető TA-k írási hozzáférést kapnak a classroom50 repóhoz; a TA-k csak olvasásit. A tanár szervezeti tulajdonosi jogot kap.",
-    "failedInviteNotSent": "Nem küldtünk meghívást a következőnek: {{who}}. Próbáld újra.",
-    "failedInviteRateLimited": "A GitHub sebességkorlátozta a(z) {{who}} részére szóló újbóli meghívást. Próbáld újra.",
     "roleTeacher": "Tanár",
     "teacherCount_one": "{{count}} tanár",
     "teacherCount_other": "{{count}} tanár",
@@ -469,7 +467,7 @@
       "colRole": "Szerep",
       "colSection": "Csoport",
       "empty": "Még senki sincs felsorolva a roster.csv fájlban.",
-      "notice": "CSV névsor a roster.csv fájlból (tanár által karbantartott). A hiteles, csapatvezérelt névsor és a meghívókezelés a tanárok számára érhető el.",
+      "notice": "CSV-névsor a roster.csv fájlból (tanár által karbantartott). A hiteles, csapatvezérelt névsor és a meghívások kezelése a tanárok számára érhető el.",
       "invitePending": "E-mailben meghívva, még nem csatlakozott"
     },
     "githubIdentity": "GitHub: <username>@{{username}}</username> (id {{id}})",
@@ -490,7 +488,7 @@
     "preflightMetadataReviewHint_one": "{{count}} diák adatai frissülnek. Ellenőrizd a lentebb kiemelt cellákat (vidd az egeret rájuk a részletekért), mielőtt megerősítenéd.",
     "preflightMetadataReviewHint_other": "{{count}} diák adatai frissülnek. Ellenőrizd a lentebb kiemelt cellákat (vidd az egeret rájuk a részletekért), mielőtt megerősítenéd.",
     "preflightRoleChangeMetadataNotice": "E tagok közül néhánynak frissített adatai is vannak (fentebb látható), amelyek a csapatváltozással együtt kerülnek mentésre.",
-    "resendMalformedId": "Nem lehet újraküldeni a(z) {{username}} részére szóló meghívást: a(z) „{{githubId}}” nem érvényes GitHub-azonosító. Javítsd a github_id cellát a roster.csv-ben.",
+    "resendMalformedId": "Nem lehet újraküldeni a meghívót {{username}} részére: a(z) „{{githubId}}” nem érvényes GitHub-azonosító. Javítsd a github_id cellát a roster.csv fájlban, majd próbáld újra.",
     "rolePreviousHint": "korábban: {{role}}",
     "summaryHideDetails": "Részletek elrejtése",
     "summaryNoChanges": "Ez a fájl megegyezik a névsoroddal, ezért nincs mit hozzáadni vagy frissíteni.",
@@ -526,7 +524,7 @@
     "importSkipped_other": "{{count}} sor kimaradt: nincs GitHub-felhasználónevük, github_id-juk vagy e-mail-címük, így egyelőre nincs mód elérni azokat a tanulókat. Az alábbi mindenki mást importálunk.",
     "importedAndInvitedCount": "{{added}} tanuló hozzáadva és {{invited}} e-mailes meghívás elküldve.",
     "inviteEmailLocked": "Ez a cím azonosítja a függőben lévő meghívást, ezért itt nem módosítható. Egy másik használatához vond vissza ezt a meghívást, és hívd meg az új címet.",
-    "inviteMetadataFailed": "Nem sikerült előkészíteni a meghívót a(z) {{email}} számára ({{message}}), így nem lett meghívó elküldve. Próbáld újra; ha továbbra is meghiúsul, töröld az üzenetben megnevezett maradék csapatot, majd próbáld újra.",
+    "inviteMetadataFailed": "Nem sikerült előkészíteni a meghívót {{email}} számára ({{message}}), ezért semmit sem küldtünk. Próbáld újra; ha továbbra is sikertelen, töröld az üzenetben megnevezett maradék csapatot, majd próbáld újra.",
     "invitingEmails": "E-mail-meghívások küldése…",
     "missingIdentityHeader": "Ennek a fájlnak nincs olyan oszlopa, amely tanulót azonosítana.",
     "noRosterRowNoEdit": "A profiladatok akkor szerkeszthetők, ha ennek a személynek van roster-bejegyzése.",
@@ -620,8 +618,8 @@
     "emailLinkBinding": "{{email}} → @{{login}} ({{classroom}})",
     "emailLinksConfirm": "Ezeknek a címeknek az összekapcsolása az egyező GitHub-fiókokkal",
     "emailLinksDegraded": "Egyes tantermeket nem sikerült beolvasni, így több cím lehet összekapcsolható, mint amennyi megjelenik.",
-    "emailLinksNotice_one": "{{count}} cím egy korábbi tanterem névsorán szereplő hallgatóval egyezik, és meghívás helyett közvetlenül lesz beiratkoztatva.",
-    "emailLinksNotice_other": "{{count}} cím korábbi tantermek névsorán szereplő hallgatókkal egyezik, és meghívás helyett közvetlenül lesznek beiratkoztatva.",
+    "emailLinksNotice_one": "{{count}} cím olyan tanulóhoz tartozik, akinek egy korábbi tanteremből már van GitHub-fiókja. Ehhez a fiókhoz lesz összekapcsolva, és meghívás helyett közvetlenül beiratkozik.",
+    "emailLinksNotice_other": "{{count}} cím olyan tanulókhoz tartozik, akiknek korábbi tantermekből már van GitHub-fiókjuk. Ezekhez a fiókokhoz lesznek összekapcsolva, és meghívás helyett közvetlenül beiratkoznak.",
     "filterUnlinked": "Nem kapcsolt",
     "linkFailed": "Nem sikerült összekapcsolni: {{label}}: {{error}}",
     "linkIncludeOrgMembers": "Egyetlen tanteremhez sem tartozó szervezeti tagok is",
@@ -648,7 +646,38 @@
     "unlinkedKeptNotice_one": "{{count}} sor GitHub-fiók nélkül megmaradt a névsoron (csak névből álló sor, vagy egy cím, amelyet nem lehetett meghívni). Kapcsold össze egy szervezeti taggal a névsor Nem kapcsolt szűrőjéből.",
     "unlinkedKeptNotice_other": "{{count}} sor GitHub-fiók nélkül megmaradt a névsoron (csak névből álló sorok, vagy címek, amelyeket nem lehetett meghívni). Kapcsold össze őket szervezeti tagokkal a névsor Nem kapcsolt szűrőjéből.",
     "unlinkedRosterNotice_one": "{{count}} sornak van neve, de nincs GitHub-felhasználóneve, github_id-ja vagy e-mailje. Nem kapcsolt sorként megmarad a névsoron, amelyet később összekapcsolhatsz egy szervezeti taggal.",
-    "unlinkedRosterNotice_other": "{{count}} sornak van neve, de nincs GitHub-felhasználóneve, github_id-ja vagy e-mailje. Nem kapcsolt sorokként megmaradnak a névsoron, amelyeket később összekapcsolhatsz szervezeti tagokkal."
+    "unlinkedRosterNotice_other": "{{count}} sornak van neve, de nincs GitHub-felhasználóneve, github_id-ja vagy e-mailje. Nem kapcsolt sorokként megmaradnak a névsoron, amelyeket később összekapcsolhatsz szervezeti tagokkal.",
+    "completedRow": "{{label}} társítva a(z) {{row}} meglévő névsorsorához.",
+    "emailInviteAlreadyPendingDetail": "Már van függőben lévő meghívása, ezért nem küldtünk újat. Az újraküldéshez használd a névsorsorán az Újraküldés lehetőséget.",
+    "emailLinksDeclinedNotice_one": "{{count}} cím olyan tanulóhoz tartozik, akinek már van GitHub-fiókja, de nem lesz összekapcsolva. Helyette e-mailes meghívót kap, és a sora összekapcsolatlan marad, amíg a névsorból össze nem kapcsolod.",
+    "emailLinksDeclinedNotice_other": "{{count}} cím olyan tanulókhoz tartozik, akiknek már van GitHub-fiókjuk, de nem lesznek összekapcsolva. Helyette e-mailes meghívót kapnak, és a soraik összekapcsolatlanok maradnak, amíg a névsorból össze nem kapcsolod őket.",
+    "emailLinksUnlinkBody_one": "Ez a személy már a szervezet tagja, ismert GitHub-fiókkal. A GitHub kihagyja az e-mailes meghívót egy meglévő tagnak, ezért a sora összekapcsolatlan marad, amíg a névsorból kézzel össze nem kapcsolod.",
+    "emailLinksUnlinkBody_other": "Ezek a személyek már a szervezet tagjai, ismert GitHub-fiókokkal. A GitHub kihagyja az e-mailes meghívót egy meglévő tagnak, ezért a soraik összekapcsolatlanok maradnak, amíg a névsorból kézzel össze nem kapcsolod őket.",
+    "emailLinksUnlinkConfirm": "Ne kapcsolja össze",
+    "emailLinksUnlinkTitle": "Összekapcsolás helyett e-mailes meghívót küldesz?",
+    "filterInviteExpired": "Meghívó lejárt",
+    "identityConflict": "Egy névsorsor már használja a(z) {{label}} felhasználónevet egy másik GitHub-fiókhoz, vagy egy másik sor már viseli ezt a felhasználónevet. Szerkeszd vagy távolítsd el az ütköző sort a névsorból, majd add hozzá újra a következőt: {{label}}.",
+    "inviteDailyLimit": "A szervezet napi meghívási kerete elfogyott a GitHubon. Az egy hónapnál fiatalabb vagy ingyenes csomagon lévő szervezetek naponta 50 meghívót küldhetnek, a többiek 500-at. Próbáld újra holnap.",
+    "linkAccountAction": "Fiók összekapcsolása",
+    "needsAttentionExpiredHelp": "A(z) {{label}} részére küldött meghívó lejárt, mielőtt elfogadta volna. A GitHub-meghívók 7 napig érvényesek. Hívd meg újra a beiratkozáshoz.",
+    "needsAttentionFailedHelp": "A GitHub nem tudta kézbesíteni a meghívót {{label}} részére ({{reason}}). Hívd meg újra a beiratkozáshoz.",
+    "previewAlreadyPending": "Meghívó már függőben",
+    "previewResendExpired": "Meghívó újraküldése (lejárt)",
+    "previewResendFailed": "Meghívó újraküldése (nem kézbesítve)",
+    "reinviteRowAlreadyInvited": "Semmit sem küldtünk. A GitHubnak már van érvényes meghívója vagy tagja a(z) {{email}} címhez, esetleg egy másik tanteremből ebben a szervezetben. Nézd meg a szervezet People oldalát a GitHubon, vagy kapcsold össze ezt a sort azzal a taggal, miután elfogadta.",
+    "reinviteRowFailed": "Nem sikerült újra meghívni a következőt: {{email}}: {{error}}",
+    "reinviteRowRateLimited": "A GitHub korlátozta a(z) {{email}} részére küldött meghívót. Várj néhány percet, majd próbáld újra.",
+    "resendNotSent": "Nem küldtünk új meghívót {{label}} részére. A GitHub szerint a cím már meghívott vagy már tag. Frissítsd a névsort a jelenlegi állapot megtekintéséhez.",
+    "resendRateLimited": "A GitHub korlátozta a(z) {{label}} részére küldött újraküldést. Várj néhány percet, majd próbáld újra.",
+    "statusInviteExpired": "Meghívó lejárt",
+    "statusInviteFailed": "Meghívó sikertelen",
+    "unlinkedEmailIntro": "Ez a sor nincs összekapcsolva GitHub-fiókkal, és a(z) {{email}} címnek nincs függőben lévő meghívója. A meghívó lejárhatott vagy visszavonhatták. Hívd meg őket újra, kapcsold össze a sort egy szervezeti taggal, vagy távolítsd el a sort.",
+    "unlinkedExpiredIntro": "A(z) {{email}} részére küldött meghívó lejárt, mielőtt elfogadták volna. A GitHub-meghívók 7 napig érvényesek. Hívd meg őket újra, kapcsold össze a sort egy szervezeti taggal, vagy távolítsd el a sort.",
+    "unlinkedFailedIntro": "A GitHub nem tudta kézbesíteni a meghívót a(z) {{email}} címre ({{reason}}). Ellenőrizd a címet, majd hívd meg őket újra, kapcsold össze a sort egy szervezeti taggal, vagy távolítsd el a sort.",
+    "uploadBlockedChecking": "Jelenlegi tagság ellenőrzése…",
+    "uploadBlockedDetails": "A folytatáshoz erősítsd meg a fenti adatfrissítéseket.",
+    "uploadBlockedRoles": "A folytatáshoz erősítsd meg a fenti szerepváltozásokat.",
+    "uploadBlockedUsernames": "A folytatáshoz erősítsd meg a fenti felhasználónév-változásokat."
   },
   "language": {
     "baseName": "Angol (alap)",
@@ -702,7 +731,9 @@
     "groupSizeRange": "A csoportméretnek egész számnak kell lennie {{min}} és {{max}} között.",
     "classroomSlugInvalid": "A kurzus azonosítójának a következőnek kell lennie: {{description}}.",
     "classroomSlugTooLong": "Az osztályterem slugja {{length}} karakter; az új osztálytermeknél a felső határ {{max}}. Minden tanulói tároló nevének elejére kerül, amelyet a GitHub {{limit}} karakterre korlátoz.",
-    "customDomainInvalid": "Adj meg egy domaint, például pages.example.edu, vagy egy teljes https:// URL-t (lekérdezés, töredék vagy záró perjel nélkül)."
+    "customDomainInvalid": "Adj meg egy domaint, például pages.example.edu, vagy egy teljes https:// URL-t (lekérdezés, töredék vagy záró perjel nélkül).",
+    "classroomSlugReservedEnding": "A tantermi azonosító nem végződhet -{{suffix}} végződéssel. A Classroom 50 ezt a végződést a személyzeti csapatok neveinek tartja fenn (classroom50-<slug>-{{suffix}}). Válassz olyan azonosítót, amely nem -teacher, -hta vagy -ta végződésű.",
+    "classroomSlugSiblingExists": "A tantermi azonosító megosztana egy személyzeti csapatnevet a meglévő {{other}} tanteremmel. Válassz másik azonosítót."
   },
   "toasts": {
     "classroomSettingsSaved": "Az osztályterem beállításai mentve. Most közzé teszi a tanulói oldalra; a fenti sáv követi a folyamatot.",
@@ -806,7 +837,7 @@
       "roleMemberHint": "Tagként vagy meghívva. Fogadd el a csatlakozáshoz, és láthatod a szervezet osztálytermeit és feladatait.",
       "summary_one": "{{count}} függőben lévő meghívásod van",
       "summary_other": "{{count}} függőben lévő meghívásod van",
-      "viewOnGitHub": "Meghívás megtekintése a GitHubon"
+      "viewOnGitHub": "Meghívó megtekintése a GitHubon"
     },
     "detailsModal": {
       "cancel": "Mégse",
@@ -814,7 +845,7 @@
       "description": "Leírás",
       "descriptionPlaceholder": "Rövid leírás erről a szervezetről",
       "displayName": "Megjelenített név",
-      "displayNamePlaceholder": "Classroom 50 Summer Dev",
+      "displayNamePlaceholder": "CS1 2026 ősz",
       "edit": "Profil szerkesztése",
       "editOnGitHub": "Szerkesztés a GitHubon",
       "email": "Kapcsolattartó e-mail",
@@ -917,7 +948,10 @@
         "slugNoRoom": "A(z) „{{classroom}}” tanterem nem hagy helyet semmilyen feladatazonosítónak: a rövid neve plusz egy felhasználónév meghaladhatja a GitHub {{limit}} karakteres tárnév-korlátját. Hozz létre egy rövidebb azonosítójú (legfeljebb {{max}} karakteres) tantermet, és ott vedd fel a feladatot.",
         "slugOverBudget": "A diáktárak neve „{{classroom}}-<slug>-<username>” formátumú, amelyet a GitHub {{limit}} karakterre korlátoz. Ez az azonosító legfeljebb {{budget}} karakter lehet (jelenleg {{length}}).",
         "slugReserved": "A(z) „{{slug}}” egy átnevezett feladat korábbi azonosítója, és foglalt. Az újrafelhasználása megtörné az átirányításokat, amelyekre a diákok átnevezett tárai támaszkodnak. Válassz másik azonosítót.",
-        "teamFormationInvalid": "Válaszd ki, ki alakítja a csoportokat."
+        "teamFormationInvalid": "Válaszd ki, ki alakítja a csoportokat.",
+        "pagesBranchInvalid": "Adj meg egy ágnevet szóközök nélkül, legfeljebb 255 karakterrel, vagy hagyd üresen az alapértelmezett ághoz.",
+        "pagesPathInvalid": "A Pages mappának / vagy /docs értékűnek kell lennie.",
+        "pagesSourceInvalid": "A GitHub Pages értéke „Ki”, „GitHub Actions” vagy „Egy ág” lehet."
       },
       "allowedFilesTip": "Rendezett {{gitignore}} stílusú minták soronként egy, amelyek meghatározzák, hogy mely fájlok tartoznak egy beadáshoz (az utolsó egyezés nyer, a(z) {{bang}} újra felveszi). Például a(z) {{star}}, majd a(z) {{example}} csak a(z) {{result}} fájlt engedélyezi. Üresen minden fájl engedélyezett.",
       "containerUserTip": "A felhasználó, amelynek nevében a konténer fut. Állítsd root-ra, ha a checkout jogosultsági hibával hiúsul meg. A GitHub Actions a konténer lépéseit a gazdafuttató felhasználójaként futtatja, így egy nem root image gyakran nem tud írni a munkaterületre.",
@@ -928,7 +962,7 @@
         "aptCount_other": "{{count}} csomag",
         "aptLabel": "További apt csomagok",
         "aptPlaceholder": "cmake, valgrind",
-        "aptTip": "Az értékelés előtt telepített további Ubuntu csomagok (apt-get), vesszővel vagy szóközzel elválasztva. Kisbetűs Debian csomagnevek.",
+        "aptTip": "Extra Ubuntu-csomagok, amelyeket az értékelés előtt telepít (apt-get), vesszővel vagy szóközzel elválasztva. Kisbetűs Debian-csomagnevek. A --no-install-recommends kapcsolóval települ, hacsak nem kapcsolod be lent az ajánlott csomagokat.",
         "envContainer": "Docker konténer",
         "envContainerHelp": "Az értékelés egy nyilvános Docker image-en belül fut (ez birtokolja az operációs rendszer csomagjait).",
         "envHosted": "GitHub által üzemeltetett futtató",
@@ -940,7 +974,9 @@
         "versionMenu": "Válassz {{language}} verziót",
         "versionPlaceholder": "{{version}}",
         "versionTip": "A telepítendő {{language}} verzió (a setup-{{language}} action révén). Hagyd üresen a kihagyáshoz. Bármely verziót beírhatsz, amelyet a setup action elfogad.",
-        "selfHostedDisabled": "Saját üzemeltetésű runneren figyelmen kívül marad, amely a saját előre telepített eszközkészleteit és csomagjait használja. Ezeket a runner-képben biztosítsd helyette."
+        "selfHostedDisabled": "Saját üzemeltetésű runneren figyelmen kívül marad, amely a saját előre telepített eszközkészleteit és csomagjait használja. Ezeket a runner-képben biztosítsd helyette.",
+        "aptRecommends": "Ajánlott csomagok telepítése is",
+        "aptRecommendsTip": "Az apt-get futtatása a --no-install-recommends nélkül, ahogy egy sima apt-get install működik a saját gépeden. Kapcsold be, ha egy csomag csak az ajánlott extráival működik (például pandoc a texlive-vel). A kikapcsolt kisebb és gyorsabb."
       },
       "setupCommandTip": "Egyszer fut le a többi teszt előtt, például fordításhoz vagy függőségek telepítéséhez. A nem nulla kilépési kód vagy időtúllépés az automatikus értékelés státuszát hibásra állítja anélkül, hogy a számszerű pontszámot megváltoztatná; a későbbi tesztek ettől még lefutnak.",
       "detailsSection": "Részletek",
@@ -996,7 +1032,7 @@
       "studentPermission": {
         "default": "Alapértelmezett: {{level}}",
         "groupHelp": "A csoporttagok legalább adminként lépnek be, hogy a csoport tulajdonosa hozzáadhassa a csapattársakat. Ez a mostantól létrehozott repókra vonatkozik; a meglévők módosításához használd a beadások oldalt.",
-        "help": "Az a szerepkör, amelyet minden tanuló a saját feladatrepóján kap az elfogadáskor. Az alapértelmezett a Push (írás). Válaszd az Admint, hogy a tanulók kezelhessék a repóbeállításokat és engedélyezhessék a GitHub Pages-t. Ez a mostantól elfogadó tanulókra vonatkozik; a már létrehozott repók módosításához használd a beadások oldalt.",
+        "help": "A szerepkör, amelyet minden hallgató megkap a saját feladat-repositoryján az elfogadáskor. Az alapértelmezett a Push (írás). Válaszd az Admint, hogy a hallgatók maguk kezelhessék a repository beállításait. Ez a mostantól elfogadó hallgatókra vonatkozik; a már létrehozott repositorykat a beadványok oldaláról módosítsd.",
         "label": "Diáktár-hozzáférés",
         "learnMore": "További információ",
         "levels": {
@@ -1115,7 +1151,28 @@
       "typeTeamRecommended": "Ajánlott",
       "releaseLockedReminder": "Zárolva. A megjelenési dátum nem oldja fel a feladatot: kapcsold ki a feladat zárolását a megjelenési dátumon, hogy a diákok elfogadhassák.",
       "releaseTemplateReadableBody": "A megjelenési dátum csak a listázást szabályozza. A mentés azonnal olvasási hozzáférést ad a tantermi csapatnak ehhez a privát sablonhoz. Ha rejtve szeretnéd tartani a sablont, zárold most a feladatot, és a megjelenési dátumon oldd fel.",
-      "releaseTemplateReadableTitle": "A diákok a megjelenési dátum előtt is olvashatják ezt a sablont"
+      "releaseTemplateReadableTitle": "A diákok a megjelenési dátum előtt is olvashatják ezt a sablont",
+      "pages": {
+        "branch": {
+          "help": "Az az ág, amelyet a GitHub közzétesz. Hagyd üresen a repository alapértelmezett ágának használatához. A megnevezett ágnak léteznie kell minden hallgatói repositoryban az elfogadáskor (például a sablonból másolva a „Minden ág belefoglalása” beállítással).",
+          "label": "Ág",
+          "placeholder": "Alapértelmezett ág"
+        },
+        "choices": {
+          "branch": "Egy ág",
+          "off": "Ki",
+          "workflow": "GitHub Actions"
+        },
+        "editHelp": "Ez a mostantól létrehozott repositorykra vonatkozik; a meglévőkön a beadványok oldaláról engedélyezd a Pages-t.",
+        "emptyRepoHint": "Üres repositoryhoz nem érhető el: még nincs közzétehető ág.",
+        "help": "Tedd közzé minden hallgatói repositoryt weboldalként a GitHub Pages segítségével, amely automatikusan beállítódik, amikor a hallgató elfogadja, így soha nincs szükségük admin-hozzáférésre. Az alapértelmezett a Ki. A „GitHub Actions” egy munkafolyamaton keresztül telepít a hallgatói repositoryban (build lépéssel rendelkező oldalakhoz). Az „Egy ág” közvetlenül közzéteszi egy ág fájljait, munkafolyamat nélkül (egyszerű HTML, CSS és JavaScript esetén). Az oldal nyilvános az interneten még akkor is, ha a repository privát, és a közzétett ág és mappa minden fájlja kiszolgálásra kerül; csak a GitHub Enterprise Cloud tudja korlátozni, ki láthatja. A Pages privát repositorykon olyan GitHub-előfizetést igényel, amely tartalmazza; szervezetek GitHub Free csomagján tedd nyilvánossá a repositoryt, különben az oldal nem jön létre.",
+        "label": "GitHub Pages",
+        "path": {
+          "help": "Az adott ágban közzéteendő mappa: a repository gyökere (/) vagy /docs. A GitHub csak ezt a kettőt engedi.",
+          "label": "Mappa"
+        },
+        "workflowNote": "A GitHub Actionsön keresztüli telepítéshez minden hallgatói repositoryban szükséges egy munkafolyamat, amely a Pages-be tesz közzé: meg kell adnia a pages: write és id-token: write jogosultságokat, és használnia kell az actions/upload-pages-artifact és actions/deploy-pages eszközöket. Tedd a sablonodba, vagy a hallgatók adják hozzá. Az oldal a hallgató elfogadásakor jön létre, így a munkafolyamat első futása telepíti."
+      }
     },
     "autograder": {
       "heading": "Automatikus értékelési tesztek",
@@ -1170,7 +1227,9 @@
         "heading": "Jelentés alapértelmezései",
         "hint": "Minden teszt alapértelmezései; egy teszt saját jelentésbeállításai felülírják ezeket.",
         "showOutput": "Sikeres teszt kimenetének megjelenítése",
-        "showOutputHelp": "Minden sikeres teszt rögzített telepítési/futtatási kimenetét hozzáadja a beadási jelentéshez és a munkafolyamat-naplóhoz, alapértelmezés szerint összecsukva. Hasznos egy automatikus értékelő létrehozásakor vagy hibakeresésekor."
+        "showOutputHelp": "Minden sikeres teszt rögzített telepítési/futtatási kimenetét hozzáadja a beadási jelentéshez és a munkafolyamat-naplóhoz, alapértelmezés szerint összecsukva. Hasznos egy automatikus értékelő létrehozásakor vagy hibakeresésekor.",
+        "showCommand": "Parancssorok megjelenítése",
+        "showCommandHelp": "Kiírja minden teszt beállítási és futtatási parancsát a jelentésbejegyzés tetejére, így a hallgatók látják, mi futott le. A hallgatók el tudják olvasni a jelentést, ezért hagyd ezt kikapcsolva, ha egy parancs elárulja, hogyan ellenőrzi a teszt a munkát."
       },
       "failureDetails": "A tanulóknak megjelenített hibarészletek",
       "failureDetailsActualOnly": "Csak a tanuló kimenete (soha az elvárt kimenet)",
@@ -1178,7 +1237,7 @@
       "failureDetailsHint": "Mennyit lát a tanuló egy sikertelen futásból a beadási jelentésben és a munkafolyamat-naplóban.",
       "failureDetailsNone": "Csak a hiba típusa (nincs kimenet)",
       "reportOptions": "Jelentésbeállítások",
-      "reportOptionsHint": "Mit mutat a beadási jelentés ehhez a teszthez. Mindkét beállítás a feladat jelentés-alapértelmezéseiről indul; válassz egy másik értéket, hogy csak ehhez a teszthez írd felül.",
+      "reportOptionsHint": "Mit mutat a beadványi jelentés ehhez a teszthez. Minden beállítás a feladat jelentés-alapértékéről indul; válassz másik értéket, hogy csak ehhez a teszthez felülírd.",
       "showOutput": "Kimenet sikeres esetén",
       "showOutputHint": "A rögzített telepítési/futtatási kimenetet a jelentésbe foglalja akkor is, ha a teszt sikeres, egy összecsukott szakaszban.",
       "showOutputOff": "Kimenet elvetése",
@@ -1197,7 +1256,11 @@
         "title": "Csak tanárnak szóló tesztfájlok feltöltése",
         "unsaved": "Először hozd létre a feladatot. A tesztfájlok egy, a feladatról elnevezett mappába kerülnek, így ez az útmutató a feladat létrejötte után nyílik meg.",
         "usage": "A tesztparancsok a mappát a(z) <code>$CLASSROOM50_BUNDLE_DIR</code> helyen találják meg. Például egy futtatási parancs teszt, amely egy feltöltött <code>check.sh</code> fájlt hív:"
-      }
+      },
+      "showCommand": "Parancssorok",
+      "showCommandHint": "Kiírja a beállítási és futtatási parancsokat ennek a tesztnek a jelentésbejegyzése tetejére. Hagyd ezt kikapcsolva, ha a parancs elárulja, hogyan ellenőrzi a teszt a munkát.",
+      "showCommandOff": "Parancsok elrejtése",
+      "showCommandOn": "Parancsok megjelenítése"
     },
     "table": {
       "caption": "Feladatok",
@@ -1406,7 +1469,8 @@
         "typeAria": "Szűrés típus szerint",
         "typeGroup": "Csoport (régi)",
         "typeIndividual": "Egyéni",
-        "typeTeam": "Csoport"
+        "typeTeam": "Csoport",
+        "statusSubmitted": "Beadva"
       },
       "viewSubmission": "Beadásom megtekintése",
       "linkOnlyBody": "Ebben az osztályban a feladatok a tanárod által megosztott meghívólinkről nyílnak meg. Nyisd meg azt a linket egy feladat elfogadásához; ezután itt is megjelenik azok mellett, amelyeket a tanárod mindenki számára közzétett.",
@@ -1417,7 +1481,9 @@
       "tableCaption": "Közzétett feladatok és az egyes feladatoknál az állapotod",
       "viewGroup": "Csoport megtekintése",
       "viewGroupTitle": "A csoportod",
-      "viewSubmissionTeam": "Csoportbeadás megtekintése"
+      "viewSubmissionTeam": "Csoportbeadás megtekintése",
+      "submissionUnknown": "Nem sikerült ellenőrizni a beadványokat. Frissíts az újrapróbálkozáshoz.",
+      "submitted": "Beadva"
     },
     "archivedNotice": "Ez a tanterem archiválva van, ezért az új feladatok és a diákelfogadások le vannak tiltva. A módosításokhoz állítsd vissza az archiválást a <settingsLink>Tanterem beállításai</settingsLink> menüben.",
     "studentViewAll": "A(z) <classroom>{{classroom}}</classroom> osztály összes feladatának megtekintése.",
@@ -1502,7 +1568,57 @@
     "includeStaff": "Oktatói személyzet beszámítása",
     "includeStaffHelp": "A tanárokat, fő oktatóasszisztenseket és oktatóasszisztenseket a diákok mellett számítja be az Elfogadott és Beadott oszlopokba. Hasznos, amikor az oktatói személyzet a diákok előtt kipróbál egy feladatot.",
     "staffCount_one": "{{count}} oktatói személyzet",
-    "staffCount_other": "{{count}} oktatói személyzet"
+    "staffCount_other": "{{count}} oktatói személyzet",
+    "bulk": {
+      "delete": "Törlés",
+      "deleteBody": "Ez eltávolítja a kiválasztott feladatokat a tanterem assignments.json fájljából egyetlen commitban. A hallgatói repositorykat és beadványaikat nem törli. Ezek a szervezetben maradnak, és néven továbbra is elérhetők.",
+      "deleteConfirmWord": "törlés",
+      "deleteDone_one": "{{count}} feladat törölve.",
+      "deleteDone_other": "{{count}} feladat törölve.",
+      "deleteNoChange": "Minden kiválasztott feladat már eltűnt; semmi sem lett commitolva.",
+      "deleteTitle_one": "Töröljünk {{count}} feladatot?",
+      "deleteTitle_other": "Töröljünk {{count}} feladatot?",
+      "deleteWarning": "A hallgatók elveszítik a hozzáférést a feladatoldalakhoz, és minden feladat határideje, sablonja és értékelési beállításai törlődnek.",
+      "lock": "Zárolás",
+      "lockAllLocked": "Minden kiválasztott feladat már zárolva van.",
+      "lockBody": "A hallgatók elveszítik a hozzáférést a kiválasztott feladatokhoz az elfogadási oldalon, a feladatlistában, a beadványnézetben és a parancssorban. A meglévő hallgatói repositorykat nem törli. Ez egyetlen commit a tanterem assignments.json fájljába, tehát vagy mindegyikre alkalmazódik, vagy egyikre sem.",
+      "lockDone_one": "{{count}} feladat zárolva.",
+      "lockDone_other": "{{count}} feladat zárolva.",
+      "lockNoChange": "Minden kiválasztott feladat már ebben az állapotban volt; semmi sem lett commitolva.",
+      "lockTitle_one": "Zároljunk {{count}} feladatot?",
+      "lockTitle_other": "Zároljunk {{count}} feladatot?",
+      "missingSkipped_one": "{{count}} kiválasztott feladat már eltűnt, és kihagytuk.",
+      "missingSkipped_other": "{{count}} kiválasztott feladat már eltűnt, és kihagytuk.",
+      "reuse": "Újrahasznosítás",
+      "reuseBody": "Másold a kiválasztott feladatokat egy másik tanterembe ebben a szervezetben. Válaszd ki a célt, majd ellenőrizd, milyen slugot kap minden másolat. Ahol egy slug már használatban van ott, számozott utótag kerül be, és bármelyiket felülírhatod a másolás előtt.",
+      "reuseDone_one": "{{count}} feladat lemásolva.",
+      "reuseDone_other": "{{count}} feladat lemásolva.",
+      "reuseFailedTitle": "Kimaradt a másolásból",
+      "reuseFailed_one": "{{count}} feladatot nem sikerült lemásolni.",
+      "reuseFailed_other": "{{count}} feladatot nem sikerült lemásolni.",
+      "reuseNoTargets": "Nincs másik tanterem a(z) {{org}} szervezetben, ahová másolni lehetne.",
+      "reuseRenamedTitle": "Másik slug alatt lemásolva",
+      "reuseSlugDuplicate": "Ebben a másolatban egy másik feladat már használja ezt a slugot.",
+      "reuseSlugLabel": "Slug ehhez: {{assignment}}",
+      "reuseSlugRequired": "Slug megadása kötelező.",
+      "reuseTargetError": "Nem sikerült beolvasni a céltanterem feladatait, ezért egy slug-ütközés nem oldható fel. Próbáld újra.",
+      "reuseTemplateWarnTitle": "Lemásolva, de a sablonhozzáférést nem sikerült megadni",
+      "reuseTitle_one": "{{count}} feladat újrahasznosítása",
+      "reuseTitle_other": "{{count}} feladat újrahasznosítása",
+      "selectAll": "Összes feladat kijelölése",
+      "selectRow": "{{assignment}} kijelölése",
+      "selectedCount_one": "{{count}} feladat kijelölve",
+      "selectedCount_other": "{{count}} feladat kijelölve",
+      "templateWarnings_one": "{{count}} feladat frissült, de a hallgatói csapat hozzáférését a sablonjához nem sikerült frissíteni: {{slugs}}. Ellenőrizd a GitHubon, vagy futtasd újra a műveletet ezen a kijelölésen.",
+      "templateWarnings_other": "{{count}} feladat frissült, de a hallgatói csapat hozzáférését a sablonjaikhoz nem sikerült frissíteni: {{slugs}}. Ellenőrizd a GitHubon, vagy futtasd újra a műveletet ezen a kijelölésen.",
+      "unlock": "Feloldás",
+      "unlockBody": "Ez újra megnyitja a kiválasztott feladatokat a hallgatók előtt. Ahol privát sablont használnak, a hallgatói csapat olvasási hozzáférése visszaáll, hogy a hallgatók újra elfogadhassák.",
+      "unlockDone_one": "{{count}} feladat feloldva.",
+      "unlockDone_other": "{{count}} feladat feloldva.",
+      "unlockNoneLocked": "A kiválasztott feladatok közül egyik sincs zárolva.",
+      "unlockTitle_one": "Feloldjunk {{count}} feladatot?",
+      "unlockTitle_other": "Feloldjunk {{count}} feladatot?"
+    }
   },
   "published": {
     "pageHeading": "Közzétett erőforrások",
@@ -1556,7 +1672,13 @@
     "public": "Nyilvános",
     "publicNote": "Ezek a fájlok nyilvánosak: a diákok és az automatikus értékelő bejelentkezés nélkül tölti le őket. Minden más a classroom50 tárolóban privát marad.",
     "siteTitle": "A nyilvános webhelyed",
-    "unlistedNote": "Ennek az osztályteremnek a fájljait egy nem listázott URL-en szolgálják ki. Bárki, akinek megvan a link, továbbra is elolvashatja őket, ezért csak a diákjaiddal oszd meg az egyes feladatok meghívó linkjét."
+    "unlistedNote": "Ennek az osztályteremnek a fájljait egy nem listázott URL-en szolgálják ki. Bárki, akinek megvan a link, továbbra is elolvashatja őket, ezért csak a diákjaiddal oszd meg az egyes feladatok meghívó linkjét.",
+    "republish": {
+      "button": "Közzététel újra",
+      "failed": "Nem sikerült elindítani a közzétételt: {{detail}}. Ellenőrizd, hogy tudsz-e munkafolyamatokat futtatni a classroom50 tárolóban, majd próbáld újra.",
+      "help": "Újratelepíti a webhelyet a classroom50 tárolóból a jelenlegi állapotában, anélkül, hogy bármit megváltoztatna benne. Akkor használd, ha az alábbi fájlok valamelyike Nincs közzétéve vagy Nem elérhető állapotot mutat egy sikertelen közzététel után.",
+      "started": "A diákwebhely közzététele most zajlik. A fenti sáv követi a folyamatot."
+    }
   },
   "getStarted": {
     "badge": "Beléptetés",
@@ -1621,7 +1743,8 @@
         "grading_mode": "Értékelési mód: a régi módban rögzített pontszámok másképp jelenhetnek meg.",
         "repo_source": "Tár forrása: a meglévő tárak megtartják az eredeti kiindulótartalmukat.",
         "repo_visibility": "Tár láthatósága: a meglévő tárakat a beadások oldalán módosítsd.",
-        "student_permission": "Diáktár-hozzáférés: a meglévő tárakat a beadások oldalán módosítsd."
+        "student_permission": "Diáktár-hozzáférés: a meglévő tárakat a beadások oldalán módosítsd.",
+        "pages": "GitHub Pages: a meglévő repositorykon a beadványok oldaláról engedélyezheted."
       },
       "provisioningIntro_one": "{{count}} diák már elfogadta. Ezek a módosítások csak a mostantól elfogadott tárakra vonatkoznak; a meglévő tár megtartja a jelenlegi beállításait:",
       "provisioningIntro_other": "{{count}} diák már elfogadta. Ezek a módosítások csak a mostantól elfogadott tárakra vonatkoznak; a meglévő {{count}} tár megtartja a jelenlegi beállításait:",
@@ -1683,10 +1806,10 @@
         "empty": "Adj meg egy tokent a mentés előtt.",
         "invalid": "Ez a token érvénytelen, lejárt vagy visszavont. Hozz létre egy új finom szemcsézettségű tokent, és próbáld újra.",
         "noAccess": "Ez a token nem fér hozzá ehhez: {{org}}/{{repo}}. {{hint}}",
-        "noAdmin": "Ez a token olvashatja és írhatja a(z) {{org}}/{{repo}} tárolót, de nem adminisztrálhatja. A pontszámok gyűjtése olvasási hozzáférést ad a személyzeti csapatoknak, például a TA-knak a diákok tárolóihoz, amihez az Administration Olvasás és írás beállítása szükséges. {{hint}}",
+        "noAdmin": "Ez a token képes olvasni és írni a(z) {{org}}/{{repo}} tárolót, de nem tudja adminisztrálni. A jegyek begyűjtése hozzáférést ad az oktatói csapatoknak, például a demonstrátoroknak, a diákok tárolóihoz, amihez az Administration jogosultságot Read and write értékre kell állítani. {{hint}}",
         "noMembersRead": "Ez a token olvashatja a(z) {{org}}/{{repo}} tárolót, de nem olvashatja a szervezet tagjait. A pontszámok gyűjtése listázza az osztályterem csapatát, amihez a Members Olvasás beállítása szükséges a Szervezeti jogosultságok alatt. {{hint}}",
         "readOnly": "Ez a token olvashatja a(z) {{org}}/{{repo}} tárolót, de nem írhat bele. A pontszámok gyűjtéséhez olvasási hozzáférés kell, az újraértékeléshez pedig írási hozzáférés. {{hint}}",
-        "scopeHint": "Hozz létre egy finom szemcsézettségű személyes hozzáférési tokent, amelynél a Resource owner {{org}}-ra, a Repository access pedig All repositories értékre van állítva. A Repository permissions alatt állítsd a Contents, Actions és Administration beállításokat Read and write értékre: a pontszámok gyűjtése olvassa a diákok tárolóit és hozzáférést ad a személyzeti csapatoknak, az újraértékelés pedig újrafuttatja az automatikus értékelési munkafolyamatokat és beadási címkéket pusholhat. Az Organization permissions alatt állítsd a Members beállítást Read értékre: a gyűjtés listázza az osztályterem csapatát, amelyet egyetlen tárolójogosultság sem fed le. Ha a szervezeted token-jóváhagyást igényel, és nem vagy tulajdonos, egy tulajdonosnak először jóvá kell hagynia a tokent.",
+        "scopeHint": "Hozz létre egy finomhangolt személyes hozzáférési tokent úgy, hogy a Resource owner a(z) {{org}} szervezet, a Repository access pedig All repositories legyen. A Repository permissions alatt állítsd a Contents, Actions, Workflows és Administration jogosultságot Read and write értékre: a jegyek begyűjtése olvassa a diákok tárolóit, és hozzáférést ad az oktatói csapatoknak, az újraértékelés pedig újrafuttatja az autoértékelő munkafolyamatokat, és beküldési címkéket küldhet, akár egy beküldési mód váltása előtt készített commitokra is. Az Organization permissions alatt állítsd a Members jogosultságot Read értékre: a begyűjtés felsorolja a tantermi csapatot, amit egyetlen tároló-jogosultság sem fed le. Ha a szervezeted token-jóváhagyást igényel, és nem vagy tulajdonos, először egy tulajdonosnak jóvá kell hagynia a tokent.",
         "selectedRepos": "Ez a token olvashatja a(z) {{org}}/{{repo}} tárolót, de a(z) {{org}}/{{probe}} tárolót nem, így a Repository access kiválasztott tárolókra korlátozódik, vagy a Resource owner nem {{org}}. A pontszámok gyűjtése minden diák tárolóját olvassa, és hozzáférést ad a személyzeti csapatoknak. Hozd létre újra a tokent úgy, hogy a Resource owner {{org}}-ra, a Repository access pedig All repositories értékre van állítva, ugyanazokkal a jogosultságokkal.",
         "unreachable": "Nem sikerült elérni a GitHubot a token ellenőrzéséhez. Ellenőrizd a kapcsolatot, és próbáld újra. ({{reason}})",
         "unverified": "Nem sikerült ellenőrizni a tokent a(z) {{org}}/{{repo}} ellenében: {{reason}}"
@@ -1743,7 +1866,14 @@
         "readFailedStatus": "az olvasás sikertelen ({{status}})",
         "rulesetsMissing": "hiányzik: {{names}}",
         "workflowOrgManaged": "A szervezeti szabályzat alapértelmezés szerint olvasásra állítja a munkafolyamatokat; a Classroom 50 munkafolyamatai saját jogosultságokat deklarálnak",
-        "orgActionsPaused": "Az automatikus értékelés szüneteltetve van, ezért a GitHub Actions szándékosan a classroom50 repóra van korlátozva. Kapcsold ki a szüneteltetést a fenti GitHub Actions szakaszban a szokásos szabály visszaállításához."
+        "orgActionsPaused": "Az automatikus értékelés szüneteltetve van, ezért a GitHub Actions szándékosan a classroom50 repóra van korlátozva. Kapcsold ki a szüneteltetést a fenti GitHub Actions szakaszban a szokásos szabály visszaállításához.",
+        "rulesetClassroomInvalid": "nem sikerült ellenőrizni, mely oktatói csapatok legyenek kivételek, mert a(z) {{classroom}}/classroom.json nem érvényes JSON. Javítsd ki azt a fájlt a classroom50 tárolóban, majd ellenőrizd újra",
+        "rulesetOwnerNotExempt": "a szervezet tulajdonosai továbbra is megkerülésre figyelmeztető kérdést látnak a visszajelzési pull requestek egyesítésekor",
+        "rulesetStaffTeamsMissing_one": "{{count}} oktatói csapat még nem tudja egyesíteni a visszajelzési pull requesteket",
+        "rulesetStaffTeamsMissing_other": "{{count}} oktatói csapat még nem tudja egyesíteni a visszajelzési pull requesteket",
+        "rulesetStaffTeamsUnreadable": "nem sikerült beolvasni a tantermek listáját annak ellenőrzéséhez, mely oktatói csapatok legyenek kivételek; próbáld újra egy pillanat múlva",
+        "rulesetUnexpectedBypass_one": "{{count}} váratlan bejegyzés a visszajelzési ág megkerülési listáján",
+        "rulesetUnexpectedBypass_other": "{{count}} váratlan bejegyzés a visszajelzési ág megkerülési listáján"
       },
       "statePaused": "Szüneteltetve"
     },
@@ -1874,7 +2004,9 @@
         "title": "Ágvédelmi szabálykészletek",
         "what": "Szervezeti szabálykészleteket hoz létre, amelyek védik az osztály- és feladat-adattárakat.",
         "why": "A rulesets érvényre juttatja az osztályterem védőkorlátait (védett branchek, korlátozott törlések) a szervezet által létrehozott minden tárolóban.",
-        "remediation": "Nyisd meg a szervezet rulesets oldalát az áttekintéshez, vagy futtasd újra a beállítást az újbóli alkalmazáshoz. A rulesets GitHub Team vagy Enterprise előfizetést igényelhet."
+        "remediation": "Nyisd meg a szervezet rulesets oldalát az áttekintéshez, vagy futtasd újra a beállítást az újbóli alkalmazáshoz. A rulesets GitHub Team vagy Enterprise előfizetést igényelhet.",
+        "feedbackLockLeftUnchanged": "{{org}}: nem sikerült beolvasni a tantermi oktatói csapatokat, így a visszajelzési ág szabálykészlete változatlan maradt. Futtasd újra a beállítást, amint a classroom50 tároló olvashatóvá válik.",
+        "staffTeamsKept": "{{org}}: nem sikerült beolvasni a tantermi oktatói csapatokat, így a visszajelzési ág megkerülési listája változatlan maradt. Futtasd újra a beállítást, amint a classroom50 tároló olvashatóvá válik."
       },
       "orgBudget": {
         "remediation": "Nyisd meg a szervezet számlázási költségkeret-beállításait, és állíts be egy 0 dolláros GitHub Actions költségkeretet a „további használat megakadályozása” engedélyezésével (Organization Administration hozzáférés szükséges).",
@@ -2036,18 +2168,18 @@
       "removeFailed": "Nem sikerült eltávolítani @{{login}}-t: {{error}}",
       "removeRole": "{{role}} eltávolítása",
       "cancelFailed": "Nem sikerült visszavonni a meghívást a következőnek: {{who}}: {{error}}",
-      "cancelInvite": "Meghívás visszavonása",
+      "cancelInvite": "Meghívó visszavonása",
       "cancelledToast": "A(z) {{who}} meghívása visszavonva.",
       "confirmRemoveBody": "Ez eltávolítja @{{login}} felhasználót a(z) {{role}} csapatból és megszünteti a hozzáférését a classroom50 tárhoz. A szervezetből nem távolítja el.",
       "confirmRemoveTitle": "Eltávolítod @{{login}} felhasználót a(z) {{role}} szerepből?",
       "pendingBadge": "Függőben",
       "resend": "Meghívó újraküldése",
-      "resendEmailOnly": "Ehhez a meghívóhoz nem tartozik GitHub-felhasználónév, ezért nem küldhető újra. Vond vissza, és add hozzá újra a személyt.",
+      "resendEmailOnly": "Ehhez a meghívóhoz nincs GitHub-felhasználónév, ezért itt nem küldhető újra. Vond vissza, majd add hozzá újra a személyt.",
       "resendFailed": "Nem sikerült újraküldeni a meghívót a(z) {{who}} részére: {{error}}",
       "resentToast": "Meghívó újraküldve a(z) {{who}} részére.",
       "roleTeacherPlural": "Tanárok",
-      "accessHeadTa": "Szervezeti tag. Írási hozzáférés a classroom50 tárhoz.",
-      "accessTa": "Szervezeti tag. Csak olvasási hozzáférés a classroom50 tárhoz.",
+      "accessHeadTa": "Szervezeti tag. Írási hozzáférés a classroom50 repositoryhoz és a hallgatói repositorykhoz, így összefésülhetik a visszajelzési pull requesteket.",
+      "accessTa": "Szervezeti tag. Csak olvasási hozzáférés a classroom50 repositoryhoz; írási hozzáférés a hallgatói repositorykhoz, így összefésülhetik a visszajelzési pull requesteket.",
       "accessTeacher": "Szervezettulajdonos. Írási hozzáférés a classroom50 tárhoz.",
       "pendingCount_one": "{{count}} függőben",
       "pendingCount_other": "{{count}} függőben",
@@ -2246,7 +2378,14 @@
       "setup": "Az automatikus értékelés beállítva",
       "setupSkippedEmptyRepo": "Nincs szükség beállításra: ez a feladat üres tárolót használ",
       "repoVisibilityFellBack": "A(z) {{org}}/{{repo}} privátként lett létrehozva. A szervezet nem engedi nyilvános tárak létrehozását; a tanárod később nyilvánossá teheti.",
-      "team": "Csoport megtalálva"
+      "team": "Csoport megtalálva",
+      "pagesSkipped": {
+        "access": "Az automatikus értékelő beállítva. A GitHub Pages nem lett engedélyezve: nincs jogosultságod a Pages beállítások módosításához ebben a repositoryban. A tanárod engedélyezheti a beadványok oldaláról.",
+        "branch": "Az automatikus értékelő beállítva. A GitHub Pages nem lett engedélyezve: az az ág, amelyből közzétenné, még nem létezik a repositorydban. A tanárod engedélyezheti a beadványok oldaláról.",
+        "plan": "Az automatikus értékelő beállítva. A GitHub Pages nem lett engedélyezve: ennek a szervezetnek a GitHub-előfizetése nem engedi a Pages használatát privát repositorykon. A tanárod nyilvánossá teheti a repositoryt, és engedélyezheti a Pages-t a beadványok oldaláról.",
+        "policy": "Az automatikus értékelő beállítva. A GitHub Pages nem lett engedélyezve: a szervezet nem engedi a tagoknak Pages-oldalak közzétételét. A tanárod engedélyezheti a beadványok oldaláról.",
+        "unknown": "Az automatikus értékelő beállítva. A GitHub Pages jelenleg nem volt engedélyezhető. A tanárod engedélyezheti a beadványok oldaláról."
+      }
     },
     "stepErrors": {
       "generic": "A(z) {{label}} sikertelen volt (HTTP {{status}}). {{actions}}",
@@ -2317,6 +2456,10 @@
     "setupIncomplete": {
       "body": "A tárolód létezik, de hiányoznak a beállítási fájljai, így az automatikus értékelés nem fut le, és a tanárod nem tud visszajelzést adni. Futtasd újra a beállítást a befejezéshez. Ez biztonságos, és megtartja a már feltöltött munkádat.",
       "title": "A beállítás nem fejeződött be"
+    },
+    "pagesSite": {
+      "enabled": "A GitHub Pages engedélyezve van ehhez a feladathoz",
+      "help": "A repositoryd weboldalt tud közzétenni itt: {{url}}. Az interneten bárki megtekintheti, még akkor is, ha a repository privát."
     }
   },
   "submissions": {
@@ -2380,22 +2523,6 @@
       "shareWithCount_other": "Megosztás <count>{{count}} diákkal</count>, akik elfogadhatják ezt a feladatot.",
       "warnNoStudents": "Ezt a linket még egyetlen diák sem tudja elfogadni a(z) <classroom>{{classroom}}</classroom> kurzusban. Előbb vegyél fel diákokat a névsorba, és hívd meg őket a szervezetbe.",
       "copied": "Másolva"
-    },
-    "stats": {
-      "submitted": "Beadva",
-      "groupsSubmitted": "Csoportok beadva",
-      "classAverage": "Tantermi átlag",
-      "passing": "Megfelelt",
-      "accepted": "Elfogadva",
-      "notAvailable": "N/A",
-      "showFailing": "Nem megfelelt tanulók megjelenítése",
-      "failingCount_one": "{{count}} nem megfelelt",
-      "failingCount_other": "{{count}} nem megfelelt",
-      "showAcceptedNotSubmitted": "Azon tanulók megjelenítése, akik elfogadták, de nem adtak be",
-      "notYetSubmitted_one": "{{count}} még nem adott be",
-      "notYetSubmitted_other": "{{count}} még nem adott be",
-      "ungradedNote_one": ", {{count}} nincs értékelve",
-      "ungradedNote_other": ", {{count}} nincs értékelve"
     },
     "filters": {
       "searchGroupPlaceholder": "Csoport vagy tag keresése",
@@ -2491,7 +2618,9 @@
       "teamMissingTitle": "A csoporthoz tartozó GitHub-csapat már nem létezik. Valószínűleg törölték, ezért az értékelés nem tudja beszámítani a tagok munkáját, amíg újra létre nem hozzák.",
       "teamNoRepo": "Még nincs tároló",
       "teamNoRepoTitle": "A csoport tárolója akkor jön létre, amikor egy csoporttag elfogadja a feladatot. Oszd meg a feladat hivatkozását, hogy egy tag elfogadhassa.",
-      "staffRowTitle": "Egy tanár, fő oktatóasszisztens vagy oktatóasszisztens, aki elfogadta ezt a feladatot, általában kipróbálás céljából. Ez a sor nem egy diáké."
+      "staffRowTitle": "Egy tanár, fő oktatóasszisztens vagy oktatóasszisztens, aki elfogadta ezt a feladatot, általában kipróbálás céljából. Ez a sor nem egy diáké.",
+      "openSiteLabel": "A(z) {{repo}} tároló GitHub Pages-webhelyének megnyitása",
+      "viewSite": "GitHub Pages-webhely megnyitása"
     },
     "reviewModal": {
       "errorTitle": "Nem sikerült ellenőrizni a visszajelzési PR-t",
@@ -2529,7 +2658,15 @@
         "copyMilestone": "Mérföldkő-címke parancs másolása",
         "milestoneStep": "Vagy pushold a tanárod által beállított mérföldkő-címkét (például: {{tags}}):",
         "tagIntro": "A tanárod a munkád címkézett pillanatképeit értékeli. Commitolj és pusholj a szokásos módon, majd futtasd az alábbi beadó parancsot. Ez megcímkézi a legutóbbi munkádat az értékeléshez.",
-        "tagStep2": "A tárolón belülről add be a munkádat. Ez egy beadási címkét pushol, amely elindítja az értékelést:"
+        "tagStep2": "A tárolón belülről add be a munkádat. Ez egy beadási címkét pushol, amely elindítja az értékelést:",
+        "cloneHint": "Az SSH-hoz a GitHub-fiókodhoz adott SSH-kulcs szükséges. A GitHub CLI-hez a gh parancs telepítése szükséges.",
+        "cloneMethod": {
+          "cli": "GitHub CLI",
+          "https": "HTTPS",
+          "ssh": "SSH"
+        },
+        "cloneMethodAria": "Klónozási módszer",
+        "teacherNote": "A tanárod kérheti, hogy meghatározott módon klónozz vagy adj be munkát. Ha így van, kövesd az utasításait."
       },
       "notAccepted": "Ezt a feladatot még nem fogadtad el. <acceptLink>Fogadd el</acceptLink>, hogy megkapd az adattáradat, majd push-old a munkádat az értékeléshez.",
       "locked": "Ezt a feladatot a tanárod zárolta, és jelenleg nem érhető el. Nézz vissza később, vagy kérd meg a tanárodat, hogy oldja fel.",
@@ -2551,11 +2688,7 @@
     "viewSourceRepo": "Sablon megtekintése",
     "menu": {
       "actions": "Műveletek",
-      "metrics": "Mutatók",
       "share": "Megosztás"
-    },
-    "metrics": {
-      "title": "Beadási mutatók"
     },
     "freshness": {
       "collected": "Beadási adatok begyűjtve: {{when}}",
@@ -2722,7 +2855,11 @@
       "manageGroup": "Csoport kezelése",
       "setup": "Beállítás",
       "setupIncomplete": "Befejezetlen",
-      "setupIncompleteHint": "A diák elfogadása megszakadt, mielőtt a beállítási fájlok kiírásra kerültek volna, így az automatikus értékelés nem fut le, és nem nyitható meg visszajelzési PR. Kérd meg a diákot, hogy nyissa meg a feladat linkjét, és válassza a Beállítás újrafuttatása lehetőséget."
+      "setupIncompleteHint": "A diák elfogadása megszakadt, mielőtt a beállítási fájlok kiírásra kerültek volna, így az automatikus értékelés nem fut le, és nem nyitható meg visszajelzési PR. Kérd meg a diákot, hogy nyissa meg a feladat linkjét, és válassza a Beállítás újrafuttatása lehetőséget.",
+      "pages": "GitHub Pages",
+      "pagesBuildErrored": "Az összeállítás sikertelen",
+      "pagesBuilding": "Összeállítás folyamatban",
+      "pagesNotEnabled": "Nincs bekapcsolva"
     },
     "rowDownload": {
       "aria": "{{owner}} beadásának letöltése",
@@ -2876,9 +3013,9 @@
     "grading": {
       "badgeBuiltIn": "Automatikusan értékelt",
       "badgeEmptyRepo": "Nincs automatikus értékelés",
-      "badgeNoAutograder": "Egyéni automatikus értékelés",
-      "titleEmptyRepo": "Ez a feladat üres tárolókat használ, így az automatikus értékelés, a pontszámok és a visszajelzési pull request le van tiltva. A táblázat azt mutatja, ki fogadta el.",
-      "titleNoAutograder": "A sablon saját értékelési munkafolyamattal érkezik. A beépített pontszámok és az újraértékelés le van tiltva; a visszajelzési pull request továbbra is működik, ha engedélyezve van."
+      "badgeNoAutograder": "Nincs beépített automata értékelő",
+      "titleEmptyRepo": "Ez a feladat üres tárolókat használ, ezért az automata értékelés, a pontszámok és a visszajelzési pull request le van tiltva. A táblázat megmutatja, ki fogadta el és ki pusholt.",
+      "titleNoAutograder": "Ez a feladat nem használja a beépített automata értékelőt, ezért a beépített pontszámok és az újraértékelés le van tiltva. A sablon saját értékelési munkafolyamata továbbra is fut, és a visszajelzési pull request is működik, ha be van kapcsolva."
     },
     "scoreOverride": {
       "add": "Pontszám hozzáadása",
@@ -2984,41 +3121,78 @@
     },
     "rosterFromCsvNotice": "A diáklista a névsorfájlból származik az utolsó szinkronizálás állapota szerint, mert az Ön szerepköre nem tekintheti meg a tanterem GitHub-csapatát. Az azóta beiratkozott diák akkor jelenik meg, amikor egy tanár megnyitja a névsort. A szervezettulajdonosok az élő tagságot látják.",
     "skipPastTable": "A beadási táblázat átugrása",
-    "slugTitle": "Feladat-azonosító (slug): a feladat egyedi azonosítója. A megjelenített nevek ismétlődhetnek."
+    "slugTitle": "Feladat-azonosító (slug): a feladat egyedi azonosítója. A megjelenített nevek ismétlődhetnek.",
+    "bulkPages": {
+      "apply": "Bekapcsolás mindegyiken",
+      "deferredDetail": "Kihagyva. A bekapcsoláshoz futtasd újra.",
+      "deferredSection_one": "{{count}} tárolót nem dolgoztunk fel",
+      "deferredSection_other": "{{count}} tárolót nem dolgoztunk fel",
+      "failedSection_one": "{{count}} tárolón nem sikerült bekapcsolni",
+      "failedSection_other": "{{count}} tárolón nem sikerült bekapcsolni",
+      "infoBranch_one": "Ez úgy állítja be a GitHub Pages-t, hogy egy ágat tegyen közzé {{count}} tanuló tárolóján. Azok a tárolók, amelyeknek már van webhelye, változatlanul maradnak. A később elfogadó tanulók tárolói automatikusan konfigurálódnak.",
+      "infoBranch_other": "Ez úgy állítja be a GitHub Pages-t, hogy egy ágat tegyen közzé {{count}} tanuló tárolóin. Azok a tárolók, amelyeknek már van webhelye, változatlanul maradnak. A később elfogadó tanulók tárolói automatikusan konfigurálódnak.",
+      "infoWorkflow_one": "Ez úgy állítja be a GitHub Pages-t, hogy GitHub Actionsön keresztül telepítsen {{count}} tanuló tárolóján. Azok a tárolók, amelyeknek már van webhelye, változatlanul maradnak. A később elfogadó tanulók tárolói automatikusan konfigurálódnak.",
+      "infoWorkflow_other": "Ez úgy állítja be a GitHub Pages-t, hogy GitHub Actionsön keresztül telepítsen {{count}} tanuló tárolóin. Azok a tárolók, amelyeknek már van webhelye, változatlanul maradnak. A később elfogadó tanulók tárolói automatikusan konfigurálódnak.",
+      "menuLabel": "GitHub Pages bekapcsolása",
+      "menuTitle": "Az feladat GitHub Pages-webhelyének beállítása minden elfogadott tárolón",
+      "noRepos": "Még egyetlen tanuló sem fogadta el, így nincs mit bekapcsolni.",
+      "progress": "{{processed}} / {{total}} feldolgozva",
+      "resultHeadline": "A GitHub Pages {{total}} tárolóból {{count}} tárolón van bekapcsolva.",
+      "resultHeadlineThrottled": "{{total}} tárolóból {{count}} tárolón kapcsoltuk be a GitHub Pages-t, mielőtt a GitHub korlátozta volna a kérést. Futtasd újra a többi befejezéséhez.",
+      "subtitle_one": "{{count}} tanulóra vonatkozik, aki elfogadta ezt a feladatot.",
+      "subtitle_other": "{{count}} tanulóra vonatkozik, aki elfogadta ezt a feladatot.",
+      "title": "GitHub Pages bekapcsolása",
+      "titleEmptyRoster": "Még egyetlen tanuló sem fogadta el",
+      "working": "GitHub Pages bekapcsolása"
+    },
+    "rowPages": {
+      "aria": "GitHub Pages bekapcsolása a következőn: {{repo}}",
+      "description": "Állítsd be az feladat által elvárt webhelyet ezen a tárolón. Használd olyan tárolónál, amelyet a Pages bekapcsolása előtt fogadtak el, vagy amikor az elfogadáskori bekapcsolás sikertelen volt.",
+      "outcome": {
+        "enabled": "A GitHub Pages bekapcsolva. A webhely az első összeállítás után elérhető lesz itt: {{url}}."
+      },
+      "refused": {
+        "access": "A GitHub Pages nem lett bekapcsolva a(z) {{repo}} tárolón: rendszergazdai hozzáférésre van szükséged ehhez a tárolóhoz.",
+        "branch": "A GitHub Pages nem lett bekapcsolva a(z) {{repo}} tárolón: az az ág, amelyről közzétenné, még nem létezik ebben a tárolóban.",
+        "plan": "A GitHub Pages nem lett bekapcsolva a(z) {{repo}} tárolón: a szervezet GitHub-csomagja nem engedélyezi a Pages-t privát tárolókon. Tedd nyilvánossá a tárolót, majd próbáld újra.",
+        "policy": "A GitHub Pages nem lett bekapcsolva a(z) {{repo}} tárolón: a szervezet nem engedi, hogy a tagok Pages-webhelyet tegyenek közzé. Ellenőrizd a szervezet Pages-beállításait, majd próbáld újra.",
+        "unknown": "A GitHub Pages jelenleg nem kapcsolható be a(z) {{repo}} tárolón. Próbáld újra egy pillanat múlva."
+      },
+      "title": "GitHub Pages bekapcsolása"
+    }
   },
   "orgMembers": {
     "heading": "Tagok",
     "manageMembersOnGitHub": "Szervezeti tagok kezelése a GitHubon",
-    "discrepancy_one": "{{count}} tanuló szerepel egy névsorban, de nem tagja a szervezetnek.",
-    "discrepancy_other": "{{count}} tanuló szerepel egy névsorban, de nem tagja a szervezetnek.",
+    "discrepancy_one": "{{count}} diák szerepel egy névsorban, de nem tagja a szervezetnek. A soruknál a Meghívás gombbal küldj meghívót.",
+    "discrepancy_other": "{{count}} diák szerepel egy névsorban, de nem tagjai a szervezetnek. Mindegyik soruknál a Meghívás gombbal küldj meghívót.",
     "searchPlaceholder": "Keresés név, felhasználónév vagy e-mail alapján",
     "searchLabel": "Tagok keresése",
-    "loadError": "Nem sikerült betölteni a szervezet tagjait.",
+    "loadError": "Nem sikerült betölteni a szervezet tagjait. Ellenőrizd a kapcsolatot, és hogy még mindig a szervezet tulajdonosa vagy-e, majd próbáld újra.",
     "noMatch": "Egyetlen tag sem felel meg a keresésnek.",
     "invite": "Meghívás",
     "classroomCount_one": "{{count}} osztály",
     "classroomCount_other": "{{count}} osztály",
-    "badgeNotMember": "Nem szervezeti tag",
+    "badgeNotMember": "Nincs a szervezetben",
     "badgeNoClassroom": "Nincs osztály",
     "badgeMember": "Tag",
-    "noGitHubUsername": "nincs GitHub-felhasználónév",
+    "noGitHubUsername": "Nincs GitHub-felhasználónév",
     "detailTitle": "Tag adatai",
     "manageOnGitHub": "Kezelés a GitHubon",
     "classroomAccess": "Osztályhozzáférés",
     "noRoster": "Egyetlen osztály névsorában sem szerepel.",
-    "archived": "archivált",
+    "archived": "Archivált",
     "selfNotice": "Ez a bejelentkezett fiókod, ezért innen nem távolítható el a szervezetből.",
     "inviting": "Meghívás…",
     "inviteToOrg": "Meghívás a szervezetbe",
-    "notMemberNoId": "Ez a tanuló szerepel egy rosterben, de nem szervezeti tag. Még nincs GitHub-azonosítója a nyilvántartásban, ezért hívd meg az osztálya Roster oldaláról.",
     "removing": "Eltávolítás…",
     "removeFromOrg": "Eltávolítás a szervezetből",
     "inviteFailed": "Nem sikerült meghívni {{label}} tagot: {{reason}}",
-    "somethingWrong": "a művelet nem tudott befejeződni",
+    "somethingWrong": "Valami hiba történt. Frissíts, és próbáld újra.",
     "removed": "{{label}} eltávolítva a(z) {{org}} szervezetből.",
     "removedWithUnenroll_one": "{{label}} eltávolítva a(z) {{org}} szervezetből, és kikerült {{count}} osztályból.",
     "removedWithUnenroll_other": "{{label}} eltávolítva a(z) {{org}} szervezetből, és kikerült {{count}} osztályból.",
-    "removeFailed": "Nem sikerült eltávolítani {{label}} tagot: {{reason}}",
+    "removeFailed": "Nem sikerült eltávolítani {{label}} felhasználót: {{reason}}. Próbáld újra, vagy távolítsd el őket a szervezet Emberek oldaláról a GitHubon.",
     "warnArchived": "{{who}} még szerepel az archivált „{{classroom}}” osztályban; a névsorból való eltávolításhoz állítsd vissza az archiválást.",
     "warnUnenrollFailed": "Nem sikerült kivenni {{who}} tagot a(z) „{{classroom}}” osztályból ({{reason}}); a többit eltávolítottuk.",
     "badgeOwner": "Tulajdonos",
@@ -3028,12 +3202,11 @@
       "addedHeadline_one": "{{count}} tag hozzáadva a(z) {{classroom}} osztályteremhez.",
       "addedHeadline_other": "{{count}} tag hozzáadva a(z) {{classroom}} osztályteremhez.",
       "classroomLabel": "Osztályterem",
-      "clearSelection": "Kijelölés törlése",
-      "confirmAddBody_one": "Ez hozzáadja a kijelölt tagot a(z) {{classroom}} osztályterem névsorához és csapatához, meghívva őt a szervezetbe, ha még nem tag.",
-      "confirmAddBody_other": "Ez hozzáadja a kijelölt tagokat a(z) {{classroom}} osztályterem névsorához és csapatához, meghívva őket a szervezetbe, ha még nem tagok.",
+      "confirmAddBody_one": "Ez hozzáadja a kiválasztott tagot a(z) {{classroom}} tanterem névsorához és csapatához. Itt csak szervezeti tagok adhatók hozzá; aki még nem tag, azt előbb hívd meg a saját soráról.",
+      "confirmAddBody_other": "Ez hozzáadja a kiválasztott tagokat a(z) {{classroom}} tanterem névsorához és csapatához. Itt csak szervezeti tagok adhatók hozzá; aki még nem tag, azt előbb hívd meg a saját soráról.",
       "confirmRemoveBody_one": "Ez eltávolítja a kijelölt tagot a(z) {{classroom}} osztályterem névsorából és csapatából. A szervezeti tagságukat és feladattárolóikat ez nem érinti.",
       "confirmRemoveBody_other": "Ez eltávolítja a kijelölt tagokat a(z) {{classroom}} osztályterem névsorából és csapatából. A szervezeti tagságukat és feladattárolóikat ez nem érinti.",
-      "couldNotAddToTeam": "Nem sikerült hozzáadni az osztályterem csapatához.",
+      "couldNotAddToTeam": "Nem sikerült hozzáadni a tantermi csapathoz. Nyisd meg a sorukat a tantermi névsorban, és próbáld újra a „Hozzáadás a tanteremhez” gombbal.",
       "done": "Kész",
       "keepTabOpen": "Hagyd nyitva ezt a lapot, amíg a művelet befejeződik.",
       "memberCount_one": "{{count}} tag",
@@ -3058,16 +3231,16 @@
         "already-on-classroom": "Már ebben az osztályteremben van.",
         "already-removed": "Már eltávolítva ebből az osztályteremből.",
         "archived": "A tanterem archivált. Szüntesd meg az archiválást a tagság módosításához.",
-        "no-id": "Nincs nyilvántartott GitHub-azonosító a besoroláshoz.",
+        "no-id": "Nincs nyilvántartott GitHub-azonosító, így nem párosíthatók GitHub-fiókhoz.",
         "not-member": "Nem szervezeti tag. Előbb hívd meg.",
         "not-on-classroom": "Nincs ebben az osztályteremben.",
-        "resolve-failed": "Nem sikerült feloldani a jelenlegi GitHub-fiókjukat.",
+        "resolve-failed": "Nem sikerült lekérdezni az aktuális GitHub-fiókjukat. Próbáld újra.",
         "pending-email-invite": "E-mailben meghívva, és még nem fogadta el. A meghívót inkább a tanterem névsoroldaláról vond vissza.",
-        "no-username": "Nincs nyilvántartott GitHub-felhasználónév. A szervezetből való eltávolítás felhasználónév alapján történik.",
-        "self": "Ez a bejelentkezett fiókod, ezért itt nem távolítható el."
+        "no-username": "Nincs nyilvántartott GitHub-felhasználónév, így a szervezeti tagságuk innen nem távolítható el. Távolítsd el őket a szervezet Emberek oldaláról a GitHubon.",
+        "self": "Ez a bejelentkezett fiókod, ezért itt nem távolítható el.",
+        "unlinked-row": "Nincs GitHub-fiókhoz társítva. Küldj újra meghívót, társítsd, vagy távolítsd el a sort a tanterem Névsor oldaláról."
       },
       "starting": "Indítás…",
-      "actions": "Műveletek",
       "addModalTitle_one": "{{count}} kijelölt tag hozzáadása egy osztályhoz",
       "addModalTitle_other": "{{count}} kijelölt tag hozzáadása egy osztályhoz",
       "addToClassroomMenu": "Hozzáadás osztályhoz",
@@ -3093,18 +3266,18 @@
       "previewSkipAlreadyOn_other": "{{count}} kihagyva: már ezen a tantermen vannak.",
       "previewSkipArchived_one": "{{count}} kihagyva: ennek a tanteremnek egy archivált példányára van beiratkozva.",
       "previewSkipArchived_other": "{{count}} kihagyva: ennek a tanteremnek egy archivált példányára vannak beiratkozva.",
-      "previewSkipNoUsername_one": "{{count}} kihagyva: nincs nyilvántartott GitHub-felhasználónév.",
-      "previewSkipNoUsername_other": "{{count}} kihagyva: nincs nyilvántartott GitHub-felhasználónév.",
+      "previewSkipNoUsername_one": "{{count}} kihagyva: nincs nyilvántartott GitHub-felhasználónév, így a szervezeti tagságuk innen nem távolítható el.",
+      "previewSkipNoUsername_other": "{{count}} kihagyva: nincs nyilvántartott GitHub-felhasználónév, így a szervezeti tagságuk innen nem távolítható el.",
       "previewSkipNotMember_one": "{{count}} kihagyva: nem szervezeti tag; előbb hívd meg.",
       "previewSkipNotMember_other": "{{count}} kihagyva: nem szervezeti tagok; előbb hívd meg őket.",
       "previewSkipNotOn_one": "{{count}} kihagyva: nincs ezen a tantermen.",
       "previewSkipNotOn_other": "{{count}} kihagyva: nincsenek ezen a tantermen.",
-      "previewSkipPendingEmail_one": "{{count}} kihagyva: e-mailben meghívva, és még nem fogadta el.",
-      "previewSkipPendingEmail_other": "{{count}} kihagyva: e-mailben meghívva, és még nem fogadták el.",
+      "previewSkipPendingEmail_one": "{{count}} kihagyva: e-mailben meghívva, még nem fogadta el. A meghívót inkább a tanterem Névsor oldaláról vond vissza.",
+      "previewSkipPendingEmail_other": "{{count}} kihagyva: e-mailben meghívva, még nem fogadták el. A meghívókat inkább a tanterem Névsor oldaláról vond vissza.",
       "removeFromClassroomMenu": "Eltávolítás osztályból",
       "removeModalTitle_one": "{{count}} kijelölt tag eltávolítása egy osztályból",
       "removeModalTitle_other": "{{count}} kijelölt tag eltávolítása egy osztályból",
-      "removeNoneOnClassroom": "A kijelölt tagok egyike sincs egyetlen osztály névsorában sem.",
+      "removeNoneOnClassroom": "A kiválasztott tagok egyike sem szerepel olyan tantermi névsorban, amelyből eltávolíthatók lennének.",
       "removeOrgTitle": "Tagok eltávolítása a(z) {{org}} szervezetből",
       "removedFromOrgHeadline_one": "{{count}} tag eltávolítva a(z) {{org}} szervezetből.",
       "removedFromOrgHeadline_other": "{{count}} tag eltávolítva a(z) {{org}} szervezetből.",
@@ -3112,29 +3285,49 @@
       "unenrolledDetail_one": "Kiiratkoztatva {{count}} osztályból ({{classrooms}}).",
       "unenrolledDetail_other": "Kiiratkoztatva {{count}} osztályból ({{classrooms}}).",
       "viewerUnverified": "Nem sikerült ellenőrizni a fiókodat, ezért nem lett eltávolítva egyetlen tag sem. Próbáld újra.",
-      "confirmRemoveOrgWarning": "Az eltávolított tagok elvesztik a hozzáférést a szervezet minden tárolójához, beleértve a saját feladattárolóikat is, és új meghívó kell a visszatéréshez."
+      "confirmRemoveOrgWarning": "Az eltávolított tagok elvesztik a hozzáférést a szervezet minden tárolójához, beleértve a saját feladattárolóikat is, és új meghívó kell a visszatéréshez.",
+      "addNoneMembers": "A kiválasztott sorok közül egyik sem szervezeti tag. Előbb hívd meg őket, majd add hozzá őket egy tanteremhez.",
+      "confirmInviteBody_one": "Elküldjük a szervezeti meghívót a kiválasztott diáknak? A meghívó a GitHub-fiókjukra megy az azonosítójuk alapján, és tartalmazza a tantermi csapataikat is, így beiratkoznak, amint elfogadják. Aki már rendelkezik függőben lévő meghívóval, vagy már tag, azt kihagyjuk.",
+      "confirmInviteBody_other": "Elküldjük a szervezeti meghívókat a(z) {{count}} kiválasztott diáknak? Mindegyik a GitHub-fiókjukra megy az azonosítójuk alapján, és tartalmazza a tantermi csapataikat is, így beiratkoznak, amint elfogadják. Aki már rendelkezik függőben lévő meghívóval, vagy már tag, azt kihagyjuk.",
+      "confirmInviteTitle_one": "Elküldünk {{count}} meghívót?",
+      "confirmInviteTitle_other": "Elküldünk {{count}} meghívót?",
+      "inviteNoneInvitable": "Válassz olyan diákokat, akik szerepelnek a névsorban, de nem tagjai a szervezetnek. A függőben lévő, lejárt és nem társított sorokat a tantermi névsorból kezelheted.",
+      "inviteRateLimited": "{{sent}} meghívó elment, majd elértük a GitHub sebességkorlátját. A többi nem lett elküldve. Várj néhány percet, majd próbáld újra.",
+      "inviteSelected_one": "Szervezeti meghívó küldése {{count}} diáknak",
+      "inviteSelected_other": "Szervezeti meghívók küldése {{count}} diáknak",
+      "inviteSkipReason": {
+        "already-member": "Már a szervezet tagja. Semmi új nem lett elküldve.",
+        "already-pending": "Már rendelkezik függőben lévő meghívóval. Semmi új nem lett elküldve.",
+        "not-invitable": "Innen nem hívható meg: nincs nyilvántartott GitHub-azonosító, vagy a sor nem egy szervezeten kívüli diáké."
+      },
+      "inviteTitle": "Meghívók küldése a(z) {{org}} szervezetbe",
+      "invitedHeadline_one": "{{count}} meghívó elküldve.",
+      "invitedHeadline_other": "{{count}} meghívó elküldve.",
+      "previewSkipUnlinked_one": "{{count}} kihagyva: nincs GitHub-fiókhoz társítva. Küldj újra meghívót, társítsd, vagy távolítsd el a sort a tanterem Névsor oldaláról.",
+      "previewSkipUnlinked_other": "{{count}} kihagyva: nincs GitHub-fiókhoz társítva. Küldj újra meghívót, társítsd, vagy távolítsd el a sorokat a tanterem Névsor oldaláról.",
+      "removeOrgNoneEligible": "A kiválasztott sorok egyike sem GitHub-felhasználónévvel rendelkező szervezeti tag.",
+      "sendInvitations": "Meghívók küldése"
     },
-    "confirmInviteBody": "Küldesz szervezeti meghívást a(z) {{label}} számára? A meghívás azonosító alapján az ő GitHub-fiókjához érkezik, és az elfogadáskor a korábbi osztálytermi hozzáférésével újra csatlakozik a(z) {{org}} szervezethez.",
+    "confirmInviteBody": "Elküldjük a szervezeti meghívót {{label}} részére? A meghívó a GitHub-fiókjukra megy az azonosítójuk alapján, és tartalmazza a tantermi csapataikat is, így újra beiratkoznak, amint elfogadják.",
     "filterAllClassrooms": "Minden osztályterem",
     "filterByClassroomLabel": "Szűrés osztályterem szerint",
     "filterNoClassroom": "Nincs osztályterem",
     "noMembersInClassroom": "Nincsenek tagok itt: {{classroom}}.",
     "noMembersNoClassroom": "Nincsenek osztályterem nélküli tagok.",
     "unprovisionedAccessBadge": "Nincs a csapatban",
-    "unprovisionedAccessTitle": "Ennek a tanteremnek a névsorán szerepel, de nincs a GitHub-csapatában, így a jegyek begyűjtése kihagyná. A javításhoz add hozzá újra a tanteremhez.",
+    "unprovisionedAccessTitle": "Szerepel ennek a tanteremnek a névsorában, de nincs a GitHub-csapatában, így a jegybegyűjtés kihagyná őket. Add hozzá őket újra a tanteremhez a probléma megoldásához.",
     "unprovisionedBadge": "Nincs beiratkozva",
-    "unprovisionedTitle": "A névsorban szerepel, de nincs a tanterem csapatában: {{classrooms}}. A jegyek a csapaton keresztül gyűlnek, így a munkája kimaradna. A javításhoz add hozzá újra a tanteremhez.",
+    "unprovisionedTitle": "Szerepel a névsorban, de nincs a tantermi csapatban: {{classrooms}}. A jegyeket a csapaton keresztül gyűjtjük be, így a munkájuk kimaradna. Add hozzá őket újra a tanteremhez a probléma megoldásához.",
     "confirmRemove": "A(z) {{label}} el lesz távolítva a(z) <org>{{org}}</org> szervezetből.",
     "confirmUnenroll_one": "A(z) {{label}} először kiiratkozik <count>{{count}} osztályból</count> ({{classrooms}}), majd eltávolításra kerül a(z) <org>{{org}}</org> szervezetből. A feladat-adattárai nem törlődnek.",
     "confirmUnenroll_other": "A(z) {{label}} először kiiratkozik <count>{{count}} osztályból</count> ({{classrooms}}), majd eltávolításra kerül a(z) <org>{{org}}</org> szervezetből. A feladat-adattárai nem törlődnek.",
-    "noUsernameWithId": "<missing>nincs GitHub felhasználónév</missing> <meta>· id {{id}}</meta>",
-    "notMember": "A(z) {{label}} egy osztály névsorában szerepel, de <emphasis>nem szervezeti tag</emphasis>. Hívd meg, hogy visszaállítsd a hozzáférését. A meghívó a GitHub-fiókjához id alapján kerül elküldésre, így akkor is működik, ha a felhasználóneve megváltozott.",
+    "noUsernameWithId": "<missing>Nincs GitHub-felhasználónév</missing> <meta>· azonosító: {{id}}</meta>",
+    "notMember": "{{label}} szerepel egy tantermi névsorban, de <emphasis>nem tagja a szervezetnek</emphasis>. Hívd meg őket a hozzáférésük visszaállításához. A meghívó a GitHub-fiókjukra megy az azonosító alapján, így akkor is működik, ha a felhasználónevük megváltozott, és tartalmazza a tantermi csapataikat is.",
     "subtitle": "Mindenki a(z) <orgLink>{{org}}</orgLink> GitHub-szervezetben és az osztályok, amelyekhez tartoznak.",
     "usernameWithId": "<username>@{{username}}</username> <meta>· id {{id}}</meta>",
     "inviteMalformedId": "Nem lehet meghívni {{who}} felhasználót: a(z) „{{githubId}}” nem érvényes GitHub-azonosító. Javítsd a github_id cellát a roster.csv fájlban.",
-    "inviteMissingId": "Nem lehet meghívni {{who}} felhasználót: nincs nyilvántartott GitHub-azonosító.",
+    "inviteMissingId": "Nem lehet meghívni {{who}} felhasználót: a névsorsoruknak nincs GitHub-azonosítója. Nyisd meg a sorukat a tantermi névsorban, hogy felhasználónév alapján hívd meg őket, vagy távolítsd el a sort, és add hozzá őket újra.",
     "badgeInvitePending": "Függőben lévő meghívás",
-    "invitePendingNotice": "Ezt a diákot e-mailben hívták meg, és még nem fogadta el, így nincs nyilvántartott GitHub-fiókja. Semmi baj: a részletei automatikusan kitöltődnek, amikor csatlakozik. A meghívót a tanterme névsoroldaláról vonhatod vissza.",
     "details": {
       "email_one": "E-mail",
       "email_other": "E-mailek",
@@ -3149,7 +3342,7 @@
     "filterInvitationPending": "Függőben lévő meghívás",
     "filterMembers": "Tagok",
     "filterNotEnrolled": "Nincs beiratkozva",
-    "filterNotInOrg": "Nem szervezeti tag",
+    "filterNotInOrg": "Nincs a szervezetben",
     "filterOwners": "Tulajdonosok",
     "filterShowLabel": "Tagok szűrése",
     "sharedOrgNotice": "Ez az oldal a(z) {{org}} GitHub-szervezet minden tagját felsorolja, nemcsak a te tanulóidat. Ha más tanárok is osztoznak ezen a szervezeten, akár a Classroom 50 használata nélkül is, az ő tagjaik is megjelennek itt, ezért légy óvatos, amikor bárkit eltávolítasz.",
@@ -3163,7 +3356,44 @@
       "colStatus": "Állapot",
       "colUsername": "Felhasználónév"
     },
-    "retry": "Újrapróbálás"
+    "retry": "Újrapróbálás",
+    "archivedParen": "(archivált)",
+    "badgeUnlinked": "Nincs összekapcsolva",
+    "filterInviteExpired": "Lejárt meghívó",
+    "filterUnlinked": "Nem társított",
+    "invitationsRetry": "Újra",
+    "invitationsUnavailable": "Nem sikerült beolvasni a szervezet meghívóit, így a függőben lévő és lejárt meghívók nem jelennek meg, és a sorok nem társítottként vagy szervezeten kívüliként jelenhetnek meg. Próbáld újra, mielőtt bárkit meghívnál.",
+    "inviteAlreadyMember": "{{who}} már tagja a(z) {{org}} szervezetnek, így semmi új nem lett elküldve. Frissíts az aktuális állapot megtekintéséhez.",
+    "inviteAlreadyPending": "{{who}} már rendelkezik függőben lévő meghívóval a(z) {{org}} szervezetbe, így semmi új nem lett elküldve. A tantermi névsorban lévő soruknál küldd újra vagy vond vissza.",
+    "notMemberExpired": "A(z) {{label}} részére küldött meghívó lejárt, mielőtt elfogadták volna. A GitHub-meghívók 7 napig érvényesek. Hívd meg őket újra a hozzáférésük visszaállításához.",
+    "notMemberFailed": "A GitHub nem tudta kézbesíteni a meghívót {{label}} részére ({{reason}}). Hívd meg őket újra a hozzáférésük visszaállításához.",
+    "openInRoster": "Megnyitás a(z) {{classroom}} névsorában",
+    "orphanedInviteExpired": "Lejárt",
+    "orphanedInviteFailed": "Sikertelen",
+    "orphanedInvitesBody": "A GitHub még mindig felsorolja ezeket a lejárt vagy kézbesíthetetlen meghívókat, de egyetlen tantermi névsor vagy szervezeti tag sem egyezik velük, így itt semmi sem tudja őket újra meghívni. Általában a névsorsort a meghívó lejárta után távolították el. Vesd el őket a GitHub sikertelen meghívók listájának törléséhez, vagy hagyd meg azokat, amelyeket más célból küldtél.",
+    "orphanedInvitesDeferred_one": "A GitHub sebességkorlátja miatt {{count}} sikertelen meghívó nem lett elvetve. Próbáld újra néhány perc múlva.",
+    "orphanedInvitesDeferred_other": "A GitHub sebességkorlátja miatt {{count}} sikertelen meghívó nem lett elvetve. Próbáld újra néhány perc múlva.",
+    "orphanedInvitesDismiss": "Elvetés",
+    "orphanedInvitesDismissAll": "Összes elvetése",
+    "orphanedInvitesDismissFailed_one": "Nem sikerült elvetni {{count}} sikertelen meghívót: {{error}}",
+    "orphanedInvitesDismissFailed_other": "Nem sikerült elvetni {{count}} sikertelen meghívót: {{error}}",
+    "orphanedInvitesDismissed_one": "{{count}} sikertelen meghívó elvetve.",
+    "orphanedInvitesDismissed_other": "{{count}} sikertelen meghívó elvetve.",
+    "orphanedInvitesHide": "Részletek elrejtése",
+    "orphanedInvitesTitle_one": "{{count}} sikertelen meghívó nem szerepel egyetlen névsorban sem.",
+    "orphanedInvitesTitle_other": "{{count}} sikertelen meghívó nem szerepel egyetlen névsorban sem.",
+    "orphanedInvitesView": "Részletek megtekintése",
+    "removeSelf": "A saját fiókodat itt nem távolíthatod el a szervezetből.",
+    "removeViewerUnverified": "Nem sikerült ellenőrizni a fiókodat, így a tag nem lett eltávolítva. Próbáld újra.",
+    "rosterReadFailed": "Nem sikerült beolvasni a(z) {{classroom}} névsorát, így a diákjai nem jelennek meg. Ellenőrizd a tanterem roster.csv fájlját, majd frissíts.",
+    "strandedExpired": "A(z) {{who}} részére küldött meghívó lejárt, mielőtt elfogadták volna. A GitHub-meghívók 7 napig érvényesek. Nyisd meg a sorukat a tantermi névsorban, hogy újra meghívd őket, társítsd a sort egy szervezeti taghoz, vagy távolítsd el.",
+    "strandedFailed": "A GitHub nem tudta kézbesíteni a meghívót {{who}} részére ({{reason}}). Nyisd meg a sorukat a tantermi névsorban, hogy ellenőrizd a címet, és újra meghívd őket, társítsd a sort egy szervezeti taghoz, vagy távolítsd el.",
+    "strandedNoId": "{{who}} szerepel egy névsorban, de nem tagja a szervezetnek, és a soruknak nincs GitHub-azonosítója, így innen nem hívhatók meg. Nyisd meg a sorukat a tantermi névsorban, hogy meghívd őket.",
+    "strandedPendingAccount": "{{who}} rendelkezik függőben lévő szervezeti meghívóval, és még nem fogadta el. A soruk automatikusan frissül, amint csatlakoznak. A meghívó újraküldéséhez vagy visszavonásához nyisd meg a sorukat a tantermi névsorban.",
+    "strandedPendingEmail": "{{who}} e-mailben lett meghívva, és még nem fogadta el, így nincs nyilvántartott GitHub-fiók. Az adataik automatikusan kitöltődnek, amint csatlakoznak. A meghívó újraküldéséhez vagy visszavonásához nyisd meg a sorukat a tantermi névsorban.",
+    "strandedUnlinked": "Ez a sor nincs GitHub-fiókhoz társítva, és {{who}} nem rendelkezik függőben lévő meghívóval. Nyisd meg a sorukat a tantermi névsorban, hogy újra meghívd őket, társítsd a sort egy szervezeti taghoz, vagy távolítsd el.",
+    "warnNoUsername": "Nem sikerült eltávolítani {{who}} felhasználót a szervezetből: a soruknak nincs GitHub-felhasználóneve. Távolítsd el őket a szervezet Emberek oldaláról a GitHubon.",
+    "warnOrgRemoveFailed": "{{who}} eltávolítása a szervezetből nem sikerült ({{reason}}). Próbáld újra, vagy távolítsd el őket a szervezet Emberek oldaláról a GitHubon."
   },
   "components": {
     "avatar": {
@@ -3332,7 +3562,13 @@
       "removeUser": "{{username}} eltávolítása a csoportból",
       "reviewJoinRequests": "Csatlakozási kérelmek átnézése a GitHubon",
       "title": "Csoporttagok",
-      "youBadge": "Te"
+      "youBadge": "Te",
+      "overCapacity": "Ennek a csoportnak {{count}} tagja van, de ez a feladat {{max}} tagot enged. A tanárod is látja ezt a figyelmeztetést. Kérd meg a csoport karbantartóját vagy a tanárodat, hogy távolítson el tagokat, amíg a csoportnak {{max}} vagy kevesebb tagja lesz.",
+      "overCapacityManage": "Ennek a csoportnak {{count}} tagja van, de ez a feladat {{max}} tagot enged. A tanárod is látja ezt a figyelmeztetést. Távolíts el tagokat, amíg a csoportnak {{max}} vagy kevesebb tagja lesz."
+    },
+    "groupOverCapacity": {
+      "badge": "A korláton felül",
+      "title": "Ennek a csoportnak {{count}} tagja van, de ez a feladat {{max}} tagot enged. Valaki közvetlenül a GitHubon adott tagokat. Távolíts el tagokat a csoportból, vagy értékeld a csoportot úgy, ahogy van."
     }
   },
   "formatDate": {
@@ -3362,7 +3598,19 @@
       "failed": "{{label}}: sikertelen",
       "pending": "{{label}}: indítás…",
       "running": "{{label}}…",
-      "success": "{{label}}: kész"
+      "success": "{{label}}: kész",
+      "superseded": "{{label}}: benne van egy újabb közzétételben"
+    },
+    "publishFailure": {
+      "deployLockCleared": "A korábbi közzététel, amely ezt blokkolta, befejeződött. A módosításod mentve van. Próbáld újra a közzétételt.",
+      "deployLocked": "A GitHub Pages még egy korábbi közzétételt fejez be, ezért ez nem tudott elindulni. A módosításod mentve van. A korábbi közzététel általában 10 percen belül elhárul: próbáld újra akkor, vagy szakítsd meg most.",
+      "outage": "A GitHub Pages szerverhibát adott vissza. A módosításod mentve van. Nézd meg a githubstatus.com oldalt, majd próbáld újra.",
+      "pagesDisabled": "A GitHub Pages ki van kapcsolva a classroom50 repositorynál, ezért semmi sem éri el a hallgatói oldalt. A módosításod mentve van. Futtasd újra a beállítást a szervezet beállításaiban a Pages visszakapcsolásához, majd próbáld újra.",
+      "permission": "A közzétételi munkafolyamat nem írhat a GitHub Pages-be. A módosításod mentve van. Frissítsd a szervezet munkafolyamat-fájljait (egy sáv jelenik meg, amikor frissítés érhető el), majd próbáld újra.",
+      "timeout": "A GitHub Pages nem fejezte be a telepítést 10 percen belül. A módosításod mentve van. Ez általában a GitHub lassulása: próbáld újra, és nézd meg a githubstatus.com oldalt, ha folyamatosan előfordul.",
+      "unstick": "A beragadt közzététel megszakítása és újrapróbálkozás",
+      "unstickFailed": "Nem sikerült megszakítani a korábbi közzétételt: {{detail}}. Körülbelül 10 percen belül magától elhárul. Próbáld újra akkor.",
+      "unsticking": "Megszakítás…"
     }
   },
   "skeletonDrift": {
@@ -3626,7 +3874,7 @@
       "heading": "Jelentések",
       "markdownAction": "Markdown",
       "pdfAction": "PDF",
-      "vpatWcagDesc": "Akadálymentességi megfelelőségi jelentés a WCAG 2.2 alapján (VPAT 2.5Rev).",
+      "vpatWcagDesc": "Akadálymentesítési megfelelőségi jelentés a WCAG 2.0, 2.1 és 2.2 A és AA szintjeivel szemben (VPAT 2.5Rev).",
       "vpatWcagTitle": "VPAT: WCAG kiadás"
     },
     "legend": {
@@ -3644,7 +3892,7 @@
       "statement": "Nyilatkozat",
       "vpat": "Megfelelőség"
     },
-    "pageSubtitle": "Hogyan felel meg a Classroom 50 webalkalmazás a WCAG 2.2 AA szintjének, minden build során automatikusan ellenőrizve.",
+    "pageSubtitle": "Hogyan felel meg a Classroom 50 webalkalmazás a WCAG 2.0, 2.1 és 2.2 szabványoknak A és AA szinten, minden buildnél ellenőrzött színkontraszttal.",
     "pageTitle": "Akadálymentesség",
     "preview": {
       "open": "Színrészletek megtekintése",
@@ -3655,9 +3903,11 @@
       "colColors": "Színek (előtér / háttér)",
       "contrastMeta": "Páronkénti WCAG-kontrasztarányok minden auditált színre, mindkét témában. Létrehozva: {{date}}.",
       "contrastTitle": "Színkontraszt-audit",
-      "reportMeta": "Szabvány: WCAG {{standard}}, cél szint: {{target}}. Jelentés dátuma: {{date}}.",
-      "reportTitle": "Akadálymentességi megfelelőségi jelentés: {{product}}",
-      "vpatSummary": "Összefoglaló ({{total}} alkalmazható kritérium): {{supports}} Támogatja, {{partially}} Részben támogatja, {{doesNotSupport}} Nem támogatja, {{notApplicable}} Nem alkalmazható, {{notEvaluated}} Nem értékelt."
+      "reportMeta": "Szabvány: {{standard}}, cél szint: {{target}}. Alkalmazandó szabványok: WCAG {{versions}}, A és AA szint. Jelentés dátuma: {{date}}.",
+      "reportTitle": "{{vendor}} akadálymentesítési megfelelőségi jelentés",
+      "vpatSummary": "Összegzés ({{total}} kritérium): {{supports}} Támogatja, {{partially}} Részben támogatja, {{doesNotSupport}} Nem támogatja, {{notApplicable}} Nem alkalmazható, {{notEvaluated}} Nem értékelt.",
+      "productWithVersion": "{{product}}, verzió: {{version}}",
+      "reportProduct": "WCAG kiadás (a VPAT 2.5Rev alapján). Termék/verzió neve: {{product}}."
     },
     "statement": {
       "feedback": "Ha valamit nehéz használni,",
@@ -3667,7 +3917,7 @@
       "intro": "Azt szeretnénk, hogy mindenki használhassa a Classroom 50-et, beleértve azokat is, akik billentyűzetet, képernyőolvasót vagy más segítő technológiát használnak.",
       "limitations": "Néhány kritérium a megfelelőségi jelentésben „Részben támogatja” jelöléssel szerepel, mindegyiknél feltüntetve, hogy mi van még hátra. Ezeket a munka előrehaladtával javítjuk.",
       "limitationsHeading": "Ismert korlátok",
-      "target": "A WCAG 2.2 AA szintjét célozzuk meg. A színkontrasztot minden build során ellenőrizzük; a többit kézzel, billentyűzettel és képernyőolvasóval. A megfelelőségi jelentés felsorolja, hol tartunk az egyes kritériumoknál.",
+      "target": "Célunk a WCAG 2.2 AA szint teljesítése, amely magában foglalja a WCAG 2.0 és 2.1 A és AA szintű kritériumait is. A színkontrasztot minden buildnél ellenőrizzük; a többit kézzel, billentyűzettel és képernyőolvasóval. A megfelelőségi jelentés felsorolja az összes A és AA szintű kritériumot, beleértve azokat is, amelyek nem vonatkoznak erre az alkalmazásra, és ennek okát.",
       "targetHeading": "Hogyan teljesítünk",
       "updated": "Utoljára ellenőrizve: {{date}}."
     },
@@ -3709,7 +3959,18 @@
         "notEvaluated": "Nem értékelt",
         "partially": "Részben támogatja",
         "supports": "Támogatja"
-      }
+      },
+      "principle": {
+        "Operable": "Kezelhető",
+        "Perceivable": "Érzékelhető",
+        "Robust": "Robusztus",
+        "Understandable": "Érthető"
+      },
+      "since": {
+        "wcag21": "WCAG 2.1 és 2.2",
+        "wcag22": "Csak WCAG 2.2"
+      },
+      "tabAll": "Összes"
     }
   },
   "groupTeams": {
@@ -3788,7 +4049,8 @@
       "title": "{{name}} kezelése",
       "undo": "Visszavonás",
       "willBeAdded": "Hozzáadásra kerül",
-      "willBeRemoved": "Eltávolításra kerül"
+      "willBeRemoved": "Eltávolításra kerül",
+      "overCapacity": "Ennek a csoportnak {{count}} tagja van, de ez a feladat {{max}} tagot enged. Valaki közvetlenül a GitHubon adott tagokat. Távolíts el tagokat, amíg a csoportnak {{max}} vagy kevesebb tagja lesz, majd válaszd a Módosítások mentése lehetőséget."
     },
     "manageAriaLabel": "{{name}} kezelése",
     "manageButton": "Kezelés",
@@ -3846,6 +4108,17 @@
       "hidden": "Rejtett",
       "label": "Láthatóság",
       "visible": "Látható"
+    }
+  },
+  "backgroundPass": {
+    "failed": "A GitHubbal való szinkronizálás nem fejeződött be. Legközelebb újra lefut, amikor megnyitod a tantermet.",
+    "synced": "Szinkronizálva a GitHubbal.",
+    "syncing": "Szinkronizálás a GitHubbal…"
+  },
+  "staffTeams": {
+    "unclaimed": {
+      "staff": "A(z) {{slug}} csapat már létezik, de nem a Classroom 50 hozta létre, így nem használható oktatói csapatként. Tekintsd át a tagjait itt: {{url}}, majd vagy töröld, vagy adj neki hozzáférést a classroom50 tárolóhoz, és próbáld újra.",
+      "studentOf": "A(z) {{slug}} csapat a(z) {{classroom}} tanterem diákcsapata, így nem lehet ennek a tanteremnek a(z) {{role}} csapata. Hagyd betöltetlenül a(z) {{role}} szerepet itt, vagy nevezd át az egyik tantermet."
     }
   }
 }
