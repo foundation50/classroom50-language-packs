@@ -953,7 +953,8 @@
         "teamFormationInvalid": "Wybierz, kto tworzy grupy.",
         "pagesBranchInvalid": "Wpisz nazwę gałęzi bez spacji, o długości maksymalnie 255 znaków, lub pozostaw puste, aby użyć gałęzi domyślnej.",
         "pagesPathInvalid": "Folder Pages musi być / lub /docs.",
-        "pagesSourceInvalid": "GitHub Pages musi być „Wyłączone”, „GitHub Actions” lub „Gałąź”."
+        "pagesSourceInvalid": "GitHub Pages musi być „Wyłączone”, „GitHub Actions” lub „Gałąź”.",
+        "scheduleDateIncomplete": "Uzupełnij datę i godzinę albo wyłącz przełącznik, aby je usunąć."
       },
       "allowedFilesTip": "Uporządkowane wzorce w stylu {{gitignore}}, po jednym w wierszu, określające, które pliki należą do zgłoszenia (liczy się ostatnie dopasowanie, {{bang}} ponownie włącza). Na przykład {{star}}, a następnie {{example}} zezwala tylko na {{result}}. Puste zezwala na każdy plik.",
       "containerUserTip": "Użytkownik, jako który uruchamiany jest kontener. Ustaw root, jeśli checkout kończy się błędem uprawnień. GitHub Actions uruchamia kroki kontenera jako użytkownik hosta runnera, więc obraz non-root często nie może zapisywać w obszarze roboczym.",
@@ -1138,7 +1139,9 @@
           "private": "Prywatne",
           "public": "Publiczne"
         },
-        "publicWarning": "Każdy w internecie będzie mógł zobaczyć pracę każdego studenta: kod, commity i imię i nazwisko. Jeśli organizacja nie zezwala studentom na tworzenie publicznych repozytoriów, ich repozytorium zostaje utworzone jako prywatne, a Ty możesz ustawić je jako publiczne na stronie zgłoszeń."
+        "publicWarning": "Każdy w internecie będzie mógł zobaczyć pracę każdego studenta: kod, commity i imię i nazwisko. Jeśli organizacja nie zezwala studentom na tworzenie publicznych repozytoriów, ich repozytorium zostaje utworzone jako prywatne, a Ty możesz ustawić je jako publiczne na stronie zgłoszeń.",
+        "autograderWarning": "Publiczne repozytoria nie są oceniane automatycznie. GitHub blokuje uruchomienie przepływu oceniania z Twojego prywatnego repozytorium classroom50 w publicznym repozytorium, więc każde uruchomienie oceniania kończy się błędem „workflow was not found”. Podczas oceniania zachowaj repozytoria jako prywatne.",
+        "autograderWarningToggleHint": "Możesz też wybrać „Nie używaj wbudowanego autogradera”."
       },
       "lockAssignment": "Zablokuj zadanie",
       "lockAssignmentTip": "Studenci nie mogą widzieć ani akceptować zablokowanego zadania, w tym ci, którzy już je zaakceptowali. W przypadku prywatnego szablonu w Twojej organizacji zespół klasy traci dostęp do odczytu szablonu do czasu odblokowania. Dostęp personelu i istniejące repozytoria studentów pozostają bez zmian. Użyj tego, aby przygotować test na czas, a następnie odblokuj, gdy zaczyna się sesja.",
@@ -1167,14 +1170,15 @@
         },
         "editHelp": "Dotyczy to repozytoriów tworzonych od teraz; aby włączyć Pages w istniejących, użyj strony przesłanych prac.",
         "emptyRepoHint": "Niedostępne dla pustego repozytorium: nie ma jeszcze gałęzi do opublikowania.",
-        "help": "Opublikuj repozytorium każdego ucznia jako witrynę za pomocą GitHub Pages, konfigurowaną automatycznie w chwili akceptacji, dzięki czemu uczniowie nigdy nie potrzebują dostępu administratora. Domyślnie wyłączone. „GitHub Actions” wdraża przez przepływ pracy w repozytorium ucznia (dla witryn z krokiem kompilacji). „Gałąź” publikuje pliki z gałęzi bezpośrednio, bez potrzeby przepływu pracy (dla zwykłego HTML, CSS i JavaScript). Witryna jest publiczna w internecie, nawet gdy repozytorium jest prywatne, i serwowany jest każdy plik z opublikowanej gałęzi i folderu; tylko GitHub Enterprise Cloud może ograniczyć, kto ją widzi. Pages w prywatnych repozytoriach wymaga planu GitHub, który je obejmuje; w GitHub Free dla organizacji udostępnij repozytorium publicznie, w przeciwnym razie witryna nie zostanie utworzona.",
+        "help": "Opublikuj repozytorium każdego ucznia jako witrynę za pomocą GitHub Pages, konfigurowaną automatycznie w chwili akceptacji przez ucznia, dzięki czemu nie potrzebuje on dostępu administratora. Domyślnie jest wyłączone. Opcja „GitHub Actions” wdraża przez przepływ pracy w repozytorium ucznia (dla witryn z etapem budowania). Opcja „Gałąź” publikuje pliki z gałęzi bezpośrednio, bez przepływu pracy (dla zwykłego HTML, CSS i JavaScript). Witryna jest publiczna w internecie nawet gdy repozytorium jest prywatne, a udostępniany jest każdy plik w opublikowanej gałęzi i folderze; tylko GitHub Enterprise Cloud może ograniczyć, kto ją widzi. Pages na prywatnych repozytoriach wymaga planu GitHub, który je obejmuje; w planie GitHub Free dla organizacji ustaw repozytorium jako publiczne, w przeciwnym razie witryna nie zostanie utworzona. Publiczne repozytoria nie są oceniane automatycznie (zobacz Widoczność repozytorium).",
         "label": "GitHub Pages",
         "path": {
           "help": "Folder w tej gałęzi do opublikowania: katalog główny repozytorium (/) lub /docs. GitHub dopuszcza tylko te dwa.",
           "label": "Folder"
         },
         "workflowNote": "Wdrażanie przez GitHub Actions wymaga przepływu pracy w repozytorium każdego ucznia, który publikuje do Pages: musi przyznawać uprawnienia pages: write i id-token: write oraz używać actions/upload-pages-artifact i actions/deploy-pages. Umieść go w swoim szablonie lub poproś uczniów o dodanie go. Witryna jest tworzona w chwili akceptacji przez ucznia, więc pierwsze uruchomienie przepływu pracy ją wdraża."
-      }
+      },
+      "customAutograderNotice": "To zadanie korzysta z niestandardowego autogradera „{{name}}” z {{path}}. Zapisanie go zachowa. Aby przełączyć się na wbudowany autograder, ustaw „autograder” na „default” w assignments.json."
     },
     "autograder": {
       "heading": "Testy autooceny",
@@ -1620,6 +1624,12 @@
       "unlockNoneLocked": "Żadne z wybranych zadań nie jest zablokowane.",
       "unlockTitle_one": "Odblokować {{count}} zadanie?",
       "unlockTitle_other": "Odblokować {{count}} zadania?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "„{{slug}}” korzysta z niestandardowego autogradera „{{name}}”, który do działania potrzebuje treści startowej. Wybierz szablon lub włącz ponownie „Dodaj plik README”, albo najpierw ustaw „autograder” na „default” w {{classroom}}/assignments.json.",
+        "customAutograderNoAutograder": "„{{slug}}” korzysta z niestandardowego autogradera „{{name}}”, który wymaga włączonego ustawienia wbudowanego autogradera. Włącz ponownie wbudowany autograder lub najpierw ustaw „autograder” na „default” w {{classroom}}/assignments.json."
+      }
     }
   },
   "published": {
@@ -2628,7 +2638,10 @@
       "errorTitle": "Nie udało się sprawdzić PR z opinią",
       "emptyTitle": "Brak jeszcze pull requesta z opinią",
       "openRepoPrs": "Otwórz PR repozytorium",
-      "emptyBody": "Nie otwarto jeszcze żadnego pull requesta z opinią dla <repo>{{repo}}</repo>. Otwiera się on, gdy uczeń zaakceptuje zadanie, więc mógł jeszcze nie zaakceptować, zadanie może mieć tę opcję wyłączoną lub otwarcie zostało odroczone. Odroczone otwarcie jest ponawiane przy ponownej akceptacji lub przy pierwszym ocenionym przesłaniu."
+      "emptyBody": "Nie otwarto jeszcze żadnego pull requesta z opinią dla <repo>{{repo}}</repo>. Otwiera się on, gdy uczeń zaakceptuje zadanie, więc mógł jeszcze nie zaakceptować, zadanie może mieć tę opcję wyłączoną lub otwarcie zostało odroczone. Odroczone otwarcie jest ponawiane przy ponownej akceptacji lub przy pierwszym ocenionym przesłaniu.",
+      "blockedBody": "Twoja przeglądarka zablokowała otwarcie go w nowej karcie. Użyj przycisku poniżej, aby go otworzyć.",
+      "blockedTitle": "Znaleziono pull request z opinią",
+      "openPr": "Otwórz pull request z opinią"
     },
     "rowRegrade": {
       "title": "Oceń ponownie to rozwiązanie",
@@ -3085,7 +3098,8 @@
       "subtitle_other": "Dotyczy {{count}} studentów, którzy zaakceptowali to zadanie.",
       "title": "Zmień widoczność repozytorium",
       "titleEmptyRoster": "Żaden student jeszcze nie zaakceptował",
-      "working": "Aktualizowanie repozytoriów"
+      "working": "Aktualizowanie repozytoriów",
+      "autograderWarning": "Automatyczne ocenianie zostaje wstrzymane, gdy repozytorium jest publiczne. GitHub blokuje uruchomienie przepływu oceniania z Twojego prywatnego repozytorium classroom50 w publicznym repozytorium, więc każde uruchomienie oceniania kończy się błędem „workflow was not found”. Ustaw repozytoria z powrotem jako prywatne, aby wznowić ocenianie."
     },
     "cloneAll": {
       "buttonTitle": "Sklonuj wszystkie zgłoszenia za pomocą CLI",
@@ -3119,7 +3133,8 @@
         "private": "Repozytorium jest teraz prywatne.",
         "public": "Repozytorium jest teraz publiczne."
       },
-      "confirmWarning": "Każdy, kto obejrzy lub sklonuje repozytorium, gdy jest publiczne, zachowuje tę kopię, nawet po ponownym ustawieniu go jako prywatne."
+      "confirmWarning": "Każdy, kto obejrzy lub sklonuje repozytorium, gdy jest publiczne, zachowuje tę kopię, nawet po ponownym ustawieniu go jako prywatne.",
+      "confirmAutograderWarning": "Automatyczne ocenianie zostaje wstrzymane, gdy repozytorium jest publiczne: GitHub blokuje uruchomienie przepływu oceniania z Twojego prywatnego repozytorium classroom50. Ustaw je z powrotem jako prywatne, aby wznowić ocenianie."
     },
     "rosterFromCsvNotice": "Lista uczniów pochodzi z pliku listy z chwili jej ostatniej synchronizacji, ponieważ Twoja rola nie może przeglądać zespołu GitHub tej klasy. Uczeń zapisany od tego czasu pojawi się po otwarciu listy przez nauczyciela. Właściciele organizacji widzą członkostwo na żywo.",
     "skipPastTable": "Pomiń tabelę przesłań",

@@ -1197,6 +1197,7 @@
       "repositorySetupSection": "Repository setup",
       "submissionSection": "Submission and grading",
       "submissionSectionHelp": "Define what counts as a submission for this assignment: when the autograder runs and which tags a student can push to submit.",
+      "customAutograderNotice": "This assignment uses the custom autograder \"{{name}}\" from {{path}}. Saving keeps it. To switch to the built-in autograder, set \"autograder\" to \"default\" in assignments.json.",
       "scheduleSection": "Schedule and access",
       "reset": "Reset",
       "resetSection": "Reset this section to its default settings",
@@ -1287,6 +1288,8 @@
         "label": "Repository visibility",
         "help": "The visibility each student repository is created with at accept time. Private is the default. Choose Public for peer-review, portfolio, or showcase assignments. Students are warned before accepting.",
         "publicWarning": "Anyone on the internet will be able to see each student's work: code, commits, and name. If the organization doesn't allow students to create public repositories, their repository is created private instead and you can make it public from the submissions page.",
+        "autograderWarning": "Public repositories aren't autograded. GitHub blocks a public repository from running the grading workflow in your private classroom50 repository, so every grading run fails with \"workflow was not found\". Keep repositories private while grading.",
+        "autograderWarningToggleHint": "You can also select \"Do not use the built-in autograder\".",
         "editHelp": "This applies to repositories created from now on; use the submissions page to change the visibility of existing ones.",
         "levels": {
           "private": "Private",
@@ -1295,7 +1298,7 @@
       },
       "pages": {
         "label": "GitHub Pages",
-        "help": "Publish each student repository as a website with GitHub Pages, configured automatically when the student accepts so they never need admin access. Off is the default. \"GitHub Actions\" deploys through a workflow in the student repository (for sites with a build step). \"A branch\" publishes the files in a branch directly, no workflow needed (for plain HTML, CSS, and JavaScript). The site is public on the internet even when the repository is private, and every file in the published branch and folder is served; only GitHub Enterprise Cloud can restrict who sees it. Pages on private repositories needs a GitHub plan that includes it; on GitHub Free for organizations, make the repository public or the site isn't created.",
+        "help": "Publish each student repository as a website with GitHub Pages, configured automatically when the student accepts so they never need admin access. Off is the default. \"GitHub Actions\" deploys through a workflow in the student repository (for sites with a build step). \"A branch\" publishes the files in a branch directly, no workflow needed (for plain HTML, CSS, and JavaScript). The site is public on the internet even when the repository is private, and every file in the published branch and folder is served; only GitHub Enterprise Cloud can restrict who sees it. Pages on private repositories needs a GitHub plan that includes it; on GitHub Free for organizations, make the repository public or the site isn't created. Public repositories aren't autograded (see Repository visibility).",
         "editHelp": "This applies to repositories created from now on; use the submissions page to enable Pages on existing ones.",
         "emptyRepoHint": "Not available for an empty repository: there is no branch to publish yet.",
         "workflowNote": "Deploying through GitHub Actions needs a workflow in each student repository that publishes to Pages: it must grant pages: write and id-token: write permissions and use actions/upload-pages-artifact and actions/deploy-pages. Put it in your template, or have students add it. The site is created when the student accepts, so the workflow's first run deploys it.",
@@ -1452,6 +1455,7 @@
         "runnerContainerError": "\"{{label}}\" is a macOS/Windows runner; a Docker image needs an Ubuntu (or custom/self-hosted) runner."
       },
       "validation": {
+        "scheduleDateIncomplete": "Finish the date and time, or turn the toggle off to remove it.",
         "nameRequired": "Assignment name is required.",
         "slugRequired": "Assignment slug is required.",
         "slugInvalid": "Assignment slug must be {{description}}.",
@@ -1762,6 +1766,12 @@
         "fixSatisfied": "The classroom team already has read access, so there's nothing to fix.",
         "ownerOnlyNote": "Only an organization owner can grant team access. Ask an owner to run this, or grant the teams read on the template in GitHub.",
         "close": "Close"
+      }
+    },
+    "edit": {
+      "error": {
+        "customAutograderNoAutograder": "\"{{slug}}\" uses the custom autograder \"{{name}}\", which needs the built-in autograder setting on. Turn the built-in autograder back on, or set \"autograder\" to \"default\" in {{classroom}}/assignments.json first.",
+        "customAutograderInitShim": "\"{{slug}}\" uses the custom autograder \"{{name}}\", which needs starter content to run. Choose a template or turn \"Add a README\" back on, or set \"autograder\" to \"default\" in {{classroom}}/assignments.json first."
       }
     },
     "rename": {
@@ -3200,7 +3210,10 @@
       "errorTitle": "Couldn't check for a feedback PR",
       "emptyTitle": "No feedback pull request yet",
       "emptyBody": "No feedback pull request has been opened for <repo>{{repo}}</repo> yet. It opens when the student accepts the assignment, so they may not have accepted yet, the assignment may have it turned off, or opening it was deferred. A deferred open retries on re-accept or on the first graded submission.",
-      "openRepoPrs": "Open repository PRs"
+      "openRepoPrs": "Open repository PRs",
+      "blockedTitle": "Feedback pull request found",
+      "blockedBody": "Your browser blocked opening it in a new tab. Use the button below to open it.",
+      "openPr": "Open feedback PR"
     },
     "repairPr": {
       "hint": "If the student accepted but opening the PR failed (a GitHub outage or transient error), you can open it now.",
@@ -3402,6 +3415,7 @@
       "info_other": "This changes the visibility of {{count}} students' repositories. Repositories students accept later use the assignment's visibility setting.",
       "publicWarning_one": "This makes {{count}} student's repository visible to anyone on the internet, including all code, commit history, and any names or personal information in it. You can make it private again the same way.",
       "publicWarning_other": "This makes {{count}} students' repositories visible to anyone on the internet, including all code, commit history, and any names or personal information in them. You can make them private again the same way.",
+      "autograderWarning": "Autograding stops while a repository is public. GitHub blocks a public repository from running the grading workflow in your private classroom50 repository, so every grading run fails with \"workflow was not found\". Make the repositories private again to resume grading.",
       "apply": "Apply to all",
       "working": "Updating repositories",
       "progress": "Updated {{processed}} of {{total}}",
@@ -3496,6 +3510,7 @@
       "confirmTitle": "Make {{name}}'s repository public?",
       "confirmBody": "Anyone on the internet will be able to see <repo>{{repo}}</repo>, including all code, commit history, and any names or personal information in it. You can make it private again anytime.",
       "confirmWarning": "Anyone who views or clones the repository while it's public keeps that copy, even after you make it private again.",
+      "confirmAutograderWarning": "Autograding stops while the repository is public: GitHub blocks it from running the grading workflow in your private classroom50 repository. Make it private again to resume grading.",
       "confirmLabel": "Make public",
       "outcome": {
         "public": "Repository is now public.",

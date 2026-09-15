@@ -1279,7 +1279,9 @@
         "levels": {
           "private": "비공개",
           "public": "공개"
-        }
+        },
+        "autograderWarning": "공개 리포지토리는 자동 채점되지 않습니다. GitHub는 공개 리포지토리가 비공개 classroom50 리포지토리의 채점 워크플로를 실행하는 것을 차단하므로, 모든 채점 실행이 \"workflow was not found\" 오류로 실패합니다. 채점 중에는 리포지토리를 비공개로 유지하세요.",
+        "autograderWarningToggleHint": "\"내장 자동 채점기를 사용하지 않음\"을 선택할 수도 있습니다."
       },
       "autograding": {
         "modeLabel": "내장 자동 채점기",
@@ -1410,7 +1412,8 @@
         "teamFormationInvalid": "그룹을 구성할 주체를 선택하세요.",
         "pagesBranchInvalid": "공백이 없고 255자 이하의 브랜치 이름을 입력하거나, 기본 브랜치를 사용하려면 비워 두세요.",
         "pagesPathInvalid": "Pages 폴더는 / 또는 /docs여야 합니다.",
-        "pagesSourceInvalid": "GitHub Pages는 \"끔\", \"GitHub Actions\" 또는 \"브랜치\" 중 하나여야 합니다."
+        "pagesSourceInvalid": "GitHub Pages는 \"끔\", \"GitHub Actions\" 또는 \"브랜치\" 중 하나여야 합니다.",
+        "scheduleDateIncomplete": "날짜와 시간을 마저 입력하거나, 제거하려면 토글을 끄세요."
       },
       "allowedFilesTip": "제출물에 포함할 파일을 정의하는 {{gitignore}} 스타일 패턴을 한 줄에 하나씩 순서대로 지정합니다(마지막으로 일치하는 항목이 우선, {{bang}}은(는) 다시 포함). 예: {{star}} 다음에 {{example}}을(를) 지정하면 {{result}}만 허용됩니다. 비워 두면 모든 파일이 허용됩니다.",
       "passThresholdTip": "기본값은 꺼짐입니다. 켜면 제출 페이지에서 아래 기준선에 대해 제출물을 통과 또는 실패로 표시합니다(통과 요약, 점수 배지, 통과/실패 필터). 이는 표시용 기준선일 뿐입니다. 학생의 실제 점수는 변경하지 않습니다.",
@@ -1467,14 +1470,15 @@
         },
         "editHelp": "이는 지금부터 생성되는 저장소에 적용됩니다. 기존 저장소에서 Pages를 활성화하려면 제출 페이지를 사용하세요.",
         "emptyRepoHint": "빈 저장소에는 사용할 수 없습니다. 아직 게시할 브랜치가 없습니다.",
-        "help": "GitHub Pages로 각 학생 저장소를 웹사이트로 게시합니다. 학생이 수락할 때 자동으로 구성되므로 관리자 권한이 필요 없습니다. 기본값은 끔입니다. \"GitHub Actions\"는 학생 저장소의 워크플로를 통해 배포합니다(빌드 단계가 있는 사이트용). \"브랜치\"는 브랜치의 파일을 워크플로 없이 직접 게시합니다(순수 HTML, CSS, JavaScript용). 저장소가 비공개이더라도 사이트는 인터넷에 공개되며, 게시된 브랜치와 폴더의 모든 파일이 제공됩니다. 누가 볼 수 있는지는 GitHub Enterprise Cloud에서만 제한할 수 있습니다. 비공개 저장소의 Pages는 이를 포함하는 GitHub 요금제가 필요하며, 조직용 GitHub Free에서는 저장소를 공개로 만들지 않으면 사이트가 생성되지 않습니다.",
+        "help": "각 학생 리포지토리를 GitHub Pages로 웹사이트로 게시합니다. 학생이 수락할 때 자동으로 구성되므로 관리자 권한이 전혀 필요하지 않습니다. 기본값은 끄기입니다. \"GitHub Actions\"는 학생 리포지토리의 워크플로를 통해 배포합니다(빌드 단계가 있는 사이트용). \"브랜치\"는 브랜치의 파일을 워크플로 없이 직접 게시합니다(순수 HTML, CSS, JavaScript용). 리포지토리가 비공개여도 사이트는 인터넷에 공개되며, 게시된 브랜치와 폴더의 모든 파일이 제공됩니다. GitHub Enterprise Cloud만이 볼 수 있는 사람을 제한할 수 있습니다. 비공개 리포지토리의 Pages에는 이를 포함하는 GitHub 요금제가 필요하며, 조직용 GitHub Free에서는 리포지토리를 공개로 만들지 않으면 사이트가 생성되지 않습니다. 공개 리포지토리는 자동 채점되지 않습니다(리포지토리 공개 범위 참조).",
         "label": "GitHub Pages",
         "path": {
           "help": "해당 브랜치에서 게시할 폴더입니다. 저장소 루트(/) 또는 /docs입니다. GitHub는 이 두 가지만 허용합니다.",
           "label": "폴더"
         },
         "workflowNote": "GitHub Actions를 통한 배포에는 Pages로 게시하는 워크플로가 각 학생 저장소에 필요합니다. 워크플로는 pages: write와 id-token: write 권한을 부여하고 actions/upload-pages-artifact와 actions/deploy-pages를 사용해야 합니다. 템플릿에 넣거나 학생들이 추가하게 하세요. 사이트는 학생이 수락할 때 생성되므로 워크플로의 첫 실행이 사이트를 배포합니다."
-      }
+      },
+      "customAutograderNotice": "이 과제는 {{path}}의 사용자 지정 자동 채점기 \"{{name}}\"을(를) 사용합니다. 저장해도 그대로 유지됩니다. 내장 자동 채점기로 전환하려면 assignments.json에서 \"autograder\"를 \"default\"로 설정하세요."
     },
     "autograder": {
       "heading": "자동 채점 테스트",
@@ -1865,6 +1869,12 @@
       "unlockNoneLocked": "선택한 과제 중 잠긴 것이 없습니다.",
       "unlockTitle_one": "과제 {{count}}개의 잠금을 해제하시겠어요?",
       "unlockTitle_other": "과제 {{count}}개의 잠금을 해제하시겠어요?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "\"{{slug}}\"은(는) 사용자 지정 자동 채점기 \"{{name}}\"을(를) 사용하며, 이를 실행하려면 시작 콘텐츠가 필요합니다. 템플릿을 선택하거나 \"README 추가\"를 다시 켜거나, 먼저 {{classroom}}/assignments.json에서 \"autograder\"를 \"default\"로 설정하세요.",
+        "customAutograderNoAutograder": "\"{{slug}}\"은(는) 사용자 지정 자동 채점기 \"{{name}}\"을(를) 사용하며, 이를 위해서는 내장 자동 채점기 설정이 켜져 있어야 합니다. 내장 자동 채점기를 다시 켜거나, 먼저 {{classroom}}/assignments.json에서 \"autograder\"를 \"default\"로 설정하세요."
+      }
     }
   },
   "published": {
@@ -3195,7 +3205,10 @@
       "errorTitle": "피드백 PR을 확인할 수 없습니다",
       "emptyTitle": "아직 피드백 풀 리퀘스트가 없습니다",
       "emptyBody": "<repo>{{repo}}</repo>에 대한 피드백 PR이 아직 열리지 않았습니다. 이는 학생이 과제를 수락할 때 열립니다 — 따라서 검토할 항목이 없다면 학생이 아직 수락하지 않았거나, 과제의 피드백 PR이 비활성화되었거나, 열기가 연기되었을 수 있습니다(다시 수락하거나 첫 채점 제출 시 재시도됩니다).",
-      "openRepoPrs": "저장소 PR 열기"
+      "openRepoPrs": "저장소 PR 열기",
+      "blockedBody": "브라우저가 새 탭에서 열기를 차단했습니다. 아래 버튼을 사용해 여세요.",
+      "blockedTitle": "피드백 풀 리퀘스트를 찾았습니다",
+      "openPr": "피드백 PR 열기"
     },
     "repairPr": {
       "hint": "학생이 수락했지만 PR 열기가 실패한 경우(GitHub 장애 또는 일시적 오류), 지금 열 수 있습니다.",
@@ -3383,7 +3396,8 @@
       "failedSection_other": "리포지터리 {{count}}개를 변경할 수 없었습니다",
       "deferredSection_one": "리포지터리 {{count}}개가 변경되지 않았습니다",
       "deferredSection_other": "리포지터리 {{count}}개가 변경되지 않았습니다",
-      "deferredDetail": "건너뜀 — 다시 실행하여 업데이트하세요."
+      "deferredDetail": "건너뜀 — 다시 실행하여 업데이트하세요.",
+      "autograderWarning": "리포지토리가 공개인 동안에는 자동 채점이 중단됩니다. GitHub는 공개 리포지토리가 비공개 classroom50 리포지토리의 채점 워크플로를 실행하는 것을 차단하므로, 모든 채점 실행이 \"workflow was not found\" 오류로 실패합니다. 채점을 재개하려면 리포지토리를 다시 비공개로 만드세요."
     },
     "bulkTrigger": {
       "menuLabel": "자동 채점 트리거 업데이트",
@@ -3457,7 +3471,8 @@
         "public": "리포지터리가 이제 공개입니다.",
         "private": "리포지터리가 이제 비공개입니다."
       },
-      "confirmWarning": "저장소가 공개되어 있는 동안 이를 보거나 복제한 사람은 다시 비공개로 전환한 후에도 그 사본을 그대로 갖고 있게 됩니다."
+      "confirmWarning": "저장소가 공개되어 있는 동안 이를 보거나 복제한 사람은 다시 비공개로 전환한 후에도 그 사본을 그대로 갖고 있게 됩니다.",
+      "confirmAutograderWarning": "리포지토리가 공개인 동안에는 자동 채점이 중단됩니다. GitHub는 이 리포지토리가 비공개 classroom50 리포지토리의 채점 워크플로를 실행하는 것을 차단합니다. 채점을 재개하려면 다시 비공개로 만드세요."
     },
     "bulkAutograde": {
       "pauseMenuLabel": "자동 채점 일시 중지",

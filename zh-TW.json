@@ -951,7 +951,8 @@
         "teamFormationInvalid": "請選擇由誰組成群組。",
         "pagesBranchInvalid": "請輸入不含空格、最多 255 個字元的分支名稱，或留空以使用預設分支。",
         "pagesPathInvalid": "Pages 資料夾必須是 / 或 /docs。",
-        "pagesSourceInvalid": "GitHub Pages 必須是「關閉」、「GitHub Actions」或「某個分支」。"
+        "pagesSourceInvalid": "GitHub Pages 必須是「關閉」、「GitHub Actions」或「某個分支」。",
+        "scheduleDateIncomplete": "請填完日期與時間，或將切換開關關閉以移除它。"
       },
       "allowedFilesTip": "依序排列的 {{gitignore}} 樣式模式，每行一個，用來定義哪些檔案屬於提交（以最後符合者為準，{{bang}} 可重新納入）。例如，先 {{star}} 再 {{example}} 表示僅允許 {{result}}。留空則允許所有檔案。",
       "containerUserTip": "容器執行時所使用的使用者。若簽出（checkout）因權限錯誤而失敗，請設為 root。GitHub Actions 會以主機 runner 的使用者身分執行容器步驟，因此非 root 映像檔往往無法寫入工作區。",
@@ -1139,7 +1140,9 @@
           "private": "私人",
           "public": "公開"
         },
-        "publicWarning": "網際網路上的任何人都能看到每位學生的作業：程式碼、提交紀錄與姓名。如果組織不允許學生建立公開儲存庫，則會改為建立私人儲存庫，你之後可從提交頁面將它設為公開。"
+        "publicWarning": "網際網路上的任何人都能看到每位學生的作業：程式碼、提交紀錄與姓名。如果組織不允許學生建立公開儲存庫，則會改為建立私人儲存庫，你之後可從提交頁面將它設為公開。",
+        "autograderWarning": "公開儲存庫不會被自動評分。GitHub 會封鎖公開儲存庫執行你私人 classroom50 儲存庫中的評分工作流程，因此每次評分執行都會以「找不到工作流程」失敗。評分期間請讓儲存庫保持私人。",
+        "autograderWarningToggleHint": "你也可以選擇「不使用內建自動評分程式」。"
       },
       "teamFormation": "小組組成",
       "teamFormationStudent": "由學生自行組成小組",
@@ -1165,14 +1168,15 @@
         },
         "editHelp": "這適用於從現在起建立的儲存庫；請使用繳交頁面在現有儲存庫上啟用 Pages。",
         "emptyRepoHint": "空白儲存庫無法使用：目前還沒有可發布的分支。",
-        "help": "透過 GitHub Pages 將每個學生儲存庫發布為網站，在學生接受時自動設定，因此他們永遠不需要管理員權限。預設為關閉。「GitHub Actions」透過學生儲存庫中的工作流程部署（適用於有建置步驟的網站）。「某個分支」直接發布分支中的檔案，不需要工作流程（適用於純 HTML、CSS 和 JavaScript）。即使儲存庫是私人的，網站在網際網路上也是公開的，且已發布分支與資料夾中的每個檔案都會被提供；只有 GitHub Enterprise Cloud 能限制誰可以檢視。在私人儲存庫上使用 Pages 需要包含此功能的 GitHub 方案；在組織版 GitHub Free 上，請將儲存庫改為公開，否則不會建立網站。",
+        "help": "使用 GitHub Pages 將每位學生的儲存庫發佈為網站，於學生接受作業時自動設定，因此他們永遠不需要管理員權限。預設為關閉。「GitHub Actions」透過學生儲存庫中的工作流程進行部署（適用於需要建置步驟的網站）。「某個分支」則直接發佈某個分支中的檔案，不需要工作流程（適用於純 HTML、CSS 和 JavaScript）。即使儲存庫為私人，該網站在網際網路上仍是公開的，且會提供所發佈分支與資料夾中的每個檔案；只有 GitHub Enterprise Cloud 才能限制誰可以看到它。在私人儲存庫上使用 Pages 需要包含此功能的 GitHub 方案；在組織的 GitHub Free 方案上，請將儲存庫設為公開，否則不會建立網站。公開儲存庫不會被自動評分（請參閱儲存庫可見度）。",
         "label": "GitHub Pages",
         "path": {
           "help": "該分支中要發布的資料夾：儲存庫根目錄（/）或 /docs。GitHub 僅允許這兩者。",
           "label": "資料夾"
         },
         "workflowNote": "透過 GitHub Actions 部署需要在每個學生儲存庫中有一個發布至 Pages 的工作流程：它必須授予 pages: write 和 id-token: write 權限，並使用 actions/upload-pages-artifact 和 actions/deploy-pages。將它放入你的範本，或讓學生自行加入。網站會在學生接受時建立，因此工作流程的首次執行會部署它。"
-      }
+      },
+      "customAutograderNotice": "此作業使用來自 {{path}} 的自訂自動評分程式「{{name}}」。儲存時會保留它。若要改用內建自動評分程式，請在 assignments.json 中將「autograder」設為「default」。"
     },
     "autograder": {
       "heading": "自動評分測試",
@@ -1618,6 +1622,12 @@
       "unlockNoneLocked": "所選作業皆未被鎖定。",
       "unlockTitle_one": "解除鎖定 {{count}} 項作業？",
       "unlockTitle_other": "解除鎖定 {{count}} 項作業？"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "「{{slug}}」使用自訂自動評分程式「{{name}}」，執行時需要起始內容。請選擇一個範本或重新開啟「新增 README」，或先在 {{classroom}}/assignments.json 中將「autograder」設為「default」。",
+        "customAutograderNoAutograder": "「{{slug}}」使用自訂自動評分程式「{{name}}」，需要開啟內建自動評分程式設定。請重新開啟內建自動評分程式，或先在 {{classroom}}/assignments.json 中將「autograder」設為「default」。"
+      }
     }
   },
   "published": {
@@ -2626,7 +2636,10 @@
       "errorTitle": "無法檢查是否有回饋 PR",
       "emptyTitle": "尚無回饋合併請求",
       "openRepoPrs": "開啟儲存庫合併請求",
-      "emptyBody": "尚未為 <repo>{{repo}}</repo> 開啟任何回饋合併請求。它會在學生接受作業時開啟，因此他們可能尚未接受、作業可能已將其關閉，或開啟被延後了。延後的開啟會在重新接受或首次評分繳交時重試。"
+      "emptyBody": "尚未為 <repo>{{repo}}</repo> 開啟任何回饋合併請求。它會在學生接受作業時開啟，因此他們可能尚未接受、作業可能已將其關閉，或開啟被延後了。延後的開啟會在重新接受或首次評分繳交時重試。",
+      "blockedBody": "你的瀏覽器封鎖了在新分頁中開啟它。請使用下方按鈕開啟。",
+      "blockedTitle": "找到意見回饋拉取請求",
+      "openPr": "開啟意見回饋 PR"
     },
     "rowRegrade": {
       "title": "重新評分此繳交",
@@ -3083,7 +3096,8 @@
       "subtitle_other": "套用於已接受此作業的 {{count}} 位學生。",
       "title": "變更儲存庫可見性",
       "titleEmptyRoster": "尚無學生接受",
-      "working": "正在更新儲存庫"
+      "working": "正在更新儲存庫",
+      "autograderWarning": "儲存庫公開期間會停止自動評分。GitHub 會封鎖公開儲存庫執行你私人 classroom50 儲存庫中的評分工作流程，因此每次評分執行都會以「找不到工作流程」失敗。請將這些儲存庫改回私人以恢復評分。"
     },
     "cloneAll": {
       "buttonTitle": "使用 CLI 複製所有繳交內容",
@@ -3118,7 +3132,8 @@
         "private": "儲存庫現在為私有。",
         "public": "儲存庫現在為公開。"
       },
-      "confirmWarning": "在儲存庫公開期間檢視或複製它的任何人都會保有那份副本，即使你之後再將它設為私有也一樣。"
+      "confirmWarning": "在儲存庫公開期間檢視或複製它的任何人都會保有那份副本，即使你之後再將它設為私有也一樣。",
+      "confirmAutograderWarning": "儲存庫公開期間會停止自動評分：GitHub 會封鎖它執行你私人 classroom50 儲存庫中的評分工作流程。請將它改回私人以恢復評分。"
     },
     "skipPastTable": "略過繳交表格",
     "slugTitle": "作業代稱：此作業的唯一識別碼。顯示名稱可以重複。",

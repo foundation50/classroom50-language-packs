@@ -951,7 +951,8 @@
         "teamFormationInvalid": "Elige quién forma los grupos.",
         "pagesBranchInvalid": "Introduce un nombre de rama sin espacios, de 255 caracteres como máximo, o déjalo en blanco para usar la rama predeterminada.",
         "pagesPathInvalid": "La carpeta de Pages debe ser / o /docs.",
-        "pagesSourceInvalid": "GitHub Pages debe ser «Desactivado», «GitHub Actions» o «Una rama»."
+        "pagesSourceInvalid": "GitHub Pages debe ser «Desactivado», «GitHub Actions» o «Una rama».",
+        "scheduleDateIncomplete": "Completa la fecha y la hora, o desactiva el interruptor para quitarla."
       },
       "allowedFilesTip": "Patrones ordenados de estilo {{gitignore}}, uno por línea, que definen qué archivos pertenecen a una entrega (gana la última coincidencia, {{bang}} vuelve a incluir). Por ejemplo, {{star}} y luego {{example}} permite solo {{result}}. En blanco permite todos los archivos.",
       "containerUserTip": "El usuario con el que se ejecuta el contenedor. Establece root si el checkout falla con un error de permisos. GitHub Actions ejecuta los pasos del contenedor con el usuario del runner anfitrión, por lo que una imagen sin root a menudo no puede escribir en el espacio de trabajo.",
@@ -1136,7 +1137,9 @@
           "private": "Privado",
           "public": "Público"
         },
-        "publicWarning": "Cualquier persona en internet podrá ver el trabajo de cada estudiante: código, confirmaciones y nombre. Si la organización no permite que los estudiantes creen repositorios públicos, su repositorio se crea como privado y puedes hacerlo público desde la página de entregas."
+        "publicWarning": "Cualquier persona en internet podrá ver el trabajo de cada estudiante: código, confirmaciones y nombre. Si la organización no permite que los estudiantes creen repositorios públicos, su repositorio se crea como privado y puedes hacerlo público desde la página de entregas.",
+        "autograderWarning": "Los repositorios públicos no se autocalifican. GitHub impide que un repositorio público ejecute el flujo de trabajo de calificación de tu repositorio privado classroom50, por lo que cada ejecución de calificación falla con «workflow was not found». Mantén los repositorios privados mientras calificas.",
+        "autograderWarningToggleHint": "También puedes seleccionar «No usar el autocalificador integrado»."
       },
       "lockAssignment": "Bloquear tarea",
       "lockAssignmentTip": "Los estudiantes no pueden ver ni aceptar una tarea bloqueada, incluidos los que ya la habían aceptado. Para una plantilla privada de tu organización, el equipo de la clase pierde el acceso de lectura a la plantilla hasta que la desbloquees. El acceso del personal y los repositorios de los estudiantes existentes no cambian. Úsalo para preparar una evaluación cronometrada y desbloquéala cuando comience la sesión.",
@@ -1165,14 +1168,15 @@
         },
         "editHelp": "Esto se aplica a los repositorios creados a partir de ahora; usa la página de entregas para habilitar Pages en los existentes.",
         "emptyRepoHint": "No disponible para un repositorio vacío: aún no hay ninguna rama que publicar.",
-        "help": "Publica cada repositorio de estudiante como un sitio web con GitHub Pages, configurado automáticamente cuando el estudiante acepta, de modo que nunca necesita acceso de administrador. Desactivado es el valor predeterminado. «GitHub Actions» despliega a través de un flujo de trabajo en el repositorio del estudiante (para sitios con un paso de compilación). «Una rama» publica los archivos de una rama directamente, sin flujo de trabajo (para HTML, CSS y JavaScript sencillos). El sitio es público en internet incluso cuando el repositorio es privado, y se sirve cada archivo de la rama y carpeta publicadas; solo GitHub Enterprise Cloud puede restringir quién lo ve. Pages en repositorios privados requiere un plan de GitHub que lo incluya; en GitHub Free para organizaciones, haz público el repositorio o el sitio no se crea.",
+        "help": "Publica el repositorio de cada estudiante como un sitio web con GitHub Pages, configurado automáticamente cuando el estudiante acepta, de modo que nunca necesita acceso de administrador. La opción predeterminada es «Desactivado». «GitHub Actions» despliega mediante un flujo de trabajo en el repositorio del estudiante (para sitios con un paso de compilación). «Una rama» publica directamente los archivos de una rama, sin necesidad de flujo de trabajo (para HTML, CSS y JavaScript simples). El sitio es público en internet incluso cuando el repositorio es privado, y se sirven todos los archivos de la rama y la carpeta publicadas; solo GitHub Enterprise Cloud puede restringir quién lo ve. Pages en repositorios privados requiere un plan de GitHub que lo incluya; en GitHub Free para organizaciones, haz público el repositorio o el sitio no se crea. Los repositorios públicos no se autocalifican (consulta Visibilidad del repositorio).",
         "label": "GitHub Pages",
         "path": {
           "help": "La carpeta de esa rama que se va a publicar: la raíz del repositorio (/) o /docs. GitHub solo permite estas dos.",
           "label": "Carpeta"
         },
         "workflowNote": "El despliegue a través de GitHub Actions requiere un flujo de trabajo en cada repositorio de estudiante que publique en Pages: debe conceder los permisos pages: write e id-token: write y usar actions/upload-pages-artifact y actions/deploy-pages. Inclúyelo en tu plantilla o haz que los estudiantes lo agreguen. El sitio se crea cuando el estudiante acepta, así que la primera ejecución del flujo de trabajo lo despliega."
-      }
+      },
+      "customAutograderNotice": "Esta tarea usa el autocalificador personalizado «{{name}}» de {{path}}. Al guardar se mantiene. Para cambiar al autocalificador integrado, establece «autograder» en «default» en assignments.json."
     },
     "autograder": {
       "heading": "Pruebas de autocalificación",
@@ -1618,6 +1622,12 @@
       "unlockNoneLocked": "Ninguna de las tareas seleccionadas está bloqueada.",
       "unlockTitle_one": "¿Desbloquear {{count}} tarea?",
       "unlockTitle_other": "¿Desbloquear {{count}} tareas?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "«{{slug}}» usa el autocalificador personalizado «{{name}}», que necesita contenido inicial para ejecutarse. Elige una plantilla o vuelve a activar «Añadir un README», o antes establece «autograder» en «default» en {{classroom}}/assignments.json.",
+        "customAutograderNoAutograder": "«{{slug}}» usa el autocalificador personalizado «{{name}}», que necesita que la opción del autocalificador integrado esté activada. Vuelve a activar el autocalificador integrado, o antes establece «autograder» en «default» en {{classroom}}/assignments.json."
+      }
     }
   },
   "published": {
@@ -2626,7 +2636,10 @@
       "errorTitle": "No se pudo comprobar si hay una PR de comentarios",
       "emptyTitle": "Aún no hay pull request de comentarios",
       "openRepoPrs": "Abrir las PR del repositorio",
-      "emptyBody": "Aún no se ha abierto ninguna solicitud de incorporación de comentarios para <repo>{{repo}}</repo>. Se abre cuando el estudiante acepta la tarea, así que puede que aún no haya aceptado, que la tarea la tenga desactivada, o que su apertura se haya diferido. Una apertura diferida se reintenta al volver a aceptar o en la primera entrega calificada."
+      "emptyBody": "Aún no se ha abierto ninguna solicitud de incorporación de comentarios para <repo>{{repo}}</repo>. Se abre cuando el estudiante acepta la tarea, así que puede que aún no haya aceptado, que la tarea la tenga desactivada, o que su apertura se haya diferido. Una apertura diferida se reintenta al volver a aceptar o en la primera entrega calificada.",
+      "blockedBody": "Tu navegador impidió abrirla en una pestaña nueva. Usa el botón de abajo para abrirla.",
+      "blockedTitle": "Se encontró la solicitud de incorporación de cambios de retroalimentación",
+      "openPr": "Abrir PR de retroalimentación"
     },
     "rowRegrade": {
       "title": "Recalificar esta entrega",
@@ -3083,7 +3096,8 @@
       "subtitle_other": "Se aplica a {{count}} estudiantes que han aceptado esta tarea.",
       "title": "Cambiar la visibilidad del repositorio",
       "titleEmptyRoster": "Ningún estudiante ha aceptado todavía",
-      "working": "Actualizando repositorios"
+      "working": "Actualizando repositorios",
+      "autograderWarning": "La autocalificación se detiene mientras un repositorio es público. GitHub impide que un repositorio público ejecute el flujo de trabajo de calificación de tu repositorio privado classroom50, por lo que cada ejecución de calificación falla con «workflow was not found». Vuelve a hacer privados los repositorios para reanudar la calificación."
     },
     "cloneAll": {
       "buttonTitle": "Clonar todas las entregas con la CLI",
@@ -3117,7 +3131,8 @@
         "private": "El repositorio ahora es privado.",
         "public": "El repositorio ahora es público."
       },
-      "confirmWarning": "Cualquier persona que vea o clone el repositorio mientras es público conserva esa copia, incluso después de que lo vuelvas a hacer privado."
+      "confirmWarning": "Cualquier persona que vea o clone el repositorio mientras es público conserva esa copia, incluso después de que lo vuelvas a hacer privado.",
+      "confirmAutograderWarning": "La autocalificación se detiene mientras el repositorio es público: GitHub impide que ejecute el flujo de trabajo de calificación de tu repositorio privado classroom50. Vuelve a hacerlo privado para reanudar la calificación."
     },
     "rosterFromCsvNotice": "La lista de estudiantes proviene del archivo de la lista tal como estaba en su última sincronización, porque tu rol no puede ver el equipo de GitHub de la clase. Un estudiante inscrito desde entonces aparece después de que un docente abra la lista. Los propietarios de la organización ven la membresía en vivo.",
     "skipPastTable": "Saltar la tabla de entregas",

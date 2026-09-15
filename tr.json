@@ -1082,7 +1082,8 @@
         "teamFormationInvalid": "Grupları kimin oluşturacağını seçin.",
         "pagesBranchInvalid": "Boşluk içermeyen, en fazla 255 karakterlik bir dal adı girin ya da varsayılan dal için boş bırakın.",
         "pagesPathInvalid": "Pages klasörü / veya /docs olmalıdır.",
-        "pagesSourceInvalid": "GitHub Pages \"Kapalı\", \"GitHub Actions\" veya \"Bir dal\" olmalıdır."
+        "pagesSourceInvalid": "GitHub Pages \"Kapalı\", \"GitHub Actions\" veya \"Bir dal\" olmalıdır.",
+        "scheduleDateIncomplete": "Tarih ve saati tamamlayın veya kaldırmak için düğmeyi kapatın."
       },
       "availableFrom": "Yayınlanma tarihi ({{tz}})",
       "availableFromTz": "Saatler yerel saat diliminizdedir ({{tz}}).",
@@ -1231,7 +1232,9 @@
           "private": "Özel",
           "public": "Herkese açık"
         },
-        "publicWarning": "İnternetteki herkes her öğrencinin çalışmasını görebilecek: kod, işlemeler ve ad. Kuruluş öğrencilerin herkese açık depolar oluşturmasına izin vermiyorsa, deposu bunun yerine özel olarak oluşturulur ve gönderimler sayfasından herkese açık hale getirebilirsiniz."
+        "publicWarning": "İnternetteki herkes her öğrencinin çalışmasını görebilecek: kod, işlemeler ve ad. Kuruluş öğrencilerin herkese açık depolar oluşturmasına izin vermiyorsa, deposu bunun yerine özel olarak oluşturulur ve gönderimler sayfasından herkese açık hale getirebilirsiniz.",
+        "autograderWarning": "Herkese açık depolar otomatik değerlendirilmez. GitHub, herkese açık bir deponun özel classroom50 deponuzdaki değerlendirme iş akışını çalıştırmasını engeller, bu yüzden her değerlendirme çalıştırması \"workflow was not found\" hatasıyla başarısız olur. Değerlendirme sırasında depoları özel tutun.",
+        "autograderWarningToggleHint": "Ayrıca \"Yerleşik otomatik değerlendiriciyi kullanma\" seçeneğini de seçebilirsiniz."
       },
       "teamFormation": "Grup oluşturma",
       "teamFormationStudent": "Öğrenciler grup oluşturur",
@@ -1257,14 +1260,15 @@
         },
         "editHelp": "Bu, bundan böyle oluşturulan depolara uygulanır; mevcut olanlarda Pages'i etkinleştirmek için gönderimler sayfasını kullanın.",
         "emptyRepoHint": "Boş bir depo için kullanılamaz: henüz yayımlanacak bir dal yok.",
-        "help": "Her öğrenci deposunu GitHub Pages ile bir web sitesi olarak yayımlayın; öğrenci kabul ettiğinde otomatik olarak yapılandırılır, böylece asla yönetici erişimine ihtiyaçları olmaz. Varsayılan Kapalı'dır. \"GitHub Actions\" öğrenci deposundaki bir iş akışı aracılığıyla dağıtır (derleme adımı olan siteler için). \"Bir dal\" bir daldaki dosyaları doğrudan yayımlar, iş akışı gerekmez (düz HTML, CSS ve JavaScript için). Depo gizli olsa bile site internette herkese açıktır ve yayımlanan dal ve klasördeki her dosya sunulur; yalnızca GitHub Enterprise Cloud kimlerin göreceğini kısıtlayabilir. Gizli depolarda Pages, bunu içeren bir GitHub planı gerektirir; kuruluşlar için GitHub Free'de depoyu herkese açık hale getirin, aksi halde site oluşturulmaz.",
+        "help": "Her öğrenci deposunu GitHub Pages ile bir web sitesi olarak yayımlayın; öğrenci ödevi kabul ettiğinde otomatik olarak yapılandırılır, böylece yönetici erişimine hiç ihtiyaç duymazlar. Varsayılan Kapalı'dır. \"GitHub Actions\", öğrenci deposundaki bir iş akışı üzerinden dağıtım yapar (derleme adımı olan siteler için). \"Bir dal\" ise bir daldaki dosyaları doğrudan yayımlar, iş akışına gerek yoktur (düz HTML, CSS ve JavaScript için). Depo özel olsa bile site internette herkese açıktır ve yayımlanan daldaki ve klasördeki her dosya sunulur; kimlerin göreceğini yalnızca GitHub Enterprise Cloud kısıtlayabilir. Özel depolarda Pages, bunu içeren bir GitHub planı gerektirir; kuruluşlar için GitHub Free'de depoyu herkese açık yapın, aksi halde site oluşturulmaz. Herkese açık depolar otomatik değerlendirilmez (bkz. Depo görünürlüğü).",
         "label": "GitHub Pages",
         "path": {
           "help": "O dalda yayımlanacak klasör: depo kökü (/) veya /docs. GitHub yalnızca bu ikisine izin verir.",
           "label": "Klasör"
         },
         "workflowNote": "GitHub Actions aracılığıyla dağıtım, her öğrenci deposunda Pages'e yayımlayan bir iş akışı gerektirir: pages: write ve id-token: write izinlerini vermeli ve actions/upload-pages-artifact ile actions/deploy-pages kullanmalıdır. Bunu şablonunuza koyun ya da öğrencilere ekletin. Site öğrenci kabul ettiğinde oluşturulur, dolayısıyla iş akışının ilk çalıştırması onu dağıtır."
-      }
+      },
+      "customAutograderNotice": "Bu ödev, {{path}} konumundaki \"{{name}}\" özel otomatik değerlendiricisini kullanıyor. Kaydetmek bunu korur. Yerleşik otomatik değerlendiriciye geçmek için assignments.json dosyasında \"autograder\" değerini \"default\" olarak ayarlayın."
     },
     "autograder": {
       "heading": "Otomatik değerlendirme testleri",
@@ -1662,6 +1666,12 @@
       "unlockNoneLocked": "Seçilen ödevlerin hiçbiri kilitli değil.",
       "unlockTitle_one": "{{count}} ödevin kilidi açılsın mı?",
       "unlockTitle_other": "{{count}} ödevin kilidi açılsın mı?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "\"{{slug}}\", çalışması için başlangıç içeriği gerektiren \"{{name}}\" özel otomatik değerlendiricisini kullanıyor. Bir şablon seçin ya da \"README ekle\" seçeneğini yeniden açın veya önce {{classroom}}/assignments.json dosyasında \"autograder\" değerini \"default\" olarak ayarlayın.",
+        "customAutograderNoAutograder": "\"{{slug}}\", yerleşik otomatik değerlendirici ayarının açık olmasını gerektiren \"{{name}}\" özel otomatik değerlendiricisini kullanıyor. Yerleşik otomatik değerlendiriciyi yeniden açın veya önce {{classroom}}/assignments.json dosyasında \"autograder\" değerini \"default\" olarak ayarlayın."
+      }
     }
   },
   "published": {
@@ -2758,7 +2768,10 @@
       "errorTitle": "Geri bildirim PR'ı kontrol edilemedi",
       "emptyTitle": "Henüz geri bildirim pull request'i yok",
       "emptyBody": "<repo>{{repo}}</repo> için henüz bir geri bildirim çekme isteği açılmadı. O, öğrenci ödevi kabul ettiğinde açılır; dolayısıyla henüz kabul etmemiş olabilirler, ödevde kapalı olabilir ya da açılması ertelenmiş olabilir. Ertelenen bir açılış, yeniden kabulde veya ilk notlandırılan gönderimde yeniden denenir.",
-      "openRepoPrs": "Depo PR'larını aç"
+      "openRepoPrs": "Depo PR'larını aç",
+      "blockedBody": "Tarayıcınız yeni bir sekmede açılmasını engelledi. Açmak için aşağıdaki düğmeyi kullanın.",
+      "blockedTitle": "Geri bildirim çekme isteği bulundu",
+      "openPr": "Geri bildirim PR'ını aç"
     },
     "rowRegrade": {
       "title": "Bu teslimi yeniden değerlendir",
@@ -3195,7 +3208,8 @@
       "subtitle_other": "Bu ödevi kabul etmiş olan {{count}} öğrenciye uygulanır.",
       "title": "Depo görünürlüğünü değiştir",
       "titleEmptyRoster": "Henüz kabul eden öğrenci yok",
-      "working": "Depolar güncelleniyor"
+      "working": "Depolar güncelleniyor",
+      "autograderWarning": "Bir depo herkese açıkken otomatik değerlendirme durur. GitHub, herkese açık bir deponun özel classroom50 deponuzdaki değerlendirme iş akışını çalıştırmasını engeller, bu yüzden her değerlendirme çalıştırması \"workflow was not found\" hatasıyla başarısız olur. Değerlendirmeyi sürdürmek için depoları yeniden özel yapın."
     },
     "cloneAll": {
       "buttonTitle": "Tüm gönderimleri CLI ile klonla",
@@ -3230,7 +3244,8 @@
         "private": "Depo artık özel.",
         "public": "Depo artık herkese açık."
       },
-      "confirmWarning": "Depo herkese açıkken onu görüntüleyen veya klonlayan herkes, siz onu tekrar özel yapsanız bile o kopyayı elinde tutar."
+      "confirmWarning": "Depo herkese açıkken onu görüntüleyen veya klonlayan herkes, siz onu tekrar özel yapsanız bile o kopyayı elinde tutar.",
+      "confirmAutograderWarning": "Depo herkese açıkken otomatik değerlendirme durur: GitHub, deponun özel classroom50 deponuzdaki değerlendirme iş akışını çalıştırmasını engeller. Değerlendirmeyi sürdürmek için depoyu yeniden özel yapın."
     },
     "skipPastTable": "Gönderimler tablosunu atla",
     "slugTitle": "Ödev kısaltması: bu ödev için benzersiz tanımlayıcı. Görünen adlar tekrar edebilir.",

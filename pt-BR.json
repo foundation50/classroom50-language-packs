@@ -951,7 +951,8 @@
         "teamFormationInvalid": "Escolha quem forma os grupos.",
         "pagesBranchInvalid": "Insira um nome de branch sem espaços, com no máximo 255 caracteres, ou deixe em branco para o branch padrão.",
         "pagesPathInvalid": "A pasta do Pages deve ser / ou /docs.",
-        "pagesSourceInvalid": "O GitHub Pages deve ser \"Desativado\", \"GitHub Actions\" ou \"Um branch\"."
+        "pagesSourceInvalid": "O GitHub Pages deve ser \"Desativado\", \"GitHub Actions\" ou \"Um branch\".",
+        "scheduleDateIncomplete": "Conclua a data e a hora, ou desative a opção para removê-la."
       },
       "allowedFilesTip": "Padrões ordenados no estilo {{gitignore}}, um por linha, que definem quais arquivos pertencem a um envio (a última correspondência prevalece, {{bang}} reinclui). Por exemplo, {{star}} e depois {{example}} permite apenas {{result}}. Em branco permite todos os arquivos.",
       "containerUserTip": "O usuário com o qual o contêiner é executado. Defina root se o checkout falhar com um erro de permissão. O GitHub Actions executa as etapas do contêiner como o usuário do runner host, então uma imagem non-root muitas vezes não consegue gravar no workspace.",
@@ -1136,7 +1137,9 @@
           "private": "Privado",
           "public": "Público"
         },
-        "publicWarning": "Qualquer pessoa na internet poderá ver o trabalho de cada aluno: código, commits e nome. Se a organização não permitir que os alunos criem repositórios públicos, o repositório é criado como privado e você pode torná-lo público pela página de envios."
+        "publicWarning": "Qualquer pessoa na internet poderá ver o trabalho de cada aluno: código, commits e nome. Se a organização não permitir que os alunos criem repositórios públicos, o repositório é criado como privado e você pode torná-lo público pela página de envios.",
+        "autograderWarning": "Repositórios públicos não são corrigidos automaticamente. O GitHub impede que um repositório público execute o fluxo de trabalho de correção no seu repositório privado classroom50, então toda execução de correção falha com \"workflow was not found\". Mantenha os repositórios privados durante a correção.",
+        "autograderWarningToggleHint": "Você também pode selecionar \"Não usar o autograder integrado\"."
       },
       "lockAssignment": "Bloquear tarefa",
       "lockAssignmentTip": "Os alunos não podem ver ou aceitar uma tarefa bloqueada, incluindo aqueles que já a aceitaram. Para um modelo privado na sua organização, a equipe da turma perde o acesso de leitura ao modelo até você desbloquear. O acesso da equipe e os repositórios de alunos existentes não mudam. Use para preparar uma avaliação cronometrada e desbloqueie quando a sessão começar.",
@@ -1165,14 +1168,15 @@
         },
         "editHelp": "Isto se aplica aos repositórios criados a partir de agora; use a página de submissões para ativar o Pages nos existentes.",
         "emptyRepoHint": "Não disponível para um repositório vazio: ainda não há um branch para publicar.",
-        "help": "Publique o repositório de cada aluno como um site com o GitHub Pages, configurado automaticamente quando o aluno aceita, para que ele nunca precise de acesso de administrador. Desativado é o padrão. \"GitHub Actions\" implanta por meio de um fluxo de trabalho no repositório do aluno (para sites com uma etapa de build). \"Um branch\" publica os arquivos de um branch diretamente, sem necessidade de fluxo de trabalho (para HTML, CSS e JavaScript simples). O site é público na internet mesmo quando o repositório é privado, e todo arquivo do branch e da pasta publicados é servido; somente o GitHub Enterprise Cloud pode restringir quem o vê. O Pages em repositórios privados exige um plano do GitHub que o inclua; no GitHub Free para organizações, torne o repositório público ou o site não é criado.",
+        "help": "Publique o repositório de cada estudante como um site com o GitHub Pages, configurado automaticamente quando o estudante aceita, de modo que nunca precisem de acesso de administrador. Desativado é o padrão. \"GitHub Actions\" implanta por meio de um fluxo de trabalho no repositório do estudante (para sites com uma etapa de build). \"Um branch\" publica diretamente os arquivos de um branch, sem necessidade de fluxo de trabalho (para HTML, CSS e JavaScript simples). O site é público na internet mesmo quando o repositório é privado, e todos os arquivos do branch e da pasta publicados são servidos; somente o GitHub Enterprise Cloud pode restringir quem o vê. O Pages em repositórios privados requer um plano do GitHub que o inclua; no GitHub Free para organizações, torne o repositório público ou o site não será criado. Repositórios públicos não são corrigidos automaticamente (consulte Visibilidade do repositório).",
         "label": "GitHub Pages",
         "path": {
           "help": "A pasta desse branch a publicar: a raiz do repositório (/) ou /docs. O GitHub permite apenas essas duas.",
           "label": "Pasta"
         },
         "workflowNote": "A implantação por meio do GitHub Actions exige um fluxo de trabalho no repositório de cada aluno que publique no Pages: ele deve conceder as permissões pages: write e id-token: write e usar actions/upload-pages-artifact e actions/deploy-pages. Coloque-o no seu template, ou faça os alunos adicionarem. O site é criado quando o aluno aceita, então a primeira execução do fluxo de trabalho o implanta."
-      }
+      },
+      "customAutograderNotice": "Esta tarefa usa o autograder personalizado \"{{name}}\" de {{path}}. Salvar mantém isso. Para mudar para o autograder integrado, defina \"autograder\" como \"default\" em assignments.json."
     },
     "autograder": {
       "heading": "Testes de correção automática",
@@ -1618,6 +1622,12 @@
       "unlockNoneLocked": "Nenhuma das tarefas selecionadas está bloqueada.",
       "unlockTitle_one": "Desbloquear {{count}} tarefa?",
       "unlockTitle_other": "Desbloquear {{count}} tarefas?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "\"{{slug}}\" usa o autograder personalizado \"{{name}}\", que precisa de conteúdo inicial para funcionar. Escolha um modelo ou reative \"Adicionar um README\", ou defina \"autograder\" como \"default\" em {{classroom}}/assignments.json primeiro.",
+        "customAutograderNoAutograder": "\"{{slug}}\" usa o autograder personalizado \"{{name}}\", que precisa da configuração do autograder integrado ativada. Reative o autograder integrado ou defina \"autograder\" como \"default\" em {{classroom}}/assignments.json primeiro."
+      }
     }
   },
   "published": {
@@ -2626,7 +2636,10 @@
       "errorTitle": "Não foi possível verificar um PR de feedback",
       "emptyTitle": "Ainda não há pull request de feedback",
       "openRepoPrs": "Abrir PRs do repositório",
-      "emptyBody": "Ainda não foi aberto nenhum pull request de feedback para <repo>{{repo}}</repo>. Ele abre quando o estudante aceita a tarefa, então talvez o estudante ainda não tenha aceitado, a tarefa pode tê-lo desativado, ou sua abertura foi adiada. Uma abertura adiada é tentada novamente ao reaceitar ou na primeira entrega corrigida."
+      "emptyBody": "Ainda não foi aberto nenhum pull request de feedback para <repo>{{repo}}</repo>. Ele abre quando o estudante aceita a tarefa, então talvez o estudante ainda não tenha aceitado, a tarefa pode tê-lo desativado, ou sua abertura foi adiada. Uma abertura adiada é tentada novamente ao reaceitar ou na primeira entrega corrigida.",
+      "blockedBody": "Seu navegador bloqueou a abertura em uma nova aba. Use o botão abaixo para abri-lo.",
+      "blockedTitle": "Pull request de feedback encontrado",
+      "openPr": "Abrir PR de feedback"
     },
     "rowRegrade": {
       "title": "Recorrigir esta entrega",
@@ -3083,7 +3096,8 @@
       "subtitle_other": "Aplica-se a {{count}} estudantes que aceitaram esta tarefa.",
       "title": "Alterar visibilidade do repositório",
       "titleEmptyRoster": "Nenhum estudante aceitou ainda",
-      "working": "Atualizando repositórios"
+      "working": "Atualizando repositórios",
+      "autograderWarning": "A correção automática para enquanto um repositório é público. O GitHub impede que um repositório público execute o fluxo de trabalho de correção no seu repositório privado classroom50, então toda execução de correção falha com \"workflow was not found\". Torne os repositórios privados novamente para retomar a correção."
     },
     "cloneAll": {
       "buttonTitle": "Clonar todos os envios com a CLI",
@@ -3117,7 +3131,8 @@
         "private": "O repositório agora é privado.",
         "public": "O repositório agora é público."
       },
-      "confirmWarning": "Qualquer pessoa que visualizar ou clonar o repositório enquanto ele estiver público mantém essa cópia, mesmo depois de você torná-lo privado novamente."
+      "confirmWarning": "Qualquer pessoa que visualizar ou clonar o repositório enquanto ele estiver público mantém essa cópia, mesmo depois de você torná-lo privado novamente.",
+      "confirmAutograderWarning": "A correção automática para enquanto o repositório é público: o GitHub impede que ele execute o fluxo de trabalho de correção no seu repositório privado classroom50. Torne-o privado novamente para retomar a correção."
     },
     "rosterFromCsvNotice": "A lista de estudantes vem do arquivo de turma na última sincronização, porque seu papel não pode visualizar a equipe do GitHub da turma. Um estudante matriculado desde então aparece depois que um professor abre a lista da turma. Os proprietários da organização veem a associação ao vivo.",
     "skipPastTable": "Pular a tabela de entregas",
