@@ -1276,7 +1276,9 @@
         "levels": {
           "private": "私有",
           "public": "公开"
-        }
+        },
+        "autograderWarning": "公开仓库不会被自动评分。GitHub 会阻止公开仓库运行你私有的 classroom50 仓库中的评分工作流，因此每次评分运行都会以“workflow was not found”失败。评分期间请让仓库保持私有。",
+        "autograderWarningToggleHint": "你也可以选择“不使用内置自动评分器”。"
       },
       "autograding": {
         "modeLabel": "内置自动评分器",
@@ -1439,7 +1441,8 @@
         "teamFormationInvalid": "请选择由谁组建小组。",
         "pagesBranchInvalid": "请输入不含空格、最多 255 个字符的分支名称，或留空以使用默认分支。",
         "pagesPathInvalid": "Pages 文件夹必须是 / 或 /docs。",
-        "pagesSourceInvalid": "GitHub Pages 必须为“关闭”、“GitHub Actions”或“某个分支”。"
+        "pagesSourceInvalid": "GitHub Pages 必须为“关闭”、“GitHub Actions”或“某个分支”。",
+        "scheduleDateIncomplete": "请填写完整的日期和时间，或关闭开关以移除它。"
       },
       "teamFormation": "小组组建方式",
       "teamFormationStudent": "由学生组建小组",
@@ -1467,14 +1470,15 @@
         },
         "editHelp": "这适用于从现在起创建的仓库；请在提交页面为现有仓库启用 Pages。",
         "emptyRepoHint": "空仓库不可用：尚无可发布的分支。",
-        "help": "使用 GitHub Pages 将每个学生仓库发布为网站，在学生接受时自动配置，因此他们永远不需要管理员权限。默认为关闭。“GitHub Actions”通过学生仓库中的工作流部署（适用于有构建步骤的站点）。“某个分支”直接发布某个分支中的文件，无需工作流（适用于纯 HTML、CSS 和 JavaScript）。即使仓库是私有的，该站点在互联网上也是公开的，且已发布分支和文件夹中的每个文件都会被提供；只有 GitHub Enterprise Cloud 才能限制谁可以查看。私有仓库上的 Pages 需要包含该功能的 GitHub 套餐；在面向组织的 GitHub Free 上，请将仓库设为公开，否则站点不会创建。",
+        "help": "使用 GitHub Pages 将每个学生仓库发布为网站，在学生接受作业时自动配置，因此学生无需管理员权限。默认为关闭。“GitHub Actions”通过学生仓库中的工作流进行部署（适用于需要构建步骤的网站）。“分支”直接发布分支中的文件，无需工作流（适用于纯 HTML、CSS 和 JavaScript）。即使仓库为私有，网站在互联网上也是公开的，且已发布分支和文件夹中的每个文件都会被提供；只有 GitHub Enterprise Cloud 才能限制访问者。私有仓库上的 Pages 需要包含该功能的 GitHub 套餐；在组织的 GitHub Free 套餐上，请将仓库设为公开，否则不会创建网站。公开仓库不会被自动评分（参见仓库可见性）。",
         "label": "GitHub Pages",
         "path": {
           "help": "该分支中用于发布的文件夹：仓库根目录（/）或 /docs。GitHub 只允许这两者。",
           "label": "文件夹"
         },
         "workflowNote": "通过 GitHub Actions 部署需要每个学生仓库中有一个发布到 Pages 的工作流：它必须授予 pages: write 和 id-token: write 权限，并使用 actions/upload-pages-artifact 和 actions/deploy-pages。将其放入你的模板，或让学生自行添加。站点在学生接受时创建，因此工作流的首次运行会部署它。"
-      }
+      },
+      "customAutograderNotice": "此作业使用来自 {{path}} 的自定义自动评分器“{{name}}”。保存后将保留它。若要切换到内置自动评分器，请在 assignments.json 中把“autograder”设为“default”。"
     },
     "autograder": {
       "heading": "自动评分测试",
@@ -1865,6 +1869,12 @@
       "unlockNoneLocked": "所选作业中没有任何一个处于锁定状态。",
       "unlockTitle_one": "解锁 {{count}} 个作业？",
       "unlockTitle_other": "解锁 {{count}} 个作业？"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "“{{slug}}”使用自定义自动评分器“{{name}}”，它需要初始内容才能运行。请选择一个模板或重新开启“添加 README”，或先在 {{classroom}}/assignments.json 中把“autograder”设为“default”。",
+        "customAutograderNoAutograder": "“{{slug}}”使用自定义自动评分器“{{name}}”，它需要开启内置自动评分器设置。请重新开启内置自动评分器，或先在 {{classroom}}/assignments.json 中把“autograder”设为“default”。"
+      }
     }
   },
   "published": {
@@ -3071,7 +3081,10 @@
       "errorTitle": "无法检查反馈拉取请求",
       "emptyTitle": "尚无反馈拉取请求",
       "emptyBody": "尚未为 <repo>{{repo}}</repo> 打开反馈拉取请求。它会在学生接受作业时打开，因此可能是学生尚未接受、该作业已将其关闭，或打开被延迟了。被延迟的打开会在重新接受时或首次评分提交时重试。",
-      "openRepoPrs": "打开仓库的拉取请求"
+      "openRepoPrs": "打开仓库的拉取请求",
+      "blockedBody": "你的浏览器阻止了在新标签页中打开它。请使用下面的按钮将其打开。",
+      "blockedTitle": "找到反馈拉取请求",
+      "openPr": "打开反馈 PR"
     },
     "repairPr": {
       "hint": "如果学生已接受作业但打开 PR 失败（GitHub 故障或暂时性错误），你现在可以打开它。",
@@ -3259,7 +3272,8 @@
       "failedSection_other": "{{count}} 个仓库无法更改",
       "deferredSection_one": "{{count}} 个仓库未被更改",
       "deferredSection_other": "{{count}} 个仓库未被更改",
-      "deferredDetail": "已跳过。重新运行以更新。"
+      "deferredDetail": "已跳过。重新运行以更新。",
+      "autograderWarning": "仓库公开期间会停止自动评分。GitHub 会阻止公开仓库运行你私有的 classroom50 仓库中的评分工作流，因此每次评分运行都会以“workflow was not found”失败。重新将仓库设为私有即可恢复评分。"
     },
     "bulkTrigger": {
       "menuLabel": "更新自动评分触发条件",
@@ -3333,7 +3347,8 @@
         "public": "仓库现已设为公开。",
         "private": "仓库现已设为私有。"
       },
-      "confirmWarning": "任何人在仓库处于公开状态时查看或克隆了它，即使你之后再将其设为私有，也会保留那份副本。"
+      "confirmWarning": "任何人在仓库处于公开状态时查看或克隆了它，即使你之后再将其设为私有，也会保留那份副本。",
+      "confirmAutograderWarning": "仓库公开期间会停止自动评分：GitHub 会阻止它运行你私有的 classroom50 仓库中的评分工作流。重新将其设为私有即可恢复评分。"
     },
     "bulkAutograde": {
       "pauseMenuLabel": "暂停自动评分",

@@ -951,7 +951,8 @@
         "teamFormationInvalid": "Válaszd ki, ki alakítja a csoportokat.",
         "pagesBranchInvalid": "Adj meg egy ágnevet szóközök nélkül, legfeljebb 255 karakterrel, vagy hagyd üresen az alapértelmezett ághoz.",
         "pagesPathInvalid": "A Pages mappának / vagy /docs értékűnek kell lennie.",
-        "pagesSourceInvalid": "A GitHub Pages értéke „Ki”, „GitHub Actions” vagy „Egy ág” lehet."
+        "pagesSourceInvalid": "A GitHub Pages értéke „Ki”, „GitHub Actions” vagy „Egy ág” lehet.",
+        "scheduleDateIncomplete": "Fejezze be a dátum és időpont megadását, vagy kapcsolja ki a kapcsolót az eltávolításához."
       },
       "allowedFilesTip": "Rendezett {{gitignore}} stílusú minták soronként egy, amelyek meghatározzák, hogy mely fájlok tartoznak egy beadáshoz (az utolsó egyezés nyer, a(z) {{bang}} újra felveszi). Például a(z) {{star}}, majd a(z) {{example}} csak a(z) {{result}} fájlt engedélyezi. Üresen minden fájl engedélyezett.",
       "containerUserTip": "A felhasználó, amelynek nevében a konténer fut. Állítsd root-ra, ha a checkout jogosultsági hibával hiúsul meg. A GitHub Actions a konténer lépéseit a gazdafuttató felhasználójaként futtatja, így egy nem root image gyakran nem tud írni a munkaterületre.",
@@ -1136,7 +1137,9 @@
           "private": "Privát",
           "public": "Nyilvános"
         },
-        "publicWarning": "Az interneten bárki láthatja majd minden diák munkáját: a kódot, a commitokat és a nevet. Ha a szervezet nem engedélyezi a diákoknak nyilvános tárak létrehozását, a táruk helyette privátként jön létre, és a beadások oldalán teheted nyilvánossá."
+        "publicWarning": "Az interneten bárki láthatja majd minden diák munkáját: a kódot, a commitokat és a nevet. Ha a szervezet nem engedélyezi a diákoknak nyilvános tárak létrehozását, a táruk helyette privátként jön létre, és a beadások oldalán teheted nyilvánossá.",
+        "autograderWarning": "A nyilvános tárolókat a rendszer nem értékeli automatikusan. A GitHub megakadályozza, hogy egy nyilvános tároló futtassa az értékelő munkafolyamatot a privát classroom50 tárolójában, így minden értékelési futás „workflow was not found” hibával meghiúsul. Az értékelés ideje alatt tartsa privátban a tárolókat.",
+        "autograderWarningToggleHint": "Választhatja a „Ne használja a beépített automatikus értékelőt” lehetőséget is."
       },
       "lockAssignment": "Feladat zárolása",
       "lockAssignmentTip": "A diákok nem láthatnak és nem fogadhatnak el zárolt feladatot, azokat is beleértve, akik már elfogadták. A szervezetedben lévő privát sablon esetén a tanterem csapata a feloldásig elveszíti az olvasási hozzáférését a sablonhoz. A stáb hozzáférése és a meglévő diáktárak változatlanok maradnak. Használd időzített értékelés előkészítéséhez, majd oldd fel, amikor a foglalkozás elkezdődik.",
@@ -1165,14 +1168,15 @@
         },
         "editHelp": "Ez a mostantól létrehozott repositorykra vonatkozik; a meglévőkön a beadványok oldaláról engedélyezd a Pages-t.",
         "emptyRepoHint": "Üres repositoryhoz nem érhető el: még nincs közzétehető ág.",
-        "help": "Tedd közzé minden hallgatói repositoryt weboldalként a GitHub Pages segítségével, amely automatikusan beállítódik, amikor a hallgató elfogadja, így soha nincs szükségük admin-hozzáférésre. Az alapértelmezett a Ki. A „GitHub Actions” egy munkafolyamaton keresztül telepít a hallgatói repositoryban (build lépéssel rendelkező oldalakhoz). Az „Egy ág” közvetlenül közzéteszi egy ág fájljait, munkafolyamat nélkül (egyszerű HTML, CSS és JavaScript esetén). Az oldal nyilvános az interneten még akkor is, ha a repository privát, és a közzétett ág és mappa minden fájlja kiszolgálásra kerül; csak a GitHub Enterprise Cloud tudja korlátozni, ki láthatja. A Pages privát repositorykon olyan GitHub-előfizetést igényel, amely tartalmazza; szervezetek GitHub Free csomagján tedd nyilvánossá a repositoryt, különben az oldal nem jön létre.",
+        "help": "Minden hallgatói tárolót webhelyként tesz közzé a GitHub Pages segítségével, amit a rendszer automatikusan beállít, amikor a hallgató elfogadja a feladatot, így soha nincs szükségük rendszergazdai hozzáférésre. Alapértelmezetten ki van kapcsolva. A „GitHub Actions” a hallgatói tárolóban lévő munkafolyamaton keresztül telepít (build lépést tartalmazó webhelyekhez). Az „Egy ág” közvetlenül közzéteszi az adott ágban lévő fájlokat, munkafolyamat nélkül (egyszerű HTML, CSS és JavaScript esetén). A webhely még akkor is nyilvános az interneten, ha a tároló privát, és a közzétett ág és mappa minden fájlját kiszolgálja; csak a GitHub Enterprise Cloud tudja korlátozni, hogy ki láthatja. A Pages privát tárolókon olyan GitHub-csomagot igényel, amely tartalmazza; a szervezeteknek szánt GitHub Free esetén tegye nyilvánossá a tárolót, különben a webhely nem jön létre. A nyilvános tárolókat a rendszer nem értékeli automatikusan (lásd a Tároló láthatósága részt).",
         "label": "GitHub Pages",
         "path": {
           "help": "Az adott ágban közzéteendő mappa: a repository gyökere (/) vagy /docs. A GitHub csak ezt a kettőt engedi.",
           "label": "Mappa"
         },
         "workflowNote": "A GitHub Actionsön keresztüli telepítéshez minden hallgatói repositoryban szükséges egy munkafolyamat, amely a Pages-be tesz közzé: meg kell adnia a pages: write és id-token: write jogosultságokat, és használnia kell az actions/upload-pages-artifact és actions/deploy-pages eszközöket. Tedd a sablonodba, vagy a hallgatók adják hozzá. Az oldal a hallgató elfogadásakor jön létre, így a munkafolyamat első futása telepíti."
-      }
+      },
+      "customAutograderNotice": "Ez a feladat a(z) „{{name}}” egyéni automatikus értékelőt használja innen: {{path}}. A mentés megőrzi. A beépített automatikus értékelőre való váltáshoz állítsa az „autograder” értékét „default”-ra az assignments.json fájlban."
     },
     "autograder": {
       "heading": "Automatikus értékelési tesztek",
@@ -1618,6 +1622,12 @@
       "unlockNoneLocked": "A kiválasztott feladatok közül egyik sincs zárolva.",
       "unlockTitle_one": "Feloldjunk {{count}} feladatot?",
       "unlockTitle_other": "Feloldjunk {{count}} feladatot?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "A(z) „{{slug}}” a(z) „{{name}}” egyéni automatikus értékelőt használja, amelynek a futáshoz kiindulási tartalomra van szüksége. Válasszon sablont, vagy kapcsolja vissza a „README hozzáadása” beállítást, vagy előbb állítsa az „autograder” értékét „default”-ra a(z) {{classroom}}/assignments.json fájlban.",
+        "customAutograderNoAutograder": "A(z) „{{slug}}” a(z) „{{name}}” egyéni automatikus értékelőt használja, amelyhez bekapcsolt beépített automatikus értékelő beállítás szükséges. Kapcsolja vissza a beépített automatikus értékelőt, vagy előbb állítsa az „autograder” értékét „default”-ra a(z) {{classroom}}/assignments.json fájlban."
+      }
     }
   },
   "published": {
@@ -2626,7 +2636,10 @@
       "errorTitle": "Nem sikerült ellenőrizni a visszajelzési PR-t",
       "emptyTitle": "Még nincs visszajelzési pull request",
       "openRepoPrs": "Tároló PR-jeinek megnyitása",
-      "emptyBody": "A(z) <repo>{{repo}}</repo> tárolóhoz még nem nyílt meg visszajelzési pull request. Az akkor nyílik meg, amikor a diák elfogadja a feladatot, így lehet, hogy még nem fogadta el, a feladatnál ki van kapcsolva, vagy a megnyitása el lett halasztva. Egy elhalasztott megnyitás újbóli elfogadáskor vagy az első értékelt beadáskor újrapróbálkozik."
+      "emptyBody": "A(z) <repo>{{repo}}</repo> tárolóhoz még nem nyílt meg visszajelzési pull request. Az akkor nyílik meg, amikor a diák elfogadja a feladatot, így lehet, hogy még nem fogadta el, a feladatnál ki van kapcsolva, vagy a megnyitása el lett halasztva. Egy elhalasztott megnyitás újbóli elfogadáskor vagy az első értékelt beadáskor újrapróbálkozik.",
+      "blockedBody": "A böngészője megakadályozta, hogy új lapon nyíljon meg. Használja az alábbi gombot a megnyitásához.",
+      "blockedTitle": "Visszajelzési pull request található",
+      "openPr": "Visszajelzési PR megnyitása"
     },
     "rowRegrade": {
       "title": "Ennek a beadványnak az újraértékelése",
@@ -3083,7 +3096,8 @@
       "subtitle_other": "{{count}} tanulóra vonatkozik, aki elfogadta ezt a feladatot.",
       "title": "Tároló láthatóságának módosítása",
       "titleEmptyRoster": "Egyetlen tanuló sem fogadta még el",
-      "working": "Tárolók frissítése"
+      "working": "Tárolók frissítése",
+      "autograderWarning": "Az automatikus értékelés leáll, amíg egy tároló nyilvános. A GitHub megakadályozza, hogy egy nyilvános tároló futtassa az értékelő munkafolyamatot a privát classroom50 tárolójában, így minden értékelési futás „workflow was not found” hibával meghiúsul. Tegye ismét priváttá a tárolókat az értékelés folytatásához."
     },
     "cloneAll": {
       "buttonTitle": "Minden beadás klónozása a CLI-vel",
@@ -3117,7 +3131,8 @@
         "private": "A tároló most már privát.",
         "public": "A tároló most már nyilvános."
       },
-      "confirmWarning": "Bárki, aki megtekinti vagy klónozza a tárolót, amíg az nyilvános, megtartja azt a másolatot, még azután is, hogy ismét priváttá teszed."
+      "confirmWarning": "Bárki, aki megtekinti vagy klónozza a tárolót, amíg az nyilvános, megtartja azt a másolatot, még azután is, hogy ismét priváttá teszed.",
+      "confirmAutograderWarning": "Az automatikus értékelés leáll, amíg a tároló nyilvános: a GitHub megakadályozza, hogy futtassa az értékelő munkafolyamatot a privát classroom50 tárolójában. Tegye ismét priváttá az értékelés folytatásához."
     },
     "rosterFromCsvNotice": "A diáklista a névsorfájlból származik az utolsó szinkronizálás állapota szerint, mert az Ön szerepköre nem tekintheti meg a tanterem GitHub-csapatát. Az azóta beiratkozott diák akkor jelenik meg, amikor egy tanár megnyitja a névsort. A szervezettulajdonosok az élő tagságot látják.",
     "skipPastTable": "A beadási táblázat átugrása",

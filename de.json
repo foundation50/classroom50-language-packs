@@ -951,7 +951,8 @@
         "teamFormationInvalid": "Wähle aus, wer die Gruppen bildet.",
         "pagesBranchInvalid": "Gib einen Branch-Namen ohne Leerzeichen mit höchstens 255 Zeichen ein oder lass ihn leer für den Standard-Branch.",
         "pagesPathInvalid": "Der Pages-Ordner muss / oder /docs sein.",
-        "pagesSourceInvalid": "GitHub Pages muss „Aus“, „GitHub Actions“ oder „Ein Branch“ sein."
+        "pagesSourceInvalid": "GitHub Pages muss „Aus“, „GitHub Actions“ oder „Ein Branch“ sein.",
+        "scheduleDateIncomplete": "Vervollständige Datum und Uhrzeit, oder schalte den Schalter aus, um es zu entfernen."
       },
       "allowedFilesTip": "Geordnete Muster im {{gitignore}}-Stil, eines pro Zeile, die festlegen, welche Dateien zu einer Abgabe gehören (die letzte Übereinstimmung gewinnt, {{bang}} nimmt wieder auf). Zum Beispiel erlaubt {{star}} gefolgt von {{example}} nur {{result}}. Leer erlaubt jede Datei.",
       "containerUserTip": "Der Benutzer, unter dem der Container läuft. Setze root, wenn der Checkout mit einem Berechtigungsfehler fehlschlägt. GitHub Actions führt Container-Schritte als Benutzer des Host-Runners aus, sodass ein Nicht-Root-Image oft nicht in den Arbeitsbereich schreiben kann.",
@@ -1136,7 +1137,9 @@
           "private": "Privat",
           "public": "Öffentlich"
         },
-        "publicWarning": "Jede und jeder im Internet kann die Arbeit jeder und jedes Studierenden sehen: Code, Commits und Name. Wenn die Organisation es Studierenden nicht erlaubt, öffentliche Repositorys zu erstellen, wird ihr Repository stattdessen privat erstellt, und du kannst es über die Abgabenseite öffentlich machen."
+        "publicWarning": "Jede und jeder im Internet kann die Arbeit jeder und jedes Studierenden sehen: Code, Commits und Name. Wenn die Organisation es Studierenden nicht erlaubt, öffentliche Repositorys zu erstellen, wird ihr Repository stattdessen privat erstellt, und du kannst es über die Abgabenseite öffentlich machen.",
+        "autograderWarning": "Öffentliche Repositorys werden nicht automatisch bewertet. GitHub verhindert, dass ein öffentliches Repository den Bewertungs-Workflow in deinem privaten classroom50-Repository ausführt, sodass jeder Bewertungslauf mit „workflow was not found“ fehlschlägt. Halte Repositorys während der Bewertung privat.",
+        "autograderWarningToggleHint": "Du kannst auch „Integrierten Autograder nicht verwenden“ auswählen."
       },
       "lockAssignment": "Aufgabe sperren",
       "lockAssignmentTip": "Studierende können eine gesperrte Aufgabe nicht sehen oder annehmen, auch nicht Studierende, die sie bereits angenommen haben. Bei einer privaten Vorlage in deiner Organisation verliert das Kursteam den Lesezugriff auf die Vorlage, bis du sie entsperrst. Der Zugriff des Personals und vorhandene Studierenden-Repositorys bleiben unverändert. Nutze das, um eine zeitgesteuerte Prüfung vorzubereiten, und entsperre dann zu Sitzungsbeginn.",
@@ -1165,14 +1168,15 @@
         },
         "editHelp": "Dies gilt für ab jetzt erstellte Repositorys; verwende die Abgabenseite, um Pages auf bestehenden zu aktivieren.",
         "emptyRepoHint": "Für ein leeres Repository nicht verfügbar: Es gibt noch keinen Branch zum Veröffentlichen.",
-        "help": "Veröffentliche jedes Studierenden-Repository als Website mit GitHub Pages, die automatisch konfiguriert wird, wenn die studierende Person annimmt, sodass sie nie Admin-Zugriff benötigen. Aus ist die Voreinstellung. „GitHub Actions“ deployt über einen Workflow im Studierenden-Repository (für Websites mit einem Build-Schritt). „Ein Branch“ veröffentlicht die Dateien in einem Branch direkt, ohne Workflow (für einfaches HTML, CSS und JavaScript). Die Website ist im Internet öffentlich, auch wenn das Repository privat ist, und jede Datei im veröffentlichten Branch und Ordner wird ausgeliefert; nur GitHub Enterprise Cloud kann einschränken, wer sie sieht. Pages auf privaten Repositorys erfordert einen GitHub-Tarif, der es enthält; bei GitHub Free für Organisationen macht das Repository öffentlich, sonst wird die Website nicht erstellt.",
+        "help": "Veröffentliche jedes Repository der Lernenden als Website mit GitHub Pages, die beim Annehmen automatisch eingerichtet wird, sodass keine Admin-Rechte nötig sind. Standardmäßig ausgeschaltet. „GitHub Actions“ stellt über einen Workflow im Repository der Lernenden bereit (für Websites mit Build-Schritt). „Ein Branch“ veröffentlicht die Dateien eines Branches direkt, ohne Workflow (für einfaches HTML, CSS und JavaScript). Die Website ist auch bei einem privaten Repository öffentlich im Internet zugänglich, und jede Datei im veröffentlichten Branch und Ordner wird ausgeliefert; nur GitHub Enterprise Cloud kann einschränken, wer sie sieht. Pages bei privaten Repositorys erfordert einen GitHub-Plan, der es enthält; bei GitHub Free für Organisationen musst du das Repository öffentlich machen, sonst wird die Website nicht erstellt. Öffentliche Repositorys werden nicht automatisch bewertet (siehe Repository-Sichtbarkeit).",
         "label": "GitHub Pages",
         "path": {
           "help": "Der Ordner in diesem Branch, der veröffentlicht wird: das Repository-Stammverzeichnis (/) oder /docs. GitHub erlaubt nur diese beiden.",
           "label": "Ordner"
         },
         "workflowNote": "Das Deployment über GitHub Actions erfordert in jedem Studierenden-Repository einen Workflow, der zu Pages veröffentlicht: Er muss die Berechtigungen pages: write und id-token: write gewähren und actions/upload-pages-artifact sowie actions/deploy-pages verwenden. Lege ihn in deinem Template ab oder lass ihn Studierende hinzufügen. Die Website wird erstellt, wenn die studierende Person annimmt, sodass der erste Lauf des Workflows sie deployt."
-      }
+      },
+      "customAutograderNotice": "Diese Aufgabe verwendet den benutzerdefinierten Autograder „{{name}}“ aus {{path}}. Beim Speichern bleibt er erhalten. Um zum integrierten Autograder zu wechseln, setze „autograder“ in assignments.json auf „default“."
     },
     "autograder": {
       "heading": "Autograding-Tests",
@@ -1618,6 +1622,12 @@
       "unlockNoneLocked": "Keine der ausgewählten Aufgaben ist gesperrt.",
       "unlockTitle_one": "{{count}} Aufgabe entsperren?",
       "unlockTitle_other": "{{count}} Aufgaben entsperren?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "„{{slug}}“ verwendet den benutzerdefinierten Autograder „{{name}}“, der für die Ausführung Startinhalte benötigt. Wähle eine Vorlage oder aktiviere „README hinzufügen“ wieder, oder setze zuerst „autograder“ in {{classroom}}/assignments.json auf „default“.",
+        "customAutograderNoAutograder": "„{{slug}}“ verwendet den benutzerdefinierten Autograder „{{name}}“, für den die Einstellung des integrierten Autograders aktiviert sein muss. Aktiviere den integrierten Autograder wieder, oder setze zuerst „autograder“ in {{classroom}}/assignments.json auf „default“."
+      }
     }
   },
   "published": {
@@ -2626,7 +2636,10 @@
       "errorTitle": "Es konnte nicht nach einem Feedback-PR gesucht werden",
       "emptyTitle": "Noch kein Feedback-Pull-Request",
       "openRepoPrs": "Repository-PRs öffnen",
-      "emptyBody": "Für <repo>{{repo}}</repo> wurde noch kein Feedback-Pull-Request geöffnet. Er wird geöffnet, wenn die Lernenden die Aufgabe annehmen – sie haben also möglicherweise noch nicht angenommen, die Aufgabe hat ihn möglicherweise deaktiviert, oder das Öffnen wurde aufgeschoben. Ein aufgeschobenes Öffnen wird beim erneuten Annehmen oder bei der ersten bewerteten Abgabe erneut versucht."
+      "emptyBody": "Für <repo>{{repo}}</repo> wurde noch kein Feedback-Pull-Request geöffnet. Er wird geöffnet, wenn die Lernenden die Aufgabe annehmen – sie haben also möglicherweise noch nicht angenommen, die Aufgabe hat ihn möglicherweise deaktiviert, oder das Öffnen wurde aufgeschoben. Ein aufgeschobenes Öffnen wird beim erneuten Annehmen oder bei der ersten bewerteten Abgabe erneut versucht.",
+      "blockedBody": "Dein Browser hat das Öffnen in einem neuen Tab blockiert. Verwende die Schaltfläche unten, um ihn zu öffnen.",
+      "blockedTitle": "Feedback-Pull-Request gefunden",
+      "openPr": "Feedback-PR öffnen"
     },
     "rowRegrade": {
       "title": "Diese Abgabe neu bewerten",
@@ -3083,7 +3096,8 @@
       "subtitle_other": "Gilt für {{count}} Studierende, die diese Aufgabe angenommen haben.",
       "title": "Repository-Sichtbarkeit ändern",
       "titleEmptyRoster": "Noch kein Studierender hat angenommen",
-      "working": "Repositories werden aktualisiert"
+      "working": "Repositories werden aktualisiert",
+      "autograderWarning": "Die automatische Bewertung stoppt, solange ein Repository öffentlich ist. GitHub verhindert, dass ein öffentliches Repository den Bewertungs-Workflow in deinem privaten classroom50-Repository ausführt, sodass jeder Bewertungslauf mit „workflow was not found“ fehlschlägt. Mach die Repositorys wieder privat, um die Bewertung fortzusetzen."
     },
     "cloneAll": {
       "buttonTitle": "Alle Einreichungen mit der CLI klonen",
@@ -3117,7 +3131,8 @@
         "private": "Das Repository ist jetzt privat.",
         "public": "Das Repository ist jetzt öffentlich."
       },
-      "confirmWarning": "Wer das Repository ansieht oder klont, während es öffentlich ist, behält diese Kopie, auch nachdem du es wieder privat gemacht hast."
+      "confirmWarning": "Wer das Repository ansieht oder klont, während es öffentlich ist, behält diese Kopie, auch nachdem du es wieder privat gemacht hast.",
+      "confirmAutograderWarning": "Die automatische Bewertung stoppt, solange das Repository öffentlich ist: GitHub verhindert, dass es den Bewertungs-Workflow in deinem privaten classroom50-Repository ausführt. Mach es wieder privat, um die Bewertung fortzusetzen."
     },
     "rosterFromCsvNotice": "Die Liste der Lernenden stammt aus der Namenslistendatei zum Zeitpunkt der letzten Synchronisierung, da deine Rolle das GitHub-Team des Kurses nicht einsehen kann. Ein seither eingeschriebener Lernender erscheint, nachdem eine Lehrkraft die Namensliste öffnet. Organisationsbesitzer sehen die Live-Mitgliedschaft.",
     "skipPastTable": "Über die Abgabetabelle hinweg springen",

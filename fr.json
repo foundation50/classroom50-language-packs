@@ -1082,7 +1082,8 @@
         "teamFormationInvalid": "Choisissez qui forme les groupes.",
         "pagesBranchInvalid": "Saisissez un nom de branche sans espaces, de 255 caractères au maximum, ou laissez-le vide pour la branche par défaut.",
         "pagesPathInvalid": "Le dossier Pages doit être / ou /docs.",
-        "pagesSourceInvalid": "GitHub Pages doit être « Désactivé », « GitHub Actions » ou « Une branche »."
+        "pagesSourceInvalid": "GitHub Pages doit être « Désactivé », « GitHub Actions » ou « Une branche ».",
+        "scheduleDateIncomplete": "Complétez la date et l'heure, ou désactivez le commutateur pour la supprimer."
       },
       "availableFrom": "Date de publication ({{tz}})",
       "availableFromTz": "Les heures sont indiquées dans votre fuseau horaire local ({{tz}}).",
@@ -1228,7 +1229,9 @@
           "private": "Privé",
           "public": "Public"
         },
-        "publicWarning": "N'importe qui sur Internet pourra voir le travail de chaque étudiant : code, commits et nom. Si l'organisation n'autorise pas les étudiants à créer des dépôts publics, leur dépôt est créé en privé et vous pouvez le rendre public depuis la page des soumissions."
+        "publicWarning": "N'importe qui sur Internet pourra voir le travail de chaque étudiant : code, commits et nom. Si l'organisation n'autorise pas les étudiants à créer des dépôts publics, leur dépôt est créé en privé et vous pouvez le rendre public depuis la page des soumissions.",
+        "autograderWarning": "Les dépôts publics ne sont pas autocorrigés. GitHub empêche un dépôt public d'exécuter le workflow de correction dans votre dépôt privé classroom50, de sorte que chaque exécution de correction échoue avec «workflow was not found». Gardez les dépôts privés pendant la correction.",
+        "autograderWarningToggleHint": "Vous pouvez aussi sélectionner «Ne pas utiliser l'autocorrecteur intégré»."
       },
       "lockAssignment": "Verrouiller le devoir",
       "lockAssignmentTip": "Les étudiants ne peuvent ni voir ni accepter un devoir verrouillé, y compris ceux qui l'ont déjà accepté. Pour un modèle privé de votre organisation, l'équipe du cours perd l'accès en lecture au modèle jusqu'au déverrouillage. L'accès du personnel et les dépôts d'étudiants existants restent inchangés. Utilisez-le pour préparer une évaluation chronométrée, puis déverrouillez au début de la séance.",
@@ -1257,14 +1260,15 @@
         },
         "editHelp": "Ceci s'applique aux dépôts créés à partir de maintenant ; utilisez la page des soumissions pour activer Pages sur les dépôts existants.",
         "emptyRepoHint": "Non disponible pour un dépôt vide : il n'y a pas encore de branche à publier.",
-        "help": "Publiez chaque dépôt étudiant comme un site web avec GitHub Pages, configuré automatiquement lorsque l'étudiant accepte pour qu'il n'ait jamais besoin d'un accès administrateur. Désactivé est la valeur par défaut. « GitHub Actions » déploie via un workflow dans le dépôt étudiant (pour les sites avec une étape de build). « Une branche » publie directement les fichiers d'une branche, sans workflow (pour du HTML, CSS et JavaScript simples). Le site est public sur Internet même lorsque le dépôt est privé, et chaque fichier de la branche et du dossier publiés est servi ; seul GitHub Enterprise Cloud peut restreindre qui le voit. Pages sur les dépôts privés nécessite un forfait GitHub qui l'inclut ; sur GitHub Free pour les organisations, rendez le dépôt public ou le site n'est pas créé.",
+        "help": "Publiez le dépôt de chaque étudiant sous forme de site web avec GitHub Pages, configuré automatiquement à l'acceptation de l'étudiant, sans qu'il ait jamais besoin d'un accès administrateur. Désactivé par défaut. «GitHub Actions» déploie via un workflow dans le dépôt de l'étudiant (pour les sites nécessitant une étape de construction). «Une branche» publie directement les fichiers d'une branche, sans workflow (pour du HTML, CSS et JavaScript simples). Le site est public sur Internet même lorsque le dépôt est privé, et chaque fichier de la branche et du dossier publiés est servi ; seul GitHub Enterprise Cloud peut restreindre qui le voit. Pages sur des dépôts privés nécessite un forfait GitHub qui l'inclut ; sur GitHub Free pour les organisations, rendez le dépôt public sinon le site n'est pas créé. Les dépôts publics ne sont pas autocorrigés (voir Visibilité du dépôt).",
         "label": "GitHub Pages",
         "path": {
           "help": "Le dossier de cette branche à publier : la racine du dépôt (/) ou /docs. GitHub n'autorise que ces deux options.",
           "label": "Dossier"
         },
         "workflowNote": "Le déploiement via GitHub Actions nécessite un workflow dans chaque dépôt étudiant qui publie vers Pages : il doit accorder les permissions pages: write et id-token: write et utiliser actions/upload-pages-artifact et actions/deploy-pages. Placez-le dans votre modèle, ou demandez aux étudiants de l'ajouter. Le site est créé lorsque l'étudiant accepte, donc la première exécution du workflow le déploie."
-      }
+      },
+      "customAutograderNotice": "Ce devoir utilise l'autocorrecteur personnalisé «{{name}}» depuis {{path}}. L'enregistrement le conserve. Pour passer à l'autocorrecteur intégré, définissez «autograder» sur «default» dans assignments.json."
     },
     "autograder": {
       "heading": "Tests de correction automatique",
@@ -1662,6 +1666,12 @@
       "unlockNoneLocked": "Aucun des devoirs sélectionnés n'est verrouillé.",
       "unlockTitle_one": "Déverrouiller {{count}} devoir ?",
       "unlockTitle_other": "Déverrouiller {{count}} devoirs ?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "«{{slug}}» utilise l'autocorrecteur personnalisé «{{name}}», qui a besoin d'un contenu de départ pour s'exécuter. Choisissez un modèle ou réactivez «Ajouter un README», ou définissez d'abord «autograder» sur «default» dans {{classroom}}/assignments.json.",
+        "customAutograderNoAutograder": "«{{slug}}» utilise l'autocorrecteur personnalisé «{{name}}», qui nécessite l'activation de l'autocorrecteur intégré. Réactivez l'autocorrecteur intégré, ou définissez d'abord «autograder» sur «default» dans {{classroom}}/assignments.json."
+      }
     }
   },
   "published": {
@@ -2758,7 +2768,10 @@
       "errorTitle": "Impossible de vérifier la présence d'une PR de retour",
       "emptyTitle": "Aucune pull request de retour pour l'instant",
       "emptyBody": "Aucune pull request de retour n'a encore été ouverte pour <repo>{{repo}}</repo>. Elle s'ouvre lorsque l'étudiant accepte le devoir, il se peut donc qu'il n'ait pas encore accepté, que le devoir l'ait désactivée, ou que son ouverture ait été différée. Une ouverture différée est retentée lors d'une nouvelle acceptation ou de la première soumission notée.",
-      "openRepoPrs": "Ouvrir les PR du dépôt"
+      "openRepoPrs": "Ouvrir les PR du dépôt",
+      "blockedBody": "Votre navigateur a bloqué son ouverture dans un nouvel onglet. Utilisez le bouton ci-dessous pour l'ouvrir.",
+      "blockedTitle": "Pull request de retour trouvée",
+      "openPr": "Ouvrir la PR de retour"
     },
     "rowRegrade": {
       "title": "Réévaluer ce rendu",
@@ -3195,7 +3208,8 @@
       "subtitle_other": "S'applique à {{count}} étudiants ayant accepté ce travail.",
       "title": "Changer la visibilité des dépôts",
       "titleEmptyRoster": "Aucun étudiant n'a encore accepté",
-      "working": "Mise à jour des dépôts"
+      "working": "Mise à jour des dépôts",
+      "autograderWarning": "L'autocorrection s'arrête tant qu'un dépôt est public. GitHub empêche un dépôt public d'exécuter le workflow de correction dans votre dépôt privé classroom50, de sorte que chaque exécution de correction échoue avec «workflow was not found». Rendez à nouveau les dépôts privés pour reprendre la correction."
     },
     "cloneAll": {
       "buttonTitle": "Cloner toutes les soumissions avec la CLI",
@@ -3229,7 +3243,8 @@
         "private": "Le dépôt est maintenant privé.",
         "public": "Le dépôt est maintenant public."
       },
-      "confirmWarning": "Quiconque consulte ou clone le dépôt pendant qu'il est public en conserve une copie, même après que vous l'ayez de nouveau rendu privé."
+      "confirmWarning": "Quiconque consulte ou clone le dépôt pendant qu'il est public en conserve une copie, même après que vous l'ayez de nouveau rendu privé.",
+      "confirmAutograderWarning": "L'autocorrection s'arrête tant que le dépôt est public : GitHub l'empêche d'exécuter le workflow de correction dans votre dépôt privé classroom50. Rendez-le à nouveau privé pour reprendre la correction."
     },
     "rosterFromCsvNotice": "La liste des étudiants provient du fichier de liste tel qu'il était lors de sa dernière synchronisation, car votre rôle ne permet pas de consulter l'équipe GitHub de la classe. Un étudiant inscrit depuis apparaît une fois qu'un enseignant ouvre la liste. Les propriétaires de l'organisation voient l'appartenance en direct.",
     "skipPastTable": "Passer le tableau des soumissions",

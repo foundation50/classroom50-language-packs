@@ -953,7 +953,8 @@
         "teamFormationInvalid": "Zvolte, kdo tvoří skupiny.",
         "pagesBranchInvalid": "Zadejte název větve bez mezer, nejvýše 255 znaků, nebo jej nechte prázdný pro výchozí větev.",
         "pagesPathInvalid": "Složka Pages musí být / nebo /docs.",
-        "pagesSourceInvalid": "GitHub Pages musí být „Vypnuto“, „GitHub Actions“ nebo „Větev“."
+        "pagesSourceInvalid": "GitHub Pages musí být „Vypnuto“, „GitHub Actions“ nebo „Větev“.",
+        "scheduleDateIncomplete": "Doplňte datum a čas, nebo přepínač vypněte, abyste jej odebrali."
       },
       "allowedFilesTip": "Seřazené vzory ve stylu {{gitignore}}, jeden na řádek, určující, které soubory patří k odevzdání (rozhoduje poslední shoda, {{bang}} znovu zahrnuje). Například {{star}} a poté {{example}} povolí pouze {{result}}. Prázdné povolí každý soubor.",
       "containerUserTip": "Uživatel, pod kterým kontejner běží. Nastavte root, pokud checkout selže s chybou oprávnění. GitHub Actions spouští kroky v kontejneru pod uživatelem hostitelského runneru, takže obraz bez root často nemůže zapisovat do pracovního prostoru.",
@@ -1138,7 +1139,9 @@
           "private": "Soukromý",
           "public": "Veřejný"
         },
-        "publicWarning": "Práci každého studenta uvidí kdokoli na internetu: kód, commity i jméno. Pokud organizace neumožňuje studentům vytvářet veřejné repozitáře, jejich repozitář se místo toho vytvoří jako soukromý a vy jej můžete zveřejnit na stránce odevzdání."
+        "publicWarning": "Práci každého studenta uvidí kdokoli na internetu: kód, commity i jméno. Pokud organizace neumožňuje studentům vytvářet veřejné repozitáře, jejich repozitář se místo toho vytvoří jako soukromý a vy jej můžete zveřejnit na stránce odevzdání.",
+        "autograderWarning": "Veřejné repozitáře se automaticky nehodnotí. GitHub brání veřejnému repozitáři ve spuštění hodnoticího workflow ve vašem soukromém repozitáři classroom50, takže každé spuštění hodnocení selže s hláškou „workflow was not found“. Během hodnocení ponechte repozitáře soukromé.",
+        "autograderWarningToggleHint": "Můžete také zvolit „Nepoužívat vestavěný automatický hodnotitel“."
       },
       "lockAssignment": "Uzamknout zadání",
       "lockAssignmentTip": "Studenti nemohou vidět ani přijmout uzamčené zadání, včetně těch, kteří jej již přijali. U soukromé šablony ve vaší organizaci ztratí tým učebny přístup ke čtení šablony, dokud neodemknete. Přístup personálu a stávající repozitáře studentů zůstávají beze změny. Použijte to k přípravě časově omezeného hodnocení a odemkněte, jakmile relace začne.",
@@ -1167,14 +1170,15 @@
         },
         "editHelp": "Toto se použije na repozitáře vytvořené od této chvíle; u existujících použijte stránku odevzdání k zapnutí Pages.",
         "emptyRepoHint": "Není k dispozici u prázdného repozitáře: zatím není žádná větev k publikování.",
-        "help": "Publikujte každý studentský repozitář jako web pomocí GitHub Pages, nakonfigurovaný automaticky při přijetí studentem, takže nikdy nepotřebuje přístup administrátora. Výchozí je Vypnuto. „GitHub Actions“ nasazuje přes pracovní postup ve studentském repozitáři (pro weby s krokem sestavení). „Větev“ publikuje soubory ve větvi přímo, bez potřeby pracovního postupu (pro čisté HTML, CSS a JavaScript). Web je na internetu veřejný, i když je repozitář soukromý, a poskytuje se každý soubor v publikované větvi a složce; kdo jej vidí, může omezit pouze GitHub Enterprise Cloud. Pages u soukromých repozitářů vyžaduje plán GitHubu, který je zahrnuje; na GitHub Free pro organizace repozitář zveřejněte, jinak se web nevytvoří.",
+        "help": "Publikujte repozitář každého studenta jako web pomocí GitHub Pages; nastaví se automaticky, jakmile student úlohu přijme, takže nikdy nepotřebuje přístup správce. Výchozí hodnota je vypnuto. Volba „GitHub Actions“ nasazuje pomocí workflow ve studentském repozitáři (pro weby s krokem sestavení). Volba „Větev“ publikuje soubory ve větvi přímo, bez potřeby workflow (pro čisté HTML, CSS a JavaScript). Web je veřejně dostupný na internetu, i když je repozitář soukromý, a poskytuje se každý soubor v publikované větvi a složce; omezit, kdo jej vidí, umí pouze GitHub Enterprise Cloud. Pages na soukromých repozitářích vyžaduje plán GitHub, který je zahrnuje; na plánu GitHub Free pro organizace nastavte repozitář jako veřejný, jinak se web nevytvoří. Veřejné repozitáře se automaticky nehodnotí (viz Viditelnost repozitáře).",
         "label": "GitHub Pages",
         "path": {
           "help": "Složka v dané větvi k publikování: kořen repozitáře (/) nebo /docs. GitHub povoluje pouze tyto dvě.",
           "label": "Složka"
         },
         "workflowNote": "Nasazení přes GitHub Actions vyžaduje v každém studentském repozitáři pracovní postup, který publikuje do Pages: musí udělit oprávnění pages: write a id-token: write a použít actions/upload-pages-artifact a actions/deploy-pages. Vložte jej do své šablony, nebo jej nechte přidat studenty. Web se vytvoří, když student přijme, takže jej nasadí první spuštění pracovního postupu."
-      }
+      },
+      "customAutograderNotice": "Tato úloha používá vlastní automatický hodnotitel „{{name}}“ z {{path}}. Uložením se zachová. Chcete-li přejít na vestavěný automatický hodnotitel, nastavte v souboru assignments.json „autograder“ na „default“."
     },
     "autograder": {
       "heading": "Testy automatického hodnocení",
@@ -1620,6 +1624,12 @@
       "unlockNoneLocked": "Žádný z vybraných úkolů není zamknutý.",
       "unlockTitle_one": "Odemknout {{count}} úkol?",
       "unlockTitle_other": "Odemknout {{count}} úkolů?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "Úloha „{{slug}}“ používá vlastní automatický hodnotitel „{{name}}“, který ke spuštění potřebuje výchozí obsah. Zvolte šablonu nebo znovu zapněte „Přidat README“, případně nejprve nastavte „autograder“ na „default“ v souboru {{classroom}}/assignments.json.",
+        "customAutograderNoAutograder": "Úloha „{{slug}}“ používá vlastní automatický hodnotitel „{{name}}“, který vyžaduje zapnuté nastavení vestavěného automatického hodnotitele. Znovu zapněte vestavěný automatický hodnotitel, případně nejprve nastavte „autograder“ na „default“ v souboru {{classroom}}/assignments.json."
+      }
     }
   },
   "published": {
@@ -2629,7 +2639,10 @@
       "errorTitle": "Nepodařilo se zkontrolovat pull request se zpětnou vazbou",
       "emptyTitle": "Zatím žádný pull request se zpětnou vazbou",
       "openRepoPrs": "Otevřít PR repozitáře",
-      "emptyBody": "Pro <repo>{{repo}}</repo> zatím nebyl otevřen žádný feedback pull request. Otevírá se, když student přijme assignment, takže jej možná ještě nepřijal, assignment jej může mít vypnutý nebo bylo jeho otevření odloženo. Odložené otevření se opakuje při opětovném přijetí nebo při prvním ohodnoceném odevzdání."
+      "emptyBody": "Pro <repo>{{repo}}</repo> zatím nebyl otevřen žádný feedback pull request. Otevírá se, když student přijme assignment, takže jej možná ještě nepřijal, assignment jej může mít vypnutý nebo bylo jeho otevření odloženo. Odložené otevření se opakuje při opětovném přijetí nebo při prvním ohodnoceném odevzdání.",
+      "blockedBody": "Prohlížeč zabránil jejímu otevření na nové kartě. Otevřete ji pomocí tlačítka níže.",
+      "blockedTitle": "Nalezen pull request se zpětnou vazbou",
+      "openPr": "Otevřít PR se zpětnou vazbou"
     },
     "rowRegrade": {
       "title": "Přehodnotit toto odevzdání",
@@ -3086,7 +3099,8 @@
       "subtitle_other": "Týká se {{count}} studentů, kteří tuto úlohu přijali.",
       "title": "Změnit viditelnost repozitáře",
       "titleEmptyRoster": "Zatím žádní studenti úlohu nepřijali",
-      "working": "Aktualizace repozitářů"
+      "working": "Aktualizace repozitářů",
+      "autograderWarning": "Dokud je repozitář veřejný, automatické hodnocení se zastaví. GitHub brání veřejnému repozitáři ve spuštění hodnoticího workflow ve vašem soukromém repozitáři classroom50, takže každé spuštění hodnocení selže s hláškou „workflow was not found“. Chcete-li v hodnocení pokračovat, nastavte repozitáře znovu jako soukromé."
     },
     "cloneAll": {
       "buttonTitle": "Naklonovat všechna odevzdání pomocí CLI",
@@ -3120,7 +3134,8 @@
         "private": "Repozitář je nyní soukromý.",
         "public": "Repozitář je nyní veřejný."
       },
-      "confirmWarning": "Kdokoli, kdo repozitář zobrazí nebo naklonuje, dokud je veřejný, si tuto kopii ponechá i poté, co jej znovu nastavíte jako soukromý."
+      "confirmWarning": "Kdokoli, kdo repozitář zobrazí nebo naklonuje, dokud je veřejný, si tuto kopii ponechá i poté, co jej znovu nastavíte jako soukromý.",
+      "confirmAutograderWarning": "Dokud je repozitář veřejný, automatické hodnocení se zastaví: GitHub mu brání ve spuštění hodnoticího workflow ve vašem soukromém repozitáři classroom50. Chcete-li v hodnocení pokračovat, nastavte jej znovu jako soukromý."
     },
     "rosterFromCsvNotice": "Seznam studentů pochází ze souboru rosteru podle jeho poslední synchronizace, protože vaše role nemůže zobrazit GitHub tým učebny. Student zapsaný od té doby se objeví poté, co učitel otevře roster. Vlastníci organizace vidí aktuální členství.",
     "skipPastTable": "Přeskočit za tabulku odevzdání",

@@ -1279,7 +1279,9 @@
         "levels": {
           "private": "Privat",
           "public": "Públic"
-        }
+        },
+        "autograderWarning": "Els dipòsits públics no s'autoavaluen. GitHub impedeix que un dipòsit públic executi el flux de treball d'avaluació del vostre dipòsit privat classroom50, de manera que cada execució d'avaluació falla amb «workflow was not found». Mantingueu els dipòsits privats mentre avalueu.",
+        "autograderWarningToggleHint": "També podeu seleccionar «No facis servir l'autoavaluador integrat»."
       },
       "autograding": {
         "modeLabel": "Qualificador automàtic integrat",
@@ -1442,7 +1444,8 @@
         "teamFormationInvalid": "Tria qui forma els grups.",
         "pagesBranchInvalid": "Introdueix un nom de branca sense espais, com a màxim de 255 caràcters, o deixa-ho en blanc per a la branca per defecte.",
         "pagesPathInvalid": "La carpeta de Pages ha de ser / o /docs.",
-        "pagesSourceInvalid": "GitHub Pages ha de ser «Desactivat», «GitHub Actions» o «Una branca»."
+        "pagesSourceInvalid": "GitHub Pages ha de ser «Desactivat», «GitHub Actions» o «Una branca».",
+        "scheduleDateIncomplete": "Completeu la data i l'hora, o desactiveu l'interruptor per eliminar-la."
       },
       "typeTeam": "Grup",
       "typeTeamRecommended": "Recomanat",
@@ -1467,14 +1470,15 @@
         },
         "editHelp": "Això s'aplica als repositoris creats a partir d'ara; utilitza la pàgina de lliuraments per activar Pages als existents.",
         "emptyRepoHint": "No disponible per a un repositori buit: encara no hi ha cap branca per publicar.",
-        "help": "Publica cada repositori de l'alumnat com un lloc web amb GitHub Pages, configurat automàticament quan l'alumne l'accepta perquè mai no necessitin accés d'administrador. Per defecte està desactivat. «GitHub Actions» desplega a través d'un flux de treball al repositori de l'alumnat (per a llocs amb un pas de compilació). «Una branca» publica directament els fitxers d'una branca, sense necessitat de flux de treball (per a HTML, CSS i JavaScript simples). El lloc és públic a internet fins i tot quan el repositori és privat, i se serveix cada fitxer de la branca i la carpeta publicades; només GitHub Enterprise Cloud pot restringir qui el veu. Pages en repositoris privats necessita un pla de GitHub que ho inclogui; a GitHub Free per a organitzacions, fes públic el repositori o el lloc no es crea.",
+        "help": "Publiqueu cada dipòsit d'estudiant com un lloc web amb GitHub Pages, configurat automàticament quan l'estudiant accepta la tasca, de manera que no necessiten mai accés d'administrador. Per defecte està desactivat. «GitHub Actions» desplega mitjançant un flux de treball al dipòsit de l'estudiant (per a llocs amb un pas de compilació). «Una branca» publica directament els fitxers d'una branca, sense necessitat de flux de treball (per a HTML, CSS i JavaScript senzills). El lloc és públic a internet fins i tot quan el dipòsit és privat, i se serveix tots els fitxers de la branca i la carpeta publicades; només GitHub Enterprise Cloud pot restringir qui el veu. Perquè Pages funcioni en dipòsits privats cal un pla de GitHub que ho inclogui; amb GitHub Free per a organitzacions, feu públic el dipòsit o el lloc no es crea. Els dipòsits públics no s'autoavaluen (vegeu Visibilitat del dipòsit).",
         "label": "GitHub Pages",
         "path": {
           "help": "La carpeta d'aquella branca que es publica: l'arrel del repositori (/) o /docs. GitHub només permet aquestes dues.",
           "label": "Carpeta"
         },
         "workflowNote": "Desplegar a través de GitHub Actions necessita un flux de treball a cada repositori de l'alumnat que publiqui a Pages: ha de concedir els permisos pages: write i id-token: write i utilitzar actions/upload-pages-artifact i actions/deploy-pages. Posa'l a la teva plantilla, o fes que l'alumnat l'afegeixi. El lloc es crea quan l'alumne accepta, així que la primera execució del flux de treball el desplega."
-      }
+      },
+      "customAutograderNotice": "Aquesta tasca utilitza l'autoavaluador personalitzat «{{name}}» de {{path}}. En desar es manté. Per canviar a l'autoavaluador integrat, establiu «autograder» a «default» a assignments.json."
     },
     "autograder": {
       "heading": "Proves de correcció automàtica",
@@ -1865,6 +1869,12 @@
       "unlockNoneLocked": "Cap de les tasques seleccionades està bloquejada.",
       "unlockTitle_one": "Vols desbloquejar {{count}} tasca?",
       "unlockTitle_other": "Vols desbloquejar {{count}} tasques?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "«{{slug}}» utilitza l'autoavaluador personalitzat «{{name}}», que necessita contingut inicial per funcionar. Trieu una plantilla o torneu a activar «Afegeix un README», o bé establiu «autograder» a «default» a {{classroom}}/assignments.json primer.",
+        "customAutograderNoAutograder": "«{{slug}}» utilitza l'autoavaluador personalitzat «{{name}}», que necessita que la configuració de l'autoavaluador integrat estigui activada. Torneu a activar l'autoavaluador integrat, o bé establiu «autograder» a «default» a {{classroom}}/assignments.json primer."
+      }
     }
   },
   "published": {
@@ -3195,7 +3205,10 @@
       "errorTitle": "No s'ha pogut comprovar si hi ha una PR de retorn",
       "emptyTitle": "Encara no hi ha cap sol·licitud d'incorporació de retorn",
       "emptyBody": "Encara no s'ha obert cap sol·licitud d'incorporació de retorn per a <repo>{{repo}}</repo>. S'obre quan l'estudiant accepta la tasca, així que és possible que encara no l'hagi acceptada, que la tasca la tingui desactivada o que l'obertura s'hagi ajornat. Una obertura ajornada es torna a intentar en tornar a acceptar o en la primera entrega puntuada.",
-      "openRepoPrs": "Obre les PR del repositori"
+      "openRepoPrs": "Obre les PR del repositori",
+      "blockedBody": "El navegador ha blocat obrir-la en una pestanya nova. Feu servir el botó de sota per obrir-la.",
+      "blockedTitle": "S'ha trobat una sol·licitud d'incorporació de comentaris",
+      "openPr": "Obre la PR de comentaris"
     },
     "repairPr": {
       "hint": "Si l'estudiant ha acceptat però l'obertura de la PR ha fallat (una incidència de GitHub o un error puntual), la pots obrir ara.",
@@ -3383,7 +3396,8 @@
       "failedSection_other": "No s'han pogut canviar {{count}} repositoris",
       "deferredSection_one": "No s'ha canviat {{count}} repositori",
       "deferredSection_other": "No s'han canviat {{count}} repositoris",
-      "deferredDetail": "S'ha omès. Torna-ho a executar per actualitzar."
+      "deferredDetail": "S'ha omès. Torna-ho a executar per actualitzar.",
+      "autograderWarning": "L'autoavaluació s'atura mentre un dipòsit és públic. GitHub impedeix que un dipòsit públic executi el flux de treball d'avaluació del vostre dipòsit privat classroom50, de manera que cada execució d'avaluació falla amb «workflow was not found». Torneu a fer privats els dipòsits per reprendre l'avaluació."
     },
     "bulkTrigger": {
       "menuLabel": "Actualitza els activadors de correcció automàtica",
@@ -3457,7 +3471,8 @@
         "public": "El repositori ara és públic.",
         "private": "El repositori ara és privat."
       },
-      "confirmWarning": "Qualsevol persona que vegi o cloni el repositori mentre és públic conserva aquesta còpia, fins i tot després que el tornis a fer privat."
+      "confirmWarning": "Qualsevol persona que vegi o cloni el repositori mentre és públic conserva aquesta còpia, fins i tot després que el tornis a fer privat.",
+      "confirmAutograderWarning": "L'autoavaluació s'atura mentre el dipòsit és públic: GitHub impedeix que executi el flux de treball d'avaluació del vostre dipòsit privat classroom50. Torneu a fer-lo privat per reprendre l'avaluació."
     },
     "bulkAutograde": {
       "pauseMenuLabel": "Posa en pausa la correcció automàtica",
