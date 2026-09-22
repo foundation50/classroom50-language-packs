@@ -113,7 +113,8 @@
     "backToApp": "Zurück zur App",
     "signIn": "Anmelden",
     "manageGroups": "Gruppen verwalten",
-    "mySubmissionTeam": "Gruppenabgabe"
+    "mySubmissionTeam": "Gruppenabgabe",
+    "aboutViewPrivacy": "Datenschutzinformationen anzeigen"
   },
   "auth": {
     "signInTitle": "Anmelden",
@@ -188,7 +189,8 @@
       "revokeTitle": "Berechtigung zum Löschen von Repositories nicht mehr verwenden",
       "title": "Berechtigung zum Löschen von Repositories anfordern"
     },
-    "patRequired": "Geben Sie ein persönliches Zugriffstoken ein, um sich anzumelden."
+    "patRequired": "Geben Sie ein persönliches Zugriffstoken ein, um sich anzumelden.",
+    "privacy": "Datenschutz"
   },
   "documentTitle": {
     "assignments": "Aufgaben",
@@ -677,7 +679,10 @@
     "uploadBlockedChecking": "Aktuelle Mitgliedschaft wird geprüft …",
     "uploadBlockedDetails": "Bestätige die oben stehenden Detailänderungen, um fortzufahren.",
     "uploadBlockedRoles": "Bestätige die oben stehenden Rollenänderungen, um fortzufahren.",
-    "uploadBlockedUsernames": "Bestätige die oben stehenden Änderungen an Benutzernamen, um fortzufahren."
+    "uploadBlockedUsernames": "Bestätige die oben stehenden Änderungen an Benutzernamen, um fortzufahren.",
+    "rosterProblemDuplicateColumn": "Die Spalte „{{name}}“ kommt mehr als einmal vor. Behalten Sie eine und entfernen Sie die anderen.",
+    "rosterProblemFormulaColumn": "Der Spaltenname „{{name}}“ beginnt mit =, +, - oder @, was Tabellenkalkulationen als Formel behandeln. Benennen Sie ihn um.",
+    "rosterProblemReservedColumn": "Die Spalte „{{name}}“ ist eine integrierte Teilnehmerlisten-Spalte und erscheint danach erneut. Entfernen Sie die zusätzliche Kopie."
   },
   "language": {
     "baseName": "Englisch (Basis)",
@@ -951,7 +956,8 @@
         "teamFormationInvalid": "Wähle aus, wer die Gruppen bildet.",
         "pagesBranchInvalid": "Gib einen Branch-Namen ohne Leerzeichen mit höchstens 255 Zeichen ein oder lass ihn leer für den Standard-Branch.",
         "pagesPathInvalid": "Der Pages-Ordner muss / oder /docs sein.",
-        "pagesSourceInvalid": "GitHub Pages muss „Aus“, „GitHub Actions“ oder „Ein Branch“ sein."
+        "pagesSourceInvalid": "GitHub Pages muss „Aus“, „GitHub Actions“ oder „Ein Branch“ sein.",
+        "scheduleDateIncomplete": "Vervollständigen Sie Datum und Uhrzeit, oder deaktivieren Sie den Schalter, um sie zu entfernen."
       },
       "allowedFilesTip": "Geordnete Muster im {{gitignore}}-Stil, eines pro Zeile, die festlegen, welche Dateien zu einer Abgabe gehören (die letzte Übereinstimmung gewinnt, {{bang}} nimmt wieder auf). Zum Beispiel erlaubt {{star}} gefolgt von {{example}} nur {{result}}. Leer erlaubt jede Datei.",
       "containerUserTip": "Der Benutzer, unter dem der Container läuft. Setze root, wenn der Checkout mit einem Berechtigungsfehler fehlschlägt. GitHub Actions führt Container-Schritte als Benutzer des Host-Runners aus, sodass ein Nicht-Root-Image oft nicht in den Arbeitsbereich schreiben kann.",
@@ -1060,7 +1066,7 @@
           }
         },
         "modeLabel": "Integrierter Autograder",
-        "editHelp": "Eine Änderung des eingebauten Autograders betrifft nur Repositories, die Studierende ab jetzt akzeptieren. Bereits akzeptierte Repositories behalten ihre ursprüngliche Einrichtung, sodass Sie die vorhandenen Repositories selbst aktualisieren müssen."
+        "editHelp": "Eine Änderung des integrierten Autograders wirkt sich nur auf Repositorys aus, die Studierende ab jetzt annehmen. Bereits angenommene Repositorys behalten ihre ursprüngliche Einrichtung. Um ihn dort zu aktivieren, speichern Sie und verwenden dann „Autograding-Workflow hinzufügen“ auf der Abgabenseite oder gh teacher assignment enable-autograder."
       },
       "copyAbout": {
         "help": "Kopiere die „Info“ der Vorlage (ihre Beschreibung) in jedes Repository der Studierenden. GitHub kopiert sie nicht automatisch. Dies gilt für Studierende, die ab jetzt annehmen; bereits erstellte Repositories werden nicht geändert.",
@@ -1136,7 +1142,9 @@
           "private": "Privat",
           "public": "Öffentlich"
         },
-        "publicWarning": "Jede und jeder im Internet kann die Arbeit jeder und jedes Studierenden sehen: Code, Commits und Name. Wenn die Organisation es Studierenden nicht erlaubt, öffentliche Repositorys zu erstellen, wird ihr Repository stattdessen privat erstellt, und du kannst es über die Abgabenseite öffentlich machen."
+        "publicWarning": "Jede und jeder im Internet kann die Arbeit jeder und jedes Studierenden sehen: Code, Commits und Name. Wenn die Organisation es Studierenden nicht erlaubt, öffentliche Repositorys zu erstellen, wird ihr Repository stattdessen privat erstellt, und du kannst es über die Abgabenseite öffentlich machen.",
+        "autograderWarning": "Öffentliche Repositorys werden nicht automatisch bewertet. GitHub verhindert, dass ein öffentliches Repository den Bewertungs-Workflow in Ihrem privaten classroom50-Repository ausführt, sodass jeder Bewertungslauf mit „workflow was not found“ fehlschlägt. Halten Sie Repositorys während der Bewertung privat.",
+        "autograderWarningToggleHint": "Sie können auch „Integrierten Autograder nicht verwenden“ auswählen."
       },
       "lockAssignment": "Aufgabe sperren",
       "lockAssignmentTip": "Studierende können eine gesperrte Aufgabe nicht sehen oder annehmen, auch nicht Studierende, die sie bereits angenommen haben. Bei einer privaten Vorlage in deiner Organisation verliert das Kursteam den Lesezugriff auf die Vorlage, bis du sie entsperrst. Der Zugriff des Personals und vorhandene Studierenden-Repositorys bleiben unverändert. Nutze das, um eine zeitgesteuerte Prüfung vorzubereiten, und entsperre dann zu Sitzungsbeginn.",
@@ -1165,14 +1173,15 @@
         },
         "editHelp": "Dies gilt für ab jetzt erstellte Repositorys; verwende die Abgabenseite, um Pages auf bestehenden zu aktivieren.",
         "emptyRepoHint": "Für ein leeres Repository nicht verfügbar: Es gibt noch keinen Branch zum Veröffentlichen.",
-        "help": "Veröffentliche jedes Studierenden-Repository als Website mit GitHub Pages, die automatisch konfiguriert wird, wenn die studierende Person annimmt, sodass sie nie Admin-Zugriff benötigen. Aus ist die Voreinstellung. „GitHub Actions“ deployt über einen Workflow im Studierenden-Repository (für Websites mit einem Build-Schritt). „Ein Branch“ veröffentlicht die Dateien in einem Branch direkt, ohne Workflow (für einfaches HTML, CSS und JavaScript). Die Website ist im Internet öffentlich, auch wenn das Repository privat ist, und jede Datei im veröffentlichten Branch und Ordner wird ausgeliefert; nur GitHub Enterprise Cloud kann einschränken, wer sie sieht. Pages auf privaten Repositorys erfordert einen GitHub-Tarif, der es enthält; bei GitHub Free für Organisationen macht das Repository öffentlich, sonst wird die Website nicht erstellt.",
+        "help": "Veröffentlichen Sie jedes Repository der Studierenden als Website mit GitHub Pages, die beim Annehmen automatisch eingerichtet wird, sodass keine Admin-Rechte nötig sind. Standardmäßig aus. „GitHub Actions“ stellt über einen Workflow im Repository der Studierenden bereit (für Websites mit einem Build-Schritt). „Ein Branch“ veröffentlicht die Dateien eines Branches direkt, ohne Workflow (für einfaches HTML, CSS und JavaScript). Die Website ist im Internet öffentlich, selbst wenn das Repository privat ist, und jede Datei im veröffentlichten Branch und Ordner wird ausgeliefert; nur GitHub Enterprise Cloud kann einschränken, wer sie sieht. Pages für private Repositorys erfordert einen GitHub-Plan, der dies umfasst; bei GitHub Free für Organisationen machen Sie das Repository öffentlich, sonst wird die Website nicht erstellt. Öffentliche Repositorys werden nicht automatisch bewertet (siehe Repository-Sichtbarkeit).",
         "label": "GitHub Pages",
         "path": {
           "help": "Der Ordner in diesem Branch, der veröffentlicht wird: das Repository-Stammverzeichnis (/) oder /docs. GitHub erlaubt nur diese beiden.",
           "label": "Ordner"
         },
         "workflowNote": "Das Deployment über GitHub Actions erfordert in jedem Studierenden-Repository einen Workflow, der zu Pages veröffentlicht: Er muss die Berechtigungen pages: write und id-token: write gewähren und actions/upload-pages-artifact sowie actions/deploy-pages verwenden. Lege ihn in deinem Template ab oder lass ihn Studierende hinzufügen. Die Website wird erstellt, wenn die studierende Person annimmt, sodass der erste Lauf des Workflows sie deployt."
-      }
+      },
+      "customAutograderNotice": "Diese Aufgabe verwendet den benutzerdefinierten Autograder „{{name}}“ aus {{path}}. Beim Speichern bleibt er erhalten. Um zum integrierten Autograder zu wechseln, setzen Sie „autograder“ in assignments.json auf „default“."
     },
     "autograder": {
       "heading": "Autograding-Tests",
@@ -1308,7 +1317,7 @@
       "colSubmitted": "Eingereicht",
       "groupsAcceptedTitle": "Gruppen, die angenommen haben: vorhandene Gruppen-Repositorys",
       "noGroupsYet": "Noch keine Gruppen",
-      "noGroupsYetTitle": "Noch keine Gruppen. Ein Gruppen-Repository wird erstellt, wenn seine Gründerin oder sein Gründer annimmt.",
+      "noGroupsYetTitle": "Noch keine Gruppen. Ein Gruppen-Repository wird erstellt, wenn das erste Mitglied annimmt.",
       "notCollectedYet": "Noch nicht eingesammelt",
       "sortByDue": "Nach Abgabedatum sortieren",
       "sortByName": "Nach Name sortieren",
@@ -1618,6 +1627,12 @@
       "unlockNoneLocked": "Keine der ausgewählten Aufgaben ist gesperrt.",
       "unlockTitle_one": "{{count}} Aufgabe entsperren?",
       "unlockTitle_other": "{{count}} Aufgaben entsperren?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "„{{slug}}“ verwendet den benutzerdefinierten Autograder „{{name}}“, der zum Ausführen Startinhalte benötigt. Wählen Sie eine Vorlage aus oder aktivieren Sie „README hinzufügen“ wieder, oder setzen Sie zunächst „autograder“ in {{classroom}}/assignments.json auf „default“.",
+        "customAutograderNoAutograder": "„{{slug}}“ verwendet den benutzerdefinierten Autograder „{{name}}“, für den die Einstellung des integrierten Autograders aktiviert sein muss. Aktivieren Sie den integrierten Autograder wieder, oder setzen Sie „autograder“ in {{classroom}}/assignments.json auf „default“."
+      }
     }
   },
   "published": {
@@ -1739,12 +1754,13 @@
       "cancel": "Abbrechen",
       "confirm": "Änderungen speichern",
       "provisioning": {
-        "autograder": "Integrierter Autograder: Wenn du ihn ausschaltest, schlagen die Autobewertungsläufe vorhandener Repositorys fehl und fallen aus den gesammelten Punkten heraus.",
         "grading_mode": "Bewertungsmodus: Unter dem alten Modus erfasste Punkte lassen sich möglicherweise anders lesen.",
         "repo_source": "Repository-Quelle: Vorhandene Repositorys behalten ihren ursprünglichen Startinhalt.",
         "repo_visibility": "Repository-Sichtbarkeit: Ändere vorhandene Repositorys über die Abgabenseite.",
         "student_permission": "Repository-Zugriff für Studierende: Ändere vorhandene Repositorys über die Abgabenseite.",
-        "pages": "GitHub Pages: Aktiviere es auf bestehenden Repositorys über die Abgabenseite."
+        "pages": "GitHub Pages: Aktiviere es auf bestehenden Repositorys über die Abgabenseite.",
+        "autograder_off": "Integrierter Autograder: Wenn Sie ihn deaktivieren, schlagen die Autograde-Läufe bestehender Repositorys fehl und fallen aus den erfassten Punktzahlen heraus.",
+        "autograder_on": "Integrierter Autograder: Bestehende Repositorys haben noch keinen Autograding-Workflow. Verwenden Sie nach dem Speichern auf der Abgabenseite „Autograding-Workflow hinzufügen“, um ihn dort zu ergänzen."
       },
       "provisioningIntro_one": "{{count}} Studierende(r) hat bereits angenommen. Diese Änderungen gelten nur für Repositorys, die ab jetzt angenommen werden; das vorhandene Repository behält seine aktuelle Einrichtung:",
       "provisioningIntro_other": "{{count}} Studierende haben bereits angenommen. Diese Änderungen gelten nur für Repositorys, die ab jetzt angenommen werden; die {{count}} vorhandenen Repositorys behalten ihre aktuelle Einrichtung:",
@@ -2596,7 +2612,7 @@
       "overriddenTitle": "Diese Punktzahl wurde von Hand gesetzt und wird von der automatischen Bewertung nicht geändert, bis die Überschreibung aufgehoben wird.",
       "notCollectedYet": "Noch nicht eingesammelt",
       "notCollectedYetTitle": "Dieser Studierende hat Arbeit gepusht, die noch nicht eingesammelt wurde, daher gibt es keine erfasste Einreichungszeit. Führe „Jetzt einsammeln“ aus, um sie einzusammeln.",
-      "emptyNoGroupsBody": "Ein Gruppen-Repository wird erstellt, wenn deren Gründer:in die Aufgabe annimmt. Gruppen erscheinen hier, sobald sie sich bilden.",
+      "emptyNoGroupsBody": "Ein Gruppen-Repository wird erstellt, wenn das erste Mitglied die Aufgabe annimmt. Gruppen erscheinen hier, sobald sie sich bilden.",
       "emptyNoGroupsTitle": "Noch keine Gruppen",
       "noRepoYetTitle": "Noch kein Repository. Die Lernenden haben die Aufgabe nicht angenommen.",
       "notAcceptedTitle": "Der/die Lernende hat den Einladungslink noch nicht geöffnet, daher existiert kein Repository. Teile den Aufgaben-Link über die Schaltfläche „Teilen“.",
@@ -2620,13 +2636,21 @@
       "teamNoRepoTitle": "Das Repository der Gruppe wird erstellt, sobald ein Gruppenmitglied die Aufgabe annimmt. Teile den Aufgabenlink, damit ein Mitglied annehmen kann.",
       "staffRowTitle": "Eine Lehrkraft, ein Haupt-TA oder ein TA, die diese Aufgabe angenommen haben, meist um sie auszuprobieren. Diese Zeile gehört nicht zu einem oder einer Studierenden.",
       "openSiteLabel": "Die GitHub-Pages-Website für {{repo}} öffnen",
-      "viewSite": "GitHub-Pages-Website öffnen"
+      "viewSite": "GitHub-Pages-Website öffnen",
+      "unverified": "Nicht verifiziert",
+      "unverifiedAuthorTitle": "Der Autograder hat dieses Release nicht veröffentlicht; {{login}} hat das getan. Die Punktzahl ist erfasst, aber kein Beweis. Prüfen Sie den Reiter „Releases“ und den Verlauf unter „Actions“ des Repositorys.",
+      "unverifiedRecordedTitle": "Der Autograder hat dieses Release nicht veröffentlicht ({{reason}}). Die Punktzahl ist erfasst, aber kein Beweis. Prüfen Sie den Reiter „Releases“ und den Verlauf unter „Actions“ des Repositorys.",
+      "unverifiedUnknownAccount": "ein unbekanntes Konto",
+      "unverifiedUploaderTitle": "Der Autograder hat die result.json dieses Releases nicht hochgeladen; {{login}} hat das getan. Die Punktzahl ist erfasst, aber kein Beweis. Prüfen Sie den Reiter „Releases“ und den Verlauf unter „Actions“ des Repositorys."
     },
     "reviewModal": {
       "errorTitle": "Es konnte nicht nach einem Feedback-PR gesucht werden",
       "emptyTitle": "Noch kein Feedback-Pull-Request",
       "openRepoPrs": "Repository-PRs öffnen",
-      "emptyBody": "Für <repo>{{repo}}</repo> wurde noch kein Feedback-Pull-Request geöffnet. Er wird geöffnet, wenn die Lernenden die Aufgabe annehmen – sie haben also möglicherweise noch nicht angenommen, die Aufgabe hat ihn möglicherweise deaktiviert, oder das Öffnen wurde aufgeschoben. Ein aufgeschobenes Öffnen wird beim erneuten Annehmen oder bei der ersten bewerteten Abgabe erneut versucht."
+      "emptyBody": "Für <repo>{{repo}}</repo> wurde noch kein Feedback-Pull-Request geöffnet. Er wird geöffnet, wenn die Lernenden die Aufgabe annehmen – sie haben also möglicherweise noch nicht angenommen, die Aufgabe hat ihn möglicherweise deaktiviert, oder das Öffnen wurde aufgeschoben. Ein aufgeschobenes Öffnen wird beim erneuten Annehmen oder bei der ersten bewerteten Abgabe erneut versucht.",
+      "blockedBody": "Ihr Browser hat das Öffnen in einem neuen Tab blockiert. Verwenden Sie die Schaltfläche unten, um ihn zu öffnen.",
+      "blockedTitle": "Feedback-Pull-Request gefunden",
+      "openPr": "Feedback-PR öffnen"
     },
     "rowRegrade": {
       "title": "Diese Abgabe neu bewerten",
@@ -3083,7 +3107,8 @@
       "subtitle_other": "Gilt für {{count}} Studierende, die diese Aufgabe angenommen haben.",
       "title": "Repository-Sichtbarkeit ändern",
       "titleEmptyRoster": "Noch kein Studierender hat angenommen",
-      "working": "Repositories werden aktualisiert"
+      "working": "Repositories werden aktualisiert",
+      "autograderWarning": "Das automatische Bewerten stoppt, während ein Repository öffentlich ist. GitHub verhindert, dass ein öffentliches Repository den Bewertungs-Workflow in Ihrem privaten classroom50-Repository ausführt, sodass jeder Bewertungslauf mit „workflow was not found“ fehlschlägt. Machen Sie die Repositorys wieder privat, um die Bewertung fortzusetzen."
     },
     "cloneAll": {
       "buttonTitle": "Alle Einreichungen mit der CLI klonen",
@@ -3117,7 +3142,8 @@
         "private": "Das Repository ist jetzt privat.",
         "public": "Das Repository ist jetzt öffentlich."
       },
-      "confirmWarning": "Wer das Repository ansieht oder klont, während es öffentlich ist, behält diese Kopie, auch nachdem du es wieder privat gemacht hast."
+      "confirmWarning": "Wer das Repository ansieht oder klont, während es öffentlich ist, behält diese Kopie, auch nachdem du es wieder privat gemacht hast.",
+      "confirmAutograderWarning": "Das automatische Bewerten stoppt, während das Repository öffentlich ist: GitHub verhindert, dass es den Bewertungs-Workflow in Ihrem privaten classroom50-Repository ausführt. Machen Sie es wieder privat, um die Bewertung fortzusetzen."
     },
     "rosterFromCsvNotice": "Die Liste der Lernenden stammt aus der Namenslistendatei zum Zeitpunkt der letzten Synchronisierung, da deine Rolle das GitHub-Team des Kurses nicht einsehen kann. Ein seither eingeschriebener Lernender erscheint, nachdem eine Lehrkraft die Namensliste öffnet. Organisationsbesitzer sehen die Live-Mitgliedschaft.",
     "skipPastTable": "Über die Abgabetabelle hinweg springen",
@@ -3159,6 +3185,53 @@
         "unknown": "GitHub Pages konnte für {{repo}} gerade nicht aktiviert werden. Versuche es gleich noch einmal."
       },
       "title": "GitHub Pages aktivieren"
+    },
+    "bulkShim": {
+      "apply": "Auf alle anwenden",
+      "configBranchError": "Der Standard-Branch des Kurs-Repositorys konnte nicht gelesen werden, daher wurde kein Workflow hinzugefügt. Versuchen Sie es erneut.",
+      "deferredDetail": "Übersprungen. Erneut ausführen, um hinzuzufügen.",
+      "deferredSection_one": "{{count}} Repository wurde nicht verarbeitet",
+      "deferredSection_other": "{{count}} Repositorys wurden nicht verarbeitet",
+      "failedSection_one": "{{count}} Repository konnte nicht aktualisiert werden",
+      "failedSection_other": "{{count}} Repositorys konnten nicht aktualisiert werden",
+      "menuLabel": "Autograding-Workflow hinzufügen",
+      "menuTitle": "Fügen Sie den integrierten Autograding-Workflow zu jedem Repository der Studierenden hinzu, das noch keinen hat",
+      "noRepos": "Noch haben keine Studierenden angenommen, daher gibt es nichts hinzuzufügen.",
+      "notAcceptedDetail": "Es existiert kein Repository. Es erhält den Workflow, wenn die studierende Person annimmt.",
+      "notAcceptedSection_one": "{{count}} studierende Person hat noch nicht angenommen",
+      "notAcceptedSection_other": "{{count}} Studierende haben noch nicht angenommen",
+      "progress": "{{processed}} von {{total}} verarbeitet",
+      "regradeReminder": "Bereits von Studierenden gepushte Arbeit wird bei ihrem nächsten Push bewertet. Ein Workflow läuft nur für Commits, die ihn enthalten, daher kann „Alle neu bewerten“ frühere Commits nicht erreichen. Um jetzt zu bewerten, lassen Sie Studierende einmal pushen (ein leerer Commit genügt).",
+      "repullReminder": "Weisen Sie Studierende an, git pull auszuführen. Klone, die vor dieser Änderung erstellt wurden, führen bei ihrem nächsten Push zu Konflikten.",
+      "resultHeadline": "Der Workflow wurde zu {{added}} von {{total}} Repositorys hinzugefügt ({{present}} hatten ihn bereits).",
+      "scopeDetail": "Ihre GitHub-Autorisierung kann keine Workflow-Dateien ändern. Melden Sie sich ab und wieder an und führen Sie es dann erneut aus.",
+      "scopeSection_one": "{{count}} Repository benötigt zusätzliche GitHub-Berechtigung",
+      "scopeSection_other": "{{count}} Repositorys benötigen zusätzliche GitHub-Berechtigung",
+      "subtitle_one": "Fügt den Autograding-Workflow zum Repository von {{count}} studierender Person hinzu, falls er fehlt.",
+      "subtitle_other": "Fügt den Autograding-Workflow zu den Repositorys von {{count}} Studierenden hinzu, wo er fehlt.",
+      "title": "Autograding-Workflow hinzufügen",
+      "titleEmptyRoster": "Noch haben keine Studierenden angenommen",
+      "unrecognizedSection_one": "{{count}} Repository wurde übersprungen (an diesem Pfad befindet sich bereits ein anderer Workflow)",
+      "unrecognizedSection_other": "{{count}} Repositorys wurden übersprungen (an diesem Pfad befindet sich bereits ein anderer Workflow)",
+      "warningLead_one": "Dies committet den Autograding-Workflow in das Repository von {{count}} studierender Person.",
+      "warningLead_other": "Dies committet den Autograding-Workflow in die Repositorys von {{count}} Studierenden.",
+      "warningPoint1": "Repositorys, die den Workflow bereits haben, bleiben unberührt.",
+      "warningPoint2": "Der Commit ist so gekennzeichnet, dass er keine Bewertung auslöst. Bereits von Studierenden gepushte Arbeit wird bei ihrem nächsten Push bewertet; „Alle neu bewerten“ kann Commits nicht erreichen, die vor dem Vorhandensein des Workflows erstellt wurden.",
+      "warningPoint3": "Studierende müssen danach pullen. Klone, die vor dieser Änderung erstellt wurden, führen bei ihrem nächsten Push zu Konflikten.",
+      "working": "Workflow wird hinzugefügt"
+    },
+    "rowShim": {
+      "aria": "Den Autograding-Workflow zu {{repo}} hinzufügen",
+      "description": "Fügen Sie den integrierten Autograding-Workflow zu diesem Repository hinzu, wenn es angenommen wurde, während der Autograder ausgeschaltet war.",
+      "outcome": {
+        "added": "Autograding-Workflow hinzugefügt. Die studierende Person muss vor ihrem nächsten Push pullen, und dieser Push ist es, der bereits im Repository vorhandene Arbeit bewertet.",
+        "failed": "Der Workflow konnte nicht hinzugefügt werden. Versuchen Sie es erneut.",
+        "missingWorkflowScope": "Ihre GitHub-Autorisierung kann keine Workflow-Dateien ändern. Melden Sie sich ab und wieder an und versuchen Sie es dann erneut.",
+        "notAccepted": "Es existiert noch kein Repository, daher gibt es nichts hinzuzufügen.",
+        "present": "Dieses Repository hat den Autograding-Workflow bereits.",
+        "unrecognized": "Übersprungen: Am Pfad des Autograding-Workflows befindet sich bereits ein anderer Workflow, daher wurde nichts geändert."
+      },
+      "title": "Autograding-Workflow hinzufügen"
     }
   },
   "orgMembers": {
@@ -3805,7 +3878,22 @@
       },
       "subheading": "Das Abbauen einer Organisation erfordert die Berechtigung zum Löschen von Repositories, die die normale Anmeldung nicht anfordert. Gewähren Sie diese Berechtigung nur, wenn Sie sie benötigen, und widerrufen Sie sie auf GitHub, wenn Sie fertig sind."
     },
-    "noChangesToSave": "Keine Änderungen zum Speichern."
+    "noChangesToSave": "Keine Änderungen zum Speichern.",
+    "analytics": {
+      "heading": "Cookies und Analysen",
+      "privacyLink": "Datenschutzhinweis lesen",
+      "subheading": "Analysen helfen, Classroom 50 zu verbessern. Wählen Sie, welche Dienste Ihre Besuche in diesem Browser zählen dürfen. Funktionaler Speicher bleibt aktiv."
+    },
+    "nameOrder": {
+      "firstLast": "Vorname, dann Nachname",
+      "firstLastHint": "Zum Beispiel Ada Lovelace.",
+      "groupAria": "Einstellung zur Namensreihenfolge",
+      "heading": "Namen der Studierenden",
+      "lastFirst": "Nachname, dann Vorname",
+      "lastFirstHint": "Zum Beispiel Lovelace Ada.",
+      "saved": "Einstellung zur Namensreihenfolge gespeichert.",
+      "subheading": "Wählen Sie die Reihenfolge, in der Namen der Studierenden in Teilnehmerlisten, Abgaben, Gruppen und exportierten Punktzahlen erscheinen."
+    }
   },
   "pagesErrors": {
     "assignmentNotInManifest": "Die Aufgabe „{{assignmentSlug}}“ ist nicht in den veröffentlichten Aufgaben dieses Klassenzimmers enthalten. Überprüfe den Link oder bitte deine Lehrkraft, die Aufgabe zu veröffentlichen.",
@@ -4120,5 +4208,95 @@
       "staff": "Das Team {{slug}} existiert bereits, wurde aber nicht von Classroom 50 erstellt und kann daher nicht als Mitarbeitenden-Team verwendet werden. Überprüfe seine Mitglieder unter {{url}} und lösche es dann entweder oder gib ihm Zugriff auf das classroom50-Repository, und versuche es erneut.",
       "studentOf": "Das Team {{slug}} ist das Lernenden-Team des Kursraums {{classroom}} und kann daher nicht das {{role}}-Team dieses Kursraums sein. Lasse die Rolle {{role}} hier unbesetzt, oder benenne einen der Kursräume um."
     }
+  },
+  "consent": {
+    "alwaysOn": "Immer aktiv",
+    "banner": {
+      "accept": "Akzeptieren",
+      "body": "Anonyme Nutzungsdaten zeigen, welche Funktionen genutzt werden und wo Nutzende nicht weiterkommen, damit sich die App verbessern kann. Nichts identifiziert Sie, und Sie können Ihre Wahl jederzeit in den Einstellungen ändern. Deaktivieren Sie alles, was Sie lieber nicht teilen möchten, und wählen Sie dann „Akzeptieren“.",
+      "decline": "Ablehnen",
+      "hideNotice": "Datenschutzhinweis ausblenden",
+      "readNotice": "Datenschutzhinweis lesen",
+      "title": "Analysen helfen, Classroom 50 zu verbessern"
+    },
+    "browserDeclines": "Ihr Browser sendet das Signal Global Privacy Control oder Do Not Track, daher bleiben Analysen aus, und Classroom 50 fragt nicht.",
+    "categories": {
+      "cloudflare": {
+        "caption": "Zählt Besuche. Keine Cookies.",
+        "items": {
+          "collected": "Seitenpfad, verweisende Website, Land, Browsertyp und Ladezeit",
+          "noCookies": "Keine Cookies und keine Kennungen, es werden also Besuche gezählt, nicht Personen",
+          "notCollected": "Niemals Ihr GitHub-Benutzername, Ihre E-Mail-Adresse, Teilnehmerlistendaten oder die Query-Zeichenkette einer URL"
+        },
+        "label": "Cloudflare Web Analytics"
+      },
+      "functional": {
+        "caption": "Für die Funktion der App erforderlich. Bleibt in diesem Browser.",
+        "items": {
+          "consent": "Die Wahl, die Sie hier treffen",
+          "preferences": "Ihre Einstellungen: Sprache, Design, Namensreihenfolge, Animationen, ausgeblendete Organisationen und Seitenleisten-Layout",
+          "session": "Ihre GitHub-Anmeldung, damit Sie angemeldet bleiben"
+        },
+        "label": "Funktional",
+        "tooltip": "Nur in diesem Browser gespeichert: Ihre GitHub-Anmeldung, damit Sie angemeldet bleiben, Ihre Einstellungen (Sprache, Design, Namensreihenfolge, Animationen, ausgeblendete Organisationen und Seitenleisten-Layout) und die Wahl, die Sie hier treffen. Nichts davon wird für Analysen verwendet."
+      },
+      "google": {
+        "caption": "Zeigt, wie Funktionen genutzt werden. Setzt ein Cookie.",
+        "items": {
+          "collected": "Seiten, die Sie aufrufen, und wie lange Sie bleiben, die Website, die auf die Seite verlinkt hat, Ihr Land sowie Ihr Browser, Gerät und Ihre Sprache, gesendet über Google Tag Manager",
+          "cookie": "Ein Cookie mit einer zufälligen ID, damit ein wiederkehrender Browser einmal gezählt wird. Es läuft nach 2 Jahren ab.",
+          "notCollected": "Niemals Ihr GitHub-Benutzername, Ihre E-Mail-Adresse, Teilnehmerlistendaten oder die Query-Zeichenkette einer URL"
+        },
+        "label": "Google Analytics"
+      }
+    },
+    "declineAll": "Alle Analysen ablehnen",
+    "reset": "Zurücksetzen und erneut fragen",
+    "savePreferences": "Einstellungen speichern",
+    "whatThisIncludes": "Was das umfasst"
+  },
+  "privacy": {
+    "analytics": {
+      "cloudflareTerms": "Cloudflare-Vereinbarung zur Datenverarbeitung",
+      "collected": {
+        "cookie": "Nur Google Analytics: ein Cookie mit einer zufälligen ID, damit ein wiederkehrender Browser einmal gezählt wird. Es läuft nach 2 Jahren ab, und wenn Sie Google Analytics deaktivieren, wird es entfernt.",
+        "country": "Ihr Land, ermittelt aus Ihrer Verbindung",
+        "device": "Browser, Betriebssystem, Gerätetyp und Sprache",
+        "path": "Die Seiten, die Sie aufrufen, zum Beispiel /cs1-fall-2026/assignments, und wie lange Sie bleiben",
+        "referrer": "Die Website, die auf die Seite verlinkt hat",
+        "timings": "Ladezeit der Seite"
+      },
+      "collectedHeading": "Erfasst",
+      "googleTerms": "Google-Datenschutzerklärung",
+      "googleUsage": "Wie Google Informationen von Websites nutzt, die seine Dienste verwenden",
+      "heading": "Nutzungsanalysen",
+      "intro": "Analysen zeigen, wie viele Menschen classroom50.org nutzen, welche Funktionen sie verwenden und wo sie nicht weiterkommen, damit sich die App verbessern kann. Mit Ihrer Erlaubnis tun dies zwei Dienste: Cloudflare Web Analytics, das keine Cookies setzt, und Google Analytics, das über Google Tag Manager geladen wird und einen wiederkehrenden Browser über ein Cookie erkennt. Sie können jeden davon deaktivieren. Keiner weiß, wer Sie sind.",
+      "notCollected": {
+        "crossSite": "Alles, was Ihnen auf andere Websites folgt",
+        "identity": "Ihr GitHub-Benutzername, Ihre E-Mail-Adresse oder Teilnehmerlistendaten",
+        "queryStrings": "Query-Zeichenketten. Cloudflare entfernt sie in Ihrem Browser, und unser Google-Analytics-Setup ist so konfiguriert, dass es sie nicht aufzeichnet, sodass Anmeldecodes, Einladungslink-Schlüssel und Teilnehmerlisten-Suchen nicht in die Daten gelangen."
+      },
+      "notCollectedHeading": "Nicht erfasst",
+      "processing": "Google und Cloudflare verarbeiten diese Daten für die Fifty Foundation. Wie jeder damit umgeht:",
+      "retention": "Google speichert Ereignisdaten bis zu 14 Monate. Cloudflare speichert vollständige Daten 7 Tage und eine Stichprobe 6 Monate. Kein Dienst läuft, bevor Sie zustimmen, und Sie können Ihre Antwort jederzeit unten ändern."
+    },
+    "choice": {
+      "body": "Ihre Wahl wird in diesem Browser gespeichert. Beim Zustimmen starten die Dienste, die Sie aktiviert gelassen haben, sofort. Wenn Sie einen deaktivieren, werden dessen Cookies jetzt entfernt und er wird ab dem nächsten Seitenaufruf gestoppt. Wenn Sie angemeldet sind, können Sie dies auch in den Einstellungen ändern.",
+      "heading": "Ihre Wahl",
+      "signals": "Wenn Ihr Browser das Signal Global Privacy Control oder Do Not Track sendet, laufen keine Analysen, und Classroom 50 fragt nicht."
+    },
+    "contact": {
+      "body": "Classroom 50 ist ein Open-Source-Projekt, das von der Fifty Foundation unterstützt wird. Um Fragen zu diesem Hinweis zu stellen, starten Sie einen Thread in",
+      "heading": "Fragen",
+      "link": "GitHub Discussions"
+    },
+    "data": {
+      "body": "Classroom 50 hat keinen eigenen Server, keine eigene Datenbank und keine eigenen Konten. Teilnehmerlisten, Aufgaben-Repositorys, Punktzahlen und Rückmeldungen bleiben in Ihrer GitHub-Organisation. Die App liest und schreibt sie über die GitHub-API mit einem Token, das Sie erteilen. Anmeldung und Repository-Downloads laufen über einen Proxy, der nichts speichert.",
+      "heading": "Ihre Kursdaten",
+      "more": "Weitere Details, einschließlich FERPA-Hinweisen, finden Sie unter",
+      "moreLink": "Datenschutz und FERPA in der Dokumentation"
+    },
+    "pageSubtitle": "Wie die Classroom-50-Web-App mit Ihren Daten umgeht und was Sie wählen können.",
+    "pageTitle": "Datenschutz"
   }
 }

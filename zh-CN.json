@@ -294,7 +294,8 @@
     "aboutDiagnosticsCopy": "复制诊断信息",
     "aboutDiagnosticsCopied": "已复制",
     "manageGroups": "管理小组",
-    "mySubmissionTeam": "小组提交"
+    "mySubmissionTeam": "小组提交",
+    "aboutViewPrivacy": "查看隐私信息"
   },
   "auth": {
     "signInTitle": "登录",
@@ -369,7 +370,8 @@
     "errorDeviceDeclined": "你拒绝了授权请求。",
     "errorDeviceNoToken": "GitHub 未能完成登录。请重试。",
     "errorPatMissingScopes": "该令牌缺少所需的权限（{{scopes}}）。请在 GitHub 上添加后重试。",
-    "errorPatRejected401": "该令牌被 GitHub 拒绝（401）。请确认它有效且未过期。"
+    "errorPatRejected401": "该令牌被 GitHub 拒绝（401）。请确认它有效且未过期。",
+    "privacy": "隐私"
   },
   "documentTitle": {
     "assignments": "作业",
@@ -858,7 +860,10 @@
     "uploadBlockedChecking": "正在检查当前成员情况…",
     "uploadBlockedDetails": "请确认上方的详情更新以继续。",
     "uploadBlockedRoles": "请确认上方的角色变更以继续。",
-    "uploadBlockedUsernames": "请确认上方的用户名变更以继续。"
+    "uploadBlockedUsernames": "请确认上方的用户名变更以继续。",
+    "rosterProblemDuplicateColumn": "列“{{name}}”出现了多次。请保留一个并删除其余的。",
+    "rosterProblemFormulaColumn": "列名“{{name}}”以 =、+、- 或 @ 开头，电子表格会将其当作公式。请重命名。",
+    "rosterProblemReservedColumn": "列“{{name}}”是内置名册列，之后又再次出现。请删除多余的副本。"
   },
   "language": {
     "baseName": "英语（基础）",
@@ -1112,6 +1117,21 @@
     "language": {
       "heading": "语言",
       "subheading": "切换语言或安装已翻译的语言包。"
+    },
+    "analytics": {
+      "heading": "Cookie 与分析",
+      "privacyLink": "阅读隐私声明",
+      "subheading": "分析有助于改进 Classroom 50。选择哪些服务可以在此浏览器中统计你的访问。功能性存储始终保持开启。"
+    },
+    "nameOrder": {
+      "firstLast": "先名后姓",
+      "firstLastHint": "例如，Ada Lovelace。",
+      "groupAria": "姓名顺序偏好",
+      "heading": "学生姓名",
+      "lastFirst": "先姓后名",
+      "lastFirstHint": "例如，Lovelace Ada。",
+      "saved": "姓名顺序偏好已保存。",
+      "subheading": "选择学生姓名在名册、提交、小组和导出成绩中显示的顺序。"
     }
   },
   "assignments": {
@@ -1276,11 +1296,13 @@
         "levels": {
           "private": "私有",
           "public": "公开"
-        }
+        },
+        "autograderWarning": "公开仓库不会被自动评分。GitHub 会阻止公开仓库运行你私有 classroom50 仓库中的评分工作流，因此每次评分运行都会以“workflow was not found”失败。评分期间请让仓库保持私有。",
+        "autograderWarningToggleHint": "你也可以选择“不使用内置自动评分器”。"
       },
       "autograding": {
         "modeLabel": "内置自动评分器",
-        "editHelp": "更改内置自动评分器仅影响学生从现在起接受的仓库。已接受的仓库将保留其原始设置，因此你需要自行更新现有仓库。",
+        "editHelp": "更改内置自动评分器只会影响从现在起学生接受的仓库。已接受的仓库保留其原有设置。若要为这些仓库开启，请先保存，然后在提交页面使用“添加自动评分工作流”，或运行 gh teacher assignment enable-autograder。",
         "choices": {
           "none": {
             "label": "不使用内置自动评分器",
@@ -1439,7 +1461,8 @@
         "teamFormationInvalid": "请选择由谁组建小组。",
         "pagesBranchInvalid": "请输入不含空格、最多 255 个字符的分支名称，或留空以使用默认分支。",
         "pagesPathInvalid": "Pages 文件夹必须是 / 或 /docs。",
-        "pagesSourceInvalid": "GitHub Pages 必须为“关闭”、“GitHub Actions”或“某个分支”。"
+        "pagesSourceInvalid": "GitHub Pages 必须为“关闭”、“GitHub Actions”或“某个分支”。",
+        "scheduleDateIncomplete": "请填完日期和时间，或关闭开关以移除它。"
       },
       "teamFormation": "小组组建方式",
       "teamFormationStudent": "由学生组建小组",
@@ -1467,14 +1490,15 @@
         },
         "editHelp": "这适用于从现在起创建的仓库；请在提交页面为现有仓库启用 Pages。",
         "emptyRepoHint": "空仓库不可用：尚无可发布的分支。",
-        "help": "使用 GitHub Pages 将每个学生仓库发布为网站，在学生接受时自动配置，因此他们永远不需要管理员权限。默认为关闭。“GitHub Actions”通过学生仓库中的工作流部署（适用于有构建步骤的站点）。“某个分支”直接发布某个分支中的文件，无需工作流（适用于纯 HTML、CSS 和 JavaScript）。即使仓库是私有的，该站点在互联网上也是公开的，且已发布分支和文件夹中的每个文件都会被提供；只有 GitHub Enterprise Cloud 才能限制谁可以查看。私有仓库上的 Pages 需要包含该功能的 GitHub 套餐；在面向组织的 GitHub Free 上，请将仓库设为公开，否则站点不会创建。",
+        "help": "使用 GitHub Pages 将每个学生仓库发布为网站，在学生接受时自动配置，因此他们无需管理员权限。默认关闭。“GitHub Actions”通过学生仓库中的工作流部署（适用于需要构建步骤的站点）。“某个分支”直接发布分支中的文件，无需工作流（适用于纯 HTML、CSS 和 JavaScript）。即使仓库为私有，站点在互联网上也是公开的，且已发布分支和文件夹中的每个文件都会被提供服务；只有 GitHub Enterprise Cloud 才能限制查看者。私有仓库上的 Pages 需要包含此功能的 GitHub 套餐；在组织版 GitHub Free 上，请将仓库设为公开，否则不会创建站点。公开仓库不会被自动评分（见仓库可见性）。",
         "label": "GitHub Pages",
         "path": {
           "help": "该分支中用于发布的文件夹：仓库根目录（/）或 /docs。GitHub 只允许这两者。",
           "label": "文件夹"
         },
         "workflowNote": "通过 GitHub Actions 部署需要每个学生仓库中有一个发布到 Pages 的工作流：它必须授予 pages: write 和 id-token: write 权限，并使用 actions/upload-pages-artifact 和 actions/deploy-pages。将其放入你的模板，或让学生自行添加。站点在学生接受时创建，因此工作流的首次运行会部署它。"
-      }
+      },
+      "customAutograderNotice": "此作业使用来自 {{path}} 的自定义自动评分器“{{name}}”。保存会保留它。若要切换到内置自动评分器，请在 assignments.json 中将“autograder”设为“default”。"
     },
     "autograder": {
       "heading": "自动评分测试",
@@ -1589,7 +1613,7 @@
       "groupsSubmitted_one": "{{count}} 个小组已提交",
       "groupsSubmitted_other": "{{count}} 个小组已提交",
       "groupsAcceptedTitle": "已接受的小组——已存在的小组仓库",
-      "noGroupsYetTitle": "暂无小组——小组仓库会在其创建者接受时生成",
+      "noGroupsYetTitle": "暂无小组。当小组的第一名成员接受作业时会创建小组仓库。",
       "noGroupsYet": "暂无小组",
       "acceptedTitle": "共 {{total}} 名学生中已有 {{accepted}} 名接受了此作业",
       "submittedTitle": "共 {{total}} 名学生中已有 {{submitted}} 名提交",
@@ -1865,6 +1889,12 @@
       "unlockNoneLocked": "所选作业中没有任何一个处于锁定状态。",
       "unlockTitle_one": "解锁 {{count}} 个作业？",
       "unlockTitle_other": "解锁 {{count}} 个作业？"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "“{{slug}}”使用自定义自动评分器“{{name}}”，它需要初始内容才能运行。请选择一个模板或重新开启“添加 README”，或先在 {{classroom}}/assignments.json 中将“autograder”设为“default”。",
+        "customAutograderNoAutograder": "“{{slug}}”使用自定义自动评分器“{{name}}”，它需要开启内置自动评分器设置。请重新开启内置自动评分器，或先在 {{classroom}}/assignments.json 中将“autograder”设为“default”。"
+      }
     }
   },
   "published": {
@@ -2020,12 +2050,13 @@
       "cancel": "取消",
       "confirm": "保存更改",
       "provisioning": {
-        "autograder": "内置自动评分器：关闭后，已有仓库的自动评分运行将会失败，并从已收集的成绩中被剔除。",
         "grading_mode": "评分模式：以旧模式记录的成绩显示方式可能有所不同。",
         "repo_source": "仓库来源：已有仓库将保留其原始的初始内容。",
         "repo_visibility": "仓库可见性：在提交页面上修改已有仓库。",
         "student_permission": "学生仓库权限：在提交页面上修改已有仓库。",
-        "pages": "GitHub Pages：请在提交页面为现有仓库启用它。"
+        "pages": "GitHub Pages：请在提交页面为现有仓库启用它。",
+        "autograder_off": "内置自动评分器：关闭后，现有仓库的自动评分运行会失败，并从已收集的成绩中移除。",
+        "autograder_on": "内置自动评分器：现有仓库尚无自动评分工作流。保存后，请在提交页面使用“添加自动评分工作流”将其添加到这些仓库。"
       },
       "provisioningIntro_one": "已有 {{count}} 名学生接受了作业。这些更改仅适用于此后接受的仓库；现有仓库将保持其当前设置：",
       "provisioningIntro_other": "已有 {{count}} 名学生接受了作业。这些更改仅适用于此后接受的仓库；现有的 {{count}} 个仓库将保持其当前设置：",
@@ -2980,7 +3011,7 @@
       "emptyNoDataTitle": "尚未收集到任何提交",
       "emptyNoDataBody": "学生接受并推送后，他们的提交将显示在此处。使用“立即收集”获取最新内容。",
       "emptyNoGroupsTitle": "暂无小组",
-      "emptyNoGroupsBody": "小组仓库会在其创建者接受作业时生成。小组组建后将显示在此处。",
+      "emptyNoGroupsBody": "当小组的第一名成员接受作业时会创建小组仓库。小组会在形成后显示在此处。",
       "emptyFilteredTitle": "没有提交与你的筛选条件匹配",
       "emptyFilteredBody": "尝试其他搜索或清除筛选条件以查看所有人。",
       "emptyClearFilters": "清除筛选条件",
@@ -3038,7 +3069,12 @@
       "teamNoRepoTitle": "当小组成员接受作业时会创建小组的仓库。请分享作业链接，以便某位成员接受。",
       "staffRowTitle": "接受了此作业的教师、首席助教或助教，通常是为了试做一下。此行不属于学生。",
       "openSiteLabel": "打开 {{repo}} 的 GitHub Pages 站点",
-      "viewSite": "打开 GitHub Pages 站点"
+      "viewSite": "打开 GitHub Pages 站点",
+      "unverified": "未验证",
+      "unverifiedAuthorTitle": "此版本不是由自动评分器发布的，而是由 {{login}} 发布。成绩已收集，但并非确凿证据。请检查仓库的 Releases 标签页和 Actions 历史记录。",
+      "unverifiedRecordedTitle": "自动评分器未发布此版本（{{reason}}）。成绩已收集，但并非确凿证据。请检查仓库的 Releases 标签页和 Actions 历史记录。",
+      "unverifiedUnknownAccount": "一个未知账户",
+      "unverifiedUploaderTitle": "此版本的 result.json 不是由自动评分器上传的，而是由 {{login}} 上传。成绩已收集，但并非确凿证据。请检查仓库的 Releases 标签页和 Actions 历史记录。"
     },
     "scoreOverride": {
       "notGraded": "未评分",
@@ -3071,7 +3107,10 @@
       "errorTitle": "无法检查反馈拉取请求",
       "emptyTitle": "尚无反馈拉取请求",
       "emptyBody": "尚未为 <repo>{{repo}}</repo> 打开反馈拉取请求。它会在学生接受作业时打开，因此可能是学生尚未接受、该作业已将其关闭，或打开被延迟了。被延迟的打开会在重新接受时或首次评分提交时重试。",
-      "openRepoPrs": "打开仓库的拉取请求"
+      "openRepoPrs": "打开仓库的拉取请求",
+      "blockedBody": "你的浏览器阻止了在新标签页中打开它。请使用下方按钮打开。",
+      "blockedTitle": "已找到反馈拉取请求",
+      "openPr": "打开反馈 PR"
     },
     "repairPr": {
       "hint": "如果学生已接受作业但打开 PR 失败（GitHub 故障或暂时性错误），你现在可以打开它。",
@@ -3259,7 +3298,8 @@
       "failedSection_other": "{{count}} 个仓库无法更改",
       "deferredSection_one": "{{count}} 个仓库未被更改",
       "deferredSection_other": "{{count}} 个仓库未被更改",
-      "deferredDetail": "已跳过。重新运行以更新。"
+      "deferredDetail": "已跳过。重新运行以更新。",
+      "autograderWarning": "仓库为公开时会停止自动评分。GitHub 会阻止公开仓库运行你私有 classroom50 仓库中的评分工作流，因此每次评分运行都会以“workflow was not found”失败。请将仓库重新设为私有以恢复评分。"
     },
     "bulkTrigger": {
       "menuLabel": "更新自动评分触发条件",
@@ -3333,7 +3373,8 @@
         "public": "仓库现已设为公开。",
         "private": "仓库现已设为私有。"
       },
-      "confirmWarning": "任何人在仓库处于公开状态时查看或克隆了它，即使你之后再将其设为私有，也会保留那份副本。"
+      "confirmWarning": "任何人在仓库处于公开状态时查看或克隆了它，即使你之后再将其设为私有，也会保留那份副本。",
+      "confirmAutograderWarning": "仓库为公开期间会停止自动评分：GitHub 会阻止它运行你私有 classroom50 仓库中的评分工作流。请将其重新设为私有以恢复评分。"
     },
     "bulkAutograde": {
       "pauseMenuLabel": "暂停自动评分",
@@ -3503,6 +3544,53 @@
         "unknown": "此刻无法在 {{repo}} 上启用 GitHub Pages。请稍后再试。"
       },
       "title": "启用 GitHub Pages"
+    },
+    "bulkShim": {
+      "apply": "应用到全部",
+      "configBranchError": "无法读取课堂仓库的默认分支，因此未添加任何工作流。请重试。",
+      "deferredDetail": "已跳过。请重新运行以添加。",
+      "deferredSection_one": "有 {{count}} 个仓库未被处理",
+      "deferredSection_other": "有 {{count}} 个仓库未被处理",
+      "failedSection_one": "有 {{count}} 个仓库无法更新",
+      "failedSection_other": "有 {{count}} 个仓库无法更新",
+      "menuLabel": "添加自动评分工作流",
+      "menuTitle": "为每个尚未拥有内置自动评分工作流的学生仓库添加该工作流",
+      "noRepos": "还没有学生接受作业，因此没有可添加的对象。",
+      "notAcceptedDetail": "尚无仓库。学生接受作业时会获得该工作流。",
+      "notAcceptedSection_one": "有 {{count}} 名学生尚未接受作业",
+      "notAcceptedSection_other": "有 {{count}} 名学生尚未接受作业",
+      "progress": "已处理 {{total}} 个中的 {{processed}} 个",
+      "regradeReminder": "学生已推送的工作会在他们下次推送时被评分。工作流只对包含它的提交运行，因此“重新评分全部”无法涵盖更早的提交。若要现在评分，请让学生推送一次（一次空提交即可）。",
+      "repullReminder": "请提醒学生运行 git pull。在此更改之前克隆的副本会在他们下次推送时发生冲突。",
+      "resultHeadline": "已将工作流添加到 {{total}} 个中的 {{added}} 个仓库（{{present}} 个已有）。",
+      "scopeDetail": "你的 GitHub 授权无法修改工作流文件。请退出并重新登录，然后重新运行。",
+      "scopeSection_one": "有 {{count}} 个仓库需要额外的 GitHub 权限",
+      "scopeSection_other": "有 {{count}} 个仓库需要额外的 GitHub 权限",
+      "subtitle_one": "如果 {{count}} 名学生的仓库缺少自动评分工作流，则为其添加。",
+      "subtitle_other": "为 {{count}} 名学生中缺少自动评分工作流的仓库添加该工作流。",
+      "title": "添加自动评分工作流",
+      "titleEmptyRoster": "还没有学生接受作业",
+      "unrecognizedSection_one": "有 {{count}} 个仓库被跳过（该路径上已有另一个工作流）",
+      "unrecognizedSection_other": "有 {{count}} 个仓库被跳过（该路径上已有另一个工作流）",
+      "warningLead_one": "这会将自动评分工作流提交到 {{count}} 名学生的仓库。",
+      "warningLead_other": "这会将自动评分工作流提交到 {{count}} 名学生的仓库。",
+      "warningPoint1": "已有该工作流的仓库将保持不变。",
+      "warningPoint2": "该提交已作标记，因此不会触发评分。学生已推送的工作会在他们下次推送时被评分；“重新评分全部”无法涵盖该工作流存在之前所做的提交。",
+      "warningPoint3": "学生之后必须执行 pull。在此更改之前克隆的副本会在他们下次推送时发生冲突。",
+      "working": "正在添加工作流"
+    },
+    "rowShim": {
+      "aria": "为 {{repo}} 添加自动评分工作流",
+      "description": "如果此仓库是在自动评分器关闭时接受的，则为其添加内置自动评分工作流。",
+      "outcome": {
+        "added": "已添加自动评分工作流。学生必须在下次推送前执行 pull，而这次推送会对仓库中已有的工作进行评分。",
+        "failed": "无法添加工作流。请重试。",
+        "missingWorkflowScope": "你的 GitHub 授权无法修改工作流文件。请退出并重新登录，然后重试。",
+        "notAccepted": "尚无仓库，因此没有可添加的对象。",
+        "present": "此仓库已有自动评分工作流。",
+        "unrecognized": "已跳过：该自动评分工作流的路径上已有另一个工作流，因此未做任何更改。"
+      },
+      "title": "添加自动评分工作流"
     }
   },
   "orgActivity": {
@@ -4120,5 +4208,95 @@
       "staff": "团队 {{slug}} 已存在，但并非由 Classroom 50 创建，因此不能用作教职团队。请在 {{url}} 查看其成员，然后删除它或授予其对 classroom50 仓库的访问权限，再重试。",
       "studentOf": "团队 {{slug}} 是班级 {{classroom}} 的学生团队，因此不能作为该班级的 {{role}} 团队。请在此处不为 {{role}} 角色配置人员，或重命名其中一个班级。"
     }
+  },
+  "consent": {
+    "alwaysOn": "始终开启",
+    "banner": {
+      "accept": "接受",
+      "body": "匿名使用数据显示哪些功能被使用、人们在哪里遇到困难，从而让应用变得更好。这些数据不会识别你的身份，你可以随时在“设置”中更改你的选择。取消勾选任何你不愿分享的项目，然后选择“接受”。",
+      "decline": "拒绝",
+      "hideNotice": "隐藏隐私声明",
+      "readNotice": "阅读隐私声明",
+      "title": "分析有助于改进 Classroom 50"
+    },
+    "browserDeclines": "你的浏览器发送了 Global Privacy Control 或 Do Not Track 信号，因此分析保持关闭，Classroom 50 不会询问。",
+    "categories": {
+      "cloudflare": {
+        "caption": "统计访问量。不使用 Cookie。",
+        "items": {
+          "collected": "页面路径、来源网站、国家/地区、浏览器类型和加载时间",
+          "noCookies": "不使用 Cookie 或标识符，因此统计的是访问量，而非个人",
+          "notCollected": "绝不收集你的 GitHub 用户名、电子邮箱、名册数据或 URL 的查询字符串"
+        },
+        "label": "Cloudflare Web Analytics"
+      },
+      "functional": {
+        "caption": "应用运行所必需。仅保留在此浏览器中。",
+        "items": {
+          "consent": "你在此处所做的选择",
+          "preferences": "你的设置：语言、主题、姓名顺序、动效、已隐藏的组织以及侧边栏布局",
+          "session": "你的 GitHub 登录状态，让你保持登录"
+        },
+        "label": "功能性",
+        "tooltip": "仅存储在此浏览器中：让你保持登录的 GitHub 登录状态、你的设置（语言、主题、姓名顺序、动效、已隐藏的组织以及侧边栏布局），以及你在此处所做的选择。其中任何内容都不用于分析。"
+      },
+      "google": {
+        "caption": "显示功能的使用情况。设置一个 Cookie。",
+        "items": {
+          "collected": "你浏览的页面及停留时长、链接到该页面的网站、你的国家/地区，以及你的浏览器、设备和语言，通过 Google Tag Manager 发送",
+          "cookie": "一个存放随机 ID 的 Cookie，以便对回访的浏览器只计一次。它将在 2 年后过期。",
+          "notCollected": "绝不收集你的 GitHub 用户名、电子邮箱、名册数据或 URL 的查询字符串"
+        },
+        "label": "Google Analytics"
+      }
+    },
+    "declineAll": "拒绝所有分析",
+    "reset": "重置并重新询问",
+    "savePreferences": "保存偏好设置",
+    "whatThisIncludes": "此项包含的内容"
+  },
+  "privacy": {
+    "analytics": {
+      "cloudflareTerms": "Cloudflare 数据处理附录",
+      "collected": {
+        "cookie": "仅限 Google Analytics：一个存放随机 ID 的 Cookie，以便对回访的浏览器只计一次。它将在 2 年后过期，关闭 Google Analytics 会将其移除。",
+        "country": "根据你的连接推断出的国家/地区",
+        "device": "浏览器、操作系统、设备类型和语言",
+        "path": "你浏览的页面，例如 /cs1-fall-2026/assignments，以及停留时长",
+        "referrer": "链接到该页面的网站",
+        "timings": "页面加载时间"
+      },
+      "collectedHeading": "收集的内容",
+      "googleTerms": "Google 隐私政策",
+      "googleUsage": "Google 如何使用来自使用其服务的网站的信息",
+      "heading": "使用情况分析",
+      "intro": "分析可显示有多少人使用 classroom50.org、他们使用哪些功能，以及在哪里遇到困难，从而改进应用。在你许可的情况下，有两项服务负责此工作：不使用 Cookie 的 Cloudflare Web Analytics，以及通过 Google Tag Manager 加载、用 Cookie 识别回访浏览器的 Google Analytics。你可以关闭其中任意一项。两者都不知道你是谁。",
+      "notCollected": {
+        "crossSite": "任何会跟踪你到其他网站的内容",
+        "identity": "你的 GitHub 用户名、电子邮箱或名册数据",
+        "queryStrings": "查询字符串。Cloudflare 会在你的浏览器中将其移除，且我们的 Google Analytics 配置也不会记录它们，因此登录码、邀请链接密钥和名册搜索不会进入数据中。"
+      },
+      "notCollectedHeading": "不收集的内容",
+      "processing": "Google 和 Cloudflare 为 Fifty Foundation 处理这些数据。各自的处理方式：",
+      "retention": "Google 会保留事件数据最长 14 个月。Cloudflare 会保留完整数据 7 天，并保留抽样数据 6 个月。在你接受之前，这两项服务都不会运行，你也可以随时在下方更改你的回答。"
+    },
+    "choice": {
+      "body": "你的选择保存在此浏览器中。接受会立即启动你保留开启的服务。关闭某项服务会立即移除其 Cookie，并从下一次页面加载起停止它。登录后，你也可以在“设置”中更改。",
+      "heading": "你的选择",
+      "signals": "如果你的浏览器发送 Global Privacy Control 或 Do Not Track 信号，则不运行任何分析，Classroom 50 也不会询问。"
+    },
+    "contact": {
+      "body": "Classroom 50 是由 Fifty Foundation 支持的开源项目。如需就本声明提出疑问，请在以下位置发起讨论帖：",
+      "heading": "疑问",
+      "link": "GitHub Discussions"
+    },
+    "data": {
+      "body": "Classroom 50 没有自己的服务器、数据库或账户。名册、作业仓库、成绩和反馈都保留在你的 GitHub 组织中。应用使用你授予的令牌通过 GitHub API 读写它们。登录和仓库下载会经过一个不存储任何内容的代理。",
+      "heading": "你的课堂数据",
+      "more": "有关详情（包括 FERPA 指南），请参阅",
+      "moreLink": "文档中的隐私与 FERPA"
+    },
+    "pageSubtitle": "Classroom 50 网页应用如何处理你的数据，以及你可以做出哪些选择。",
+    "pageTitle": "隐私"
   }
 }

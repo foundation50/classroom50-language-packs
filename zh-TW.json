@@ -113,7 +113,8 @@
     "backToApp": "返回應用程式",
     "signIn": "登入",
     "manageGroups": "管理群組",
-    "mySubmissionTeam": "群組繳交"
+    "mySubmissionTeam": "群組繳交",
+    "aboutViewPrivacy": "檢視隱私權資訊"
   },
   "auth": {
     "signInTitle": "登入",
@@ -188,7 +189,8 @@
       "revokeTitle": "停止使用刪除儲存庫的權限",
       "title": "要求刪除儲存庫的權限"
     },
-    "patRequired": "請輸入個人存取權杖以登入。"
+    "patRequired": "請輸入個人存取權杖以登入。",
+    "privacy": "隱私權"
   },
   "documentTitle": {
     "assignments": "作業",
@@ -677,7 +679,10 @@
     "uploadBlockedChecking": "正在檢查目前的成員狀態……",
     "uploadBlockedDetails": "請確認上方的資料更新以繼續。",
     "uploadBlockedRoles": "請確認上方的角色變更以繼續。",
-    "uploadBlockedUsernames": "請確認上方的使用者名稱變更以繼續。"
+    "uploadBlockedUsernames": "請確認上方的使用者名稱變更以繼續。",
+    "rosterProblemDuplicateColumn": "欄「{{name}}」出現了不只一次。請保留一個並移除其他的。",
+    "rosterProblemFormulaColumn": "欄名「{{name}}」以 =、+、- 或 @ 開頭，這會被試算表視為公式。請重新命名。",
+    "rosterProblemReservedColumn": "欄「{{name}}」是內建的名冊欄，卻在其後再次出現。請移除多出來的副本。"
   },
   "language": {
     "baseName": "英文（基礎）",
@@ -951,7 +956,8 @@
         "teamFormationInvalid": "請選擇由誰組成群組。",
         "pagesBranchInvalid": "請輸入不含空格、最多 255 個字元的分支名稱，或留空以使用預設分支。",
         "pagesPathInvalid": "Pages 資料夾必須是 / 或 /docs。",
-        "pagesSourceInvalid": "GitHub Pages 必須是「關閉」、「GitHub Actions」或「某個分支」。"
+        "pagesSourceInvalid": "GitHub Pages 必須是「關閉」、「GitHub Actions」或「某個分支」。",
+        "scheduleDateIncomplete": "請填完日期和時間，或關閉切換以移除它。"
       },
       "allowedFilesTip": "依序排列的 {{gitignore}} 樣式模式，每行一個，用來定義哪些檔案屬於提交（以最後符合者為準，{{bang}} 可重新納入）。例如，先 {{star}} 再 {{example}} 表示僅允許 {{result}}。留空則允許所有檔案。",
       "containerUserTip": "容器執行時所使用的使用者。若簽出（checkout）因權限錯誤而失敗，請設為 root。GitHub Actions 會以主機 runner 的使用者身分執行容器步驟，因此非 root 映像檔往往無法寫入工作區。",
@@ -1060,7 +1066,7 @@
           }
         },
         "modeLabel": "內建自動評分器",
-        "editHelp": "變更內建自動評分器僅影響從現在起學生接受的儲存庫。已接受的儲存庫仍保留其原始設定，因此你需要自行更新既有的儲存庫。"
+        "editHelp": "變更內建自動評分器只會影響學生從現在起接受的儲存庫。已接受的儲存庫維持原本的設定。若要為這些儲存庫開啟它，請先儲存，再於提交頁面使用「新增自動評分工作流程」，或執行 gh teacher assignment enable-autograder。"
       },
       "copyAbout": {
         "help": "將範本的「關於」（其描述）複製到每個學生儲存庫。GitHub 不會自動複製它。此設定適用於自此之後接受的學生；已建立的儲存庫不會變更。",
@@ -1139,7 +1145,9 @@
           "private": "私人",
           "public": "公開"
         },
-        "publicWarning": "網際網路上的任何人都能看到每位學生的作業：程式碼、提交紀錄與姓名。如果組織不允許學生建立公開儲存庫，則會改為建立私人儲存庫，你之後可從提交頁面將它設為公開。"
+        "publicWarning": "網際網路上的任何人都能看到每位學生的作業：程式碼、提交紀錄與姓名。如果組織不允許學生建立公開儲存庫，則會改為建立私人儲存庫，你之後可從提交頁面將它設為公開。",
+        "autograderWarning": "公開儲存庫不會被自動評分。GitHub 會阻擋公開儲存庫執行你私人的 classroom50 儲存庫中的評分工作流程，因此每次評分執行都會以「workflow was not found」失敗。評分期間請將儲存庫保持為私人。",
+        "autograderWarningToggleHint": "你也可以選擇「不使用內建自動評分器」。"
       },
       "teamFormation": "小組組成",
       "teamFormationStudent": "由學生自行組成小組",
@@ -1165,14 +1173,15 @@
         },
         "editHelp": "這適用於從現在起建立的儲存庫；請使用繳交頁面在現有儲存庫上啟用 Pages。",
         "emptyRepoHint": "空白儲存庫無法使用：目前還沒有可發布的分支。",
-        "help": "透過 GitHub Pages 將每個學生儲存庫發布為網站，在學生接受時自動設定，因此他們永遠不需要管理員權限。預設為關閉。「GitHub Actions」透過學生儲存庫中的工作流程部署（適用於有建置步驟的網站）。「某個分支」直接發布分支中的檔案，不需要工作流程（適用於純 HTML、CSS 和 JavaScript）。即使儲存庫是私人的，網站在網際網路上也是公開的，且已發布分支與資料夾中的每個檔案都會被提供；只有 GitHub Enterprise Cloud 能限制誰可以檢視。在私人儲存庫上使用 Pages 需要包含此功能的 GitHub 方案；在組織版 GitHub Free 上，請將儲存庫改為公開，否則不會建立網站。",
+        "help": "以 GitHub Pages 將每個學生儲存庫發布為網站，在學生接受時自動設定，因此他們永遠不需要管理員權限。預設為關閉。「GitHub Actions」透過學生儲存庫中的工作流程部署（適用於有建置步驟的網站）。「分支」則直接發布分支中的檔案，不需要工作流程（適用於純 HTML、CSS 與 JavaScript）。即使儲存庫為私人，網站在網際網路上仍是公開的，並且會提供已發布分支與資料夾中的每一個檔案；只有 GitHub Enterprise Cloud 能限制誰可以檢視。私人儲存庫上的 Pages 需要包含此功能的 GitHub 方案；在組織的 GitHub Free 方案上，請將儲存庫設為公開，否則不會建立網站。公開儲存庫不會被自動評分（請參閱儲存庫可見性）。",
         "label": "GitHub Pages",
         "path": {
           "help": "該分支中要發布的資料夾：儲存庫根目錄（/）或 /docs。GitHub 僅允許這兩者。",
           "label": "資料夾"
         },
         "workflowNote": "透過 GitHub Actions 部署需要在每個學生儲存庫中有一個發布至 Pages 的工作流程：它必須授予 pages: write 和 id-token: write 權限，並使用 actions/upload-pages-artifact 和 actions/deploy-pages。將它放入你的範本，或讓學生自行加入。網站會在學生接受時建立，因此工作流程的首次執行會部署它。"
-      }
+      },
+      "customAutograderNotice": "此作業使用來自 {{path}} 的自訂自動評分器「{{name}}」。儲存會保留它。若要改用內建自動評分器，請在 assignments.json 中將「autograder」設為「default」。"
     },
     "autograder": {
       "heading": "自動評分測試",
@@ -1308,7 +1317,7 @@
       "colSubmitted": "已提交",
       "groupsAcceptedTitle": "已接受的群組：已存在的群組儲存庫",
       "noGroupsYet": "尚無小組",
-      "noGroupsYetTitle": "目前尚無群組。群組儲存庫會在其創建者接受作業時建立。",
+      "noGroupsYetTitle": "尚無群組。當第一位成員接受時會建立群組儲存庫。",
       "notCollectedYet": "尚未收集",
       "sortByDue": "依截止日期排序",
       "sortByName": "依名稱排序",
@@ -1618,6 +1627,12 @@
       "unlockNoneLocked": "所選作業皆未被鎖定。",
       "unlockTitle_one": "解除鎖定 {{count}} 項作業？",
       "unlockTitle_other": "解除鎖定 {{count}} 項作業？"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "「{{slug}}」使用自訂自動評分器「{{name}}」，執行時需要起始內容。請選擇範本或重新開啟「新增 README」，或先在 {{classroom}}/assignments.json 中將「autograder」設為「default」。",
+        "customAutograderNoAutograder": "「{{slug}}」使用自訂自動評分器「{{name}}」，需要開啟內建自動評分器設定。請重新開啟內建自動評分器，或先在 {{classroom}}/assignments.json 中將「autograder」設為「default」。"
+      }
     }
   },
   "published": {
@@ -1739,12 +1754,13 @@
       "cancel": "取消",
       "confirm": "儲存變更",
       "provisioning": {
-        "autograder": "內建自動評分：關閉後，既有儲存庫的自動評分執行將失敗，並從收集的分數中移除。",
         "grading_mode": "評分模式：以舊模式記錄的分數讀取結果可能不同。",
         "repo_source": "儲存庫來源：既有儲存庫會保留原始的初始內容。",
         "repo_visibility": "儲存庫可見性：請從提交頁面變更既有儲存庫。",
         "student_permission": "學生儲存庫存取權限：請從提交頁面變更既有儲存庫。",
-        "pages": "GitHub Pages：從繳交頁面在現有儲存庫上啟用它。"
+        "pages": "GitHub Pages：從繳交頁面在現有儲存庫上啟用它。",
+        "autograder_off": "內建自動評分器：關閉後，現有儲存庫的自動評分執行會失敗，並從收集的成績中移除。",
+        "autograder_on": "內建自動評分器：現有儲存庫尚無自動評分工作流程。儲存後，請在提交頁面使用「新增自動評分工作流程」將其加入這些儲存庫。"
       },
       "provisioningIntro_one": "已有 {{count}} 位學生接受作業。這些變更僅適用於自現在起接受的儲存庫；既有的儲存庫維持目前的設定：",
       "provisioningIntro_other": "已有 {{count}} 位學生接受作業。這些變更僅適用於自現在起接受的儲存庫；既有的 {{count}} 個儲存庫維持目前的設定：",
@@ -2596,7 +2612,7 @@
       "overriddenTitle": "此分數為手動設定，在清除覆寫之前不會被自動評分變更。",
       "notCollectedYet": "尚未收集",
       "notCollectedYetTitle": "此學生推送了尚未收集的作業，因此沒有記錄的繳交時間。執行「立即收集」以收集它。",
-      "emptyNoGroupsBody": "當小組的創建者接受作業時，會建立小組儲存庫。小組成立後便會顯示於此。",
+      "emptyNoGroupsBody": "當第一位成員接受作業時會建立群組儲存庫。群組會在形成時顯示於此處。",
       "emptyNoGroupsTitle": "尚無小組",
       "noRepoYetTitle": "尚無儲存庫。該學生尚未接受作業。",
       "notAcceptedTitle": "該學生尚未開啟邀請連結，因此還沒有儲存庫。請透過「分享」按鈕分享作業連結。",
@@ -2620,13 +2636,21 @@
       "viewFeedbackPr": "檢視回饋 PR",
       "staffRowTitle": "接受此作業的教師、首席助教或助教，通常是為了試做。此列不屬於學生。",
       "openSiteLabel": "開啟 {{repo}} 的 GitHub Pages 網站",
-      "viewSite": "開啟 GitHub Pages 網站"
+      "viewSite": "開啟 GitHub Pages 網站",
+      "unverified": "未驗證",
+      "unverifiedAuthorTitle": "自動評分器並未發布此發行版本；發布者是 {{login}}。此成績已收集，但不構成佐證。請查看儲存庫的 Releases 分頁與 Actions 歷程記錄。",
+      "unverifiedRecordedTitle": "自動評分器並未發布此發行版本（{{reason}}）。此成績已收集，但不構成佐證。請查看儲存庫的 Releases 分頁與 Actions 歷程記錄。",
+      "unverifiedUnknownAccount": "未知帳戶",
+      "unverifiedUploaderTitle": "自動評分器並未上傳此發行版本的 result.json；上傳者是 {{login}}。此成績已收集，但不構成佐證。請查看儲存庫的 Releases 分頁與 Actions 歷程記錄。"
     },
     "reviewModal": {
       "errorTitle": "無法檢查是否有回饋 PR",
       "emptyTitle": "尚無回饋合併請求",
       "openRepoPrs": "開啟儲存庫合併請求",
-      "emptyBody": "尚未為 <repo>{{repo}}</repo> 開啟任何回饋合併請求。它會在學生接受作業時開啟，因此他們可能尚未接受、作業可能已將其關閉，或開啟被延後了。延後的開啟會在重新接受或首次評分繳交時重試。"
+      "emptyBody": "尚未為 <repo>{{repo}}</repo> 開啟任何回饋合併請求。它會在學生接受作業時開啟，因此他們可能尚未接受、作業可能已將其關閉，或開啟被延後了。延後的開啟會在重新接受或首次評分繳交時重試。",
+      "blockedBody": "你的瀏覽器阻擋了在新分頁中開啟它。請使用下方按鈕開啟它。",
+      "blockedTitle": "已找到意見回饋合併要求",
+      "openPr": "開啟意見回饋 PR"
     },
     "rowRegrade": {
       "title": "重新評分此繳交",
@@ -3083,7 +3107,8 @@
       "subtitle_other": "套用於已接受此作業的 {{count}} 位學生。",
       "title": "變更儲存庫可見性",
       "titleEmptyRoster": "尚無學生接受",
-      "working": "正在更新儲存庫"
+      "working": "正在更新儲存庫",
+      "autograderWarning": "儲存庫為公開時，自動評分會停止。GitHub 會阻擋公開儲存庫執行你私人的 classroom50 儲存庫中的評分工作流程，因此每次評分執行都會以「workflow was not found」失敗。將儲存庫重新設為私人以恢復評分。"
     },
     "cloneAll": {
       "buttonTitle": "使用 CLI 複製所有繳交內容",
@@ -3118,7 +3143,8 @@
         "private": "儲存庫現在為私有。",
         "public": "儲存庫現在為公開。"
       },
-      "confirmWarning": "在儲存庫公開期間檢視或複製它的任何人都會保有那份副本，即使你之後再將它設為私有也一樣。"
+      "confirmWarning": "在儲存庫公開期間檢視或複製它的任何人都會保有那份副本，即使你之後再將它設為私有也一樣。",
+      "confirmAutograderWarning": "儲存庫為公開時，自動評分會停止：GitHub 會阻擋它執行你私人的 classroom50 儲存庫中的評分工作流程。將它重新設為私人以恢復評分。"
     },
     "skipPastTable": "略過繳交表格",
     "slugTitle": "作業代稱：此作業的唯一識別碼。顯示名稱可以重複。",
@@ -3159,6 +3185,53 @@
         "unknown": "目前無法在 {{repo}} 上啟用 GitHub Pages。請稍後再試一次。"
       },
       "title": "啟用 GitHub Pages"
+    },
+    "bulkShim": {
+      "apply": "全部新增",
+      "configBranchError": "無法讀取班級儲存庫的預設分支，因此未新增任何工作流程。請再試一次。",
+      "deferredDetail": "已略過。重新執行以新增。",
+      "deferredSection_one": "{{count}} 個儲存庫未處理",
+      "deferredSection_other": "{{count}} 個儲存庫未處理",
+      "failedSection_one": "{{count}} 個儲存庫無法更新",
+      "failedSection_other": "{{count}} 個儲存庫無法更新",
+      "menuLabel": "新增自動評分工作流程",
+      "menuTitle": "為每個尚無自動評分工作流程的學生儲存庫新增內建自動評分工作流程",
+      "noRepos": "尚無學生接受，因此沒有可新增的項目。",
+      "notAcceptedDetail": "尚無儲存庫。它會在學生接受時取得工作流程。",
+      "notAcceptedSection_one": "{{count}} 位學生尚未接受",
+      "notAcceptedSection_other": "{{count}} 位學生尚未接受",
+      "progress": "已處理 {{total}} 個中的 {{processed}} 個",
+      "regradeReminder": "學生已推送的作業會在下次推送時評分。工作流程只會為包含它的提交執行，因此「全部重新評分」無法觸及較早的提交。若要現在評分，請讓學生推送一次（空的提交即可）。",
+      "repullReminder": "請學生執行 git pull。在此變更之前建立的複製會在下次推送時發生衝突。",
+      "resultHeadline": "已為 {{total}} 個中的 {{added}} 個儲存庫新增工作流程（{{present}} 個已有）。",
+      "scopeDetail": "你的 GitHub 授權無法修改工作流程檔案。請登出後再重新登入，然後重新執行。",
+      "scopeSection_one": "{{count}} 個儲存庫需要額外的 GitHub 權限",
+      "scopeSection_other": "{{count}} 個儲存庫需要額外的 GitHub 權限",
+      "subtitle_one": "若缺少工作流程，則為 {{count}} 位學生的儲存庫新增自動評分工作流程。",
+      "subtitle_other": "為 {{count}} 位學生缺少工作流程的儲存庫新增自動評分工作流程。",
+      "title": "新增自動評分工作流程",
+      "titleEmptyRoster": "尚無學生接受",
+      "unrecognizedSection_one": "{{count}} 個儲存庫已略過（該路徑已有不同的工作流程）",
+      "unrecognizedSection_other": "{{count}} 個儲存庫已略過（該路徑已有不同的工作流程）",
+      "warningLead_one": "這會將自動評分工作流程提交到 {{count}} 位學生的儲存庫。",
+      "warningLead_other": "這會將自動評分工作流程提交到 {{count}} 位學生的儲存庫。",
+      "warningPoint1": "已有此工作流程的儲存庫不會被更動。",
+      "warningPoint2": "此提交已標記，因此不會觸發評分。學生已推送的作業會在下次推送時評分；「全部重新評分」無法觸及工作流程存在之前所做的提交。",
+      "warningPoint3": "學生之後必須執行 pull。在此變更之前建立的複製會在下次推送時發生衝突。",
+      "working": "正在新增工作流程"
+    },
+    "rowShim": {
+      "aria": "為 {{repo}} 新增自動評分工作流程",
+      "description": "若此儲存庫是在自動評分器關閉時接受的，則為其新增內建自動評分工作流程。",
+      "outcome": {
+        "added": "已新增自動評分工作流程。學生必須在下次推送前執行 pull，而那次推送才會評分儲存庫中已有的作業。",
+        "failed": "無法新增工作流程。請再試一次。",
+        "missingWorkflowScope": "你的 GitHub 授權無法修改工作流程檔案。請登出後再重新登入，然後重試。",
+        "notAccepted": "尚無儲存庫，因此沒有可新增的項目。",
+        "present": "此儲存庫已有自動評分工作流程。",
+        "unrecognized": "已略過：自動評分工作流程的路徑上已有不同的工作流程，因此未做任何變更。"
+      },
+      "title": "新增自動評分工作流程"
     }
   },
   "orgMembers": {
@@ -3805,7 +3878,22 @@
       },
       "subheading": "拆除組織需要刪除儲存庫的權限，而一般登入不會要求該權限。只在你需要時授予此權限，並在完成後於 GitHub 上撤銷。"
     },
-    "noChangesToSave": "沒有變更可儲存。"
+    "noChangesToSave": "沒有變更可儲存。",
+    "analytics": {
+      "heading": "Cookie 與分析",
+      "privacyLink": "閱讀隱私權聲明",
+      "subheading": "分析有助於改進 Classroom 50。選擇哪些服務可以在此瀏覽器中計算你的造訪次數。功能性儲存維持開啟。"
+    },
+    "nameOrder": {
+      "firstLast": "先名字，後姓氏",
+      "firstLastHint": "例如：Ada Lovelace。",
+      "groupAria": "姓名順序偏好設定",
+      "heading": "學生姓名",
+      "lastFirst": "先姓氏，後名字",
+      "lastFirstHint": "例如：Lovelace Ada。",
+      "saved": "已儲存姓名順序偏好設定。",
+      "subheading": "選擇學生姓名在名冊、提交、群組與匯出成績中顯示的順序。"
+    }
   },
   "pagesErrors": {
     "assignmentNotInManifest": "作業「{{assignmentSlug}}」不在此課程已發佈的作業中。請檢查連結，或請你的老師發佈該作業。",
@@ -4120,5 +4208,95 @@
       "staff": "團隊 {{slug}} 已存在，但並非由 Classroom 50 建立，因此無法用作教職員團隊。請在 {{url}} 檢視其成員，然後將其刪除，或授予其存取 classroom50 儲存庫的權限，再試一次。",
       "studentOf": "團隊 {{slug}} 是班級 {{classroom}} 的學生團隊，因此無法作為此班級的 {{role}} 團隊。請讓此處的 {{role}} 角色不配置人員，或重新命名其中一個班級。"
     }
+  },
+  "consent": {
+    "alwaysOn": "永遠開啟",
+    "banner": {
+      "accept": "接受",
+      "body": "匿名使用資料能顯示哪些功能被使用，以及使用者卡在哪裡，讓應用程式得以改進。當中沒有任何能識別你身分的資料，你隨時可以在設定中變更選擇。取消勾選你不想分享的項目，然後選擇「接受」。",
+      "decline": "拒絕",
+      "hideNotice": "隱藏隱私權聲明",
+      "readNotice": "閱讀隱私權聲明",
+      "title": "分析有助於改進 Classroom 50"
+    },
+    "browserDeclines": "你的瀏覽器傳送了 Global Privacy Control 或 Do Not Track 訊號，因此分析維持關閉，Classroom 50 也不會詢問。",
+    "categories": {
+      "cloudflare": {
+        "caption": "計算造訪次數。不使用 Cookie。",
+        "items": {
+          "collected": "頁面路徑、來源網站、國家/地區、瀏覽器類型與載入時間",
+          "noCookies": "不使用 Cookie 或識別碼，因此計算的是造訪次數，而非人數",
+          "notCollected": "絕不收集你的 GitHub 使用者名稱、電子郵件、名冊資料或網址的查詢字串"
+        },
+        "label": "Cloudflare Web Analytics"
+      },
+      "functional": {
+        "caption": "應用程式運作所必需。保留在此瀏覽器中。",
+        "items": {
+          "consent": "你在此處所做的選擇",
+          "preferences": "你的設定：語言、主題、姓名順序、動態效果、隱藏的組織與側邊欄配置",
+          "session": "你的 GitHub 登入狀態，讓你保持登入"
+        },
+        "label": "功能性",
+        "tooltip": "僅儲存在此瀏覽器中：讓你保持登入的 GitHub 登入狀態、你的設定（語言、主題、姓名順序、動態效果、隱藏的組織與側邊欄配置），以及你在此處所做的選擇。這些都不會用於分析。"
+      },
+      "google": {
+        "caption": "顯示功能如何被使用。設定一個 Cookie。",
+        "items": {
+          "collected": "你檢視的頁面與停留時間、連向該頁面的網站、你的國家/地區，以及你的瀏覽器、裝置與語言，透過 Google 代碼管理工具傳送",
+          "cookie": "一個含有隨機 ID 的 Cookie，讓再次造訪的瀏覽器只被計算一次。它會在 2 年後到期。",
+          "notCollected": "絕不收集你的 GitHub 使用者名稱、電子郵件、名冊資料或網址的查詢字串"
+        },
+        "label": "Google Analytics"
+      }
+    },
+    "declineAll": "拒絕所有分析",
+    "reset": "重設並重新詢問",
+    "savePreferences": "儲存偏好設定",
+    "whatThisIncludes": "包含的內容"
+  },
+  "privacy": {
+    "analytics": {
+      "cloudflareTerms": "Cloudflare 資料處理附錄",
+      "collected": {
+        "cookie": "僅限 Google Analytics：一個含有隨機 ID 的 Cookie，讓再次造訪的瀏覽器只被計算一次。它會在 2 年後到期，關閉 Google Analytics 會移除它。",
+        "country": "根據你的連線推斷出的國家/地區",
+        "device": "瀏覽器、作業系統、裝置類型與語言",
+        "path": "你檢視的頁面，例如 /cs1-fall-2026/assignments，以及停留時間",
+        "referrer": "連向該頁面的網站",
+        "timings": "頁面載入時間"
+      },
+      "collectedHeading": "已收集",
+      "googleTerms": "Google 隱私權政策",
+      "googleUsage": "Google 如何使用來自採用其服務的網站的資訊",
+      "heading": "使用情形分析",
+      "intro": "分析顯示有多少人使用 classroom50.org、他們使用哪些功能，以及他們卡在哪裡，讓應用程式得以改進。在你的許可下，有兩項服務會進行此工作：不使用 Cookie 的 Cloudflare Web Analytics，以及透過 Google 代碼管理工具載入、會以 Cookie 辨識再次造訪瀏覽器的 Google Analytics。你可以關閉其中任一項。兩者都不知道你是誰。",
+      "notCollected": {
+        "crossSite": "任何會追蹤你到其他網站的資料",
+        "identity": "你的 GitHub 使用者名稱、電子郵件或名冊資料",
+        "queryStrings": "查詢字串。Cloudflare 會在你的瀏覽器中移除它們，而我們的 Google Analytics 設定也配置為不記錄它們，因此登入代碼、邀請連結金鑰與名冊搜尋都不會進入資料中。"
+      },
+      "notCollectedHeading": "未收集",
+      "processing": "Google 與 Cloudflare 為 Fifty Foundation 處理這些資料。各自的處理方式如下：",
+      "retention": "Google 最多保留事件資料 14 個月。Cloudflare 保留完整資料 7 天，並保留一份樣本 6 個月。這兩項服務在你接受之前都不會執行，你也可以隨時在下方變更你的答覆。"
+    },
+    "choice": {
+      "body": "你的選擇會儲存在此瀏覽器中。接受會立即啟動你保留開啟的服務。關閉某項服務會立即移除它的 Cookie，並在下次頁面載入時停止它。當你已登入時，也可以在設定中變更此選擇。",
+      "heading": "你的選擇",
+      "signals": "若你的瀏覽器傳送 Global Privacy Control 或 Do Not Track 訊號，則不會執行任何分析，Classroom 50 也不會詢問。"
+    },
+    "contact": {
+      "body": "Classroom 50 是由 Fifty Foundation 支援的開放原始碼專案。若要詢問關於本聲明的問題，請在以下位置開啟討論串",
+      "heading": "問題",
+      "link": "GitHub Discussions"
+    },
+    "data": {
+      "body": "Classroom 50 沒有自己的伺服器、資料庫或帳戶。名冊、作業儲存庫、成績與意見回饋都保留在你的 GitHub 組織中。應用程式透過 GitHub API，使用你授予的權杖來讀取和寫入它們。登入與儲存庫下載會經過一個不儲存任何資料的代理伺服器。",
+      "heading": "你的班級資料",
+      "more": "如需詳細資訊（包括 FERPA 指引），請參閱",
+      "moreLink": "文件中的隱私權與 FERPA"
+    },
+    "pageSubtitle": "Classroom 50 網頁應用程式如何處理你的資料，以及你可以做出哪些選擇。",
+    "pageTitle": "隱私權"
   }
 }

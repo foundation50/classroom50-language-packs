@@ -157,7 +157,8 @@
     "backToApp": "Uygulamaya dön",
     "signIn": "Oturum aç",
     "manageGroups": "Grupları yönet",
-    "mySubmissionTeam": "Grup gönderimi"
+    "mySubmissionTeam": "Grup gönderimi",
+    "aboutViewPrivacy": "Gizlilik bilgilerini görüntüle"
   },
   "auth": {
     "signInTitle": "Oturum aç",
@@ -232,7 +233,8 @@
       "revokeTitle": "Depoları silme iznini kullanmayı bırak",
       "title": "Depoları silme izni iste"
     },
-    "patRequired": "Oturum açmak için bir kişisel erişim token'ı girin."
+    "patRequired": "Oturum açmak için bir kişisel erişim token'ı girin.",
+    "privacy": "Gizlilik"
   },
   "documentTitle": {
     "assignments": "Ödevler",
@@ -721,7 +723,10 @@
     "uploadBlockedChecking": "Mevcut üyelik kontrol ediliyor…",
     "uploadBlockedDetails": "Devam etmek için yukarıdaki bilgi güncellemelerini onaylayın.",
     "uploadBlockedRoles": "Devam etmek için yukarıdaki rol değişikliklerini onaylayın.",
-    "uploadBlockedUsernames": "Devam etmek için yukarıdaki kullanıcı adı değişikliklerini onaylayın."
+    "uploadBlockedUsernames": "Devam etmek için yukarıdaki kullanıcı adı değişikliklerini onaylayın.",
+    "rosterProblemDuplicateColumn": "\"{{name}}\" sütunu birden fazla kez görünüyor. Birini tutun ve diğerlerini kaldırın.",
+    "rosterProblemFormulaColumn": "\"{{name}}\" sütun adı =, +, - veya @ ile başlıyor; bunları elektronik tablolar formül olarak değerlendirir. Yeniden adlandırın.",
+    "rosterProblemReservedColumn": "\"{{name}}\" sütunu yerleşik bir kayıt listesi sütunudur ve kendisinden sonra yeniden görünüyor. Fazladan kopyayı kaldırın."
   },
   "language": {
     "baseName": "İngilizce (temel)",
@@ -1082,7 +1087,8 @@
         "teamFormationInvalid": "Grupları kimin oluşturacağını seçin.",
         "pagesBranchInvalid": "Boşluk içermeyen, en fazla 255 karakterlik bir dal adı girin ya da varsayılan dal için boş bırakın.",
         "pagesPathInvalid": "Pages klasörü / veya /docs olmalıdır.",
-        "pagesSourceInvalid": "GitHub Pages \"Kapalı\", \"GitHub Actions\" veya \"Bir dal\" olmalıdır."
+        "pagesSourceInvalid": "GitHub Pages \"Kapalı\", \"GitHub Actions\" veya \"Bir dal\" olmalıdır.",
+        "scheduleDateIncomplete": "Tarih ve saati tamamlayın veya kaldırmak için düğmeyi kapatın."
       },
       "availableFrom": "Yayınlanma tarihi ({{tz}})",
       "availableFromTz": "Saatler yerel saat diliminizdedir ({{tz}}).",
@@ -1152,7 +1158,7 @@
           }
         },
         "modeLabel": "Yerleşik otomatik değerlendirici",
-        "editHelp": "Yerleşik otomatik değerlendiriciyi değiştirmek yalnızca öğrencilerin bundan sonra kabul ettiği depoları etkiler. Zaten kabul edilen depolar orijinal kurulumunu korur, bu yüzden mevcut depoları kendiniz güncellemeniz gerekir."
+        "editHelp": "Yerleşik otomatik değerlendiriciyi değiştirmek yalnızca öğrencilerin bundan sonra kabul edeceği depoları etkiler. Önceden kabul edilen depolar orijinal kurulumlarını korur. Bunlar için açmak amacıyla kaydedin, ardından gönderiler sayfasındaki \"Otomatik değerlendirme iş akışı ekle\" seçeneğini veya gh teacher assignment enable-autograder komutunu kullanın."
       },
       "copyAbout": {
         "help": "Şablonun Hakkında (açıklaması) bilgisini her öğrenci deposuna kopyala. GitHub bunu otomatik kopyalamaz. Bu, bundan sonra kabul eden öğrenciler için geçerlidir; halihazırda oluşturulmuş depolar değişmez.",
@@ -1231,7 +1237,9 @@
           "private": "Özel",
           "public": "Herkese açık"
         },
-        "publicWarning": "İnternetteki herkes her öğrencinin çalışmasını görebilecek: kod, işlemeler ve ad. Kuruluş öğrencilerin herkese açık depolar oluşturmasına izin vermiyorsa, deposu bunun yerine özel olarak oluşturulur ve gönderimler sayfasından herkese açık hale getirebilirsiniz."
+        "publicWarning": "İnternetteki herkes her öğrencinin çalışmasını görebilecek: kod, işlemeler ve ad. Kuruluş öğrencilerin herkese açık depolar oluşturmasına izin vermiyorsa, deposu bunun yerine özel olarak oluşturulur ve gönderimler sayfasından herkese açık hale getirebilirsiniz.",
+        "autograderWarning": "Herkese açık depolar otomatik değerlendirilmez. GitHub, herkese açık bir deponun özel classroom50 deponuzdaki değerlendirme iş akışını çalıştırmasını engeller, bu nedenle her değerlendirme çalışması \"workflow was not found\" hatasıyla başarısız olur. Değerlendirme sırasında depoları özel tutun.",
+        "autograderWarningToggleHint": "\"Yerleşik otomatik değerlendiriciyi kullanma\" seçeneğini de seçebilirsiniz."
       },
       "teamFormation": "Grup oluşturma",
       "teamFormationStudent": "Öğrenciler grup oluşturur",
@@ -1257,14 +1265,15 @@
         },
         "editHelp": "Bu, bundan böyle oluşturulan depolara uygulanır; mevcut olanlarda Pages'i etkinleştirmek için gönderimler sayfasını kullanın.",
         "emptyRepoHint": "Boş bir depo için kullanılamaz: henüz yayımlanacak bir dal yok.",
-        "help": "Her öğrenci deposunu GitHub Pages ile bir web sitesi olarak yayımlayın; öğrenci kabul ettiğinde otomatik olarak yapılandırılır, böylece asla yönetici erişimine ihtiyaçları olmaz. Varsayılan Kapalı'dır. \"GitHub Actions\" öğrenci deposundaki bir iş akışı aracılığıyla dağıtır (derleme adımı olan siteler için). \"Bir dal\" bir daldaki dosyaları doğrudan yayımlar, iş akışı gerekmez (düz HTML, CSS ve JavaScript için). Depo gizli olsa bile site internette herkese açıktır ve yayımlanan dal ve klasördeki her dosya sunulur; yalnızca GitHub Enterprise Cloud kimlerin göreceğini kısıtlayabilir. Gizli depolarda Pages, bunu içeren bir GitHub planı gerektirir; kuruluşlar için GitHub Free'de depoyu herkese açık hale getirin, aksi halde site oluşturulmaz.",
+        "help": "Her öğrenci deposunu GitHub Pages ile bir web sitesi olarak yayımlayın; öğrenci kabul ettiğinde otomatik olarak yapılandırılır, böylece yönetici erişimine hiç ihtiyaç duymazlar. Varsayılan olarak kapalıdır. \"GitHub Actions\" öğrenci deposundaki bir iş akışı aracılığıyla dağıtır (derleme adımı olan siteler için). \"Bir dal\" bir daldaki dosyaları doğrudan yayımlar, iş akışı gerekmez (düz HTML, CSS ve JavaScript için). Depo özel olsa bile site internette herkese açıktır ve yayımlanan daldaki ve klasördeki her dosya sunulur; yalnızca GitHub Enterprise Cloud kimin göreceğini kısıtlayabilir. Özel depolarda Pages, bunu içeren bir GitHub planı gerektirir; kuruluşlar için GitHub Free'de depoyu herkese açık yapın, yoksa site oluşturulmaz. Herkese açık depolar otomatik değerlendirilmez (bkz. Depo görünürlüğü).",
         "label": "GitHub Pages",
         "path": {
           "help": "O dalda yayımlanacak klasör: depo kökü (/) veya /docs. GitHub yalnızca bu ikisine izin verir.",
           "label": "Klasör"
         },
         "workflowNote": "GitHub Actions aracılığıyla dağıtım, her öğrenci deposunda Pages'e yayımlayan bir iş akışı gerektirir: pages: write ve id-token: write izinlerini vermeli ve actions/upload-pages-artifact ile actions/deploy-pages kullanmalıdır. Bunu şablonunuza koyun ya da öğrencilere ekletin. Site öğrenci kabul ettiğinde oluşturulur, dolayısıyla iş akışının ilk çalıştırması onu dağıtır."
-      }
+      },
+      "customAutograderNotice": "Bu ödev, {{path}} konumundaki \"{{name}}\" özel otomatik değerlendiricisini kullanıyor. Kaydetmek bunu korur. Yerleşik otomatik değerlendiriciye geçmek için assignments.json dosyasında \"autograder\" değerini \"default\" olarak ayarlayın."
     },
     "autograder": {
       "heading": "Otomatik değerlendirme testleri",
@@ -1400,7 +1409,7 @@
       "colSubmitted": "Teslim edildi",
       "groupsAcceptedTitle": "Kabul eden gruplar: var olan grup depoları",
       "noGroupsYet": "Henüz grup yok",
-      "noGroupsYetTitle": "Henüz grup yok. Bir grup deposu, kurucusu kabul ettiğinde oluşturulur.",
+      "noGroupsYetTitle": "Henüz grup yok. İlk üyesi kabul ettiğinde bir grup deposu oluşturulur.",
       "notCollectedYet": "Henüz toplanmadı",
       "sortByDue": "Son teslim tarihine göre sırala",
       "sortByName": "Ada göre sırala",
@@ -1662,6 +1671,12 @@
       "unlockNoneLocked": "Seçilen ödevlerin hiçbiri kilitli değil.",
       "unlockTitle_one": "{{count}} ödevin kilidi açılsın mı?",
       "unlockTitle_other": "{{count}} ödevin kilidi açılsın mı?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "\"{{slug}}\", çalışmak için başlangıç içeriği gerektiren \"{{name}}\" özel otomatik değerlendiricisini kullanıyor. Bir şablon seçin veya \"README ekle\" seçeneğini yeniden açın ya da önce {{classroom}}/assignments.json dosyasında \"autograder\" değerini \"default\" olarak ayarlayın.",
+        "customAutograderNoAutograder": "\"{{slug}}\", yerleşik otomatik değerlendirici ayarının açık olmasını gerektiren \"{{name}}\" özel otomatik değerlendiricisini kullanıyor. Yerleşik otomatik değerlendiriciyi yeniden açın veya önce {{classroom}}/assignments.json dosyasında \"autograder\" değerini \"default\" olarak ayarlayın."
+      }
     }
   },
   "published": {
@@ -1817,12 +1832,13 @@
       "cancel": "İptal",
       "confirm": "Değişiklikleri kaydet",
       "provisioning": {
-        "autograder": "Yerleşik otomatik değerlendirici: bunu kapatmak, var olan depoların otomatik değerlendirme çalıştırmalarının başarısız olmasına ve toplanan puanların dışına düşmesine neden olur.",
         "grading_mode": "Değerlendirme kipi: eski kipte kaydedilen puanlar farklı okunabilir.",
         "repo_source": "Depo kaynağı: var olan depolar özgün başlangıç içeriğini korur.",
         "repo_visibility": "Depo görünürlüğü: var olan depoları gönderimler sayfasından değiştirin.",
         "student_permission": "Öğrenci depo erişimi: var olan depoları gönderimler sayfasından değiştirin.",
-        "pages": "GitHub Pages: mevcut depolarda gönderimler sayfasından etkinleştirin."
+        "pages": "GitHub Pages: mevcut depolarda gönderimler sayfasından etkinleştirin.",
+        "autograder_off": "Yerleşik otomatik değerlendirici: kapatmak, mevcut depoların otomatik değerlendirme çalışmalarının başarısız olmasına ve toplanan puanlardan çıkmasına neden olur.",
+        "autograder_on": "Yerleşik otomatik değerlendirici: mevcut depoların henüz otomatik değerlendirme iş akışı yok. Kaydettikten sonra, gönderiler sayfasındaki \"Otomatik değerlendirme iş akışı ekle\" ile bunlara ekleyin."
       },
       "provisioningIntro_one": "{{count}} öğrenci ödevi zaten kabul etti. Bu değişiklikler yalnızca bundan sonra kabul edilen depolara uygulanır; var olan depo geçerli kurulumunu korur:",
       "provisioningIntro_other": "{{count}} öğrenci ödevi zaten kabul etti. Bu değişiklikler yalnızca bundan sonra kabul edilen depolara uygulanır; var olan {{count}} depo geçerli kurulumlarını korur:",
@@ -2728,7 +2744,7 @@
       "overriddenTitle": "Bu puan elle ayarlandı ve geçersiz kılma temizlenene kadar otomatik değerlendirme tarafından değiştirilmez.",
       "notCollectedYet": "Henüz toplanmadı",
       "notCollectedYetTitle": "Bu öğrenci henüz toplanmamış bir çalışma gönderdi, bu yüzden kayıtlı bir gönderim zamanı yok. Toplamak için \"Şimdi topla\"yı çalıştırın.",
-      "emptyNoGroupsBody": "Grup deposu, kurucusu ödevi kabul ettiğinde oluşturulur. Gruplar oluştukça burada görünür.",
+      "emptyNoGroupsBody": "İlk üyesi ödevi kabul ettiğinde bir grup deposu oluşturulur. Gruplar oluştukça burada görünür.",
       "emptyNoGroupsTitle": "Henüz grup yok",
       "noRepoYetTitle": "Henüz depo yok. Öğrenci ödevi kabul etmedi.",
       "notAcceptedTitle": "Bu öğrenci davet bağlantısını henüz açmadı, bu yüzden depo yok. Paylaş düğmesinden ödev bağlantısını paylaşın.",
@@ -2752,13 +2768,21 @@
       "viewFeedbackPr": "Geri bildirim PR'ını görüntüle",
       "staffRowTitle": "Bu ödevi, genellikle denemek amacıyla, kabul etmiş bir öğretmen, baş asistan veya asistan. Bu satır bir öğrenciye ait değildir.",
       "openSiteLabel": "{{repo}} için GitHub Pages sitesini aç",
-      "viewSite": "GitHub Pages sitesini aç"
+      "viewSite": "GitHub Pages sitesini aç",
+      "unverified": "Doğrulanmamış",
+      "unverifiedAuthorTitle": "Bu sürümü otomatik değerlendirici değil, {{login}} yayımladı. Puan toplandı ancak kanıt değil. Deponun Releases sekmesini ve Actions geçmişini kontrol edin.",
+      "unverifiedRecordedTitle": "Otomatik değerlendirici bu sürümü yayımlamadı ({{reason}}). Puan toplandı ancak kanıt değil. Deponun Releases sekmesini ve Actions geçmişini kontrol edin.",
+      "unverifiedUnknownAccount": "bilinmeyen bir hesap",
+      "unverifiedUploaderTitle": "Bu sürümün result.json dosyasını otomatik değerlendirici değil, {{login}} yükledi. Puan toplandı ancak kanıt değil. Deponun Releases sekmesini ve Actions geçmişini kontrol edin."
     },
     "reviewModal": {
       "errorTitle": "Geri bildirim PR'ı kontrol edilemedi",
       "emptyTitle": "Henüz geri bildirim pull request'i yok",
       "emptyBody": "<repo>{{repo}}</repo> için henüz bir geri bildirim çekme isteği açılmadı. O, öğrenci ödevi kabul ettiğinde açılır; dolayısıyla henüz kabul etmemiş olabilirler, ödevde kapalı olabilir ya da açılması ertelenmiş olabilir. Ertelenen bir açılış, yeniden kabulde veya ilk notlandırılan gönderimde yeniden denenir.",
-      "openRepoPrs": "Depo PR'larını aç"
+      "openRepoPrs": "Depo PR'larını aç",
+      "blockedBody": "Tarayıcınız bunu yeni bir sekmede açmayı engelledi. Açmak için aşağıdaki düğmeyi kullanın.",
+      "blockedTitle": "Geri bildirim çekme isteği bulundu",
+      "openPr": "Geri bildirim PR'ını aç"
     },
     "rowRegrade": {
       "title": "Bu teslimi yeniden değerlendir",
@@ -3195,7 +3219,8 @@
       "subtitle_other": "Bu ödevi kabul etmiş olan {{count}} öğrenciye uygulanır.",
       "title": "Depo görünürlüğünü değiştir",
       "titleEmptyRoster": "Henüz kabul eden öğrenci yok",
-      "working": "Depolar güncelleniyor"
+      "working": "Depolar güncelleniyor",
+      "autograderWarning": "Bir depo herkese açıkken otomatik değerlendirme durur. GitHub, herkese açık bir deponun özel classroom50 deponuzdaki değerlendirme iş akışını çalıştırmasını engeller, bu nedenle her değerlendirme çalışması \"workflow was not found\" hatasıyla başarısız olur. Değerlendirmeyi sürdürmek için depoları yeniden özel yapın."
     },
     "cloneAll": {
       "buttonTitle": "Tüm gönderimleri CLI ile klonla",
@@ -3230,7 +3255,8 @@
         "private": "Depo artık özel.",
         "public": "Depo artık herkese açık."
       },
-      "confirmWarning": "Depo herkese açıkken onu görüntüleyen veya klonlayan herkes, siz onu tekrar özel yapsanız bile o kopyayı elinde tutar."
+      "confirmWarning": "Depo herkese açıkken onu görüntüleyen veya klonlayan herkes, siz onu tekrar özel yapsanız bile o kopyayı elinde tutar.",
+      "confirmAutograderWarning": "Depo herkese açıkken otomatik değerlendirme durur: GitHub, özel classroom50 deponuzdaki değerlendirme iş akışını çalıştırmasını engeller. Değerlendirmeyi sürdürmek için yeniden özel yapın."
     },
     "skipPastTable": "Gönderimler tablosunu atla",
     "slugTitle": "Ödev kısaltması: bu ödev için benzersiz tanımlayıcı. Görünen adlar tekrar edebilir.",
@@ -3271,6 +3297,53 @@
         "unknown": "{{repo}} deposunda GitHub Pages şu anda etkinleştirilemedi. Birazdan tekrar deneyin."
       },
       "title": "GitHub Pages'i etkinleştir"
+    },
+    "bulkShim": {
+      "apply": "Tümüne ekle",
+      "configBranchError": "Sınıf deposunun varsayılan dalı okunamadı, bu nedenle iş akışı eklenmedi. Tekrar deneyin.",
+      "deferredDetail": "Atlandı. Eklemek için yeniden çalıştırın.",
+      "deferredSection_one": "{{count}} depo işlenmedi",
+      "deferredSection_other": "{{count}} depo işlenmedi",
+      "failedSection_one": "{{count}} depo güncellenemedi",
+      "failedSection_other": "{{count}} depo güncellenemedi",
+      "menuLabel": "Otomatik değerlendirme iş akışı ekle",
+      "menuTitle": "Sahip olmayan her öğrenci deposuna yerleşik otomatik değerlendirme iş akışını ekle",
+      "noRepos": "Henüz hiçbir öğrenci kabul etmedi, bu yüzden eklenecek bir şey yok.",
+      "notAcceptedDetail": "Depo yok. Öğrenci kabul ettiğinde iş akışını alır.",
+      "notAcceptedSection_one": "{{count}} öğrenci henüz kabul etmedi",
+      "notAcceptedSection_other": "{{count}} öğrenci henüz kabul etmedi",
+      "progress": "{{total}} depodan {{processed}} tanesi işlendi",
+      "regradeReminder": "Öğrencilerin önceden gönderdiği çalışma, bir sonraki push'larında değerlendirilir. Bir iş akışı yalnızca kendisini içeren commit'ler için çalışır, bu nedenle \"Tümünü yeniden değerlendir\" daha önceki commit'lere ulaşamaz. Şimdi değerlendirmek için öğrencilere bir kez push yaptırın (boş bir commit işe yarar).",
+      "repullReminder": "Öğrencilere git pull çalıştırmalarını söyleyin. Bu değişiklikten önce yapılan klonlar, bir sonraki push'larında çakışacaktır.",
+      "resultHeadline": "{{total}} deponun {{added}} tanesine iş akışı eklendi ({{present}} tanesinde zaten vardı).",
+      "scopeDetail": "GitHub yetkilendirmeniz iş akışı dosyalarını değiştiremez. Oturumu kapatıp yeniden açın, ardından yeniden çalıştırın.",
+      "scopeSection_one": "{{count}} depo ek GitHub izni gerektiriyor",
+      "scopeSection_other": "{{count}} depo ek GitHub izni gerektiriyor",
+      "subtitle_one": "Eksikse {{count}} öğrencinin deposuna otomatik değerlendirme iş akışını ekler.",
+      "subtitle_other": "Eksik olduğu yerlerde {{count}} öğrencinin depolarına otomatik değerlendirme iş akışını ekler.",
+      "title": "Otomatik değerlendirme iş akışı ekle",
+      "titleEmptyRoster": "Henüz hiçbir öğrenci kabul etmedi",
+      "unrecognizedSection_one": "{{count}} depo atlandı (o yolda zaten farklı bir iş akışı var)",
+      "unrecognizedSection_other": "{{count}} depo atlandı (o yolda zaten farklı bir iş akışı var)",
+      "warningLead_one": "Bu, otomatik değerlendirme iş akışını {{count}} öğrencinin deposuna işler.",
+      "warningLead_other": "Bu, otomatik değerlendirme iş akışını {{count}} öğrencinin depolarına işler.",
+      "warningPoint1": "İş akışına zaten sahip olan depolara dokunulmaz.",
+      "warningPoint2": "Commit, değerlendirmeyi tetiklemeyecek şekilde işaretlenir. Öğrencilerin önceden gönderdiği çalışma bir sonraki push'larında değerlendirilir; \"Tümünü yeniden değerlendir\" iş akışı var olmadan önce yapılan commit'lere ulaşamaz.",
+      "warningPoint3": "Öğrenciler daha sonra pull yapmalıdır. Bu değişiklikten önce yapılan klonlar, bir sonraki push'larında çakışacaktır.",
+      "working": "İş akışı ekleniyor"
+    },
+    "rowShim": {
+      "aria": "{{repo}} deposuna otomatik değerlendirme iş akışını ekle",
+      "description": "Otomatik değerlendirici kapalıyken kabul edildiyse bu depoya yerleşik otomatik değerlendirme iş akışını ekleyin.",
+      "outcome": {
+        "added": "Otomatik değerlendirme iş akışı eklendi. Öğrenci bir sonraki push'undan önce pull yapmalıdır ve depoda zaten bulunan çalışmayı değerlendiren o push'tur.",
+        "failed": "İş akışı eklenemedi. Tekrar deneyin.",
+        "missingWorkflowScope": "GitHub yetkilendirmeniz iş akışı dosyalarını değiştiremez. Oturumu kapatıp yeniden açın, ardından tekrar deneyin.",
+        "notAccepted": "Henüz depo yok, bu yüzden eklenecek bir şey yok.",
+        "present": "Bu depoda zaten otomatik değerlendirme iş akışı var.",
+        "unrecognized": "Atlandı: otomatik değerlendirme iş akışının yolunda zaten farklı bir iş akışı var, bu nedenle hiçbir şey değiştirilmedi."
+      },
+      "title": "Otomatik değerlendirme iş akışı ekle"
     }
   },
   "orgActivity": {
@@ -3805,7 +3878,22 @@
       },
       "subheading": "Bir organizasyonu sökmek, normal oturum açmanın istemediği depoları silme iznini gerektirir. Bu izni yalnızca ihtiyacınız olduğunda verin ve işiniz bittiğinde GitHub'da iptal edin."
     },
-    "noChangesToSave": "Kaydedilecek değişiklik yok."
+    "noChangesToSave": "Kaydedilecek değişiklik yok.",
+    "analytics": {
+      "heading": "Çerezler ve analizler",
+      "privacyLink": "Gizlilik bildirimini oku",
+      "subheading": "Analizler Classroom 50'yi geliştirmeye yardımcı olur. Bu tarayıcıda ziyaretlerinizi hangi hizmetlerin sayabileceğini seçin. İşlevsel depolama açık kalır."
+    },
+    "nameOrder": {
+      "firstLast": "Önce ad, sonra soyad",
+      "firstLastHint": "Örneğin, Ada Lovelace.",
+      "groupAria": "Ad sırası tercihi",
+      "heading": "Öğrenci adları",
+      "lastFirst": "Önce soyad, sonra ad",
+      "lastFirstHint": "Örneğin, Lovelace Ada.",
+      "saved": "Ad sırası tercihi kaydedildi.",
+      "subheading": "Öğrenci adlarının kayıt listeleri, gönderiler, gruplar ve dışa aktarılan puanlar genelinde hangi sırayla görüneceğini seçin."
+    }
   },
   "pagesErrors": {
     "assignmentNotInManifest": "\"{{assignmentSlug}}\" ödevi bu sınıfın yayımlanan ödevlerinde yok. Bağlantıyı kontrol edin veya öğretmeninizden ödevi yayımlamasını isteyin.",
@@ -4120,5 +4208,95 @@
       "staff": "{{slug}} ekibi zaten mevcut ancak Classroom 50 tarafından oluşturulmadı, dolayısıyla görevli ekibi olarak kullanılamaz. Üyelerini {{url}} adresinden inceleyin, ardından onu silin ya da classroom50 deposuna erişim verin ve yeniden deneyin.",
       "studentOf": "{{slug}} ekibi, {{classroom}} sınıfının öğrenci ekibidir, dolayısıyla bu sınıfın {{role}} ekibi olamaz. {{role}} rolünü burada görevlisiz bırakın veya sınıflardan birini yeniden adlandırın."
     }
+  },
+  "consent": {
+    "alwaysOn": "Her zaman açık",
+    "banner": {
+      "accept": "Kabul et",
+      "body": "Anonim kullanım verileri, hangi özelliklerin kullanıldığını ve insanların nerede takıldığını gösterir, böylece uygulama daha iyi hale gelebilir. Hiçbir şey sizi tanımlamaz ve seçiminizi Ayarlar'dan istediğiniz zaman değiştirebilirsiniz. Paylaşmak istemediğiniz her şeyin işaretini kaldırın, ardından Kabul et'i seçin.",
+      "decline": "Reddet",
+      "hideNotice": "Gizlilik bildirimini gizle",
+      "readNotice": "Gizlilik bildirimini oku",
+      "title": "Analizler Classroom 50'yi geliştirmeye yardımcı olur"
+    },
+    "browserDeclines": "Tarayıcınız Global Privacy Control veya Do Not Track sinyalini gönderiyor, bu nedenle analizler kapalı kalır ve Classroom 50 sormaz.",
+    "categories": {
+      "cloudflare": {
+        "caption": "Ziyaretleri sayar. Çerez yok.",
+        "items": {
+          "collected": "Sayfa yolu, yönlendiren site, ülke, tarayıcı türü ve yükleme süresi",
+          "noCookies": "Çerez ve tanımlayıcı yoktur, bu nedenle kişileri değil ziyaretleri sayar",
+          "notCollected": "Asla GitHub kullanıcı adınız, e-postanız, kayıt listesi veriniz veya bir URL'nin sorgu dizesi değil"
+        },
+        "label": "Cloudflare Web Analytics"
+      },
+      "functional": {
+        "caption": "Uygulamanın çalışması için gereklidir. Bu tarayıcıda kalır.",
+        "items": {
+          "consent": "Burada yaptığınız seçim",
+          "preferences": "Ayarlarınız: dil, tema, ad sırası, hareket, gizlenen kuruluşlar ve kenar çubuğu düzeni",
+          "session": "GitHub oturum açmanız, böylece oturumunuz açık kalır"
+        },
+        "label": "İşlevsel",
+        "tooltip": "Yalnızca bu tarayıcıda saklanır: oturumunuz açık kalsın diye GitHub oturum açmanız, ayarlarınız (dil, tema, ad sırası, hareket, gizlenen kuruluşlar ve kenar çubuğu düzeni) ve burada yaptığınız seçim. Bunların hiçbiri analiz için kullanılmaz."
+      },
+      "google": {
+        "caption": "Özelliklerin nasıl kullanıldığını gösterir. Bir çerez ayarlar.",
+        "items": {
+          "collected": "Görüntülediğiniz sayfalar ve ne kadar kaldığınız, sayfaya bağlantı veren site, ülkeniz ve tarayıcınız, cihazınız ve diliniz, Google Tag Manager aracılığıyla gönderilir",
+          "cookie": "Rastgele bir kimlik tutan bir çerez, böylece geri dönen bir tarayıcı bir kez sayılır. 2 yıl sonra sona erer.",
+          "notCollected": "Asla GitHub kullanıcı adınız, e-postanız, kayıt listesi veriniz veya bir URL'nin sorgu dizesi değil"
+        },
+        "label": "Google Analytics"
+      }
+    },
+    "declineAll": "Tüm analizleri reddet",
+    "reset": "Sıfırla ve yeniden sor",
+    "savePreferences": "Tercihleri kaydet",
+    "whatThisIncludes": "Bunun içerdikleri"
+  },
+  "privacy": {
+    "analytics": {
+      "cloudflareTerms": "Cloudflare veri işleme eki",
+      "collected": {
+        "cookie": "Yalnızca Google Analytics: rastgele bir kimlik tutan bir çerez, böylece geri dönen bir tarayıcı bir kez sayılır. 2 yıl sonra sona erer ve Google Analytics'i kapatmak onu kaldırır.",
+        "country": "Bağlantınızdan çıkarılan ülkeniz",
+        "device": "Tarayıcı, işletim sistemi, cihaz türü ve dil",
+        "path": "Görüntülediğiniz sayfalar, örneğin /cs1-fall-2026/assignments, ve ne kadar kaldığınız",
+        "referrer": "Sayfaya bağlantı veren site",
+        "timings": "Sayfa yükleme süresi"
+      },
+      "collectedHeading": "Toplanan",
+      "googleTerms": "Google Gizlilik Politikası",
+      "googleUsage": "Google'ın hizmetlerini kullanan sitelerdeki bilgileri nasıl kullandığı",
+      "heading": "Kullanım analizleri",
+      "intro": "Analizler, classroom50.org'u kaç kişinin kullandığını, hangi özellikleri kullandıklarını ve nerede takıldıklarını gösterir, böylece uygulama geliştirilebilir. İzninizle iki hizmet bunu yapar: çerez ayarlamayan Cloudflare Web Analytics ve Google Tag Manager aracılığıyla yüklenen ve geri dönen bir tarayıcıyı bir çerezle tanıyan Google Analytics. İkisini de kapatabilirsiniz. Hiçbiri kim olduğunuzu bilmez.",
+      "notCollected": {
+        "crossSite": "Sizi diğer sitelere kadar takip eden herhangi bir şey",
+        "identity": "GitHub kullanıcı adınız, e-postanız veya kayıt listesi veriniz",
+        "queryStrings": "Sorgu dizeleri. Cloudflare bunları tarayıcınızda kaldırır ve Google Analytics kurulumumuz bunları kaydetmemek üzere yapılandırılmıştır, bu nedenle oturum açma kodları, davet bağlantısı anahtarları ve kayıt listesi aramaları veriden uzak tutulur."
+      },
+      "notCollectedHeading": "Toplanmayan",
+      "processing": "Google ve Cloudflare, bu verileri Fifty Foundation için işler. Her birinin nasıl işlediği:",
+      "retention": "Google, olay verilerini en fazla 14 ay saklar. Cloudflare, tam veriyi 7 gün ve bir örneği 6 ay saklar. Hiçbir hizmet siz kabul edene kadar çalışmaz ve cevabınızı aşağıdan istediğiniz zaman değiştirebilirsiniz."
+    },
+    "choice": {
+      "body": "Seçiminiz bu tarayıcıda kaydedilir. Kabul etmek, açık bıraktığınız hizmetleri hemen başlatır. Birini kapatmak, çerezlerini şimdi kaldırır ve bir sonraki sayfa yüklemesinden itibaren durdurur. Oturum açtığınızda, bunu Ayarlar'dan da değiştirebilirsiniz.",
+      "heading": "Sizin seçiminiz",
+      "signals": "Tarayıcınız Global Privacy Control veya Do Not Track sinyalini gönderirse, hiçbir analiz çalışmaz ve Classroom 50 sormaz."
+    },
+    "contact": {
+      "body": "Classroom 50, Fifty Foundation tarafından desteklenen açık kaynaklı bir projedir. Bu bildirim hakkında soru sormak için bir konu başlatın:",
+      "heading": "Sorular",
+      "link": "GitHub Discussions"
+    },
+    "data": {
+      "body": "Classroom 50'nin kendine ait sunucusu, veritabanı veya hesabı yoktur. Kayıt listeleri, ödev depoları, puanlar ve geri bildirim GitHub kuruluşunuzda kalır. Uygulama bunları, sizin verdiğiniz bir belirteçle GitHub API aracılığıyla okur ve yazar. Oturum açma ve depo indirmeleri, hiçbir şey depolamayan bir proxy'den geçer.",
+      "heading": "Sınıf verileriniz",
+      "more": "FERPA rehberliği dahil ayrıntılar için bkz.",
+      "moreLink": "Belgelerdeki Gizlilik ve FERPA"
+    },
+    "pageSubtitle": "Classroom 50 web uygulamasının verilerinizi nasıl işlediği ve neleri seçebileceğiniz.",
+    "pageTitle": "Gizlilik"
   }
 }

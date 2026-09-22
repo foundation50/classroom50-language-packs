@@ -113,7 +113,8 @@
     "backToApp": "Voltar ao aplicativo",
     "signIn": "Entrar",
     "manageGroups": "Gerenciar grupos",
-    "mySubmissionTeam": "Envio do grupo"
+    "mySubmissionTeam": "Envio do grupo",
+    "aboutViewPrivacy": "Ver informações de privacidade"
   },
   "auth": {
     "signInTitle": "Entrar",
@@ -188,7 +189,8 @@
       "revokeTitle": "Deixar de usar a permissão para excluir repositórios",
       "title": "Solicitar permissão para excluir repositórios"
     },
-    "patRequired": "Insira um token de acesso pessoal para entrar."
+    "patRequired": "Insira um token de acesso pessoal para entrar.",
+    "privacy": "Privacidade"
   },
   "documentTitle": {
     "assignments": "Atividades",
@@ -677,7 +679,10 @@
     "uploadBlockedChecking": "Verificando a associação atual…",
     "uploadBlockedDetails": "Confirme as atualizações de detalhes acima para continuar.",
     "uploadBlockedRoles": "Confirme as mudanças de função acima para continuar.",
-    "uploadBlockedUsernames": "Confirme as mudanças de nome de usuário acima para continuar."
+    "uploadBlockedUsernames": "Confirme as mudanças de nome de usuário acima para continuar.",
+    "rosterProblemDuplicateColumn": "A coluna \"{{name}}\" aparece mais de uma vez. Mantenha uma e remova as demais.",
+    "rosterProblemFormulaColumn": "O nome da coluna \"{{name}}\" começa com =, +, - ou @, que as planilhas tratam como fórmula. Renomeie-a.",
+    "rosterProblemReservedColumn": "A coluna \"{{name}}\" é uma coluna interna da turma e aparece novamente depois dela. Remova a cópia extra."
   },
   "language": {
     "baseName": "Inglês (base)",
@@ -951,7 +956,8 @@
         "teamFormationInvalid": "Escolha quem forma os grupos.",
         "pagesBranchInvalid": "Insira um nome de branch sem espaços, com no máximo 255 caracteres, ou deixe em branco para o branch padrão.",
         "pagesPathInvalid": "A pasta do Pages deve ser / ou /docs.",
-        "pagesSourceInvalid": "O GitHub Pages deve ser \"Desativado\", \"GitHub Actions\" ou \"Um branch\"."
+        "pagesSourceInvalid": "O GitHub Pages deve ser \"Desativado\", \"GitHub Actions\" ou \"Um branch\".",
+        "scheduleDateIncomplete": "Complete a data e a hora, ou desative a opção para removê-la."
       },
       "allowedFilesTip": "Padrões ordenados no estilo {{gitignore}}, um por linha, que definem quais arquivos pertencem a um envio (a última correspondência prevalece, {{bang}} reinclui). Por exemplo, {{star}} e depois {{example}} permite apenas {{result}}. Em branco permite todos os arquivos.",
       "containerUserTip": "O usuário com o qual o contêiner é executado. Defina root se o checkout falhar com um erro de permissão. O GitHub Actions executa as etapas do contêiner como o usuário do runner host, então uma imagem non-root muitas vezes não consegue gravar no workspace.",
@@ -1060,7 +1066,7 @@
           }
         },
         "modeLabel": "Autocorretor integrado",
-        "editHelp": "Alterar a correção automática integrada só afeta os repositórios aceitos pelos estudantes a partir de agora. Os repositórios já aceitos mantêm a configuração original, então você mesmo precisará atualizar os repositórios existentes."
+        "editHelp": "Alterar o autocorretor integrado afeta apenas os repositórios que os estudantes aceitarem a partir de agora. Os repositórios já aceitos mantêm sua configuração original. Para ativá-lo neles, salve e depois use \"Adicionar fluxo de trabalho de autocorreção\" na página de submissões ou gh teacher assignment enable-autograder."
       },
       "copyAbout": {
         "help": "Copia o Sobre do modelo (sua descrição) para cada repositório de aluno. O GitHub não copia isso automaticamente. Isto se aplica aos alunos que aceitarem a partir de agora; os repositórios já criados não são alterados.",
@@ -1136,7 +1142,9 @@
           "private": "Privado",
           "public": "Público"
         },
-        "publicWarning": "Qualquer pessoa na internet poderá ver o trabalho de cada aluno: código, commits e nome. Se a organização não permitir que os alunos criem repositórios públicos, o repositório é criado como privado e você pode torná-lo público pela página de envios."
+        "publicWarning": "Qualquer pessoa na internet poderá ver o trabalho de cada aluno: código, commits e nome. Se a organização não permitir que os alunos criem repositórios públicos, o repositório é criado como privado e você pode torná-lo público pela página de envios.",
+        "autograderWarning": "Repositórios públicos não são autocorrigidos. O GitHub impede que um repositório público execute o fluxo de trabalho de correção no seu repositório classroom50 privado, então toda execução de correção falha com \"workflow was not found\". Mantenha os repositórios privados durante a correção.",
+        "autograderWarningToggleHint": "Você também pode selecionar \"Não usar o autocorretor integrado\"."
       },
       "lockAssignment": "Bloquear tarefa",
       "lockAssignmentTip": "Os alunos não podem ver ou aceitar uma tarefa bloqueada, incluindo aqueles que já a aceitaram. Para um modelo privado na sua organização, a equipe da turma perde o acesso de leitura ao modelo até você desbloquear. O acesso da equipe e os repositórios de alunos existentes não mudam. Use para preparar uma avaliação cronometrada e desbloqueie quando a sessão começar.",
@@ -1165,14 +1173,15 @@
         },
         "editHelp": "Isto se aplica aos repositórios criados a partir de agora; use a página de submissões para ativar o Pages nos existentes.",
         "emptyRepoHint": "Não disponível para um repositório vazio: ainda não há um branch para publicar.",
-        "help": "Publique o repositório de cada aluno como um site com o GitHub Pages, configurado automaticamente quando o aluno aceita, para que ele nunca precise de acesso de administrador. Desativado é o padrão. \"GitHub Actions\" implanta por meio de um fluxo de trabalho no repositório do aluno (para sites com uma etapa de build). \"Um branch\" publica os arquivos de um branch diretamente, sem necessidade de fluxo de trabalho (para HTML, CSS e JavaScript simples). O site é público na internet mesmo quando o repositório é privado, e todo arquivo do branch e da pasta publicados é servido; somente o GitHub Enterprise Cloud pode restringir quem o vê. O Pages em repositórios privados exige um plano do GitHub que o inclua; no GitHub Free para organizações, torne o repositório público ou o site não é criado.",
+        "help": "Publique o repositório de cada estudante como um site com o GitHub Pages, configurado automaticamente quando o estudante aceita, para que nunca precisem de acesso de administrador. Desativado é o padrão. \"GitHub Actions\" faz o deploy por meio de um fluxo de trabalho no repositório do estudante (para sites com etapa de build). \"Um branch\" publica os arquivos de um branch diretamente, sem fluxo de trabalho (para HTML, CSS e JavaScript simples). O site fica público na internet mesmo quando o repositório é privado, e todo arquivo do branch e da pasta publicados é servido; somente o GitHub Enterprise Cloud pode restringir quem o vê. O Pages em repositórios privados exige um plano do GitHub que o inclua; no GitHub Free para organizações, torne o repositório público ou o site não é criado. Repositórios públicos não são autocorrigidos (veja Visibilidade do repositório).",
         "label": "GitHub Pages",
         "path": {
           "help": "A pasta desse branch a publicar: a raiz do repositório (/) ou /docs. O GitHub permite apenas essas duas.",
           "label": "Pasta"
         },
         "workflowNote": "A implantação por meio do GitHub Actions exige um fluxo de trabalho no repositório de cada aluno que publique no Pages: ele deve conceder as permissões pages: write e id-token: write e usar actions/upload-pages-artifact e actions/deploy-pages. Coloque-o no seu template, ou faça os alunos adicionarem. O site é criado quando o aluno aceita, então a primeira execução do fluxo de trabalho o implanta."
-      }
+      },
+      "customAutograderNotice": "Esta tarefa usa o autocorretor personalizado \"{{name}}\" de {{path}}. Salvar o mantém. Para mudar para o autocorretor integrado, defina \"autograder\" como \"default\" em assignments.json."
     },
     "autograder": {
       "heading": "Testes de correção automática",
@@ -1308,7 +1317,7 @@
       "colSubmitted": "Enviadas",
       "groupsAcceptedTitle": "Grupos que aceitaram: repositórios de grupo que existem",
       "noGroupsYet": "Nenhum grupo ainda",
-      "noGroupsYetTitle": "Ainda não há grupos. Um repositório de grupo é criado quando seu fundador aceita.",
+      "noGroupsYetTitle": "Nenhum grupo ainda. Um repositório de grupo é criado quando seu primeiro integrante aceita.",
       "notCollectedYet": "Ainda não coletado",
       "sortByDue": "Ordenar por data de entrega",
       "sortByName": "Ordenar por nome",
@@ -1618,6 +1627,12 @@
       "unlockNoneLocked": "Nenhuma das tarefas selecionadas está bloqueada.",
       "unlockTitle_one": "Desbloquear {{count}} tarefa?",
       "unlockTitle_other": "Desbloquear {{count}} tarefas?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "\"{{slug}}\" usa o autocorretor personalizado \"{{name}}\", que precisa de conteúdo inicial para funcionar. Escolha um modelo ou reative \"Adicionar um README\", ou defina \"autograder\" como \"default\" em {{classroom}}/assignments.json primeiro.",
+        "customAutograderNoAutograder": "\"{{slug}}\" usa o autocorretor personalizado \"{{name}}\", que precisa da configuração do autocorretor integrado ativada. Reative o autocorretor integrado, ou defina \"autograder\" como \"default\" em {{classroom}}/assignments.json primeiro."
+      }
     }
   },
   "published": {
@@ -1739,12 +1754,13 @@
       "cancel": "Cancelar",
       "confirm": "Salvar alterações",
       "provisioning": {
-        "autograder": "Autocorretor integrado: desativá-lo faz com que as execuções de autocorreção dos repositórios existentes falhem e saiam das notas coletadas.",
         "grading_mode": "Modo de correção: notas registradas no modo antigo podem ser lidas de forma diferente.",
         "repo_source": "Origem do repositório: os repositórios existentes mantêm seu conteúdo inicial original.",
         "repo_visibility": "Visibilidade do repositório: altere os repositórios existentes pela página de envios.",
         "student_permission": "Acesso ao repositório do aluno: altere os repositórios existentes pela página de envios.",
-        "pages": "GitHub Pages: ative-o nos repositórios existentes pela página de submissões."
+        "pages": "GitHub Pages: ative-o nos repositórios existentes pela página de submissões.",
+        "autograder_off": "Autocorretor integrado: desativá-lo faz com que as execuções de autocorreção dos repositórios existentes falhem e saiam das notas coletadas.",
+        "autograder_on": "Autocorretor integrado: os repositórios existentes ainda não têm um fluxo de trabalho de autocorreção. Após salvar, use \"Adicionar fluxo de trabalho de autocorreção\" na página de submissões para adicioná-lo a eles."
       },
       "provisioningIntro_one": "{{count}} aluno já aceitou. Estas alterações se aplicam apenas aos repositórios aceitos a partir de agora; o repositório existente mantém sua configuração atual:",
       "provisioningIntro_other": "{{count}} alunos já aceitaram. Estas alterações se aplicam apenas aos repositórios aceitos a partir de agora; os {{count}} repositórios existentes mantêm sua configuração atual:",
@@ -2596,7 +2612,7 @@
       "overriddenTitle": "Esta nota foi definida à mão e não será alterada pela autocorreção até que a substituição seja removida.",
       "notCollectedYet": "Ainda não coletado",
       "notCollectedYetTitle": "Este estudante enviou um trabalho que ainda não foi coletado, então não há hora de envio registrada. Execute \"Coletar agora\" para coletá-lo.",
-      "emptyNoGroupsBody": "Um repositório de grupo é criado quando seu fundador aceita a atividade. Os grupos aparecem aqui à medida que se formam.",
+      "emptyNoGroupsBody": "Um repositório de grupo é criado quando seu primeiro integrante aceita a tarefa. Os grupos aparecem aqui à medida que se formam.",
       "emptyNoGroupsTitle": "Nenhum grupo ainda",
       "noRepoYetTitle": "Ainda não há repositório. O estudante não aceitou a tarefa.",
       "notAcceptedTitle": "Este estudante ainda não abriu o link de convite, então nenhum repositório existe. Compartilhe o link da atividade pelo botão Compartilhar.",
@@ -2620,13 +2636,21 @@
       "teamNoRepoTitle": "O repositório do grupo é criado quando um integrante do grupo aceita a atividade. Compartilhe o link da atividade para que um integrante possa aceitá-la.",
       "staffRowTitle": "Um professor, head TA ou TA que aceitou esta atividade, geralmente para experimentá-la. Esta linha não é de um estudante.",
       "openSiteLabel": "Abrir o site do GitHub Pages de {{repo}}",
-      "viewSite": "Abrir site do GitHub Pages"
+      "viewSite": "Abrir site do GitHub Pages",
+      "unverified": "Não verificado",
+      "unverifiedAuthorTitle": "O autocorretor não publicou esta versão; {{login}} publicou. A nota foi coletada, mas não é uma prova. Verifique a aba Releases e o histórico de Actions do repositório.",
+      "unverifiedRecordedTitle": "O autocorretor não publicou esta versão ({{reason}}). A nota foi coletada, mas não é uma prova. Verifique a aba Releases e o histórico de Actions do repositório.",
+      "unverifiedUnknownAccount": "uma conta desconhecida",
+      "unverifiedUploaderTitle": "O autocorretor não enviou o result.json desta versão; {{login}} enviou. A nota foi coletada, mas não é uma prova. Verifique a aba Releases e o histórico de Actions do repositório."
     },
     "reviewModal": {
       "errorTitle": "Não foi possível verificar um PR de feedback",
       "emptyTitle": "Ainda não há pull request de feedback",
       "openRepoPrs": "Abrir PRs do repositório",
-      "emptyBody": "Ainda não foi aberto nenhum pull request de feedback para <repo>{{repo}}</repo>. Ele abre quando o estudante aceita a tarefa, então talvez o estudante ainda não tenha aceitado, a tarefa pode tê-lo desativado, ou sua abertura foi adiada. Uma abertura adiada é tentada novamente ao reaceitar ou na primeira entrega corrigida."
+      "emptyBody": "Ainda não foi aberto nenhum pull request de feedback para <repo>{{repo}}</repo>. Ele abre quando o estudante aceita a tarefa, então talvez o estudante ainda não tenha aceitado, a tarefa pode tê-lo desativado, ou sua abertura foi adiada. Uma abertura adiada é tentada novamente ao reaceitar ou na primeira entrega corrigida.",
+      "blockedBody": "Seu navegador bloqueou a abertura em uma nova aba. Use o botão abaixo para abri-la.",
+      "blockedTitle": "Pull request de feedback encontrado",
+      "openPr": "Abrir PR de feedback"
     },
     "rowRegrade": {
       "title": "Recorrigir esta entrega",
@@ -3083,7 +3107,8 @@
       "subtitle_other": "Aplica-se a {{count}} estudantes que aceitaram esta tarefa.",
       "title": "Alterar visibilidade do repositório",
       "titleEmptyRoster": "Nenhum estudante aceitou ainda",
-      "working": "Atualizando repositórios"
+      "working": "Atualizando repositórios",
+      "autograderWarning": "A autocorreção para enquanto um repositório está público. O GitHub impede que um repositório público execute o fluxo de trabalho de correção no seu repositório classroom50 privado, então toda execução de correção falha com \"workflow was not found\". Torne os repositórios privados novamente para retomar a correção."
     },
     "cloneAll": {
       "buttonTitle": "Clonar todos os envios com a CLI",
@@ -3117,7 +3142,8 @@
         "private": "O repositório agora é privado.",
         "public": "O repositório agora é público."
       },
-      "confirmWarning": "Qualquer pessoa que visualizar ou clonar o repositório enquanto ele estiver público mantém essa cópia, mesmo depois de você torná-lo privado novamente."
+      "confirmWarning": "Qualquer pessoa que visualizar ou clonar o repositório enquanto ele estiver público mantém essa cópia, mesmo depois de você torná-lo privado novamente.",
+      "confirmAutograderWarning": "A autocorreção para enquanto o repositório está público: o GitHub impede que ele execute o fluxo de trabalho de correção no seu repositório classroom50 privado. Torne-o privado novamente para retomar a correção."
     },
     "rosterFromCsvNotice": "A lista de estudantes vem do arquivo de turma na última sincronização, porque seu papel não pode visualizar a equipe do GitHub da turma. Um estudante matriculado desde então aparece depois que um professor abre a lista da turma. Os proprietários da organização veem a associação ao vivo.",
     "skipPastTable": "Pular a tabela de entregas",
@@ -3159,6 +3185,53 @@
         "unknown": "O GitHub Pages não pôde ser habilitado em {{repo}} agora. Tente novamente em instantes."
       },
       "title": "Habilitar o GitHub Pages"
+    },
+    "bulkShim": {
+      "apply": "Aplicar a todos",
+      "configBranchError": "Não foi possível ler o branch padrão do repositório da turma, então nenhum fluxo de trabalho foi adicionado. Tente novamente.",
+      "deferredDetail": "Ignorado. Execute novamente para adicionar.",
+      "deferredSection_one": "{{count}} repositório não foi processado",
+      "deferredSection_other": "{{count}} repositórios não foram processados",
+      "failedSection_one": "{{count}} repositório não pôde ser atualizado",
+      "failedSection_other": "{{count}} repositórios não puderam ser atualizados",
+      "menuLabel": "Adicionar fluxo de trabalho de autocorreção",
+      "menuTitle": "Adicionar o fluxo de trabalho de autocorreção integrado a cada repositório de estudante que não o tem",
+      "noRepos": "Nenhum estudante aceitou ainda, então não há nada a adicionar.",
+      "notAcceptedDetail": "Nenhum repositório existe. Ele recebe o fluxo de trabalho quando o estudante aceita.",
+      "notAcceptedSection_one": "{{count}} estudante ainda não aceitou",
+      "notAcceptedSection_other": "{{count}} estudantes ainda não aceitaram",
+      "progress": "Processados {{processed}} de {{total}}",
+      "regradeReminder": "O trabalho que os estudantes já enviaram é corrigido no próximo push. Um fluxo de trabalho só é executado nos commits que o contêm, então \"Recorrigir tudo\" não alcança commits anteriores. Para corrigir agora, peça aos estudantes que façam um push (um commit vazio serve).",
+      "repullReminder": "Peça aos estudantes que executem git pull. Clones feitos antes desta alteração entrarão em conflito no próximo push.",
+      "resultHeadline": "Fluxo de trabalho adicionado a {{added}} de {{total}} repositórios ({{present}} já o tinham).",
+      "scopeDetail": "Sua autorização do GitHub não pode modificar arquivos de fluxo de trabalho. Saia e entre novamente, depois execute de novo.",
+      "scopeSection_one": "{{count}} repositório precisa de permissão adicional do GitHub",
+      "scopeSection_other": "{{count}} repositórios precisam de permissão adicional do GitHub",
+      "subtitle_one": "Adiciona o fluxo de trabalho de autocorreção ao repositório de {{count}} estudante, se estiver faltando.",
+      "subtitle_other": "Adiciona o fluxo de trabalho de autocorreção aos repositórios de {{count}} estudantes onde estiver faltando.",
+      "title": "Adicionar fluxo de trabalho de autocorreção",
+      "titleEmptyRoster": "Nenhum estudante aceitou ainda",
+      "unrecognizedSection_one": "{{count}} repositório foi ignorado (um fluxo de trabalho diferente já está nesse caminho)",
+      "unrecognizedSection_other": "{{count}} repositórios foram ignorados (um fluxo de trabalho diferente já está nesse caminho)",
+      "warningLead_one": "Isto faz o commit do fluxo de trabalho de autocorreção no repositório de {{count}} estudante.",
+      "warningLead_other": "Isto faz o commit do fluxo de trabalho de autocorreção nos repositórios de {{count}} estudantes.",
+      "warningPoint1": "Repositórios que já têm o fluxo de trabalho não são alterados.",
+      "warningPoint2": "O commit é marcado para não disparar a correção. O trabalho que os estudantes já enviaram é corrigido no próximo push; \"Recorrigir tudo\" não alcança commits feitos antes de o fluxo de trabalho existir.",
+      "warningPoint3": "Os estudantes precisam fazer pull depois. Clones feitos antes desta alteração entrarão em conflito no próximo push.",
+      "working": "Adicionando o fluxo de trabalho"
+    },
+    "rowShim": {
+      "aria": "Adicionar o fluxo de trabalho de autocorreção a {{repo}}",
+      "description": "Adiciona o fluxo de trabalho de autocorreção integrado a este repositório se ele foi aceito enquanto o autocorretor estava desativado.",
+      "outcome": {
+        "added": "Fluxo de trabalho de autocorreção adicionado. O estudante precisa fazer pull antes do próximo push, e é esse push que corrige o trabalho já existente no repositório.",
+        "failed": "Não foi possível adicionar o fluxo de trabalho. Tente novamente.",
+        "missingWorkflowScope": "Sua autorização do GitHub não pode modificar arquivos de fluxo de trabalho. Saia e entre novamente, depois tente de novo.",
+        "notAccepted": "Nenhum repositório existe ainda, então não há nada a adicionar.",
+        "present": "Este repositório já tem o fluxo de trabalho de autocorreção.",
+        "unrecognized": "Ignorado: um fluxo de trabalho diferente já está no caminho do fluxo de autocorreção, então nada foi alterado."
+      },
+      "title": "Adicionar fluxo de trabalho de autocorreção"
     }
   },
   "orgMembers": {
@@ -3805,7 +3878,22 @@
       },
       "subheading": "Desmontar uma organização exige permissão para excluir repositórios, que o login normal não solicita. Conceda esta permissão apenas quando precisar dela e revogue-a no GitHub quando terminar."
     },
-    "noChangesToSave": "Nenhuma alteração para salvar."
+    "noChangesToSave": "Nenhuma alteração para salvar.",
+    "analytics": {
+      "heading": "Cookies e análises",
+      "privacyLink": "Ler o aviso de privacidade",
+      "subheading": "As análises ajudam a melhorar o Classroom 50. Escolha quais serviços podem contar suas visitas neste navegador. O armazenamento funcional permanece ativo."
+    },
+    "nameOrder": {
+      "firstLast": "Nome, depois sobrenome",
+      "firstLastHint": "Por exemplo, Ada Lovelace.",
+      "groupAria": "Preferência de ordem dos nomes",
+      "heading": "Nomes dos estudantes",
+      "lastFirst": "Sobrenome, depois nome",
+      "lastFirstHint": "Por exemplo, Lovelace Ada.",
+      "saved": "Preferência de ordem dos nomes salva.",
+      "subheading": "Escolha a ordem em que os nomes dos estudantes aparecem nas turmas, submissões, grupos e notas exportadas."
+    }
   },
   "pagesErrors": {
     "assignmentNotInManifest": "A tarefa \"{{assignmentSlug}}\" não está entre as tarefas publicadas desta turma. Verifique o link ou peça ao seu professor para publicar a tarefa.",
@@ -4120,5 +4208,95 @@
       "staff": "A equipe {{slug}} já existe, mas não foi criada pelo Classroom 50, então não pode ser usada como equipe de staff. Revise os membros dela em {{url}}, depois exclua-a ou dê acesso a ela ao repositório classroom50, e tente de novo.",
       "studentOf": "A equipe {{slug}} é a equipe de estudantes da turma {{classroom}}, então não pode ser a equipe {{role}} desta turma. Deixe a função {{role}} sem staff aqui, ou renomeie uma das turmas."
     }
+  },
+  "consent": {
+    "alwaysOn": "Sempre ativo",
+    "banner": {
+      "accept": "Aceitar",
+      "body": "Dados de uso anônimos mostram quais recursos são usados e onde as pessoas encontram dificuldades, para que o app possa melhorar. Nada identifica você, e você pode alterar sua escolha a qualquer momento nas Configurações. Desmarque qualquer coisa que preferir não compartilhar e selecione Aceitar.",
+      "decline": "Recusar",
+      "hideNotice": "Ocultar o aviso de privacidade",
+      "readNotice": "Ler o aviso de privacidade",
+      "title": "As análises ajudam a melhorar o Classroom 50"
+    },
+    "browserDeclines": "Seu navegador envia o sinal Global Privacy Control ou Do Not Track, então as análises ficam desativadas e o Classroom 50 não pergunta.",
+    "categories": {
+      "cloudflare": {
+        "caption": "Conta visitas. Sem cookies.",
+        "items": {
+          "collected": "Caminho da página, site de origem, país, tipo de navegador e tempo de carregamento",
+          "noCookies": "Sem cookies e sem identificadores, então conta visitas, não pessoas",
+          "notCollected": "Nunca seu nome de usuário do GitHub, e-mail, dados de turma ou a query string de uma URL"
+        },
+        "label": "Cloudflare Web Analytics"
+      },
+      "functional": {
+        "caption": "Necessário para o funcionamento do app. Permanece neste navegador.",
+        "items": {
+          "consent": "A escolha que você faz aqui",
+          "preferences": "Suas configurações: idioma, tema, ordem dos nomes, animações, organizações ocultas e layout da barra lateral",
+          "session": "Seu login do GitHub, para que você continue conectado"
+        },
+        "label": "Funcional",
+        "tooltip": "Armazenado somente neste navegador: seu login do GitHub para que você continue conectado, suas configurações (idioma, tema, ordem dos nomes, animações, organizações ocultas e layout da barra lateral) e a escolha que você faz aqui. Nada disso é usado para análises."
+      },
+      "google": {
+        "caption": "Mostra como os recursos são usados. Define um cookie.",
+        "items": {
+          "collected": "As páginas que você visualiza e por quanto tempo permanece, o site que levou à página, seu país e seu navegador, dispositivo e idioma, enviados pelo Google Tag Manager",
+          "cookie": "Um cookie que contém um ID aleatório, para que um navegador recorrente seja contado uma vez. Ele expira após 2 anos.",
+          "notCollected": "Nunca seu nome de usuário do GitHub, e-mail, dados de turma ou a query string de uma URL"
+        },
+        "label": "Google Analytics"
+      }
+    },
+    "declineAll": "Recusar todas as análises",
+    "reset": "Redefinir e perguntar novamente",
+    "savePreferences": "Salvar preferências",
+    "whatThisIncludes": "O que isso inclui"
+  },
+  "privacy": {
+    "analytics": {
+      "cloudflareTerms": "Adendo de processamento de dados da Cloudflare",
+      "collected": {
+        "cookie": "Somente Google Analytics: um cookie que contém um ID aleatório, para que um navegador recorrente seja contado uma vez. Ele expira após 2 anos, e desativar o Google Analytics o remove.",
+        "country": "Seu país, deduzido a partir da sua conexão",
+        "device": "Navegador, sistema operacional, tipo de dispositivo e idioma",
+        "path": "As páginas que você visualiza, por exemplo /cs1-fall-2026/assignments, e por quanto tempo permanece",
+        "referrer": "O site que levou à página",
+        "timings": "Tempo de carregamento da página"
+      },
+      "collectedHeading": "Coletado",
+      "googleTerms": "Política de Privacidade do Google",
+      "googleUsage": "Como o Google usa informações de sites que utilizam seus serviços",
+      "heading": "Análises de uso",
+      "intro": "As análises mostram quantas pessoas usam o classroom50.org, quais recursos utilizam e onde encontram dificuldades, para que o app possa melhorar. Com sua permissão, dois serviços fazem isso: o Cloudflare Web Analytics, que não define cookies, e o Google Analytics, carregado pelo Google Tag Manager, que reconhece um navegador recorrente com um cookie. Você pode desativar qualquer um deles. Nenhum sabe quem você é.",
+      "notCollected": {
+        "crossSite": "Qualquer coisa que o acompanhe em outros sites",
+        "identity": "Seu nome de usuário do GitHub, e-mail ou dados de turma",
+        "queryStrings": "Query strings. A Cloudflare as remove no seu navegador, e nossa configuração do Google Analytics não as registra, então códigos de login, chaves de links de convite e buscas na turma ficam fora dos dados."
+      },
+      "notCollectedHeading": "Não coletado",
+      "processing": "O Google e a Cloudflare processam esses dados para a Fifty Foundation. Como cada um lida com eles:",
+      "retention": "O Google mantém os dados de eventos por até 14 meses. A Cloudflare mantém os dados completos por 7 dias e uma amostra por 6 meses. Nenhum dos serviços é executado até você aceitar, e você pode alterar sua resposta a qualquer momento abaixo."
+    },
+    "choice": {
+      "body": "Sua escolha é salva neste navegador. Aceitar inicia imediatamente os serviços que você deixou ativados. Desativar um deles remove seus cookies agora e o interrompe a partir do próximo carregamento de página. Quando estiver conectado, você também pode alterá-la nas Configurações.",
+      "heading": "Sua escolha",
+      "signals": "Se o seu navegador envia o sinal Global Privacy Control ou Do Not Track, nenhuma análise é executada e o Classroom 50 não pergunta."
+    },
+    "contact": {
+      "body": "O Classroom 50 é um projeto de código aberto mantido pela Fifty Foundation. Para tirar dúvidas sobre este aviso, inicie um tópico em",
+      "heading": "Dúvidas",
+      "link": "Discussões do GitHub"
+    },
+    "data": {
+      "body": "O Classroom 50 não tem servidor, banco de dados ou contas próprias. Turmas, repositórios de tarefas, notas e feedback permanecem na sua organização do GitHub. O app os lê e escreve por meio da API do GitHub com um token que você concede. O login e os downloads de repositórios passam por um proxy que não armazena nada.",
+      "heading": "Os dados da sua turma",
+      "more": "Para detalhes, incluindo orientações sobre a FERPA, veja",
+      "moreLink": "Privacidade e FERPA na documentação"
+    },
+    "pageSubtitle": "Como o app web do Classroom 50 lida com seus dados e o que você pode escolher.",
+    "pageTitle": "Privacidade"
   }
 }

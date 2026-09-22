@@ -295,6 +295,7 @@
     "aboutAskQuestion": "Ask a question",
     "aboutAskQuestionHint": "Get help from the community.",
     "aboutViewAccessibility": "View accessibility info",
+    "aboutViewPrivacy": "View privacy info",
     "aboutDiagnosticsTitle": "Diagnostics",
     "aboutDiagnosticsHint": "Copy technical details to include in a bug report or support thread. No data is sent anywhere; it only fills your clipboard.",
     "aboutDiagnosticsShow": "Show diagnostics",
@@ -314,6 +315,7 @@
     "footerTagline": "Manage assignments and submissions through GitHub.",
     "visitDocs": "Visit Classroom 50's docs",
     "accessibility": "Accessibility",
+    "privacy": "Privacy",
     "signedInConfirmed": "Signed in. Your session is active.",
     "verifyingSession": "Verifying your session…",
     "profileUnavailable": "Profile unavailable",
@@ -449,6 +451,9 @@
     "rosterRetry": "Retry",
     "rosterParseError": "roster.csv is malformed and couldn't be fully read. Fix these lines so the roster stays accurate:",
     "rosterParseErrorLine": "Line {{line}}: {{message}}",
+    "rosterProblemDuplicateColumn": "The column \"{{name}}\" appears more than once. Keep one and remove the others.",
+    "rosterProblemReservedColumn": "The column \"{{name}}\" is a built-in roster column and appears again after it. Remove the extra copy.",
+    "rosterProblemFormulaColumn": "The column name \"{{name}}\" starts with =, +, -, or @, which spreadsheets treat as a formula. Rename it.",
     "rosterEditOnGitHub": "Edit roster.csv on GitHub",
     "rosterRecheck": "Re-check roster.csv",
     "rosterRechecking": "Re-checking…",
@@ -1117,6 +1122,21 @@
     "language": {
       "heading": "Language",
       "subheading": "Switch languages or install a translated language pack."
+    },
+    "nameOrder": {
+      "heading": "Student names",
+      "subheading": "Choose the order student names appear in across rosters, submissions, groups, and exported scores.",
+      "firstLast": "First name, then last name",
+      "firstLastHint": "For example, Ada Lovelace.",
+      "lastFirst": "Last name, then first name",
+      "lastFirstHint": "For example, Lovelace Ada.",
+      "groupAria": "Name order preference",
+      "saved": "Name order preference saved."
+    },
+    "analytics": {
+      "heading": "Cookies and analytics",
+      "subheading": "Analytics help improve Classroom 50. Choose which services can count your visits in this browser. Functional storage stays on.",
+      "privacyLink": "Read the privacy notice"
     }
   },
   "assignments": {
@@ -1197,6 +1217,7 @@
       "repositorySetupSection": "Repository setup",
       "submissionSection": "Submission and grading",
       "submissionSectionHelp": "Define what counts as a submission for this assignment: when the autograder runs and which tags a student can push to submit.",
+      "customAutograderNotice": "This assignment uses the custom autograder \"{{name}}\" from {{path}}. Saving keeps it. To switch to the built-in autograder, set \"autograder\" to \"default\" in assignments.json.",
       "scheduleSection": "Schedule and access",
       "reset": "Reset",
       "resetSection": "Reset this section to its default settings",
@@ -1287,6 +1308,8 @@
         "label": "Repository visibility",
         "help": "The visibility each student repository is created with at accept time. Private is the default. Choose Public for peer-review, portfolio, or showcase assignments. Students are warned before accepting.",
         "publicWarning": "Anyone on the internet will be able to see each student's work: code, commits, and name. If the organization doesn't allow students to create public repositories, their repository is created private instead and you can make it public from the submissions page.",
+        "autograderWarning": "Public repositories aren't autograded. GitHub blocks a public repository from running the grading workflow in your private classroom50 repository, so every grading run fails with \"workflow was not found\". Keep repositories private while grading.",
+        "autograderWarningToggleHint": "You can also select \"Do not use the built-in autograder\".",
         "editHelp": "This applies to repositories created from now on; use the submissions page to change the visibility of existing ones.",
         "levels": {
           "private": "Private",
@@ -1295,7 +1318,7 @@
       },
       "pages": {
         "label": "GitHub Pages",
-        "help": "Publish each student repository as a website with GitHub Pages, configured automatically when the student accepts so they never need admin access. Off is the default. \"GitHub Actions\" deploys through a workflow in the student repository (for sites with a build step). \"A branch\" publishes the files in a branch directly, no workflow needed (for plain HTML, CSS, and JavaScript). The site is public on the internet even when the repository is private, and every file in the published branch and folder is served; only GitHub Enterprise Cloud can restrict who sees it. Pages on private repositories needs a GitHub plan that includes it; on GitHub Free for organizations, make the repository public or the site isn't created.",
+        "help": "Publish each student repository as a website with GitHub Pages, configured automatically when the student accepts so they never need admin access. Off is the default. \"GitHub Actions\" deploys through a workflow in the student repository (for sites with a build step). \"A branch\" publishes the files in a branch directly, no workflow needed (for plain HTML, CSS, and JavaScript). The site is public on the internet even when the repository is private, and every file in the published branch and folder is served; only GitHub Enterprise Cloud can restrict who sees it. Pages on private repositories needs a GitHub plan that includes it; on GitHub Free for organizations, make the repository public or the site isn't created. Public repositories aren't autograded (see Repository visibility).",
         "editHelp": "This applies to repositories created from now on; use the submissions page to enable Pages on existing ones.",
         "emptyRepoHint": "Not available for an empty repository: there is no branch to publish yet.",
         "workflowNote": "Deploying through GitHub Actions needs a workflow in each student repository that publishes to Pages: it must grant pages: write and id-token: write permissions and use actions/upload-pages-artifact and actions/deploy-pages. Put it in your template, or have students add it. The site is created when the student accepts, so the workflow's first run deploys it.",
@@ -1316,7 +1339,7 @@
       },
       "autograding": {
         "modeLabel": "Built-in autograder",
-        "editHelp": "Changing the built-in autograder only affects repositories students accept from now on. Repositories already accepted keep their original setup, so you'll need to update the existing repositories yourself.",
+        "editHelp": "Changing the built-in autograder only affects repositories students accept from now on. Repositories already accepted keep their original setup. To turn it on for them, save, then use \"Add autograding workflow\" on the submissions page or gh teacher assignment enable-autograder.",
         "choices": {
           "none": {
             "label": "Do not use the built-in autograder",
@@ -1452,6 +1475,7 @@
         "runnerContainerError": "\"{{label}}\" is a macOS/Windows runner; a Docker image needs an Ubuntu (or custom/self-hosted) runner."
       },
       "validation": {
+        "scheduleDateIncomplete": "Finish the date and time, or turn the toggle off to remove it.",
         "nameRequired": "Assignment name is required.",
         "slugRequired": "Assignment slug is required.",
         "slugInvalid": "Assignment slug must be {{description}}.",
@@ -1600,7 +1624,7 @@
       "groupsSubmitted_other": "{{count}} groups submitted",
       "groupsAcceptedTitle": "Groups that accepted: group repositories that exist",
       "groupsVisibleTitle": "Group repositories you can see. More may exist: your team is granted access by the next score collection.",
-      "noGroupsYetTitle": "No groups yet. A group repository is created when its founder accepts.",
+      "noGroupsYetTitle": "No groups yet. A group repository is created when its first member accepts.",
       "noGroupsYet": "No groups yet",
       "noStudentsYet": "No students yet",
       "noStudentsYetTitle": "No students are enrolled yet, so there is nothing to count against. Add students on the Roster page.",
@@ -1762,6 +1786,12 @@
         "fixSatisfied": "The classroom team already has read access, so there's nothing to fix.",
         "ownerOnlyNote": "Only an organization owner can grant team access. Ask an owner to run this, or grant the teams read on the template in GitHub.",
         "close": "Close"
+      }
+    },
+    "edit": {
+      "error": {
+        "customAutograderNoAutograder": "\"{{slug}}\" uses the custom autograder \"{{name}}\", which needs the built-in autograder setting on. Turn the built-in autograder back on, or set \"autograder\" to \"default\" in {{classroom}}/assignments.json first.",
+        "customAutograderInitShim": "\"{{slug}}\" uses the custom autograder \"{{name}}\", which needs starter content to run. Choose a template or turn \"Add a README\" back on, or set \"autograder\" to \"default\" in {{classroom}}/assignments.json first."
       }
     },
     "rename": {
@@ -2027,7 +2057,8 @@
       "provisioningIntro_other": "{{count}} students have already accepted. These changes apply only to repositories accepted from now on; the {{count}} existing repositories keep their current setup:",
       "provisioning": {
         "repo_source": "Repository source: existing repositories keep their original starter content.",
-        "autograder": "Built-in autograder: turning it off makes existing repositories' autograde runs fail and drop out of the collected scores.",
+        "autograder_on": "Built-in autograder: existing repositories have no autograding workflow yet. After saving, use \"Add autograding workflow\" on the submissions page to add it to them.",
+        "autograder_off": "Built-in autograder: turning it off makes existing repositories' autograde runs fail and drop out of the collected scores.",
         "grading_mode": "Grading mode: scores recorded under the old mode may read differently.",
         "student_permission": "Student repository access: change existing repositories from the submissions page.",
         "repo_visibility": "Repository visibility: change existing repositories from the submissions page.",
@@ -3109,7 +3140,7 @@
       "emptyNoDataTitle": "No submissions collected yet",
       "emptyNoDataBody": "Once students accept and push, their submissions appear here. Use Collect now to pull the latest.",
       "emptyNoGroupsTitle": "No groups yet",
-      "emptyNoGroupsBody": "A group repository is created when its founder accepts the assignment. Groups appear here as they form.",
+      "emptyNoGroupsBody": "A group repository is created when its first member accepts the assignment. Groups appear here as they form.",
       "emptyFilteredTitle": "No submissions match your filters",
       "emptyFilteredBody": "Try a different search or clear the filters to see everyone.",
       "emptyClearFilters": "Clear filters",
@@ -3145,6 +3176,11 @@
       "pendingGradeTitle": "Submitted. The score hasn't been collected yet. Run \"Collect now\" to collect it.",
       "overridden": "Manual",
       "overriddenTitle": "This score was set by hand and won't be changed by autograding until the override is cleared.",
+      "unverified": "Unverified",
+      "unverifiedRecordedTitle": "The autograder didn't publish this release ({{reason}}). The score is collected but not proof. Check the repository's Releases tab and Actions history.",
+      "unverifiedAuthorTitle": "The autograder didn't publish this release; {{login}} did. The score is collected but not proof. Check the repository's Releases tab and Actions history.",
+      "unverifiedUploaderTitle": "The autograder didn't upload this release's result.json; {{login}} did. The score is collected but not proof. Check the repository's Releases tab and Actions history.",
+      "unverifiedUnknownAccount": "an unknown account",
       "notSubmitted": "Not submitted",
       "acceptedAwaiting": "Accepted · awaiting submission",
       "notAccepted": "Not accepted",
@@ -3200,7 +3236,10 @@
       "errorTitle": "Couldn't check for a feedback PR",
       "emptyTitle": "No feedback pull request yet",
       "emptyBody": "No feedback pull request has been opened for <repo>{{repo}}</repo> yet. It opens when the student accepts the assignment, so they may not have accepted yet, the assignment may have it turned off, or opening it was deferred. A deferred open retries on re-accept or on the first graded submission.",
-      "openRepoPrs": "Open repository PRs"
+      "openRepoPrs": "Open repository PRs",
+      "blockedTitle": "Feedback pull request found",
+      "blockedBody": "Your browser blocked opening it in a new tab. Use the button below to open it.",
+      "openPr": "Open feedback PR"
     },
     "repairPr": {
       "hint": "If the student accepted but opening the PR failed (a GitHub outage or transient error), you can open it now.",
@@ -3402,6 +3441,7 @@
       "info_other": "This changes the visibility of {{count}} students' repositories. Repositories students accept later use the assignment's visibility setting.",
       "publicWarning_one": "This makes {{count}} student's repository visible to anyone on the internet, including all code, commit history, and any names or personal information in it. You can make it private again the same way.",
       "publicWarning_other": "This makes {{count}} students' repositories visible to anyone on the internet, including all code, commit history, and any names or personal information in them. You can make them private again the same way.",
+      "autograderWarning": "Autograding stops while a repository is public. GitHub blocks a public repository from running the grading workflow in your private classroom50 repository, so every grading run fails with \"workflow was not found\". Make the repositories private again to resume grading.",
       "apply": "Apply to all",
       "working": "Updating repositories",
       "progress": "Updated {{processed}} of {{total}}",
@@ -3444,6 +3484,53 @@
       "warningPoint1": "The commit is marked so it doesn't trigger grading.",
       "warningPoint2": "Repositories whose workflow was hand-edited are reported and left untouched.",
       "warningPoint3": "Students must pull afterward. Clones made before this change will conflict on their next push."
+    },
+    "bulkShim": {
+      "menuLabel": "Add autograding workflow",
+      "menuTitle": "Add the built-in autograding workflow to each student repository that doesn't have one",
+      "titleEmptyRoster": "No students have accepted yet",
+      "title": "Add autograding workflow",
+      "subtitle_one": "Adds the autograding workflow to {{count}} student's repository if it's missing.",
+      "subtitle_other": "Adds the autograding workflow to {{count}} students' repositories where it's missing.",
+      "noRepos": "No students have accepted yet, so there's nothing to add.",
+      "apply": "Add to all",
+      "working": "Adding the workflow",
+      "progress": "Processed {{processed}} of {{total}}",
+      "resultHeadline": "Added the workflow to {{added}} of {{total}} repositories ({{present}} already had it).",
+      "repullReminder": "Tell students to run git pull. Clones made before this change will conflict on their next push.",
+      "regradeReminder": "Work students already pushed is graded on their next push. A workflow only runs for commits that contain it, so \"Regrade all\" can't reach earlier commits. To grade now, have students push once (an empty commit works).",
+      "configBranchError": "Couldn't read the classroom repository's default branch, so no workflow was added. Try again.",
+      "scopeSection_one": "{{count}} repository needs extra GitHub permission",
+      "scopeSection_other": "{{count}} repositories need extra GitHub permission",
+      "scopeDetail": "Your GitHub authorization can't modify workflow files. Sign out and back in, then re-run.",
+      "failedSection_one": "{{count}} repository couldn't be updated",
+      "failedSection_other": "{{count}} repositories couldn't be updated",
+      "unrecognizedSection_one": "{{count}} repository was skipped (a different workflow is already at that path)",
+      "unrecognizedSection_other": "{{count}} repositories were skipped (a different workflow is already at that path)",
+      "deferredSection_one": "{{count}} repository was not processed",
+      "deferredSection_other": "{{count}} repositories were not processed",
+      "deferredDetail": "Skipped. Re-run to add.",
+      "notAcceptedSection_one": "{{count}} student has not accepted yet",
+      "notAcceptedSection_other": "{{count}} students have not accepted yet",
+      "notAcceptedDetail": "No repository exists. It gets the workflow when the student accepts.",
+      "warningLead_one": "This commits the autograding workflow to {{count}} student's repository.",
+      "warningLead_other": "This commits the autograding workflow to {{count}} students' repositories.",
+      "warningPoint1": "Repositories that already have the workflow are left untouched.",
+      "warningPoint2": "The commit is marked so it doesn't trigger grading. Work students already pushed is graded on their next push; \"Regrade all\" can't reach commits made before the workflow existed.",
+      "warningPoint3": "Students must pull afterward. Clones made before this change will conflict on their next push."
+    },
+    "rowShim": {
+      "title": "Add autograding workflow",
+      "description": "Add the built-in autograding workflow to this repository if it was accepted while the autograder was off.",
+      "aria": "Add the autograding workflow to {{repo}}",
+      "outcome": {
+        "added": "Autograding workflow added. The student must pull before their next push, and that push is what grades work already in the repository.",
+        "present": "This repository already has the autograding workflow.",
+        "unrecognized": "Skipped: a different workflow is already at the autograding workflow's path, so nothing was changed.",
+        "notAccepted": "No repository exists yet, so there's nothing to add.",
+        "missingWorkflowScope": "Your GitHub authorization can't modify workflow files. Sign out and back in, then retry.",
+        "failed": "Couldn't add the workflow. Try again."
+      }
     },
     "rowTrigger": {
       "title": "Update autograding trigger",
@@ -3496,6 +3583,7 @@
       "confirmTitle": "Make {{name}}'s repository public?",
       "confirmBody": "Anyone on the internet will be able to see <repo>{{repo}}</repo>, including all code, commit history, and any names or personal information in it. You can make it private again anytime.",
       "confirmWarning": "Anyone who views or clones the repository while it's public keeps that copy, even after you make it private again.",
+      "confirmAutograderWarning": "Autograding stops while the repository is public: GitHub blocks it from running the grading workflow in your private classroom50 repository. Make it private again to resume grading.",
       "confirmLabel": "Make public",
       "outcome": {
         "public": "Repository is now public.",
@@ -4119,6 +4207,96 @@
     "unclaimed": {
       "staff": "The team {{slug}} already exists but wasn't created by Classroom 50, so it can't be used as a staff team. Review its members at {{url}}, then either delete it or give it access to the classroom50 repository, and try again.",
       "studentOf": "The team {{slug}} is the student team of classroom {{classroom}}, so it can't be this classroom's {{role}} team. Leave the {{role}} role unstaffed here, or rename one of the classrooms."
+    }
+  },
+  "privacy": {
+    "pageTitle": "Privacy",
+    "pageSubtitle": "How the Classroom 50 web app handles your data, and what you can choose.",
+    "data": {
+      "heading": "Your classroom data",
+      "body": "Classroom 50 has no server, database, or accounts of its own. Rosters, assignment repositories, scores, and feedback stay in your GitHub organization. The app reads and writes them through the GitHub API with a token you grant. Sign-in and repository downloads pass through a proxy that stores nothing.",
+      "more": "For details, including FERPA guidance, see",
+      "moreLink": "Privacy and FERPA in the docs"
+    },
+    "analytics": {
+      "heading": "Usage analytics",
+      "intro": "Analytics show how many people use classroom50.org, which features they use, and where they get stuck, so the app can improve. With your permission, two services do this: Cloudflare Web Analytics, which sets no cookies, and Google Analytics, loaded through Google Tag Manager, which recognizes a returning browser with a cookie. You can turn either one off. Neither knows who you are.",
+      "collectedHeading": "Collected",
+      "collected": {
+        "path": "The pages you view, for example /cs1-fall-2026/assignments, and how long you stay",
+        "referrer": "The site that linked to the page",
+        "country": "Your country, worked out from your connection",
+        "device": "Browser, operating system, device type, and language",
+        "timings": "Page load time",
+        "cookie": "Google Analytics only: a cookie holding a random ID, so a returning browser is counted once. It expires after 2 years, and turning Google Analytics off removes it."
+      },
+      "notCollectedHeading": "Not collected",
+      "notCollected": {
+        "queryStrings": "Query strings. Cloudflare removes them in your browser, and our Google Analytics setup is configured not to record them, so sign-in codes, invite link keys, and roster searches stay out of the data.",
+        "identity": "Your GitHub username, email, or roster data",
+        "crossSite": "Anything that follows you to other sites"
+      },
+      "processing": "Google and Cloudflare process this data for the Fifty Foundation. How each handles it:",
+      "googleTerms": "Google Privacy Policy",
+      "googleUsage": "How Google uses information from sites that use its services",
+      "cloudflareTerms": "Cloudflare data processing addendum",
+      "retention": "Google keeps event data for up to 14 months. Cloudflare keeps full data for 7 days and a sample for 6 months. Neither service runs until you accept, and you can change your answer at any time below."
+    },
+    "choice": {
+      "heading": "Your choice",
+      "body": "Your choice is saved in this browser. Accepting starts the services you left on right away. Turning one off removes its cookies now and stops it from the next page load. When you're signed in, you can also change it in Settings.",
+      "signals": "If your browser sends the Global Privacy Control or Do Not Track signal, no analytics runs and Classroom 50 doesn't ask."
+    },
+    "contact": {
+      "heading": "Questions",
+      "body": "Classroom 50 is an open source project supported by the Fifty Foundation. To ask about this notice, start a thread in",
+      "link": "GitHub Discussions"
+    }
+  },
+  "consent": {
+    "banner": {
+      "title": "Analytics help improve Classroom 50",
+      "body": "Anonymous usage data shows which features get used and where people get stuck, so the app can get better. Nothing identifies you, and you can change your choice any time in Settings. Uncheck anything you'd rather not share, then select Accept.",
+      "readNotice": "Read the privacy notice",
+      "hideNotice": "Hide the privacy notice",
+      "accept": "Accept",
+      "decline": "Decline"
+    },
+    "alwaysOn": "Always on",
+    "whatThisIncludes": "What this includes",
+    "savePreferences": "Save preferences",
+    "declineAll": "Decline all analytics",
+    "reset": "Reset and ask again",
+    "browserDeclines": "Your browser sends the Global Privacy Control or Do Not Track signal, so analytics stays off and Classroom 50 doesn't ask.",
+    "categories": {
+      "functional": {
+        "label": "Functional",
+        "caption": "Required for the app to work. Stays in this browser.",
+        "tooltip": "Stored in this browser only: your GitHub sign-in so you stay signed in, your settings (language, theme, name order, motion, hidden organizations, and sidebar layout), and the choice you make here. None of it is used for analytics.",
+        "items": {
+          "session": "Your GitHub sign-in, so you stay signed in",
+          "preferences": "Your settings: language, theme, name order, motion, hidden organizations, and sidebar layout",
+          "consent": "The choice you make here"
+        }
+      },
+      "cloudflare": {
+        "label": "Cloudflare Web Analytics",
+        "caption": "Counts visits. No cookies.",
+        "items": {
+          "collected": "Page path, referring site, country, browser type, and load time",
+          "noCookies": "No cookies and no identifiers, so it counts visits, not people",
+          "notCollected": "Never your GitHub username, email, roster data, or the query string of a URL"
+        }
+      },
+      "google": {
+        "label": "Google Analytics",
+        "caption": "Shows how features are used. Sets one cookie.",
+        "items": {
+          "collected": "Pages you view and how long you stay, the site that linked to the page, your country, and your browser, device, and language, sent through Google Tag Manager",
+          "cookie": "A cookie holding a random ID, so a returning browser is counted once. It expires after 2 years.",
+          "notCollected": "Never your GitHub username, email, roster data, or the query string of a URL"
+        }
+      }
     }
   }
 }

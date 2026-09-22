@@ -294,7 +294,8 @@
     "aboutDiagnosticsHint": "Copia detalls tècnics per incloure'ls en un informe d'error o un fil d'assistència. No s'envia cap dada enlloc; només omple el porta-retalls.",
     "aboutDiagnosticsShow": "Mostra els diagnòstics",
     "aboutDiagnosticsCopy": "Copia els diagnòstics",
-    "aboutDiagnosticsCopied": "Copiat"
+    "aboutDiagnosticsCopied": "Copiat",
+    "aboutViewPrivacy": "Mostra la informació de privacitat"
   },
   "auth": {
     "signInTitle": "Inicia la sessió",
@@ -369,7 +370,8 @@
     "errorDeviceDeclined": "Has rebutjat la sol·licitud d'autorització.",
     "errorDeviceNoToken": "GitHub no ha finalitzat l'inici de sessió. Torna-ho a provar.",
     "errorPatMissingScopes": "A aquest token li falten permisos que necessita ({{scopes}}). Afegeix-los a GitHub i torna-ho a provar.",
-    "errorPatRejected401": "GitHub ha rebutjat aquest token (401). Comprova que és vàlid i que no ha caducat."
+    "errorPatRejected401": "GitHub ha rebutjat aquest token (401). Comprova que és vàlid i que no ha caducat.",
+    "privacy": "Privacitat"
   },
   "documentTitle": {
     "assignments": "Tasques",
@@ -858,7 +860,10 @@
     "uploadBlockedChecking": "S'està comprovant la pertinença actual…",
     "uploadBlockedDetails": "Confirma les actualitzacions de detalls anteriors per continuar.",
     "uploadBlockedRoles": "Confirma els canvis de rol anteriors per continuar.",
-    "uploadBlockedUsernames": "Confirma els canvis de nom d'usuari anteriors per continuar."
+    "uploadBlockedUsernames": "Confirma els canvis de nom d'usuari anteriors per continuar.",
+    "rosterProblemDuplicateColumn": "La columna «{{name}}» apareix més d'un cop. Conserveu-ne una i traieu-ne les altres.",
+    "rosterProblemFormulaColumn": "El nom de la columna «{{name}}» comença amb =, +, - o @, cosa que els fulls de càlcul interpreten com una fórmula. Reanomeneu-la.",
+    "rosterProblemReservedColumn": "La columna «{{name}}» és una columna integrada de la llista de classe i torna a aparèixer després. Traieu-ne la còpia sobrera."
   },
   "language": {
     "baseName": "Anglès (base)",
@@ -1112,6 +1117,21 @@
     "language": {
       "heading": "Idioma",
       "subheading": "Canvieu d'idioma o instal·leu un paquet d'idioma traduït."
+    },
+    "analytics": {
+      "heading": "Galetes i analítiques",
+      "privacyLink": "Llegeix l'avís de privacitat",
+      "subheading": "Les analítiques ajuden a millorar Classroom 50. Trieu quins serveis poden comptar les vostres visites en aquest navegador. L'emmagatzematge funcional roman activat."
+    },
+    "nameOrder": {
+      "firstLast": "Nom i, després, cognom",
+      "firstLastHint": "Per exemple, Ada Lovelace.",
+      "groupAria": "Preferència de l'ordre dels noms",
+      "heading": "Noms de l'alumnat",
+      "lastFirst": "Cognom i, després, nom",
+      "lastFirstHint": "Per exemple, Lovelace Ada.",
+      "saved": "S'ha desat la preferència de l'ordre dels noms.",
+      "subheading": "Trieu l'ordre en què apareixen els noms de l'alumnat a les llistes de classe, els lliuraments, els grups i les puntuacions exportades."
     }
   },
   "assignments": {
@@ -1279,11 +1299,13 @@
         "levels": {
           "private": "Privat",
           "public": "Públic"
-        }
+        },
+        "autograderWarning": "Els dipòsits públics no s'autocorregeixen. GitHub impedeix que un dipòsit públic executi el flux de treball de correcció del vostre dipòsit privat classroom50, de manera que cada execució de correcció falla amb «workflow was not found». Mantingueu els dipòsits privats mentre corregiu.",
+        "autograderWarningToggleHint": "També podeu seleccionar «No facis servir el corrector integrat»."
       },
       "autograding": {
         "modeLabel": "Qualificador automàtic integrat",
-        "editHelp": "Canviar el qualificador automàtic integrat només afecta els repositoris que els estudiants acceptin a partir d'ara. Els repositoris ja acceptats conserven la seva configuració original, de manera que hauràs d'actualitzar els repositoris existents tu mateix.",
+        "editHelp": "Canviar el corrector integrat només afecta els dipòsits que l'alumnat accepti a partir d'ara. Els dipòsits ja acceptats conserven la seva configuració original. Per activar-lo per a ells, deseu i, tot seguit, feu servir «Afegeix el flux de treball d'autocorrecció» a la pàgina de lliuraments o gh teacher assignment enable-autograder.",
         "choices": {
           "none": {
             "label": "No utilitzis el qualificador automàtic integrat",
@@ -1442,7 +1464,8 @@
         "teamFormationInvalid": "Tria qui forma els grups.",
         "pagesBranchInvalid": "Introdueix un nom de branca sense espais, com a màxim de 255 caràcters, o deixa-ho en blanc per a la branca per defecte.",
         "pagesPathInvalid": "La carpeta de Pages ha de ser / o /docs.",
-        "pagesSourceInvalid": "GitHub Pages ha de ser «Desactivat», «GitHub Actions» o «Una branca»."
+        "pagesSourceInvalid": "GitHub Pages ha de ser «Desactivat», «GitHub Actions» o «Una branca».",
+        "scheduleDateIncomplete": "Completeu la data i l'hora, o desactiveu l'interruptor per treure-la."
       },
       "typeTeam": "Grup",
       "typeTeamRecommended": "Recomanat",
@@ -1467,14 +1490,15 @@
         },
         "editHelp": "Això s'aplica als repositoris creats a partir d'ara; utilitza la pàgina de lliuraments per activar Pages als existents.",
         "emptyRepoHint": "No disponible per a un repositori buit: encara no hi ha cap branca per publicar.",
-        "help": "Publica cada repositori de l'alumnat com un lloc web amb GitHub Pages, configurat automàticament quan l'alumne l'accepta perquè mai no necessitin accés d'administrador. Per defecte està desactivat. «GitHub Actions» desplega a través d'un flux de treball al repositori de l'alumnat (per a llocs amb un pas de compilació). «Una branca» publica directament els fitxers d'una branca, sense necessitat de flux de treball (per a HTML, CSS i JavaScript simples). El lloc és públic a internet fins i tot quan el repositori és privat, i se serveix cada fitxer de la branca i la carpeta publicades; només GitHub Enterprise Cloud pot restringir qui el veu. Pages en repositoris privats necessita un pla de GitHub que ho inclogui; a GitHub Free per a organitzacions, fes públic el repositori o el lloc no es crea.",
+        "help": "Publiqueu cada dipòsit de l'alumnat com un lloc web amb GitHub Pages, configurat automàticament quan l'alumne l'accepta perquè mai no necessiti accés d'administració. Per defecte està desactivat. «GitHub Actions» desplega mitjançant un flux de treball al dipòsit de l'alumne (per a llocs amb un pas de compilació). «Una branca» publica directament els fitxers d'una branca, sense necessitat de flux de treball (per a HTML, CSS i JavaScript senzills). El lloc és públic a internet fins i tot quan el dipòsit és privat, i se serveix cada fitxer de la branca i la carpeta publicades; només GitHub Enterprise Cloud pot restringir qui el veu. Pages en dipòsits privats requereix un pla de GitHub que ho inclogui; amb GitHub Free per a organitzacions, feu públic el dipòsit o el lloc no es crearà. Els dipòsits públics no s'autocorregeixen (vegeu Visibilitat del dipòsit).",
         "label": "GitHub Pages",
         "path": {
           "help": "La carpeta d'aquella branca que es publica: l'arrel del repositori (/) o /docs. GitHub només permet aquestes dues.",
           "label": "Carpeta"
         },
         "workflowNote": "Desplegar a través de GitHub Actions necessita un flux de treball a cada repositori de l'alumnat que publiqui a Pages: ha de concedir els permisos pages: write i id-token: write i utilitzar actions/upload-pages-artifact i actions/deploy-pages. Posa'l a la teva plantilla, o fes que l'alumnat l'afegeixi. El lloc es crea quan l'alumne accepta, així que la primera execució del flux de treball el desplega."
-      }
+      },
+      "customAutograderNotice": "Aquesta activitat utilitza el corrector personalitzat «{{name}}» de {{path}}. En desar es conserva. Per canviar al corrector integrat, establiu «autograder» a «default» a assignments.json."
     },
     "autograder": {
       "heading": "Proves de correcció automàtica",
@@ -1591,7 +1615,7 @@
       "groupsSubmitted_other": "{{count}} grups han entregat",
       "groupsAcceptedTitle": "Grups que han acceptat: repositoris de grup que existeixen",
       "groupsVisibleTitle": "Repositoris de grup que pots veure. Potser n'hi ha més: el teu equip obté accés amb la propera recollida de puntuacions.",
-      "noGroupsYetTitle": "Encara no hi ha grups. Es crea un repositori de grup quan el seu fundador accepta l'activitat.",
+      "noGroupsYetTitle": "Encara no hi ha cap grup. El dipòsit d'un grup es crea quan el seu primer membre l'accepta.",
       "noGroupsYet": "Encara no hi ha grups",
       "acceptedTitle": "{{accepted}} de {{total}} estudiants han acceptat l'activitat",
       "acceptedVisibleTitle": "{{accepted}} de {{total}} estudiants tenen un repositori que pots veure. Potser n'hi ha més que l'han acceptada: el teu equip obté accés amb la propera recollida de puntuacions.",
@@ -1865,6 +1889,12 @@
       "unlockNoneLocked": "Cap de les tasques seleccionades està bloquejada.",
       "unlockTitle_one": "Vols desbloquejar {{count}} tasca?",
       "unlockTitle_other": "Vols desbloquejar {{count}} tasques?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "«{{slug}}» utilitza el corrector personalitzat «{{name}}», que necessita contingut inicial per executar-se. Trieu una plantilla o torneu a activar «Afegeix un README», o bé establiu «autograder» a «default» a {{classroom}}/assignments.json primer.",
+        "customAutograderNoAutograder": "«{{slug}}» utilitza el corrector personalitzat «{{name}}», que necessita que el paràmetre del corrector integrat estigui activat. Torneu a activar el corrector integrat, o bé establiu «autograder» a «default» a {{classroom}}/assignments.json primer."
+      }
     }
   },
   "published": {
@@ -2022,11 +2052,12 @@
       "provisioningIntro_other": "{{count}} estudiants ja l'han acceptat. Aquests canvis només s'apliquen als repositoris acceptats a partir d'ara; els {{count}} repositoris existents conserven la seva configuració actual:",
       "provisioning": {
         "repo_source": "Origen del repositori: els repositoris existents conserven el seu contingut inicial original.",
-        "autograder": "Autoavaluador integrat: si el desactives, les execucions d'autoavaluació dels repositoris existents fallaran i quedaran fora de les puntuacions recollides.",
         "grading_mode": "Mode d'avaluació: les puntuacions registrades amb el mode anterior es poden interpretar de manera diferent.",
         "student_permission": "Accés de l'estudiant al repositori: canvia els repositoris existents des de la pàgina d'entregues.",
         "repo_visibility": "Visibilitat del repositori: canvia els repositoris existents des de la pàgina d'entregues.",
-        "pages": "GitHub Pages: activa'l als repositoris existents des de la pàgina de lliuraments."
+        "pages": "GitHub Pages: activa'l als repositoris existents des de la pàgina de lliuraments.",
+        "autograder_off": "Corrector integrat: desactivar-lo fa que les execucions d'autocorrecció dels dipòsits existents fallin i deixin de comptar en les puntuacions recollides.",
+        "autograder_on": "Corrector integrat: els dipòsits existents encara no tenen cap flux de treball d'autocorrecció. Després de desar, feu servir «Afegeix el flux de treball d'autocorrecció» a la pàgina de lliuraments per afegir-lo-hi."
       },
       "confirm": "Desa els canvis",
       "cancel": "Cancel·la"
@@ -3104,7 +3135,7 @@
       "emptyNoDataTitle": "Encara no s'ha recollit cap entrega",
       "emptyNoDataBody": "Un cop els estudiants acceptin i facin push, les seves entregues apareixeran aquí. Fes servir Recull ara per obtenir les més recents.",
       "emptyNoGroupsTitle": "Encara no hi ha grups",
-      "emptyNoGroupsBody": "El repositori d'un grup es crea quan el seu fundador accepta l'activitat. Els grups apareixen aquí a mesura que es formen.",
+      "emptyNoGroupsBody": "El dipòsit d'un grup es crea quan el seu primer membre accepta l'activitat. Els grups apareixen aquí a mesura que es formen.",
       "emptyFilteredTitle": "Cap entrega coincideix amb els teus filtres",
       "emptyFilteredBody": "Prova una cerca diferent o esborra els filtres per veure-ho tot.",
       "emptyClearFilters": "Esborra els filtres",
@@ -3162,7 +3193,12 @@
       "manageMembersLabel": "Visualitza i gestiona els membres de {{name}}",
       "staffRowTitle": "Un professor, cap de TA o TA que ha acceptat aquesta tasca, normalment per provar-la. Aquesta fila no és la d'un estudiant.",
       "openSiteLabel": "Obre el lloc de GitHub Pages de {{repo}}",
-      "viewSite": "Obre el lloc de GitHub Pages"
+      "viewSite": "Obre el lloc de GitHub Pages",
+      "unverified": "No verificat",
+      "unverifiedAuthorTitle": "El corrector no ha publicat aquesta versió; ho ha fet {{login}}. La puntuació s'ha recollit però no és una prova. Comproveu la pestanya de versions i l'historial d'Actions del dipòsit.",
+      "unverifiedRecordedTitle": "El corrector no ha publicat aquesta versió ({{reason}}). La puntuació s'ha recollit però no és una prova. Comproveu la pestanya de versions i l'historial d'Actions del dipòsit.",
+      "unverifiedUnknownAccount": "un compte desconegut",
+      "unverifiedUploaderTitle": "El corrector no ha pujat el result.json d'aquesta versió; ho ha fet {{login}}. La puntuació s'ha recollit però no és una prova. Comproveu la pestanya de versions i l'historial d'Actions del dipòsit."
     },
     "scoreOverride": {
       "notGraded": "No corregit",
@@ -3195,7 +3231,10 @@
       "errorTitle": "No s'ha pogut comprovar si hi ha una PR de retorn",
       "emptyTitle": "Encara no hi ha cap sol·licitud d'incorporació de retorn",
       "emptyBody": "Encara no s'ha obert cap sol·licitud d'incorporació de retorn per a <repo>{{repo}}</repo>. S'obre quan l'estudiant accepta la tasca, així que és possible que encara no l'hagi acceptada, que la tasca la tingui desactivada o que l'obertura s'hagi ajornat. Una obertura ajornada es torna a intentar en tornar a acceptar o en la primera entrega puntuada.",
-      "openRepoPrs": "Obre les PR del repositori"
+      "openRepoPrs": "Obre les PR del repositori",
+      "blockedBody": "El vostre navegador ha bloquejat obrir-la en una pestanya nova. Feu servir el botó de sota per obrir-la.",
+      "blockedTitle": "S'ha trobat la sol·licitud d'extracció de comentaris",
+      "openPr": "Obre la PR de comentaris"
     },
     "repairPr": {
       "hint": "Si l'estudiant ha acceptat però l'obertura de la PR ha fallat (una incidència de GitHub o un error puntual), la pots obrir ara.",
@@ -3383,7 +3422,8 @@
       "failedSection_other": "No s'han pogut canviar {{count}} repositoris",
       "deferredSection_one": "No s'ha canviat {{count}} repositori",
       "deferredSection_other": "No s'han canviat {{count}} repositoris",
-      "deferredDetail": "S'ha omès. Torna-ho a executar per actualitzar."
+      "deferredDetail": "S'ha omès. Torna-ho a executar per actualitzar.",
+      "autograderWarning": "L'autocorrecció s'atura mentre un dipòsit és públic. GitHub impedeix que un dipòsit públic executi el flux de treball de correcció del vostre dipòsit privat classroom50, de manera que cada execució de correcció falla amb «workflow was not found». Torneu a fer privats els dipòsits per reprendre la correcció."
     },
     "bulkTrigger": {
       "menuLabel": "Actualitza els activadors de correcció automàtica",
@@ -3457,7 +3497,8 @@
         "public": "El repositori ara és públic.",
         "private": "El repositori ara és privat."
       },
-      "confirmWarning": "Qualsevol persona que vegi o cloni el repositori mentre és públic conserva aquesta còpia, fins i tot després que el tornis a fer privat."
+      "confirmWarning": "Qualsevol persona que vegi o cloni el repositori mentre és públic conserva aquesta còpia, fins i tot després que el tornis a fer privat.",
+      "confirmAutograderWarning": "L'autocorrecció s'atura mentre el dipòsit és públic: GitHub impedeix que executi el flux de treball de correcció del vostre dipòsit privat classroom50. Torneu a fer-lo privat per reprendre la correcció."
     },
     "bulkAutograde": {
       "pauseMenuLabel": "Posa en pausa la correcció automàtica",
@@ -3626,6 +3667,53 @@
         "unknown": "GitHub Pages no s'ha pogut activar a {{repo}} ara mateix. Torna-ho a provar d'aquí a un moment."
       },
       "title": "Activa GitHub Pages"
+    },
+    "bulkShim": {
+      "apply": "Aplica a tots",
+      "configBranchError": "No s'ha pogut llegir la branca per defecte del dipòsit de l'aula, de manera que no s'ha afegit cap flux de treball. Torneu-ho a provar.",
+      "deferredDetail": "S'ha omès. Torneu a executar per afegir-lo.",
+      "deferredSection_one": "{{count}} dipòsit no s'ha processat",
+      "deferredSection_other": "{{count}} dipòsits no s'han processat",
+      "failedSection_one": "{{count}} dipòsit no s'ha pogut actualitzar",
+      "failedSection_other": "{{count}} dipòsits no s'han pogut actualitzar",
+      "menuLabel": "Afegeix el flux de treball d'autocorrecció",
+      "menuTitle": "Afegeix el flux de treball d'autocorrecció integrat a cada dipòsit de l'alumnat que no en tingui",
+      "noRepos": "Encara no hi ha cap alumne que hagi acceptat, de manera que no hi ha res a afegir.",
+      "notAcceptedDetail": "No hi ha cap dipòsit. Rebrà el flux de treball quan l'alumne l'accepti.",
+      "notAcceptedSection_one": "{{count}} alumne encara no ho ha acceptat",
+      "notAcceptedSection_other": "{{count}} alumnes encara no ho han acceptat",
+      "progress": "S'han processat {{processed}} de {{total}}",
+      "regradeReminder": "El treball que l'alumnat ja ha pujat es corregeix en el seu proper push. Un flux de treball només s'executa per als commits que el contenen, de manera que «Torna a corregir-ho tot» no pot arribar als commits anteriors. Per corregir ara, feu que l'alumnat faci un push (un commit buit serveix).",
+      "repullReminder": "Digueu a l'alumnat que executi git pull. Els clons fets abans d'aquest canvi tindran conflictes en el seu proper push.",
+      "resultHeadline": "S'ha afegit el flux de treball a {{added}} de {{total}} dipòsits ({{present}} ja el tenien).",
+      "scopeDetail": "La vostra autorització de GitHub no pot modificar fitxers de flux de treball. Tanqueu la sessió i torneu a iniciar-la, i després torneu a executar-ho.",
+      "scopeSection_one": "{{count}} dipòsit necessita un permís addicional de GitHub",
+      "scopeSection_other": "{{count}} dipòsits necessiten un permís addicional de GitHub",
+      "subtitle_one": "Afegeix el flux de treball d'autocorrecció al dipòsit de {{count}} alumne si li falta.",
+      "subtitle_other": "Afegeix el flux de treball d'autocorrecció als dipòsits de {{count}} alumnes on falta.",
+      "title": "Afegeix el flux de treball d'autocorrecció",
+      "titleEmptyRoster": "Encara no hi ha cap alumne que hagi acceptat",
+      "unrecognizedSection_one": "{{count}} dipòsit s'ha omès (ja hi ha un altre flux de treball en aquesta ruta)",
+      "unrecognizedSection_other": "{{count}} dipòsits s'han omès (ja hi ha un altre flux de treball en aquesta ruta)",
+      "warningLead_one": "Això aplica un commit del flux de treball d'autocorrecció al dipòsit de {{count}} alumne.",
+      "warningLead_other": "Això aplica un commit del flux de treball d'autocorrecció als dipòsits de {{count}} alumnes.",
+      "warningPoint1": "Els dipòsits que ja tenen el flux de treball es deixen intactes.",
+      "warningPoint2": "El commit està marcat perquè no desencadeni la correcció. El treball que l'alumnat ja ha pujat es corregeix en el seu proper push; «Torna a corregir-ho tot» no pot arribar als commits fets abans que existís el flux de treball.",
+      "warningPoint3": "L'alumnat ha de fer un pull després. Els clons fets abans d'aquest canvi tindran conflictes en el seu proper push.",
+      "working": "S'està afegint el flux de treball"
+    },
+    "rowShim": {
+      "aria": "Afegeix el flux de treball d'autocorrecció a {{repo}}",
+      "description": "Afegeix el flux de treball d'autocorrecció integrat a aquest dipòsit si es va acceptar mentre el corrector estava desactivat.",
+      "outcome": {
+        "added": "S'ha afegit el flux de treball d'autocorrecció. L'alumne ha de fer un pull abans del seu proper push, i aquest push és el que corregeix el treball que ja hi ha al dipòsit.",
+        "failed": "No s'ha pogut afegir el flux de treball. Torneu-ho a provar.",
+        "missingWorkflowScope": "La vostra autorització de GitHub no pot modificar fitxers de flux de treball. Tanqueu la sessió i torneu a iniciar-la, i després torneu-ho a provar.",
+        "notAccepted": "Encara no hi ha cap dipòsit, de manera que no hi ha res a afegir.",
+        "present": "Aquest dipòsit ja té el flux de treball d'autocorrecció.",
+        "unrecognized": "S'ha omès: ja hi ha un altre flux de treball a la ruta del flux de treball d'autocorrecció, de manera que no s'ha canviat res."
+      },
+      "title": "Afegeix el flux de treball d'autocorrecció"
     }
   },
   "orgActivity": {
@@ -4120,5 +4208,95 @@
       "staff": "L'equip {{slug}} ja existeix però no el va crear Classroom 50, així que no es pot fer servir com a equip docent. Reviseu-ne els membres a {{url}} i, o bé elimineu-lo, o bé doneu-li accés al repositori classroom50, i torneu-ho a provar.",
       "studentOf": "L'equip {{slug}} és l'equip d'estudiants de l'aula {{classroom}}, així que no pot ser l'equip {{role}} d'aquesta aula. Deixeu el rol {{role}} sense assignar aquí, o canvieu el nom d'una de les aules."
     }
+  },
+  "consent": {
+    "alwaysOn": "Sempre actiu",
+    "banner": {
+      "accept": "Accepta",
+      "body": "Les dades d'ús anònimes mostren quines funcions es fan servir i on la gent es queda encallada, perquè l'aplicació pugui millorar. Res no us identifica, i podeu canviar la vostra tria en qualsevol moment a la configuració. Desmarqueu allò que preferiu no compartir i, tot seguit, seleccioneu Accepta.",
+      "decline": "Rebutja",
+      "hideNotice": "Amaga l'avís de privacitat",
+      "readNotice": "Llegeix l'avís de privacitat",
+      "title": "Les analítiques ajuden a millorar Classroom 50"
+    },
+    "browserDeclines": "El vostre navegador envia el senyal Global Privacy Control o Do Not Track, de manera que les analítiques romanen desactivades i Classroom 50 no us ho pregunta.",
+    "categories": {
+      "cloudflare": {
+        "caption": "Compta les visites. Sense galetes.",
+        "items": {
+          "collected": "Ruta de la pàgina, lloc de referència, país, tipus de navegador i temps de càrrega",
+          "noCookies": "Sense galetes ni identificadors, de manera que compta visites, no persones",
+          "notCollected": "Mai el vostre nom d'usuari de GitHub, correu electrònic, dades de la llista de classe ni la cadena de consulta d'un URL"
+        },
+        "label": "Cloudflare Web Analytics"
+      },
+      "functional": {
+        "caption": "Necessari perquè l'aplicació funcioni. Roman en aquest navegador.",
+        "items": {
+          "consent": "La tria que feu aquí",
+          "preferences": "La vostra configuració: idioma, tema, ordre dels noms, moviment, organitzacions amagades i disposició de la barra lateral",
+          "session": "El vostre inici de sessió a GitHub, perquè romangueu identificat"
+        },
+        "label": "Funcional",
+        "tooltip": "Emmagatzemat només en aquest navegador: el vostre inici de sessió a GitHub perquè romangueu identificat, la vostra configuració (idioma, tema, ordre dels noms, moviment, organitzacions amagades i disposició de la barra lateral) i la tria que feu aquí. Res d'això no es fa servir per a analítiques."
+      },
+      "google": {
+        "caption": "Mostra com es fan servir les funcions. Estableix una galeta.",
+        "items": {
+          "collected": "Les pàgines que visiteu i quant hi romaneu, el lloc que ha enllaçat amb la pàgina, el vostre país i el vostre navegador, dispositiu i idioma, enviat mitjançant Google Tag Manager",
+          "cookie": "Una galeta amb un identificador aleatori, perquè un navegador que torna es compti un sol cop. Caduca al cap de 2 anys.",
+          "notCollected": "Mai el vostre nom d'usuari de GitHub, correu electrònic, dades de la llista de classe ni la cadena de consulta d'un URL"
+        },
+        "label": "Google Analytics"
+      }
+    },
+    "declineAll": "Rebutja totes les analítiques",
+    "reset": "Restableix i torna a preguntar",
+    "savePreferences": "Desa les preferències",
+    "whatThisIncludes": "Què inclou això"
+  },
+  "privacy": {
+    "analytics": {
+      "cloudflareTerms": "Addenda de tractament de dades de Cloudflare",
+      "collected": {
+        "cookie": "Només Google Analytics: una galeta amb un identificador aleatori, perquè un navegador que torna es compti un sol cop. Caduca al cap de 2 anys, i desactivar Google Analytics l'elimina.",
+        "country": "El vostre país, deduït de la vostra connexió",
+        "device": "Navegador, sistema operatiu, tipus de dispositiu i idioma",
+        "path": "Les pàgines que visiteu, per exemple /cs1-fall-2026/assignments, i quant hi romaneu",
+        "referrer": "El lloc que ha enllaçat amb la pàgina",
+        "timings": "Temps de càrrega de la pàgina"
+      },
+      "collectedHeading": "Recollit",
+      "googleTerms": "Política de privacitat de Google",
+      "googleUsage": "Com fa servir Google la informació dels llocs que utilitzen els seus serveis",
+      "heading": "Analítiques d'ús",
+      "intro": "Les analítiques mostren quanta gent fa servir classroom50.org, quines funcions utilitza i on es queda encallada, perquè l'aplicació pugui millorar. Amb el vostre permís, dos serveis fan això: Cloudflare Web Analytics, que no estableix cap galeta, i Google Analytics, carregat mitjançant Google Tag Manager, que reconeix un navegador que torna amb una galeta. Podeu desactivar qualsevol dels dos. Cap dels dos no sap qui sou.",
+      "notCollected": {
+        "crossSite": "Res que us segueixi a altres llocs",
+        "identity": "El vostre nom d'usuari de GitHub, correu electrònic o dades de la llista de classe",
+        "queryStrings": "Cadenes de consulta. Cloudflare les elimina al vostre navegador, i la nostra configuració de Google Analytics està configurada per no registrar-les, de manera que els codis d'inici de sessió, les claus dels enllaços d'invitació i les cerques a la llista de classe queden fora de les dades."
+      },
+      "notCollectedHeading": "No recollit",
+      "processing": "Google i Cloudflare tracten aquestes dades per a la Fifty Foundation. Com les gestiona cadascun:",
+      "retention": "Google conserva les dades d'esdeveniments fins a 14 mesos. Cloudflare conserva les dades completes durant 7 dies i una mostra durant 6 mesos. Cap dels dos serveis no s'executa fins que accepteu, i podeu canviar la vostra resposta en qualsevol moment a continuació."
+    },
+    "choice": {
+      "body": "La vostra tria es desa en aquest navegador. En acceptar, s'inicien de seguida els serveis que hàgiu deixat activats. Desactivar-ne un n'elimina les galetes ara i l'atura a partir de la propera càrrega de pàgina. Quan hàgiu iniciat sessió, també podeu canviar-ho a la configuració.",
+      "heading": "La vostra tria",
+      "signals": "Si el vostre navegador envia el senyal Global Privacy Control o Do Not Track, no s'executa cap analítica i Classroom 50 no us ho pregunta."
+    },
+    "contact": {
+      "body": "Classroom 50 és un projecte de codi obert que compta amb el suport de la Fifty Foundation. Per fer preguntes sobre aquest avís, inicieu un fil a",
+      "heading": "Preguntes",
+      "link": "les Discussions de GitHub"
+    },
+    "data": {
+      "body": "Classroom 50 no té cap servidor, base de dades ni compte propis. Les llistes de classe, els dipòsits d'activitats, les puntuacions i els comentaris romanen a la vostra organització de GitHub. L'aplicació els llegeix i els escriu mitjançant l'API de GitHub amb un testimoni que atorgueu. L'inici de sessió i les baixades de dipòsits passen per un servidor intermediari que no emmagatzema res.",
+      "heading": "Les dades de la vostra aula",
+      "more": "Per a més detalls, incloent-hi la guia sobre la FERPA, vegeu",
+      "moreLink": "Privacitat i FERPA a la documentació"
+    },
+    "pageSubtitle": "Com gestiona les vostres dades l'aplicació web de Classroom 50 i què podeu triar.",
+    "pageTitle": "Privacitat"
   }
 }

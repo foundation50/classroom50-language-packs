@@ -113,7 +113,8 @@
     "backToApp": "Vissza az alkalmazáshoz",
     "signIn": "Bejelentkezés",
     "manageGroups": "Csoportok kezelése",
-    "mySubmissionTeam": "Csoportos beadás"
+    "mySubmissionTeam": "Csoportos beadás",
+    "aboutViewPrivacy": "Adatvédelmi információk megtekintése"
   },
   "auth": {
     "signInTitle": "Bejelentkezés",
@@ -188,7 +189,8 @@
       "revokeTitle": "A repók törlésére vonatkozó jogosultság használatának leállítása",
       "title": "Jogosultság kérése a repók törléséhez"
     },
-    "patRequired": "Adj meg egy személyes hozzáférési tokent a bejelentkezéshez."
+    "patRequired": "Adj meg egy személyes hozzáférési tokent a bejelentkezéshez.",
+    "privacy": "Adatvédelem"
   },
   "documentTitle": {
     "assignments": "Feladatok",
@@ -677,7 +679,10 @@
     "uploadBlockedChecking": "Jelenlegi tagság ellenőrzése…",
     "uploadBlockedDetails": "A folytatáshoz erősítsd meg a fenti adatfrissítéseket.",
     "uploadBlockedRoles": "A folytatáshoz erősítsd meg a fenti szerepváltozásokat.",
-    "uploadBlockedUsernames": "A folytatáshoz erősítsd meg a fenti felhasználónév-változásokat."
+    "uploadBlockedUsernames": "A folytatáshoz erősítsd meg a fenti felhasználónév-változásokat.",
+    "rosterProblemDuplicateColumn": "A(z) „{{name}}” oszlop többször is szerepel. Tarts meg egyet, a többit távolítsd el.",
+    "rosterProblemFormulaColumn": "A(z) „{{name}}” oszlopnév =, +, - vagy @ jellel kezdődik, amit a táblázatkezelők képletként kezelnek. Nevezd át.",
+    "rosterProblemReservedColumn": "A(z) „{{name}}” oszlop beépített névsoroszlop, és utána újra megjelenik. Távolítsd el a plusz példányt."
   },
   "language": {
     "baseName": "Angol (alap)",
@@ -951,7 +956,8 @@
         "teamFormationInvalid": "Válaszd ki, ki alakítja a csoportokat.",
         "pagesBranchInvalid": "Adj meg egy ágnevet szóközök nélkül, legfeljebb 255 karakterrel, vagy hagyd üresen az alapértelmezett ághoz.",
         "pagesPathInvalid": "A Pages mappának / vagy /docs értékűnek kell lennie.",
-        "pagesSourceInvalid": "A GitHub Pages értéke „Ki”, „GitHub Actions” vagy „Egy ág” lehet."
+        "pagesSourceInvalid": "A GitHub Pages értéke „Ki”, „GitHub Actions” vagy „Egy ág” lehet.",
+        "scheduleDateIncomplete": "Fejezd be a dátum és az idő megadását, vagy kapcsold ki a kapcsolót az eltávolításához."
       },
       "allowedFilesTip": "Rendezett {{gitignore}} stílusú minták soronként egy, amelyek meghatározzák, hogy mely fájlok tartoznak egy beadáshoz (az utolsó egyezés nyer, a(z) {{bang}} újra felveszi). Például a(z) {{star}}, majd a(z) {{example}} csak a(z) {{result}} fájlt engedélyezi. Üresen minden fájl engedélyezett.",
       "containerUserTip": "A felhasználó, amelynek nevében a konténer fut. Állítsd root-ra, ha a checkout jogosultsági hibával hiúsul meg. A GitHub Actions a konténer lépéseit a gazdafuttató felhasználójaként futtatja, így egy nem root image gyakran nem tud írni a munkaterületre.",
@@ -1060,7 +1066,7 @@
           }
         },
         "modeLabel": "Beépített automata értékelő",
-        "editHelp": "A beépített automatikus értékelő módosítása csak a mostantól elfogadott repókra vonatkozik. A már elfogadott repók megtartják az eredeti beállításukat, így a meglévő repókat neked kell frissítened."
+        "editHelp": "A beépített automatikus értékelő módosítása csak azokra a tárolókra hat, amelyeket a diákok mostantól fogadnak el. A már elfogadott tárolók megtartják eredeti beállításukat. Ha ezekhez is be szeretnéd kapcsolni, ments, majd használd a beadványok oldalán a „Automatikus értékelési munkafolyamat hozzáadása” lehetőséget, vagy a gh teacher assignment enable-autograder parancsot."
       },
       "copyAbout": {
         "help": "A sablon Névjegyének (leírásának) másolása minden diák tárolójába. A GitHub ezt nem másolja automatikusan. Ez a mostantól elfogadó diákokra vonatkozik; a már létrehozott tárolók nem változnak.",
@@ -1136,7 +1142,9 @@
           "private": "Privát",
           "public": "Nyilvános"
         },
-        "publicWarning": "Az interneten bárki láthatja majd minden diák munkáját: a kódot, a commitokat és a nevet. Ha a szervezet nem engedélyezi a diákoknak nyilvános tárak létrehozását, a táruk helyette privátként jön létre, és a beadások oldalán teheted nyilvánossá."
+        "publicWarning": "Az interneten bárki láthatja majd minden diák munkáját: a kódot, a commitokat és a nevet. Ha a szervezet nem engedélyezi a diákoknak nyilvános tárak létrehozását, a táruk helyette privátként jön létre, és a beadások oldalán teheted nyilvánossá.",
+        "autograderWarning": "A nyilvános tárolók nem kapnak automatikus értékelést. A GitHub megakadályozza, hogy egy nyilvános tároló futtassa az értékelési munkafolyamatot a privát classroom50 tárolódban, így minden értékelési futás „workflow was not found” hibával meghiúsul. Az értékelés alatt tartsd privátban a tárolókat.",
+        "autograderWarningToggleHint": "Választhatod a „Ne használd a beépített automatikus értékelőt” lehetőséget is."
       },
       "lockAssignment": "Feladat zárolása",
       "lockAssignmentTip": "A diákok nem láthatnak és nem fogadhatnak el zárolt feladatot, azokat is beleértve, akik már elfogadták. A szervezetedben lévő privát sablon esetén a tanterem csapata a feloldásig elveszíti az olvasási hozzáférését a sablonhoz. A stáb hozzáférése és a meglévő diáktárak változatlanok maradnak. Használd időzített értékelés előkészítéséhez, majd oldd fel, amikor a foglalkozás elkezdődik.",
@@ -1165,14 +1173,15 @@
         },
         "editHelp": "Ez a mostantól létrehozott repositorykra vonatkozik; a meglévőkön a beadványok oldaláról engedélyezd a Pages-t.",
         "emptyRepoHint": "Üres repositoryhoz nem érhető el: még nincs közzétehető ág.",
-        "help": "Tedd közzé minden hallgatói repositoryt weboldalként a GitHub Pages segítségével, amely automatikusan beállítódik, amikor a hallgató elfogadja, így soha nincs szükségük admin-hozzáférésre. Az alapértelmezett a Ki. A „GitHub Actions” egy munkafolyamaton keresztül telepít a hallgatói repositoryban (build lépéssel rendelkező oldalakhoz). Az „Egy ág” közvetlenül közzéteszi egy ág fájljait, munkafolyamat nélkül (egyszerű HTML, CSS és JavaScript esetén). Az oldal nyilvános az interneten még akkor is, ha a repository privát, és a közzétett ág és mappa minden fájlja kiszolgálásra kerül; csak a GitHub Enterprise Cloud tudja korlátozni, ki láthatja. A Pages privát repositorykon olyan GitHub-előfizetést igényel, amely tartalmazza; szervezetek GitHub Free csomagján tedd nyilvánossá a repositoryt, különben az oldal nem jön létre.",
+        "help": "Minden diák tárolóját weboldalként teszi közzé a GitHub Pages segítségével, amely automatikusan beállításra kerül, amikor a diák elfogadja, így soha nincs szükségük rendszergazdai hozzáférésre. Alapból ki van kapcsolva. A „GitHub Actions” a diák tárolójában lévő munkafolyamaton keresztül telepít (build lépést tartalmazó oldalakhoz). Az „Egy ág” közvetlenül közzéteszi egy ág fájljait, munkafolyamat nélkül (egyszerű HTML, CSS és JavaScript esetén). Az oldal nyilvános az interneten még akkor is, ha a tároló privát, és a közzétett ág és mappa minden fájlját kiszolgálja; csak a GitHub Enterprise Cloud tudja korlátozni, ki láthatja. A privát tárolók Pages használatához olyan GitHub-csomag szükséges, amely tartalmazza; a szervezeteknek szóló GitHub Free esetén tedd nyilvánossá a tárolót, különben az oldal nem jön létre. A nyilvános tárolók nem kapnak automatikus értékelést (lásd a Tárolók láthatósága részt).",
         "label": "GitHub Pages",
         "path": {
           "help": "Az adott ágban közzéteendő mappa: a repository gyökere (/) vagy /docs. A GitHub csak ezt a kettőt engedi.",
           "label": "Mappa"
         },
         "workflowNote": "A GitHub Actionsön keresztüli telepítéshez minden hallgatói repositoryban szükséges egy munkafolyamat, amely a Pages-be tesz közzé: meg kell adnia a pages: write és id-token: write jogosultságokat, és használnia kell az actions/upload-pages-artifact és actions/deploy-pages eszközöket. Tedd a sablonodba, vagy a hallgatók adják hozzá. Az oldal a hallgató elfogadásakor jön létre, így a munkafolyamat első futása telepíti."
-      }
+      },
+      "customAutograderNotice": "Ez a feladat a(z) „{{name}}” egyéni automatikus értékelőt használja innen: {{path}}. A mentés megtartja. A beépített automatikus értékelőre való váltáshoz állítsd az „autograder” értékét „default”-ra az assignments.json fájlban."
     },
     "autograder": {
       "heading": "Automatikus értékelési tesztek",
@@ -1308,7 +1317,7 @@
       "colSubmitted": "Beadva",
       "groupsAcceptedTitle": "Elfogadott csoportok: létező csoporttárak",
       "noGroupsYet": "Még nincsenek csoportok",
-      "noGroupsYetTitle": "Még nincsenek csoportok. A csoporttár akkor jön létre, amikor az alapítója elfogadja.",
+      "noGroupsYetTitle": "Még nincsenek csoportok. A csoport tárolója akkor jön létre, amikor az első tagja elfogadja.",
       "notCollectedYet": "Még nincs begyűjtve",
       "sortByDue": "Rendezés határidő szerint",
       "sortByName": "Rendezés név szerint",
@@ -1618,6 +1627,12 @@
       "unlockNoneLocked": "A kiválasztott feladatok közül egyik sincs zárolva.",
       "unlockTitle_one": "Feloldjunk {{count}} feladatot?",
       "unlockTitle_other": "Feloldjunk {{count}} feladatot?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "A(z) „{{slug}}” az „{{name}}” egyéni automatikus értékelőt használja, amelynek a futáshoz kezdőtartalomra van szüksége. Válassz sablont, vagy kapcsold vissza a „README hozzáadása” beállítást, vagy előbb állítsd az „autograder” értékét „default”-ra a(z) {{classroom}}/assignments.json fájlban.",
+        "customAutograderNoAutograder": "A(z) „{{slug}}” az „{{name}}” egyéni automatikus értékelőt használja, amelyhez bekapcsolt beépített automatikus értékelő beállítás szükséges. Kapcsold vissza a beépített automatikus értékelőt, vagy előbb állítsd az „autograder” értékét „default”-ra a(z) {{classroom}}/assignments.json fájlban."
+      }
     }
   },
   "published": {
@@ -1739,12 +1754,13 @@
       "cancel": "Mégse",
       "confirm": "Módosítások mentése",
       "provisioning": {
-        "autograder": "Beépített automatikus értékelő: a kikapcsolása miatt a meglévő tárak automatikus értékelési futtatásai meghiúsulnak, és kiesnek a begyűjtött pontszámokból.",
         "grading_mode": "Értékelési mód: a régi módban rögzített pontszámok másképp jelenhetnek meg.",
         "repo_source": "Tár forrása: a meglévő tárak megtartják az eredeti kiindulótartalmukat.",
         "repo_visibility": "Tár láthatósága: a meglévő tárakat a beadások oldalán módosítsd.",
         "student_permission": "Diáktár-hozzáférés: a meglévő tárakat a beadások oldalán módosítsd.",
-        "pages": "GitHub Pages: a meglévő repositorykon a beadványok oldaláról engedélyezheted."
+        "pages": "GitHub Pages: a meglévő repositorykon a beadványok oldaláról engedélyezheted.",
+        "autograder_off": "Beépített automatikus értékelő: a kikapcsolásával a meglévő tárolók automatikus értékelési futásai meghiúsulnak, és kikerülnek a begyűjtött pontszámokból.",
+        "autograder_on": "Beépített automatikus értékelő: a meglévő tárolókban még nincs automatikus értékelési munkafolyamat. A mentés után a beadványok oldalán a „Automatikus értékelési munkafolyamat hozzáadása” gombbal add hozzá őket."
       },
       "provisioningIntro_one": "{{count}} diák már elfogadta. Ezek a módosítások csak a mostantól elfogadott tárakra vonatkoznak; a meglévő tár megtartja a jelenlegi beállításait:",
       "provisioningIntro_other": "{{count}} diák már elfogadta. Ezek a módosítások csak a mostantól elfogadott tárakra vonatkoznak; a meglévő {{count}} tár megtartja a jelenlegi beállításait:",
@@ -2596,7 +2612,7 @@
       "overriddenTitle": "Ezt a pontszámot kézzel állították be, és az automata értékelés nem módosítja, amíg a felülbírálás nem törlődik.",
       "notCollectedYet": "Még nincs begyűjtve",
       "notCollectedYetTitle": "Ez a tanuló olyan munkát pusholt, amelyet még nem gyűjtöttek be, így nincs rögzített beadási idő. Futtasd a „Begyűjtés most” parancsot a begyűjtéshez.",
-      "emptyNoGroupsBody": "A csoporttár akkor jön létre, amikor az alapítója elfogadja a feladatot. A csoportok itt jelennek meg, amint kialakulnak.",
+      "emptyNoGroupsBody": "A csoport tárolója akkor jön létre, amikor az első tagja elfogadja a feladatot. A csoportok itt jelennek meg, ahogy megalakulnak.",
       "emptyNoGroupsTitle": "Még nincsenek csoportok",
       "noRepoYetTitle": "Még nincs tároló. A diák nem fogadta el a feladatot.",
       "notAcceptedTitle": "Ez a diák még nem nyitotta meg a meghívólinket, ezért nincs tár. Oszd meg a feladat linkjét a Megosztás gombbal.",
@@ -2620,13 +2636,21 @@
       "teamNoRepoTitle": "A csoport tárolója akkor jön létre, amikor egy csoporttag elfogadja a feladatot. Oszd meg a feladat hivatkozását, hogy egy tag elfogadhassa.",
       "staffRowTitle": "Egy tanár, fő oktatóasszisztens vagy oktatóasszisztens, aki elfogadta ezt a feladatot, általában kipróbálás céljából. Ez a sor nem egy diáké.",
       "openSiteLabel": "A(z) {{repo}} tároló GitHub Pages-webhelyének megnyitása",
-      "viewSite": "GitHub Pages-webhely megnyitása"
+      "viewSite": "GitHub Pages-webhely megnyitása",
+      "unverified": "Nem ellenőrzött",
+      "unverifiedAuthorTitle": "Ezt a kiadást nem az automatikus értékelő tette közzé; hanem {{login}}. A pontszám begyűjtésre került, de nem bizonyíték. Ellenőrizd a tároló Releases fülét és Actions előzményeit.",
+      "unverifiedRecordedTitle": "Ezt a kiadást nem az automatikus értékelő tette közzé ({{reason}}). A pontszám begyűjtésre került, de nem bizonyíték. Ellenőrizd a tároló Releases fülét és Actions előzményeit.",
+      "unverifiedUnknownAccount": "egy ismeretlen fiók",
+      "unverifiedUploaderTitle": "Ezen kiadás result.json fájlját nem az automatikus értékelő töltötte fel; hanem {{login}}. A pontszám begyűjtésre került, de nem bizonyíték. Ellenőrizd a tároló Releases fülét és Actions előzményeit."
     },
     "reviewModal": {
       "errorTitle": "Nem sikerült ellenőrizni a visszajelzési PR-t",
       "emptyTitle": "Még nincs visszajelzési pull request",
       "openRepoPrs": "Tároló PR-jeinek megnyitása",
-      "emptyBody": "A(z) <repo>{{repo}}</repo> tárolóhoz még nem nyílt meg visszajelzési pull request. Az akkor nyílik meg, amikor a diák elfogadja a feladatot, így lehet, hogy még nem fogadta el, a feladatnál ki van kapcsolva, vagy a megnyitása el lett halasztva. Egy elhalasztott megnyitás újbóli elfogadáskor vagy az első értékelt beadáskor újrapróbálkozik."
+      "emptyBody": "A(z) <repo>{{repo}}</repo> tárolóhoz még nem nyílt meg visszajelzési pull request. Az akkor nyílik meg, amikor a diák elfogadja a feladatot, így lehet, hogy még nem fogadta el, a feladatnál ki van kapcsolva, vagy a megnyitása el lett halasztva. Egy elhalasztott megnyitás újbóli elfogadáskor vagy az első értékelt beadáskor újrapróbálkozik.",
+      "blockedBody": "A böngésződ letiltotta a megnyitását egy új lapon. A megnyitáshoz használd az alábbi gombot.",
+      "blockedTitle": "Visszajelzési pull request megtalálva",
+      "openPr": "Visszajelzési PR megnyitása"
     },
     "rowRegrade": {
       "title": "Ennek a beadványnak az újraértékelése",
@@ -3083,7 +3107,8 @@
       "subtitle_other": "{{count}} tanulóra vonatkozik, aki elfogadta ezt a feladatot.",
       "title": "Tároló láthatóságának módosítása",
       "titleEmptyRoster": "Egyetlen tanuló sem fogadta még el",
-      "working": "Tárolók frissítése"
+      "working": "Tárolók frissítése",
+      "autograderWarning": "Az automatikus értékelés leáll, amíg egy tároló nyilvános. A GitHub megakadályozza, hogy egy nyilvános tároló futtassa az értékelési munkafolyamatot a privát classroom50 tárolódban, így minden értékelési futás „workflow was not found” hibával meghiúsul. Tedd újra privátra a tárolókat az értékelés folytatásához."
     },
     "cloneAll": {
       "buttonTitle": "Minden beadás klónozása a CLI-vel",
@@ -3117,7 +3142,8 @@
         "private": "A tároló most már privát.",
         "public": "A tároló most már nyilvános."
       },
-      "confirmWarning": "Bárki, aki megtekinti vagy klónozza a tárolót, amíg az nyilvános, megtartja azt a másolatot, még azután is, hogy ismét priváttá teszed."
+      "confirmWarning": "Bárki, aki megtekinti vagy klónozza a tárolót, amíg az nyilvános, megtartja azt a másolatot, még azután is, hogy ismét priváttá teszed.",
+      "confirmAutograderWarning": "Az automatikus értékelés leáll, amíg a tároló nyilvános: a GitHub megakadályozza, hogy futtassa az értékelési munkafolyamatot a privát classroom50 tárolódban. Tedd újra privátra az értékelés folytatásához."
     },
     "rosterFromCsvNotice": "A diáklista a névsorfájlból származik az utolsó szinkronizálás állapota szerint, mert az Ön szerepköre nem tekintheti meg a tanterem GitHub-csapatát. Az azóta beiratkozott diák akkor jelenik meg, amikor egy tanár megnyitja a névsort. A szervezettulajdonosok az élő tagságot látják.",
     "skipPastTable": "A beadási táblázat átugrása",
@@ -3159,6 +3185,53 @@
         "unknown": "A GitHub Pages jelenleg nem kapcsolható be a(z) {{repo}} tárolón. Próbáld újra egy pillanat múlva."
       },
       "title": "GitHub Pages bekapcsolása"
+    },
+    "bulkShim": {
+      "apply": "Alkalmazás mindre",
+      "configBranchError": "Nem sikerült beolvasni a tantermi tároló alapértelmezett ágát, így nem lett hozzáadva munkafolyamat. Próbáld újra.",
+      "deferredDetail": "Kihagyva. A hozzáadáshoz futtasd újra.",
+      "deferredSection_one": "{{count}} tároló nem lett feldolgozva",
+      "deferredSection_other": "{{count}} tároló nem lett feldolgozva",
+      "failedSection_one": "{{count}} tárolót nem sikerült frissíteni",
+      "failedSection_other": "{{count}} tárolót nem sikerült frissíteni",
+      "menuLabel": "Automatikus értékelési munkafolyamat hozzáadása",
+      "menuTitle": "A beépített automatikus értékelési munkafolyamat hozzáadása minden olyan diák tárolójához, amelyben még nincs",
+      "noRepos": "Még egy diák sem fogadta el, így nincs mit hozzáadni.",
+      "notAcceptedDetail": "Nincs tároló. A munkafolyamatot akkor kapja meg, amikor a diák elfogadja.",
+      "notAcceptedSection_one": "{{count}} diák még nem fogadta el",
+      "notAcceptedSection_other": "{{count}} diák még nem fogadta el",
+      "progress": "{{processed}} / {{total}} feldolgozva",
+      "regradeReminder": "A diákok által már feltöltött munka a következő pusholásukkor kerül értékelésre. Egy munkafolyamat csak azokhoz a commitokhoz fut le, amelyek tartalmazzák, ezért az „Összes újraértékelése” nem éri el a korábbi commitokat. Az azonnali értékeléshez kérd meg a diákokat, hogy pusholjanak egyszer (egy üres commit is megfelel).",
+      "repullReminder": "Szólj a diákoknak, hogy futtassanak git pull-t. A módosítás előtt készült klónok a következő pusholáskor ütközni fognak.",
+      "resultHeadline": "A munkafolyamat hozzáadva {{added}} / {{total}} tárolóhoz ({{present}} tárolóban már megvolt).",
+      "scopeDetail": "A GitHub-engedélyezésed nem tud munkafolyamat-fájlokat módosítani. Jelentkezz ki, majd újra be, aztán futtasd újra.",
+      "scopeSection_one": "{{count}} tárolóhoz további GitHub-engedély szükséges",
+      "scopeSection_other": "{{count}} tárolóhoz további GitHub-engedély szükséges",
+      "subtitle_one": "Hozzáadja az automatikus értékelési munkafolyamatot {{count}} diák tárolójához, ha hiányzik.",
+      "subtitle_other": "Hozzáadja az automatikus értékelési munkafolyamatot {{count}} diák tárolójához, ahol hiányzik.",
+      "title": "Automatikus értékelési munkafolyamat hozzáadása",
+      "titleEmptyRoster": "Még egy diák sem fogadta el",
+      "unrecognizedSection_one": "{{count}} tároló kihagyva (azon az útvonalon már egy másik munkafolyamat van)",
+      "unrecognizedSection_other": "{{count}} tároló kihagyva (azon az útvonalon már egy másik munkafolyamat van)",
+      "warningLead_one": "Ez commitolja az automatikus értékelési munkafolyamatot {{count}} diák tárolójába.",
+      "warningLead_other": "Ez commitolja az automatikus értékelési munkafolyamatot {{count}} diák tárolójába.",
+      "warningPoint1": "Azok a tárolók, amelyekben már megvan a munkafolyamat, érintetlenül maradnak.",
+      "warningPoint2": "A commit meg van jelölve, így nem indít értékelést. A diákok által már feltöltött munka a következő pusholásukkor kerül értékelésre; az „Összes újraértékelése” nem éri el a munkafolyamat létrejötte előtt készült commitokat.",
+      "warningPoint3": "A diákoknak utána pull-t kell futtatniuk. A módosítás előtt készült klónok a következő pusholáskor ütközni fognak.",
+      "working": "A munkafolyamat hozzáadása"
+    },
+    "rowShim": {
+      "aria": "Az automatikus értékelési munkafolyamat hozzáadása ehhez: {{repo}}",
+      "description": "A beépített automatikus értékelési munkafolyamat hozzáadása ehhez a tárolóhoz, ha akkor lett elfogadva, amikor az automatikus értékelő ki volt kapcsolva.",
+      "outcome": {
+        "added": "Automatikus értékelési munkafolyamat hozzáadva. A diáknak a következő pusholása előtt pull-t kell futtatnia, és ez a pushol értékeli a tárolóban már meglévő munkát.",
+        "failed": "Nem sikerült hozzáadni a munkafolyamatot. Próbáld újra.",
+        "missingWorkflowScope": "A GitHub-engedélyezésed nem tud munkafolyamat-fájlokat módosítani. Jelentkezz ki, majd újra be, aztán próbáld újra.",
+        "notAccepted": "Még nincs tároló, így nincs mit hozzáadni.",
+        "present": "Ebben a tárolóban már megvan az automatikus értékelési munkafolyamat.",
+        "unrecognized": "Kihagyva: az automatikus értékelési munkafolyamat útvonalán már egy másik munkafolyamat van, így semmi nem változott."
+      },
+      "title": "Automatikus értékelési munkafolyamat hozzáadása"
     }
   },
   "orgMembers": {
@@ -3805,7 +3878,22 @@
       },
       "subheading": "Egy szervezet lebontásához jogosultság szükséges a repók törléséhez, amelyet a normál bejelentkezés nem kér. Csak akkor add meg ezt a jogosultságot, amikor szükséged van rá, és vond vissza a GitHubon, ha végeztél."
     },
-    "noChangesToSave": "Nincs menteni való változás."
+    "noChangesToSave": "Nincs menteni való változás.",
+    "analytics": {
+      "heading": "Sütik és analitika",
+      "privacyLink": "Adatvédelmi tájékoztató elolvasása",
+      "subheading": "Az analitika segít jobbá tenni a Classroom 50-et. Válaszd ki, mely szolgáltatások számolhatják a látogatásaidat ebben a böngészőben. A funkcionális tárolás bekapcsolva marad."
+    },
+    "nameOrder": {
+      "firstLast": "Keresztnév, majd vezetéknév",
+      "firstLastHint": "Például Ada Lovelace.",
+      "groupAria": "Névsorrend beállítás",
+      "heading": "Diáknevek",
+      "lastFirst": "Vezetéknév, majd keresztnév",
+      "lastFirstHint": "Például Lovelace Ada.",
+      "saved": "Névsorrend beállítás elmentve.",
+      "subheading": "Válaszd ki, milyen sorrendben jelenjenek meg a diáknevek a névsorokban, beadványokban, csoportokban és exportált pontszámokban."
+    }
   },
   "pagesErrors": {
     "assignmentNotInManifest": "A(z) „{{assignmentSlug}}” feladat nincs benne ennek a tanteremnek a közzétett feladatai között. Ellenőrizd a hivatkozást, vagy kérd meg a tanárodat, hogy tegye közzé a feladatot.",
@@ -4120,5 +4208,95 @@
       "staff": "A(z) {{slug}} csapat már létezik, de nem a Classroom 50 hozta létre, így nem használható oktatói csapatként. Tekintsd át a tagjait itt: {{url}}, majd vagy töröld, vagy adj neki hozzáférést a classroom50 tárolóhoz, és próbáld újra.",
       "studentOf": "A(z) {{slug}} csapat a(z) {{classroom}} tanterem diákcsapata, így nem lehet ennek a tanteremnek a(z) {{role}} csapata. Hagyd betöltetlenül a(z) {{role}} szerepet itt, vagy nevezd át az egyik tantermet."
     }
+  },
+  "consent": {
+    "alwaysOn": "Mindig be",
+    "banner": {
+      "accept": "Elfogadom",
+      "body": "Az anonim használati adatok megmutatják, mely funkciókat használják és hol akadnak el az emberek, így az alkalmazás jobbá válhat. Semmi nem azonosít téged, és a választásodat bármikor módosíthatod a Beállításokban. Vedd ki a pipát bármiről, amit inkább nem osztanál meg, majd válaszd az Elfogadom lehetőséget.",
+      "decline": "Elutasítom",
+      "hideNotice": "Adatvédelmi tájékoztató elrejtése",
+      "readNotice": "Adatvédelmi tájékoztató elolvasása",
+      "title": "Az analitika segít jobbá tenni a Classroom 50-et"
+    },
+    "browserDeclines": "A böngésződ elküldi a Global Privacy Control vagy a Do Not Track jelzést, ezért az analitika kikapcsolva marad, és a Classroom 50 nem kérdez rá.",
+    "categories": {
+      "cloudflare": {
+        "caption": "Látogatásokat számol. Nincsenek sütik.",
+        "items": {
+          "collected": "Oldal útvonala, hivatkozó webhely, ország, böngészőtípus és betöltési idő",
+          "noCookies": "Nincsenek sütik és azonosítók, így látogatásokat számol, nem embereket",
+          "notCollected": "Soha nem a GitHub-felhasználóneved, e-mailed, névsoradataid vagy egy URL lekérdezési karakterlánca"
+        },
+        "label": "Cloudflare Web Analytics"
+      },
+      "functional": {
+        "caption": "Az alkalmazás működéséhez szükséges. Ebben a böngészőben marad.",
+        "items": {
+          "consent": "Az itt hozott döntésed",
+          "preferences": "A beállításaid: nyelv, téma, névsorrend, mozgás, elrejtett szervezetek és oldalsáv elrendezése",
+          "session": "A GitHub-bejelentkezésed, hogy bejelentkezve maradj"
+        },
+        "label": "Funkcionális",
+        "tooltip": "Csak ebben a böngészőben tárolva: a GitHub-bejelentkezésed, hogy bejelentkezve maradj, a beállításaid (nyelv, téma, névsorrend, mozgás, elrejtett szervezetek és oldalsáv elrendezése), valamint az itt hozott döntésed. Ezek egyikét sem használjuk analitikára."
+      },
+      "google": {
+        "caption": "Megmutatja, hogyan használják a funkciókat. Egy sütit állít be.",
+        "items": {
+          "collected": "A megtekintett oldalak és az ott töltött idő, az oldalra hivatkozó webhely, az országod, valamint a böngésződ, eszközöd és nyelved, a Google Tag Manageren keresztül elküldve",
+          "cookie": "Egy sütit véletlenszerű azonosítóval, hogy a visszatérő böngésző egyszer legyen számolva. 2 év után lejár.",
+          "notCollected": "Soha nem a GitHub-felhasználóneved, e-mailed, névsoradataid vagy egy URL lekérdezési karakterlánca"
+        },
+        "label": "Google Analytics"
+      }
+    },
+    "declineAll": "Minden analitika elutasítása",
+    "reset": "Visszaállítás és újbóli rákérdezés",
+    "savePreferences": "Beállítások mentése",
+    "whatThisIncludes": "Mit tartalmaz ez"
+  },
+  "privacy": {
+    "analytics": {
+      "cloudflareTerms": "Cloudflare adatfeldolgozási kiegészítés",
+      "collected": {
+        "cookie": "Csak a Google Analytics: egy süti véletlenszerű azonosítóval, hogy a visszatérő böngésző egyszer legyen számolva. 2 év után lejár, és a Google Analytics kikapcsolása eltávolítja.",
+        "country": "Az országod, a kapcsolatodból meghatározva",
+        "device": "Böngésző, operációs rendszer, eszköztípus és nyelv",
+        "path": "A megtekintett oldalak, például /cs1-fall-2026/assignments, és az ott töltött idő",
+        "referrer": "Az oldalra hivatkozó webhely",
+        "timings": "Oldalbetöltési idő"
+      },
+      "collectedHeading": "Amit gyűjtünk",
+      "googleTerms": "Google Adatvédelmi irányelvek",
+      "googleUsage": "Hogyan használja a Google a szolgáltatásait használó webhelyekről származó információkat",
+      "heading": "Használati analitika",
+      "intro": "Az analitika megmutatja, hányan használják a classroom50.org oldalt, mely funkciókat használják és hol akadnak el, így az alkalmazás fejlődhet. Az engedélyeddel két szolgáltatás végzi ezt: a Cloudflare Web Analytics, amely nem állít be sütiket, és a Google Analytics, amely a Google Tag Manageren keresztül töltődik be, és egy sütivel ismeri fel a visszatérő böngészőt. Bármelyiket kikapcsolhatod. Egyik sem tudja, ki vagy.",
+      "notCollected": {
+        "crossSite": "Bármi, ami más webhelyekre is elkísér",
+        "identity": "A GitHub-felhasználóneved, e-mailed vagy névsoradataid",
+        "queryStrings": "Lekérdezési karakterláncok. A Cloudflare a böngésződben eltávolítja ezeket, és a Google Analytics beállításunkat úgy konfiguráltuk, hogy ne rögzítse őket, így a bejelentkezési kódok, meghívólink-kulcsok és névsorkeresések kimaradnak az adatokból."
+      },
+      "notCollectedHeading": "Amit nem gyűjtünk",
+      "processing": "A Google és a Cloudflare a Fifty Foundation számára dolgozza fel ezeket az adatokat. Hogyan kezeli mindegyik:",
+      "retention": "A Google legfeljebb 14 hónapig őrzi az eseményadatokat. A Cloudflare 7 napig őrzi a teljes adatokat, és 6 hónapig egy mintát. Egyik szolgáltatás sem fut, amíg el nem fogadod, és a válaszodat bármikor módosíthatod alább."
+    },
+    "choice": {
+      "body": "A választásod ebben a böngészőben van elmentve. Az elfogadás azonnal elindítja a bekapcsolva hagyott szolgáltatásokat. Bármelyik kikapcsolása most eltávolítja annak sütijeit, és a következő oldalbetöltéstől leállítja. Amikor be vagy jelentkezve, a Beállításokban is módosíthatod.",
+      "heading": "A te választásod",
+      "signals": "Ha a böngésződ elküldi a Global Privacy Control vagy a Do Not Track jelzést, semmilyen analitika nem fut, és a Classroom 50 nem kérdez rá."
+    },
+    "contact": {
+      "body": "A Classroom 50 egy nyílt forráskódú projekt, amelyet a Fifty Foundation támogat. Ha kérdésed van erről a tájékoztatóról, indíts egy szálat itt:",
+      "heading": "Kérdések",
+      "link": "GitHub Discussions"
+    },
+    "data": {
+      "body": "A Classroom 50-nek nincs saját szervere, adatbázisa vagy fiókja. A névsorok, a feladattárolók, a pontszámok és a visszajelzések a te GitHub-szervezetedben maradnak. Az alkalmazás az általad megadott token használatával olvassa és írja ezeket a GitHub API-n keresztül. A bejelentkezés és a tárolóletöltések egy proxyn haladnak át, amely semmit nem tárol.",
+      "heading": "A tantermi adataid",
+      "more": "Részletekért, beleértve a FERPA útmutatót, lásd:",
+      "moreLink": "Adatvédelem és FERPA a dokumentációban"
+    },
+    "pageSubtitle": "Hogyan kezeli a Classroom 50 webalkalmazás az adataidat, és miből választhatsz.",
+    "pageTitle": "Adatvédelem"
   }
 }
