@@ -113,7 +113,8 @@
     "backToApp": "Torna all'app",
     "signIn": "Accedi",
     "manageGroups": "Gestisci gruppi",
-    "mySubmissionTeam": "Consegna di gruppo"
+    "mySubmissionTeam": "Consegna di gruppo",
+    "aboutViewPrivacy": "Vedi le informazioni sulla privacy"
   },
   "auth": {
     "signInTitle": "Accedi",
@@ -188,7 +189,8 @@
       "revokeTitle": "Smetti di usare il permesso di eliminare i repository",
       "title": "Richiedi il permesso di eliminare i repository"
     },
-    "patRequired": "Inserisci un personal access token per accedere."
+    "patRequired": "Inserisci un personal access token per accedere.",
+    "privacy": "Privacy"
   },
   "documentTitle": {
     "assignments": "Compiti",
@@ -677,7 +679,10 @@
     "uploadBlockedChecking": "Verifica dell'appartenenza attuale in corso…",
     "uploadBlockedDetails": "Conferma gli aggiornamenti dei dettagli qui sopra per continuare.",
     "uploadBlockedRoles": "Conferma le modifiche di ruolo qui sopra per continuare.",
-    "uploadBlockedUsernames": "Conferma le modifiche del nome utente qui sopra per continuare."
+    "uploadBlockedUsernames": "Conferma le modifiche del nome utente qui sopra per continuare.",
+    "rosterProblemDuplicateColumn": "La colonna \"{{name}}\" compare più di una volta. Tienine una e rimuovi le altre.",
+    "rosterProblemFormulaColumn": "Il nome della colonna \"{{name}}\" inizia con =, +, - o @, che i fogli di calcolo interpretano come formula. Rinominala.",
+    "rosterProblemReservedColumn": "La colonna \"{{name}}\" è una colonna incorporata dell'elenco iscritti e compare di nuovo dopo di essa. Rimuovi la copia in eccesso."
   },
   "language": {
     "baseName": "Inglese (base)",
@@ -951,7 +956,8 @@
         "teamFormationInvalid": "Scegli chi forma i gruppi.",
         "pagesBranchInvalid": "Inserisci un nome di branch senza spazi, al massimo 255 caratteri, oppure lascialo vuoto per il branch predefinito.",
         "pagesPathInvalid": "La cartella di Pages deve essere / o /docs.",
-        "pagesSourceInvalid": "GitHub Pages deve essere \"Disattivato\", \"GitHub Actions\" o \"Un branch\"."
+        "pagesSourceInvalid": "GitHub Pages deve essere \"Disattivato\", \"GitHub Actions\" o \"Un branch\".",
+        "scheduleDateIncomplete": "Completa la data e l'ora, oppure disattiva l'interruttore per rimuoverla."
       },
       "allowedFilesTip": "Pattern ordinati in stile {{gitignore}}, uno per riga, che definiscono quali file appartengono a una consegna (vince l'ultima corrispondenza, {{bang}} reinclude). Ad esempio, {{star}} seguito da {{example}} consente solo {{result}}. Vuoto consente ogni file.",
       "containerUserTip": "L'utente con cui viene eseguito il container. Imposta root se il checkout fallisce con un errore di permessi. GitHub Actions esegue i passaggi del container con l'utente del runner host, quindi un'immagine non-root spesso non può scrivere nel workspace.",
@@ -1060,7 +1066,7 @@
           }
         },
         "modeLabel": "Autovalutatore integrato",
-        "editHelp": "La modifica della valutazione automatica integrata riguarda solo i repository accettati dagli studenti d'ora in poi. I repository già accettati conservano la configurazione originale, quindi dovrai aggiornarli tu stesso."
+        "editHelp": "La modifica dell'autovalutatore integrato riguarda solo i repository che gli studenti accetteranno d'ora in poi. I repository già accettati mantengono la configurazione originale. Per attivarlo su di essi, salva, poi usa \"Aggiungi workflow di autovalutazione\" nella pagina delle consegne oppure gh teacher assignment enable-autograder."
       },
       "copyAbout": {
         "help": "Copia l'About del template (la sua descrizione) su ogni repository degli studenti. GitHub non lo copia automaticamente. Questo si applica agli studenti che accettano d'ora in poi; i repository già creati non vengono modificati.",
@@ -1136,7 +1142,9 @@
           "private": "Privato",
           "public": "Pubblico"
         },
-        "publicWarning": "Chiunque su internet potrà vedere il lavoro di ciascuno studente: codice, commit e nome. Se l'organizzazione non consente agli studenti di creare repository pubblici, il loro repository viene creato privato e potrai renderlo pubblico dalla pagina delle consegne."
+        "publicWarning": "Chiunque su internet potrà vedere il lavoro di ciascuno studente: codice, commit e nome. Se l'organizzazione non consente agli studenti di creare repository pubblici, il loro repository viene creato privato e potrai renderlo pubblico dalla pagina delle consegne.",
+        "autograderWarning": "I repository pubblici non vengono autovalutati. GitHub impedisce a un repository pubblico di eseguire il workflow di valutazione nel tuo repository privato classroom50, quindi ogni esecuzione di valutazione fallisce con \"workflow was not found\". Mantieni i repository privati durante la valutazione.",
+        "autograderWarningToggleHint": "Puoi anche selezionare \"Non usare l'autovalutatore integrato\"."
       },
       "lockAssignment": "Blocca compito",
       "lockAssignmentTip": "Gli studenti non possono vedere né accettare un compito bloccato, inclusi quelli che l'hanno già accettato. Per un template privato nella tua organizzazione, il team della classe perde l'accesso in lettura al template finché non sblocchi. L'accesso dello staff e i repository degli studenti esistenti rimangono invariati. Usalo per preparare una prova a tempo, poi sblocca quando inizia la sessione.",
@@ -1165,14 +1173,15 @@
         },
         "editHelp": "Questo si applica ai repository creati d'ora in poi; usa la pagina delle consegne per abilitare Pages su quelli esistenti.",
         "emptyRepoHint": "Non disponibile per un repository vuoto: non c'è ancora nessun branch da pubblicare.",
-        "help": "Pubblica ogni repository studente come sito web con GitHub Pages, configurato automaticamente quando lo studente accetta così non serve mai l'accesso di amministratore. L'impostazione predefinita è Disattivato. \"GitHub Actions\" esegue il deploy tramite un workflow nel repository dello studente (per siti con uno step di build). \"Un branch\" pubblica direttamente i file di un branch, senza bisogno di workflow (per HTML, CSS e JavaScript semplici). Il sito è pubblico su internet anche quando il repository è privato, e ogni file nel branch e nella cartella pubblicati viene servito; solo GitHub Enterprise Cloud può limitare chi lo vede. Pages sui repository privati richiede un piano GitHub che lo includa; su GitHub Free per le organizzazioni, rendi pubblico il repository altrimenti il sito non viene creato.",
+        "help": "Pubblica il repository di ogni studente come sito web con GitHub Pages, configurato automaticamente quando lo studente accetta, così non serve mai l'accesso da amministratore. L'impostazione predefinita è disattivato. \"GitHub Actions\" pubblica tramite un workflow nel repository dello studente (per siti con una fase di build). \"Un ramo\" pubblica direttamente i file di un ramo, senza bisogno di workflow (per HTML, CSS e JavaScript semplici). Il sito è pubblico su internet anche quando il repository è privato, e viene servito ogni file nel ramo e nella cartella pubblicati; solo GitHub Enterprise Cloud può limitare chi lo vede. Pages su repository privati richiede un piano GitHub che lo includa; su GitHub Free per organizzazioni, rendi pubblico il repository o il sito non viene creato. I repository pubblici non vengono autovalutati (vedi Visibilità del repository).",
         "label": "GitHub Pages",
         "path": {
           "help": "La cartella di quel branch da pubblicare: la radice del repository (/) o /docs. GitHub consente solo queste due.",
           "label": "Cartella"
         },
         "workflowNote": "Il deploy tramite GitHub Actions richiede un workflow in ogni repository studente che pubblichi su Pages: deve concedere i permessi pages: write e id-token: write e usare actions/upload-pages-artifact e actions/deploy-pages. Inseriscilo nel tuo template, oppure fai in modo che siano gli studenti ad aggiungerlo. Il sito viene creato quando lo studente accetta, quindi la prima esecuzione del workflow lo distribuisce."
-      }
+      },
+      "customAutograderNotice": "Questo compito usa l'autovalutatore personalizzato \"{{name}}\" da {{path}}. Salvando lo si mantiene. Per passare all'autovalutatore integrato, imposta \"autograder\" su \"default\" in assignments.json."
     },
     "autograder": {
       "heading": "Test di correzione automatica",
@@ -1308,7 +1317,7 @@
       "colSubmitted": "Consegnato",
       "groupsAcceptedTitle": "Gruppi che hanno accettato: repository di gruppo esistenti",
       "noGroupsYet": "Ancora nessun gruppo",
-      "noGroupsYetTitle": "Ancora nessun gruppo. Un repository di gruppo viene creato quando il suo fondatore accetta.",
+      "noGroupsYetTitle": "Nessun gruppo ancora. Il repository di un gruppo viene creato quando il suo primo membro accetta.",
       "notCollectedYet": "Non ancora raccolto",
       "sortByDue": "Ordina per data di scadenza",
       "sortByName": "Ordina per nome",
@@ -1618,6 +1627,12 @@
       "unlockNoneLocked": "Nessuno dei compiti selezionati è bloccato.",
       "unlockTitle_one": "Sbloccare {{count}} compito?",
       "unlockTitle_other": "Sbloccare {{count}} compiti?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "\"{{slug}}\" usa l'autovalutatore personalizzato \"{{name}}\", che ha bisogno di contenuto iniziale per funzionare. Scegli un modello o riattiva \"Aggiungi un README\", oppure imposta prima \"autograder\" su \"default\" in {{classroom}}/assignments.json.",
+        "customAutograderNoAutograder": "\"{{slug}}\" usa l'autovalutatore personalizzato \"{{name}}\", che richiede l'attivazione dell'impostazione dell'autovalutatore integrato. Riattiva l'autovalutatore integrato, oppure imposta prima \"autograder\" su \"default\" in {{classroom}}/assignments.json."
+      }
     }
   },
   "published": {
@@ -1739,12 +1754,13 @@
       "cancel": "Annulla",
       "confirm": "Salva le modifiche",
       "provisioning": {
-        "autograder": "Autovalutatore integrato: disattivarlo fa fallire le esecuzioni di autovalutazione dei repository esistenti, che escono così dai punteggi raccolti.",
         "grading_mode": "Modalità di valutazione: i punteggi registrati con la vecchia modalità potrebbero risultare diversi.",
         "repo_source": "Origine del repository: i repository esistenti mantengono il loro contenuto di partenza originale.",
         "repo_visibility": "Visibilità del repository: modifica i repository esistenti dalla pagina delle consegne.",
         "student_permission": "Accesso al repository dello studente: modifica i repository esistenti dalla pagina delle consegne.",
-        "pages": "GitHub Pages: abilitalo sui repository esistenti dalla pagina delle consegne."
+        "pages": "GitHub Pages: abilitalo sui repository esistenti dalla pagina delle consegne.",
+        "autograder_off": "Autovalutazione integrata: disattivarla fa fallire le esecuzioni di autovalutazione dei repository esistenti, che vengono esclusi dai punteggi raccolti.",
+        "autograder_on": "Autovalutazione integrata: i repository esistenti non hanno ancora un workflow di autovalutazione. Dopo aver salvato, usa \"Aggiungi workflow di autovalutazione\" nella pagina delle consegne per aggiungerlo."
       },
       "provisioningIntro_one": "{{count}} studente ha già accettato. Queste modifiche si applicano solo ai repository accettati d'ora in poi; il repository esistente mantiene la configurazione attuale:",
       "provisioningIntro_other": "{{count}} studenti hanno già accettato. Queste modifiche si applicano solo ai repository accettati d'ora in poi; i {{count}} repository esistenti mantengono la configurazione attuale:",
@@ -2596,7 +2612,7 @@
       "overriddenTitle": "Questo punteggio è stato impostato a mano e non verrà modificato dall'autovalutazione finché la sovrascrittura non viene rimossa.",
       "notCollectedYet": "Non ancora raccolto",
       "notCollectedYetTitle": "Questo studente ha inviato del lavoro che non è ancora stato raccolto, quindi non c'è un orario di consegna registrato. Esegui \"Raccogli ora\" per raccoglierlo.",
-      "emptyNoGroupsBody": "Un repository di gruppo viene creato quando il suo fondatore accetta il compito. I gruppi appaiono qui man mano che si formano.",
+      "emptyNoGroupsBody": "Il repository di un gruppo viene creato quando il suo primo membro accetta il compito. I gruppi compaiono qui man mano che si formano.",
       "emptyNoGroupsTitle": "Ancora nessun gruppo",
       "noRepoYetTitle": "Nessun repository ancora. Lo studente non ha accettato il compito.",
       "notAcceptedTitle": "Questo studente non ha ancora aperto il link di invito, quindi non esiste alcun repository. Condividi il link del compito dal pulsante Condividi.",
@@ -2620,13 +2636,21 @@
       "teamNoRepoTitle": "Il repository del gruppo viene creato quando un membro del gruppo accetta l'attività. Condividi il link dell'attività così un membro può accettarla.",
       "staffRowTitle": "Un insegnante, capo TA o TA che ha accettato questo compito, di solito per provarlo. Questa riga non appartiene a uno studente.",
       "openSiteLabel": "Apri il sito GitHub Pages per {{repo}}",
-      "viewSite": "Apri il sito GitHub Pages"
+      "viewSite": "Apri il sito GitHub Pages",
+      "unverified": "Non verificato",
+      "unverifiedAuthorTitle": "L'autovalutatore non ha pubblicato questa release; l'ha fatto {{login}}. Il punteggio è raccolto ma non è una prova. Controlla la scheda Releases del repository e la cronologia di Actions.",
+      "unverifiedRecordedTitle": "L'autovalutatore non ha pubblicato questa release ({{reason}}). Il punteggio è raccolto ma non è una prova. Controlla la scheda Releases del repository e la cronologia di Actions.",
+      "unverifiedUnknownAccount": "un account sconosciuto",
+      "unverifiedUploaderTitle": "L'autovalutatore non ha caricato il result.json di questa release; l'ha fatto {{login}}. Il punteggio è raccolto ma non è una prova. Controlla la scheda Releases del repository e la cronologia di Actions."
     },
     "reviewModal": {
       "errorTitle": "Impossibile verificare la presenza di una PR di feedback",
       "emptyTitle": "Nessuna pull request di feedback ancora",
       "openRepoPrs": "Apri le PR del repository",
-      "emptyBody": "Non è ancora stata aperta alcuna pull request di feedback per <repo>{{repo}}</repo>. Si apre quando lo studente accetta il compito, quindi potrebbe non aver ancora accettato, il compito potrebbe averla disattivata, oppure la sua apertura è stata rinviata. Un'apertura rinviata viene riprovata alla riaccettazione o alla prima consegna valutata."
+      "emptyBody": "Non è ancora stata aperta alcuna pull request di feedback per <repo>{{repo}}</repo>. Si apre quando lo studente accetta il compito, quindi potrebbe non aver ancora accettato, il compito potrebbe averla disattivata, oppure la sua apertura è stata rinviata. Un'apertura rinviata viene riprovata alla riaccettazione o alla prima consegna valutata.",
+      "blockedBody": "Il tuo browser ha bloccato la sua apertura in una nuova scheda. Usa il pulsante qui sotto per aprirla.",
+      "blockedTitle": "Pull request di feedback trovata",
+      "openPr": "Apri la PR di feedback"
     },
     "rowRegrade": {
       "title": "Rivaluta questa consegna",
@@ -3083,7 +3107,8 @@
       "subtitle_other": "Si applica a {{count}} studenti che hanno accettato questo assignment.",
       "title": "Cambia visibilità del repository",
       "titleEmptyRoster": "Nessuno studente ha ancora accettato",
-      "working": "Aggiornamento dei repository"
+      "working": "Aggiornamento dei repository",
+      "autograderWarning": "L'autovalutazione si interrompe finché un repository è pubblico. GitHub impedisce a un repository pubblico di eseguire il workflow di valutazione nel tuo repository privato classroom50, quindi ogni esecuzione di valutazione fallisce con \"workflow was not found\". Rendi di nuovo privati i repository per riprendere la valutazione."
     },
     "cloneAll": {
       "buttonTitle": "Clona tutte le consegne con la CLI",
@@ -3117,7 +3142,8 @@
         "private": "Il repository ora è privato.",
         "public": "Il repository ora è pubblico."
       },
-      "confirmWarning": "Chiunque visualizzi o cloni il repository mentre è pubblico conserva quella copia, anche dopo che lo rendi di nuovo privato."
+      "confirmWarning": "Chiunque visualizzi o cloni il repository mentre è pubblico conserva quella copia, anche dopo che lo rendi di nuovo privato.",
+      "confirmAutograderWarning": "L'autovalutazione si interrompe finché il repository è pubblico: GitHub impedisce di eseguire il workflow di valutazione nel tuo repository privato classroom50. Rendilo di nuovo privato per riprendere la valutazione."
     },
     "rosterFromCsvNotice": "L'elenco degli studenti proviene dal file di elenco all'ultima sincronizzazione, perché il tuo ruolo non può visualizzare il team GitHub della classe. Uno studente iscritto da allora compare dopo che un insegnante apre l'elenco. I proprietari dell'organizzazione vedono l'appartenenza in tempo reale.",
     "skipPastTable": "Salta oltre la tabella delle consegne",
@@ -3159,6 +3185,53 @@
         "unknown": "Non è stato possibile abilitare GitHub Pages su {{repo}} al momento. Riprova tra poco."
       },
       "title": "Abilita GitHub Pages"
+    },
+    "bulkShim": {
+      "apply": "Applica a tutti",
+      "configBranchError": "Impossibile leggere il ramo predefinito del repository della classe, quindi non è stato aggiunto alcun workflow. Riprova.",
+      "deferredDetail": "Saltato. Riesegui per aggiungere.",
+      "deferredSection_one": "{{count}} repository non è stato elaborato",
+      "deferredSection_other": "{{count}} repository non sono stati elaborati",
+      "failedSection_one": "{{count}} repository non è stato aggiornato",
+      "failedSection_other": "{{count}} repository non sono stati aggiornati",
+      "menuLabel": "Aggiungi workflow di autovalutazione",
+      "menuTitle": "Aggiungi il workflow di autovalutazione integrato a ogni repository di studente che non ne ha uno",
+      "noRepos": "Nessuno studente ha ancora accettato, quindi non c'è nulla da aggiungere.",
+      "notAcceptedDetail": "Non esiste alcun repository. Riceve il workflow quando lo studente accetta.",
+      "notAcceptedSection_one": "{{count}} studente non ha ancora accettato",
+      "notAcceptedSection_other": "{{count}} studenti non hanno ancora accettato",
+      "progress": "Elaborati {{processed}} di {{total}}",
+      "regradeReminder": "Il lavoro già inviato dagli studenti viene valutato al loro prossimo push. Un workflow viene eseguito solo per i commit che lo contengono, quindi \"Rivaluta tutto\" non può raggiungere i commit precedenti. Per valutare ora, fai eseguire agli studenti un push (va bene un commit vuoto).",
+      "repullReminder": "Di' agli studenti di eseguire git pull. I cloni fatti prima di questa modifica genereranno un conflitto al loro prossimo push.",
+      "resultHeadline": "Workflow aggiunto a {{added}} di {{total}} repository ({{present}} lo avevano già).",
+      "scopeDetail": "La tua autorizzazione GitHub non può modificare i file di workflow. Esci e accedi di nuovo, poi riesegui.",
+      "scopeSection_one": "{{count}} repository necessita di un permesso GitHub aggiuntivo",
+      "scopeSection_other": "{{count}} repository necessitano di un permesso GitHub aggiuntivo",
+      "subtitle_one": "Aggiunge il workflow di autovalutazione al repository di {{count}} studente, se manca.",
+      "subtitle_other": "Aggiunge il workflow di autovalutazione ai repository di {{count}} studenti dove manca.",
+      "title": "Aggiungi workflow di autovalutazione",
+      "titleEmptyRoster": "Nessuno studente ha ancora accettato",
+      "unrecognizedSection_one": "{{count}} repository è stato saltato (un altro workflow si trova già in quel percorso)",
+      "unrecognizedSection_other": "{{count}} repository sono stati saltati (un altro workflow si trova già in quel percorso)",
+      "warningLead_one": "Questo esegue il commit del workflow di autovalutazione nel repository di {{count}} studente.",
+      "warningLead_other": "Questo esegue il commit del workflow di autovalutazione nei repository di {{count}} studenti.",
+      "warningPoint1": "I repository che hanno già il workflow vengono lasciati intatti.",
+      "warningPoint2": "Il commit è contrassegnato in modo da non attivare la valutazione. Il lavoro già inviato dagli studenti viene valutato al loro prossimo push; \"Rivaluta tutto\" non può raggiungere i commit fatti prima che il workflow esistesse.",
+      "warningPoint3": "Gli studenti devono eseguire il pull in seguito. I cloni fatti prima di questa modifica genereranno un conflitto al loro prossimo push.",
+      "working": "Aggiunta del workflow in corso"
+    },
+    "rowShim": {
+      "aria": "Aggiungi il workflow di autovalutazione a {{repo}}",
+      "description": "Aggiungi il workflow di autovalutazione integrato a questo repository se è stato accettato mentre l'autovalutatore era disattivato.",
+      "outcome": {
+        "added": "Workflow di autovalutazione aggiunto. Lo studente deve eseguire il pull prima del prossimo push, e quel push è ciò che valuta il lavoro già presente nel repository.",
+        "failed": "Impossibile aggiungere il workflow. Riprova.",
+        "missingWorkflowScope": "La tua autorizzazione GitHub non può modificare i file di workflow. Esci e accedi di nuovo, poi riprova.",
+        "notAccepted": "Non esiste ancora alcun repository, quindi non c'è nulla da aggiungere.",
+        "present": "Questo repository ha già il workflow di autovalutazione.",
+        "unrecognized": "Saltato: un altro workflow si trova già nel percorso del workflow di autovalutazione, quindi non è stato modificato nulla."
+      },
+      "title": "Aggiungi workflow di autovalutazione"
     }
   },
   "orgMembers": {
@@ -3805,7 +3878,22 @@
       },
       "subheading": "Lo smantellamento di un'organizzazione richiede il permesso di eliminare i repository, che l'accesso normale non richiede. Concedi questo permesso solo quando ti serve e revocalo su GitHub quando hai finito."
     },
-    "noChangesToSave": "Nessuna modifica da salvare."
+    "noChangesToSave": "Nessuna modifica da salvare.",
+    "analytics": {
+      "heading": "Cookie e analisi dei dati",
+      "privacyLink": "Leggi l'informativa sulla privacy",
+      "subheading": "L'analisi dei dati aiuta a migliorare Classroom 50. Scegli quali servizi possono contare le tue visite in questo browser. La memorizzazione funzionale resta attiva."
+    },
+    "nameOrder": {
+      "firstLast": "Nome, poi cognome",
+      "firstLastHint": "Per esempio, Ada Lovelace.",
+      "groupAria": "Preferenza di ordine dei nomi",
+      "heading": "Nomi degli studenti",
+      "lastFirst": "Cognome, poi nome",
+      "lastFirstHint": "Per esempio, Lovelace Ada.",
+      "saved": "Preferenza di ordine dei nomi salvata.",
+      "subheading": "Scegli l'ordine in cui compaiono i nomi degli studenti negli elenchi iscritti, nelle consegne, nei gruppi e nei punteggi esportati."
+    }
   },
   "pagesErrors": {
     "assignmentNotInManifest": "Il compito \"{{assignmentSlug}}\" non è tra i compiti pubblicati di questo corso. Controlla il link, o chiedi al tuo insegnante di pubblicare il compito.",
@@ -4120,5 +4208,95 @@
       "staff": "Il team {{slug}} esiste già ma non è stato creato da Classroom 50, quindi non può essere usato come team dello staff. Esamina i suoi membri su {{url}}, poi eliminalo oppure dagli accesso al repository classroom50, e riprova.",
       "studentOf": "Il team {{slug}} è il team studenti della classe {{classroom}}, quindi non può essere il team {{role}} di questa classe. Lascia il ruolo {{role}} non assegnato qui, oppure rinomina una delle classi."
     }
+  },
+  "consent": {
+    "alwaysOn": "Sempre attivo",
+    "banner": {
+      "accept": "Accetta",
+      "body": "I dati d'uso anonimi mostrano quali funzioni vengono usate e dove le persone incontrano difficoltà, così l'app può migliorare. Nulla ti identifica e puoi cambiare la tua scelta in qualsiasi momento nelle Impostazioni. Deseleziona ciò che preferisci non condividere, poi seleziona Accetta.",
+      "decline": "Rifiuta",
+      "hideNotice": "Nascondi l'informativa sulla privacy",
+      "readNotice": "Leggi l'informativa sulla privacy",
+      "title": "L'analisi dei dati aiuta a migliorare Classroom 50"
+    },
+    "browserDeclines": "Il tuo browser invia il segnale Global Privacy Control o Do Not Track, quindi l'analisi dei dati resta disattivata e Classroom 50 non chiede.",
+    "categories": {
+      "cloudflare": {
+        "caption": "Conta le visite. Nessun cookie.",
+        "items": {
+          "collected": "Percorso della pagina, sito di provenienza, paese, tipo di browser e tempo di caricamento",
+          "noCookies": "Nessun cookie e nessun identificatore, quindi conta le visite, non le persone",
+          "notCollected": "Mai il tuo nome utente GitHub, l'email, i dati dell'elenco iscritti o la query string di un URL"
+        },
+        "label": "Cloudflare Web Analytics"
+      },
+      "functional": {
+        "caption": "Necessari per il funzionamento dell'app. Restano in questo browser.",
+        "items": {
+          "consent": "La scelta che fai qui",
+          "preferences": "Le tue impostazioni: lingua, tema, ordine dei nomi, animazioni, organizzazioni nascoste e disposizione della barra laterale",
+          "session": "Il tuo accesso a GitHub, così rimani connesso"
+        },
+        "label": "Funzionali",
+        "tooltip": "Memorizzati solo in questo browser: il tuo accesso a GitHub per rimanere connesso, le tue impostazioni (lingua, tema, ordine dei nomi, animazioni, organizzazioni nascoste e disposizione della barra laterale) e la scelta che fai qui. Nulla di ciò viene usato per l'analisi dei dati."
+      },
+      "google": {
+        "caption": "Mostra come vengono usate le funzioni. Imposta un cookie.",
+        "items": {
+          "collected": "Le pagine che visualizzi e per quanto tempo resti, il sito che ha rimandato alla pagina, il tuo paese e il tuo browser, dispositivo e lingua, inviati tramite Google Tag Manager",
+          "cookie": "Un cookie che contiene un ID casuale, così un browser che ritorna viene contato una sola volta. Scade dopo 2 anni.",
+          "notCollected": "Mai il tuo nome utente GitHub, l'email, i dati dell'elenco iscritti o la query string di un URL"
+        },
+        "label": "Google Analytics"
+      }
+    },
+    "declineAll": "Rifiuta tutta l'analisi dei dati",
+    "reset": "Reimposta e chiedi di nuovo",
+    "savePreferences": "Salva le preferenze",
+    "whatThisIncludes": "Cosa include"
+  },
+  "privacy": {
+    "analytics": {
+      "cloudflareTerms": "Addendum sul trattamento dei dati di Cloudflare",
+      "collected": {
+        "cookie": "Solo Google Analytics: un cookie che contiene un ID casuale, così un browser che ritorna viene contato una sola volta. Scade dopo 2 anni, e disattivare Google Analytics lo rimuove.",
+        "country": "Il tuo paese, ricavato dalla tua connessione",
+        "device": "Browser, sistema operativo, tipo di dispositivo e lingua",
+        "path": "Le pagine che visualizzi, per esempio /cs1-fall-2026/assignments, e per quanto tempo resti",
+        "referrer": "Il sito che ha rimandato alla pagina",
+        "timings": "Tempo di caricamento della pagina"
+      },
+      "collectedHeading": "Raccolti",
+      "googleTerms": "Informativa sulla privacy di Google",
+      "googleUsage": "Come Google usa le informazioni dei siti che utilizzano i suoi servizi",
+      "heading": "Analisi dell'utilizzo",
+      "intro": "L'analisi dei dati mostra quante persone usano classroom50.org, quali funzioni usano e dove incontrano difficoltà, così l'app può migliorare. Con il tuo permesso, due servizi lo fanno: Cloudflare Web Analytics, che non imposta cookie, e Google Analytics, caricato tramite Google Tag Manager, che riconosce un browser che ritorna con un cookie. Puoi disattivarne uno qualsiasi. Nessuno dei due sa chi sei.",
+      "notCollected": {
+        "crossSite": "Qualsiasi cosa che ti segua su altri siti",
+        "identity": "Il tuo nome utente GitHub, l'email o i dati dell'elenco iscritti",
+        "queryStrings": "Le query string. Cloudflare le rimuove nel tuo browser, e la nostra configurazione di Google Analytics è impostata per non registrarle, così i codici di accesso, le chiavi dei link d'invito e le ricerche nell'elenco iscritti restano fuori dai dati."
+      },
+      "notCollectedHeading": "Non raccolti",
+      "processing": "Google e Cloudflare trattano questi dati per conto della Fifty Foundation. Come ciascuno li gestisce:",
+      "retention": "Google conserva i dati degli eventi fino a 14 mesi. Cloudflare conserva i dati completi per 7 giorni e un campione per 6 mesi. Nessuno dei due servizi si avvia finché non accetti, e puoi cambiare la tua risposta in qualsiasi momento qui sotto."
+    },
+    "choice": {
+      "body": "La tua scelta è salvata in questo browser. Accettando avvii subito i servizi che hai lasciato attivi. Disattivandone uno ne rimuovi subito i cookie e lo interrompi dal caricamento della pagina successivo. Quando sei connesso, puoi modificarla anche nelle Impostazioni.",
+      "heading": "La tua scelta",
+      "signals": "Se il tuo browser invia il segnale Global Privacy Control o Do Not Track, nessuna analisi dei dati viene eseguita e Classroom 50 non chiede."
+    },
+    "contact": {
+      "body": "Classroom 50 è un progetto open source sostenuto dalla Fifty Foundation. Per fare domande su questa informativa, apri una discussione in",
+      "heading": "Domande",
+      "link": "GitHub Discussions"
+    },
+    "data": {
+      "body": "Classroom 50 non ha un server, un database o account propri. Elenchi iscritti, repository dei compiti, punteggi e feedback restano nella tua organizzazione GitHub. L'app li legge e li scrive tramite l'API di GitHub con un token che concedi tu. L'accesso e i download dei repository passano attraverso un proxy che non memorizza nulla.",
+      "heading": "I dati della tua classe",
+      "more": "Per i dettagli, comprese le indicazioni sul FERPA, vedi",
+      "moreLink": "Privacy e FERPA nella documentazione"
+    },
+    "pageSubtitle": "Come l'app web Classroom 50 gestisce i tuoi dati e cosa puoi scegliere.",
+    "pageTitle": "Privacy"
   }
 }

@@ -113,7 +113,8 @@
     "backToApp": "Powrót do aplikacji",
     "signIn": "Zaloguj się",
     "manageGroups": "Zarządzaj grupami",
-    "mySubmissionTeam": "Zgłoszenie grupowe"
+    "mySubmissionTeam": "Zgłoszenie grupowe",
+    "aboutViewPrivacy": "Zobacz informacje o prywatności"
   },
   "auth": {
     "signInTitle": "Zaloguj się",
@@ -188,7 +189,8 @@
       "revokeTitle": "Przestań korzystać z uprawnienia do usuwania repozytoriów",
       "title": "Poproś o uprawnienie do usuwania repozytoriów"
     },
-    "patRequired": "Wprowadź osobisty token dostępu, aby się zalogować."
+    "patRequired": "Wprowadź osobisty token dostępu, aby się zalogować.",
+    "privacy": "Prywatność"
   },
   "documentTitle": {
     "assignments": "Zadania",
@@ -679,7 +681,10 @@
     "uploadBlockedChecking": "Sprawdzanie aktualnego członkostwa…",
     "uploadBlockedDetails": "Potwierdź powyższe zmiany danych, aby kontynuować.",
     "uploadBlockedRoles": "Potwierdź powyższe zmiany ról, aby kontynuować.",
-    "uploadBlockedUsernames": "Potwierdź powyższe zmiany nazw użytkowników, aby kontynuować."
+    "uploadBlockedUsernames": "Potwierdź powyższe zmiany nazw użytkowników, aby kontynuować.",
+    "rosterProblemDuplicateColumn": "Kolumna „{{name}}” pojawia się więcej niż raz. Zachowaj jedną i usuń pozostałe.",
+    "rosterProblemFormulaColumn": "Nazwa kolumny „{{name}}” zaczyna się od =, +, - lub @, co arkusze kalkulacyjne traktują jako formułę. Zmień jej nazwę.",
+    "rosterProblemReservedColumn": "Kolumna „{{name}}” jest wbudowaną kolumną listy uczestników i pojawia się ponownie po niej. Usuń dodatkową kopię."
   },
   "language": {
     "baseName": "Angielski (podstawowy)",
@@ -953,7 +958,8 @@
         "teamFormationInvalid": "Wybierz, kto tworzy grupy.",
         "pagesBranchInvalid": "Wpisz nazwę gałęzi bez spacji, o długości maksymalnie 255 znaków, lub pozostaw puste, aby użyć gałęzi domyślnej.",
         "pagesPathInvalid": "Folder Pages musi być / lub /docs.",
-        "pagesSourceInvalid": "GitHub Pages musi być „Wyłączone”, „GitHub Actions” lub „Gałąź”."
+        "pagesSourceInvalid": "GitHub Pages musi być „Wyłączone”, „GitHub Actions” lub „Gałąź”.",
+        "scheduleDateIncomplete": "Uzupełnij datę i godzinę albo wyłącz przełącznik, aby je usunąć."
       },
       "allowedFilesTip": "Uporządkowane wzorce w stylu {{gitignore}}, po jednym w wierszu, określające, które pliki należą do zgłoszenia (liczy się ostatnie dopasowanie, {{bang}} ponownie włącza). Na przykład {{star}}, a następnie {{example}} zezwala tylko na {{result}}. Puste zezwala na każdy plik.",
       "containerUserTip": "Użytkownik, jako który uruchamiany jest kontener. Ustaw root, jeśli checkout kończy się błędem uprawnień. GitHub Actions uruchamia kroki kontenera jako użytkownik hosta runnera, więc obraz non-root często nie może zapisywać w obszarze roboczym.",
@@ -1062,7 +1068,7 @@
           }
         },
         "modeLabel": "Wbudowany autograder",
-        "editHelp": "Zmiana wbudowanego autooceniacza dotyczy wyłącznie repozytoriów, które uczniowie zaakceptują od tej chwili. Repozytoria już zaakceptowane zachowują swoją oryginalną konfigurację, więc istniejące repozytoria musisz zaktualizować samodzielnie."
+        "editHelp": "Zmiana wbudowanego systemu automatycznego oceniania wpływa tylko na repozytoria, które studenci zaakceptują od tej chwili. Już zaakceptowane repozytoria zachowują swoją pierwotną konfigurację. Aby włączyć go dla nich, zapisz, a następnie użyj opcji „Dodaj przepływ pracy automatycznego oceniania” na stronie zgłoszeń lub polecenia gh teacher assignment enable-autograder."
       },
       "copyAbout": {
         "help": "Skopiuj sekcję About szablonu (jego opis) do każdego repozytorium ucznia. GitHub nie kopiuje jej automatycznie. Dotyczy to uczniów, którzy zaakceptują od teraz; już utworzone repozytoria nie są zmieniane.",
@@ -1138,7 +1144,9 @@
           "private": "Prywatne",
           "public": "Publiczne"
         },
-        "publicWarning": "Każdy w internecie będzie mógł zobaczyć pracę każdego studenta: kod, commity i imię i nazwisko. Jeśli organizacja nie zezwala studentom na tworzenie publicznych repozytoriów, ich repozytorium zostaje utworzone jako prywatne, a Ty możesz ustawić je jako publiczne na stronie zgłoszeń."
+        "publicWarning": "Każdy w internecie będzie mógł zobaczyć pracę każdego studenta: kod, commity i imię i nazwisko. Jeśli organizacja nie zezwala studentom na tworzenie publicznych repozytoriów, ich repozytorium zostaje utworzone jako prywatne, a Ty możesz ustawić je jako publiczne na stronie zgłoszeń.",
+        "autograderWarning": "Publiczne repozytoria nie są automatycznie oceniane. GitHub blokuje uruchamianie przez publiczne repozytorium przepływu pracy oceniania w Twoim prywatnym repozytorium classroom50, więc każdy przebieg oceniania kończy się niepowodzeniem z komunikatem „workflow was not found”. Podczas oceniania utrzymuj repozytoria jako prywatne.",
+        "autograderWarningToggleHint": "Możesz też wybrać opcję „Nie używaj wbudowanego systemu automatycznego oceniania”."
       },
       "lockAssignment": "Zablokuj zadanie",
       "lockAssignmentTip": "Studenci nie mogą widzieć ani akceptować zablokowanego zadania, w tym ci, którzy już je zaakceptowali. W przypadku prywatnego szablonu w Twojej organizacji zespół klasy traci dostęp do odczytu szablonu do czasu odblokowania. Dostęp personelu i istniejące repozytoria studentów pozostają bez zmian. Użyj tego, aby przygotować test na czas, a następnie odblokuj, gdy zaczyna się sesja.",
@@ -1167,14 +1175,15 @@
         },
         "editHelp": "Dotyczy to repozytoriów tworzonych od teraz; aby włączyć Pages w istniejących, użyj strony przesłanych prac.",
         "emptyRepoHint": "Niedostępne dla pustego repozytorium: nie ma jeszcze gałęzi do opublikowania.",
-        "help": "Opublikuj repozytorium każdego ucznia jako witrynę za pomocą GitHub Pages, konfigurowaną automatycznie w chwili akceptacji, dzięki czemu uczniowie nigdy nie potrzebują dostępu administratora. Domyślnie wyłączone. „GitHub Actions” wdraża przez przepływ pracy w repozytorium ucznia (dla witryn z krokiem kompilacji). „Gałąź” publikuje pliki z gałęzi bezpośrednio, bez potrzeby przepływu pracy (dla zwykłego HTML, CSS i JavaScript). Witryna jest publiczna w internecie, nawet gdy repozytorium jest prywatne, i serwowany jest każdy plik z opublikowanej gałęzi i folderu; tylko GitHub Enterprise Cloud może ograniczyć, kto ją widzi. Pages w prywatnych repozytoriach wymaga planu GitHub, który je obejmuje; w GitHub Free dla organizacji udostępnij repozytorium publicznie, w przeciwnym razie witryna nie zostanie utworzona.",
+        "help": "Publikuj każde repozytorium studenta jako witrynę za pomocą GitHub Pages, konfigurowaną automatycznie, gdy student akceptuje zadanie, więc nigdy nie potrzebuje dostępu administratora. Domyślnie wyłączone. „GitHub Actions” wdraża poprzez przepływ pracy w repozytorium studenta (dla witryn z etapem budowania). „Gałąź” publikuje pliki z gałęzi bezpośrednio, bez potrzeby przepływu pracy (dla zwykłego HTML, CSS i JavaScript). Witryna jest publiczna w internecie, nawet gdy repozytorium jest prywatne, i serwowany jest każdy plik z opublikowanej gałęzi i folderu; tylko GitHub Enterprise Cloud może ograniczyć, kto ją widzi. Pages w prywatnych repozytoriach wymaga planu GitHub, który je obejmuje; w GitHub Free dla organizacji ustaw repozytorium jako publiczne, w przeciwnym razie witryna nie zostanie utworzona. Publiczne repozytoria nie są automatycznie oceniane (zobacz Widoczność repozytorium).",
         "label": "GitHub Pages",
         "path": {
           "help": "Folder w tej gałęzi do opublikowania: katalog główny repozytorium (/) lub /docs. GitHub dopuszcza tylko te dwa.",
           "label": "Folder"
         },
         "workflowNote": "Wdrażanie przez GitHub Actions wymaga przepływu pracy w repozytorium każdego ucznia, który publikuje do Pages: musi przyznawać uprawnienia pages: write i id-token: write oraz używać actions/upload-pages-artifact i actions/deploy-pages. Umieść go w swoim szablonie lub poproś uczniów o dodanie go. Witryna jest tworzona w chwili akceptacji przez ucznia, więc pierwsze uruchomienie przepływu pracy ją wdraża."
-      }
+      },
+      "customAutograderNotice": "To zadanie korzysta z niestandardowego systemu automatycznego oceniania „{{name}}” z {{path}}. Zapisanie zachowuje go. Aby przełączyć się na wbudowany system automatycznego oceniania, ustaw „autograder” na „default” w pliku assignments.json."
     },
     "autograder": {
       "heading": "Testy autooceny",
@@ -1310,7 +1319,7 @@
       "colSubmitted": "Zgłoszone",
       "groupsAcceptedTitle": "Grupy, które przyjęły zadanie: istniejące repozytoria grupowe",
       "noGroupsYet": "Brak grup",
-      "noGroupsYetTitle": "Brak grup. Repozytorium grupowe jest tworzone, gdy jego założyciel przyjmie zadanie.",
+      "noGroupsYetTitle": "Brak grup. Repozytorium grupy tworzone jest, gdy jej pierwszy członek zaakceptuje zadanie.",
       "notCollectedYet": "Jeszcze nie zebrano",
       "sortByDue": "Sortuj według terminu",
       "sortByName": "Sortuj według nazwy",
@@ -1620,6 +1629,12 @@
       "unlockNoneLocked": "Żadne z wybranych zadań nie jest zablokowane.",
       "unlockTitle_one": "Odblokować {{count}} zadanie?",
       "unlockTitle_other": "Odblokować {{count}} zadania?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "„{{slug}}” korzysta z niestandardowego systemu automatycznego oceniania „{{name}}”, który do działania potrzebuje treści startowej. Wybierz szablon lub włącz ponownie „Dodaj plik README”, albo najpierw ustaw „autograder” na „default” w pliku {{classroom}}/assignments.json.",
+        "customAutograderNoAutograder": "„{{slug}}” korzysta z niestandardowego systemu automatycznego oceniania „{{name}}”, który wymaga włączonego ustawienia wbudowanego systemu automatycznego oceniania. Włącz ponownie wbudowany system automatycznego oceniania lub najpierw ustaw „autograder” na „default” w pliku {{classroom}}/assignments.json."
+      }
     }
   },
   "published": {
@@ -1741,12 +1756,13 @@
       "cancel": "Anuluj",
       "confirm": "Zapisz zmiany",
       "provisioning": {
-        "autograder": "Wbudowany automatyczny oceniacz: wyłączenie go sprawia, że przebiegi automatycznego oceniania w istniejących repozytoriach kończą się niepowodzeniem i wypadają z zebranych wyników.",
         "grading_mode": "Tryb oceniania: wyniki zapisane w starym trybie mogą być odczytywane inaczej.",
         "repo_source": "Źródło repozytorium: istniejące repozytoria zachowują swoją pierwotną zawartość startową.",
         "repo_visibility": "Widoczność repozytorium: zmień istniejące repozytoria na stronie zgłoszeń.",
         "student_permission": "Dostęp studenta do repozytorium: zmień istniejące repozytoria na stronie zgłoszeń.",
-        "pages": "GitHub Pages: włącz je w istniejących repozytoriach na stronie przesłanych prac."
+        "pages": "GitHub Pages: włącz je w istniejących repozytoriach na stronie przesłanych prac.",
+        "autograder_off": "Wbudowany system automatycznego oceniania: wyłączenie go sprawia, że przebiegi automatycznego oceniania w istniejących repozytoriach kończą się niepowodzeniem i wypadają ze zebranych wyników.",
+        "autograder_on": "Wbudowany system automatycznego oceniania: istniejące repozytoria nie mają jeszcze przepływu pracy automatycznego oceniania. Po zapisaniu użyj opcji „Dodaj przepływ pracy automatycznego oceniania” na stronie zgłoszeń, aby dodać go do nich."
       },
       "provisioningIntro_one": "{{count}} student już zaakceptował. Te zmiany dotyczą tylko repozytoriów zaakceptowanych od teraz; istniejące repozytorium zachowuje swoją bieżącą konfigurację:",
       "provisioningIntro_other": "{{count}} studentów już zaakceptowało. Te zmiany dotyczą tylko repozytoriów zaakceptowanych od teraz; {{count}} istniejących repozytoriów zachowuje swoją bieżącą konfigurację:",
@@ -2598,7 +2614,7 @@
       "overriddenTitle": "Ten wynik został ustawiony ręcznie i nie zostanie zmieniony przez autoocenianie, dopóki nadpisanie nie zostanie usunięte.",
       "notCollectedYet": "Jeszcze niezebrane",
       "notCollectedYetTitle": "Ten student wypchnął pracę, która nie została jeszcze zebrana, więc nie ma zapisanego czasu zgłoszenia. Uruchom „Zbierz teraz”, aby ją zebrać.",
-      "emptyNoGroupsBody": "Repozytorium grupowe powstaje, gdy jej założyciel zaakceptuje zadanie. Grupy pojawiają się tutaj w miarę ich tworzenia.",
+      "emptyNoGroupsBody": "Repozytorium grupy tworzone jest, gdy jej pierwszy członek zaakceptuje zadanie. Grupy pojawiają się tutaj w miarę ich powstawania.",
       "emptyNoGroupsTitle": "Brak grup",
       "noRepoYetTitle": "Brak jeszcze repozytorium. Uczeń nie zaakceptował zadania.",
       "notAcceptedTitle": "Ten uczeń nie otworzył jeszcze linku z zaproszeniem, więc repozytorium nie istnieje. Udostępnij link do zadania za pomocą przycisku Udostępnij.",
@@ -2622,13 +2638,21 @@
       "teamNoRepoTitle": "Repozytorium grupy jest tworzone, gdy członek grupy zaakceptuje zadanie. Udostępnij link do zadania, aby członek mógł je zaakceptować.",
       "staffRowTitle": "Nauczyciel, główny asystent lub asystent, który zaakceptował to zadanie, zwykle aby je wypróbować. Ten wiersz nie należy do ucznia.",
       "openSiteLabel": "Otwórz witrynę GitHub Pages dla {{repo}}",
-      "viewSite": "Otwórz witrynę GitHub Pages"
+      "viewSite": "Otwórz witrynę GitHub Pages",
+      "unverified": "Niezweryfikowane",
+      "unverifiedAuthorTitle": "System automatycznego oceniania nie opublikował tego wydania; zrobił to {{login}}. Wynik jest zebrany, ale nie stanowi dowodu. Sprawdź kartę Releases repozytorium i historię Actions.",
+      "unverifiedRecordedTitle": "System automatycznego oceniania nie opublikował tego wydania ({{reason}}). Wynik jest zebrany, ale nie stanowi dowodu. Sprawdź kartę Releases repozytorium i historię Actions.",
+      "unverifiedUnknownAccount": "nieznane konto",
+      "unverifiedUploaderTitle": "System automatycznego oceniania nie przesłał pliku result.json tego wydania; zrobił to {{login}}. Wynik jest zebrany, ale nie stanowi dowodu. Sprawdź kartę Releases repozytorium i historię Actions."
     },
     "reviewModal": {
       "errorTitle": "Nie udało się sprawdzić PR z opinią",
       "emptyTitle": "Brak jeszcze pull requesta z opinią",
       "openRepoPrs": "Otwórz PR repozytorium",
-      "emptyBody": "Nie otwarto jeszcze żadnego pull requesta z opinią dla <repo>{{repo}}</repo>. Otwiera się on, gdy uczeń zaakceptuje zadanie, więc mógł jeszcze nie zaakceptować, zadanie może mieć tę opcję wyłączoną lub otwarcie zostało odroczone. Odroczone otwarcie jest ponawiane przy ponownej akceptacji lub przy pierwszym ocenionym przesłaniu."
+      "emptyBody": "Nie otwarto jeszcze żadnego pull requesta z opinią dla <repo>{{repo}}</repo>. Otwiera się on, gdy uczeń zaakceptuje zadanie, więc mógł jeszcze nie zaakceptować, zadanie może mieć tę opcję wyłączoną lub otwarcie zostało odroczone. Odroczone otwarcie jest ponawiane przy ponownej akceptacji lub przy pierwszym ocenionym przesłaniu.",
+      "blockedBody": "Twoja przeglądarka zablokowała otwarcie tego w nowej karcie. Użyj przycisku poniżej, aby to otworzyć.",
+      "blockedTitle": "Znaleziono pull request z opiniami",
+      "openPr": "Otwórz PR z opiniami"
     },
     "rowRegrade": {
       "title": "Oceń ponownie to rozwiązanie",
@@ -3085,7 +3109,8 @@
       "subtitle_other": "Dotyczy {{count}} studentów, którzy zaakceptowali to zadanie.",
       "title": "Zmień widoczność repozytorium",
       "titleEmptyRoster": "Żaden student jeszcze nie zaakceptował",
-      "working": "Aktualizowanie repozytoriów"
+      "working": "Aktualizowanie repozytoriów",
+      "autograderWarning": "Automatyczne ocenianie zatrzymuje się, gdy repozytorium jest publiczne. GitHub blokuje uruchamianie przez publiczne repozytorium przepływu pracy oceniania w Twoim prywatnym repozytorium classroom50, więc każdy przebieg oceniania kończy się niepowodzeniem z komunikatem „workflow was not found”. Ustaw repozytoria z powrotem jako prywatne, aby wznowić ocenianie."
     },
     "cloneAll": {
       "buttonTitle": "Sklonuj wszystkie zgłoszenia za pomocą CLI",
@@ -3119,7 +3144,8 @@
         "private": "Repozytorium jest teraz prywatne.",
         "public": "Repozytorium jest teraz publiczne."
       },
-      "confirmWarning": "Każdy, kto obejrzy lub sklonuje repozytorium, gdy jest publiczne, zachowuje tę kopię, nawet po ponownym ustawieniu go jako prywatne."
+      "confirmWarning": "Każdy, kto obejrzy lub sklonuje repozytorium, gdy jest publiczne, zachowuje tę kopię, nawet po ponownym ustawieniu go jako prywatne.",
+      "confirmAutograderWarning": "Automatyczne ocenianie zatrzymuje się, gdy repozytorium jest publiczne: GitHub blokuje uruchamianie przez nie przepływu pracy oceniania w Twoim prywatnym repozytorium classroom50. Ustaw je z powrotem jako prywatne, aby wznowić ocenianie."
     },
     "rosterFromCsvNotice": "Lista uczniów pochodzi z pliku listy z chwili jej ostatniej synchronizacji, ponieważ Twoja rola nie może przeglądać zespołu GitHub tej klasy. Uczeń zapisany od tego czasu pojawi się po otwarciu listy przez nauczyciela. Właściciele organizacji widzą członkostwo na żywo.",
     "skipPastTable": "Pomiń tabelę przesłań",
@@ -3161,6 +3187,53 @@
         "unknown": "GitHub Pages nie mogło zostać teraz włączone dla {{repo}}. Spróbuj ponownie za chwilę."
       },
       "title": "Włącz GitHub Pages"
+    },
+    "bulkShim": {
+      "apply": "Zastosuj do wszystkich",
+      "configBranchError": "Nie udało się odczytać domyślnej gałęzi repozytorium klasy, więc nie dodano żadnego przepływu pracy. Spróbuj ponownie.",
+      "deferredDetail": "Pominięto. Uruchom ponownie, aby dodać.",
+      "deferredSection_one": "Nie przetworzono {{count}} repozytorium",
+      "deferredSection_other": "Nie przetworzono {{count}} repozytorium",
+      "failedSection_one": "Nie udało się zaktualizować {{count}} repozytorium",
+      "failedSection_other": "Nie udało się zaktualizować {{count}} repozytorium",
+      "menuLabel": "Dodaj przepływ pracy automatycznego oceniania",
+      "menuTitle": "Dodaj wbudowany przepływ pracy automatycznego oceniania do każdego repozytorium studenta, które go nie ma",
+      "noRepos": "Żaden student jeszcze nie zaakceptował, więc nie ma nic do dodania.",
+      "notAcceptedDetail": "Repozytorium nie istnieje. Otrzyma przepływ pracy, gdy student zaakceptuje.",
+      "notAcceptedSection_one": "{{count}} student jeszcze nie zaakceptował",
+      "notAcceptedSection_other": "{{count}} studenta jeszcze nie zaakceptowało",
+      "progress": "Przetworzono {{processed}} z {{total}}",
+      "regradeReminder": "Praca, którą studenci już wypchnęli, jest oceniana przy ich następnym pushu. Przepływ pracy uruchamia się tylko dla commitów, które go zawierają, więc „Oceń ponownie wszystko” nie sięga wcześniejszych commitów. Aby ocenić teraz, poproś studentów o jednorazowy push (wystarczy pusty commit).",
+      "repullReminder": "Poinformuj studentów, aby uruchomili git pull. Klony wykonane przed tą zmianą będą powodować konflikt przy ich następnym pushu.",
+      "resultHeadline": "Dodano przepływ pracy do {{added}} z {{total}} repozytoriów ({{present}} już go miało).",
+      "scopeDetail": "Twoja autoryzacja GitHub nie może modyfikować plików przepływu pracy. Wyloguj się i zaloguj ponownie, a następnie uruchom ponownie.",
+      "scopeSection_one": "{{count}} repozytorium wymaga dodatkowego uprawnienia GitHub",
+      "scopeSection_other": "{{count}} repozytorium wymaga dodatkowego uprawnienia GitHub",
+      "subtitle_one": "Dodaje przepływ pracy automatycznego oceniania do repozytorium {{count}} studenta, jeśli go brakuje.",
+      "subtitle_other": "Dodaje przepływ pracy automatycznego oceniania do repozytoriów {{count}} studenta, gdzie go brakuje.",
+      "title": "Dodaj przepływ pracy automatycznego oceniania",
+      "titleEmptyRoster": "Żaden student jeszcze nie zaakceptował",
+      "unrecognizedSection_one": "Pominięto {{count}} repozytorium (inny przepływ pracy znajduje się już w tej ścieżce)",
+      "unrecognizedSection_other": "Pominięto {{count}} repozytorium (inny przepływ pracy znajduje się już w tej ścieżce)",
+      "warningLead_one": "Powoduje to zatwierdzenie przepływu pracy automatycznego oceniania do repozytorium {{count}} studenta.",
+      "warningLead_other": "Powoduje to zatwierdzenie przepływu pracy automatycznego oceniania do repozytoriów {{count}} studenta.",
+      "warningPoint1": "Repozytoria, które już mają ten przepływ pracy, pozostają nietknięte.",
+      "warningPoint2": "Commit jest oznaczony tak, aby nie wyzwalał oceniania. Praca, którą studenci już wypchnęli, jest oceniana przy ich następnym pushu; „Oceń ponownie wszystko” nie sięga commitów wykonanych, zanim przepływ pracy istniał.",
+      "warningPoint3": "Studenci muszą potem wykonać pull. Klony wykonane przed tą zmianą będą powodować konflikt przy ich następnym pushu.",
+      "working": "Dodawanie przepływu pracy"
+    },
+    "rowShim": {
+      "aria": "Dodaj przepływ pracy automatycznego oceniania do {{repo}}",
+      "description": "Dodaj wbudowany przepływ pracy automatycznego oceniania do tego repozytorium, jeśli zostało zaakceptowane, gdy system automatycznego oceniania był wyłączony.",
+      "outcome": {
+        "added": "Dodano przepływ pracy automatycznego oceniania. Student musi wykonać pull przed swoim następnym pushem, a to właśnie ten push ocenia pracę już znajdującą się w repozytorium.",
+        "failed": "Nie udało się dodać przepływu pracy. Spróbuj ponownie.",
+        "missingWorkflowScope": "Twoja autoryzacja GitHub nie może modyfikować plików przepływu pracy. Wyloguj się i zaloguj ponownie, a następnie spróbuj ponownie.",
+        "notAccepted": "Repozytorium jeszcze nie istnieje, więc nie ma nic do dodania.",
+        "present": "To repozytorium już ma przepływ pracy automatycznego oceniania.",
+        "unrecognized": "Pominięto: inny przepływ pracy znajduje się już w ścieżce przepływu pracy automatycznego oceniania, więc niczego nie zmieniono."
+      },
+      "title": "Dodaj przepływ pracy automatycznego oceniania"
     }
   },
   "orgMembers": {
@@ -3807,7 +3880,22 @@
       },
       "subheading": "Likwidacja organizacji wymaga uprawnienia do usuwania repozytoriów, o które zwykłe logowanie nie prosi. Przyznawaj to uprawnienie tylko wtedy, gdy jest potrzebne, i odwołuj je na GitHubie, gdy skończysz."
     },
-    "noChangesToSave": "Brak zmian do zapisania."
+    "noChangesToSave": "Brak zmian do zapisania.",
+    "analytics": {
+      "heading": "Pliki cookie i analityka",
+      "privacyLink": "Przeczytaj informację o prywatności",
+      "subheading": "Analityka pomaga ulepszać Classroom 50. Wybierz, które usługi mogą zliczać Twoje wizyty w tej przeglądarce. Pamięć funkcjonalna pozostaje włączona."
+    },
+    "nameOrder": {
+      "firstLast": "Imię, następnie nazwisko",
+      "firstLastHint": "Na przykład Ada Lovelace.",
+      "groupAria": "Preferencja kolejności imion i nazwisk",
+      "heading": "Imiona i nazwiska studentów",
+      "lastFirst": "Nazwisko, następnie imię",
+      "lastFirstHint": "Na przykład Lovelace Ada.",
+      "saved": "Zapisano preferencję kolejności imion i nazwisk.",
+      "subheading": "Wybierz kolejność, w jakiej imiona i nazwiska studentów pojawiają się na listach uczestników, w zgłoszeniach, grupach i eksportowanych wynikach."
+    }
   },
   "pagesErrors": {
     "assignmentNotInManifest": "Zadania „{{assignmentSlug}}” nie ma wśród opublikowanych zadań tej klasy. Sprawdź link lub poproś nauczyciela o opublikowanie zadania.",
@@ -4122,5 +4210,95 @@
       "staff": "Zespół {{slug}} już istnieje, ale nie został utworzony przez Classroom 50, więc nie może być użyty jako zespół dydaktyczny. Przejrzyj jego członków pod adresem {{url}}, a następnie albo go usuń, albo nadaj mu dostęp do repozytorium classroom50 i spróbuj ponownie.",
       "studentOf": "Zespół {{slug}} jest zespołem studenckim zajęć {{classroom}}, więc nie może być zespołem {{role}} tych zajęć. Pozostaw tutaj rolę {{role}} nieobsadzoną albo zmień nazwę jednych z zajęć."
     }
+  },
+  "consent": {
+    "alwaysOn": "Zawsze włączone",
+    "banner": {
+      "accept": "Akceptuj",
+      "body": "Anonimowe dane o użyciu pokazują, które funkcje są wykorzystywane i gdzie użytkownicy napotykają trudności, dzięki czemu aplikacja może się rozwijać. Nic nie identyfikuje Ciebie, a swój wybór możesz zmienić w dowolnej chwili w Ustawieniach. Odznacz to, czym wolisz się nie dzielić, a następnie wybierz Akceptuj.",
+      "decline": "Odrzuć",
+      "hideNotice": "Ukryj informację o prywatności",
+      "readNotice": "Przeczytaj informację o prywatności",
+      "title": "Analityka pomaga ulepszać Classroom 50"
+    },
+    "browserDeclines": "Twoja przeglądarka wysyła sygnał Global Privacy Control lub Do Not Track, więc analityka pozostaje wyłączona, a Classroom 50 nie pyta.",
+    "categories": {
+      "cloudflare": {
+        "caption": "Zlicza wizyty. Bez plików cookie.",
+        "items": {
+          "collected": "Ścieżka strony, witryna odsyłająca, kraj, typ przeglądarki i czas ładowania",
+          "noCookies": "Brak plików cookie i identyfikatorów, więc zlicza wizyty, a nie osoby",
+          "notCollected": "Nigdy Twojej nazwy użytkownika GitHub, adresu e-mail, danych z listy uczestników ani ciągu zapytania z adresu URL"
+        },
+        "label": "Cloudflare Web Analytics"
+      },
+      "functional": {
+        "caption": "Wymagane do działania aplikacji. Pozostaje w tej przeglądarce.",
+        "items": {
+          "consent": "Wybór, którego tu dokonujesz",
+          "preferences": "Twoje ustawienia: język, motyw, kolejność imion i nazwisk, animacje, ukryte organizacje i układ paska bocznego",
+          "session": "Twoje logowanie do GitHub, dzięki czemu pozostajesz zalogowany"
+        },
+        "label": "Funkcjonalne",
+        "tooltip": "Przechowywane tylko w tej przeglądarce: Twoje logowanie do GitHub, dzięki czemu pozostajesz zalogowany, Twoje ustawienia (język, motyw, kolejność imion i nazwisk, animacje, ukryte organizacje i układ paska bocznego) oraz wybór, którego tu dokonujesz. Nic z tego nie jest wykorzystywane do analityki."
+      },
+      "google": {
+        "caption": "Pokazuje, jak wykorzystywane są funkcje. Ustawia jeden plik cookie.",
+        "items": {
+          "collected": "Strony, które odwiedzasz, i jak długo na nich pozostajesz, witryna, która odesłała do strony, Twój kraj oraz Twoja przeglądarka, urządzenie i język, wysyłane przez Google Tag Manager",
+          "cookie": "Plik cookie przechowujący losowy identyfikator, dzięki czemu powracająca przeglądarka jest liczona raz. Wygasa po 2 latach.",
+          "notCollected": "Nigdy Twojej nazwy użytkownika GitHub, adresu e-mail, danych z listy uczestników ani ciągu zapytania z adresu URL"
+        },
+        "label": "Google Analytics"
+      }
+    },
+    "declineAll": "Odrzuć całą analitykę",
+    "reset": "Zresetuj i zapytaj ponownie",
+    "savePreferences": "Zapisz preferencje",
+    "whatThisIncludes": "Co to obejmuje"
+  },
+  "privacy": {
+    "analytics": {
+      "cloudflareTerms": "Aneks o przetwarzaniu danych Cloudflare",
+      "collected": {
+        "cookie": "Tylko Google Analytics: plik cookie przechowujący losowy identyfikator, dzięki czemu powracająca przeglądarka jest liczona raz. Wygasa po 2 latach, a wyłączenie Google Analytics go usuwa.",
+        "country": "Twój kraj, ustalony na podstawie Twojego połączenia",
+        "device": "Przeglądarka, system operacyjny, typ urządzenia i język",
+        "path": "Strony, które odwiedzasz, na przykład /cs1-fall-2026/assignments, i jak długo na nich pozostajesz",
+        "referrer": "Witryna, która odesłała do strony",
+        "timings": "Czas ładowania strony"
+      },
+      "collectedHeading": "Zbierane",
+      "googleTerms": "Polityka prywatności Google",
+      "googleUsage": "Jak Google wykorzystuje informacje z witryn korzystających z jego usług",
+      "heading": "Analityka użycia",
+      "intro": "Analityka pokazuje, ile osób korzysta z classroom50.org, z których funkcji korzystają i gdzie napotykają trudności, dzięki czemu aplikacja może się rozwijać. Za Twoją zgodą robią to dwie usługi: Cloudflare Web Analytics, która nie ustawia plików cookie, oraz Google Analytics, ładowana przez Google Tag Manager, która rozpoznaje powracającą przeglądarkę za pomocą pliku cookie. Możesz wyłączyć każdą z nich. Żadna z nich nie wie, kim jesteś.",
+      "notCollected": {
+        "crossSite": "Cokolwiek, co śledzi Cię na innych witrynach",
+        "identity": "Twoja nazwa użytkownika GitHub, adres e-mail ani dane z listy uczestników",
+        "queryStrings": "Ciągi zapytań. Cloudflare usuwa je w Twojej przeglądarce, a nasza konfiguracja Google Analytics jest ustawiona tak, aby ich nie rejestrować, więc kody logowania, klucze z linków zapraszających i wyszukiwania na liście uczestników pozostają poza danymi."
+      },
+      "notCollectedHeading": "Niezbierane",
+      "processing": "Google i Cloudflare przetwarzają te dane dla Fifty Foundation. Jak każda z nich to robi:",
+      "retention": "Google przechowuje dane zdarzeń przez maksymalnie 14 miesięcy. Cloudflare przechowuje pełne dane przez 7 dni, a próbkę przez 6 miesięcy. Żadna z usług nie działa, dopóki nie zaakceptujesz, a swoją odpowiedź możesz zmienić w dowolnym momencie poniżej."
+    },
+    "choice": {
+      "body": "Twój wybór jest zapisywany w tej przeglądarce. Zaakceptowanie od razu uruchamia usługi, które pozostawiłeś włączone. Wyłączenie którejś usuwa jej pliki cookie teraz i zatrzymuje ją od następnego ładowania strony. Gdy jesteś zalogowany, możesz to również zmienić w Ustawieniach.",
+      "heading": "Twój wybór",
+      "signals": "Jeśli Twoja przeglądarka wysyła sygnał Global Privacy Control lub Do Not Track, żadna analityka nie działa, a Classroom 50 nie pyta."
+    },
+    "contact": {
+      "body": "Classroom 50 to projekt open source wspierany przez Fifty Foundation. Aby zapytać o tę informację, rozpocznij wątek w",
+      "heading": "Pytania",
+      "link": "GitHub Discussions"
+    },
+    "data": {
+      "body": "Classroom 50 nie ma własnego serwera, bazy danych ani kont. Listy uczestników, repozytoria zadań, wyniki i opinie pozostają w Twojej organizacji GitHub. Aplikacja odczytuje je i zapisuje przez API GitHub za pomocą tokenu, który udzielasz. Logowanie i pobieranie repozytoriów przechodzą przez serwer proxy, który niczego nie przechowuje.",
+      "heading": "Twoje dane klasy",
+      "more": "Szczegóły, w tym wskazówki dotyczące FERPA, znajdziesz w",
+      "moreLink": "Prywatność i FERPA w dokumentacji"
+    },
+    "pageSubtitle": "Jak aplikacja internetowa Classroom 50 obchodzi się z Twoimi danymi i co możesz wybrać.",
+    "pageTitle": "Prywatność"
   }
 }

@@ -157,7 +157,8 @@
     "backToApp": "Retour à l'application",
     "signIn": "Se connecter",
     "manageGroups": "Gérer les groupes",
-    "mySubmissionTeam": "Remise du groupe"
+    "mySubmissionTeam": "Remise du groupe",
+    "aboutViewPrivacy": "Voir les infos de confidentialité"
   },
   "auth": {
     "signInTitle": "Se connecter",
@@ -232,7 +233,8 @@
       "revokeTitle": "Cesser d'utiliser l'autorisation de supprimer des dépôts",
       "title": "Demander l'autorisation de supprimer des dépôts"
     },
-    "patRequired": "Saisissez un jeton d'accès personnel pour vous connecter."
+    "patRequired": "Saisissez un jeton d'accès personnel pour vous connecter.",
+    "privacy": "Confidentialité"
   },
   "documentTitle": {
     "assignments": "Devoirs",
@@ -721,7 +723,10 @@
     "uploadBlockedChecking": "Vérification de l'adhésion actuelle…",
     "uploadBlockedDetails": "Confirmez les mises à jour de détails ci-dessus pour continuer.",
     "uploadBlockedRoles": "Confirmez les changements de rôle ci-dessus pour continuer.",
-    "uploadBlockedUsernames": "Confirmez les changements de nom d'utilisateur ci-dessus pour continuer."
+    "uploadBlockedUsernames": "Confirmez les changements de nom d'utilisateur ci-dessus pour continuer.",
+    "rosterProblemDuplicateColumn": "La colonne « {{name}} » apparaît plusieurs fois. Gardez-en une et supprimez les autres.",
+    "rosterProblemFormulaColumn": "Le nom de colonne « {{name}} » commence par =, +, - ou @, que les tableurs interprètent comme une formule. Renommez-le.",
+    "rosterProblemReservedColumn": "La colonne « {{name}} » est une colonne de liste d'étudiants intégrée et réapparaît après. Supprimez la copie supplémentaire."
   },
   "language": {
     "baseName": "Anglais (base)",
@@ -1082,7 +1087,8 @@
         "teamFormationInvalid": "Choisissez qui forme les groupes.",
         "pagesBranchInvalid": "Saisissez un nom de branche sans espaces, de 255 caractères au maximum, ou laissez-le vide pour la branche par défaut.",
         "pagesPathInvalid": "Le dossier Pages doit être / ou /docs.",
-        "pagesSourceInvalid": "GitHub Pages doit être « Désactivé », « GitHub Actions » ou « Une branche »."
+        "pagesSourceInvalid": "GitHub Pages doit être « Désactivé », « GitHub Actions » ou « Une branche ».",
+        "scheduleDateIncomplete": "Complétez la date et l'heure, ou désactivez le commutateur pour la supprimer."
       },
       "availableFrom": "Date de publication ({{tz}})",
       "availableFromTz": "Les heures sont indiquées dans votre fuseau horaire local ({{tz}}).",
@@ -1152,7 +1158,7 @@
           }
         },
         "modeLabel": "Correcteur automatique intégré",
-        "editHelp": "Modifier l'autonoteur intégré ne concerne que les dépôts que les étudiants acceptent à partir de maintenant. Les dépôts déjà acceptés conservent leur configuration d'origine, vous devrez donc mettre à jour les dépôts existants vous-même."
+        "editHelp": "Modifier le correcteur automatique intégré n'affecte que les dépôts que les étudiants acceptent à partir de maintenant. Les dépôts déjà acceptés conservent leur configuration d'origine. Pour l'activer sur ceux-ci, enregistrez, puis utilisez « Ajouter le workflow de correction automatique » sur la page des rendus ou gh teacher assignment enable-autograder."
       },
       "copyAbout": {
         "help": "Copie le champ « À propos » (sa description) du modèle sur chaque dépôt d'étudiant. GitHub ne le copie pas automatiquement. Cela s'applique aux étudiants qui acceptent à partir de maintenant ; les dépôts déjà créés ne sont pas modifiés.",
@@ -1228,7 +1234,9 @@
           "private": "Privé",
           "public": "Public"
         },
-        "publicWarning": "N'importe qui sur Internet pourra voir le travail de chaque étudiant : code, commits et nom. Si l'organisation n'autorise pas les étudiants à créer des dépôts publics, leur dépôt est créé en privé et vous pouvez le rendre public depuis la page des soumissions."
+        "publicWarning": "N'importe qui sur Internet pourra voir le travail de chaque étudiant : code, commits et nom. Si l'organisation n'autorise pas les étudiants à créer des dépôts publics, leur dépôt est créé en privé et vous pouvez le rendre public depuis la page des soumissions.",
+        "autograderWarning": "Les dépôts publics ne sont pas corrigés automatiquement. GitHub empêche un dépôt public d'exécuter le workflow de correction dans votre dépôt privé classroom50, donc chaque exécution de correction échoue avec « workflow was not found ». Gardez les dépôts privés pendant la correction.",
+        "autograderWarningToggleHint": "Vous pouvez aussi sélectionner « Ne pas utiliser le correcteur automatique intégré »."
       },
       "lockAssignment": "Verrouiller le devoir",
       "lockAssignmentTip": "Les étudiants ne peuvent ni voir ni accepter un devoir verrouillé, y compris ceux qui l'ont déjà accepté. Pour un modèle privé de votre organisation, l'équipe du cours perd l'accès en lecture au modèle jusqu'au déverrouillage. L'accès du personnel et les dépôts d'étudiants existants restent inchangés. Utilisez-le pour préparer une évaluation chronométrée, puis déverrouillez au début de la séance.",
@@ -1257,14 +1265,15 @@
         },
         "editHelp": "Ceci s'applique aux dépôts créés à partir de maintenant ; utilisez la page des soumissions pour activer Pages sur les dépôts existants.",
         "emptyRepoHint": "Non disponible pour un dépôt vide : il n'y a pas encore de branche à publier.",
-        "help": "Publiez chaque dépôt étudiant comme un site web avec GitHub Pages, configuré automatiquement lorsque l'étudiant accepte pour qu'il n'ait jamais besoin d'un accès administrateur. Désactivé est la valeur par défaut. « GitHub Actions » déploie via un workflow dans le dépôt étudiant (pour les sites avec une étape de build). « Une branche » publie directement les fichiers d'une branche, sans workflow (pour du HTML, CSS et JavaScript simples). Le site est public sur Internet même lorsque le dépôt est privé, et chaque fichier de la branche et du dossier publiés est servi ; seul GitHub Enterprise Cloud peut restreindre qui le voit. Pages sur les dépôts privés nécessite un forfait GitHub qui l'inclut ; sur GitHub Free pour les organisations, rendez le dépôt public ou le site n'est pas créé.",
+        "help": "Publiez chaque dépôt étudiant sous forme de site web avec GitHub Pages, configuré automatiquement lorsque l'étudiant accepte, de sorte qu'il n'a jamais besoin d'un accès admin. Désactivé par défaut. « GitHub Actions » déploie via un workflow dans le dépôt étudiant (pour les sites avec une étape de build). « Une branche » publie directement les fichiers d'une branche, sans workflow (pour du HTML, CSS et JavaScript simples). Le site est public sur Internet même lorsque le dépôt est privé, et chaque fichier de la branche et du dossier publiés est servi ; seul GitHub Enterprise Cloud peut restreindre qui le voit. Pages sur des dépôts privés nécessite un forfait GitHub qui l'inclut ; sur GitHub Free pour les organisations, rendez le dépôt public sinon le site n'est pas créé. Les dépôts publics ne sont pas corrigés automatiquement (voir Visibilité du dépôt).",
         "label": "GitHub Pages",
         "path": {
           "help": "Le dossier de cette branche à publier : la racine du dépôt (/) ou /docs. GitHub n'autorise que ces deux options.",
           "label": "Dossier"
         },
         "workflowNote": "Le déploiement via GitHub Actions nécessite un workflow dans chaque dépôt étudiant qui publie vers Pages : il doit accorder les permissions pages: write et id-token: write et utiliser actions/upload-pages-artifact et actions/deploy-pages. Placez-le dans votre modèle, ou demandez aux étudiants de l'ajouter. Le site est créé lorsque l'étudiant accepte, donc la première exécution du workflow le déploie."
-      }
+      },
+      "customAutograderNotice": "Ce devoir utilise le correcteur automatique personnalisé « {{name}} » depuis {{path}}. L'enregistrement le conserve. Pour passer au correcteur automatique intégré, définissez « autograder » sur « default » dans assignments.json."
     },
     "autograder": {
       "heading": "Tests de correction automatique",
@@ -1400,7 +1409,7 @@
       "colSubmitted": "Soumis",
       "groupsAcceptedTitle": "Groupes ayant accepté : dépôts de groupe existants",
       "noGroupsYet": "Aucun groupe pour l'instant",
-      "noGroupsYetTitle": "Aucun groupe pour le moment. Un dépôt de groupe est créé lorsque son fondateur accepte.",
+      "noGroupsYetTitle": "Aucun groupe pour l'instant. Un dépôt de groupe est créé lorsque son premier membre accepte.",
       "notCollectedYet": "Pas encore collecté",
       "sortByDue": "Trier par date d'échéance",
       "sortByName": "Trier par nom",
@@ -1662,6 +1671,12 @@
       "unlockNoneLocked": "Aucun des devoirs sélectionnés n'est verrouillé.",
       "unlockTitle_one": "Déverrouiller {{count}} devoir ?",
       "unlockTitle_other": "Déverrouiller {{count}} devoirs ?"
+    },
+    "edit": {
+      "error": {
+        "customAutograderInitShim": "« {{slug}} » utilise le correcteur automatique personnalisé « {{name}} », qui a besoin d'un contenu de départ pour s'exécuter. Choisissez un modèle ou réactivez « Ajouter un README », ou définissez d'abord « autograder » sur « default » dans {{classroom}}/assignments.json.",
+        "customAutograderNoAutograder": "« {{slug}} » utilise le correcteur automatique personnalisé « {{name}} », qui nécessite l'activation du correcteur automatique intégré. Réactivez le correcteur automatique intégré, ou définissez d'abord « autograder » sur « default » dans {{classroom}}/assignments.json."
+      }
     }
   },
   "published": {
@@ -1817,12 +1832,13 @@
       "cancel": "Annuler",
       "confirm": "Enregistrer les modifications",
       "provisioning": {
-        "autograder": "Correcteur automatique intégré : le désactiver fait échouer les exécutions de correction automatique des dépôts existants, qui disparaissent alors des scores collectés.",
         "grading_mode": "Mode de notation : les scores enregistrés selon l'ancien mode peuvent se lire différemment.",
         "repo_source": "Source du dépôt : les dépôts existants conservent leur contenu de départ d'origine.",
         "repo_visibility": "Visibilité du dépôt : modifiez les dépôts existants depuis la page des soumissions.",
         "student_permission": "Accès des étudiants au dépôt : modifiez les dépôts existants depuis la page des soumissions.",
-        "pages": "GitHub Pages : activez-le sur les dépôts existants depuis la page des soumissions."
+        "pages": "GitHub Pages : activez-le sur les dépôts existants depuis la page des soumissions.",
+        "autograder_off": "Correcteur automatique intégré : le désactiver fera échouer les exécutions de correction automatique des dépôts existants, qui disparaîtront des scores collectés.",
+        "autograder_on": "Correcteur automatique intégré : les dépôts existants n'ont pas encore de workflow de correction automatique. Après l'enregistrement, utilisez « Ajouter le workflow de correction automatique » sur la page des rendus pour l'ajouter."
       },
       "provisioningIntro_one": "{{count}} étudiant a déjà accepté. Ces modifications s'appliquent uniquement aux dépôts acceptés à partir de maintenant ; le dépôt existant conserve sa configuration actuelle :",
       "provisioningIntro_other": "{{count}} étudiants ont déjà accepté. Ces modifications s'appliquent uniquement aux dépôts acceptés à partir de maintenant ; les {{count}} dépôts existants conservent leur configuration actuelle :",
@@ -2728,7 +2744,7 @@
       "overriddenTitle": "Ce score a été défini à la main et ne sera pas modifié par la correction automatique tant que la substitution n'est pas effacée.",
       "notCollectedYet": "Pas encore collecté",
       "notCollectedYetTitle": "Cet étudiant a poussé un travail qui n'a pas encore été collecté, il n'y a donc aucune heure de soumission enregistrée. Exécutez « Collecter maintenant » pour le collecter.",
-      "emptyNoGroupsBody": "Un dépôt de groupe est créé lorsque son fondateur accepte le devoir. Les groupes apparaissent ici au fur et à mesure de leur formation.",
+      "emptyNoGroupsBody": "Un dépôt de groupe est créé lorsque son premier membre accepte le devoir. Les groupes apparaissent ici au fur et à mesure de leur formation.",
       "emptyNoGroupsTitle": "Aucun groupe pour l'instant",
       "noRepoYetTitle": "Pas encore de dépôt. L'étudiant n'a pas accepté le devoir.",
       "notAcceptedTitle": "Cet élève n'a pas encore ouvert le lien d'invitation, aucun dépôt n'existe donc. Partagez le lien du devoir depuis le bouton Partager.",
@@ -2752,13 +2768,21 @@
       "teamNoRepoTitle": "Le dépôt du groupe est créé lorsqu'un membre du groupe accepte le devoir. Partagez le lien du devoir pour qu'un membre puisse l'accepter.",
       "staffRowTitle": "Un enseignant, un assistant principal ou un assistant qui a accepté ce devoir, généralement pour l'essayer. Cette ligne n'est pas celle d'un étudiant.",
       "openSiteLabel": "Ouvrir le site GitHub Pages de {{repo}}",
-      "viewSite": "Ouvrir le site GitHub Pages"
+      "viewSite": "Ouvrir le site GitHub Pages",
+      "unverified": "Non vérifié",
+      "unverifiedAuthorTitle": "Le correcteur automatique n'a pas publié cette version ; c'est {{login}} qui l'a fait. Le score est collecté mais non prouvé. Vérifiez l'onglet Releases et l'historique Actions du dépôt.",
+      "unverifiedRecordedTitle": "Le correcteur automatique n'a pas publié cette version ({{reason}}). Le score est collecté mais non prouvé. Vérifiez l'onglet Releases et l'historique Actions du dépôt.",
+      "unverifiedUnknownAccount": "un compte inconnu",
+      "unverifiedUploaderTitle": "Le correcteur automatique n'a pas téléversé le result.json de cette version ; c'est {{login}} qui l'a fait. Le score est collecté mais non prouvé. Vérifiez l'onglet Releases et l'historique Actions du dépôt."
     },
     "reviewModal": {
       "errorTitle": "Impossible de vérifier la présence d'une PR de retour",
       "emptyTitle": "Aucune pull request de retour pour l'instant",
       "emptyBody": "Aucune pull request de retour n'a encore été ouverte pour <repo>{{repo}}</repo>. Elle s'ouvre lorsque l'étudiant accepte le devoir, il se peut donc qu'il n'ait pas encore accepté, que le devoir l'ait désactivée, ou que son ouverture ait été différée. Une ouverture différée est retentée lors d'une nouvelle acceptation ou de la première soumission notée.",
-      "openRepoPrs": "Ouvrir les PR du dépôt"
+      "openRepoPrs": "Ouvrir les PR du dépôt",
+      "blockedBody": "Votre navigateur a bloqué son ouverture dans un nouvel onglet. Utilisez le bouton ci-dessous pour l'ouvrir.",
+      "blockedTitle": "Pull request de retour trouvée",
+      "openPr": "Ouvrir la PR de retour"
     },
     "rowRegrade": {
       "title": "Réévaluer ce rendu",
@@ -3195,7 +3219,8 @@
       "subtitle_other": "S'applique à {{count}} étudiants ayant accepté ce travail.",
       "title": "Changer la visibilité des dépôts",
       "titleEmptyRoster": "Aucun étudiant n'a encore accepté",
-      "working": "Mise à jour des dépôts"
+      "working": "Mise à jour des dépôts",
+      "autograderWarning": "La correction automatique s'arrête pendant qu'un dépôt est public. GitHub empêche un dépôt public d'exécuter le workflow de correction dans votre dépôt privé classroom50, donc chaque exécution de correction échoue avec « workflow was not found ». Rendez à nouveau les dépôts privés pour reprendre la correction."
     },
     "cloneAll": {
       "buttonTitle": "Cloner toutes les soumissions avec la CLI",
@@ -3229,7 +3254,8 @@
         "private": "Le dépôt est maintenant privé.",
         "public": "Le dépôt est maintenant public."
       },
-      "confirmWarning": "Quiconque consulte ou clone le dépôt pendant qu'il est public en conserve une copie, même après que vous l'ayez de nouveau rendu privé."
+      "confirmWarning": "Quiconque consulte ou clone le dépôt pendant qu'il est public en conserve une copie, même après que vous l'ayez de nouveau rendu privé.",
+      "confirmAutograderWarning": "La correction automatique s'arrête pendant que le dépôt est public : GitHub l'empêche d'exécuter le workflow de correction dans votre dépôt privé classroom50. Rendez-le à nouveau privé pour reprendre la correction."
     },
     "rosterFromCsvNotice": "La liste des étudiants provient du fichier de liste tel qu'il était lors de sa dernière synchronisation, car votre rôle ne permet pas de consulter l'équipe GitHub de la classe. Un étudiant inscrit depuis apparaît une fois qu'un enseignant ouvre la liste. Les propriétaires de l'organisation voient l'appartenance en direct.",
     "skipPastTable": "Passer le tableau des soumissions",
@@ -3271,6 +3297,53 @@
         "unknown": "GitHub Pages n'a pas pu être activé sur {{repo}} pour l'instant. Réessayez dans un instant."
       },
       "title": "Activer GitHub Pages"
+    },
+    "bulkShim": {
+      "apply": "Appliquer à tous",
+      "configBranchError": "Impossible de lire la branche par défaut du dépôt de la classe, donc aucun workflow n'a été ajouté. Réessayez.",
+      "deferredDetail": "Ignoré. Relancez pour ajouter.",
+      "deferredSection_one": "{{count}} dépôt n'a pas été traité",
+      "deferredSection_other": "{{count}} dépôts n'ont pas été traités",
+      "failedSection_one": "{{count}} dépôt n'a pas pu être mis à jour",
+      "failedSection_other": "{{count}} dépôts n'ont pas pu être mis à jour",
+      "menuLabel": "Ajouter le workflow de correction automatique",
+      "menuTitle": "Ajouter le workflow de correction automatique intégré à chaque dépôt étudiant qui n'en a pas",
+      "noRepos": "Aucun étudiant n'a encore accepté, il n'y a donc rien à ajouter.",
+      "notAcceptedDetail": "Aucun dépôt n'existe. Il reçoit le workflow lorsque l'étudiant accepte.",
+      "notAcceptedSection_one": "{{count}} étudiant n'a pas encore accepté",
+      "notAcceptedSection_other": "{{count}} étudiants n'ont pas encore accepté",
+      "progress": "{{processed}} sur {{total}} traités",
+      "regradeReminder": "Le travail déjà poussé par les étudiants est corrigé lors de leur prochain push. Un workflow ne s'exécute que pour les commits qui le contiennent, donc « Tout recorriger » ne peut pas atteindre les commits antérieurs. Pour corriger maintenant, demandez aux étudiants de faire un push (un commit vide fonctionne).",
+      "repullReminder": "Dites aux étudiants de lancer git pull. Les clones effectués avant cette modification entreront en conflit lors de leur prochain push.",
+      "resultHeadline": "Workflow ajouté à {{added}} des {{total}} dépôts ({{present}} l'avaient déjà).",
+      "scopeDetail": "Votre autorisation GitHub ne peut pas modifier les fichiers de workflow. Déconnectez-vous puis reconnectez-vous, puis relancez.",
+      "scopeSection_one": "{{count}} dépôt nécessite une autorisation GitHub supplémentaire",
+      "scopeSection_other": "{{count}} dépôts nécessitent une autorisation GitHub supplémentaire",
+      "subtitle_one": "Ajoute le workflow de correction automatique au dépôt de {{count}} étudiant s'il est manquant.",
+      "subtitle_other": "Ajoute le workflow de correction automatique aux dépôts de {{count}} étudiants là où il est manquant.",
+      "title": "Ajouter le workflow de correction automatique",
+      "titleEmptyRoster": "Aucun étudiant n'a encore accepté",
+      "unrecognizedSection_one": "{{count}} dépôt a été ignoré (un autre workflow se trouve déjà à cet emplacement)",
+      "unrecognizedSection_other": "{{count}} dépôts ont été ignorés (un autre workflow se trouve déjà à cet emplacement)",
+      "warningLead_one": "Ceci valide le workflow de correction automatique dans le dépôt de {{count}} étudiant.",
+      "warningLead_other": "Ceci valide le workflow de correction automatique dans les dépôts de {{count}} étudiants.",
+      "warningPoint1": "Les dépôts qui ont déjà le workflow ne sont pas modifiés.",
+      "warningPoint2": "Le commit est marqué pour ne pas déclencher la correction. Le travail déjà poussé par les étudiants est corrigé lors de leur prochain push ; « Tout recorriger » ne peut pas atteindre les commits antérieurs à l'existence du workflow.",
+      "warningPoint3": "Les étudiants doivent ensuite faire un pull. Les clones effectués avant cette modification entreront en conflit lors de leur prochain push.",
+      "working": "Ajout du workflow"
+    },
+    "rowShim": {
+      "aria": "Ajouter le workflow de correction automatique à {{repo}}",
+      "description": "Ajouter le workflow de correction automatique intégré à ce dépôt s'il a été accepté alors que le correcteur automatique était désactivé.",
+      "outcome": {
+        "added": "Workflow de correction automatique ajouté. L'étudiant doit faire un pull avant son prochain push, et c'est ce push qui corrige le travail déjà présent dans le dépôt.",
+        "failed": "Impossible d'ajouter le workflow. Réessayez.",
+        "missingWorkflowScope": "Votre autorisation GitHub ne peut pas modifier les fichiers de workflow. Déconnectez-vous puis reconnectez-vous, puis réessayez.",
+        "notAccepted": "Aucun dépôt n'existe encore, il n'y a donc rien à ajouter.",
+        "present": "Ce dépôt a déjà le workflow de correction automatique.",
+        "unrecognized": "Ignoré : un autre workflow se trouve déjà à l'emplacement du workflow de correction automatique, donc rien n'a été modifié."
+      },
+      "title": "Ajouter le workflow de correction automatique"
     }
   },
   "orgActivity": {
@@ -3805,7 +3878,22 @@
       },
       "subheading": "Le démantèlement d'une organisation nécessite l'autorisation de supprimer des dépôts, ce que la connexion normale ne demande pas. Accordez cette autorisation uniquement lorsque vous en avez besoin, et révoquez-la sur GitHub une fois terminé."
     },
-    "noChangesToSave": "Aucune modification à enregistrer."
+    "noChangesToSave": "Aucune modification à enregistrer.",
+    "analytics": {
+      "heading": "Cookies et statistiques",
+      "privacyLink": "Lire l'avis de confidentialité",
+      "subheading": "Les statistiques aident à améliorer Classroom 50. Choisissez quels services peuvent comptabiliser vos visites dans ce navigateur. Le stockage fonctionnel reste actif."
+    },
+    "nameOrder": {
+      "firstLast": "Prénom, puis nom",
+      "firstLastHint": "Par exemple, Ada Lovelace.",
+      "groupAria": "Préférence d'ordre des noms",
+      "heading": "Noms des étudiants",
+      "lastFirst": "Nom, puis prénom",
+      "lastFirstHint": "Par exemple, Lovelace Ada.",
+      "saved": "Préférence d'ordre des noms enregistrée.",
+      "subheading": "Choisissez l'ordre dans lequel les noms des étudiants apparaissent dans les listes d'étudiants, les rendus, les groupes et les scores exportés."
+    }
   },
   "pagesErrors": {
     "assignmentNotInManifest": "Le devoir « {{assignmentSlug}} » ne figure pas dans les devoirs publiés de cette classe. Vérifiez le lien, ou demandez à votre enseignant de publier le devoir.",
@@ -4120,5 +4208,95 @@
       "staff": "L'équipe {{slug}} existe déjà mais n'a pas été créée par Classroom 50 : elle ne peut donc pas servir d'équipe pédagogique. Vérifiez ses membres à {{url}}, puis supprimez-la ou donnez-lui accès au dépôt classroom50, et réessayez.",
       "studentOf": "L'équipe {{slug}} est l'équipe des étudiants de la classe {{classroom}} : elle ne peut donc pas être l'équipe {{role}} de cette classe. Laissez le rôle {{role}} sans titulaire ici, ou renommez l'une des classes."
     }
+  },
+  "consent": {
+    "alwaysOn": "Toujours actif",
+    "banner": {
+      "accept": "Accepter",
+      "body": "Les données d'utilisation anonymes montrent quelles fonctionnalités sont utilisées et où les gens rencontrent des difficultés, afin d'améliorer l'application. Rien ne vous identifie, et vous pouvez changer votre choix à tout moment dans les Paramètres. Décochez tout ce que vous préférez ne pas partager, puis sélectionnez Accepter.",
+      "decline": "Refuser",
+      "hideNotice": "Masquer l'avis de confidentialité",
+      "readNotice": "Lire l'avis de confidentialité",
+      "title": "Les statistiques aident à améliorer Classroom 50"
+    },
+    "browserDeclines": "Votre navigateur envoie le signal Global Privacy Control ou Do Not Track, donc les statistiques restent désactivées et Classroom 50 ne pose pas la question.",
+    "categories": {
+      "cloudflare": {
+        "caption": "Compte les visites. Aucun cookie.",
+        "items": {
+          "collected": "Chemin de la page, site référent, pays, type de navigateur et temps de chargement",
+          "noCookies": "Aucun cookie ni identifiant, donc il compte les visites, pas les personnes",
+          "notCollected": "Jamais votre nom d'utilisateur GitHub, votre e-mail, les données de liste d'étudiants ni la chaîne de requête d'une URL"
+        },
+        "label": "Cloudflare Web Analytics"
+      },
+      "functional": {
+        "caption": "Nécessaire au fonctionnement de l'application. Reste dans ce navigateur.",
+        "items": {
+          "consent": "Le choix que vous faites ici",
+          "preferences": "Vos paramètres : langue, thème, ordre des noms, animations, organisations masquées et disposition de la barre latérale",
+          "session": "Votre connexion GitHub, pour rester connecté"
+        },
+        "label": "Fonctionnel",
+        "tooltip": "Stocké uniquement dans ce navigateur : votre connexion GitHub pour rester connecté, vos paramètres (langue, thème, ordre des noms, animations, organisations masquées et disposition de la barre latérale) et le choix que vous faites ici. Rien de tout cela n'est utilisé à des fins de statistiques."
+      },
+      "google": {
+        "caption": "Montre comment les fonctionnalités sont utilisées. Dépose un cookie.",
+        "items": {
+          "collected": "Les pages que vous consultez et le temps que vous y passez, le site qui a mené à la page, votre pays, ainsi que votre navigateur, appareil et langue, envoyés via Google Tag Manager",
+          "cookie": "Un cookie contenant un identifiant aléatoire, de sorte qu'un navigateur revenant est compté une seule fois. Il expire au bout de 2 ans.",
+          "notCollected": "Jamais votre nom d'utilisateur GitHub, votre e-mail, les données de liste d'étudiants ni la chaîne de requête d'une URL"
+        },
+        "label": "Google Analytics"
+      }
+    },
+    "declineAll": "Refuser toutes les statistiques",
+    "reset": "Réinitialiser et redemander",
+    "savePreferences": "Enregistrer les préférences",
+    "whatThisIncludes": "Ce que cela inclut"
+  },
+  "privacy": {
+    "analytics": {
+      "cloudflareTerms": "Avenant de traitement des données de Cloudflare",
+      "collected": {
+        "cookie": "Google Analytics uniquement : un cookie contenant un identifiant aléatoire, de sorte qu'un navigateur revenant est compté une seule fois. Il expire au bout de 2 ans, et désactiver Google Analytics le supprime.",
+        "country": "Votre pays, déduit de votre connexion",
+        "device": "Navigateur, système d'exploitation, type d'appareil et langue",
+        "path": "Les pages que vous consultez, par exemple /cs1-fall-2026/assignments, et le temps que vous y passez",
+        "referrer": "Le site qui a mené à la page",
+        "timings": "Temps de chargement de la page"
+      },
+      "collectedHeading": "Collecté",
+      "googleTerms": "Politique de confidentialité de Google",
+      "googleUsage": "Comment Google utilise les informations des sites qui font appel à ses services",
+      "heading": "Statistiques d'utilisation",
+      "intro": "Les statistiques montrent combien de personnes utilisent classroom50.org, quelles fonctionnalités elles utilisent et où elles rencontrent des difficultés, afin d'améliorer l'application. Avec votre permission, deux services le font : Cloudflare Web Analytics, qui ne dépose aucun cookie, et Google Analytics, chargé via Google Tag Manager, qui reconnaît un navigateur revenant grâce à un cookie. Vous pouvez désactiver l'un ou l'autre. Aucun ne sait qui vous êtes.",
+      "notCollected": {
+        "crossSite": "Tout ce qui vous suivrait sur d'autres sites",
+        "identity": "Votre nom d'utilisateur GitHub, votre e-mail ou les données de liste d'étudiants",
+        "queryStrings": "Les chaînes de requête. Cloudflare les supprime dans votre navigateur, et notre configuration de Google Analytics est paramétrée pour ne pas les enregistrer, de sorte que les codes de connexion, les clés de liens d'invitation et les recherches dans la liste d'étudiants restent hors des données."
+      },
+      "notCollectedHeading": "Non collecté",
+      "processing": "Google et Cloudflare traitent ces données pour la Fifty Foundation. Comment chacun les gère :",
+      "retention": "Google conserve les données d'événements jusqu'à 14 mois. Cloudflare conserve les données complètes pendant 7 jours et un échantillon pendant 6 mois. Aucun des deux services ne fonctionne tant que vous n'avez pas accepté, et vous pouvez modifier votre réponse à tout moment ci-dessous."
+    },
+    "choice": {
+      "body": "Votre choix est enregistré dans ce navigateur. L'acceptation démarre immédiatement les services que vous avez laissés activés. Désactiver l'un d'eux supprime ses cookies maintenant et l'arrête dès le prochain chargement de page. Une fois connecté, vous pouvez aussi le modifier dans les Paramètres.",
+      "heading": "Votre choix",
+      "signals": "Si votre navigateur envoie le signal Global Privacy Control ou Do Not Track, aucune statistique ne s'exécute et Classroom 50 ne pose pas la question."
+    },
+    "contact": {
+      "body": "Classroom 50 est un projet open source soutenu par la Fifty Foundation. Pour poser une question sur cet avis, lancez une discussion dans",
+      "heading": "Questions",
+      "link": "GitHub Discussions"
+    },
+    "data": {
+      "body": "Classroom 50 n'a ni serveur, ni base de données, ni comptes qui lui sont propres. Les listes d'étudiants, les dépôts de devoirs, les scores et les commentaires restent dans votre organisation GitHub. L'application les lit et les écrit via l'API GitHub avec un jeton que vous accordez. La connexion et les téléchargements de dépôts passent par un proxy qui ne stocke rien.",
+      "heading": "Vos données de classe",
+      "more": "Pour plus de détails, y compris des recommandations sur la FERPA, voir",
+      "moreLink": "Confidentialité et FERPA dans la documentation"
+    },
+    "pageSubtitle": "Comment l'application web Classroom 50 gère vos données, et ce que vous pouvez choisir.",
+    "pageTitle": "Confidentialité"
   }
 }
