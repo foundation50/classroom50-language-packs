@@ -452,7 +452,9 @@
     "rosterParseError": "roster.csv is malformed and couldn't be fully read. Fix these lines so the roster stays accurate:",
     "rosterParseErrorLine": "Line {{line}}: {{message}}",
     "rosterProblemDuplicateColumn": "The column \"{{name}}\" appears more than once. Keep one and remove the others.",
-    "rosterProblemReservedColumn": "The column \"{{name}}\" is a built-in roster column and appears again after it. Remove the extra copy.",
+    "rosterProblemReservedColumn": "The column \"{{name}}\" is a built-in roster column and appears more than once. Remove the extra copy.",
+    "rosterProblemNoIdentityColumn": "The header row has none of the columns that identify a student: username, github_id, or email. Add at least one of them.",
+    "rosterProblemEmptyFile": "The file has no header row. Add this line at the top: {{header}}",
     "rosterProblemFormulaColumn": "The column name \"{{name}}\" starts with =, +, -, or @, which spreadsheets treat as a formula. Rename it.",
     "rosterEditOnGitHub": "Edit roster.csv on GitHub",
     "rosterRecheck": "Re-check roster.csv",
@@ -748,6 +750,7 @@
     "missingIdentityHeader": "This file has no column that identifies a student.",
     "expectedHeaders": "Add a header row with at least one of these columns: {{headers}}. You can also include first_name, last_name, name, section, and role. Or upload a text file with one GitHub username or email address per line.",
     "malformedCsv": "This file couldn't be parsed as CSV.",
+    "duplicateImportHeader": "The column \"{{name}}\" appears more than once in this file. Keep one and remove the others, then upload it again.",
     "importBlocked_one": "{{count}} row can't be imported, so nothing has been changed yet.",
     "importBlocked_other": "{{count}} rows can't be imported, so nothing has been changed yet.",
     "importBlockedHint": "Fix these lines and upload the file again. Importing it a second time is safe: students already in the classroom are left alone.",
@@ -1343,7 +1346,7 @@
         "choices": {
           "none": {
             "label": "Do not use the built-in autograder",
-            "help": "Grade with your own GitHub Actions workflow instead. With a template, add the workflow to it; without one, the assignment has no autograder."
+            "help": "Grade with your own GitHub Actions workflow instead, or don't grade on GitHub at all. Classroom 50 adds no files to the repositories: with a template, each student gets an exact copy of it; without one, a repository with only a README."
           },
           "built-in": {
             "label": "Use the built-in autograder",
@@ -1544,7 +1547,7 @@
       "points": "Points",
       "failureDetails": "Failure details shown to students",
       "failureDetailsHint": "How much of a failing run students see in the submission report and workflow log.",
-      "failureDetailsFull": "Full: diff or expected and actual output",
+      "failureDetailsFull": "Full: input, then diff or expected and actual output",
       "failureDetailsActualOnly": "Student output only (never the expected output)",
       "failureDetailsNone": "Failure type only (no output)",
       "showOutput": "Output when passing",
@@ -1562,7 +1565,7 @@
         "heading": "Report defaults",
         "hint": "Defaults for every test; a test's own report options override them.",
         "failureDetails": "Default failure details",
-        "failureDetailsFull": "Full: diff or expected and actual output",
+        "failureDetailsFull": "Full: input, then diff or expected and actual output",
         "showOutput": "Include passing test output",
         "showOutputHelp": "Adds each passing test's captured setup/run output to the submission report and workflow log, collapsed by default. Useful when authoring or debugging an autograder.",
         "showCommand": "Show command lines",
@@ -1840,6 +1843,7 @@
       },
       "reason": {
         "noMarker": "no .classroom50.yaml, so ownership can't be verified and the repository was left untouched (re-accepting heals the marker; then finish the rename)",
+        "foreignSibling": "its name also matches assignment \"{{slug}}\", a sibling assignment sharing the name prefix, and this assignment's repositories carry no marker to tell them apart, left untouched",
         "unparseableMarker": "unreadable .classroom50.yaml ({{message}}), so the repository was left untouched",
         "foreignMarker": "its marker names assignment \"{{slug}}\", a sibling assignment sharing the name prefix, left untouched",
         "markerRewriteFailed": "updating .classroom50.yaml failed: {{message}}",
@@ -2057,7 +2061,7 @@
       "provisioningIntro_other": "{{count}} students have already accepted. These changes apply only to repositories accepted from now on; the {{count}} existing repositories keep their current setup:",
       "provisioning": {
         "repo_source": "Repository source: existing repositories keep their original starter content.",
-        "autograder_on": "Built-in autograder: existing repositories have no autograding workflow yet. After saving, use \"Add autograding workflow\" on the submissions page to add it to them.",
+        "autograder_on": "Built-in autograder: existing repositories have no autograding files yet. After saving, use \"Add autograding workflow\" on the submissions page to add the workflow and the .classroom50.yaml marker to them.",
         "autograder_off": "Built-in autograder: turning it off makes existing repositories' autograde runs fail and drop out of the collected scores.",
         "grading_mode": "Grading mode: scores recorded under the old mode may read differently.",
         "student_permission": "Student repository access: change existing repositories from the submissions page.",
@@ -2730,12 +2734,13 @@
       "githubTeams": "GitHub teams",
       "githubTeamsTitle": "Open this organization's teams on GitHub",
       "description": "Teachers and head TAs get write access to this organization's Classroom 50 configuration; TAs get read-only. TAs and head TAs see the same classroom content as teachers, but organization and classroom settings stay teacher-only.",
+      "studentRepoAccessNote": "TAs and head TAs get access to student repositories when scores are collected, not when a student accepts. To grant access to new repositories, open <assignmentsLink>Assignments</assignmentsLink> and select Collect all.",
       "roleTeacherPlural": "Teachers",
       "roleTaPlural": "TAs",
       "roleHeadTaPlural": "Head TAs",
       "accessTeacher": "Organization owner. Write access to the classroom50 repository.",
-      "accessHeadTa": "Organization member. Write access to the classroom50 repository and to student repositories, so they can merge feedback pull requests.",
-      "accessTa": "Organization member. Read-only access to the classroom50 repository; write access to student repositories, so they can merge feedback pull requests.",
+      "accessHeadTa": "Organization member. Write access to the classroom50 repository and, after score collection, to student repositories, so they can merge feedback pull requests.",
+      "accessTa": "Organization member. Read-only access to the classroom50 repository; write access to student repositories after score collection, so they can merge feedback pull requests.",
       "viewTeamTitle": "Open the {{role}} team on GitHub",
       "pendingCount_one": "{{count}} pending",
       "pendingCount_other": "{{count}} pending",
@@ -2882,13 +2887,14 @@
       "repoIncomplete": "Found incomplete setup: {{org}}/{{repo}}",
       "access": "Set your repository access",
       "setup": "Configured autograding",
-      "setupSkippedEmptyRepo": "No setup needed: this assignment uses an empty repository",
+      "setupSkipped": "No setup files needed: this assignment adds nothing to your repository",
+      "setupBranchUnsettled": "GitHub is still initializing your repository, so GitHub Pages wasn't enabled. Accept again in a minute to enable it, or your teacher can enable it from the submissions page",
       "pagesSkipped": {
-        "plan": "Configured autograding. GitHub Pages wasn't enabled: this organization's GitHub plan doesn't allow Pages on private repositories. Your teacher can make the repository public and enable Pages from the submissions page.",
-        "policy": "Configured autograding. GitHub Pages wasn't enabled: the organization doesn't let members publish Pages sites. Your teacher can enable it from the submissions page.",
-        "branch": "Configured autograding. GitHub Pages wasn't enabled: the branch it publishes from doesn't exist in your repository yet. Your teacher can enable it from the submissions page.",
-        "access": "Configured autograding. GitHub Pages wasn't enabled: you don't have permission to change Pages settings on this repository. Your teacher can enable it from the submissions page.",
-        "unknown": "Configured autograding. GitHub Pages couldn't be enabled right now. Your teacher can enable it from the submissions page."
+        "plan": "GitHub Pages wasn't enabled: this organization's GitHub plan doesn't allow Pages on private repositories. Your teacher can make the repository public and enable Pages from the submissions page.",
+        "policy": "GitHub Pages wasn't enabled: the organization doesn't let members publish Pages sites. Your teacher can enable it from the submissions page.",
+        "branch": "GitHub Pages wasn't enabled: the branch it publishes from doesn't exist in your repository yet. Your teacher can enable it from the submissions page.",
+        "access": "GitHub Pages wasn't enabled: you don't have permission to change Pages settings on this repository. Your teacher can enable it from the submissions page.",
+        "unknown": "GitHub Pages couldn't be enabled right now. Your teacher can enable it from the submissions page."
       },
       "feedback": "Feedback pull request ready",
       "feedbackSkipped": "No feedback pull request for this assignment",
@@ -2983,7 +2989,7 @@
     "grading": {
       "badgeBuiltIn": "Autograded",
       "badgeNoAutograder": "No built-in autograder",
-      "titleNoAutograder": "This assignment doesn't use the built-in autograder, so built-in scores and regrading are disabled. A template's own grading workflow still runs, and the feedback pull request still works when enabled.",
+      "titleNoAutograder": "This assignment doesn't use the built-in autograder, so built-in scores and regrading are disabled. Repositories carry no Classroom 50 files. A template's own grading workflow still runs, and the feedback pull request still works when enabled.",
       "badgeEmptyRepo": "No autograding",
       "titleEmptyRepo": "This assignment uses empty repositories, so autograding, scores, and the feedback pull request are disabled. The table shows who has accepted and who has pushed."
     },
@@ -3086,7 +3092,7 @@
       "statusFailedHint": "Check the workflow on GitHub, then try again.",
       "statusTimeout": "The regrade is taking a while to register. Check its progress on GitHub.",
       "confirmTitle": "Regrade all submissions for \"{{name}}\"?",
-      "confirmBody1": "This re-runs the autograder on every submitted repository's latest commit. It's useful after fixing a test or updating the autograder. Submission times don't change.",
+      "confirmBody1": "This re-runs the autograder on each repository's last graded submission, not on newer commits the student hasn't submitted. A repository with pushed work but no graded submission is graded at its latest commit, which becomes its first submission. It's useful after fixing a test or updating the autograder. Existing submission times don't change.",
       "confirmBody2": "Grading runs in the background and can take several minutes; use <collectLabel>{{collectLabel}}</collectLabel> afterward to pull the new scores."
     },
     "accept": {
@@ -3515,16 +3521,17 @@
       "notAcceptedDetail": "No repository exists. It gets the workflow when the student accepts.",
       "warningLead_one": "This commits the autograding workflow to {{count}} student's repository.",
       "warningLead_other": "This commits the autograding workflow to {{count}} students' repositories.",
-      "warningPoint1": "Repositories that already have the workflow are left untouched.",
+      "warningPoint1": "Repositories that already have the workflow are left untouched. A repository missing its .classroom50.yaml marker gets it in the same commit.",
       "warningPoint2": "The commit is marked so it doesn't trigger grading. Work students already pushed is graded on their next push; \"Regrade all\" can't reach commits made before the workflow existed.",
       "warningPoint3": "Students must pull afterward. Clones made before this change will conflict on their next push."
     },
     "rowShim": {
       "title": "Add autograding workflow",
-      "description": "Add the built-in autograding workflow to this repository if it was accepted while the autograder was off.",
+      "description": "Add the built-in autograding workflow, and the .classroom50.yaml marker it needs, to this repository if it was accepted while the autograder was off.",
       "aria": "Add the autograding workflow to {{repo}}",
       "outcome": {
         "added": "Autograding workflow added. The student must pull before their next push, and that push is what grades work already in the repository.",
+        "markerAdded": "This repository already had the autograding workflow. Its missing .classroom50.yaml marker was added, so autograding can find the assignment. The student must pull before their next push.",
         "present": "This repository already has the autograding workflow.",
         "unrecognized": "Skipped: a different workflow is already at the autograding workflow's path, so nothing was changed.",
         "notAccepted": "No repository exists yet, so there's nothing to add.",
@@ -3631,8 +3638,8 @@
       "titleFailed": "Regrade failed to start. Try again.",
       "aria": "Regrade {{owner}}'s submission",
       "confirmTitle": "Regrade {{name}}'s submission?",
-      "confirmBody1": "This re-runs the autograder on <name>{{name}}</name>'s latest commit for this assignment. Their submission time doesn't change.",
-      "confirmBody1WithLogin": "This re-runs the autograder on <name>{{name}}</name> (<owner>{{owner}}</owner>)'s latest commit for this assignment. Their submission time doesn't change.",
+      "confirmBody1": "This re-runs the autograder on <name>{{name}}</name>'s last graded submission for this assignment, not on newer commits they haven't submitted. If nothing has been graded yet, their latest commit is graded and becomes their submission. An existing submission time doesn't change.",
+      "confirmBody1WithLogin": "This re-runs the autograder on <name>{{name}}</name> (<owner>{{owner}}</owner>)'s last graded submission for this assignment, not on newer commits they haven't submitted. If nothing has been graded yet, their latest commit is graded and becomes their submission. An existing submission time doesn't change.",
       "confirmBody2": "Grading runs in the background and can take a few minutes; use <collectLabel>{{collectLabel}}</collectLabel> afterward to pull the new score.",
       "confirmLabel": "Regrade"
     },
@@ -3667,7 +3674,7 @@
       "reviewDescription": "Open the feedback pull request",
       "accessDescription": "Edit the student's role and collaborators",
       "detailsDescription": "Open the autograder result on GitHub",
-      "regradeDescription": "Re-run the autograder on the latest commit",
+      "regradeDescription": "Re-run the autograder on the last graded submission",
       "downloadDescription": "Save the submission as a zip archive",
       "manageGroup": "Manage group",
       "membersDescription": "View and manage the group's members"

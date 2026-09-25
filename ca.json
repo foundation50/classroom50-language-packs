@@ -863,7 +863,10 @@
     "uploadBlockedUsernames": "Confirma els canvis de nom d'usuari anteriors per continuar.",
     "rosterProblemDuplicateColumn": "La columna «{{name}}» apareix més d'un cop. Conserveu-ne una i traieu-ne les altres.",
     "rosterProblemFormulaColumn": "El nom de la columna «{{name}}» comença amb =, +, - o @, cosa que els fulls de càlcul interpreten com una fórmula. Reanomeneu-la.",
-    "rosterProblemReservedColumn": "La columna «{{name}}» és una columna integrada de la llista de classe i torna a aparèixer després. Traieu-ne la còpia sobrera."
+    "rosterProblemReservedColumn": "La columna «{{name}}» és una columna integrada de la llista i apareix més d'una vegada. Elimineu-ne la còpia sobrant.",
+    "duplicateImportHeader": "La columna «{{name}}» apareix més d'una vegada en aquest fitxer. Conserveu-ne una i elimineu les altres, i torneu a pujar-lo.",
+    "rosterProblemEmptyFile": "El fitxer no té fila de capçalera. Afegiu aquesta línia a la part superior: {{header}}",
+    "rosterProblemNoIdentityColumn": "La fila de capçalera no té cap de les columnes que identifiquen un estudiant: username, github_id o email. Afegiu-ne almenys una."
   },
   "language": {
     "baseName": "Anglès (base)",
@@ -1309,7 +1312,7 @@
         "choices": {
           "none": {
             "label": "No utilitzis el qualificador automàtic integrat",
-            "help": "Qualifica amb el teu propi flux de treball de GitHub Actions. Amb una plantilla, afegeix-hi el flux de treball; sense plantilla, la tasca no té qualificador automàtic."
+            "help": "Corregiu amb el vostre propi flux de treball de GitHub Actions, o no corregiu res a GitHub. Classroom 50 no afegeix cap fitxer als repositoris: amb una plantilla, cada estudiant en rep una còpia exacta; sense plantilla, un repositori amb només un README."
           },
           "built-in": {
             "label": "Utilitza el qualificador automàtic integrat",
@@ -1535,7 +1538,7 @@
       "points": "Punts",
       "failureDetails": "Detalls de fallada que veuen els estudiants",
       "failureDetailsHint": "Quanta informació d'una execució fallida veuen els estudiants a l'informe de l'entrega i al registre del flux de treball.",
-      "failureDetailsFull": "Completa: diff o sortida esperada i real",
+      "failureDetailsFull": "Complet: entrada, després diferència o sortida esperada i real",
       "failureDetailsActualOnly": "Només la sortida de l'estudiant (mai la sortida esperada)",
       "failureDetailsNone": "Només el tipus de fallada (sense sortida)",
       "showOutput": "Sortida quan s'aprova",
@@ -1549,7 +1552,7 @@
         "heading": "Valors predeterminats de l'informe",
         "hint": "Valors predeterminats per a totes les proves; les opcions d'informe pròpies d'una prova els substitueixen.",
         "failureDetails": "Detalls de fallada predeterminats",
-        "failureDetailsFull": "Completa: diff o sortida esperada i real",
+        "failureDetailsFull": "Complet: entrada, després diferència o sortida esperada i real",
         "showOutput": "Inclou la sortida de les proves aprovades",
         "showOutputHelp": "Afegeix la sortida capturada de configuració/execució de cada prova aprovada a l'informe de l'entrega i al registre del flux de treball, replegada de manera predeterminada. Útil quan es crea o es depura un corrector automàtic.",
         "showCommand": "Mostra les línies d'ordres",
@@ -1833,7 +1836,8 @@
         "renameConflict": "el reanomenament a «{{newName}}» s'ha rebutjat; és possible que ja existeixi un repositori amb aquest nom a {{org}}. Resol-ho i finalitza el reanomenament",
         "renameFailed": "el reanomenament ha fallat: {{message}}",
         "rateLimited": "S'ha assolit el límit de peticions de GitHub. Espera uns minuts i després finalitza el reanomenament",
-        "rateLimitedDeferred": "ajornat després que un repositori anterior arribés al límit de sol·licituds de GitHub. Espera uns minuts i acaba el canvi de nom"
+        "rateLimitedDeferred": "ajornat després que un repositori anterior arribés al límit de sol·licituds de GitHub. Espera uns minuts i acaba el canvi de nom",
+        "foreignSibling": "el seu nom també coincideix amb el lliurament «{{slug}}», un lliurament germà que comparteix el prefix del nom, i els repositoris d'aquest lliurament no porten cap marcador que els distingeixi, deixat sense tocar"
       }
     },
     "includeStaff": "Inclou l'equip docent",
@@ -2057,7 +2061,7 @@
         "repo_visibility": "Visibilitat del repositori: canvia els repositoris existents des de la pàgina d'entregues.",
         "pages": "GitHub Pages: activa'l als repositoris existents des de la pàgina de lliuraments.",
         "autograder_off": "Corrector integrat: desactivar-lo fa que les execucions d'autocorrecció dels dipòsits existents fallin i deixin de comptar en les puntuacions recollides.",
-        "autograder_on": "Corrector integrat: els dipòsits existents encara no tenen cap flux de treball d'autocorrecció. Després de desar, feu servir «Afegeix el flux de treball d'autocorrecció» a la pàgina de lliuraments per afegir-lo-hi."
+        "autograder_on": "Corrector automàtic integrat: els repositoris existents encara no tenen fitxers de correcció automàtica. Després de desar, utilitzeu «Afegeix el flux de treball de correcció automàtica» a la pàgina de lliuraments per afegir-hi el flux de treball i el marcador .classroom50.yaml."
       },
       "confirm": "Desa els canvis",
       "cancel": "Cancel·la"
@@ -2728,8 +2732,8 @@
       "roleTaPlural": "TA",
       "roleHeadTaPlural": "TA principals",
       "accessTeacher": "Propietari de l'organització. Accés d'escriptura al repositori classroom50.",
-      "accessHeadTa": "Membre de l'organització. Accés d'escriptura al repositori classroom50 i als repositoris de l'alumnat, perquè puguin fusionar les sol·licituds d'extracció de comentaris.",
-      "accessTa": "Membre de l'organització. Accés només de lectura al repositori classroom50; accés d'escriptura als repositoris de l'alumnat, perquè puguin fusionar les sol·licituds d'extracció de comentaris.",
+      "accessHeadTa": "Membre de l'organització. Accés d'escriptura al repositori classroom50 i, després de la recollida de puntuacions, als repositoris dels estudiants, de manera que poden fusionar les sol·licituds d'extracció de retroalimentació.",
+      "accessTa": "Membre de l'organització. Accés de només lectura al repositori classroom50; accés d'escriptura als repositoris dels estudiants després de la recollida de puntuacions, de manera que poden fusionar les sol·licituds d'extracció de retroalimentació.",
       "viewTeamTitle": "Obre l'equip de {{role}} a GitHub",
       "pendingCount_one": "{{count}} pendent",
       "pendingCount_other": "{{count}} pendents",
@@ -2755,7 +2759,8 @@
       "resendFailed": "No s'ha pogut tornar a enviar la invitació a {{who}}: {{error}}",
       "cancelInvite": "Cancel·la la invitació",
       "cancelledToast": "S'ha cancel·lat la invitació de {{who}}.",
-      "cancelFailed": "No s'ha pogut cancel·lar la invitació de {{who}}: {{error}}"
+      "cancelFailed": "No s'ha pogut cancel·lar la invitació de {{who}}: {{error}}",
+      "studentRepoAccessNote": "Els TA i els TA principals obtenen accés als repositoris dels estudiants quan es recullen les puntuacions, no quan un estudiant accepta. Per concedir accés a nous repositoris, obriu <assignmentsLink>Lliuraments</assignmentsLink> i seleccioneu Recull-ho tot."
     },
     "deleteClassroomWarning": "Això no es pot desfer. La llista de classe, la llista de tasques i els equips de l'aula s'eliminen, de manera que recuperar l'aula implica tornar-la a crear i tornar a inscriure tot l'alumnat."
   },
@@ -2873,18 +2878,19 @@
       "repoIncomplete": "S'ha trobat una configuració incompleta: {{org}}/{{repo}}",
       "access": "S'ha establert l'accés al teu repositori",
       "setup": "S'ha configurat la correcció automàtica",
-      "setupSkippedEmptyRepo": "No cal cap configuració: aquesta tasca fa servir un repositori buit",
       "feedback": "La sol·licitud d'incorporació de comentaris està a punt",
       "feedbackSkipped": "No hi ha sol·licitud d'incorporació de comentaris per a aquesta tasca",
       "feedbackDeferred": "Ara no s'ha pogut obrir la sol·licitud d'incorporació de comentaris: torna a acceptar per tornar-ho a provar (o s'obre en el teu primer lliurament si la correcció automàtica està activada)",
       "team": "Grup trobat",
       "pagesSkipped": {
-        "access": "Autocorrecció configurada. GitHub Pages no s'ha activat: no tens permís per canviar la configuració de Pages en aquest repositori. El teu professor pot activar-lo des de la pàgina de lliuraments.",
-        "branch": "Autocorrecció configurada. GitHub Pages no s'ha activat: la branca des de la qual publica encara no existeix al teu repositori. El teu professor pot activar-lo des de la pàgina de lliuraments.",
-        "plan": "Autocorrecció configurada. GitHub Pages no s'ha activat: el pla de GitHub d'aquesta organització no permet Pages en repositoris privats. El teu professor pot fer públic el repositori i activar Pages des de la pàgina de lliuraments.",
-        "policy": "Autocorrecció configurada. GitHub Pages no s'ha activat: l'organització no permet que els membres publiquin llocs de Pages. El teu professor pot activar-lo des de la pàgina de lliuraments.",
-        "unknown": "Autocorrecció configurada. GitHub Pages no s'ha pogut activar ara mateix. El teu professor pot activar-lo des de la pàgina de lliuraments."
-      }
+        "access": "GitHub Pages no s'ha activat: no teniu permís per canviar la configuració de Pages en aquest repositori. El vostre professor el pot activar des de la pàgina de lliuraments.",
+        "branch": "GitHub Pages no s'ha activat: la branca des de la qual publica encara no existeix al vostre repositori. El vostre professor el pot activar des de la pàgina de lliuraments.",
+        "plan": "GitHub Pages no s'ha activat: el pla de GitHub d'aquesta organització no permet Pages en repositoris privats. El vostre professor pot fer públic el repositori i activar Pages des de la pàgina de lliuraments.",
+        "policy": "GitHub Pages no s'ha activat: l'organització no permet als membres publicar llocs de Pages. El vostre professor el pot activar des de la pàgina de lliuraments.",
+        "unknown": "Ara mateix no s'ha pogut activar GitHub Pages. El vostre professor el pot activar des de la pàgina de lliuraments."
+      },
+      "setupBranchUnsettled": "GitHub encara està inicialitzant el vostre repositori, de manera que GitHub Pages no s'ha activat. Torneu a acceptar d'aquí a un minut per activar-lo, o el vostre professor el pot activar des de la pàgina de lliuraments",
+      "setupSkipped": "No calen fitxers de configuració: aquest lliurament no afegeix res al vostre repositori"
     },
     "stepActions": {
       "account": "No s'ha pogut llegir el teu compte de GitHub. Tanca la sessió i torna a iniciar-la, i torna a acceptar.",
@@ -2978,7 +2984,7 @@
     "grading": {
       "badgeBuiltIn": "Correcció automàtica",
       "badgeNoAutograder": "Sense corrector automàtic integrat",
-      "titleNoAutograder": "Aquest treball no utilitza el corrector automàtic integrat, així que les puntuacions integrades i la recorrecció estan desactivades. El flux de treball de correcció propi d'una plantilla continua executant-se, i la pull request de retroacció continua funcionant quan està activada.",
+      "titleNoAutograder": "Aquest lliurament no utilitza el corrector automàtic integrat, de manera que les puntuacions integrades i la recorrecció estan desactivades. Els repositoris no porten cap fitxer de Classroom 50. El flux de treball de correcció propi d'una plantilla continua executant-se, i la sol·licitud d'extracció de retroalimentació encara funciona quan està activada.",
       "badgeEmptyRepo": "Sense correcció automàtica",
       "titleEmptyRepo": "Aquest treball utilitza repositoris buits, així que la correcció automàtica, les puntuacions i la pull request de retroacció estan desactivades. La taula mostra qui ha acceptat i qui ha fet push."
     },
@@ -3081,7 +3087,7 @@
       "statusFailedHint": "Comprova el flux de treball a GitHub i torna-ho a provar.",
       "statusTimeout": "La recorrecció triga una estona a registrar-se. Comprova'n el progrés a GitHub.",
       "confirmTitle": "Recorregir totes les entregues de \"{{name}}\"?",
-      "confirmBody1": "Això torna a executar el corrector automàtic sobre l'últim commit de tots els repositoris entregats. És útil després d'arreglar una prova o actualitzar el corrector automàtic. Les hores d'entrega no canvien.",
+      "confirmBody1": "Això torna a executar el corrector automàtic sobre l'últim lliurament corregit de cada repositori, no sobre els commits més nous que l'estudiant no ha lliurat. Un repositori amb treball publicat però sense cap lliurament corregit es corregeix al seu commit més recent, que passa a ser el seu primer lliurament. És útil després de corregir una prova o actualitzar el corrector automàtic. Els temps de lliurament existents no canvien.",
       "confirmBody2": "La correcció s'executa en segon pla i pot trigar diversos minuts; fes servir <collectLabel>{{collectLabel}}</collectLabel> després per obtenir les puntuacions noves."
     },
     "accept": {
@@ -3541,8 +3547,8 @@
       "titleFailed": "No s'ha pogut iniciar la recorrecció. Torna-ho a provar.",
       "aria": "Torna a corregir el lliurament de {{owner}}",
       "confirmTitle": "Vols tornar a corregir el lliurament de {{name}}?",
-      "confirmBody1": "Això torna a executar el corrector automàtic sobre l'últim commit de <name>{{name}}</name> per a aquesta activitat. L'hora de lliurament no canvia.",
-      "confirmBody1WithLogin": "Això torna a executar el corrector automàtic sobre l'últim commit de <name>{{name}}</name> (<owner>{{owner}}</owner>) per a aquesta activitat. L'hora de lliurament no canvia.",
+      "confirmBody1": "Això torna a executar el corrector automàtic sobre l'últim lliurament corregit de <name>{{name}}</name> per a aquest lliurament, no sobre commits més nous que no hagi lliurat. Si encara no s'ha corregit res, es corregeix el seu commit més recent i passa a ser el seu lliurament. El temps d'un lliurament existent no canvia.",
+      "confirmBody1WithLogin": "Això torna a executar el corrector automàtic sobre l'últim lliurament corregit de <name>{{name}}</name> (<owner>{{owner}}</owner>) per a aquest lliurament, no sobre commits més nous que no hagi lliurat. Si encara no s'ha corregit res, es corregeix el seu commit més recent i passa a ser el seu lliurament. El temps d'un lliurament existent no canvia.",
       "confirmBody2": "La correcció s'executa en segon pla i pot trigar uns minuts; utilitza <collectLabel>{{collectLabel}}</collectLabel> després per obtenir la nova puntuació.",
       "confirmLabel": "Torna a corregir"
     },
@@ -3570,7 +3576,7 @@
       "reviewDescription": "Obre la pull request de retroacció",
       "accessDescription": "Edita el rol i els col·laboradors de l'estudiant",
       "detailsDescription": "Obre el resultat del corrector automàtic a GitHub",
-      "regradeDescription": "Torna a executar el corrector automàtic sobre l'últim commit",
+      "regradeDescription": "Torna a executar el corrector automàtic sobre l'últim lliurament corregit",
       "downloadDescription": "Desa el lliurament com a arxiu zip",
       "manageGroup": "Gestiona el grup",
       "membersDescription": "Consulta i gestiona els membres del grup",
@@ -3697,21 +3703,22 @@
       "unrecognizedSection_other": "{{count}} dipòsits s'han omès (ja hi ha un altre flux de treball en aquesta ruta)",
       "warningLead_one": "Això aplica un commit del flux de treball d'autocorrecció al dipòsit de {{count}} alumne.",
       "warningLead_other": "Això aplica un commit del flux de treball d'autocorrecció als dipòsits de {{count}} alumnes.",
-      "warningPoint1": "Els dipòsits que ja tenen el flux de treball es deixen intactes.",
+      "warningPoint1": "Els repositoris que ja tenen el flux de treball es deixen sense tocar. Un repositori que no tingui el seu marcador .classroom50.yaml el rep en el mateix commit.",
       "warningPoint2": "El commit està marcat perquè no desencadeni la correcció. El treball que l'alumnat ja ha pujat es corregeix en el seu proper push; «Torna a corregir-ho tot» no pot arribar als commits fets abans que existís el flux de treball.",
       "warningPoint3": "L'alumnat ha de fer un pull després. Els clons fets abans d'aquest canvi tindran conflictes en el seu proper push.",
       "working": "S'està afegint el flux de treball"
     },
     "rowShim": {
       "aria": "Afegeix el flux de treball d'autocorrecció a {{repo}}",
-      "description": "Afegeix el flux de treball d'autocorrecció integrat a aquest dipòsit si es va acceptar mentre el corrector estava desactivat.",
+      "description": "Afegeix el flux de treball de correcció automàtica integrat, i el marcador .classroom50.yaml que necessita, a aquest repositori si es va acceptar mentre el corrector automàtic estava desactivat.",
       "outcome": {
         "added": "S'ha afegit el flux de treball d'autocorrecció. L'alumne ha de fer un pull abans del seu proper push, i aquest push és el que corregeix el treball que ja hi ha al dipòsit.",
         "failed": "No s'ha pogut afegir el flux de treball. Torneu-ho a provar.",
         "missingWorkflowScope": "La vostra autorització de GitHub no pot modificar fitxers de flux de treball. Tanqueu la sessió i torneu a iniciar-la, i després torneu-ho a provar.",
         "notAccepted": "Encara no hi ha cap dipòsit, de manera que no hi ha res a afegir.",
         "present": "Aquest dipòsit ja té el flux de treball d'autocorrecció.",
-        "unrecognized": "S'ha omès: ja hi ha un altre flux de treball a la ruta del flux de treball d'autocorrecció, de manera que no s'ha canviat res."
+        "unrecognized": "S'ha omès: ja hi ha un altre flux de treball a la ruta del flux de treball d'autocorrecció, de manera que no s'ha canviat res.",
+        "markerAdded": "Aquest repositori ja tenia el flux de treball de correcció automàtica. S'hi ha afegit el marcador .classroom50.yaml que li faltava, de manera que la correcció automàtica pot trobar el lliurament. L'estudiant ha de fer un «pull» abans del seu proper «push»."
       },
       "title": "Afegeix el flux de treball d'autocorrecció"
     }

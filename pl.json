@@ -684,7 +684,10 @@
     "uploadBlockedUsernames": "Potwierdź powyższe zmiany nazw użytkowników, aby kontynuować.",
     "rosterProblemDuplicateColumn": "Kolumna „{{name}}” pojawia się więcej niż raz. Zachowaj jedną i usuń pozostałe.",
     "rosterProblemFormulaColumn": "Nazwa kolumny „{{name}}” zaczyna się od =, +, - lub @, co arkusze kalkulacyjne traktują jako formułę. Zmień jej nazwę.",
-    "rosterProblemReservedColumn": "Kolumna „{{name}}” jest wbudowaną kolumną listy uczestników i pojawia się ponownie po niej. Usuń dodatkową kopię."
+    "rosterProblemReservedColumn": "Kolumna „{{name}}” to wbudowana kolumna listy uczniów i występuje więcej niż raz. Usuń dodatkową kopię.",
+    "duplicateImportHeader": "Kolumna „{{name}}” występuje w tym pliku więcej niż raz. Zostaw jedną, a pozostałe usuń, po czym prześlij plik ponownie.",
+    "rosterProblemEmptyFile": "Plik nie ma wiersza nagłówka. Dodaj ten wiersz na górze: {{header}}",
+    "rosterProblemNoIdentityColumn": "Wiersz nagłówka nie zawiera żadnej z kolumn identyfikujących ucznia: username, github_id ani email. Dodaj przynajmniej jedną z nich."
   },
   "language": {
     "baseName": "Angielski (podstawowy)",
@@ -1063,7 +1066,7 @@
             "label": "Użyj wbudowanego autogradera"
           },
           "none": {
-            "help": "Oceniaj za pomocą własnego workflow GitHub Actions. Przy szablonie dodaj do niego workflow; bez szablonu zadanie nie ma autooceniacza.",
+            "help": "Oceniaj za pomocą własnego przepływu pracy GitHub Actions albo w ogóle nie oceniaj w GitHub. Classroom 50 nie dodaje żadnych plików do repozytoriów: z szablonem każdy uczeń otrzymuje jego dokładną kopię; bez niego repozytorium tylko z plikiem README.",
             "label": "Nie używaj wbudowanego autogradera"
           }
         },
@@ -1234,7 +1237,7 @@
       "defaultOption": "{{label}} (domyślnie)",
       "defaults": {
         "failureDetails": "Domyślne szczegóły niepowodzenia",
-        "failureDetailsFull": "Pełne: różnica albo oczekiwane i rzeczywiste wyjście",
+        "failureDetailsFull": "Pełne: dane wejściowe, a następnie różnica lub oczekiwane i rzeczywiste dane wyjściowe",
         "heading": "Domyślne ustawienia raportu",
         "hint": "Ustawienia domyślne dla każdego testu; własne opcje raportu testu je nadpisują.",
         "showOutput": "Uwzględnij wyjście zaliczonych testów",
@@ -1244,7 +1247,7 @@
       },
       "failureDetails": "Szczegóły niepowodzenia pokazywane studentom",
       "failureDetailsActualOnly": "Tylko wyjście studenta (nigdy oczekiwane wyjście)",
-      "failureDetailsFull": "Pełne: różnica albo oczekiwane i rzeczywiste wyjście",
+      "failureDetailsFull": "Pełne: dane wejściowe, a następnie różnica lub oczekiwane i rzeczywiste dane wyjściowe",
       "failureDetailsHint": "Ile z nieudanego uruchomienia studenci widzą w raporcie ze zgłoszenia i dzienniku przepływu pracy.",
       "failureDetailsNone": "Tylko typ niepowodzenia (bez wyjścia)",
       "reportOptions": "Opcje raportu",
@@ -1557,7 +1560,8 @@
         "renameFailed": "zmiana nazwy nie powiodła się: {{message}}",
         "renameForbidden": "zmiana nazwy na „{{newName}}” wymaga dostępu administratora do repozytorium; spróbuj ponownie jako właściciel organizacji",
         "repoGone": "repozytorium zniknęło podczas zmiany nazwy; uruchom ponownie, aby sprawdzić ponownie",
-        "unparseableMarker": "nieczytelny plik .classroom50.yaml ({{message}}), więc repozytorium pozostawiono bez zmian"
+        "unparseableMarker": "nieczytelny plik .classroom50.yaml ({{message}}), więc repozytorium pozostawiono bez zmian",
+        "foreignSibling": "jego nazwa pasuje również do zadania „{{slug}}”, powiązanego zadania o wspólnym prefiksie nazwy, a repozytoria tego zadania nie mają znacznika pozwalającego je rozróżnić — pozostawiono bez zmian"
       },
       "repoCount_one": "{{count}} istniejące repozytorium studenta zostanie przemianowane.",
       "repoCount_other": "{{count}} istniejących repozytoriów studentów zostanie przemianowanych.",
@@ -1762,7 +1766,7 @@
         "student_permission": "Dostęp studenta do repozytorium: zmień istniejące repozytoria na stronie zgłoszeń.",
         "pages": "GitHub Pages: włącz je w istniejących repozytoriach na stronie przesłanych prac.",
         "autograder_off": "Wbudowany system automatycznego oceniania: wyłączenie go sprawia, że przebiegi automatycznego oceniania w istniejących repozytoriach kończą się niepowodzeniem i wypadają ze zebranych wyników.",
-        "autograder_on": "Wbudowany system automatycznego oceniania: istniejące repozytoria nie mają jeszcze przepływu pracy automatycznego oceniania. Po zapisaniu użyj opcji „Dodaj przepływ pracy automatycznego oceniania” na stronie zgłoszeń, aby dodać go do nich."
+        "autograder_on": "Wbudowany autograder: istniejące repozytoria nie mają jeszcze plików autogradera. Po zapisaniu użyj opcji „Dodaj przepływ pracy autogradera” na stronie zgłoszeń, aby dodać do nich przepływ pracy oraz znacznik .classroom50.yaml."
       },
       "provisioningIntro_one": "{{count}} student już zaakceptował. Te zmiany dotyczą tylko repozytoriów zaakceptowanych od teraz; istniejące repozytorium zachowuje swoją bieżącą konfigurację:",
       "provisioningIntro_other": "{{count}} studentów już zaakceptowało. Te zmiany dotyczą tylko repozytoriów zaakceptowanych od teraz; {{count}} istniejących repozytoriów zachowuje swoją bieżącą konfigurację:",
@@ -2196,15 +2200,16 @@
       "resendFailed": "Nie udało się ponownie wysłać zaproszenia do {{who}}: {{error}}",
       "resentToast": "Ponownie wysłano zaproszenie do {{who}}.",
       "roleTeacherPlural": "Nauczyciele",
-      "accessHeadTa": "Członek organizacji. Dostęp zapisu do repozytorium classroom50 i do repozytoriów uczniów, dzięki czemu mogą scalać pull requesty z opiniami.",
-      "accessTa": "Członek organizacji. Dostęp tylko do odczytu do repozytorium classroom50; dostęp zapisu do repozytoriów uczniów, dzięki czemu mogą scalać pull requesty z opiniami.",
+      "accessHeadTa": "Członek organizacji. Dostęp do zapisu w repozytorium classroom50 oraz — po zebraniu wyników — do repozytoriów uczniów, dzięki czemu mogą scalać pull requesty z informacją zwrotną.",
+      "accessTa": "Członek organizacji. Dostęp tylko do odczytu w repozytorium classroom50; dostęp do zapisu w repozytoriach uczniów po zebraniu wyników, dzięki czemu mogą scalać pull requesty z informacją zwrotną.",
       "accessTeacher": "Właściciel organizacji. Dostęp do zapisu w repozytorium classroom50.",
       "pendingCount_one": "{{count}} oczekujące",
       "pendingCount_other": "{{count}} oczekujących",
       "removeSelfTeacherBlocked": "Nie możesz usunąć siebie z zespołu nauczycieli; spowodowałoby to cofnięcie Twojego własnego dostępu na poziomie właściciela do tej klasy. Poproś innego właściciela organizacji o usunięcie Cię.",
       "roleHeadTaPlural": "Główni asystenci",
       "viewTeamTitle": "Otwórz zespół {{role}} w serwisie GitHub",
-      "you": "Ty"
+      "you": "Ty",
+      "studentRepoAccessNote": "Asystenci i główni asystenci uzyskują dostęp do repozytoriów uczniów w momencie zbierania wyników, a nie gdy uczeń akceptuje zadanie. Aby przyznać dostęp do nowych repozytoriów, otwórz <assignmentsLink>Zadania</assignmentsLink> i wybierz Zbierz wszystkie."
     },
     "card": {
       "actionsAria": "Akcje dla {{name}}",
@@ -2394,16 +2399,17 @@
       "repoExists": "Repozytorium już istnieje: {{org}}/{{repo}}",
       "repoIncomplete": "Znaleziono niekompletną konfigurację: {{org}}/{{repo}}",
       "setup": "Skonfigurowano automatyczne ocenianie",
-      "setupSkippedEmptyRepo": "Konfiguracja nie jest potrzebna: to zadanie używa pustego repozytorium",
       "repoVisibilityFellBack": "Utworzono {{org}}/{{repo}} jako prywatne. Organizacja nie pozwala Ci tworzyć publicznych repozytoriów; nauczyciel może później ustawić je jako publiczne.",
       "team": "Znaleziono grupę",
       "pagesSkipped": {
-        "access": "Skonfigurowano autoocenianie. GitHub Pages nie zostało włączone: nie masz uprawnień do zmiany ustawień Pages w tym repozytorium. Nauczyciel może je włączyć na stronie przesłanych prac.",
-        "branch": "Skonfigurowano autoocenianie. GitHub Pages nie zostało włączone: gałąź, z której publikowana jest strona, jeszcze nie istnieje w Twoim repozytorium. Nauczyciel może je włączyć na stronie przesłanych prac.",
-        "plan": "Skonfigurowano autoocenianie. GitHub Pages nie zostało włączone: plan GitHub tej organizacji nie zezwala na Pages w prywatnych repozytoriach. Nauczyciel może udostępnić repozytorium publicznie i włączyć Pages na stronie przesłanych prac.",
-        "policy": "Skonfigurowano autoocenianie. GitHub Pages nie zostało włączone: organizacja nie pozwala członkom publikować witryn Pages. Nauczyciel może je włączyć na stronie przesłanych prac.",
-        "unknown": "Skonfigurowano autoocenianie. GitHub Pages nie udało się teraz włączyć. Nauczyciel może je włączyć na stronie przesłanych prac."
-      }
+        "access": "GitHub Pages nie zostało włączone: nie masz uprawnień do zmiany ustawień Pages w tym repozytorium. Nauczyciel może je włączyć na stronie zgłoszeń.",
+        "branch": "GitHub Pages nie zostało włączone: gałąź, z której publikuje, jeszcze nie istnieje w Twoim repozytorium. Nauczyciel może je włączyć na stronie zgłoszeń.",
+        "plan": "GitHub Pages nie zostało włączone: plan GitHub tej organizacji nie pozwala na Pages w prywatnych repozytoriach. Nauczyciel może ustawić repozytorium jako publiczne i włączyć Pages na stronie zgłoszeń.",
+        "policy": "GitHub Pages nie zostało włączone: organizacja nie pozwala członkom publikować witryn Pages. Nauczyciel może je włączyć na stronie zgłoszeń.",
+        "unknown": "Nie udało się teraz włączyć GitHub Pages. Nauczyciel może je włączyć na stronie zgłoszeń."
+      },
+      "setupBranchUnsettled": "GitHub nadal inicjalizuje Twoje repozytorium, więc GitHub Pages nie zostało włączone. Zaakceptuj ponownie za minutę, aby je włączyć, albo nauczyciel może je włączyć na stronie zgłoszeń",
+      "setupSkipped": "Nie są potrzebne żadne pliki konfiguracyjne: to zadanie nie dodaje nic do Twojego repozytorium"
     },
     "stepErrors": {
       "generic": "{{label}} nie powiodło się (HTTP {{status}}). {{actions}}",
@@ -2525,7 +2531,7 @@
       "statusFailedHint": "Sprawdź workflow w serwisie GitHub, a następnie spróbuj ponownie.",
       "statusTimeout": "Ponowne ocenianie długo się rejestruje. Sprawdź jego postęp w serwisie GitHub.",
       "confirmTitle": "Ponownie ocenić wszystkie przesłania dla „{{name}}”?",
-      "confirmBody1": "Uruchamia to ponownie autooceniacz na najnowszym commicie każdego przesłanego repozytorium. Przydatne po naprawieniu testu lub aktualizacji autooceniacza. Czasy przesłania się nie zmieniają.",
+      "confirmBody1": "To ponownie uruchamia autograder na ostatnim ocenionym zgłoseniu każdego repozytorium, a nie na nowszych commitach, których uczeń nie przesłał. Repozytorium z wypchniętą pracą, ale bez ocenionego zgłoszenia, jest oceniane na swoim najnowszym commicie, który staje się jego pierwszym zgłoszeniem. Przydatne po poprawieniu testu lub zaktualizowaniu autogradera. Istniejące czasy zgłoszeń nie zmieniają się.",
       "confirmBody2": "Ocenianie odbywa się w tle i może potrwać kilka minut; następnie użyj <collectLabel>{{collectLabel}}</collectLabel>, aby pobrać nowe wyniki.",
       "statusCompleted": "Ponowne ocenianie rozpoczęte. Każde repozytorium jest ponownie oceniane w tle. Użyj <collectLabel>{{collectLabel}}</collectLabel> za kilka minut, aby pobrać nowe wyniki."
     },
@@ -2663,8 +2669,8 @@
       "aria": "Oceń ponownie rozwiązanie użytkownika {{owner}}",
       "confirmTitle": "Ocenić ponownie rozwiązanie ucznia {{name}}?",
       "confirmLabel": "Oceń ponownie",
-      "confirmBody1": "Spowoduje to ponowne uruchomienie autograderа na najnowszym commicie <name>{{name}}</name> dla tego zadania. Czas przesłania rozwiązania się nie zmienia.",
-      "confirmBody1WithLogin": "Spowoduje to ponowne uruchomienie autograderа na najnowszym commicie <name>{{name}}</name> (<owner>{{owner}}</owner>) dla tego zadania. Czas przesłania rozwiązania się nie zmienia.",
+      "confirmBody1": "To ponownie uruchamia autograder na ostatnim ocenionym zgłoszeniu ucznia <name>{{name}}</name> dla tego zadania, a nie na nowszych commitach, których nie przesłał. Jeśli nic nie zostało jeszcze ocenione, oceniany jest jego najnowszy commit, który staje się jego zgłoszeniem. Istniejący czas zgłoszenia nie zmienia się.",
+      "confirmBody1WithLogin": "To ponownie uruchamia autograder na ostatnim ocenionym zgłoszeniu ucznia <name>{{name}}</name> (<owner>{{owner}}</owner>) dla tego zadania, a nie na nowszych commitach, których nie przesłał. Jeśli nic nie zostało jeszcze ocenione, oceniany jest jego najnowszy commit, który staje się jego zgłoszeniem. Istniejący czas zgłoszenia nie zmienia się.",
       "confirmBody2": "Ocenianie odbywa się w tle i może potrwać kilka minut; następnie użyj <collectLabel>{{collectLabel}}</collectLabel>, aby pobrać nowy wynik."
     },
     "student": {
@@ -2870,7 +2876,7 @@
       "membersDescription": "Wyświetl członków grupy i zarządzaj nimi",
       "open": "Zarządzaj zgłoszeniem",
       "openAria": "Zarządzaj zgłoszeniem użytkownika {{owner}}",
-      "regradeDescription": "Uruchom ponownie autoocenę na najnowszym commicie",
+      "regradeDescription": "Ponownie uruchom autograder na ostatnim ocenionym zgłoszeniu",
       "reviewDescription": "Otwórz feedback pull request",
       "autograding": "Autoocenianie",
       "autogradingEnabled": "Włączone",
@@ -3041,7 +3047,7 @@
       "badgeEmptyRepo": "Brak autooceniania",
       "badgeNoAutograder": "Brak wbudowanego autooceniania",
       "titleEmptyRepo": "To zadanie używa pustych repozytoriów, więc autoocenianie, wyniki i pull request z opinią są wyłączone. Tabela pokazuje, kto zaakceptował i kto wypchnął zmiany.",
-      "titleNoAutograder": "To zadanie nie używa wbudowanego autooceniania, więc wbudowane wyniki i ponowna ocena są wyłączone. Własny workflow oceniania szablonu nadal działa, a pull request z opinią nadal działa, gdy jest włączony."
+      "titleNoAutograder": "To zadanie nie używa wbudowanego autogradera, więc wbudowane oceny i ponowne ocenianie są wyłączone. Repozytoria nie zawierają żadnych plików Classroom 50. Własny przepływ pracy oceniania z szablonu nadal działa, a pull request z informacją zwrotną nadal działa, gdy jest włączony."
     },
     "scoreOverride": {
       "add": "Dodaj wynik",
@@ -3217,21 +3223,22 @@
       "unrecognizedSection_other": "Pominięto {{count}} repozytorium (inny przepływ pracy znajduje się już w tej ścieżce)",
       "warningLead_one": "Powoduje to zatwierdzenie przepływu pracy automatycznego oceniania do repozytorium {{count}} studenta.",
       "warningLead_other": "Powoduje to zatwierdzenie przepływu pracy automatycznego oceniania do repozytoriów {{count}} studenta.",
-      "warningPoint1": "Repozytoria, które już mają ten przepływ pracy, pozostają nietknięte.",
+      "warningPoint1": "Repozytoria, które już mają ten przepływ pracy, pozostają nietknięte. Repozytorium bez znacznika .classroom50.yaml otrzyma go w tym samym commicie.",
       "warningPoint2": "Commit jest oznaczony tak, aby nie wyzwalał oceniania. Praca, którą studenci już wypchnęli, jest oceniana przy ich następnym pushu; „Oceń ponownie wszystko” nie sięga commitów wykonanych, zanim przepływ pracy istniał.",
       "warningPoint3": "Studenci muszą potem wykonać pull. Klony wykonane przed tą zmianą będą powodować konflikt przy ich następnym pushu.",
       "working": "Dodawanie przepływu pracy"
     },
     "rowShim": {
       "aria": "Dodaj przepływ pracy automatycznego oceniania do {{repo}}",
-      "description": "Dodaj wbudowany przepływ pracy automatycznego oceniania do tego repozytorium, jeśli zostało zaakceptowane, gdy system automatycznego oceniania był wyłączony.",
+      "description": "Dodaj do tego repozytorium wbudowany przepływ pracy autogradera oraz potrzebny mu znacznik .classroom50.yaml, jeśli zostało zaakceptowane, gdy autograder był wyłączony.",
       "outcome": {
         "added": "Dodano przepływ pracy automatycznego oceniania. Student musi wykonać pull przed swoim następnym pushem, a to właśnie ten push ocenia pracę już znajdującą się w repozytorium.",
         "failed": "Nie udało się dodać przepływu pracy. Spróbuj ponownie.",
         "missingWorkflowScope": "Twoja autoryzacja GitHub nie może modyfikować plików przepływu pracy. Wyloguj się i zaloguj ponownie, a następnie spróbuj ponownie.",
         "notAccepted": "Repozytorium jeszcze nie istnieje, więc nie ma nic do dodania.",
         "present": "To repozytorium już ma przepływ pracy automatycznego oceniania.",
-        "unrecognized": "Pominięto: inny przepływ pracy znajduje się już w ścieżce przepływu pracy automatycznego oceniania, więc niczego nie zmieniono."
+        "unrecognized": "Pominięto: inny przepływ pracy znajduje się już w ścieżce przepływu pracy automatycznego oceniania, więc niczego nie zmieniono.",
+        "markerAdded": "To repozytorium miało już przepływ pracy autogradera. Dodano brakujący znacznik .classroom50.yaml, dzięki czemu autograder może odnaleźć zadanie. Uczeń musi wykonać pull przed następnym pushem."
       },
       "title": "Dodaj przepływ pracy automatycznego oceniania"
     }

@@ -682,7 +682,10 @@
     "uploadBlockedUsernames": "Conferma le modifiche del nome utente qui sopra per continuare.",
     "rosterProblemDuplicateColumn": "La colonna \"{{name}}\" compare più di una volta. Tienine una e rimuovi le altre.",
     "rosterProblemFormulaColumn": "Il nome della colonna \"{{name}}\" inizia con =, +, - o @, che i fogli di calcolo interpretano come formula. Rinominala.",
-    "rosterProblemReservedColumn": "La colonna \"{{name}}\" è una colonna incorporata dell'elenco iscritti e compare di nuovo dopo di essa. Rimuovi la copia in eccesso."
+    "rosterProblemReservedColumn": "La colonna \"{{name}}\" è una colonna predefinita dell'elenco e compare più di una volta. Rimuovi la copia in eccesso.",
+    "duplicateImportHeader": "La colonna \"{{name}}\" compare più di una volta in questo file. Tienine una e rimuovi le altre, poi caricalo di nuovo.",
+    "rosterProblemEmptyFile": "Il file non ha una riga di intestazione. Aggiungi questa riga in cima: {{header}}",
+    "rosterProblemNoIdentityColumn": "La riga di intestazione non contiene nessuna delle colonne che identificano uno studente: username, github_id o email. Aggiungine almeno una."
   },
   "language": {
     "baseName": "Inglese (base)",
@@ -1061,7 +1064,7 @@
             "label": "Usa l'autovalutatore integrato"
           },
           "none": {
-            "help": "Valuta con un tuo workflow GitHub Actions. Con un modello, aggiungi il workflow al modello; senza modello, il compito non ha alcuna valutazione automatica.",
+            "help": "Valuta invece con il tuo workflow di GitHub Actions, oppure non valutare affatto su GitHub. Classroom 50 non aggiunge alcun file ai repository: con un template, ogni studente ne riceve una copia esatta; senza, un repository con il solo README.",
             "label": "Non usare l'autovalutatore integrato"
           }
         },
@@ -1232,7 +1235,7 @@
       "defaultOption": "{{label}} (predefinito)",
       "defaults": {
         "failureDetails": "Dettagli di fallimento predefiniti",
-        "failureDetailsFull": "Completo: diff oppure output atteso ed effettivo",
+        "failureDetailsFull": "Completo: input, poi diff o output atteso ed effettivo",
         "heading": "Impostazioni predefinite del report",
         "hint": "Impostazioni predefinite per tutti i test; le opzioni di report del singolo test le sovrascrivono.",
         "showOutput": "Includi l'output dei test superati",
@@ -1242,7 +1245,7 @@
       },
       "failureDetails": "Dettagli di fallimento mostrati agli studenti",
       "failureDetailsActualOnly": "Solo l'output dello studente (mai l'output atteso)",
-      "failureDetailsFull": "Completo: diff oppure output atteso ed effettivo",
+      "failureDetailsFull": "Completo: input, poi diff o output atteso ed effettivo",
       "failureDetailsHint": "Quanto di un'esecuzione fallita gli studenti vedono nel report della consegna e nel log del workflow.",
       "failureDetailsNone": "Solo il tipo di fallimento (nessun output)",
       "reportOptions": "Opzioni del report",
@@ -1555,7 +1558,8 @@
         "renameFailed": "rinomina fallita: {{message}}",
         "renameForbidden": "la rinomina in \"{{newName}}\" richiede l'accesso admin al repository; riprova come proprietario dell'organizzazione",
         "repoGone": "il repository è scomparso durante la rinomina; esegui di nuovo per ricontrollare",
-        "unparseableMarker": "file .classroom50.yaml illeggibile ({{message}}), quindi il repository è stato lasciato intatto"
+        "unparseableMarker": "file .classroom50.yaml illeggibile ({{message}}), quindi il repository è stato lasciato intatto",
+        "foreignSibling": "il suo nome corrisponde anche alla consegna \"{{slug}}\", una consegna affine che condivide il prefisso del nome, e i repository di questa consegna non hanno alcun marcatore per distinguerli, lasciato intatto"
       },
       "repoCount_one": "{{count}} repository esistente di studente verrà rinominato.",
       "repoCount_other": "{{count}} repository esistenti di studenti verranno rinominati.",
@@ -1760,7 +1764,7 @@
         "student_permission": "Accesso al repository dello studente: modifica i repository esistenti dalla pagina delle consegne.",
         "pages": "GitHub Pages: abilitalo sui repository esistenti dalla pagina delle consegne.",
         "autograder_off": "Autovalutazione integrata: disattivarla fa fallire le esecuzioni di autovalutazione dei repository esistenti, che vengono esclusi dai punteggi raccolti.",
-        "autograder_on": "Autovalutazione integrata: i repository esistenti non hanno ancora un workflow di autovalutazione. Dopo aver salvato, usa \"Aggiungi workflow di autovalutazione\" nella pagina delle consegne per aggiungerlo."
+        "autograder_on": "Autograder integrato: i repository esistenti non hanno ancora i file di autovalutazione. Dopo il salvataggio, usa \"Aggiungi workflow di autovalutazione\" nella pagina delle consegne per aggiungere il workflow e il marcatore .classroom50.yaml."
       },
       "provisioningIntro_one": "{{count}} studente ha già accettato. Queste modifiche si applicano solo ai repository accettati d'ora in poi; il repository esistente mantiene la configurazione attuale:",
       "provisioningIntro_other": "{{count}} studenti hanno già accettato. Queste modifiche si applicano solo ai repository accettati d'ora in poi; i {{count}} repository esistenti mantengono la configurazione attuale:",
@@ -2194,15 +2198,16 @@
       "resendFailed": "Impossibile inviare di nuovo l'invito a {{who}}: {{error}}",
       "resentToast": "Invito inviato di nuovo a {{who}}.",
       "roleTeacherPlural": "Insegnanti",
-      "accessHeadTa": "Membro dell'organizzazione. Accesso in scrittura al repository classroom50 e ai repository degli studenti, così può fare il merge delle pull request di feedback.",
-      "accessTa": "Membro dell'organizzazione. Accesso in sola lettura al repository classroom50; accesso in scrittura ai repository degli studenti, così può fare il merge delle pull request di feedback.",
+      "accessHeadTa": "Membro dell'organizzazione. Accesso in scrittura al repository classroom50 e, dopo la raccolta dei punteggi, ai repository degli studenti, così da poter unire le pull request di feedback.",
+      "accessTa": "Membro dell'organizzazione. Accesso in sola lettura al repository classroom50; accesso in scrittura ai repository degli studenti dopo la raccolta dei punteggi, così da poter unire le pull request di feedback.",
       "accessTeacher": "Proprietario dell'organizzazione. Accesso in scrittura al repository classroom50.",
       "pendingCount_one": "{{count}} in sospeso",
       "pendingCount_other": "{{count}} in sospeso",
       "removeSelfTeacherBlocked": "Non puoi rimuovere te stesso dal team docenti; revocheresti il tuo stesso accesso a livello di proprietario per questa classe. Chiedi a un altro proprietario dell'organizzazione di rimuoverti.",
       "roleHeadTaPlural": "Assistenti capo",
       "viewTeamTitle": "Apri il team {{role}} su GitHub",
-      "you": "Tu"
+      "you": "Tu",
+      "studentRepoAccessNote": "Gli assistenti e gli assistenti capo ottengono l'accesso ai repository degli studenti quando i punteggi vengono raccolti, non quando uno studente accetta. Per concedere l'accesso ai nuovi repository, apri <assignmentsLink>Consegne</assignmentsLink> e seleziona Raccogli tutto."
     },
     "card": {
       "actionsAria": "Azioni per {{name}}",
@@ -2392,16 +2397,17 @@
       "repoExists": "Il repository esiste già: {{org}}/{{repo}}",
       "repoIncomplete": "Trovata configurazione incompleta: {{org}}/{{repo}}",
       "setup": "Autovalutazione configurata",
-      "setupSkippedEmptyRepo": "Nessuna configurazione necessaria: questo compito usa un repository vuoto",
       "repoVisibilityFellBack": "{{org}}/{{repo}} creato come privato. L'organizzazione non ti consente di creare repository pubblici; il tuo insegnante potrà renderlo pubblico in seguito.",
       "team": "Gruppo trovato",
       "pagesSkipped": {
-        "access": "Autovalutazione configurata. GitHub Pages non è stato abilitato: non hai il permesso di modificare le impostazioni di Pages su questo repository. Il tuo docente può abilitarlo dalla pagina delle consegne.",
-        "branch": "Autovalutazione configurata. GitHub Pages non è stato abilitato: il branch da cui pubblica non esiste ancora nel tuo repository. Il tuo docente può abilitarlo dalla pagina delle consegne.",
-        "plan": "Autovalutazione configurata. GitHub Pages non è stato abilitato: il piano GitHub di questa organizzazione non consente Pages sui repository privati. Il tuo docente può rendere pubblico il repository e abilitare Pages dalla pagina delle consegne.",
-        "policy": "Autovalutazione configurata. GitHub Pages non è stato abilitato: l'organizzazione non consente ai membri di pubblicare siti Pages. Il tuo docente può abilitarlo dalla pagina delle consegne.",
-        "unknown": "Autovalutazione configurata. GitHub Pages non è stato possibile abilitarlo al momento. Il tuo docente può abilitarlo dalla pagina delle consegne."
-      }
+        "access": "GitHub Pages non è stato attivato: non hai il permesso di modificare le impostazioni delle Pages su questo repository. Il tuo insegnante può attivarle dalla pagina delle consegne.",
+        "branch": "GitHub Pages non è stato attivato: il branch da cui pubblica non esiste ancora nel tuo repository. Il tuo insegnante può attivarle dalla pagina delle consegne.",
+        "plan": "GitHub Pages non è stato attivato: il piano GitHub di questa organizzazione non consente le Pages sui repository privati. Il tuo insegnante può rendere pubblico il repository e attivare le Pages dalla pagina delle consegne.",
+        "policy": "GitHub Pages non è stato attivato: l'organizzazione non consente ai membri di pubblicare siti Pages. Il tuo insegnante può attivarle dalla pagina delle consegne.",
+        "unknown": "Al momento non è stato possibile attivare GitHub Pages. Il tuo insegnante può attivarle dalla pagina delle consegne."
+      },
+      "setupBranchUnsettled": "GitHub sta ancora inizializzando il tuo repository, quindi GitHub Pages non è stato attivato. Accetta di nuovo tra un minuto per attivarle, oppure il tuo insegnante può attivarle dalla pagina delle consegne",
+      "setupSkipped": "Nessun file di configurazione necessario: questa consegna non aggiunge nulla al tuo repository"
     },
     "stepErrors": {
       "generic": "{{label}} non riuscito (HTTP {{status}}). {{actions}}",
@@ -2523,7 +2529,7 @@
       "statusFailedHint": "Controlla il workflow su GitHub, poi riprova.",
       "statusTimeout": "La rivalutazione sta impiegando un po' a registrarsi. Controlla i progressi su GitHub.",
       "confirmTitle": "Rivalutare tutte le consegne di \"{{name}}\"?",
-      "confirmBody1": "Questo riesegue la valutazione automatica sull'ultimo commit di ogni repository consegnato. È utile dopo aver corretto un test o aggiornato l'autograder. Gli orari di consegna non cambiano.",
+      "confirmBody1": "Questo ri-esegue l'autograder sull'ultima consegna valutata di ciascun repository, non sui commit più recenti che lo studente non ha inviato. Un repository con lavoro pubblicato ma senza consegna valutata viene valutato al suo commit più recente, che diventa la sua prima consegna. È utile dopo aver corretto un test o aggiornato l'autograder. Gli orari delle consegne esistenti non cambiano.",
       "confirmBody2": "La valutazione viene eseguita in background e può richiedere diversi minuti; usa <collectLabel>{{collectLabel}}</collectLabel> in seguito per recuperare i nuovi punteggi.",
       "statusCompleted": "Rivalutazione avviata. Ogni repository viene rivalutato in background. Usa <collectLabel>{{collectLabel}}</collectLabel> tra qualche minuto per recuperare i nuovi punteggi."
     },
@@ -2661,8 +2667,8 @@
       "aria": "Rivaluta la consegna di {{owner}}",
       "confirmTitle": "Rivalutare la consegna di {{name}}?",
       "confirmLabel": "Rivaluta",
-      "confirmBody1": "Questo riesegue l'autovalutatore sull'ultimo commit di <name>{{name}}</name> per questo compito. Il suo orario di consegna non cambia.",
-      "confirmBody1WithLogin": "Questo riesegue l'autovalutatore sull'ultimo commit di <name>{{name}}</name> (<owner>{{owner}}</owner>) per questo compito. Il suo orario di consegna non cambia.",
+      "confirmBody1": "Questo ri-esegue l'autograder sull'ultima consegna valutata di <name>{{name}}</name> per questa consegna, non sui commit più recenti che non ha inviato. Se nulla è ancora stato valutato, il commit più recente viene valutato e diventa la sua consegna. L'orario di una consegna esistente non cambia.",
+      "confirmBody1WithLogin": "Questo ri-esegue l'autograder sull'ultima consegna valutata di <name>{{name}}</name> (<owner>{{owner}}</owner>) per questa consegna, non sui commit più recenti che non ha inviato. Se nulla è ancora stato valutato, il commit più recente viene valutato e diventa la sua consegna. L'orario di una consegna esistente non cambia.",
       "confirmBody2": "La valutazione viene eseguita in background e può richiedere qualche minuto; usa <collectLabel>{{collectLabel}}</collectLabel> in seguito per recuperare il nuovo punteggio."
     },
     "student": {
@@ -2868,7 +2874,7 @@
       "membersDescription": "Visualizza e gestisci i membri del gruppo",
       "open": "Gestisci consegna",
       "openAria": "Gestisci la consegna di {{owner}}",
-      "regradeDescription": "Riesegui l'autovalutazione sull'ultimo commit",
+      "regradeDescription": "Ri-esegui l'autograder sull'ultima consegna valutata",
       "reviewDescription": "Apri la pull request di feedback",
       "autograding": "Autovalutazione",
       "autogradingEnabled": "Abilitata",
@@ -3039,7 +3045,7 @@
       "badgeEmptyRepo": "Nessuna correzione automatica",
       "badgeNoAutograder": "Nessun autograder integrato",
       "titleEmptyRepo": "Questo compito usa repository vuoti, quindi la valutazione automatica, i punteggi e la pull request di feedback sono disabilitati. La tabella mostra chi ha accettato e chi ha fatto push.",
-      "titleNoAutograder": "Questo compito non usa l'autograder integrato, quindi i punteggi integrati e la rivalutazione sono disabilitati. Il workflow di valutazione proprio del template viene comunque eseguito e la pull request di feedback funziona ancora quando è abilitata."
+      "titleNoAutograder": "Questa consegna non usa l'autograder integrato, quindi i punteggi integrati e la rivalutazione sono disattivati. I repository non contengono file di Classroom 50. Il workflow di valutazione di un template continua a funzionare, e la pull request di feedback funziona ancora quando è attiva."
     },
     "scoreOverride": {
       "add": "Aggiungi punteggio",
@@ -3215,21 +3221,22 @@
       "unrecognizedSection_other": "{{count}} repository sono stati saltati (un altro workflow si trova già in quel percorso)",
       "warningLead_one": "Questo esegue il commit del workflow di autovalutazione nel repository di {{count}} studente.",
       "warningLead_other": "Questo esegue il commit del workflow di autovalutazione nei repository di {{count}} studenti.",
-      "warningPoint1": "I repository che hanno già il workflow vengono lasciati intatti.",
+      "warningPoint1": "I repository che hanno già il workflow vengono lasciati intatti. Un repository a cui manca il marcatore .classroom50.yaml lo riceve nello stesso commit.",
       "warningPoint2": "Il commit è contrassegnato in modo da non attivare la valutazione. Il lavoro già inviato dagli studenti viene valutato al loro prossimo push; \"Rivaluta tutto\" non può raggiungere i commit fatti prima che il workflow esistesse.",
       "warningPoint3": "Gli studenti devono eseguire il pull in seguito. I cloni fatti prima di questa modifica genereranno un conflitto al loro prossimo push.",
       "working": "Aggiunta del workflow in corso"
     },
     "rowShim": {
       "aria": "Aggiungi il workflow di autovalutazione a {{repo}}",
-      "description": "Aggiungi il workflow di autovalutazione integrato a questo repository se è stato accettato mentre l'autovalutatore era disattivato.",
+      "description": "Aggiunge il workflow di autovalutazione integrato, e il marcatore .classroom50.yaml che gli serve, a questo repository se è stato accettato mentre l'autograder era disattivato.",
       "outcome": {
         "added": "Workflow di autovalutazione aggiunto. Lo studente deve eseguire il pull prima del prossimo push, e quel push è ciò che valuta il lavoro già presente nel repository.",
         "failed": "Impossibile aggiungere il workflow. Riprova.",
         "missingWorkflowScope": "La tua autorizzazione GitHub non può modificare i file di workflow. Esci e accedi di nuovo, poi riprova.",
         "notAccepted": "Non esiste ancora alcun repository, quindi non c'è nulla da aggiungere.",
         "present": "Questo repository ha già il workflow di autovalutazione.",
-        "unrecognized": "Saltato: un altro workflow si trova già nel percorso del workflow di autovalutazione, quindi non è stato modificato nulla."
+        "unrecognized": "Saltato: un altro workflow si trova già nel percorso del workflow di autovalutazione, quindi non è stato modificato nulla.",
+        "markerAdded": "Questo repository aveva già il workflow di autovalutazione. Il marcatore .classroom50.yaml mancante è stato aggiunto, così l'autovalutazione può trovare la consegna. Lo studente deve fare pull prima del prossimo push."
       },
       "title": "Aggiungi workflow di autovalutazione"
     }

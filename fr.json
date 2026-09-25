@@ -726,7 +726,10 @@
     "uploadBlockedUsernames": "Confirmez les changements de nom d'utilisateur ci-dessus pour continuer.",
     "rosterProblemDuplicateColumn": "La colonne « {{name}} » apparaît plusieurs fois. Gardez-en une et supprimez les autres.",
     "rosterProblemFormulaColumn": "Le nom de colonne « {{name}} » commence par =, +, - ou @, que les tableurs interprètent comme une formule. Renommez-le.",
-    "rosterProblemReservedColumn": "La colonne « {{name}} » est une colonne de liste d'étudiants intégrée et réapparaît après. Supprimez la copie supplémentaire."
+    "rosterProblemReservedColumn": "La colonne « {{name}} » est une colonne de liste intégrée et apparaît plusieurs fois. Supprimez la copie superflue.",
+    "duplicateImportHeader": "La colonne « {{name}} » apparaît plusieurs fois dans ce fichier. Gardez-en une, supprimez les autres, puis téléversez-le à nouveau.",
+    "rosterProblemEmptyFile": "Le fichier n'a pas de ligne d'en-tête. Ajoutez cette ligne en haut : {{header}}",
+    "rosterProblemNoIdentityColumn": "La ligne d'en-tête ne contient aucune des colonnes qui identifient un étudiant : username, github_id ou email. Ajoutez-en au moins une."
   },
   "language": {
     "baseName": "Anglais (base)",
@@ -1153,7 +1156,7 @@
             "label": "Utiliser le correcteur automatique intégré"
           },
           "none": {
-            "help": "Notez avec votre propre flux de travail GitHub Actions à la place. Avec un modèle, ajoutez-y le flux de travail ; sans modèle, le devoir n'a pas d'autonoteur.",
+            "help": "Corrigez plutôt avec votre propre workflow GitHub Actions, ou ne corrigez pas du tout sur GitHub. Classroom 50 n'ajoute aucun fichier aux dépôts : avec un modèle, chaque étudiant en reçoit une copie exacte ; sans modèle, un dépôt contenant uniquement un README.",
             "label": "Ne pas utiliser le correcteur automatique intégré"
           }
         },
@@ -1324,7 +1327,7 @@
       "defaultOption": "{{label}} (par défaut)",
       "defaults": {
         "failureDetails": "Détails d'échec par défaut",
-        "failureDetailsFull": "Complet : diff ou sortie attendue et réelle",
+        "failureDetailsFull": "Complet : entrée, puis diff ou sortie attendue et sortie réelle",
         "heading": "Valeurs par défaut du rapport",
         "hint": "Valeurs par défaut pour tous les tests ; les options de rapport propres à un test les remplacent.",
         "showOutput": "Inclure la sortie des tests réussis",
@@ -1334,7 +1337,7 @@
       },
       "failureDetails": "Détails d'échec montrés aux étudiants",
       "failureDetailsActualOnly": "Sortie de l'étudiant uniquement (jamais la sortie attendue)",
-      "failureDetailsFull": "Complet : diff ou sortie attendue et réelle",
+      "failureDetailsFull": "Complet : entrée, puis diff ou sortie attendue et sortie réelle",
       "failureDetailsHint": "Quelle part d'une exécution en échec les étudiants voient dans le rapport de soumission et le journal du workflow.",
       "failureDetailsNone": "Type d'échec seulement (aucune sortie)",
       "reportOptions": "Options du rapport",
@@ -1599,7 +1602,8 @@
         "renameFailed": "le renommage a échoué : {{message}}",
         "renameForbidden": "le renommage en « {{newName}} » nécessite un accès administrateur au dépôt ; réessayez en tant que propriétaire de l'organisation",
         "repoGone": "le dépôt a disparu pendant le renommage ; relancez pour revérifier",
-        "unparseableMarker": "fichier .classroom50.yaml illisible ({{message}}), si bien que le dépôt a été laissé intact"
+        "unparseableMarker": "fichier .classroom50.yaml illisible ({{message}}), si bien que le dépôt a été laissé intact",
+        "foreignSibling": "son nom correspond aussi au devoir « {{slug}} », un devoir voisin partageant le même préfixe de nom, et les dépôts de ce devoir ne portent aucun marqueur permettant de les distinguer ; laissé inchangé"
       },
       "repoCount_one": "{{count}} dépôt étudiant existant sera renommé.",
       "repoCount_other": "{{count}} dépôts étudiants existants seront renommés.",
@@ -1838,7 +1842,7 @@
         "student_permission": "Accès des étudiants au dépôt : modifiez les dépôts existants depuis la page des soumissions.",
         "pages": "GitHub Pages : activez-le sur les dépôts existants depuis la page des soumissions.",
         "autograder_off": "Correcteur automatique intégré : le désactiver fera échouer les exécutions de correction automatique des dépôts existants, qui disparaîtront des scores collectés.",
-        "autograder_on": "Correcteur automatique intégré : les dépôts existants n'ont pas encore de workflow de correction automatique. Après l'enregistrement, utilisez « Ajouter le workflow de correction automatique » sur la page des rendus pour l'ajouter."
+        "autograder_on": "Correcteur automatique intégré : les dépôts existants n'ont pas encore de fichiers de correction automatique. Après avoir enregistré, utilisez « Ajouter le workflow de correction automatique » sur la page des soumissions pour y ajouter le workflow et le marqueur .classroom50.yaml."
       },
       "provisioningIntro_one": "{{count}} étudiant a déjà accepté. Ces modifications s'appliquent uniquement aux dépôts acceptés à partir de maintenant ; le dépôt existant conserve sa configuration actuelle :",
       "provisioningIntro_other": "{{count}} étudiants ont déjà accepté. Ces modifications s'appliquent uniquement aux dépôts acceptés à partir de maintenant ; les {{count}} dépôts existants conservent leur configuration actuelle :",
@@ -2359,8 +2363,8 @@
       "roleTaPlural": "Assistant·e·s",
       "roleHeadTaPlural": "Assistant·e·s principaux·ales",
       "accessTeacher": "Propriétaire de l'organisation. Accès en écriture au dépôt classroom50.",
-      "accessHeadTa": "Membre de l'organisation. Accès en écriture au dépôt classroom50 et aux dépôts des étudiants, pour pouvoir fusionner les pull requests de retour.",
-      "accessTa": "Membre de l'organisation. Accès en lecture seule au dépôt classroom50 ; accès en écriture aux dépôts des étudiants, pour pouvoir fusionner les pull requests de retour.",
+      "accessHeadTa": "Membre de l'organisation. Accès en écriture au dépôt classroom50 et, après la collecte des scores, aux dépôts des étudiants, afin de pouvoir fusionner les pull requests de retour.",
+      "accessTa": "Membre de l'organisation. Accès en lecture seule au dépôt classroom50 ; accès en écriture aux dépôts des étudiants après la collecte des scores, afin de pouvoir fusionner les pull requests de retour.",
       "viewTeamTitle": "Ouvrir l'équipe {{role}} sur GitHub",
       "pendingCount_one": "{{count}} en attente",
       "pendingCount_other": "{{count}} en attente",
@@ -2386,7 +2390,8 @@
       "resendFailed": "Impossible de renvoyer l'invitation à {{who}} : {{error}}",
       "cancelInvite": "Annuler l'invitation",
       "cancelledToast": "Invitation annulée pour {{who}}.",
-      "cancelFailed": "Impossible d'annuler l'invitation pour {{who}} : {{error}}"
+      "cancelFailed": "Impossible d'annuler l'invitation pour {{who}} : {{error}}",
+      "studentRepoAccessNote": "Les AE et les AE en chef obtiennent l'accès aux dépôts des étudiants lors de la collecte des scores, et non lorsqu'un étudiant accepte un devoir. Pour donner accès à de nouveaux dépôts, ouvrez <assignmentsLink>Devoirs</assignmentsLink> et sélectionnez Tout collecter."
     },
     "viewAssignmentsAria": "Voir les devoirs de {{classroom}}",
     "inviteCleanup": {
@@ -2504,16 +2509,17 @@
       "repoExists": "Le dépôt existe déjà : {{org}}/{{repo}}",
       "repoIncomplete": "Configuration incomplète trouvée : {{org}}/{{repo}}",
       "setup": "Correction automatique configurée",
-      "setupSkippedEmptyRepo": "Aucune configuration nécessaire : ce devoir utilise un dépôt vide",
       "repoVisibilityFellBack": "{{org}}/{{repo}} créé en privé. L'organisation ne vous autorise pas à créer des dépôts publics ; votre enseignant pourra le rendre public plus tard.",
       "team": "Groupe trouvé",
       "pagesSkipped": {
-        "access": "Autonotation configurée. GitHub Pages n'a pas été activé : vous n'avez pas la permission de modifier les paramètres Pages de ce dépôt. Votre enseignant peut l'activer depuis la page des soumissions.",
-        "branch": "Autonotation configurée. GitHub Pages n'a pas été activé : la branche depuis laquelle il publie n'existe pas encore dans votre dépôt. Votre enseignant peut l'activer depuis la page des soumissions.",
-        "plan": "Autonotation configurée. GitHub Pages n'a pas été activé : le forfait GitHub de cette organisation n'autorise pas Pages sur les dépôts privés. Votre enseignant peut rendre le dépôt public et activer Pages depuis la page des soumissions.",
-        "policy": "Autonotation configurée. GitHub Pages n'a pas été activé : l'organisation ne permet pas aux membres de publier des sites Pages. Votre enseignant peut l'activer depuis la page des soumissions.",
-        "unknown": "Autonotation configurée. GitHub Pages n'a pas pu être activé pour le moment. Votre enseignant peut l'activer depuis la page des soumissions."
-      }
+        "access": "GitHub Pages n'a pas été activé : vous n'avez pas la permission de modifier les paramètres Pages de ce dépôt. Votre enseignant peut l'activer depuis la page des soumissions.",
+        "branch": "GitHub Pages n'a pas été activé : la branche à partir de laquelle il publie n'existe pas encore dans votre dépôt. Votre enseignant peut l'activer depuis la page des soumissions.",
+        "plan": "GitHub Pages n'a pas été activé : le forfait GitHub de cette organisation n'autorise pas Pages sur les dépôts privés. Votre enseignant peut rendre le dépôt public et activer Pages depuis la page des soumissions.",
+        "policy": "GitHub Pages n'a pas été activé : l'organisation n'autorise pas ses membres à publier des sites Pages. Votre enseignant peut l'activer depuis la page des soumissions.",
+        "unknown": "GitHub Pages n'a pas pu être activé pour le moment. Votre enseignant peut l'activer depuis la page des soumissions."
+      },
+      "setupBranchUnsettled": "GitHub est encore en train d'initialiser votre dépôt, GitHub Pages n'a donc pas été activé. Acceptez de nouveau dans une minute pour l'activer, ou votre enseignant peut l'activer depuis la page des soumissions",
+      "setupSkipped": "Aucun fichier de configuration n'est nécessaire : ce devoir n'ajoute rien à votre dépôt"
     },
     "stepErrors": {
       "generic": "{{label}} a échoué (HTTP {{status}}). {{actions}}",
@@ -2656,7 +2662,7 @@
       "statusFailedHint": "Vérifiez le workflow sur GitHub, puis réessayez.",
       "statusTimeout": "La réévaluation met du temps à s'enregistrer. Vérifiez sa progression sur GitHub.",
       "confirmTitle": "Recorriger toutes les soumissions de « {{name}} » ?",
-      "confirmBody1": "Cela relance le correcteur automatique sur le dernier commit de chaque dépôt soumis. C'est utile après avoir corrigé un test ou mis à jour le correcteur. Les heures de soumission ne changent pas.",
+      "confirmBody1": "Cette action réexécute le correcteur automatique sur la dernière soumission corrigée de chaque dépôt, et non sur les commits plus récents que l'étudiant n'a pas soumis. Un dépôt contenant du travail poussé mais sans soumission corrigée est corrigé à son dernier commit, qui devient sa première soumission. C'est utile après avoir corrigé un test ou mis à jour le correcteur automatique. Les horodatages de soumission existants ne changent pas.",
       "confirmBody2": "L'évaluation s'exécute en arrière-plan et peut prendre plusieurs minutes ; utilisez <collectLabel>{{collectLabel}}</collectLabel> ensuite pour récupérer les nouvelles notes."
     },
     "accept": {
@@ -2792,8 +2798,8 @@
       "titleFailed": "La nouvelle correction n'a pas pu démarrer. Réessayez.",
       "aria": "Réévaluer le rendu de {{owner}}",
       "confirmTitle": "Réévaluer le rendu de {{name}} ?",
-      "confirmBody1": "Cela relance l'autograder sur le dernier commit de <name>{{name}}</name> pour ce devoir. Sa date de rendu ne change pas.",
-      "confirmBody1WithLogin": "Cela relance l'autograder sur le dernier commit de <name>{{name}}</name> (<owner>{{owner}}</owner>) pour ce devoir. Sa date de rendu ne change pas.",
+      "confirmBody1": "Cette action réexécute le correcteur automatique sur la dernière soumission corrigée de <name>{{name}}</name> pour ce devoir, et non sur des commits plus récents qu'il n'a pas soumis. Si rien n'a encore été corrigé, son dernier commit est corrigé et devient sa soumission. Un horodatage de soumission existant ne change pas.",
+      "confirmBody1WithLogin": "Cette action réexécute le correcteur automatique sur la dernière soumission corrigée de <name>{{name}}</name> (<owner>{{owner}}</owner>) pour ce devoir, et non sur des commits plus récents qu'il n'a pas soumis. Si rien n'a encore été corrigé, son dernier commit est corrigé et devient sa soumission. Un horodatage de soumission existant ne change pas.",
       "confirmBody2": "L'évaluation s'exécute en arrière-plan et peut prendre quelques minutes ; utilisez <collectLabel>{{collectLabel}}</collectLabel> ensuite pour récupérer la nouvelle note.",
       "confirmLabel": "Réévaluer"
     },
@@ -2980,7 +2986,7 @@
       "membersDescription": "Voir et gérer les membres du groupe",
       "open": "Gérer la soumission",
       "openAria": "Gérer la soumission de {{owner}}",
-      "regradeDescription": "Réexécuter l'auto-évaluateur sur le dernier commit",
+      "regradeDescription": "Réexécuter le correcteur automatique sur la dernière soumission corrigée",
       "reviewDescription": "Ouvrir la pull request de retour",
       "autograding": "Correction automatique",
       "autogradingEnabled": "Activée",
@@ -3151,7 +3157,7 @@
       "badgeEmptyRepo": "Aucune correction automatique",
       "badgeNoAutograder": "Pas d'autocorrecteur intégré",
       "titleEmptyRepo": "Ce devoir utilise des dépôts vides ; l'autocorrection, les scores et la pull request de retour sont donc désactivés. Le tableau indique qui a accepté et qui a poussé du code.",
-      "titleNoAutograder": "Ce devoir n'utilise pas l'autocorrecteur intégré ; les scores intégrés et la recorrection sont donc désactivés. Le workflow de correction propre à un modèle s'exécute toujours, et la pull request de retour fonctionne toujours lorsqu'elle est activée."
+      "titleNoAutograder": "Ce devoir n'utilise pas le correcteur automatique intégré ; les scores intégrés et la recorrection sont donc désactivés. Les dépôts ne contiennent aucun fichier Classroom 50. Le workflow de correction propre à un modèle s'exécute quand même, et la pull request de retour fonctionne toujours lorsqu'elle est activée."
     },
     "scoreOverride": {
       "add": "Ajouter une note",
@@ -3327,21 +3333,22 @@
       "unrecognizedSection_other": "{{count}} dépôts ont été ignorés (un autre workflow se trouve déjà à cet emplacement)",
       "warningLead_one": "Ceci valide le workflow de correction automatique dans le dépôt de {{count}} étudiant.",
       "warningLead_other": "Ceci valide le workflow de correction automatique dans les dépôts de {{count}} étudiants.",
-      "warningPoint1": "Les dépôts qui ont déjà le workflow ne sont pas modifiés.",
+      "warningPoint1": "Les dépôts qui possèdent déjà le workflow sont laissés inchangés. Un dépôt dépourvu de son marqueur .classroom50.yaml le reçoit dans le même commit.",
       "warningPoint2": "Le commit est marqué pour ne pas déclencher la correction. Le travail déjà poussé par les étudiants est corrigé lors de leur prochain push ; « Tout recorriger » ne peut pas atteindre les commits antérieurs à l'existence du workflow.",
       "warningPoint3": "Les étudiants doivent ensuite faire un pull. Les clones effectués avant cette modification entreront en conflit lors de leur prochain push.",
       "working": "Ajout du workflow"
     },
     "rowShim": {
       "aria": "Ajouter le workflow de correction automatique à {{repo}}",
-      "description": "Ajouter le workflow de correction automatique intégré à ce dépôt s'il a été accepté alors que le correcteur automatique était désactivé.",
+      "description": "Ajoute le workflow de correction automatique intégré, ainsi que le marqueur .classroom50.yaml dont il a besoin, à ce dépôt s'il a été accepté alors que le correcteur automatique était désactivé.",
       "outcome": {
         "added": "Workflow de correction automatique ajouté. L'étudiant doit faire un pull avant son prochain push, et c'est ce push qui corrige le travail déjà présent dans le dépôt.",
         "failed": "Impossible d'ajouter le workflow. Réessayez.",
         "missingWorkflowScope": "Votre autorisation GitHub ne peut pas modifier les fichiers de workflow. Déconnectez-vous puis reconnectez-vous, puis réessayez.",
         "notAccepted": "Aucun dépôt n'existe encore, il n'y a donc rien à ajouter.",
         "present": "Ce dépôt a déjà le workflow de correction automatique.",
-        "unrecognized": "Ignoré : un autre workflow se trouve déjà à l'emplacement du workflow de correction automatique, donc rien n'a été modifié."
+        "unrecognized": "Ignoré : un autre workflow se trouve déjà à l'emplacement du workflow de correction automatique, donc rien n'a été modifié.",
+        "markerAdded": "Ce dépôt possédait déjà le workflow de correction automatique. Son marqueur .classroom50.yaml manquant a été ajouté, afin que la correction automatique puisse retrouver le devoir. L'étudiant doit faire un pull avant son prochain push."
       },
       "title": "Ajouter le workflow de correction automatique"
     }

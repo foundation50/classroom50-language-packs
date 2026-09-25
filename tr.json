@@ -726,7 +726,10 @@
     "uploadBlockedUsernames": "Devam etmek için yukarıdaki kullanıcı adı değişikliklerini onaylayın.",
     "rosterProblemDuplicateColumn": "\"{{name}}\" sütunu birden fazla kez görünüyor. Birini tutun ve diğerlerini kaldırın.",
     "rosterProblemFormulaColumn": "\"{{name}}\" sütun adı =, +, - veya @ ile başlıyor; bunları elektronik tablolar formül olarak değerlendirir. Yeniden adlandırın.",
-    "rosterProblemReservedColumn": "\"{{name}}\" sütunu yerleşik bir kayıt listesi sütunudur ve kendisinden sonra yeniden görünüyor. Fazladan kopyayı kaldırın."
+    "rosterProblemReservedColumn": "\"{{name}}\" sütunu yerleşik bir liste sütunudur ve birden çok kez görünüyor. Fazladan kopyayı kaldırın.",
+    "duplicateImportHeader": "\"{{name}}\" sütunu bu dosyada birden çok kez görünüyor. Birini tutup diğerlerini kaldırın, sonra tekrar yükleyin.",
+    "rosterProblemEmptyFile": "Dosyada başlık satırı yok. En üste şu satırı ekleyin: {{header}}",
+    "rosterProblemNoIdentityColumn": "Başlık satırında bir öğrenciyi tanımlayan sütunların hiçbiri yok: username, github_id veya email. Bunlardan en az birini ekleyin."
   },
   "language": {
     "baseName": "İngilizce (temel)",
@@ -1153,7 +1156,7 @@
             "label": "Yerleşik otomatik değerlendiriciyi kullan"
           },
           "none": {
-            "help": "Bunun yerine kendi GitHub Actions iş akışınızla değerlendirin. Bir şablonla, iş akışını ona ekleyin; şablon yoksa ödevin otomatik değerlendiricisi olmaz.",
+            "help": "Bunun yerine kendi GitHub Actions iş akışınızla değerlendirin ya da GitHub'da hiç değerlendirme yapmayın. Classroom 50 depolara hiçbir dosya eklemez: bir şablonla, her öğrenci onun birebir kopyasını alır; şablon yoksa, yalnızca bir README içeren bir depo alır.",
             "label": "Yerleşik otomatik değerlendiriciyi kullanma"
           }
         },
@@ -1324,7 +1327,7 @@
       "defaultOption": "{{label}} (varsayılan)",
       "defaults": {
         "failureDetails": "Varsayılan başarısızlık ayrıntıları",
-        "failureDetailsFull": "Tam: fark ya da beklenen ve gerçek çıktı",
+        "failureDetailsFull": "Tam: giriş, ardından fark ya da beklenen ve gerçek çıktı",
         "heading": "Rapor varsayılanları",
         "hint": "Her test için varsayılanlar; bir testin kendi rapor seçenekleri bunları geçersiz kılar.",
         "showOutput": "Geçen test çıktısını dahil et",
@@ -1334,7 +1337,7 @@
       },
       "failureDetails": "Öğrencilere gösterilen başarısızlık ayrıntıları",
       "failureDetailsActualOnly": "Yalnızca öğrenci çıktısı (beklenen çıktı asla değil)",
-      "failureDetailsFull": "Tam: fark ya da beklenen ve gerçek çıktı",
+      "failureDetailsFull": "Tam: giriş, ardından fark ya da beklenen ve gerçek çıktı",
       "failureDetailsHint": "Başarısız bir çalıştırmanın ne kadarının gönderim raporunda ve iş akışı günlüğünde öğrencilere gösterileceği.",
       "failureDetailsNone": "Yalnızca başarısızlık türü (çıktı yok)",
       "reportOptions": "Rapor seçenekleri",
@@ -1600,7 +1603,8 @@
         "renameFailed": "yeniden adlandırma başarısız oldu: {{message}}",
         "renameForbidden": "\"{{newName}}\" olarak yeniden adlandırma, depoda admin erişimi gerektirir; organizasyon sahibi olarak tekrar deneyin",
         "repoGone": "yeniden adlandırma sırasında depo kayboldu; yeniden kontrol etmek için tekrar çalıştırın",
-        "unparseableMarker": "okunamayan .classroom50.yaml ({{message}}), bu yüzden depoya dokunulmadan bırakıldı"
+        "unparseableMarker": "okunamayan .classroom50.yaml ({{message}}), bu yüzden depoya dokunulmadan bırakıldı",
+        "foreignSibling": "adı ayrıca ad önekini paylaşan kardeş bir ödev olan \"{{slug}}\" ödeviyle de eşleşiyor ve bu ödevin depoları onları ayırt edecek bir işaretçi taşımadığından dokunulmadan bırakıldı"
       },
       "repoCount_one": "{{count}} mevcut öğrenci deposu yeniden adlandırılacak.",
       "repoCount_other": "{{count}} mevcut öğrenci deposu yeniden adlandırılacak.",
@@ -1838,7 +1842,7 @@
         "student_permission": "Öğrenci depo erişimi: var olan depoları gönderimler sayfasından değiştirin.",
         "pages": "GitHub Pages: mevcut depolarda gönderimler sayfasından etkinleştirin.",
         "autograder_off": "Yerleşik otomatik değerlendirici: kapatmak, mevcut depoların otomatik değerlendirme çalışmalarının başarısız olmasına ve toplanan puanlardan çıkmasına neden olur.",
-        "autograder_on": "Yerleşik otomatik değerlendirici: mevcut depoların henüz otomatik değerlendirme iş akışı yok. Kaydettikten sonra, gönderiler sayfasındaki \"Otomatik değerlendirme iş akışı ekle\" ile bunlara ekleyin."
+        "autograder_on": "Yerleşik otomatik değerlendirici: mevcut depolarda henüz otomatik değerlendirme dosyaları yok. Kaydettikten sonra, iş akışını ve .classroom50.yaml işaretçisini bunlara eklemek için gönderimler sayfasındaki \"Otomatik değerlendirme iş akışı ekle\" seçeneğini kullanın."
       },
       "provisioningIntro_one": "{{count}} öğrenci ödevi zaten kabul etti. Bu değişiklikler yalnızca bundan sonra kabul edilen depolara uygulanır; var olan depo geçerli kurulumunu korur:",
       "provisioningIntro_other": "{{count}} öğrenci ödevi zaten kabul etti. Bu değişiklikler yalnızca bundan sonra kabul edilen depolara uygulanır; var olan {{count}} depo geçerli kurulumlarını korur:",
@@ -2359,8 +2363,8 @@
       "roleTaPlural": "Asistanlar",
       "roleHeadTaPlural": "Baş asistanlar",
       "accessTeacher": "Organizasyon sahibi. classroom50 deposuna yazma erişimi.",
-      "accessHeadTa": "Kuruluş üyesi. classroom50 deposuna ve öğrenci depolarına yazma erişimi; böylece geri bildirim çekme isteklerini birleştirebilirler.",
-      "accessTa": "Kuruluş üyesi. classroom50 deposuna salt okunur erişim; öğrenci depolarına yazma erişimi, böylece geri bildirim çekme isteklerini birleştirebilirler.",
+      "accessHeadTa": "Kuruluş üyesi. classroom50 deposuna yazma erişimi ve puanlar toplandıktan sonra öğrenci depolarına yazma erişimi vardır; böylece geri bildirim çekme isteklerini birleştirebilirler.",
+      "accessTa": "Kuruluş üyesi. classroom50 deposuna salt okunur erişimi; puanlar toplandıktan sonra öğrenci depolarına yazma erişimi vardır; böylece geri bildirim çekme isteklerini birleştirebilirler.",
       "viewTeamTitle": "{{role}} takımını GitHub'da aç",
       "pendingCount_one": "{{count}} beklemede",
       "pendingCount_other": "{{count}} beklemede",
@@ -2386,7 +2390,8 @@
       "resendFailed": "{{who}} kişisine davet yeniden gönderilemedi: {{error}}",
       "cancelInvite": "Daveti iptal et",
       "cancelledToast": "{{who}} için davet iptal edildi.",
-      "cancelFailed": "{{who}} için davet iptal edilemedi: {{error}}"
+      "cancelFailed": "{{who}} için davet iptal edilemedi: {{error}}",
+      "studentRepoAccessNote": "TA'lar ve baş TA'lar öğrenci depolarına, bir öğrenci ödevi kabul ettiğinde değil, puanlar toplandığında erişim kazanır. Yeni depolara erişim vermek için <assignmentsLink>Ödevler</assignmentsLink>'i açın ve Hepsini topla seçeneğini kullanın."
     },
     "viewAssignmentsAria": "{{classroom}} sınıfı için ödevleri görüntüle",
     "inviteCleanup": {
@@ -2504,16 +2509,17 @@
       "repoExists": "Depo zaten mevcut: {{org}}/{{repo}}",
       "repoIncomplete": "Tamamlanmamış kurulum bulundu: {{org}}/{{repo}}",
       "setup": "Otomatik değerlendirme yapılandırıldı",
-      "setupSkippedEmptyRepo": "Kuruluma gerek yok: bu ödev boş bir depo kullanıyor",
       "repoVisibilityFellBack": "{{org}}/{{repo}} özel olarak oluşturuldu. Kuruluş herkese açık depolar oluşturmanıza izin vermiyor; öğretmeniniz daha sonra herkese açık hale getirebilir.",
       "team": "Grup bulundu",
       "pagesSkipped": {
-        "access": "Otomatik değerlendirme yapılandırıldı. GitHub Pages etkinleştirilmedi: bu depoda Pages ayarlarını değiştirme izniniz yok. Öğretmeniniz gönderimler sayfasından etkinleştirebilir.",
-        "branch": "Otomatik değerlendirme yapılandırıldı. GitHub Pages etkinleştirilmedi: yayımladığı dal henüz deponuzda yok. Öğretmeniniz gönderimler sayfasından etkinleştirebilir.",
-        "plan": "Otomatik değerlendirme yapılandırıldı. GitHub Pages etkinleştirilmedi: bu kuruluşun GitHub planı gizli depolarda Pages'e izin vermiyor. Öğretmeniniz depoyu herkese açık hale getirip Pages'i gönderimler sayfasından etkinleştirebilir.",
-        "policy": "Otomatik değerlendirme yapılandırıldı. GitHub Pages etkinleştirilmedi: kuruluş üyelerin Pages siteleri yayımlamasına izin vermiyor. Öğretmeniniz gönderimler sayfasından etkinleştirebilir.",
-        "unknown": "Otomatik değerlendirme yapılandırıldı. GitHub Pages şu anda etkinleştirilemedi. Öğretmeniniz gönderimler sayfasından etkinleştirebilir."
-      }
+        "access": "GitHub Pages etkinleştirilmedi: bu depoda Pages ayarlarını değiştirme izniniz yok. Öğretmeniniz bunu gönderimler sayfasından etkinleştirebilir.",
+        "branch": "GitHub Pages etkinleştirilmedi: yayınlandığı dal deponuzda henüz yok. Öğretmeniniz bunu gönderimler sayfasından etkinleştirebilir.",
+        "plan": "GitHub Pages etkinleştirilmedi: bu kuruluşun GitHub planı özel depolarda Pages'e izin vermiyor. Öğretmeniniz depoyu herkese açık yapıp Pages'i gönderimler sayfasından etkinleştirebilir.",
+        "policy": "GitHub Pages etkinleştirilmedi: kuruluş, üyelerin Pages siteleri yayınlamasına izin vermiyor. Öğretmeniniz bunu gönderimler sayfasından etkinleştirebilir.",
+        "unknown": "GitHub Pages şu anda etkinleştirilemedi. Öğretmeniniz bunu gönderimler sayfasından etkinleştirebilir."
+      },
+      "setupBranchUnsettled": "GitHub deponuzu hâlâ başlatıyor, bu yüzden GitHub Pages etkinleştirilmedi. Etkinleştirmek için bir dakika sonra tekrar kabul edin ya da öğretmeniniz gönderimler sayfasından etkinleştirebilir",
+      "setupSkipped": "Kurulum dosyası gerekmedi: bu ödev deponuza hiçbir şey eklemez"
     },
     "stepErrors": {
       "generic": "{{label}} başarısız oldu (HTTP {{status}}). {{actions}}",
@@ -2656,7 +2662,7 @@
       "statusFailedHint": "İş akışını GitHub'da kontrol edin, ardından tekrar deneyin.",
       "statusTimeout": "Yeniden değerlendirmenin kaydedilmesi biraz zaman alıyor. İlerlemesini GitHub'da kontrol edin.",
       "confirmTitle": "\"{{name}}\" için tüm gönderimler yeniden notlandırılsın mı?",
-      "confirmBody1": "Bu, gönderilmiş her deponun en son işlemesinde otomatik notlandırıcıyı yeniden çalıştırır. Bir testi düzelttikten veya otomatik notlandırıcıyı güncelledikten sonra kullanışlıdır. Gönderim zamanları değişmez.",
+      "confirmBody1": "Bu, otomatik değerlendiriciyi her deponun en son değerlendirilen gönderiminde yeniden çalıştırır; öğrencinin göndermediği daha yeni işlemelerde değil. Gönderilmiş çalışması olan ancak değerlendirilmiş gönderimi olmayan bir depo, ilk gönderimi olacak en son işlemesinde değerlendirilir. Bir testi düzelttikten veya otomatik değerlendiriciyi güncelledikten sonra kullanışlıdır. Mevcut gönderim zamanları değişmez.",
       "confirmBody2": "Değerlendirme arka planda çalışır ve birkaç dakika sürebilir; ardından yeni puanları çekmek için <collectLabel>{{collectLabel}}</collectLabel> kullanın."
     },
     "accept": {
@@ -2792,8 +2798,8 @@
       "titleFailed": "Yeniden notlandırma başlatılamadı. Tekrar deneyin.",
       "aria": "{{owner}} adlı kişinin teslimini yeniden değerlendir",
       "confirmTitle": "{{name}} adlı kişinin teslimi yeniden değerlendirilsin mi?",
-      "confirmBody1": "Bu, otomatik değerlendiriciyi bu ödev için <name>{{name}}</name> adlı kişinin en son commit'inde yeniden çalıştırır. Teslim zamanı değişmez.",
-      "confirmBody1WithLogin": "Bu, otomatik değerlendiriciyi bu ödev için <name>{{name}}</name> (<owner>{{owner}}</owner>) adlı kişinin en son commit'inde yeniden çalıştırır. Teslim zamanı değişmez.",
+      "confirmBody1": "Bu, otomatik değerlendiriciyi <name>{{name}}</name> adlı kişinin bu ödev için en son değerlendirilen gönderiminde yeniden çalıştırır; göndermedikleri daha yeni işlemelerde değil. Henüz hiçbir şey değerlendirilmediyse, en son işlemeleri değerlendirilir ve gönderimleri olur. Mevcut bir gönderim zamanı değişmez.",
+      "confirmBody1WithLogin": "Bu, otomatik değerlendiriciyi <name>{{name}}</name> (<owner>{{owner}}</owner>) adlı kişinin bu ödev için en son değerlendirilen gönderiminde yeniden çalıştırır; göndermedikleri daha yeni işlemelerde değil. Henüz hiçbir şey değerlendirilmediyse, en son işlemeleri değerlendirilir ve gönderimleri olur. Mevcut bir gönderim zamanı değişmez.",
       "confirmBody2": "Değerlendirme arka planda çalışır ve birkaç dakika sürebilir; ardından yeni puanı çekmek için <collectLabel>{{collectLabel}}</collectLabel> kullanın.",
       "confirmLabel": "Yeniden değerlendir"
     },
@@ -2980,7 +2986,7 @@
       "membersDescription": "Grubun üyelerini görüntüle ve yönet",
       "open": "Gönderimi yönet",
       "openAria": "{{owner}} kullanıcısının gönderimini yönet",
-      "regradeDescription": "Otomatik notlandırıcıyı en son commit üzerinde yeniden çalıştır",
+      "regradeDescription": "Otomatik değerlendiriciyi en son değerlendirilen gönderimde yeniden çalıştır",
       "reviewDescription": "Geri bildirim çekme isteğini aç",
       "autograding": "Otomatik değerlendirme",
       "autogradingEnabled": "Etkin",
@@ -3151,7 +3157,7 @@
       "badgeEmptyRepo": "Otomatik değerlendirme yok",
       "badgeNoAutograder": "Yerleşik otomatik değerlendirici yok",
       "titleEmptyRepo": "Bu ödev boş depolar kullanıyor, bu yüzden otomatik değerlendirme, puanlar ve geri bildirim pull request'i devre dışı. Tablo, kimin kabul ettiğini ve kimin push yaptığını gösterir.",
-      "titleNoAutograder": "Bu ödev yerleşik otomatik değerlendiriciyi kullanmıyor, bu yüzden yerleşik puanlar ve yeniden değerlendirme devre dışı. Şablonun kendi değerlendirme iş akışı yine çalışır ve geri bildirim pull request'i etkinken yine çalışır."
+      "titleNoAutograder": "Bu ödev yerleşik otomatik değerlendiriciyi kullanmıyor, bu yüzden yerleşik puanlar ve yeniden değerlendirme devre dışı. Depolar hiçbir Classroom 50 dosyası taşımaz. Bir şablonun kendi değerlendirme iş akışı yine de çalışır ve etkinleştirildiğinde geri bildirim çekme isteği yine de işler."
     },
     "scoreOverride": {
       "add": "Puan ekle",
@@ -3327,21 +3333,22 @@
       "unrecognizedSection_other": "{{count}} depo atlandı (o yolda zaten farklı bir iş akışı var)",
       "warningLead_one": "Bu, otomatik değerlendirme iş akışını {{count}} öğrencinin deposuna işler.",
       "warningLead_other": "Bu, otomatik değerlendirme iş akışını {{count}} öğrencinin depolarına işler.",
-      "warningPoint1": "İş akışına zaten sahip olan depolara dokunulmaz.",
+      "warningPoint1": "İş akışına zaten sahip olan depolara dokunulmaz. .classroom50.yaml işaretçisi eksik olan bir depo, işaretçiyi aynı işlemede (commit) alır.",
       "warningPoint2": "Commit, değerlendirmeyi tetiklemeyecek şekilde işaretlenir. Öğrencilerin önceden gönderdiği çalışma bir sonraki push'larında değerlendirilir; \"Tümünü yeniden değerlendir\" iş akışı var olmadan önce yapılan commit'lere ulaşamaz.",
       "warningPoint3": "Öğrenciler daha sonra pull yapmalıdır. Bu değişiklikten önce yapılan klonlar, bir sonraki push'larında çakışacaktır.",
       "working": "İş akışı ekleniyor"
     },
     "rowShim": {
       "aria": "{{repo}} deposuna otomatik değerlendirme iş akışını ekle",
-      "description": "Otomatik değerlendirici kapalıyken kabul edildiyse bu depoya yerleşik otomatik değerlendirme iş akışını ekleyin.",
+      "description": "Otomatik değerlendirici kapalıyken kabul edildiyse, yerleşik otomatik değerlendirme iş akışını ve ihtiyaç duyduğu .classroom50.yaml işaretçisini bu depoya ekleyin.",
       "outcome": {
         "added": "Otomatik değerlendirme iş akışı eklendi. Öğrenci bir sonraki push'undan önce pull yapmalıdır ve depoda zaten bulunan çalışmayı değerlendiren o push'tur.",
         "failed": "İş akışı eklenemedi. Tekrar deneyin.",
         "missingWorkflowScope": "GitHub yetkilendirmeniz iş akışı dosyalarını değiştiremez. Oturumu kapatıp yeniden açın, ardından tekrar deneyin.",
         "notAccepted": "Henüz depo yok, bu yüzden eklenecek bir şey yok.",
         "present": "Bu depoda zaten otomatik değerlendirme iş akışı var.",
-        "unrecognized": "Atlandı: otomatik değerlendirme iş akışının yolunda zaten farklı bir iş akışı var, bu nedenle hiçbir şey değiştirilmedi."
+        "unrecognized": "Atlandı: otomatik değerlendirme iş akışının yolunda zaten farklı bir iş akışı var, bu nedenle hiçbir şey değiştirilmedi.",
+        "markerAdded": "Bu depoda zaten otomatik değerlendirme iş akışı vardı. Eksik olan .classroom50.yaml işaretçisi eklendi, böylece otomatik değerlendirme ödevi bulabilir. Öğrencinin bir sonraki göndermesinden önce çekmesi (pull) gerekir."
       },
       "title": "Otomatik değerlendirme iş akışı ekle"
     }

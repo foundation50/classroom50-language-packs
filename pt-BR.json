@@ -682,7 +682,10 @@
     "uploadBlockedUsernames": "Confirme as mudanças de nome de usuário acima para continuar.",
     "rosterProblemDuplicateColumn": "A coluna \"{{name}}\" aparece mais de uma vez. Mantenha uma e remova as demais.",
     "rosterProblemFormulaColumn": "O nome da coluna \"{{name}}\" começa com =, +, - ou @, que as planilhas tratam como fórmula. Renomeie-a.",
-    "rosterProblemReservedColumn": "A coluna \"{{name}}\" é uma coluna interna da turma e aparece novamente depois dela. Remova a cópia extra."
+    "rosterProblemReservedColumn": "A coluna \"{{name}}\" é uma coluna interna da lista e aparece mais de uma vez. Remova a cópia extra.",
+    "duplicateImportHeader": "A coluna \"{{name}}\" aparece mais de uma vez neste arquivo. Mantenha uma e remova as outras, depois envie-o novamente.",
+    "rosterProblemEmptyFile": "O arquivo não tem linha de cabeçalho. Adicione esta linha no topo: {{header}}",
+    "rosterProblemNoIdentityColumn": "A linha de cabeçalho não tem nenhuma das colunas que identificam um aluno: username, github_id ou email. Adicione pelo menos uma delas."
   },
   "language": {
     "baseName": "Inglês (base)",
@@ -1061,7 +1064,7 @@
             "label": "Usar o autocorretor integrado"
           },
           "none": {
-            "help": "Avalie com seu próprio fluxo de trabalho do GitHub Actions. Com um template, adicione o fluxo de trabalho a ele; sem um, a atividade não tem correção automática.",
+            "help": "Corrija com seu próprio workflow do GitHub Actions, ou não corrija no GitHub de forma alguma. O Classroom 50 não adiciona nenhum arquivo aos repositórios: com um modelo, cada aluno recebe uma cópia exata dele; sem um, um repositório apenas com um README.",
             "label": "Não usar o autocorretor integrado"
           }
         },
@@ -1232,7 +1235,7 @@
       "defaultOption": "{{label}} (padrão)",
       "defaults": {
         "failureDetails": "Detalhes de falha padrão",
-        "failureDetailsFull": "Completo: diff ou saída esperada e real",
+        "failureDetailsFull": "Completo: entrada, depois o diff ou a saída esperada e a real",
         "heading": "Padrões do relatório",
         "hint": "Padrões para todos os testes; as opções de relatório de cada teste as substituem.",
         "showOutput": "Incluir a saída de testes aprovados",
@@ -1242,7 +1245,7 @@
       },
       "failureDetails": "Detalhes de falha exibidos aos estudantes",
       "failureDetailsActualOnly": "Apenas a saída do estudante (nunca a saída esperada)",
-      "failureDetailsFull": "Completo: diff ou saída esperada e real",
+      "failureDetailsFull": "Completo: entrada, depois o diff ou a saída esperada e a real",
       "failureDetailsHint": "Quanto de uma execução com falha os estudantes veem no relatório de envio e no log do fluxo de trabalho.",
       "failureDetailsNone": "Apenas o tipo de falha (sem saída)",
       "reportOptions": "Opções de relatório",
@@ -1555,7 +1558,8 @@
         "renameFailed": "a renomeação falhou: {{message}}",
         "renameForbidden": "renomear para \"{{newName}}\" requer acesso de administrador ao repositório; tente novamente como proprietário da organização",
         "repoGone": "o repositório desapareceu durante a renomeação; execute novamente para verificar",
-        "unparseableMarker": ".classroom50.yaml ilegível ({{message}}), então o repositório foi deixado intacto"
+        "unparseableMarker": ".classroom50.yaml ilegível ({{message}}), então o repositório foi deixado intacto",
+        "foreignSibling": "seu nome também corresponde à tarefa \"{{slug}}\", uma tarefa irmã que compartilha o prefixo do nome, e os repositórios desta tarefa não têm marcador para diferenciá-los, deixado sem alteração"
       },
       "repoCount_one": "{{count}} repositório de estudante existente será renomeado.",
       "repoCount_other": "{{count}} repositórios de estudantes existentes serão renomeados.",
@@ -1760,7 +1764,7 @@
         "student_permission": "Acesso ao repositório do aluno: altere os repositórios existentes pela página de envios.",
         "pages": "GitHub Pages: ative-o nos repositórios existentes pela página de submissões.",
         "autograder_off": "Autocorretor integrado: desativá-lo faz com que as execuções de autocorreção dos repositórios existentes falhem e saiam das notas coletadas.",
-        "autograder_on": "Autocorretor integrado: os repositórios existentes ainda não têm um fluxo de trabalho de autocorreção. Após salvar, use \"Adicionar fluxo de trabalho de autocorreção\" na página de submissões para adicioná-lo a eles."
+        "autograder_on": "Corretor automático integrado: os repositórios existentes ainda não têm arquivos de correção automática. Depois de salvar, use \"Adicionar workflow de correção automática\" na página de submissões para adicionar o workflow e o marcador .classroom50.yaml a eles."
       },
       "provisioningIntro_one": "{{count}} aluno já aceitou. Estas alterações se aplicam apenas aos repositórios aceitos a partir de agora; o repositório existente mantém sua configuração atual:",
       "provisioningIntro_other": "{{count}} alunos já aceitaram. Estas alterações se aplicam apenas aos repositórios aceitos a partir de agora; os {{count}} repositórios existentes mantêm sua configuração atual:",
@@ -2194,15 +2198,16 @@
       "resendFailed": "Não foi possível reenviar o convite para {{who}}: {{error}}",
       "resentToast": "Convite reenviado para {{who}}.",
       "roleTeacherPlural": "Professores",
-      "accessHeadTa": "Membro da organização. Acesso de escrita ao repositório classroom50 e aos repositórios dos alunos, para que possam mesclar pull requests de feedback.",
-      "accessTa": "Membro da organização. Acesso somente leitura ao repositório classroom50; acesso de escrita aos repositórios dos alunos, para que possam mesclar pull requests de feedback.",
+      "accessHeadTa": "Membro da organização. Acesso de escrita ao repositório classroom50 e, após a coleta de notas, aos repositórios dos alunos, para que possam mesclar pull requests de feedback.",
+      "accessTa": "Membro da organização. Acesso somente leitura ao repositório classroom50; acesso de escrita aos repositórios dos alunos após a coleta de notas, para que possam mesclar pull requests de feedback.",
       "accessTeacher": "Proprietário da organização. Acesso de escrita ao repositório classroom50.",
       "pendingCount_one": "{{count}} pendente",
       "pendingCount_other": "{{count}} pendentes",
       "removeSelfTeacherBlocked": "Você não pode se remover da equipe de professores; isso revogaria seu próprio acesso de nível de proprietário a esta turma. Peça a outro proprietário da organização que remova você.",
       "roleHeadTaPlural": "Monitores-chefes",
       "viewTeamTitle": "Abrir a equipe de {{role}} no GitHub",
-      "you": "Você"
+      "you": "Você",
+      "studentRepoAccessNote": "Os TAs e head TAs recebem acesso aos repositórios dos alunos quando as notas são coletadas, não quando um aluno aceita. Para conceder acesso a novos repositórios, abra <assignmentsLink>Tarefas</assignmentsLink> e selecione Coletar tudo."
     },
     "card": {
       "actionsAria": "Ações de {{name}}",
@@ -2392,16 +2397,17 @@
       "repoExists": "O repositório já existe: {{org}}/{{repo}}",
       "repoIncomplete": "Configuração incompleta encontrada: {{org}}/{{repo}}",
       "setup": "Autocorreção configurada",
-      "setupSkippedEmptyRepo": "Nenhuma configuração necessária: esta tarefa usa um repositório vazio",
       "repoVisibilityFellBack": "Criou {{org}}/{{repo}} como privado. A organização não permite que você crie repositórios públicos; seu professor pode torná-lo público mais tarde.",
       "team": "Grupo encontrado",
       "pagesSkipped": {
-        "access": "Autocorreção configurada. O GitHub Pages não foi ativado: você não tem permissão para alterar as configurações do Pages neste repositório. Seu professor pode ativá-lo na página de submissões.",
-        "branch": "Autocorreção configurada. O GitHub Pages não foi ativado: o branch a partir do qual ele publica ainda não existe no seu repositório. Seu professor pode ativá-lo na página de submissões.",
-        "plan": "Autocorreção configurada. O GitHub Pages não foi ativado: o plano do GitHub desta organização não permite o Pages em repositórios privados. Seu professor pode tornar o repositório público e ativar o Pages na página de submissões.",
-        "policy": "Autocorreção configurada. O GitHub Pages não foi ativado: a organização não permite que os membros publiquem sites do Pages. Seu professor pode ativá-lo na página de submissões.",
-        "unknown": "Autocorreção configurada. O GitHub Pages não pôde ser ativado no momento. Seu professor pode ativá-lo na página de submissões."
-      }
+        "access": "O GitHub Pages não foi ativado: você não tem permissão para alterar as configurações do Pages neste repositório. Seu professor pode ativá-lo na página de submissões.",
+        "branch": "O GitHub Pages não foi ativado: a branch a partir da qual ele publica ainda não existe no seu repositório. Seu professor pode ativá-lo na página de submissões.",
+        "plan": "O GitHub Pages não foi ativado: o plano do GitHub desta organização não permite Pages em repositórios privados. Seu professor pode tornar o repositório público e ativar o Pages na página de submissões.",
+        "policy": "O GitHub Pages não foi ativado: a organização não permite que os membros publiquem sites do Pages. Seu professor pode ativá-lo na página de submissões.",
+        "unknown": "Não foi possível ativar o GitHub Pages no momento. Seu professor pode ativá-lo na página de submissões."
+      },
+      "setupBranchUnsettled": "O GitHub ainda está inicializando seu repositório, então o GitHub Pages não foi ativado. Aceite novamente em um minuto para ativá-lo, ou seu professor pode ativá-lo na página de submissões",
+      "setupSkipped": "Nenhum arquivo de configuração necessário: esta tarefa não adiciona nada ao seu repositório"
     },
     "stepErrors": {
       "generic": "{{label}} falhou (HTTP {{status}}). {{actions}}",
@@ -2523,7 +2529,7 @@
       "statusFailedHint": "Verifique o fluxo de trabalho no GitHub e tente novamente.",
       "statusTimeout": "A recorreção está demorando um pouco para ser registrada. Confira o progresso no GitHub.",
       "confirmTitle": "Recorrigir todas as entregas de \"{{name}}\"?",
-      "confirmBody1": "Isso executa o autocorretor novamente no commit mais recente de cada repositório entregue. É útil depois de corrigir um teste ou atualizar o autocorretor. Os horários de entrega não mudam.",
+      "confirmBody1": "Isto reexecuta o corretor automático na última submissão corrigida de cada repositório, não nos commits mais recentes que o aluno ainda não submeteu. Um repositório com trabalho enviado, mas sem submissão corrigida, é corrigido em seu commit mais recente, que se torna sua primeira submissão. É útil depois de corrigir um teste ou atualizar o corretor automático. Os horários das submissões existentes não mudam.",
       "confirmBody2": "A correção é executada em segundo plano e pode levar vários minutos; use <collectLabel>{{collectLabel}}</collectLabel> depois para obter as novas pontuações.",
       "statusCompleted": "Recorreção iniciada. Cada repositório está sendo recorrigido em segundo plano. Use <collectLabel>{{collectLabel}}</collectLabel> em alguns minutos para obter as novas notas."
     },
@@ -2661,8 +2667,8 @@
       "aria": "Recorrigir a entrega de {{owner}}",
       "confirmTitle": "Recorrigir a entrega de {{name}}?",
       "confirmLabel": "Recorrigir",
-      "confirmBody1": "Isto reexecuta o corretor automático no commit mais recente de <name>{{name}}</name> para esta atividade. O horário da entrega não muda.",
-      "confirmBody1WithLogin": "Isto reexecuta o corretor automático no commit mais recente de <name>{{name}}</name> (<owner>{{owner}}</owner>) para esta atividade. O horário da entrega não muda.",
+      "confirmBody1": "Isto reexecuta o corretor automático na última submissão corrigida de <name>{{name}}</name> para esta tarefa, não nos commits mais recentes que ainda não foram submetidos. Se nada tiver sido corrigido ainda, o commit mais recente é corrigido e se torna a submissão. O horário de uma submissão existente não muda.",
+      "confirmBody1WithLogin": "Isto reexecuta o corretor automático na última submissão corrigida de <name>{{name}}</name> (<owner>{{owner}}</owner>) para esta tarefa, não nos commits mais recentes que ainda não foram submetidos. Se nada tiver sido corrigido ainda, o commit mais recente é corrigido e se torna a submissão. O horário de uma submissão existente não muda.",
       "confirmBody2": "A correção é executada em segundo plano e pode levar alguns minutos; use <collectLabel>{{collectLabel}}</collectLabel> depois para obter a nova pontuação."
     },
     "student": {
@@ -2868,7 +2874,7 @@
       "membersDescription": "Ver e gerenciar os membros do grupo",
       "open": "Gerenciar envio",
       "openAria": "Gerenciar o envio de {{owner}}",
-      "regradeDescription": "Executar a autocorreção novamente no commit mais recente",
+      "regradeDescription": "Reexecutar o corretor automático na última submissão corrigida",
       "reviewDescription": "Abrir a pull request de feedback",
       "autograding": "Autocorreção",
       "autogradingEnabled": "Habilitada",
@@ -3039,7 +3045,7 @@
       "badgeEmptyRepo": "Sem correção automática",
       "badgeNoAutograder": "Sem corretor automático integrado",
       "titleEmptyRepo": "Esta tarefa usa repositórios vazios, então a correção automática, as notas e o pull request de feedback ficam desativados. A tabela mostra quem aceitou e quem enviou commits.",
-      "titleNoAutograder": "Esta tarefa não usa o corretor automático integrado, então as notas integradas e a reavaliação ficam desativadas. O fluxo de correção do próprio modelo continua rodando, e o pull request de feedback continua funcionando quando habilitado."
+      "titleNoAutograder": "Esta tarefa não usa o corretor automático integrado, então as notas integradas e a recorreção ficam desativadas. Os repositórios não têm arquivos do Classroom 50. O próprio workflow de correção de um modelo continua sendo executado, e o pull request de feedback continua funcionando quando ativado."
     },
     "scoreOverride": {
       "add": "Adicionar nota",
@@ -3215,21 +3221,22 @@
       "unrecognizedSection_other": "{{count}} repositórios foram ignorados (um fluxo de trabalho diferente já está nesse caminho)",
       "warningLead_one": "Isto faz o commit do fluxo de trabalho de autocorreção no repositório de {{count}} estudante.",
       "warningLead_other": "Isto faz o commit do fluxo de trabalho de autocorreção nos repositórios de {{count}} estudantes.",
-      "warningPoint1": "Repositórios que já têm o fluxo de trabalho não são alterados.",
+      "warningPoint1": "Os repositórios que já têm o workflow são deixados sem alteração. Um repositório que não tem o marcador .classroom50.yaml recebe-o no mesmo commit.",
       "warningPoint2": "O commit é marcado para não disparar a correção. O trabalho que os estudantes já enviaram é corrigido no próximo push; \"Recorrigir tudo\" não alcança commits feitos antes de o fluxo de trabalho existir.",
       "warningPoint3": "Os estudantes precisam fazer pull depois. Clones feitos antes desta alteração entrarão em conflito no próximo push.",
       "working": "Adicionando o fluxo de trabalho"
     },
     "rowShim": {
       "aria": "Adicionar o fluxo de trabalho de autocorreção a {{repo}}",
-      "description": "Adiciona o fluxo de trabalho de autocorreção integrado a este repositório se ele foi aceito enquanto o autocorretor estava desativado.",
+      "description": "Adicione o workflow de correção automática integrado, e o marcador .classroom50.yaml de que ele precisa, a este repositório se ele foi aceito enquanto o corretor automático estava desativado.",
       "outcome": {
         "added": "Fluxo de trabalho de autocorreção adicionado. O estudante precisa fazer pull antes do próximo push, e é esse push que corrige o trabalho já existente no repositório.",
         "failed": "Não foi possível adicionar o fluxo de trabalho. Tente novamente.",
         "missingWorkflowScope": "Sua autorização do GitHub não pode modificar arquivos de fluxo de trabalho. Saia e entre novamente, depois tente de novo.",
         "notAccepted": "Nenhum repositório existe ainda, então não há nada a adicionar.",
         "present": "Este repositório já tem o fluxo de trabalho de autocorreção.",
-        "unrecognized": "Ignorado: um fluxo de trabalho diferente já está no caminho do fluxo de autocorreção, então nada foi alterado."
+        "unrecognized": "Ignorado: um fluxo de trabalho diferente já está no caminho do fluxo de autocorreção, então nada foi alterado.",
+        "markerAdded": "Este repositório já tinha o workflow de correção automática. Seu marcador .classroom50.yaml ausente foi adicionado, para que a correção automática possa encontrar a tarefa. O aluno deve fazer pull antes do próximo push."
       },
       "title": "Adicionar fluxo de trabalho de autocorreção"
     }
