@@ -682,7 +682,10 @@
     "uploadBlockedUsernames": "請確認上方的使用者名稱變更以繼續。",
     "rosterProblemDuplicateColumn": "欄「{{name}}」出現了不只一次。請保留一個並移除其他的。",
     "rosterProblemFormulaColumn": "欄名「{{name}}」以 =、+、- 或 @ 開頭，這會被試算表視為公式。請重新命名。",
-    "rosterProblemReservedColumn": "欄「{{name}}」是內建的名冊欄，卻在其後再次出現。請移除多出來的副本。"
+    "rosterProblemReservedColumn": "欄位「{{name}}」是內建的名冊欄位，卻出現多次。請移除多餘的副本。",
+    "duplicateImportHeader": "欄位「{{name}}」在此檔案中出現多次。請保留一個並移除其他，然後再次上傳。",
+    "rosterProblemEmptyFile": "此檔案沒有標題列。請在最上方加入這一行：{{header}}",
+    "rosterProblemNoIdentityColumn": "標題列缺少任何可辨識學生的欄位：username、github_id 或 email。請至少加入其中一個。"
   },
   "language": {
     "baseName": "英文（基礎）",
@@ -1061,7 +1064,7 @@
             "label": "使用內建自動評分器"
           },
           "none": {
-            "help": "改用你自己的 GitHub Actions 工作流程評分。若使用範本，請將工作流程加入其中；若無範本，此作業則沒有自動評分器。",
+            "help": "改用你自己的 GitHub Actions 工作流程評分，或完全不在 GitHub 上評分。Classroom 50 不會在儲存庫中新增任何檔案：使用範本時，每位學生會取得該範本的完整複本；不使用範本時，則只取得僅含 README 的儲存庫。",
             "label": "不使用內建自動評分器"
           }
         },
@@ -1232,7 +1235,7 @@
       "defaultOption": "{{label}}（預設）",
       "defaults": {
         "failureDetails": "預設失敗詳情",
-        "failureDetailsFull": "完整：差異或預期與實際輸出",
+        "failureDetailsFull": "完整：輸入內容，接著是差異或預期與實際輸出",
         "heading": "報告預設值",
         "hint": "適用於每個測試的預設值；測試本身的報告選項會覆寫這些預設值。",
         "showOutput": "包含通過測試的輸出",
@@ -1242,7 +1245,7 @@
       },
       "failureDetails": "向學生顯示的失敗詳情",
       "failureDetailsActualOnly": "僅學生輸出（絕不顯示預期輸出）",
-      "failureDetailsFull": "完整：差異或預期與實際輸出",
+      "failureDetailsFull": "完整：輸入內容，接著是差異或預期與實際輸出",
       "failureDetailsHint": "學生在提交報告與工作流程記錄中看到多少失敗執行的內容。",
       "failureDetailsNone": "僅失敗類型（無輸出）",
       "reportOptions": "報告選項",
@@ -1556,7 +1559,8 @@
         "renameFailed": "改名失敗：{{message}}",
         "renameForbidden": "改名為「{{newName}}」需要對該儲存庫具有管理員存取權；請以組織擁有者身分重試",
         "repoGone": "改名期間儲存庫消失了；請再次執行以重新檢查",
-        "unparseableMarker": "無法讀取的 .classroom50.yaml（{{message}}），因此儲存庫未變動"
+        "unparseableMarker": "無法讀取的 .classroom50.yaml（{{message}}），因此儲存庫未變動",
+        "foreignSibling": "其名稱也符合作業「{{slug}}」，這是共用名稱前綴的同層作業，而此作業的儲存庫沒有可用來區分的標記，因此未變更"
       },
       "repoCount_one": "將重新命名 {{count}} 個現有的學生儲存庫。",
       "repoCount_other": "將重新命名 {{count}} 個現有的學生儲存庫。",
@@ -1760,7 +1764,7 @@
         "student_permission": "學生儲存庫存取權限：請從提交頁面變更既有儲存庫。",
         "pages": "GitHub Pages：從繳交頁面在現有儲存庫上啟用它。",
         "autograder_off": "內建自動評分器：關閉後，現有儲存庫的自動評分執行會失敗，並從收集的成績中移除。",
-        "autograder_on": "內建自動評分器：現有儲存庫尚無自動評分工作流程。儲存後，請在提交頁面使用「新增自動評分工作流程」將其加入這些儲存庫。"
+        "autograder_on": "內建自動評分：現有儲存庫尚無任何自動評分檔案。儲存後，請在提交頁面上使用「新增自動評分工作流程」為它們加入該工作流程與 .classroom50.yaml 標記。"
       },
       "provisioningIntro_one": "已有 {{count}} 位學生接受作業。這些變更僅適用於自現在起接受的儲存庫；既有的儲存庫維持目前的設定：",
       "provisioningIntro_other": "已有 {{count}} 位學生接受作業。這些變更僅適用於自現在起接受的儲存庫；既有的 {{count}} 個儲存庫維持目前的設定：",
@@ -2194,15 +2198,16 @@
       "resendFailed": "無法重新傳送邀請給 {{who}}：{{error}}",
       "resentToast": "已重新傳送邀請給 {{who}}。",
       "roleTeacherPlural": "老師",
-      "accessHeadTa": "組織成員。對 classroom50 儲存庫及學生儲存庫具有寫入權限，因此他們可以合併回饋拉取請求。",
-      "accessTa": "組織成員。對 classroom50 儲存庫具有唯讀存取權；對學生儲存庫具有寫入權限，因此他們可以合併回饋拉取請求。",
+      "accessHeadTa": "組織成員。對 classroom50 儲存庫具有寫入權限，並在收集分數後取得學生儲存庫的寫入權限，以便合併回饋 pull request。",
+      "accessTa": "組織成員。對 classroom50 儲存庫具有唯讀權限；在收集分數後取得學生儲存庫的寫入權限，以便合併回饋 pull request。",
       "accessTeacher": "組織擁有者，對 classroom50 儲存庫有寫入權限。",
       "pendingCount_one": "{{count}} 個待處理",
       "pendingCount_other": "{{count}} 個待處理",
       "removeSelfTeacherBlocked": "你不能將自己從教師團隊中移除，這會撤銷你對這個課堂的擁有者層級存取權。請請另一位組織擁有者將你移除。",
       "roleHeadTaPlural": "首席助教",
       "viewTeamTitle": "在 GitHub 上開啟 {{role}} 團隊",
-      "you": "你"
+      "you": "你",
+      "studentRepoAccessNote": "TA 與首席 TA 是在收集分數時取得學生儲存庫的存取權，而非在學生接受作業時。若要授予新儲存庫的存取權，請開啟 <assignmentsLink>作業</assignmentsLink> 並選擇「全部收集」。"
     },
     "card": {
       "actionsAria": "{{name}} 的操作",
@@ -2392,16 +2397,17 @@
       "repoExists": "儲存庫已存在：{{org}}/{{repo}}",
       "repoIncomplete": "發現未完成的設定：{{org}}/{{repo}}",
       "setup": "已設定自動評分",
-      "setupSkippedEmptyRepo": "無需設定：此作業使用空白儲存庫",
       "repoVisibilityFellBack": "已將 {{org}}/{{repo}} 建立為私人儲存庫。此組織不允許你建立公開儲存庫；你的老師之後可以將它設為公開。",
       "team": "已找到小組",
       "pagesSkipped": {
-        "access": "已設定自動評分。未啟用 GitHub Pages：你沒有權限變更此儲存庫的 Pages 設定。你的老師可以從繳交頁面啟用它。",
-        "branch": "已設定自動評分。未啟用 GitHub Pages：它要發布的分支還不存在於你的儲存庫中。你的老師可以從繳交頁面啟用它。",
-        "plan": "已設定自動評分。未啟用 GitHub Pages：此組織的 GitHub 方案不允許在私人儲存庫上使用 Pages。你的老師可以將儲存庫改為公開，並從繳交頁面啟用 Pages。",
-        "policy": "已設定自動評分。未啟用 GitHub Pages：此組織不允許成員發布 Pages 網站。你的老師可以從繳交頁面啟用它。",
-        "unknown": "已設定自動評分。目前無法啟用 GitHub Pages。你的老師可以從繳交頁面啟用它。"
-      }
+        "access": "未啟用 GitHub Pages：你沒有變更此儲存庫 Pages 設定的權限。你的老師可以在提交頁面上啟用它。",
+        "branch": "未啟用 GitHub Pages：它要發布的分支尚未存在於你的儲存庫中。你的老師可以在提交頁面上啟用它。",
+        "plan": "未啟用 GitHub Pages：此組織的 GitHub 方案不允許在私有儲存庫上使用 Pages。你的老師可以將儲存庫改為公開，並在提交頁面上啟用 Pages。",
+        "policy": "未啟用 GitHub Pages：此組織不允許成員發布 Pages 網站。你的老師可以在提交頁面上啟用它。",
+        "unknown": "目前無法啟用 GitHub Pages。你的老師可以在提交頁面上啟用它。"
+      },
+      "setupBranchUnsettled": "GitHub 仍在初始化你的儲存庫，因此尚未啟用 GitHub Pages。過一分鐘後再次接受即可啟用它，或由你的老師在提交頁面上啟用",
+      "setupSkipped": "不需要任何設定檔案：此作業不會在你的儲存庫中新增任何內容"
     },
     "stepErrors": {
       "generic": "{{label}} 失敗（HTTP {{status}}）。{{actions}}",
@@ -2523,7 +2529,7 @@
       "statusFailedHint": "請在 GitHub 上查看工作流程，然後再試一次。",
       "statusTimeout": "重新評分需要一段時間才能登錄。請在 GitHub 上查看進度。",
       "confirmTitle": "重新評分「{{name}}」的所有繳交？",
-      "confirmBody1": "這會對每個已繳交儲存庫的最新提交重新執行自動評分程式。在修正測試或更新自動評分程式後很有用。繳交時間不會改變。",
+      "confirmBody1": "這會對每個儲存庫最後一次已評分的提交重新執行自動評分，而非學生尚未提交的較新 commit。已推送作業但無已評分提交的儲存庫，會以其最新 commit 評分，並成為其第一次提交。此功能在修正測試或更新自動評分程式後很有用。現有的提交時間不會改變。",
       "confirmBody2": "評分在背景執行，可能需要數分鐘；之後請使用 <collectLabel>{{collectLabel}}</collectLabel> 來取得新分數。",
       "statusCompleted": "重新評分已開始。每個儲存庫都在背景重新評分中。幾分鐘後使用 <collectLabel>{{collectLabel}}</collectLabel> 以取得新的分數。"
     },
@@ -2661,8 +2667,8 @@
       "aria": "重新評分 {{owner}} 的繳交內容",
       "confirmTitle": "要重新評分 {{name}} 的繳交內容嗎？",
       "confirmLabel": "重新評分",
-      "confirmBody1": "這會針對 <name>{{name}}</name> 在此作業的最新提交重新執行自動評分。他們的提交時間不會改變。",
-      "confirmBody1WithLogin": "這會針對 <name>{{name}}</name>（<owner>{{owner}}</owner>）在此作業的最新提交重新執行自動評分。他們的提交時間不會改變。",
+      "confirmBody1": "這會對 <name>{{name}}</name> 在此作業最後一次已評分的提交重新執行自動評分，而非他們尚未提交的較新 commit。若尚未評分任何內容，會以其最新 commit 評分並成為其提交。現有的提交時間不會改變。",
+      "confirmBody1WithLogin": "這會對 <name>{{name}}</name>（<owner>{{owner}}</owner>）在此作業最後一次已評分的提交重新執行自動評分，而非他們尚未提交的較新 commit。若尚未評分任何內容，會以其最新 commit 評分並成為其提交。現有的提交時間不會改變。",
       "confirmBody2": "評分在背景執行，可能需要幾分鐘；之後請使用 <collectLabel>{{collectLabel}}</collectLabel> 來取得新分數。"
     },
     "student": {
@@ -2868,7 +2874,7 @@
       "membersDescription": "檢視並管理小組成員",
       "open": "管理提交",
       "openAria": "管理 {{owner}} 的提交",
-      "regradeDescription": "對最新的 commit 重新執行自動評分",
+      "regradeDescription": "對最後一次已評分的提交重新執行自動評分",
       "reviewDescription": "開啟 feedback pull request",
       "autograding": "自動評分",
       "autogradingEnabled": "已啟用",
@@ -3039,7 +3045,7 @@
       "badgeEmptyRepo": "不自動評分",
       "badgeNoAutograder": "無內建自動評分器",
       "titleEmptyRepo": "此作業使用空白儲存庫，因此已停用自動評分、分數與意見回饋拉取請求。表格會顯示誰已接受以及誰已推送。",
-      "titleNoAutograder": "此作業未使用內建自動評分器，因此已停用內建分數與重新評分。範本自帶的評分工作流程仍會執行，且啟用時意見回饋拉取請求仍可運作。"
+      "titleNoAutograder": "此作業未使用內建自動評分，因此內建分數與重新評分已停用。儲存庫不含任何 Classroom 50 檔案。範本自有的評分工作流程仍會執行，且啟用時回饋 pull request 仍可運作。"
     },
     "scoreOverride": {
       "add": "新增分數",
@@ -3215,21 +3221,22 @@
       "unrecognizedSection_other": "{{count}} 個儲存庫已略過（該路徑已有不同的工作流程）",
       "warningLead_one": "這會將自動評分工作流程提交到 {{count}} 位學生的儲存庫。",
       "warningLead_other": "這會將自動評分工作流程提交到 {{count}} 位學生的儲存庫。",
-      "warningPoint1": "已有此工作流程的儲存庫不會被更動。",
+      "warningPoint1": "已有該工作流程的儲存庫將保持不變。缺少 .classroom50.yaml 標記的儲存庫會在同一次提交中一併補上。",
       "warningPoint2": "此提交已標記，因此不會觸發評分。學生已推送的作業會在下次推送時評分；「全部重新評分」無法觸及工作流程存在之前所做的提交。",
       "warningPoint3": "學生之後必須執行 pull。在此變更之前建立的複製會在下次推送時發生衝突。",
       "working": "正在新增工作流程"
     },
     "rowShim": {
       "aria": "為 {{repo}} 新增自動評分工作流程",
-      "description": "若此儲存庫是在自動評分器關閉時接受的，則為其新增內建自動評分工作流程。",
+      "description": "若此儲存庫是在自動評分關閉時被接受的，為它加入內建的自動評分工作流程，以及它所需的 .classroom50.yaml 標記。",
       "outcome": {
         "added": "已新增自動評分工作流程。學生必須在下次推送前執行 pull，而那次推送才會評分儲存庫中已有的作業。",
         "failed": "無法新增工作流程。請再試一次。",
         "missingWorkflowScope": "你的 GitHub 授權無法修改工作流程檔案。請登出後再重新登入，然後重試。",
         "notAccepted": "尚無儲存庫，因此沒有可新增的項目。",
         "present": "此儲存庫已有自動評分工作流程。",
-        "unrecognized": "已略過：自動評分工作流程的路徑上已有不同的工作流程，因此未做任何變更。"
+        "unrecognized": "已略過：自動評分工作流程的路徑上已有不同的工作流程，因此未做任何變更。",
+        "markerAdded": "此儲存庫已有自動評分工作流程。已補上其缺少的 .classroom50.yaml 標記，讓自動評分能找到對應的作業。學生必須在下次推送前先執行 pull。"
       },
       "title": "新增自動評分工作流程"
     }

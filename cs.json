@@ -684,7 +684,10 @@
     "uploadBlockedUsernames": "Chcete-li pokračovat, potvrďte výše uvedené změny uživatelských jmen.",
     "rosterProblemDuplicateColumn": "Sloupec „{{name}}“ se vyskytuje víckrát. Ponechte jeden a ostatní odeberte.",
     "rosterProblemFormulaColumn": "Název sloupce „{{name}}“ začíná na =, +, - nebo @, což tabulkové procesory považují za vzorec. Přejmenujte jej.",
-    "rosterProblemReservedColumn": "Sloupec „{{name}}“ je vestavěný sloupec seznamu studentů a znovu se za ním objevuje. Odeberte nadbytečnou kopii."
+    "rosterProblemReservedColumn": "Sloupec „{{name}}“ je vestavěný sloupec seznamu studentů a objevuje se více než jednou. Odeberte nadbytečnou kopii.",
+    "duplicateImportHeader": "Sloupec „{{name}}“ se v tomto souboru objevuje více než jednou. Ponechte jeden a ostatní odeberte, poté soubor nahrajte znovu.",
+    "rosterProblemEmptyFile": "Soubor nemá řádek se záhlavím. Přidejte na začátek tento řádek: {{header}}",
+    "rosterProblemNoIdentityColumn": "Řádek se záhlavím neobsahuje žádný ze sloupců, které identifikují studenta: username, github_id ani email. Přidejte alespoň jeden z nich."
   },
   "language": {
     "baseName": "Angličtina (základní)",
@@ -1063,7 +1066,7 @@
             "label": "Použít vestavěný autograder"
           },
           "none": {
-            "help": "Hodnoťte místo toho pomocí vlastního workflow GitHub Actions. Se šablonou do ní přidejte workflow; bez ní nemá úloha žádné automatické hodnocení.",
+            "help": "Hodnoťte místo toho vlastním pracovním postupem GitHub Actions, nebo nehodnoťte na GitHubu vůbec. Classroom 50 do repozitářů nepřidává žádné soubory: se šablonou dostane každý student její přesnou kopii; bez ní repozitář obsahující jen README.",
             "label": "Nepoužívat vestavěný autograder"
           }
         },
@@ -1234,7 +1237,7 @@
       "defaultOption": "{{label}} (výchozí)",
       "defaults": {
         "failureDetails": "Výchozí podrobnosti selhání",
-        "failureDetailsFull": "Úplné: rozdíl nebo očekávaný a skutečný výstup",
+        "failureDetailsFull": "Úplné: vstup, poté rozdíl nebo očekávaný a skutečný výstup",
         "heading": "Výchozí nastavení reportu",
         "hint": "Výchozí hodnoty pro každý test; vlastní volby reportu testu je přepíší.",
         "showOutput": "Zahrnout výstup úspěšného testu",
@@ -1244,7 +1247,7 @@
       },
       "failureDetails": "Podrobnosti selhání zobrazené studentům",
       "failureDetailsActualOnly": "Pouze výstup studenta (nikdy očekávaný výstup)",
-      "failureDetailsFull": "Úplné: rozdíl nebo očekávaný a skutečný výstup",
+      "failureDetailsFull": "Úplné: vstup, poté rozdíl nebo očekávaný a skutečný výstup",
       "failureDetailsHint": "Jak velkou část neúspěšného běhu studenti vidí v reportu odevzdání a protokolu workflow.",
       "failureDetailsNone": "Pouze typ selhání (žádný výstup)",
       "reportOptions": "Možnosti reportu",
@@ -1557,7 +1560,8 @@
         "renameFailed": "přejmenování selhalo: {{message}}",
         "renameForbidden": "přejmenování na „{{newName}}“ vyžaduje na repozitáři přístup správce; zkuste to znovu jako vlastník organizace",
         "repoGone": "repozitář během přejmenování zmizel; spusťte znovu pro opětovnou kontrolu",
-        "unparseableMarker": "nečitelný .classroom50.yaml ({{message}}), takže repozitář byl ponechán beze změny"
+        "unparseableMarker": "nečitelný .classroom50.yaml ({{message}}), takže repozitář byl ponechán beze změny",
+        "foreignSibling": "její název odpovídá také úloze „{{slug}}“, sourozenecké úloze sdílející stejnou předponu názvu, a repozitáře této úlohy nenesou žádnou značku, která by je rozlišila, ponecháno beze změny"
       },
       "repoCount_one": "Bude přejmenován {{count}} existující studentský repozitář.",
       "repoCount_other": "Bude přejmenováno {{count}} existujících studentských repozitářů.",
@@ -1762,7 +1766,7 @@
         "student_permission": "Přístup studenta k repozitáři: stávající repozitáře změňte na stránce odevzdání.",
         "pages": "GitHub Pages: zapněte je u existujících repozitářů na stránce odevzdání.",
         "autograder_off": "Vestavěný autograder: jeho vypnutí způsobí, že běhy autohodnocení stávajících repozitářů selžou a vypadnou ze sesbíraných výsledků.",
-        "autograder_on": "Vestavěný autograder: stávající repozitáře zatím nemají pracovní postup autohodnocení. Po uložení použijte na stránce odevzdání akci „Přidat pracovní postup autohodnocení“ a přidejte jej do nich."
+        "autograder_on": "Vestavěný autograder: stávající repozitáře zatím nemají žádné soubory autogradingu. Po uložení použijte „Přidat pracovní postup autogradingu“ na stránce odevzdání, aby se do nich přidal pracovní postup a značka .classroom50.yaml."
       },
       "provisioningIntro_one": "{{count}} student už zadání přijal. Tyto změny se týkají pouze repozitářů přijatých od nynějška; stávající repozitář si zachovává své aktuální nastavení:",
       "provisioningIntro_other": "{{count}} studentů už zadání přijalo. Tyto změny se týkají pouze repozitářů přijatých od nynějška; {{count}} stávajících repozitářů si zachovává své aktuální nastavení:",
@@ -2197,15 +2201,16 @@
       "resendFailed": "Nepodařilo se znovu odeslat pozvánku pro {{who}}: {{error}}",
       "resentToast": "Pozvánka pro {{who}} byla znovu odeslána.",
       "roleTeacherPlural": "Vyučující",
-      "accessHeadTa": "Člen organizace. Přístup pro zápis do repozitáře classroom50 a do studentských repozitářů, aby mohli slučovat pull requesty se zpětnou vazbou.",
-      "accessTa": "Člen organizace. Přístup pouze pro čtení k repozitáři classroom50; přístup pro zápis do studentských repozitářů, aby mohli slučovat pull requesty se zpětnou vazbou.",
+      "accessHeadTa": "Člen organizace. Zápisový přístup k repozitáři classroom50 a po sběru skóre i k repozitářům studentů, aby mohli slučovat žádosti o stažení se zpětnou vazbou.",
+      "accessTa": "Člen organizace. Přístup jen pro čtení k repozitáři classroom50; zápisový přístup k repozitářům studentů po sběru skóre, aby mohli slučovat žádosti o stažení se zpětnou vazbou.",
       "accessTeacher": "Vlastník organizace. Zápisový přístup k repozitáři classroom50.",
       "pendingCount_one": "{{count}} nevyřízená",
       "pendingCount_other": "{{count}} nevyřízených",
       "removeSelfTeacherBlocked": "Nemůžete se sami odebrat z týmu učitelů; odebralo by vám to vlastní přístup na úrovni vlastníka k této třídě. Požádejte o odebrání jiného vlastníka organizace.",
       "roleHeadTaPlural": "Hlavní asistenti",
       "viewTeamTitle": "Otevřít tým {{role}} na GitHubu",
-      "you": "Vy"
+      "you": "Vy",
+      "studentRepoAccessNote": "Asistenti a hlavní asistenti získávají přístup k repozitářům studentů při sběru skóre, ne když student úlohu přijme. Chcete-li udělit přístup k novým repozitářům, otevřete <assignmentsLink>Úlohy</assignmentsLink> a zvolte Sebrat vše."
     },
     "card": {
       "actionsAria": "Akce pro {{name}}",
@@ -2395,16 +2400,17 @@
       "repoExists": "Repozitář již existuje: {{org}}/{{repo}}",
       "repoIncomplete": "Nalezeno nedokončené nastavení: {{org}}/{{repo}}",
       "setup": "Automatické hodnocení nakonfigurováno",
-      "setupSkippedEmptyRepo": "Není potřeba žádné nastavení: tato úloha používá prázdný repozitář",
       "repoVisibilityFellBack": "Repozitář {{org}}/{{repo}} byl vytvořen jako soukromý. Organizace vám neumožňuje vytvářet veřejné repozitáře; váš vyučující jej může později zveřejnit.",
       "team": "Skupina nalezena",
       "pagesSkipped": {
-        "access": "Autohodnocení nastaveno. GitHub Pages nebylo zapnuto: nemáte oprávnění měnit nastavení Pages v tomto repozitáři. Váš vyučující je může zapnout na stránce odevzdání.",
-        "branch": "Autohodnocení nastaveno. GitHub Pages nebylo zapnuto: větev, ze které se publikuje, ve vašem repozitáři zatím neexistuje. Váš vyučující je může zapnout na stránce odevzdání.",
-        "plan": "Autohodnocení nastaveno. GitHub Pages nebylo zapnuto: plán GitHubu této organizace neumožňuje Pages u soukromých repozitářů. Váš vyučující může repozitář zveřejnit a zapnout Pages na stránce odevzdání.",
-        "policy": "Autohodnocení nastaveno. GitHub Pages nebylo zapnuto: organizace neumožňuje členům publikovat weby Pages. Váš vyučující je může zapnout na stránce odevzdání.",
-        "unknown": "Autohodnocení nastaveno. GitHub Pages se právě teď nepodařilo zapnout. Váš vyučující je může zapnout na stránce odevzdání."
-      }
+        "access": "GitHub Pages nebyly zapnuty: nemáte oprávnění měnit nastavení Pages v tomto repozitáři. Váš vyučující je může zapnout na stránce odevzdání.",
+        "branch": "GitHub Pages nebyly zapnuty: větev, ze které se publikuje, ve vašem repozitáři zatím neexistuje. Váš vyučující je může zapnout na stránce odevzdání.",
+        "plan": "GitHub Pages nebyly zapnuty: plán GitHubu této organizace neumožňuje Pages u soukromých repozitářů. Váš vyučující může repozitář nastavit jako veřejný a zapnout Pages na stránce odevzdání.",
+        "policy": "GitHub Pages nebyly zapnuty: organizace neumožňuje členům publikovat weby Pages. Váš vyučující je může zapnout na stránce odevzdání.",
+        "unknown": "GitHub Pages se momentálně nepodařilo zapnout. Váš vyučující je může zapnout na stránce odevzdání."
+      },
+      "setupBranchUnsettled": "GitHub stále inicializuje váš repozitář, takže GitHub Pages nebyly zapnuty. Za chvíli přijměte znovu, aby se zapnuly, nebo je může zapnout váš vyučující na stránce odevzdání",
+      "setupSkipped": "Žádné soubory nastavení nejsou potřeba: tato úloha do vašeho repozitáře nic nepřidává"
     },
     "stepErrors": {
       "generic": "{{label}} selhalo (HTTP {{status}}). {{actions}}",
@@ -2526,7 +2532,7 @@
       "statusFailedHint": "Zkontrolujte workflow na GitHubu a zkuste to znovu.",
       "statusTimeout": "Přehodnocení se registruje delší dobu. Zkontrolujte jeho průběh na GitHubu.",
       "confirmTitle": "Přehodnotit všechna odevzdání pro „{{name}}“?",
-      "confirmBody1": "Tímto se autohodnocení znovu spustí na nejnovějším commitu každého odevzdaného repozitáře. Hodí se to po opravě testu nebo aktualizaci autohodnocení. Časy odevzdání se nemění.",
+      "confirmBody1": "Tímto se znovu spustí autograder na posledním ohodnoceném odevzdání každého repozitáře, ne na novějších commitech, které student neodevzdal. Repozitář s nahranou prací, ale bez ohodnoceného odevzdání se ohodnotí na svém nejnovějším commitu, který se stane jeho prvním odevzdáním. Je to užitečné po opravě testu nebo aktualizaci autograderu. Stávající časy odevzdání se nemění.",
       "confirmBody2": "Hodnocení běží na pozadí a může trvat několik minut; poté použijte <collectLabel>{{collectLabel}}</collectLabel> k načtení nových skóre.",
       "statusCompleted": "Přehodnocení spuštěno. Každý repozitář se přehodnocuje na pozadí. Za pár minut použijte <collectLabel>{{collectLabel}}</collectLabel> k načtení nových skóre."
     },
@@ -2664,8 +2670,8 @@
       "aria": "Přehodnotit odevzdání uživatele {{owner}}",
       "confirmTitle": "Přehodnotit odevzdání studenta {{name}}?",
       "confirmLabel": "Přehodnotit",
-      "confirmBody1": "Tímto znovu spustíte autograder na nejnovějším commitu studenta <name>{{name}}</name> pro toto zadání. Čas jeho odevzdání se nemění.",
-      "confirmBody1WithLogin": "Tímto znovu spustíte autograder na nejnovějším commitu studenta <name>{{name}}</name> (<owner>{{owner}}</owner>) pro toto zadání. Čas jeho odevzdání se nemění.",
+      "confirmBody1": "Tímto se znovu spustí autograder na posledním ohodnoceném odevzdání studenta <name>{{name}}</name> pro tuto úlohu, ne na novějších commitech, které neodevzdal. Pokud zatím nebylo nic ohodnoceno, ohodnotí se jeho nejnovější commit a stane se jeho odevzdáním. Stávající čas odevzdání se nemění.",
+      "confirmBody1WithLogin": "Tímto se znovu spustí autograder na posledním ohodnoceném odevzdání studenta <name>{{name}}</name> (<owner>{{owner}}</owner>) pro tuto úlohu, ne na novějších commitech, které neodevzdal. Pokud zatím nebylo nic ohodnoceno, ohodnotí se jeho nejnovější commit a stane se jeho odevzdáním. Stávající čas odevzdání se nemění.",
       "confirmBody2": "Hodnocení běží na pozadí a může trvat několik minut; poté použijte <collectLabel>{{collectLabel}}</collectLabel> k načtení nového skóre."
     },
     "student": {
@@ -2871,7 +2877,7 @@
       "membersDescription": "Zobrazit a spravovat členy skupiny",
       "open": "Spravovat odevzdání",
       "openAria": "Spravovat odevzdání uživatele {{owner}}",
-      "regradeDescription": "Znovu spustit autograder na nejnovějším commitu",
+      "regradeDescription": "Znovu spustit autograder na posledním ohodnoceném odevzdání",
       "reviewDescription": "Otevřít feedback pull request",
       "autograding": "Automatické hodnocení",
       "autogradingEnabled": "Povoleno",
@@ -3042,7 +3048,7 @@
       "badgeEmptyRepo": "Bez automatického hodnocení",
       "badgeNoAutograder": "Bez vestavěného autograderu",
       "titleEmptyRepo": "Tento úkol používá prázdné repozitáře, takže autograding, skóre a pull request se zpětnou vazbou jsou vypnuté. Tabulka ukazuje, kdo úkol přijal a kdo odeslal push.",
-      "titleNoAutograder": "Tento úkol nepoužívá vestavěný autograder, takže vestavěná skóre a přehodnocování jsou vypnuté. Vlastní hodnoticí workflow šablony stále běží a pull request se zpětnou vazbou stále funguje, je-li povolen."
+      "titleNoAutograder": "Tato úloha nepoužívá vestavěný autograder, takže vestavěné skóre a přehodnocování jsou vypnuty. Repozitáře neobsahují žádné soubory Classroom 50. Vlastní hodnoticí pracovní postup šablony stále běží a žádost o stažení se zpětnou vazbou stále funguje, pokud je zapnuta."
     },
     "scoreOverride": {
       "add": "Přidat skóre",
@@ -3218,21 +3224,22 @@
       "unrecognizedSection_other": "{{count}} repozitářů bylo přeskočeno (na dané cestě už je jiný pracovní postup)",
       "warningLead_one": "Toto zapíše pracovní postup autohodnocení do repozitáře {{count}} studenta.",
       "warningLead_other": "Toto zapíše pracovní postup autohodnocení do repozitářů {{count}} studentů.",
-      "warningPoint1": "Repozitáře, které již pracovní postup mají, zůstanou nedotčeny.",
+      "warningPoint1": "Repozitáře, které již pracovní postup mají, zůstanou beze změny. Repozitář, kterému chybí značka .classroom50.yaml, ji získá ve stejném commitu.",
       "warningPoint2": "Commit je označen tak, aby nespouštěl hodnocení. Práce, kterou studenti již odeslali, se ohodnotí při jejich příštím pushi; akce „Přehodnotit vše“ nedosáhne na commity vytvořené před tím, než pracovní postup existoval.",
       "warningPoint3": "Studenti musí poté provést pull. Klony vytvořené před touto změnou budou při jejich příštím pushi kolidovat.",
       "working": "Přidávání pracovního postupu"
     },
     "rowShim": {
       "aria": "Přidat pracovní postup autohodnocení do {{repo}}",
-      "description": "Přidat vestavěný pracovní postup autohodnocení do tohoto repozitáře, pokud byl přijat, když byl autograder vypnutý.",
+      "description": "Přidat vestavěný pracovní postup autogradingu a značku .classroom50.yaml, kterou potřebuje, do tohoto repozitáře, pokud byl přijat, když byl autograder vypnutý.",
       "outcome": {
         "added": "Pracovní postup autohodnocení přidán. Student musí před svým příštím pushem provést pull a právě tento push ohodnotí práci již v repozitáři.",
         "failed": "Nepodařilo se přidat pracovní postup. Zkuste to znovu.",
         "missingWorkflowScope": "Vaše autorizace k GitHubu nemůže upravovat soubory pracovních postupů. Odhlaste se a znovu přihlaste, poté to zkuste znovu.",
         "notAccepted": "Zatím neexistuje žádný repozitář, takže není co přidávat.",
         "present": "Tento repozitář již pracovní postup autohodnocení má.",
-        "unrecognized": "Přeskočeno: na cestě pracovního postupu autohodnocení už je jiný pracovní postup, takže se nic nezměnilo."
+        "unrecognized": "Přeskočeno: na cestě pracovního postupu autohodnocení už je jiný pracovní postup, takže se nic nezměnilo.",
+        "markerAdded": "Tento repozitář již měl pracovní postup autogradingu. Byla přidána chybějící značka .classroom50.yaml, aby autograding našel úlohu. Student musí před dalším pushem provést pull."
       },
       "title": "Přidat pracovní postup autohodnocení"
     }

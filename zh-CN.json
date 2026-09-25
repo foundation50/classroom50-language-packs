@@ -863,7 +863,10 @@
     "uploadBlockedUsernames": "请确认上方的用户名变更以继续。",
     "rosterProblemDuplicateColumn": "列“{{name}}”出现了多次。请保留一个并删除其余的。",
     "rosterProblemFormulaColumn": "列名“{{name}}”以 =、+、- 或 @ 开头，电子表格会将其当作公式。请重命名。",
-    "rosterProblemReservedColumn": "列“{{name}}”是内置名册列，之后又再次出现。请删除多余的副本。"
+    "rosterProblemReservedColumn": "列“{{name}}”是内置的花名册列，且出现了不止一次。请删除多余的副本。",
+    "duplicateImportHeader": "列“{{name}}”在此文件中出现了不止一次。请保留一个并删除其余的，然后重新上传。",
+    "rosterProblemEmptyFile": "该文件没有表头行。请在最上方添加此行：{{header}}",
+    "rosterProblemNoIdentityColumn": "表头行不包含任何可标识学生的列：username、github_id 或 email。请至少添加其中一列。"
   },
   "language": {
     "baseName": "英语（基础）",
@@ -1306,7 +1309,7 @@
         "choices": {
           "none": {
             "label": "不使用内置自动评分器",
-            "help": "改用你自己的 GitHub Actions 工作流进行评分。使用模板时，将工作流添加到模板中；不使用模板时，此作业则没有自动评分器。"
+            "help": "改用你自己的 GitHub Actions 工作流评分，或完全不在 GitHub 上评分。Classroom 50 不会向仓库添加任何文件：使用模板时，每位学生获得模板的完整副本；不使用模板时，仓库中只有一个 README。"
           },
           "built-in": {
             "label": "使用内置自动评分器",
@@ -1534,7 +1537,7 @@
       "points": "分数",
       "failureDetails": "向学生显示的失败详情",
       "failureDetailsHint": "学生在提交报告和工作流日志中能看到多少失败运行的内容。",
-      "failureDetailsFull": "完整：差异或期望与实际输出",
+      "failureDetailsFull": "完整：输入，然后是差异或期望输出与实际输出",
       "failureDetailsActualOnly": "仅学生输出（绝不显示期望输出）",
       "failureDetailsNone": "仅失败类型（无输出）",
       "showOutput": "通过时的输出",
@@ -1548,7 +1551,7 @@
         "heading": "报告默认设置",
         "hint": "适用于每个测试的默认设置；测试自身的报告选项会覆盖它们。",
         "failureDetails": "默认失败详情",
-        "failureDetailsFull": "完整：差异或期望与实际输出",
+        "failureDetailsFull": "完整：输入，然后是差异或期望输出与实际输出",
         "showOutput": "包含通过测试的输出",
         "showOutputHelp": "将每个通过的测试所捕获的设置/运行输出添加到提交报告和工作流日志中，默认折叠显示。在编写或调试自动评分器时很有用。",
         "showCommand": "显示命令行",
@@ -1833,7 +1836,8 @@
         "renameConflict": "重命名为“{{newName}}”被拒绝——{{org}} 中可能已存在同名仓库；请解决后完成重命名",
         "renameFailed": "重命名失败：{{message}}",
         "rateLimited": "触发了 GitHub 的速率限制——请等待几分钟后完成重命名",
-        "rateLimitedDeferred": "在此前一个仓库触发 GitHub 速率限制后被推迟——请等待几分钟后完成重命名"
+        "rateLimitedDeferred": "在此前一个仓库触发 GitHub 速率限制后被推迟——请等待几分钟后完成重命名",
+        "foreignSibling": "其名称也与作业“{{slug}}”匹配——这是一个共用名称前缀的同级作业，而本作业的仓库没有标记文件可用于区分它们，因此保持原样未作改动"
       }
     },
     "includeStaff": "包含教学人员",
@@ -2056,7 +2060,7 @@
         "student_permission": "学生仓库权限：在提交页面上修改已有仓库。",
         "pages": "GitHub Pages：请在提交页面为现有仓库启用它。",
         "autograder_off": "内置自动评分器：关闭后，现有仓库的自动评分运行会失败，并从已收集的成绩中移除。",
-        "autograder_on": "内置自动评分器：现有仓库尚无自动评分工作流。保存后，请在提交页面使用“添加自动评分工作流”将其添加到这些仓库。"
+        "autograder_on": "内置自动评分器：现有仓库尚无自动评分文件。保存后，请在提交页面使用“添加自动评分工作流”，为它们添加工作流和 .classroom50.yaml 标记文件。"
       },
       "provisioningIntro_one": "已有 {{count}} 名学生接受了作业。这些更改仅适用于此后接受的仓库；现有仓库将保持其当前设置：",
       "provisioningIntro_other": "已有 {{count}} 名学生接受了作业。这些更改仅适用于此后接受的仓库；现有的 {{count}} 个仓库将保持其当前设置：",
@@ -2605,8 +2609,8 @@
       "roleTaPlural": "助教",
       "roleHeadTaPlural": "首席助教",
       "accessTeacher": "组织所有者。对 classroom50 仓库拥有写入权限。",
-      "accessHeadTa": "组织成员。对 classroom50 仓库和学生仓库拥有写入权限，因此他们可以合并反馈拉取请求。",
-      "accessTa": "组织成员。对 classroom50 仓库拥有只读权限；对学生仓库拥有写入权限，因此他们可以合并反馈拉取请求。",
+      "accessHeadTa": "组织成员。对 classroom50 仓库拥有写入权限，并在分数收集后对学生仓库拥有写入权限，因此他们可以合并反馈拉取请求。",
+      "accessTa": "组织成员。对 classroom50 仓库拥有只读权限；在分数收集后对学生仓库拥有写入权限，因此他们可以合并反馈拉取请求。",
       "viewTeamTitle": "在 GitHub 上打开 {{role}} 团队",
       "pendingCount_one": "{{count}} 个待处理",
       "pendingCount_other": "{{count}} 个待处理",
@@ -2632,7 +2636,8 @@
       "resendFailed": "无法向 {{who}} 重新发送邀请：{{error}}",
       "cancelInvite": "取消邀请",
       "cancelledToast": "已取消 {{who}} 的邀请。",
-      "cancelFailed": "无法取消 {{who}} 的邀请：{{error}}"
+      "cancelFailed": "无法取消 {{who}} 的邀请：{{error}}",
+      "studentRepoAccessNote": "TA 和首席 TA 是在收集分数时获得对学生仓库的访问权限，而非在学生接受作业时。若要授予对新仓库的访问权限，请打开<assignmentsLink>作业</assignmentsLink>并选择“全部收集”。"
     },
     "deleteClassroomWarning": "此操作无法撤销。花名册、作业列表和课堂团队都会被删除，因此要恢复该课堂就意味着重新创建它并重新登记每一名学生。"
   },
@@ -2747,18 +2752,19 @@
       "repoIncomplete": "发现未完成的设置：{{org}}/{{repo}}",
       "access": "已设置你的仓库访问权限",
       "setup": "已配置自动评分",
-      "setupSkippedEmptyRepo": "无需设置：此作业使用空仓库",
       "feedback": "反馈拉取请求已就绪",
       "feedbackSkipped": "此作业没有反馈拉取请求",
       "feedbackDeferred": "现在无法打开反馈拉取请求：请再次接受作业以重试（如果已启用自动评分，则会在你首次提交时打开）",
       "team": "已找到小组",
       "pagesSkipped": {
-        "access": "已配置自动评分。未启用 GitHub Pages：你没有更改此仓库 Pages 设置的权限。你的老师可以在提交页面启用它。",
-        "branch": "已配置自动评分。未启用 GitHub Pages：用于发布的分支在你的仓库中尚不存在。你的老师可以在提交页面启用它。",
-        "plan": "已配置自动评分。未启用 GitHub Pages：本组织的 GitHub 套餐不允许在私有仓库上使用 Pages。你的老师可以将仓库设为公开，并在提交页面启用 Pages。",
-        "policy": "已配置自动评分。未启用 GitHub Pages：本组织不允许成员发布 Pages 站点。你的老师可以在提交页面启用它。",
-        "unknown": "已配置自动评分。目前无法启用 GitHub Pages。你的老师可以在提交页面启用它。"
-      }
+        "access": "未启用 GitHub Pages：你没有权限更改此仓库的 Pages 设置。你的老师可以在提交页面启用它。",
+        "branch": "未启用 GitHub Pages：用于发布的分支在你的仓库中还不存在。你的老师可以在提交页面启用它。",
+        "plan": "未启用 GitHub Pages：该组织的 GitHub 套餐不允许在私有仓库上使用 Pages。你的老师可以将仓库设为公开，并在提交页面启用 Pages。",
+        "policy": "未启用 GitHub Pages：该组织不允许成员发布 Pages 站点。你的老师可以在提交页面启用它。",
+        "unknown": "目前无法启用 GitHub Pages。你的老师可以在提交页面启用它。"
+      },
+      "setupBranchUnsettled": "GitHub 仍在初始化你的仓库，因此未启用 GitHub Pages。请过一分钟后再次接受以启用它，或由你的老师在提交页面启用它",
+      "setupSkipped": "无需设置文件：此作业不会向你的仓库添加任何内容"
     },
     "stepActions": {
       "account": "无法读取你的 GitHub 账户。请退出登录后重新登录，然后再次接受作业。",
@@ -2855,7 +2861,7 @@
     "grading": {
       "badgeBuiltIn": "自动评分",
       "badgeNoAutograder": "无内置自动评分器",
-      "titleNoAutograder": "本作业不使用内置自动评分器，因此内置分数和重新评分已禁用。模板自带的评分工作流仍会运行，启用时反馈拉取请求也仍然有效。",
+      "titleNoAutograder": "此作业不使用内置自动评分器，因此内置分数和重新评分已禁用。仓库中不含任何 Classroom 50 文件。模板自带的评分工作流仍会运行，启用时反馈拉取请求也仍然有效。",
       "badgeEmptyRepo": "无自动评分",
       "titleEmptyRepo": "本作业使用空仓库，因此自动评分、分数和反馈拉取请求均已禁用。表格显示谁已接受作业、谁已推送。"
     },
@@ -2957,7 +2963,7 @@
       "statusFailedHint": "请在 GitHub 上检查该工作流，然后重试。",
       "statusTimeout": "重新评分需要一段时间才能登记。请在 GitHub 上查看其进度。",
       "confirmTitle": "重新评分“{{name}}”的全部提交？",
-      "confirmBody1": "这会对每个已提交仓库的最新提交重新运行自动评分器。在修复测试或更新自动评分器后很有用。提交时间不会改变。",
+      "confirmBody1": "这会对每个仓库最近一次已评分的提交重新运行自动评分器，而不是对学生尚未提交的更新提交进行评分。已推送工作但没有已评分提交的仓库，会以其最新提交进行评分，并将其作为首次提交。在修复某个测试或更新自动评分器后，这很有用。现有的提交时间不会改变。",
       "confirmBody2": "评分在后台运行，可能需要几分钟；之后请使用<collectLabel>{{collectLabel}}</collectLabel>来拉取新分数。"
     },
     "accept": {
@@ -3417,8 +3423,8 @@
       "titleFailed": "重新评分未能开始。请重试。",
       "aria": "重新评分 {{owner}} 的提交",
       "confirmTitle": "重新评分 {{name}} 的提交？",
-      "confirmBody1": "这将对 <name>{{name}}</name> 在此作业的最新提交重新运行自动评分器。他们的提交时间不会改变。",
-      "confirmBody1WithLogin": "这将对 <name>{{name}}</name>（<owner>{{owner}}</owner>）在此作业的最新提交重新运行自动评分器。他们的提交时间不会改变。",
+      "confirmBody1": "这会对 <name>{{name}}</name> 在此作业中最近一次已评分的提交重新运行自动评分器，而不是对他们尚未提交的更新提交进行评分。如果尚无任何内容被评分，则以他们的最新提交进行评分，并将其作为其提交。现有的提交时间不会改变。",
+      "confirmBody1WithLogin": "这会对 <name>{{name}}</name>（<owner>{{owner}}</owner>）在此作业中最近一次已评分的提交重新运行自动评分器，而不是对他们尚未提交的更新提交进行评分。如果尚无任何内容被评分，则以他们的最新提交进行评分，并将其作为其提交。现有的提交时间不会改变。",
       "confirmBody2": "评分在后台运行，可能需要几分钟；之后请使用<collectLabel>{{collectLabel}}</collectLabel>来拉取新分数。",
       "confirmLabel": "重新评分"
     },
@@ -3446,7 +3452,7 @@
       "reviewDescription": "打开反馈拉取请求",
       "accessDescription": "编辑学生的角色和协作者",
       "detailsDescription": "在 GitHub 上打开自动评分结果",
-      "regradeDescription": "在最新提交上重新运行自动评分器",
+      "regradeDescription": "对最近一次已评分的提交重新运行自动评分器",
       "downloadDescription": "将提交保存为 zip 压缩包",
       "membersDescription": "查看并管理小组的成员",
       "manageGroup": "管理小组",
@@ -3574,21 +3580,22 @@
       "unrecognizedSection_other": "有 {{count}} 个仓库被跳过（该路径上已有另一个工作流）",
       "warningLead_one": "这会将自动评分工作流提交到 {{count}} 名学生的仓库。",
       "warningLead_other": "这会将自动评分工作流提交到 {{count}} 名学生的仓库。",
-      "warningPoint1": "已有该工作流的仓库将保持不变。",
+      "warningPoint1": "已有该工作流的仓库将保持原样不作改动。缺少 .classroom50.yaml 标记文件的仓库会在同一次提交中获得该文件。",
       "warningPoint2": "该提交已作标记，因此不会触发评分。学生已推送的工作会在他们下次推送时被评分；“重新评分全部”无法涵盖该工作流存在之前所做的提交。",
       "warningPoint3": "学生之后必须执行 pull。在此更改之前克隆的副本会在他们下次推送时发生冲突。",
       "working": "正在添加工作流"
     },
     "rowShim": {
       "aria": "为 {{repo}} 添加自动评分工作流",
-      "description": "如果此仓库是在自动评分器关闭时接受的，则为其添加内置自动评分工作流。",
+      "description": "如果此仓库是在自动评分器关闭时接受的，则向其添加内置自动评分工作流及其所需的 .classroom50.yaml 标记文件。",
       "outcome": {
         "added": "已添加自动评分工作流。学生必须在下次推送前执行 pull，而这次推送会对仓库中已有的工作进行评分。",
         "failed": "无法添加工作流。请重试。",
         "missingWorkflowScope": "你的 GitHub 授权无法修改工作流文件。请退出并重新登录，然后重试。",
         "notAccepted": "尚无仓库，因此没有可添加的对象。",
         "present": "此仓库已有自动评分工作流。",
-        "unrecognized": "已跳过：该自动评分工作流的路径上已有另一个工作流，因此未做任何更改。"
+        "unrecognized": "已跳过：该自动评分工作流的路径上已有另一个工作流，因此未做任何更改。",
+        "markerAdded": "此仓库已有自动评分工作流。已补上其缺失的 .classroom50.yaml 标记文件，使自动评分能够找到该作业。学生必须在下次推送前先拉取。"
       },
       "title": "添加自动评分工作流"
     }
