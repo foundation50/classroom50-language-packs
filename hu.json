@@ -682,7 +682,10 @@
     "uploadBlockedUsernames": "A folytatáshoz erősítsd meg a fenti felhasználónév-változásokat.",
     "rosterProblemDuplicateColumn": "A(z) „{{name}}” oszlop többször is szerepel. Tarts meg egyet, a többit távolítsd el.",
     "rosterProblemFormulaColumn": "A(z) „{{name}}” oszlopnév =, +, - vagy @ jellel kezdődik, amit a táblázatkezelők képletként kezelnek. Nevezd át.",
-    "rosterProblemReservedColumn": "A(z) „{{name}}” oszlop beépített névsoroszlop, és utána újra megjelenik. Távolítsd el a plusz példányt."
+    "rosterProblemReservedColumn": "A(z) „{{name}}” oszlop egy beépített névsoroszlop, és többször szerepel. Távolítsd el a felesleges másolatot.",
+    "duplicateImportHeader": "A(z) „{{name}}” oszlop többször szerepel ebben a fájlban. Tarts meg egyet, töröld a többit, majd töltsd fel újra.",
+    "rosterProblemEmptyFile": "A fájlnak nincs fejlécsora. Add hozzá ezt a sort a tetejére: {{header}}",
+    "rosterProblemNoIdentityColumn": "A fejlécsorban egyik olyan oszlop sincs, amely azonosítana egy diákot: username, github_id vagy email. Adj hozzá legalább egyet közülük."
   },
   "language": {
     "baseName": "Angol (alap)",
@@ -1061,7 +1064,7 @@
             "label": "A beépített automata értékelő használata"
           },
           "none": {
-            "help": "Értékelj a saját GitHub Actions munkafolyamatoddal helyette. Sablonnal add hozzá a munkafolyamatot ahhoz; sablon nélkül a feladatnak nincs automatikus értékelője.",
+            "help": "Értékelj inkább a saját GitHub Actions munkafolyamatoddal, vagy egyáltalán ne értékelj a GitHubon. A Classroom 50 nem ad fájlokat a tárakhoz: sablonnal minden diák annak pontos másolatát kapja; sablon nélkül csak egy README-t tartalmazó tárat.",
             "label": "Ne használd a beépített automata értékelőt"
           }
         },
@@ -1232,7 +1235,7 @@
       "defaultOption": "{{label}} (alapértelmezett)",
       "defaults": {
         "failureDetails": "Alapértelmezett hibarészletek",
-        "failureDetailsFull": "Teljes: eltérés vagy elvárt és tényleges kimenet",
+        "failureDetailsFull": "Teljes: a bemenet, majd a különbség vagy a várt és a tényleges kimenet",
         "heading": "Jelentés alapértelmezései",
         "hint": "Minden teszt alapértelmezései; egy teszt saját jelentésbeállításai felülírják ezeket.",
         "showOutput": "Sikeres teszt kimenetének megjelenítése",
@@ -1242,7 +1245,7 @@
       },
       "failureDetails": "A tanulóknak megjelenített hibarészletek",
       "failureDetailsActualOnly": "Csak a tanuló kimenete (soha az elvárt kimenet)",
-      "failureDetailsFull": "Teljes: eltérés vagy elvárt és tényleges kimenet",
+      "failureDetailsFull": "Teljes: a bemenet, majd a különbség vagy a várt és a tényleges kimenet",
       "failureDetailsHint": "Mennyit lát a tanuló egy sikertelen futásból a beadási jelentésben és a munkafolyamat-naplóban.",
       "failureDetailsNone": "Csak a hiba típusa (nincs kimenet)",
       "reportOptions": "Jelentésbeállítások",
@@ -1378,7 +1381,9 @@
         "templateHeading": "Sablontároló",
         "title": "Sablonhozzáférés",
         "triggerAria": "Sablonhozzáférés áttekintése ehhez: {{name}}",
-        "triggerTitle": "Sablonhozzáférés"
+        "triggerTitle": "Sablonhozzáférés",
+        "forksNote_one": "Ennek a privát sablonnak {{count}} forkja van. Ha olvasási hozzáférést adsz a tanterem csapatának a sablonhoz, azt a forkra is kiterjeszted, így egy diák elolvashatja. Ha egy diákhoz tartozik, inkább válts a feladatban a sablon egy friss, forkmentes másolatára.",
+        "forksNote_other": "Ennek a privát sablonnak {{count}} forkja van. Ha olvasási hozzáférést adsz a tanterem csapatának a sablonhoz, azt mindegyikre kiterjeszted, így a diákok elolvashatják ezeket a forkokat. Ha diákokhoz tartoznak, inkább válts a feladatban a sablon egy friss, forkmentes másolatára."
       },
       "reconcile": {
         "action": "Sablonhozzáférés javítása",
@@ -1423,7 +1428,17 @@
         "unavailable": "Nem sikerült betölteni a szervezet sablonjait. Írd be helyette a tár nevét.",
         "unfiltered": "A GitHub nem jelezte, hogy ezek közül mely tárak sablonok, ezért mindegyik felsorolásra kerül. Ha egy másolás meghiúsul, ellenőrizd a tár beállításait.",
         "updated": "Frissítve: {{when}}"
-      }
+      },
+      "forksInherit_one": "A tanterem csapatának olvasási hozzáférését a(z) {{owner}}/{{repo}} privát sablonhoz annak {{count}} forkja is örökli, így a diákok azt a forkot is elolvashatják. Ha egy diákhoz tartozik, előbb válts a feladatban a sablon egy friss, forkmentes másolatára, majd távolítsd el a forkot a csapatból (a szervezeted Teams, majd Repositories, majd „Remove from team” pontjánál). Lásd: https://github.com/{{owner}}/{{repo}}/forks",
+      "forksInherit_other": "A tanterem csapatának olvasási hozzáférését a(z) {{owner}}/{{repo}} privát sablonhoz annak {{count}} forkja is örökli, így a diákok ezeket a forkokat is elolvashatják. Ha diákokhoz tartoznak, előbb válts a feladatban a sablon egy friss, forkmentes másolatára, majd távolítsd el a forkokat a csapatból (a szervezeted Teams, majd Repositories, majd „Remove from team” pontjánál). Lásd: https://github.com/{{owner}}/{{repo}}/forks",
+      "forksWillInherit_one": "A(z) {{owner}}/{{repo}} privát sablonnak {{count}} forkja van. Amint egy tulajdonos olvasási hozzáférést ad a tanterem csapatának a sablonhoz, azt a fork is örökli, így egy diák elolvashatja. Ha egy diákhoz tartozik, inkább a sablon egy friss, forkmentes másolatát használd. Lásd: https://github.com/{{owner}}/{{repo}}/forks",
+      "forksWillInherit_other": "A(z) {{owner}}/{{repo}} privát sablonnak {{count}} forkja van. Amint egy tulajdonos olvasási hozzáférést ad a tanterem csapatának a sablonhoz, azokat a forkok is öröklik, így a diákok elolvashatják őket. Ha diákokhoz tartoznak, inkább a sablon egy friss, forkmentes másolatát használd. Lásd: https://github.com/{{owner}}/{{repo}}/forks",
+      "privateHasForksStepCopy": "Másold bele ennek a tárnak a tartalmát.",
+      "privateHasForksStepCreate": "Hozz létre egy új tárat.",
+      "privateHasForksStepEnable": "Engedélyezd a „Template repository” lehetőséget a beállításaiban.",
+      "privateHasForks_one": "A(z) {{owner}}/{{repo}} tárnak {{count}} forkja van. <important>Fontos: a tanterem csapatának olvasási hozzáférését egy privát sablonhoz annak minden privát forkja örökli, így a diákok elolvashatják azt a forkot.</important> Ha egy diákhoz tartozik (például egy olyan tár, amelyet a GitHub Classroom hozott létre ebből a kiindulókódból), inkább egy friss sablont használj:",
+      "privateHasForks_other": "A(z) {{owner}}/{{repo}} tárnak {{count}} forkja van. <important>Fontos: a tanterem csapatának olvasási hozzáférését egy privát sablonhoz annak minden privát forkja örökli, így a diákok mindegyik forkot elolvashatják.</important> Ha diákokhoz tartoznak (például olyan tárak, amelyeket a GitHub Classroom hozott létre ebből a kiindulókódból), inkább egy friss sablont használj:",
+      "viewForks": "A(z) {{owner}}/{{repo}} forkjainak megtekintése a GitHubon"
     },
     "toolbar": {
       "clear": "Törlés",
@@ -1555,7 +1570,8 @@
         "renameFailed": "az átnevezés sikertelen: {{message}}",
         "renameForbidden": "a(z) „{{newName}}” névre átnevezéshez adminisztrátori hozzáférés kell a tárhoz; próbáld újra szervezettulajdonosként",
         "repoGone": "a tár eltűnt az átnevezés közben; futtasd újra az ellenőrzéshez",
-        "unparseableMarker": "olvashatatlan .classroom50.yaml ({{message}}), ezért a tár érintetlen maradt"
+        "unparseableMarker": "olvashatatlan .classroom50.yaml ({{message}}), ezért a tár érintetlen maradt",
+        "foreignSibling": "a neve a(z) „{{slug}}” feladatra is illeszkedik, amely egy névelőtagot megosztó testvérfeladat, és ennek a feladatnak a tárai nem viselnek jelölőt a megkülönböztetésükhöz, érintetlenül hagyva"
       },
       "repoCount_one": "{{count}} meglévő tanulói tároló lesz átnevezve.",
       "repoCount_other": "{{count}} meglévő tanulói tároló lesz átnevezve.",
@@ -1626,7 +1642,9 @@
       "unlockDone_other": "{{count}} feladat feloldva.",
       "unlockNoneLocked": "A kiválasztott feladatok közül egyik sincs zárolva.",
       "unlockTitle_one": "Feloldjunk {{count}} feladatot?",
-      "unlockTitle_other": "Feloldjunk {{count}} feladatot?"
+      "unlockTitle_other": "Feloldjunk {{count}} feladatot?",
+      "reuseTemplateForksTitle": "Átmásolva; a sablonnak vannak forkjai, amelyek öröklik a csapat olvasási hozzáférését",
+      "templateForks": "{{slugs}}: {{notice}}"
     },
     "edit": {
       "error": {
@@ -1760,7 +1778,7 @@
         "student_permission": "Diáktár-hozzáférés: a meglévő tárakat a beadások oldalán módosítsd.",
         "pages": "GitHub Pages: a meglévő repositorykon a beadványok oldaláról engedélyezheted.",
         "autograder_off": "Beépített automatikus értékelő: a kikapcsolásával a meglévő tárolók automatikus értékelési futásai meghiúsulnak, és kikerülnek a begyűjtött pontszámokból.",
-        "autograder_on": "Beépített automatikus értékelő: a meglévő tárolókban még nincs automatikus értékelési munkafolyamat. A mentés után a beadványok oldalán a „Automatikus értékelési munkafolyamat hozzáadása” gombbal add hozzá őket."
+        "autograder_on": "Beépített automatikus értékelő: a meglévő tárakban még nincsenek automatikus értékelési fájlok. Mentés után használd a beküldések oldalán az „Automatikus értékelési munkafolyamat hozzáadása” lehetőséget, hogy hozzáadd hozzájuk a munkafolyamatot és a .classroom50.yaml jelölőt."
       },
       "provisioningIntro_one": "{{count}} diák már elfogadta. Ezek a módosítások csak a mostantól elfogadott tárakra vonatkoznak; a meglévő tár megtartja a jelenlegi beállításait:",
       "provisioningIntro_other": "{{count}} diák már elfogadta. Ezek a módosítások csak a mostantól elfogadott tárakra vonatkoznak; a meglévő {{count}} tár megtartja a jelenlegi beállításait:",
@@ -2194,15 +2212,16 @@
       "resendFailed": "Nem sikerült újraküldeni a meghívót a(z) {{who}} részére: {{error}}",
       "resentToast": "Meghívó újraküldve a(z) {{who}} részére.",
       "roleTeacherPlural": "Tanárok",
-      "accessHeadTa": "Szervezeti tag. Írási hozzáférés a classroom50 repositoryhoz és a hallgatói repositorykhoz, így összefésülhetik a visszajelzési pull requesteket.",
-      "accessTa": "Szervezeti tag. Csak olvasási hozzáférés a classroom50 repositoryhoz; írási hozzáférés a hallgatói repositorykhoz, így összefésülhetik a visszajelzési pull requesteket.",
+      "accessHeadTa": "Szervezeti tag. Írási hozzáférés a classroom50 tárhoz, valamint a pontszámok begyűjtése után a diákok táraihoz, hogy egyesíthessék a visszajelzési pull requesteket.",
+      "accessTa": "Szervezeti tag. Csak olvasási hozzáférés a classroom50 tárhoz; a pontszámok begyűjtése után írási hozzáférés a diákok táraihoz, hogy egyesíthessék a visszajelzési pull requesteket.",
       "accessTeacher": "Szervezettulajdonos. Írási hozzáférés a classroom50 tárhoz.",
       "pendingCount_one": "{{count}} függőben",
       "pendingCount_other": "{{count}} függőben",
       "removeSelfTeacherBlocked": "Nem távolíthatod el magad a tanári csapatból; ez visszavonná a saját tulajdonosi szintű hozzáférésedet ehhez a tanteremhez. Kérj meg egy másik szervezettulajdonost, hogy távolítson el.",
       "roleHeadTaPlural": "Vezető gyakorlatvezetők",
       "viewTeamTitle": "A(z) {{role}} csapat megnyitása a GitHubon",
-      "you": "Te"
+      "you": "Te",
+      "studentRepoAccessNote": "A TA-k és a vezető TA-k a diákok táraihoz a pontszámok begyűjtésekor kapnak hozzáférést, nem akkor, amikor egy diák elfogad egy feladatot. Az új tárakhoz való hozzáférés megadásához nyisd meg a <assignmentsLink>Feladatok</assignmentsLink> oldalt, és válaszd az Összes begyűjtése lehetőséget."
     },
     "card": {
       "actionsAria": "Műveletek: {{name}}",
@@ -2392,16 +2411,17 @@
       "repoExists": "A tároló már létezik: {{org}}/{{repo}}",
       "repoIncomplete": "Befejezetlen beállítás található: {{org}}/{{repo}}",
       "setup": "Az automatikus értékelés beállítva",
-      "setupSkippedEmptyRepo": "Nincs szükség beállításra: ez a feladat üres tárolót használ",
       "repoVisibilityFellBack": "A(z) {{org}}/{{repo}} privátként lett létrehozva. A szervezet nem engedi nyilvános tárak létrehozását; a tanárod később nyilvánossá teheti.",
       "team": "Csoport megtalálva",
       "pagesSkipped": {
-        "access": "Az automatikus értékelő beállítva. A GitHub Pages nem lett engedélyezve: nincs jogosultságod a Pages beállítások módosításához ebben a repositoryban. A tanárod engedélyezheti a beadványok oldaláról.",
-        "branch": "Az automatikus értékelő beállítva. A GitHub Pages nem lett engedélyezve: az az ág, amelyből közzétenné, még nem létezik a repositorydban. A tanárod engedélyezheti a beadványok oldaláról.",
-        "plan": "Az automatikus értékelő beállítva. A GitHub Pages nem lett engedélyezve: ennek a szervezetnek a GitHub-előfizetése nem engedi a Pages használatát privát repositorykon. A tanárod nyilvánossá teheti a repositoryt, és engedélyezheti a Pages-t a beadványok oldaláról.",
-        "policy": "Az automatikus értékelő beállítva. A GitHub Pages nem lett engedélyezve: a szervezet nem engedi a tagoknak Pages-oldalak közzétételét. A tanárod engedélyezheti a beadványok oldaláról.",
-        "unknown": "Az automatikus értékelő beállítva. A GitHub Pages jelenleg nem volt engedélyezhető. A tanárod engedélyezheti a beadványok oldaláról."
-      }
+        "access": "A GitHub Pages nem lett engedélyezve: nincs jogosultságod a Pages beállításainak módosításához ebben a tárban. A tanárod engedélyezheti a beküldések oldaláról.",
+        "branch": "A GitHub Pages nem lett engedélyezve: az az ág, amelyről publikál, még nem létezik a tárodban. A tanárod engedélyezheti a beküldések oldaláról.",
+        "plan": "A GitHub Pages nem lett engedélyezve: ennek a szervezetnek a GitHub-csomagja nem engedélyezi a Pages használatát privát tárakon. A tanárod nyilvánossá teheti a tárat, és engedélyezheti a Pages-t a beküldések oldaláról.",
+        "policy": "A GitHub Pages nem lett engedélyezve: a szervezet nem engedi, hogy a tagok Pages-oldalakat publikáljanak. A tanárod engedélyezheti a beküldések oldaláról.",
+        "unknown": "A GitHub Pages jelenleg nem engedélyezhető. A tanárod engedélyezheti a beküldések oldaláról."
+      },
+      "setupBranchUnsettled": "A GitHub még inicializálja a tárodat, ezért a GitHub Pages nem lett engedélyezve. Egy perc múlva fogadd el újra az engedélyezéshez, vagy a tanárod engedélyezheti a beküldések oldaláról",
+      "setupSkipped": "Nincs szükség beállítófájlokra: ez a feladat semmit sem ad a tárodhoz"
     },
     "stepErrors": {
       "generic": "A(z) {{label}} sikertelen volt (HTTP {{status}}). {{actions}}",
@@ -2523,7 +2543,7 @@
       "statusFailedHint": "Ellenőrizd a munkafolyamatot a GitHubon, majd próbáld újra.",
       "statusTimeout": "Az újraértékelés regisztrálása tovább tart. Ellenőrizd az állapotát a GitHubon.",
       "confirmTitle": "Újraértékeli az összes beadást a(z) „{{name}}” feladathoz?",
-      "confirmBody1": "Ez újrafuttatja az automatikus értékelőt minden beadott tároló legutóbbi commitján. Hasznos egy teszt javítása vagy az automatikus értékelő frissítése után. A beadási időpontok nem változnak.",
+      "confirmBody1": "Ez minden tár legutóbb értékelt beküldésén futtatja újra az automatikus értékelőt, nem az újabb commitokon, amelyeket a diák nem küldött be. Egy olyan tár, amelybe tolt be munkát, de nincs értékelt beküldése, a legutóbbi commitjánál kerül értékelésre, ami az első beküldésévé válik. Hasznos egy teszt javítása vagy az automatikus értékelő frissítése után. A meglévő beküldési idők nem változnak.",
       "confirmBody2": "Az értékelés a háttérben fut, és több percig is eltarthat; utána a(z) <collectLabel>{{collectLabel}}</collectLabel> gombbal töltheted le az új pontszámokat.",
       "statusCompleted": "Az újraértékelés elindult. Minden tároló a háttérben újraértékelődik. Néhány perc múlva használja a(z) <collectLabel>{{collectLabel}}</collectLabel> gombot az új pontszámok lehúzásához."
     },
@@ -2661,8 +2681,8 @@
       "aria": "{{owner}} beadványának újraértékelése",
       "confirmTitle": "Újraértékeled {{name}} beadványát?",
       "confirmLabel": "Újraértékelés",
-      "confirmBody1": "Ez újrafuttatja az automatikus értékelőt a(z) <name>{{name}}</name> legutóbbi commitján ehhez a feladathoz. A beadási idejük nem változik.",
-      "confirmBody1WithLogin": "Ez újrafuttatja az automatikus értékelőt a(z) <name>{{name}}</name> (<owner>{{owner}}</owner>) legutóbbi commitján ehhez a feladathoz. A beadási idejük nem változik.",
+      "confirmBody1": "Ez újrafuttatja az automatikus értékelőt <name>{{name}}</name> ennél a feladatnál legutóbb értékelt beküldésén, nem az újabb commitokon, amelyeket nem küldött be. Ha még semmit sem értékeltek, a legutóbbi commitja kerül értékelésre, és ez lesz a beküldése. A meglévő beküldési idő nem változik.",
+      "confirmBody1WithLogin": "Ez újrafuttatja az automatikus értékelőt <name>{{name}}</name> (<owner>{{owner}}</owner>) ennél a feladatnál legutóbb értékelt beküldésén, nem az újabb commitokon, amelyeket nem küldött be. Ha még semmit sem értékeltek, a legutóbbi commitja kerül értékelésre, és ez lesz a beküldése. A meglévő beküldési idő nem változik.",
       "confirmBody2": "Az értékelés a háttérben fut, és néhány percig is eltarthat; utána a(z) <collectLabel>{{collectLabel}}</collectLabel> gombbal töltheted le az új pontszámot."
     },
     "student": {
@@ -2868,7 +2888,7 @@
       "membersDescription": "A csoport tagjainak megtekintése és kezelése",
       "open": "Beadás kezelése",
       "openAria": "{{owner}} beadásának kezelése",
-      "regradeDescription": "Az automatikus értékelő újrafuttatása a legutóbbi commiton",
+      "regradeDescription": "Az automatikus értékelő újrafuttatása a legutóbb értékelt beküldésen",
       "reviewDescription": "A visszajelzési pull request megnyitása",
       "autograding": "Automata értékelés",
       "autogradingEnabled": "Engedélyezve",
@@ -3039,7 +3059,7 @@
       "badgeEmptyRepo": "Nincs automatikus értékelés",
       "badgeNoAutograder": "Nincs beépített automata értékelő",
       "titleEmptyRepo": "Ez a feladat üres tárolókat használ, ezért az automata értékelés, a pontszámok és a visszajelzési pull request le van tiltva. A táblázat megmutatja, ki fogadta el és ki pusholt.",
-      "titleNoAutograder": "Ez a feladat nem használja a beépített automata értékelőt, ezért a beépített pontszámok és az újraértékelés le van tiltva. A sablon saját értékelési munkafolyamata továbbra is fut, és a visszajelzési pull request is működik, ha be van kapcsolva."
+      "titleNoAutograder": "Ez a feladat nem használja a beépített automatikus értékelőt, ezért a beépített pontszámok és az újraértékelés le vannak tiltva. A tárak nem tartalmaznak Classroom 50 fájlokat. Egy sablon saját értékelési munkafolyamata továbbra is lefut, és a visszajelzési pull request is működik, ha engedélyezve van."
     },
     "scoreOverride": {
       "add": "Pontszám hozzáadása",
@@ -3215,21 +3235,22 @@
       "unrecognizedSection_other": "{{count}} tároló kihagyva (azon az útvonalon már egy másik munkafolyamat van)",
       "warningLead_one": "Ez commitolja az automatikus értékelési munkafolyamatot {{count}} diák tárolójába.",
       "warningLead_other": "Ez commitolja az automatikus értékelési munkafolyamatot {{count}} diák tárolójába.",
-      "warningPoint1": "Azok a tárolók, amelyekben már megvan a munkafolyamat, érintetlenül maradnak.",
+      "warningPoint1": "A munkafolyamatot már tartalmazó tárak érintetlenül maradnak. Egy olyan tár, amelyből hiányzik a .classroom50.yaml jelölő, ugyanabban a commitban megkapja azt.",
       "warningPoint2": "A commit meg van jelölve, így nem indít értékelést. A diákok által már feltöltött munka a következő pusholásukkor kerül értékelésre; az „Összes újraértékelése” nem éri el a munkafolyamat létrejötte előtt készült commitokat.",
       "warningPoint3": "A diákoknak utána pull-t kell futtatniuk. A módosítás előtt készült klónok a következő pusholáskor ütközni fognak.",
       "working": "A munkafolyamat hozzáadása"
     },
     "rowShim": {
       "aria": "Az automatikus értékelési munkafolyamat hozzáadása ehhez: {{repo}}",
-      "description": "A beépített automatikus értékelési munkafolyamat hozzáadása ehhez a tárolóhoz, ha akkor lett elfogadva, amikor az automatikus értékelő ki volt kapcsolva.",
+      "description": "Add hozzá a beépített automatikus értékelési munkafolyamatot és a hozzá szükséges .classroom50.yaml jelölőt ehhez a tárhoz, ha akkor fogadták el, amikor az automatikus értékelő ki volt kapcsolva.",
       "outcome": {
         "added": "Automatikus értékelési munkafolyamat hozzáadva. A diáknak a következő pusholása előtt pull-t kell futtatnia, és ez a pushol értékeli a tárolóban már meglévő munkát.",
         "failed": "Nem sikerült hozzáadni a munkafolyamatot. Próbáld újra.",
         "missingWorkflowScope": "A GitHub-engedélyezésed nem tud munkafolyamat-fájlokat módosítani. Jelentkezz ki, majd újra be, aztán próbáld újra.",
         "notAccepted": "Még nincs tároló, így nincs mit hozzáadni.",
         "present": "Ebben a tárolóban már megvan az automatikus értékelési munkafolyamat.",
-        "unrecognized": "Kihagyva: az automatikus értékelési munkafolyamat útvonalán már egy másik munkafolyamat van, így semmi nem változott."
+        "unrecognized": "Kihagyva: az automatikus értékelési munkafolyamat útvonalán már egy másik munkafolyamat van, így semmi nem változott.",
+        "markerAdded": "Ebben a tárban már megvolt az automatikus értékelési munkafolyamat. A hiányzó .classroom50.yaml jelölője hozzáadásra került, így az automatikus értékelő megtalálja a feladatot. A diáknak a következő betolás előtt le kell húznia a módosításokat (pull)."
       },
       "title": "Automatikus értékelési munkafolyamat hozzáadása"
     }
