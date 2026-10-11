@@ -682,7 +682,10 @@
     "uploadBlockedUsernames": "Bestätige die oben stehenden Änderungen an Benutzernamen, um fortzufahren.",
     "rosterProblemDuplicateColumn": "Die Spalte „{{name}}“ kommt mehr als einmal vor. Behalten Sie eine und entfernen Sie die anderen.",
     "rosterProblemFormulaColumn": "Der Spaltenname „{{name}}“ beginnt mit =, +, - oder @, was Tabellenkalkulationen als Formel behandeln. Benennen Sie ihn um.",
-    "rosterProblemReservedColumn": "Die Spalte „{{name}}“ ist eine integrierte Teilnehmerlisten-Spalte und erscheint danach erneut. Entfernen Sie die zusätzliche Kopie."
+    "rosterProblemReservedColumn": "Die Spalte „{{name}}“ ist eine integrierte Roster-Spalte und kommt mehr als einmal vor. Entferne die zusätzliche Kopie.",
+    "duplicateImportHeader": "Die Spalte „{{name}}“ kommt in dieser Datei mehr als einmal vor. Behalte eine und entferne die anderen, dann lade sie erneut hoch.",
+    "rosterProblemEmptyFile": "Die Datei hat keine Kopfzeile. Füge diese Zeile ganz oben hinzu: {{header}}",
+    "rosterProblemNoIdentityColumn": "Die Kopfzeile hat keine der Spalten, die einen Studenten identifizieren: username, github_id oder email. Füge mindestens eine davon hinzu."
   },
   "language": {
     "baseName": "Englisch (Basis)",
@@ -1061,7 +1064,7 @@
             "label": "Integrierten Autograder verwenden"
           },
           "none": {
-            "help": "Stattdessen mit Ihrem eigenen GitHub-Actions-Workflow bewerten. Mit einer Vorlage fügen Sie den Workflow dort hinzu; ohne Vorlage hat die Aufgabe keinen Autograder.",
+            "help": "Benote stattdessen mit deinem eigenen GitHub-Actions-Workflow oder gar nicht auf GitHub. Classroom 50 fügt den Repositorys keine Dateien hinzu: Mit einer Vorlage erhält jeder Student eine exakte Kopie davon; ohne Vorlage ein Repository nur mit einer README.",
             "label": "Integrierten Autograder nicht verwenden"
           }
         },
@@ -1232,7 +1235,7 @@
       "defaultOption": "{{label}} (Standard)",
       "defaults": {
         "failureDetails": "Standard-Fehlerdetails",
-        "failureDetailsFull": "Vollständig: Diff oder erwartete und tatsächliche Ausgabe",
+        "failureDetailsFull": "Vollständig: Eingabe, dann Diff oder erwartete und tatsächliche Ausgabe",
         "heading": "Standardwerte für Berichte",
         "hint": "Standardwerte für jeden Test; die eigenen Berichtsoptionen eines Tests setzen sie außer Kraft.",
         "showOutput": "Ausgabe bestandener Tests einbeziehen",
@@ -1242,7 +1245,7 @@
       },
       "failureDetails": "Für Studierende angezeigte Fehlerdetails",
       "failureDetailsActualOnly": "Nur die Ausgabe der Studierenden (nie die erwartete Ausgabe)",
-      "failureDetailsFull": "Vollständig: Diff oder erwartete und tatsächliche Ausgabe",
+      "failureDetailsFull": "Vollständig: Eingabe, dann Diff oder erwartete und tatsächliche Ausgabe",
       "failureDetailsHint": "Wie viel eines fehlgeschlagenen Durchlaufs Studierende im Einreichungsbericht und im Workflow-Protokoll sehen.",
       "failureDetailsNone": "Nur der Fehlertyp (keine Ausgabe)",
       "reportOptions": "Berichtsoptionen",
@@ -1378,7 +1381,9 @@
         "templateHeading": "Vorlagen-Repository",
         "title": "Vorlagenzugriff",
         "triggerAria": "Vorlagenzugriff für {{name}} überprüfen",
-        "triggerTitle": "Vorlagenzugriff"
+        "triggerTitle": "Vorlagenzugriff",
+        "forksNote_one": "Diese private Vorlage hat {{count}} Fork. Wenn du dem Klassenteam Lesezugriff auf die Vorlage gewährst, gilt dieser auch für diesen Fork, sodass ein Student ihn lesen könnte. Wenn er einem Studenten gehört, wechsle die Aufgabe stattdessen zu einer frischen, fork-freien Kopie der Vorlage.",
+        "forksNote_other": "Diese private Vorlage hat {{count}} Forks. Wenn du dem Klassenteam Lesezugriff auf die Vorlage gewährst, gilt dieser auch für jeden davon, sodass Studenten diese Forks lesen könnten. Wenn sie Studenten gehören, wechsle die Aufgabe stattdessen zu einer frischen, fork-freien Kopie der Vorlage."
       },
       "reconcile": {
         "action": "Vorlagenzugriff korrigieren",
@@ -1423,7 +1428,17 @@
         "unavailable": "Die Vorlagen dieser Organisation konnten nicht geladen werden. Gib stattdessen den Repository-Namen ein.",
         "unfiltered": "GitHub hat nicht gemeldet, welche dieser Repositorys Vorlagen sind, daher werden alle aufgeführt. Prüfe die Einstellungen des Repositorys, falls eine Kopie fehlschlägt.",
         "updated": "Aktualisiert {{when}}"
-      }
+      },
+      "forksInherit_one": "Der Lesezugriff des Klassenteams auf die private Vorlage {{owner}}/{{repo}} wird von ihrem {{count}} Fork geerbt, sodass Studenten auch diesen Fork lesen könnten. Wenn er einem Studenten gehört, wechsle die Aufgabe zuerst zu einer frischen, fork-freien Kopie der Vorlage und entferne dann den Fork aus dem Team (die Teams deiner Organisation, dann Repositories, dann „Aus Team entfernen“). Siehe https://github.com/{{owner}}/{{repo}}/forks",
+      "forksInherit_other": "Der Lesezugriff des Klassenteams auf die private Vorlage {{owner}}/{{repo}} wird von ihren {{count}} Forks geerbt, sodass Studenten auch diese Forks lesen könnten. Wenn sie Studenten gehören, wechsle die Aufgabe zuerst zu einer frischen, fork-freien Kopie der Vorlage und entferne dann die Forks aus dem Team (die Teams deiner Organisation, dann Repositories, dann „Aus Team entfernen“). Siehe https://github.com/{{owner}}/{{repo}}/forks",
+      "forksWillInherit_one": "Die private Vorlage {{owner}}/{{repo}} hat {{count}} Fork. Sobald ein Owner dem Klassenteam Lesezugriff auf die Vorlage gewährt, erbt dieser Fork ihn, sodass ein Student ihn lesen könnte. Wenn er einem Studenten gehört, verwende stattdessen eine frische, fork-freie Kopie der Vorlage. Siehe https://github.com/{{owner}}/{{repo}}/forks",
+      "forksWillInherit_other": "Die private Vorlage {{owner}}/{{repo}} hat {{count}} Forks. Sobald ein Owner dem Klassenteam Lesezugriff auf die Vorlage gewährt, erben diese Forks ihn, sodass Studenten sie lesen könnten. Wenn sie Studenten gehören, verwende stattdessen eine frische, fork-freie Kopie der Vorlage. Siehe https://github.com/{{owner}}/{{repo}}/forks",
+      "privateHasForksStepCopy": "Kopiere den Inhalt dieses Repositorys hinein.",
+      "privateHasForksStepCreate": "Erstelle ein neues Repository.",
+      "privateHasForksStepEnable": "Aktiviere „Template repository“ in seinen Einstellungen.",
+      "privateHasForks_one": "{{owner}}/{{repo}} hat {{count}} Fork. <important>Wichtig: Der Lesezugriff des Klassenteams auf eine private Vorlage wird von jedem privaten Fork davon geerbt, sodass Studenten diesen Fork lesen könnten.</important> Wenn er einem Studenten gehört (zum Beispiel ein Repository, das GitHub Classroom aus diesem Starter-Code erstellt hat), verwende stattdessen eine frische Vorlage:",
+      "privateHasForks_other": "{{owner}}/{{repo}} hat {{count}} Forks. <important>Wichtig: Der Lesezugriff des Klassenteams auf eine private Vorlage wird von jedem privaten Fork davon geerbt, sodass Studenten all diese Forks lesen könnten.</important> Wenn sie Studenten gehören (zum Beispiel Repositorys, die GitHub Classroom aus diesem Starter-Code erstellt hat), verwende stattdessen eine frische Vorlage:",
+      "viewForks": "Die Forks von {{owner}}/{{repo}} auf GitHub ansehen"
     },
     "toolbar": {
       "clear": "Zurücksetzen",
@@ -1555,7 +1570,8 @@
         "renameFailed": "Umbenennung fehlgeschlagen: {{message}}",
         "renameForbidden": "die Umbenennung in „{{newName}}“ erfordert Administratorzugriff auf das Repository; versuchen Sie es als Organisationseigentümer:in erneut",
         "repoGone": "das Repository ist während der Umbenennung verschwunden; führen Sie den Vorgang erneut aus, um es erneut zu prüfen",
-        "unparseableMarker": "unlesbare .classroom50.yaml ({{message}}), daher wurde das Repository unangetastet gelassen"
+        "unparseableMarker": "unlesbare .classroom50.yaml ({{message}}), daher wurde das Repository unangetastet gelassen",
+        "foreignSibling": "Sein Name passt auch zur Aufgabe „{{slug}}“, einer verwandten Aufgabe mit demselben Namenspräfix, und die Repositorys dieser Aufgabe tragen keine Markierung, um sie zu unterscheiden, unberührt gelassen"
       },
       "repoCount_one": "{{count}} vorhandenes Repository der Studierenden wird umbenannt.",
       "repoCount_other": "{{count}} vorhandene Repositories der Studierenden werden umbenannt.",
@@ -1626,7 +1642,9 @@
       "unlockDone_other": "{{count}} Aufgaben entsperrt.",
       "unlockNoneLocked": "Keine der ausgewählten Aufgaben ist gesperrt.",
       "unlockTitle_one": "{{count}} Aufgabe entsperren?",
-      "unlockTitle_other": "{{count}} Aufgaben entsperren?"
+      "unlockTitle_other": "{{count}} Aufgaben entsperren?",
+      "reuseTemplateForksTitle": "Kopiert; die Vorlage hat Forks, die den Lesezugriff des Teams erben",
+      "templateForks": "{{slugs}}: {{notice}}"
     },
     "edit": {
       "error": {
@@ -1760,7 +1778,7 @@
         "student_permission": "Repository-Zugriff für Studierende: Ändere vorhandene Repositorys über die Abgabenseite.",
         "pages": "GitHub Pages: Aktiviere es auf bestehenden Repositorys über die Abgabenseite.",
         "autograder_off": "Integrierter Autograder: Wenn Sie ihn deaktivieren, schlagen die Autograde-Läufe bestehender Repositorys fehl und fallen aus den erfassten Punktzahlen heraus.",
-        "autograder_on": "Integrierter Autograder: Bestehende Repositorys haben noch keinen Autograding-Workflow. Verwenden Sie nach dem Speichern auf der Abgabenseite „Autograding-Workflow hinzufügen“, um ihn dort zu ergänzen."
+        "autograder_on": "Integrierter Autograder: Bestehende Repositorys haben noch keine Autograding-Dateien. Verwende nach dem Speichern „Autograding-Workflow hinzufügen“ auf der Abgabenseite, um ihnen den Workflow und die .classroom50.yaml-Markierung hinzuzufügen."
       },
       "provisioningIntro_one": "{{count}} Studierende(r) hat bereits angenommen. Diese Änderungen gelten nur für Repositorys, die ab jetzt angenommen werden; das vorhandene Repository behält seine aktuelle Einrichtung:",
       "provisioningIntro_other": "{{count}} Studierende haben bereits angenommen. Diese Änderungen gelten nur für Repositorys, die ab jetzt angenommen werden; die {{count}} vorhandenen Repositorys behalten ihre aktuelle Einrichtung:",
@@ -2194,15 +2212,16 @@
       "resendFailed": "Die Einladung an {{who}} konnte nicht erneut gesendet werden: {{error}}",
       "resentToast": "Einladung an {{who}} wurde erneut gesendet.",
       "roleTeacherPlural": "Lehrkräfte",
-      "accessHeadTa": "Organisationsmitglied. Schreibzugriff auf das classroom50-Repository und auf Studierenden-Repositorys, damit sie Feedback-Pull-Requests zusammenführen können.",
-      "accessTa": "Organisationsmitglied. Nur-Lese-Zugriff auf das classroom50-Repository; Schreibzugriff auf Studierenden-Repositorys, damit sie Feedback-Pull-Requests zusammenführen können.",
+      "accessHeadTa": "Organisationsmitglied. Schreibzugriff auf das classroom50-Repository und, nach der Punktesammlung, auf Student-Repositorys, sodass sie Feedback-Pull-Requests zusammenführen können.",
+      "accessTa": "Organisationsmitglied. Nur-Lese-Zugriff auf das classroom50-Repository; Schreibzugriff auf Student-Repositorys nach der Punktesammlung, sodass sie Feedback-Pull-Requests zusammenführen können.",
       "accessTeacher": "Organisationseigentümer:in. Schreibzugriff auf das classroom50-Repository.",
       "pendingCount_one": "{{count}} ausstehend",
       "pendingCount_other": "{{count}} ausstehend",
       "removeSelfTeacherBlocked": "Sie können sich nicht selbst aus dem Lehrkräfte-Team entfernen; dadurch würden Sie Ihren eigenen Eigentümer-Zugriff auf diesen Kursraum verlieren. Bitten Sie eine:n andere:n Organisationseigentümer:in, Sie zu entfernen.",
       "roleHeadTaPlural": "Leitende TAs",
       "viewTeamTitle": "Das {{role}}-Team auf GitHub öffnen",
-      "you": "Du"
+      "you": "Du",
+      "studentRepoAccessNote": "TAs und Head-TAs erhalten Zugriff auf Student-Repositorys, wenn Punkte gesammelt werden, nicht wenn ein Student annimmt. Um Zugriff auf neue Repositorys zu gewähren, öffne <assignmentsLink>Aufgaben</assignmentsLink> und wähle „Alle sammeln“."
     },
     "card": {
       "actionsAria": "Aktionen für {{name}}",
@@ -2392,16 +2411,17 @@
       "repoExists": "Repository existiert bereits: {{org}}/{{repo}}",
       "repoIncomplete": "Unvollständige Einrichtung gefunden: {{org}}/{{repo}}",
       "setup": "Autobewertung eingerichtet",
-      "setupSkippedEmptyRepo": "Keine Einrichtung nötig: Diese Aufgabe verwendet ein leeres Repository",
       "repoVisibilityFellBack": "{{org}}/{{repo}} als privat erstellt. Die Organisation erlaubt dir nicht, öffentliche Repositorys zu erstellen; deine Lehrkraft kann es später öffentlich machen.",
       "team": "Gruppe gefunden",
       "pagesSkipped": {
-        "access": "Autograding eingerichtet. GitHub Pages wurde nicht aktiviert: Du hast keine Berechtigung, die Pages-Einstellungen dieses Repositorys zu ändern. Deine Lehrkraft kann es über die Abgabenseite aktivieren.",
-        "branch": "Autograding eingerichtet. GitHub Pages wurde nicht aktiviert: Der Branch, aus dem veröffentlicht wird, existiert in deinem Repository noch nicht. Deine Lehrkraft kann es über die Abgabenseite aktivieren.",
-        "plan": "Autograding eingerichtet. GitHub Pages wurde nicht aktiviert: Der GitHub-Tarif dieser Organisation erlaubt keine Pages für private Repositorys. Deine Lehrkraft kann das Repository öffentlich machen und Pages über die Abgabenseite aktivieren.",
-        "policy": "Autograding eingerichtet. GitHub Pages wurde nicht aktiviert: Die Organisation erlaubt Mitgliedern nicht, Pages-Websites zu veröffentlichen. Deine Lehrkraft kann es über die Abgabenseite aktivieren.",
-        "unknown": "Autograding eingerichtet. GitHub Pages konnte gerade nicht aktiviert werden. Deine Lehrkraft kann es über die Abgabenseite aktivieren."
-      }
+        "access": "GitHub Pages wurde nicht aktiviert: Du hast keine Berechtigung, die Pages-Einstellungen dieses Repositorys zu ändern. Deine Lehrkraft kann es auf der Abgabenseite aktivieren.",
+        "branch": "GitHub Pages wurde nicht aktiviert: Der Branch, aus dem veröffentlicht wird, existiert in deinem Repository noch nicht. Deine Lehrkraft kann es auf der Abgabenseite aktivieren.",
+        "plan": "GitHub Pages wurde nicht aktiviert: Der GitHub-Tarif dieser Organisation erlaubt Pages für private Repositorys nicht. Deine Lehrkraft kann das Repository öffentlich machen und Pages auf der Abgabenseite aktivieren.",
+        "policy": "GitHub Pages wurde nicht aktiviert: Die Organisation erlaubt Mitgliedern nicht, Pages-Websites zu veröffentlichen. Deine Lehrkraft kann es auf der Abgabenseite aktivieren.",
+        "unknown": "GitHub Pages konnte gerade nicht aktiviert werden. Deine Lehrkraft kann es auf der Abgabenseite aktivieren."
+      },
+      "setupBranchUnsettled": "GitHub initialisiert dein Repository noch, deshalb wurde GitHub Pages nicht aktiviert. Nimm die Aufgabe in einer Minute noch einmal an, um es zu aktivieren, oder deine Lehrkraft kann es auf der Abgabenseite aktivieren",
+      "setupSkipped": "Keine Einrichtungsdateien nötig: Diese Aufgabe fügt deinem Repository nichts hinzu"
     },
     "stepErrors": {
       "generic": "{{label}} fehlgeschlagen (HTTP {{status}}). {{actions}}",
@@ -2523,7 +2543,7 @@
       "statusFailedHint": "Prüfe den Workflow auf GitHub und versuche es dann erneut.",
       "statusTimeout": "Die Registrierung der Neubewertung dauert etwas länger. Prüfe den Fortschritt auf GitHub.",
       "confirmTitle": "Alle Abgaben für „{{name}}“ neu bewerten?",
-      "confirmBody1": "Dies führt den Autograder erneut auf dem neuesten Commit jedes abgegebenen Repositorys aus. Das ist nützlich, nachdem du einen Test korrigiert oder den Autograder aktualisiert hast. Die Abgabezeiten ändern sich nicht.",
+      "confirmBody1": "Dies führt den Autograder für die letzte benotete Abgabe jedes Repositorys erneut aus, nicht für neuere Commits, die der Student nicht abgegeben hat. Ein Repository mit gepushter Arbeit, aber ohne benotete Abgabe, wird an seinem neuesten Commit benotet, der zu seiner ersten Abgabe wird. Nützlich nach dem Beheben eines Tests oder dem Aktualisieren des Autograders. Bestehende Abgabezeiten ändern sich nicht.",
       "confirmBody2": "Die Bewertung läuft im Hintergrund und kann mehrere Minuten dauern; verwende danach <collectLabel>{{collectLabel}}</collectLabel>, um die neuen Bewertungen abzurufen.",
       "statusCompleted": "Neubewertung gestartet. Jedes Repository wird im Hintergrund neu bewertet. Verwende <collectLabel>{{collectLabel}}</collectLabel> in ein paar Minuten, um die neuen Bewertungen abzurufen."
     },
@@ -2661,8 +2681,8 @@
       "aria": "Abgabe von {{owner}} neu bewerten",
       "confirmTitle": "Abgabe von {{name}} neu bewerten?",
       "confirmLabel": "Neu bewerten",
-      "confirmBody1": "Dadurch wird der Autograder auf dem neuesten Commit von <name>{{name}}</name> für diese Aufgabe erneut ausgeführt. Der Abgabezeitpunkt ändert sich nicht.",
-      "confirmBody1WithLogin": "Dadurch wird der Autograder auf dem neuesten Commit von <name>{{name}}</name> (<owner>{{owner}}</owner>) für diese Aufgabe erneut ausgeführt. Der Abgabezeitpunkt ändert sich nicht.",
+      "confirmBody1": "Dies führt den Autograder für die letzte benotete Abgabe von <name>{{name}}</name> für diese Aufgabe erneut aus, nicht für neuere Commits, die sie nicht abgegeben haben. Wenn noch nichts benotet wurde, wird ihr neuester Commit benotet und zu ihrer Abgabe. Eine bestehende Abgabezeit ändert sich nicht.",
+      "confirmBody1WithLogin": "Dies führt den Autograder für die letzte benotete Abgabe von <name>{{name}}</name> (<owner>{{owner}}</owner>) für diese Aufgabe erneut aus, nicht für neuere Commits, die sie nicht abgegeben haben. Wenn noch nichts benotet wurde, wird ihr neuester Commit benotet und zu ihrer Abgabe. Eine bestehende Abgabezeit ändert sich nicht.",
       "confirmBody2": "Die Bewertung läuft im Hintergrund und kann einige Minuten dauern; verwende danach <collectLabel>{{collectLabel}}</collectLabel>, um die neue Bewertung abzurufen."
     },
     "student": {
@@ -2868,7 +2888,7 @@
       "membersDescription": "Die Mitglieder der Gruppe anzeigen und verwalten",
       "open": "Abgabe verwalten",
       "openAria": "Abgabe von {{owner}} verwalten",
-      "regradeDescription": "Den Autograder auf dem neuesten Commit erneut ausführen",
+      "regradeDescription": "Den Autograder für die letzte benotete Abgabe erneut ausführen",
       "reviewDescription": "Den Feedback-Pull-Request öffnen",
       "autograding": "Automatische Bewertung",
       "autogradingEnabled": "Aktiviert",
@@ -3039,7 +3059,7 @@
       "badgeEmptyRepo": "Keine automatische Bewertung",
       "badgeNoAutograder": "Kein integrierter Autograder",
       "titleEmptyRepo": "Diese Aufgabe verwendet leere Repositorys, daher sind automatisches Bewerten, Punkte und der Feedback-Pull-Request deaktiviert. Die Tabelle zeigt, wer angenommen und wer gepusht hat.",
-      "titleNoAutograder": "Diese Aufgabe verwendet nicht den integrierten Autograder, daher sind integrierte Punkte und die Neubewertung deaktiviert. Ein eigener Bewertungs-Workflow einer Vorlage läuft weiterhin, und der Feedback-Pull-Request funktioniert weiterhin, wenn er aktiviert ist."
+      "titleNoAutograder": "Diese Aufgabe verwendet den integrierten Autograder nicht, daher sind integrierte Punkte und Neubewertung deaktiviert. Repositorys enthalten keine Classroom-50-Dateien. Ein eigener Benotungs-Workflow einer Vorlage läuft weiterhin, und der Feedback-Pull-Request funktioniert weiterhin, wenn er aktiviert ist."
     },
     "scoreOverride": {
       "add": "Bewertung hinzufügen",
@@ -3215,21 +3235,22 @@
       "unrecognizedSection_other": "{{count}} Repositorys wurden übersprungen (an diesem Pfad befindet sich bereits ein anderer Workflow)",
       "warningLead_one": "Dies committet den Autograding-Workflow in das Repository von {{count}} studierender Person.",
       "warningLead_other": "Dies committet den Autograding-Workflow in die Repositorys von {{count}} Studierenden.",
-      "warningPoint1": "Repositorys, die den Workflow bereits haben, bleiben unberührt.",
+      "warningPoint1": "Repositorys, die den Workflow bereits haben, bleiben unberührt. Ein Repository, dem seine .classroom50.yaml-Markierung fehlt, erhält sie im selben Commit.",
       "warningPoint2": "Der Commit ist so gekennzeichnet, dass er keine Bewertung auslöst. Bereits von Studierenden gepushte Arbeit wird bei ihrem nächsten Push bewertet; „Alle neu bewerten“ kann Commits nicht erreichen, die vor dem Vorhandensein des Workflows erstellt wurden.",
       "warningPoint3": "Studierende müssen danach pullen. Klone, die vor dieser Änderung erstellt wurden, führen bei ihrem nächsten Push zu Konflikten.",
       "working": "Workflow wird hinzugefügt"
     },
     "rowShim": {
       "aria": "Den Autograding-Workflow zu {{repo}} hinzufügen",
-      "description": "Fügen Sie den integrierten Autograding-Workflow zu diesem Repository hinzu, wenn es angenommen wurde, während der Autograder ausgeschaltet war.",
+      "description": "Füge diesem Repository den integrierten Autograding-Workflow und die dazu nötige .classroom50.yaml-Markierung hinzu, falls es angenommen wurde, während der Autograder deaktiviert war.",
       "outcome": {
         "added": "Autograding-Workflow hinzugefügt. Die studierende Person muss vor ihrem nächsten Push pullen, und dieser Push ist es, der bereits im Repository vorhandene Arbeit bewertet.",
         "failed": "Der Workflow konnte nicht hinzugefügt werden. Versuchen Sie es erneut.",
         "missingWorkflowScope": "Ihre GitHub-Autorisierung kann keine Workflow-Dateien ändern. Melden Sie sich ab und wieder an und versuchen Sie es dann erneut.",
         "notAccepted": "Es existiert noch kein Repository, daher gibt es nichts hinzuzufügen.",
         "present": "Dieses Repository hat den Autograding-Workflow bereits.",
-        "unrecognized": "Übersprungen: Am Pfad des Autograding-Workflows befindet sich bereits ein anderer Workflow, daher wurde nichts geändert."
+        "unrecognized": "Übersprungen: Am Pfad des Autograding-Workflows befindet sich bereits ein anderer Workflow, daher wurde nichts geändert.",
+        "markerAdded": "Dieses Repository hatte den Autograding-Workflow bereits. Seine fehlende .classroom50.yaml-Markierung wurde hinzugefügt, sodass das Autograding die Aufgabe finden kann. Der Student muss vor seinem nächsten Push ein Pull ausführen."
       },
       "title": "Autograding-Workflow hinzufügen"
     }

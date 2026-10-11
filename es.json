@@ -682,7 +682,10 @@
     "uploadBlockedUsernames": "Confirma los cambios de nombre de usuario anteriores para continuar.",
     "rosterProblemDuplicateColumn": "La columna «{{name}}» aparece más de una vez. Conserva una y elimina las demás.",
     "rosterProblemFormulaColumn": "El nombre de columna «{{name}}» empieza por =, +, - o @, que las hojas de cálculo tratan como una fórmula. Cámbialo.",
-    "rosterProblemReservedColumn": "La columna «{{name}}» es una columna integrada de la lista y vuelve a aparecer después de ella. Elimina la copia adicional."
+    "rosterProblemReservedColumn": "La columna «{{name}}» es una columna integrada de la lista y aparece más de una vez. Elimina la copia adicional.",
+    "duplicateImportHeader": "La columna «{{name}}» aparece más de una vez en este archivo. Conserva una y elimina las demás, luego vuelve a subirlo.",
+    "rosterProblemEmptyFile": "El archivo no tiene fila de encabezado. Añade esta línea al principio: {{header}}",
+    "rosterProblemNoIdentityColumn": "La fila de encabezado no tiene ninguna de las columnas que identifican a un estudiante: username, github_id o email. Añade al menos una de ellas."
   },
   "language": {
     "baseName": "Inglés (base)",
@@ -1061,7 +1064,7 @@
             "label": "Usar el autocalificador integrado"
           },
           "none": {
-            "help": "Califica con tu propio flujo de trabajo de GitHub Actions en su lugar. Con una plantilla, añade el flujo de trabajo a esta; sin ella, la tarea no tiene autocalificador.",
+            "help": "Califica con tu propio flujo de trabajo de GitHub Actions, o no califiques en GitHub en absoluto. Classroom 50 no añade ningún archivo a los repositorios: con una plantilla, cada estudiante recibe una copia exacta de ella; sin plantilla, un repositorio solo con un README.",
             "label": "No usar el autocalificador integrado"
           }
         },
@@ -1232,7 +1235,7 @@
       "defaultOption": "{{label}} (predeterminado)",
       "defaults": {
         "failureDetails": "Detalles de fallo predeterminados",
-        "failureDetailsFull": "Completos: diferencia o salida esperada y real",
+        "failureDetailsFull": "Completo: la entrada y luego la diferencia o la salida esperada y real",
         "heading": "Valores predeterminados del informe",
         "hint": "Valores predeterminados para todas las pruebas; las opciones de informe propias de una prueba los anulan.",
         "showOutput": "Incluir la salida de las pruebas aprobadas",
@@ -1242,7 +1245,7 @@
       },
       "failureDetails": "Detalles de fallo mostrados a los estudiantes",
       "failureDetailsActualOnly": "Solo la salida del estudiante (nunca la salida esperada)",
-      "failureDetailsFull": "Completos: diferencia o salida esperada y real",
+      "failureDetailsFull": "Completo: la entrada y luego la diferencia o la salida esperada y real",
       "failureDetailsHint": "Cuánto de una ejecución fallida ven los estudiantes en el informe de entrega y el registro del flujo de trabajo.",
       "failureDetailsNone": "Solo el tipo de fallo (sin salida)",
       "reportOptions": "Opciones del informe",
@@ -1378,7 +1381,9 @@
         "templateHeading": "Repositorio de plantilla",
         "title": "Acceso a la plantilla",
         "triggerAria": "Revisar el acceso a la plantilla de {{name}}",
-        "triggerTitle": "Acceso a la plantilla"
+        "triggerTitle": "Acceso a la plantilla",
+        "forksNote_one": "Esta plantilla privada tiene {{count}} bifurcación. Conceder al equipo del aula acceso de lectura a la plantilla también lo concede en esa bifurcación, por lo que un estudiante podría leerla. Si pertenece a un estudiante, cambia la tarea a una copia nueva de la plantilla sin bifurcaciones.",
+        "forksNote_other": "Esta plantilla privada tiene {{count}} bifurcaciones. Conceder al equipo del aula acceso de lectura a la plantilla también lo concede en todas ellas, por lo que los estudiantes podrían leer esas bifurcaciones. Si pertenecen a estudiantes, cambia la tarea a una copia nueva de la plantilla sin bifurcaciones."
       },
       "reconcile": {
         "action": "Corregir acceso a la plantilla",
@@ -1423,7 +1428,17 @@
         "unavailable": "No se pudieron cargar las plantillas de esta organización. Escribe el nombre del repositorio en su lugar.",
         "unfiltered": "GitHub no indicó cuáles de estos repositorios son plantillas, así que se listan todos. Comprueba la configuración del repositorio si una copia falla.",
         "updated": "Actualizado {{when}}"
-      }
+      },
+      "forksInherit_one": "El acceso de lectura del equipo del aula a la plantilla privada {{owner}}/{{repo}} se hereda en su {{count}} bifurcación, por lo que los estudiantes también podrían leer esa bifurcación. Si pertenece a un estudiante, cambia primero la tarea a una copia nueva de la plantilla sin bifurcaciones y luego quita la bifurcación del equipo (Equipos de tu organización, luego Repositorios, luego «Quitar del equipo»). Consulta https://github.com/{{owner}}/{{repo}}/forks",
+      "forksInherit_other": "El acceso de lectura del equipo del aula a la plantilla privada {{owner}}/{{repo}} se hereda en sus {{count}} bifurcaciones, por lo que los estudiantes también podrían leer esas bifurcaciones. Si pertenecen a estudiantes, cambia primero la tarea a una copia nueva de la plantilla sin bifurcaciones y luego quita las bifurcaciones del equipo (Equipos de tu organización, luego Repositorios, luego «Quitar del equipo»). Consulta https://github.com/{{owner}}/{{repo}}/forks",
+      "forksWillInherit_one": "La plantilla privada {{owner}}/{{repo}} tiene {{count}} bifurcación. Una vez que un propietario conceda al equipo del aula acceso de lectura a la plantilla, esa bifurcación lo heredará, por lo que un estudiante podría leerla. Si pertenece a un estudiante, usa en su lugar una copia nueva de la plantilla sin bifurcaciones. Consulta https://github.com/{{owner}}/{{repo}}/forks",
+      "forksWillInherit_other": "La plantilla privada {{owner}}/{{repo}} tiene {{count}} bifurcaciones. Una vez que un propietario conceda al equipo del aula acceso de lectura a la plantilla, esas bifurcaciones lo heredarán, por lo que los estudiantes podrían leerlas. Si pertenecen a estudiantes, usa en su lugar una copia nueva de la plantilla sin bifurcaciones. Consulta https://github.com/{{owner}}/{{repo}}/forks",
+      "privateHasForksStepCopy": "Copia el contenido de este repositorio en él.",
+      "privateHasForksStepCreate": "Crea un nuevo repositorio.",
+      "privateHasForksStepEnable": "Activa «Repositorio de plantilla» en su configuración.",
+      "privateHasForks_one": "{{owner}}/{{repo}} tiene {{count}} bifurcación. <important>Importante: el acceso de lectura del equipo del aula a una plantilla privada se hereda en todas sus bifurcaciones privadas, por lo que los estudiantes podrían leer esa bifurcación.</important> Si pertenece a un estudiante (por ejemplo, un repositorio que GitHub Classroom creó a partir de este código inicial), usa en su lugar una plantilla nueva:",
+      "privateHasForks_other": "{{owner}}/{{repo}} tiene {{count}} bifurcaciones. <important>Importante: el acceso de lectura del equipo del aula a una plantilla privada se hereda en todas sus bifurcaciones privadas, por lo que los estudiantes podrían leer todas esas bifurcaciones.</important> Si pertenecen a estudiantes (por ejemplo, repositorios que GitHub Classroom creó a partir de este código inicial), usa en su lugar una plantilla nueva:",
+      "viewForks": "Ver las bifurcaciones de {{owner}}/{{repo}} en GitHub"
     },
     "toolbar": {
       "clear": "Limpiar",
@@ -1555,7 +1570,8 @@
         "renameFailed": "el renombrado falló: {{message}}",
         "renameForbidden": "cambiar el nombre a «{{newName}}» requiere acceso de administrador en el repositorio; vuelve a intentarlo como propietario de la organización",
         "repoGone": "el repositorio desapareció durante el cambio de nombre; ejecuta de nuevo para volver a comprobar",
-        "unparseableMarker": ".classroom50.yaml ilegible ({{message}}), así que el repositorio se dejó intacto"
+        "unparseableMarker": ".classroom50.yaml ilegible ({{message}}), así que el repositorio se dejó intacto",
+        "foreignSibling": "su nombre también coincide con la tarea «{{slug}}», una tarea hermana que comparte el prefijo del nombre, y los repositorios de esta tarea no llevan ningún marcador que los distinga, se dejó sin tocar"
       },
       "repoCount_one": "Se renombrará {{count}} repositorio de estudiante existente.",
       "repoCount_other": "Se renombrarán {{count}} repositorios de estudiantes existentes.",
@@ -1626,7 +1642,9 @@
       "unlockDone_other": "{{count}} tareas desbloqueadas.",
       "unlockNoneLocked": "Ninguna de las tareas seleccionadas está bloqueada.",
       "unlockTitle_one": "¿Desbloquear {{count}} tarea?",
-      "unlockTitle_other": "¿Desbloquear {{count}} tareas?"
+      "unlockTitle_other": "¿Desbloquear {{count}} tareas?",
+      "reuseTemplateForksTitle": "Copiada; la plantilla tiene bifurcaciones que heredan el acceso de lectura del equipo",
+      "templateForks": "{{slugs}}: {{notice}}"
     },
     "edit": {
       "error": {
@@ -1760,7 +1778,7 @@
         "student_permission": "Acceso al repositorio del estudiante: cambia los repositorios existentes desde la página de entregas.",
         "pages": "GitHub Pages: habilítalo en los repositorios existentes desde la página de entregas.",
         "autograder_off": "Corrector automático integrado: al desactivarlo, las ejecuciones de corrección automática de los repositorios existentes fallan y quedan fuera de las puntuaciones recopiladas.",
-        "autograder_on": "Corrector automático integrado: los repositorios existentes aún no tienen flujo de trabajo de corrección automática. Después de guardar, usa «Añadir flujo de trabajo de corrección automática» en la página de entregas para añadírselo."
+        "autograder_on": "Autocorrector integrado: los repositorios existentes aún no tienen archivos de autocorrección. Después de guardar, usa «Añadir flujo de trabajo de autocorrección» en la página de entregas para añadirles el flujo de trabajo y el marcador .classroom50.yaml."
       },
       "provisioningIntro_one": "{{count}} estudiante ya ha aceptado. Estos cambios solo se aplican a los repositorios aceptados a partir de ahora; el repositorio existente conserva su configuración actual:",
       "provisioningIntro_other": "{{count}} estudiantes ya han aceptado. Estos cambios solo se aplican a los repositorios aceptados a partir de ahora; los {{count}} repositorios existentes conservan su configuración actual:",
@@ -2194,15 +2212,16 @@
       "resendFailed": "No se pudo reenviar la invitación a {{who}}: {{error}}",
       "resentToast": "Se reenvió la invitación a {{who}}.",
       "roleTeacherPlural": "Profesores",
-      "accessHeadTa": "Miembro de la organización. Acceso de escritura al repositorio classroom50 y a los repositorios de los estudiantes, para que puedan fusionar pull requests de comentarios.",
-      "accessTa": "Miembro de la organización. Acceso de solo lectura al repositorio classroom50; acceso de escritura a los repositorios de los estudiantes, para que puedan fusionar pull requests de comentarios.",
+      "accessHeadTa": "Miembro de la organización. Acceso de escritura al repositorio classroom50 y, tras la recopilación de puntuaciones, a los repositorios de los estudiantes, para poder fusionar las pull requests de retroalimentación.",
+      "accessTa": "Miembro de la organización. Acceso de solo lectura al repositorio classroom50; acceso de escritura a los repositorios de los estudiantes tras la recopilación de puntuaciones, para poder fusionar las pull requests de retroalimentación.",
       "accessTeacher": "Propietario de la organización. Acceso de escritura al repositorio classroom50.",
       "pendingCount_one": "{{count}} pendiente",
       "pendingCount_other": "{{count}} pendientes",
       "removeSelfTeacherBlocked": "No puedes eliminarte del equipo de docentes; revocaría tu propio acceso de nivel propietario a esta clase. Pide a otro propietario de la organización que te elimine.",
       "roleHeadTaPlural": "TA jefe",
       "viewTeamTitle": "Abrir el equipo de {{role}} en GitHub",
-      "you": "Tú"
+      "you": "Tú",
+      "studentRepoAccessNote": "Los TA y los TA jefe obtienen acceso a los repositorios de los estudiantes cuando se recopilan las puntuaciones, no cuando un estudiante acepta. Para conceder acceso a nuevos repositorios, abre <assignmentsLink>Tareas</assignmentsLink> y selecciona Recopilar todo."
     },
     "card": {
       "actionsAria": "Acciones para {{name}}",
@@ -2392,16 +2411,17 @@
       "repoExists": "El repositorio ya existe: {{org}}/{{repo}}",
       "repoIncomplete": "Se encontró una configuración incompleta: {{org}}/{{repo}}",
       "setup": "Autocalificación configurada",
-      "setupSkippedEmptyRepo": "No se necesita configuración: esta tarea usa un repositorio vacío",
       "repoVisibilityFellBack": "Se creó {{org}}/{{repo}} como privado. La organización no te permite crear repositorios públicos; tu docente puede hacerlo público más adelante.",
       "team": "Grupo encontrado",
       "pagesSkipped": {
-        "access": "Autocalificación configurada. GitHub Pages no se habilitó: no tienes permiso para cambiar la configuración de Pages en este repositorio. Tu docente puede habilitarlo desde la página de entregas.",
-        "branch": "Autocalificación configurada. GitHub Pages no se habilitó: la rama desde la que publica aún no existe en tu repositorio. Tu docente puede habilitarlo desde la página de entregas.",
-        "plan": "Autocalificación configurada. GitHub Pages no se habilitó: el plan de GitHub de esta organización no permite Pages en repositorios privados. Tu docente puede hacer público el repositorio y habilitar Pages desde la página de entregas.",
-        "policy": "Autocalificación configurada. GitHub Pages no se habilitó: la organización no permite que los miembros publiquen sitios de Pages. Tu docente puede habilitarlo desde la página de entregas.",
-        "unknown": "Autocalificación configurada. GitHub Pages no se pudo habilitar en este momento. Tu docente puede habilitarlo desde la página de entregas."
-      }
+        "access": "No se activó GitHub Pages: no tienes permiso para cambiar la configuración de Pages en este repositorio. Tu profesor puede activarlo desde la página de entregas.",
+        "branch": "No se activó GitHub Pages: la rama desde la que publica aún no existe en tu repositorio. Tu profesor puede activarlo desde la página de entregas.",
+        "plan": "No se activó GitHub Pages: el plan de GitHub de esta organización no permite Pages en repositorios privados. Tu profesor puede hacer público el repositorio y activar Pages desde la página de entregas.",
+        "policy": "No se activó GitHub Pages: la organización no permite que los miembros publiquen sitios de Pages. Tu profesor puede activarlo desde la página de entregas.",
+        "unknown": "No se pudo activar GitHub Pages en este momento. Tu profesor puede activarlo desde la página de entregas."
+      },
+      "setupBranchUnsettled": "GitHub todavía está inicializando tu repositorio, así que no se activó GitHub Pages. Vuelve a aceptar en un minuto para activarlo, o tu profesor puede activarlo desde la página de entregas",
+      "setupSkipped": "No se necesitan archivos de configuración: esta tarea no añade nada a tu repositorio"
     },
     "stepErrors": {
       "generic": "{{label}} falló (HTTP {{status}}). {{actions}}",
@@ -2523,7 +2543,7 @@
       "statusFailedHint": "Comprueba el flujo de trabajo en GitHub y vuelve a intentarlo.",
       "statusTimeout": "La recalificación está tardando un poco en registrarse. Comprueba su progreso en GitHub.",
       "confirmTitle": "¿Recalificar todas las entregas de «{{name}}»?",
-      "confirmBody1": "Esto vuelve a ejecutar el autocalificador en el último commit de cada repositorio entregado. Es útil después de corregir una prueba o actualizar el autocalificador. Las horas de entrega no cambian.",
+      "confirmBody1": "Esto vuelve a ejecutar el autocorrector en la última entrega calificada de cada repositorio, no en commits más recientes que el estudiante no haya entregado. Un repositorio con trabajo subido pero sin entrega calificada se califica en su último commit, que pasa a ser su primera entrega. Es útil tras corregir una prueba o actualizar el autocorrector. Las horas de entrega existentes no cambian.",
       "confirmBody2": "La corrección se ejecuta en segundo plano y puede tardar varios minutos; usa <collectLabel>{{collectLabel}}</collectLabel> después para obtener las nuevas puntuaciones.",
       "statusCompleted": "Recalificación iniciada. Cada repositorio se está recalificando en segundo plano. Usa <collectLabel>{{collectLabel}}</collectLabel> en unos minutos para obtener las nuevas puntuaciones."
     },
@@ -2661,8 +2681,8 @@
       "aria": "Recalificar la entrega de {{owner}}",
       "confirmTitle": "¿Recalificar la entrega de {{name}}?",
       "confirmLabel": "Recalificar",
-      "confirmBody1": "Esto vuelve a ejecutar el autocorrector sobre el último commit de <name>{{name}}</name> para esta tarea. Su hora de entrega no cambia.",
-      "confirmBody1WithLogin": "Esto vuelve a ejecutar el autocorrector sobre el último commit de <name>{{name}}</name> (<owner>{{owner}}</owner>) para esta tarea. Su hora de entrega no cambia.",
+      "confirmBody1": "Esto vuelve a ejecutar el autocorrector en la última entrega calificada de <name>{{name}}</name> para esta tarea, no en commits más recientes que no haya entregado. Si aún no se ha calificado nada, se califica su último commit y pasa a ser su entrega. La hora de una entrega existente no cambia.",
+      "confirmBody1WithLogin": "Esto vuelve a ejecutar el autocorrector en la última entrega calificada de <name>{{name}}</name> (<owner>{{owner}}</owner>) para esta tarea, no en commits más recientes que no haya entregado. Si aún no se ha calificado nada, se califica su último commit y pasa a ser su entrega. La hora de una entrega existente no cambia.",
       "confirmBody2": "La corrección se ejecuta en segundo plano y puede tardar unos minutos; usa <collectLabel>{{collectLabel}}</collectLabel> después para obtener la nueva puntuación."
     },
     "student": {
@@ -2868,7 +2888,7 @@
       "membersDescription": "Ver y gestionar los miembros del grupo",
       "open": "Gestionar entrega",
       "openAria": "Gestionar la entrega de {{owner}}",
-      "regradeDescription": "Volver a ejecutar el autocalificador en el último commit",
+      "regradeDescription": "Volver a ejecutar el autocorrector en la última entrega calificada",
       "reviewDescription": "Abrir el pull request de comentarios",
       "autograding": "Autocalificación",
       "autogradingEnabled": "Habilitada",
@@ -3039,7 +3059,7 @@
       "badgeEmptyRepo": "Sin calificación automática",
       "badgeNoAutograder": "Sin autocorrector integrado",
       "titleEmptyRepo": "Esta tarea usa repositorios vacíos, así que la autocorrección, las puntuaciones y la solicitud de incorporación de comentarios están deshabilitadas. La tabla muestra quién ha aceptado y quién ha hecho push.",
-      "titleNoAutograder": "Esta tarea no usa el autocorrector integrado, así que las puntuaciones integradas y la recorrección están deshabilitadas. El propio flujo de calificación de una plantilla sigue ejecutándose, y la solicitud de incorporación de comentarios sigue funcionando cuando está activada."
+      "titleNoAutograder": "Esta tarea no usa el autocorrector integrado, por lo que las puntuaciones integradas y la recalificación están desactivadas. Los repositorios no llevan ningún archivo de Classroom 50. El propio flujo de trabajo de calificación de una plantilla sigue ejecutándose, y la pull request de retroalimentación sigue funcionando cuando está activada."
     },
     "scoreOverride": {
       "add": "Añadir puntuación",
@@ -3215,21 +3235,22 @@
       "unrecognizedSection_other": "{{count}} repositorios se omitieron (ya hay un flujo de trabajo distinto en esa ruta)",
       "warningLead_one": "Esto confirma el flujo de trabajo de corrección automática en el repositorio de {{count}} alumno.",
       "warningLead_other": "Esto confirma el flujo de trabajo de corrección automática en los repositorios de {{count}} alumnos.",
-      "warningPoint1": "Los repositorios que ya tienen el flujo de trabajo se dejan sin tocar.",
+      "warningPoint1": "Los repositorios que ya tienen el flujo de trabajo se dejan sin tocar. Un repositorio al que le falta su marcador .classroom50.yaml lo recibe en el mismo commit.",
       "warningPoint2": "El commit está marcado para no activar la corrección. El trabajo que el alumnado ya subió se corrige en su próximo push; «Recalificar todo» no puede alcanzar los commits hechos antes de que existiera el flujo de trabajo.",
       "warningPoint3": "El alumnado debe hacer pull después. Los clones hechos antes de este cambio darán conflicto en su próximo push.",
       "working": "Añadiendo el flujo de trabajo"
     },
     "rowShim": {
       "aria": "Añadir el flujo de trabajo de corrección automática a {{repo}}",
-      "description": "Añade el flujo de trabajo de corrección automática integrado a este repositorio si se aceptó mientras el corrector automático estaba desactivado.",
+      "description": "Añade el flujo de trabajo de autocorrección integrado, y el marcador .classroom50.yaml que necesita, a este repositorio si se aceptó mientras el autocorrector estaba desactivado.",
       "outcome": {
         "added": "Flujo de trabajo de corrección automática añadido. El alumno debe hacer pull antes de su próximo push, y ese push es lo que corrige el trabajo que ya está en el repositorio.",
         "failed": "No se pudo añadir el flujo de trabajo. Inténtalo de nuevo.",
         "missingWorkflowScope": "Tu autorización de GitHub no puede modificar archivos de flujo de trabajo. Cierra sesión y vuelve a iniciarla, luego reinténtalo.",
         "notAccepted": "Aún no existe ningún repositorio, así que no hay nada que añadir.",
         "present": "Este repositorio ya tiene el flujo de trabajo de corrección automática.",
-        "unrecognized": "Omitido: ya hay un flujo de trabajo distinto en la ruta del flujo de trabajo de corrección automática, así que no se cambió nada."
+        "unrecognized": "Omitido: ya hay un flujo de trabajo distinto en la ruta del flujo de trabajo de corrección automática, así que no se cambió nada.",
+        "markerAdded": "Este repositorio ya tenía el flujo de trabajo de autocorrección. Se añadió su marcador .classroom50.yaml, que faltaba, para que la autocorrección pueda encontrar la tarea. El estudiante debe hacer pull antes de su siguiente push."
       },
       "title": "Añadir flujo de trabajo de corrección automática"
     }
