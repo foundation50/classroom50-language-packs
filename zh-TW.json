@@ -1000,7 +1000,7 @@
       "releaseAssetCount_other": "{{count}} 個發佈檔案",
       "releaseAssets": "提交發佈檔案",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
-      "releaseAssetsTip": "每行填一個精確的、相對於工作區的檔案路徑；路徑為精確路徑，而非萬用字元模式，且合計最多可有 8 KiB 的 UTF-8 文字。檔案會在評分後收集，並在及格與不及格的分數上都會附加；缺少的檔案會略過。發佈檔名只能使用 ASCII 字母、數字、點、底線與連字號，且不可以點開頭或結尾，也不可包含連續的句點。",
+      "releaseAssetsTip": "每行一個精確的工作區相對檔案路徑；路徑為精確值，不是 glob 樣式，且全部合計最多 8 KiB 的 UTF-8 文字。檔案在評分後收集，並同時附加於通過與未通過的成績上；缺少或空白的檔案會略過，並在工作流程記錄中附上警告。發行檔案名稱只能使用 ASCII 字母、數字、點、底線與連字號，且不可以點開頭或結尾，也不可包含連續的句點。",
       "availableFrom": "發布日期（{{tz}}）",
       "availableFromTz": "時間以你的當地時區顯示（{{tz}}）。",
       "repoFeatures": {
@@ -1438,7 +1438,8 @@
       "privateHasForksStepEnable": "在它的設定中啟用「Template repository」。",
       "privateHasForks_one": "{{owner}}/{{repo}} 有 {{count}} 個分叉。<important>重要：課程團隊對私人範本的讀取權限會被它的每一個私人分叉繼承，因此學生可能讀取到該分叉。</important>如果它屬於某位學生（例如 GitHub Classroom 從這份起始程式碼建立的儲存庫），請改用一份全新的範本：",
       "privateHasForks_other": "{{owner}}/{{repo}} 有 {{count}} 個分叉。<important>重要：課程團隊對私人範本的讀取權限會被它的每一個私人分叉繼承，因此學生可能讀取到所有這些分叉。</important>如果它們屬於學生（例如 GitHub Classroom 從這份起始程式碼建立的儲存庫），請改用一份全新的範本：",
-      "viewForks": "在 GitHub 上查看 {{owner}}/{{repo}} 的分叉"
+      "viewForks": "在 GitHub 上查看 {{owner}}/{{repo}} 的分叉",
+      "readAccessNote": "學生可以讀取整個範本儲存庫，包括每一個分支及其完整的提交歷史。請勿將解答與參考程式碼放入範本中。"
     },
     "toolbar": {
       "clear": "清除",
@@ -3253,6 +3254,13 @@
         "markerAdded": "這個儲存庫已經有自動評分工作流程。已補上它缺少的 .classroom50.yaml 標記，讓自動評分能找到這個作業。學生必須在下一次推送之前先拉取。"
       },
       "title": "新增自動評分工作流程"
+    },
+    "downloadGroups": {
+      "menuLabel": "下載群組資料（CSV）",
+      "title": "每位群組成員下載一列，包含名冊姓名、電子郵件與分組",
+      "titleEmpty": "目前尚無群組",
+      "titleLoading": "正在等待名冊與群組成員資料載入",
+      "titleUnavailable": "無法讀取名冊或群組成員資料。請重新載入頁面後再試一次"
     }
   },
   "orgMembers": {
@@ -4205,19 +4213,22 @@
     "unassigned": {
       "addAriaLabel": "將 {{name}} 加入所選群組",
       "addButton": "加入",
-      "empty": "名冊上的每個人都已加入群組。",
+      "empty": "名冊上的每位學生都已分到群組。",
       "groupPlaceholder": "選擇群組",
       "heading": "未指派的學生",
       "hint": "名冊上尚未加入任何群組的學生。選擇一個尚有空位的群組，然後將他們加入。",
       "loading": "正在載入學生…",
-      "selectAriaLabel": "{{name}} 的群組"
+      "selectAriaLabel": "{{name}} 的群組",
+      "staffNote_one": "有 {{count}} 位教學團隊成員未分到群組，且未列在此處。若要讓他們測試作業，請從群組的「管理」對話框中加入。",
+      "staffNote_other": "有 {{count}} 位教學團隊成員未分到群組，且未列在此處。若要讓他們測試作業，請從群組的「管理」對話框中加入。"
     },
     "visibility": {
       "help": "可見的群組可供同學瀏覽，並可在 GitHub 上收到加入請求。隱藏的群組只有其成員與組織擁有者能看到。",
       "hidden": "隱藏",
       "label": "可見性",
       "visible": "可見"
-    }
+    },
+    "staffPickerGroup": "教學團隊"
   },
   "backgroundPass": {
     "failed": "與 GitHub 的同步未完成。下次你開啟班級時會再次執行。",

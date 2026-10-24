@@ -1395,7 +1395,7 @@
       "allowedFiles": "Fitxers permesos",
       "allowedFilesTip": "Patrons ordenats a l'estil {{gitignore}}, un per línia, que defineixen quins fitxers pertanyen a una entrega (guanya l'última coincidència, {{bang}} torna a incloure). Per exemple, {{star}} seguit de {{example}} només permet {{result}}. Deixar-ho en blanc permet tots els fitxers.",
       "releaseAssets": "Fitxers de publicació de l'entrega",
-      "releaseAssetsTip": "Un camí de fitxer exacte relatiu a l'espai de treball per línia; els camins són exactes, no patrons glob, i poden sumar com a màxim 8 KiB de text UTF-8. Els fitxers es recullen després de la correcció i s'adjunten tant en qualificacions aprovades com suspeses; els fitxers que falten s'ometen. Els noms de fitxer de publicació només poden fer servir lletres ASCII, números, punts, guions baixos i guions, i no poden començar ni acabar amb un punt ni contenir punts consecutius.",
+      "releaseAssetsTip": "Una ruta de fitxer exacta relativa a l'espai de treball per línia; les rutes són exactes, no patrons glob, i poden sumar com a màxim 8 KiB de text UTF-8. Els fitxers es recullen després de la correcció i s'adjunten tant a les notes aprovades com a les suspeses; els fitxers absents o buits s'ometen amb un avís al registre del flux de treball. Els noms de fitxer de versió només poden fer servir lletres ASCII, xifres, punts, guions baixos i guions, i no poden començar ni acabar amb un punt ni contenir punts consecutius.",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
       "releaseAssetCount_one": "{{count}} fitxer de publicació",
       "releaseAssetCount_other": "{{count}} fitxers de publicació",
@@ -1792,7 +1792,8 @@
       "privateHasForksStepEnable": "Activeu «Repositori de plantilla» a la seva configuració.",
       "privateHasForks_one": "{{owner}}/{{repo}} té {{count}} bifurcació. <important>Important: l'accés de lectura de l'equip de la classe a una plantilla privada és heretat per cada bifurcació privada d'aquesta, de manera que els estudiants podrien llegir aquesta bifurcació.</important> Si pertany a un estudiant (per exemple, un repositori que GitHub Classroom va crear a partir d'aquest codi inicial), feu servir una plantilla nova:",
       "privateHasForks_other": "{{owner}}/{{repo}} té {{count}} bifurcacions. <important>Important: l'accés de lectura de l'equip de la classe a una plantilla privada és heretat per cada bifurcació privada d'aquesta, de manera que els estudiants podrien llegir totes aquestes bifurcacions.</important> Si pertanyen a estudiants (per exemple, repositoris que GitHub Classroom va crear a partir d'aquest codi inicial), feu servir una plantilla nova:",
-      "viewForks": "Mostra les bifurcacions de {{owner}}/{{repo}} a GitHub"
+      "viewForks": "Mostra les bifurcacions de {{owner}}/{{repo}} a GitHub",
+      "readAccessNote": "L'alumnat pot llegir tot el repositori de plantilla, incloent-hi totes les branques i tot el seu historial de commits. Mantén les claus de resposta i les solucions fora de la plantilla."
     },
     "rename": {
       "sectionTitle": "Cal actualitzar l'slug",
@@ -2193,16 +2194,19 @@
       "heading": "Alumnes sense assignar",
       "hint": "Alumnes de la llista de classe que encara no són en cap grup. Tria un grup amb lloc i afegeix-los-hi.",
       "loading": "S'estan carregant els alumnes…",
-      "empty": "Tothom de la llista de classe és en un grup.",
+      "empty": "Tothom de la llista de classe està en un grup.",
       "groupPlaceholder": "Tria un grup",
       "selectAriaLabel": "Grup per a {{name}}",
       "addAriaLabel": "Afegeix {{name}} al grup seleccionat",
-      "addButton": "Afegeix"
+      "addButton": "Afegeix",
+      "staffNote_one": "{{count}} membre de l'equip docent no està en cap grup i no apareix aquí. Per deixar que provi l'activitat, afegeix-lo des del diàleg Gestiona d'un grup.",
+      "staffNote_other": "{{count}} membres de l'equip docent no estan en cap grup i no apareixen aquí. Per deixar que provin l'activitat, afegeix-los des del diàleg Gestiona d'un grup."
     },
     "errors": {
       "createForbidden": "GitHub ha bloquejat la creació de l'equip. Aquesta organització restringeix la creació d'equips als propietaris. Demana a un propietari que permeti als membres crear equips, o que els creï ell mateix.",
       "membershipForbidden": "GitHub ha bloquejat el canvi de pertinença. La pertinença d'aquest equip pot estar gestionada pel teu proveïdor d'identitat. Actualitza-la allà, o demana-ho a un propietari de l'organització."
-    }
+    },
+    "staffPickerGroup": "Equip docent"
   },
   "serviceTokenHealth": {
     "summary_one": "{{count}} organització necessita una comprovació del testimoni de servei.",
@@ -3735,6 +3739,13 @@
         "markerAdded": "Aquest repositori ja tenia el flux de treball de correcció automàtica. S'hi ha afegit el marcador .classroom50.yaml que li faltava, de manera que la correcció automàtica pot trobar el treball. L'estudiant ha de fer pull abans del seu proper push."
       },
       "title": "Afegeix el flux de treball d'autocorrecció"
+    },
+    "downloadGroups": {
+      "menuLabel": "Baixa els grups (CSV)",
+      "title": "Baixa una fila per cada membre de grup, amb els noms de la llista de classe, el correu electrònic i la secció",
+      "titleEmpty": "Encara no hi ha cap grup",
+      "titleLoading": "S'està esperant que es carreguin la llista de classe i la pertinença als grups",
+      "titleUnavailable": "No s'ha pogut llegir la llista de classe o la pertinença als grups. Torna a carregar la pàgina i prova-ho de nou"
     }
   },
   "orgActivity": {

@@ -1000,7 +1000,7 @@
       "releaseAssetCount_other": "{{count}} archivos de entrega",
       "releaseAssets": "Archivos de entrega de la submission",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
-      "releaseAssetsTip": "Una ruta de archivo exacta relativa al espacio de trabajo por línea; las rutas son exactas, no patrones glob, y pueden sumar como máximo 8 KiB de texto UTF-8. Los archivos se recopilan tras la corrección y se adjuntan tanto en las calificaciones aprobadas como en las suspensas; los archivos que falten se omiten. Los nombres de archivo de la release solo pueden usar letras ASCII, números, puntos, guiones bajos y guiones, y no pueden empezar ni terminar con un punto ni contener puntos consecutivos.",
+      "releaseAssetsTip": "Una ruta de archivo exacta relativa al espacio de trabajo por línea; las rutas son exactas, no patrones glob, y pueden sumar como máximo 8 KiB de texto UTF-8. Los archivos se recopilan después de la calificación y se adjuntan tanto en calificaciones aprobadas como reprobadas; los archivos faltantes y vacíos se omiten con una advertencia en el registro del flujo de trabajo. Los nombres de archivo de publicación solo pueden usar letras ASCII, números, puntos, guiones bajos y guiones, y no pueden comenzar ni terminar con un punto ni contener puntos consecutivos.",
       "availableFrom": "Fecha de publicación ({{tz}})",
       "availableFromTz": "Las horas están en tu zona horaria local ({{tz}}).",
       "repoFeatures": {
@@ -1438,7 +1438,8 @@
       "privateHasForksStepEnable": "Activa «Repositorio de plantilla» en su configuración.",
       "privateHasForks_one": "{{owner}}/{{repo}} tiene {{count}} bifurcación. <important>Importante: el acceso de lectura del equipo del aula a una plantilla privada se hereda en todas sus bifurcaciones privadas, por lo que los estudiantes podrían leer esa bifurcación.</important> Si pertenece a un estudiante (por ejemplo, un repositorio que GitHub Classroom creó a partir de este código inicial), usa en su lugar una plantilla nueva:",
       "privateHasForks_other": "{{owner}}/{{repo}} tiene {{count}} bifurcaciones. <important>Importante: el acceso de lectura del equipo del aula a una plantilla privada se hereda en todas sus bifurcaciones privadas, por lo que los estudiantes podrían leer todas esas bifurcaciones.</important> Si pertenecen a estudiantes (por ejemplo, repositorios que GitHub Classroom creó a partir de este código inicial), usa en su lugar una plantilla nueva:",
-      "viewForks": "Ver las bifurcaciones de {{owner}}/{{repo}} en GitHub"
+      "viewForks": "Ver las bifurcaciones de {{owner}}/{{repo}} en GitHub",
+      "readAccessNote": "Los estudiantes pueden leer todo el repositorio de plantilla, incluida cada rama y todo su historial de commits. Mantén las claves de respuestas y soluciones fuera de la plantilla."
     },
     "toolbar": {
       "clear": "Limpiar",
@@ -3253,6 +3254,13 @@
         "markerAdded": "Este repositorio ya tenía el flujo de trabajo de autocorrección. Se añadió su marcador .classroom50.yaml, que faltaba, para que la autocorrección pueda encontrar la tarea. El estudiante debe hacer pull antes de su siguiente push."
       },
       "title": "Añadir flujo de trabajo de corrección automática"
+    },
+    "downloadGroups": {
+      "menuLabel": "Descargar grupos (CSV)",
+      "title": "Descargar una fila por cada miembro del grupo, con los nombres de la lista, el correo y la sección",
+      "titleEmpty": "Todavía no hay grupos",
+      "titleLoading": "Esperando a que se carguen la lista y la membresía de los grupos",
+      "titleUnavailable": "No se pudo leer la lista ni la membresía de los grupos. Vuelve a cargar la página e inténtalo de nuevo"
     }
   },
   "orgMembers": {
@@ -4205,19 +4213,22 @@
     "unassigned": {
       "addAriaLabel": "Añadir {{name}} al grupo seleccionado",
       "addButton": "Añadir",
-      "empty": "Todos los de la lista están en un grupo.",
+      "empty": "Cada estudiante de la lista está en un grupo.",
       "groupPlaceholder": "Elige un grupo",
       "heading": "Estudiantes sin asignar",
       "hint": "Estudiantes de la lista que aún no están en un grupo. Elige un grupo con espacio y luego añádelos.",
       "loading": "Cargando estudiantes…",
-      "selectAriaLabel": "Grupo para {{name}}"
+      "selectAriaLabel": "Grupo para {{name}}",
+      "staffNote_one": "{{count}} miembro del equipo docente no está en un grupo y no aparece aquí. Para que pueda probar la tarea, agrégalo desde el cuadro de diálogo Gestionar de un grupo.",
+      "staffNote_other": "{{count}} miembros del equipo docente no están en un grupo y no aparecen aquí. Para que puedan probar la tarea, agrégalos desde el cuadro de diálogo Gestionar de un grupo."
     },
     "visibility": {
       "help": "Los grupos visibles pueden ser explorados por los compañeros y recibir solicitudes de unirse en GitHub. Los grupos ocultos solo son visibles para sus miembros y los propietarios de la organización.",
       "hidden": "Oculto",
       "label": "Visibilidad",
       "visible": "Visible"
-    }
+    },
+    "staffPickerGroup": "Equipo docente"
   },
   "backgroundPass": {
     "failed": "La sincronización con GitHub no se completó. Se ejecuta de nuevo la próxima vez que abras la clase.",
