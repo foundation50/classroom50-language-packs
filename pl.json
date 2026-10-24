@@ -1002,7 +1002,7 @@
       "releaseAssetCount_other": "{{count}} plików wydania",
       "releaseAssets": "Pliki wydania rozwiązania",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
-      "releaseAssetsTip": "Jedna dokładna ścieżka pliku względem obszaru roboczego w każdym wierszu; ścieżki są dokładne, nie są wzorcami glob, i mogą łącznie liczyć maksymalnie 8 KiB tekstu UTF-8. Pliki są zbierane po ocenieniu i dołączane zarówno przy ocenach zaliczonych, jak i niezaliczonych; brakujące pliki są pomijane. Nazwy plików wydania mogą zawierać tylko litery ASCII, cyfry, kropki, podkreślenia i myślniki oraz nie mogą zaczynać się ani kończyć kropką, ani zawierać kolejnych kropek.",
+      "releaseAssetsTip": "Jedna dokładna ścieżka pliku względem obszaru roboczego w każdym wierszu; ścieżki są dokładne, a nie wzorcami glob, i mogą łącznie zajmować najwyżej 8 KiB tekstu UTF-8. Pliki są zbierane po ocenieniu i dołączane zarówno do ocen zaliczających, jak i niezaliczających; brakujące i puste pliki są pomijane z ostrzeżeniem w dzienniku przepływu pracy. Nazwy plików wydania mogą zawierać tylko litery ASCII, cyfry, kropki, podkreślenia i myślniki oraz nie mogą zaczynać się ani kończyć kropką, ani zawierać dwóch kropek z rzędu.",
       "availableFrom": "Data udostępnienia ({{tz}})",
       "availableFromTz": "Godziny podane są w Twojej lokalnej strefie czasowej ({{tz}}).",
       "repoFeatures": {
@@ -1440,7 +1440,8 @@
       "privateHasForksStepEnable": "Włącz „Template repository” w jego ustawieniach.",
       "privateHasForks_one": "{{owner}}/{{repo}} ma {{count}} rozwidlenie. <important>Ważne: dostęp do odczytu zespołu klasy do prywatnego szablonu jest dziedziczony przez każde jego prywatne rozwidlenie, więc studenci mogliby przeczytać to rozwidlenie.</important> Jeśli należy ono do studenta (na przykład repozytorium, które GitHub Classroom utworzył z tego kodu startowego), użyj zamiast tego świeżego szablonu:",
       "privateHasForks_other": "{{owner}}/{{repo}} ma {{count}} rozwidleń. <important>Ważne: dostęp do odczytu zespołu klasy do prywatnego szablonu jest dziedziczony przez każde jego prywatne rozwidlenie, więc studenci mogliby przeczytać wszystkie te rozwidlenia.</important> Jeśli należą one do studentów (na przykład repozytoria, które GitHub Classroom utworzył z tego kodu startowego), użyj zamiast tego świeżego szablonu:",
-      "viewForks": "Zobacz rozwidlenia {{owner}}/{{repo}} na GitHubie"
+      "viewForks": "Zobacz rozwidlenia {{owner}}/{{repo}} na GitHubie",
+      "readAccessNote": "Uczniowie mogą odczytać całe repozytorium szablonu, w tym każdą gałąź i pełną historię jej commitów. Nie umieszczaj w szablonie kluczy odpowiedzi ani rozwiązań."
     },
     "toolbar": {
       "clear": "Wyczyść",
@@ -3255,6 +3256,13 @@
         "markerAdded": "To repozytorium miało już przepływ pracy autogradingu. Dodano jego brakujący znacznik .classroom50.yaml, aby autograding mógł znaleźć zadanie. Student musi wykonać pull przed następnym pushem."
       },
       "title": "Dodaj przepływ pracy automatycznego oceniania"
+    },
+    "downloadGroups": {
+      "menuLabel": "Pobierz grupy (CSV)",
+      "title": "Pobierz po jednym wierszu na członka grupy, z nazwami z listy, adresem e-mail i sekcją",
+      "titleEmpty": "Nie ma jeszcze żadnych grup",
+      "titleLoading": "Oczekiwanie na załadowanie listy i składu grup",
+      "titleUnavailable": "Nie udało się odczytać listy ani składu grup. Odśwież stronę i spróbuj ponownie"
     }
   },
   "orgMembers": {
@@ -4207,19 +4215,22 @@
     "unassigned": {
       "addAriaLabel": "Dodaj {{name}} do wybranej grupy",
       "addButton": "Dodaj",
-      "empty": "Wszyscy z listy uczestników są w grupie.",
+      "empty": "Każdy uczeń z listy jest w jakiejś grupie.",
       "groupPlaceholder": "Wybierz grupę",
       "heading": "Nieprzypisani uczniowie",
       "hint": "Uczniowie z listy uczestników, którzy nie są jeszcze w żadnej grupie. Wybierz grupę z wolnym miejscem, a następnie ich dodaj.",
       "loading": "Wczytywanie uczniów…",
-      "selectAriaLabel": "Grupa dla {{name}}"
+      "selectAriaLabel": "Grupa dla {{name}}",
+      "staffNote_one": "{{count}} członek zespołu dydaktycznego nie należy do żadnej grupy i nie jest tu wymieniony. Aby umożliwić mu przetestowanie zadania, dodaj go z okna Zarządzaj danej grupy.",
+      "staffNote_other": "{{count}} członków zespołu dydaktycznego nie należy do żadnej grupy i nie jest tu wymienionych. Aby umożliwić im przetestowanie zadania, dodaj ich z okna Zarządzaj danej grupy."
     },
     "visibility": {
       "help": "Widoczne grupy mogą być przeglądane przez kolegów z klasy i otrzymywać prośby o dołączenie w GitHubie. Ukryte grupy są widoczne tylko dla ich członków i właścicieli organizacji.",
       "hidden": "Ukryta",
       "label": "Widoczność",
       "visible": "Widoczna"
-    }
+    },
+    "staffPickerGroup": "Zespół dydaktyczny"
   },
   "backgroundPass": {
     "failed": "Synchronizacja z GitHub nie została zakończona. Uruchomi się ponownie przy następnym otwarciu klasy.",

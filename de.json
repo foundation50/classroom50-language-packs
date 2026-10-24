@@ -1000,7 +1000,7 @@
       "releaseAssetCount_other": "{{count}} Release-Dateien",
       "releaseAssets": "Release-Dateien der Abgabe",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
-      "releaseAssetsTip": "Ein exakter, auf den Workspace bezogener Dateipfad pro Zeile; Pfade sind exakt, keine Glob-Muster, und dürfen insgesamt höchstens 8 KiB UTF-8-Text umfassen. Dateien werden nach der Bewertung gesammelt und sowohl bei bestandenen als auch bei nicht bestandenen Bewertungen angehängt; fehlende Dateien werden übersprungen. Release-Dateinamen dürfen nur ASCII-Buchstaben, Zahlen, Punkte, Unterstriche und Bindestriche enthalten und dürfen nicht mit einem Punkt beginnen oder enden oder aufeinanderfolgende Punkte enthalten.",
+      "releaseAssetsTip": "Ein exakter, arbeitsbereichsrelativer Dateipfad pro Zeile; Pfade sind exakt, keine Glob-Muster, und dürfen insgesamt höchstens 8 KiB UTF-8-Text umfassen. Dateien werden nach der Bewertung eingesammelt und sowohl bei bestandenen als auch bei nicht bestandenen Bewertungen angehängt; fehlende und leere Dateien werden mit einer Warnung im Workflow-Protokoll übersprungen. Release-Dateinamen dürfen nur ASCII-Buchstaben, Ziffern, Punkte, Unterstriche und Bindestriche enthalten und dürfen weder mit einem Punkt beginnen oder enden noch aufeinanderfolgende Punkte enthalten.",
       "availableFrom": "Freigabedatum ({{tz}})",
       "availableFromTz": "Zeiten sind in deiner lokalen Zeitzone ({{tz}}).",
       "repoFeatures": {
@@ -1438,7 +1438,8 @@
       "privateHasForksStepEnable": "Aktiviere „Template repository“ in seinen Einstellungen.",
       "privateHasForks_one": "{{owner}}/{{repo}} hat {{count}} Fork. <important>Wichtig: Der Lesezugriff des Klassenteams auf eine private Vorlage wird von jedem privaten Fork davon geerbt, sodass Studenten diesen Fork lesen könnten.</important> Wenn er einem Studenten gehört (zum Beispiel ein Repository, das GitHub Classroom aus diesem Starter-Code erstellt hat), verwende stattdessen eine frische Vorlage:",
       "privateHasForks_other": "{{owner}}/{{repo}} hat {{count}} Forks. <important>Wichtig: Der Lesezugriff des Klassenteams auf eine private Vorlage wird von jedem privaten Fork davon geerbt, sodass Studenten all diese Forks lesen könnten.</important> Wenn sie Studenten gehören (zum Beispiel Repositorys, die GitHub Classroom aus diesem Starter-Code erstellt hat), verwende stattdessen eine frische Vorlage:",
-      "viewForks": "Die Forks von {{owner}}/{{repo}} auf GitHub ansehen"
+      "viewForks": "Die Forks von {{owner}}/{{repo}} auf GitHub ansehen",
+      "readAccessNote": "Studierende können das gesamte Vorlagen-Repository lesen, einschließlich aller Branches und der vollständigen Commit-Historie. Halten Sie Lösungsschlüssel und Lösungen aus der Vorlage heraus."
     },
     "toolbar": {
       "clear": "Zurücksetzen",
@@ -3253,6 +3254,13 @@
         "markerAdded": "Dieses Repository hatte den Autograding-Workflow bereits. Seine fehlende .classroom50.yaml-Markierung wurde hinzugefügt, sodass das Autograding die Aufgabe finden kann. Der Student muss vor seinem nächsten Push ein Pull ausführen."
       },
       "title": "Autograding-Workflow hinzufügen"
+    },
+    "downloadGroups": {
+      "menuLabel": "Gruppen herunterladen (CSV)",
+      "title": "Eine Zeile pro Gruppenmitglied herunterladen, mit Namen aus der Teilnehmerliste, E-Mail und Kurs",
+      "titleEmpty": "Noch keine Gruppen",
+      "titleLoading": "Warten, bis die Teilnehmerliste und die Gruppenmitgliedschaften geladen sind",
+      "titleUnavailable": "Die Teilnehmerliste oder die Gruppenmitgliedschaften konnten nicht gelesen werden. Laden Sie die Seite neu und versuchen Sie es erneut"
     }
   },
   "orgMembers": {
@@ -4205,19 +4213,22 @@
     "unassigned": {
       "addAriaLabel": "{{name}} zur ausgewählten Gruppe hinzufügen",
       "addButton": "Hinzufügen",
-      "empty": "Alle auf der Liste sind in einer Gruppe.",
+      "empty": "Jede Studentin und jeder Student auf der Teilnehmerliste ist in einer Gruppe.",
       "groupPlaceholder": "Gruppe auswählen",
       "heading": "Nicht zugewiesene Lernende",
       "hint": "Lernende auf der Liste, die noch in keiner Gruppe sind. Wählen Sie eine Gruppe mit Platz und fügen Sie sie hinzu.",
       "loading": "Lernende werden geladen …",
-      "selectAriaLabel": "Gruppe für {{name}}"
+      "selectAriaLabel": "Gruppe für {{name}}",
+      "staffNote_one": "{{count}} Mitglied des Lehrteams ist in keiner Gruppe und wird hier nicht aufgeführt. Um ihm das Testen der Aufgabe zu ermöglichen, fügen Sie es über den Verwalten-Dialog einer Gruppe hinzu.",
+      "staffNote_other": "{{count}} Mitglieder des Lehrteams sind in keiner Gruppe und werden hier nicht aufgeführt. Um ihnen das Testen der Aufgabe zu ermöglichen, fügen Sie sie über den Verwalten-Dialog einer Gruppe hinzu."
     },
     "visibility": {
       "help": "Sichtbare Gruppen können von Mitlernenden durchsucht werden und erhalten Beitrittsanfragen auf GitHub. Verborgene Gruppen sind nur für ihre Mitglieder und Organisationseigentümer sichtbar.",
       "hidden": "Verborgen",
       "label": "Sichtbarkeit",
       "visible": "Sichtbar"
-    }
+    },
+    "staffPickerGroup": "Lehrteam"
   },
   "backgroundPass": {
     "failed": "Die Synchronisierung mit GitHub wurde nicht abgeschlossen. Sie läuft erneut, wenn du den Kurs das nächste Mal öffnest.",

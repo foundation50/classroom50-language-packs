@@ -1018,7 +1018,7 @@
       "allowedFiles": "İzin verilen dosyalar",
       "allowedFilesTip": "Bir gönderime hangi dosyaların ait olduğunu tanımlayan, satır başına bir tane olacak şekilde sıralı {{gitignore}} biçemli desenler (son eşleşme kazanır, {{bang}} yeniden dahil eder). Örneğin, {{star}} ardından {{example}} yalnızca {{result}} öğesine izin verir. Boş bırakmak her dosyaya izin verir.",
       "releaseAssets": "Gönderim sürüm dosyaları",
-      "releaseAssetsTip": "Her satırda tam bir çalışma alanına göreli dosya yolu; yollar tam olmalıdır, glob deseni değildir ve en fazla 8 KiB UTF-8 metin toplamı olabilir. Dosyalar notlandırmadan sonra toplanır ve hem geçen hem de kalan notlara eklenir; eksik dosyalar atlanır. Sürüm dosya adları yalnızca ASCII harfler, sayılar, noktalar, alt çizgiler ve tireler kullanabilir ve nokta ile başlayıp bitemez veya ardışık noktalar içeremez.",
+      "releaseAssetsTip": "Her satırda tam olarak bir çalışma alanına göreli dosya yolu girin; yollar glob kalıbı değil, tamdır ve toplamda en fazla 8 KiB UTF-8 metni olabilir. Dosyalar notlandırmadan sonra toplanır ve hem geçen hem kalan notlara eklenir; eksik ve boş dosyalar iş akışı günlüğünde bir uyarıyla atlanır. Yayın dosya adları yalnızca ASCII harfleri, rakamlar, noktalar, alt çizgiler ve kısa çizgiler içerebilir; noktayla başlayamaz veya bitemez ve ardışık noktalar içeremez.",
       "releaseAssetsPlaceholder": "rapor.pdf\ngrafikler/grafik.png",
       "releaseAssetCount_one": "{{count}} sürüm dosyası",
       "releaseAssetCount_other": "{{count}} sürüm dosyası",
@@ -1553,7 +1553,8 @@
       "privateHasForksStepEnable": "Ayarlarında \"Şablon deposu\" seçeneğini etkinleştirin.",
       "privateHasForks_one": "{{owner}}/{{repo}} için {{count}} çatal var. <important>Önemli: sınıf ekibinin özel bir şablondaki okuma erişimi, onun her özel çatalına devredilir, bu yüzden öğrenciler o çatalı okuyabilir.</important> Eğer bir öğrenciye aitse (örneğin, GitHub Classroom'un bu başlangıç kodundan oluşturduğu bir depo), bunun yerine yeni bir şablon kullanın:",
       "privateHasForks_other": "{{owner}}/{{repo}} için {{count}} çatal var. <important>Önemli: sınıf ekibinin özel bir şablondaki okuma erişimi, onun her özel çatalına devredilir, bu yüzden öğrenciler bu çatalların tümünü okuyabilir.</important> Eğer öğrencilere aitlerse (örneğin, GitHub Classroom'un bu başlangıç kodundan oluşturduğu depolar), bunun yerine yeni bir şablon kullanın:",
-      "viewForks": "{{owner}}/{{repo}} deposunun çatallarını GitHub'da görün"
+      "viewForks": "{{owner}}/{{repo}} deposunun çatallarını GitHub'da görün",
+      "readAccessNote": "Öğrenciler, her dalı ve tüm işleme geçmişi dahil olmak üzere şablon deposunun tamamını okuyabilir. Cevap anahtarlarını ve çözümleri şablonun dışında tutun."
     },
     "collect": {
       "confirmAction": "Tümünü topla",
@@ -3365,6 +3366,13 @@
         "markerAdded": "Bu depoda otomatik değerlendirme iş akışı zaten vardı. Eksik olan .classroom50.yaml işaretleyicisi eklendi, böylece otomatik değerlendirme ödevi bulabilir. Öğrencinin bir sonraki itmesinden önce pull yapması gerekir."
       },
       "title": "Otomatik değerlendirme iş akışı ekle"
+    },
+    "downloadGroups": {
+      "menuLabel": "Grupları indir (CSV)",
+      "title": "Her grup üyesi için bir satır indirin; liste adları, e-posta ve bölüm dahil",
+      "titleEmpty": "Henüz grup yok",
+      "titleLoading": "Listenin ve grup üyeliğinin yüklenmesi bekleniyor",
+      "titleUnavailable": "Liste veya grup üyeliği okunamadı. Sayfayı yeniden yükleyin, ardından tekrar deneyin"
     }
   },
   "orgActivity": {
@@ -4205,19 +4213,22 @@
     "unassigned": {
       "addAriaLabel": "{{name}} adlı kişiyi seçilen gruba ekle",
       "addButton": "Ekle",
-      "empty": "Listedeki herkes bir grupta.",
+      "empty": "Listedeki her öğrenci bir grupta yer alıyor.",
       "groupPlaceholder": "Bir grup seçin",
       "heading": "Atanmamış öğrenciler",
       "hint": "Listede olup henüz bir grupta olmayan öğrenciler. Yeri olan bir grup seçip onları ekleyin.",
       "loading": "Öğrenciler yükleniyor…",
-      "selectAriaLabel": "{{name}} için grup"
+      "selectAriaLabel": "{{name}} için grup",
+      "staffNote_one": "{{count}} öğretim ekibi üyesi bir grupta değil ve burada listelenmiyor. Ödevi denemelerine izin vermek için onları bir grubun Yönet iletişim kutusundan ekleyin.",
+      "staffNote_other": "{{count}} öğretim ekibi üyesi bir grupta değil ve burada listelenmiyor. Ödevi denemelerine izin vermek için onları bir grubun Yönet iletişim kutusundan ekleyin."
     },
     "visibility": {
       "help": "Görünür gruplara sınıf arkadaşları göz atabilir ve GitHub'da katılma istekleri alabilir. Gizli gruplar yalnızca üyelerine ve organizasyon sahiplerine görünür.",
       "hidden": "Gizli",
       "label": "Görünürlük",
       "visible": "Görünür"
-    }
+    },
+    "staffPickerGroup": "Öğretim ekibi"
   },
   "backgroundPass": {
     "failed": "GitHub ile eşitleme tamamlanmadı. Sınıfı bir sonraki açışınızda tekrar çalışır.",

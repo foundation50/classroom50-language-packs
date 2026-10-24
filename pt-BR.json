@@ -1000,7 +1000,7 @@
       "releaseAssetCount_other": "{{count}} arquivos de release",
       "releaseAssets": "Arquivos de release da entrega",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
-      "releaseAssetsTip": "Um caminho de arquivo exato relativo ao workspace por linha; os caminhos são exatos, não padrões glob, e podem totalizar no máximo 8 KiB de texto UTF-8. Os arquivos são coletados após a correção e anexados tanto em notas de aprovação quanto de reprovação; arquivos ausentes são ignorados. Os nomes de arquivo de Release podem usar apenas letras ASCII, números, pontos, sublinhados e hifens, e não podem começar nem terminar com um ponto ou conter pontos consecutivos.",
+      "releaseAssetsTip": "Um caminho exato de arquivo (relativo ao espaço de trabalho) por linha; os caminhos são exatos, não padrões glob, e podem totalizar no máximo 8 KiB de texto UTF-8. Os arquivos são coletados após a correção e anexados tanto em notas aprovadas quanto reprovadas; arquivos ausentes e vazios são ignorados com um aviso no log do fluxo de trabalho. Os nomes dos arquivos de release podem usar apenas letras ASCII, números, pontos, sublinhados e hifens, e não podem começar ou terminar com ponto nem conter pontos consecutivos.",
       "availableFrom": "Data de liberação ({{tz}})",
       "availableFromTz": "Os horários estão no seu fuso horário local ({{tz}}).",
       "repoFeatures": {
@@ -1438,7 +1438,8 @@
       "privateHasForksStepEnable": "Ative \"Repositório de template\" em suas configurações.",
       "privateHasForks_one": "{{owner}}/{{repo}} tem {{count}} fork. <important>Importante: o acesso de leitura da equipe da turma a um template privado é herdado por cada fork privado dele, então os alunos poderiam ler esse fork.</important> Se ele pertence a um aluno (por exemplo, um repositório que o GitHub Classroom criou a partir deste código inicial), use um template novo em vez disso:",
       "privateHasForks_other": "{{owner}}/{{repo}} tem {{count}} forks. <important>Importante: o acesso de leitura da equipe da turma a um template privado é herdado por cada fork privado dele, então os alunos poderiam ler todos esses forks.</important> Se eles pertencem a alunos (por exemplo, repositórios que o GitHub Classroom criou a partir deste código inicial), use um template novo em vez disso:",
-      "viewForks": "Veja os forks de {{owner}}/{{repo}} no GitHub"
+      "viewForks": "Veja os forks de {{owner}}/{{repo}} no GitHub",
+      "readAccessNote": "Os estudantes podem ler todo o repositório de modelo, incluindo todas as branches e seu histórico completo de commits. Mantenha gabaritos e soluções fora do modelo."
     },
     "toolbar": {
       "clear": "Limpar",
@@ -3253,6 +3254,13 @@
         "markerAdded": "Este repositório já tinha o fluxo de trabalho de correção automática. O marcador .classroom50.yaml que faltava foi adicionado, para que a correção automática possa encontrar a tarefa. O aluno precisa fazer um pull antes do próximo push."
       },
       "title": "Adicionar fluxo de trabalho de autocorreção"
+    },
+    "downloadGroups": {
+      "menuLabel": "Baixar grupos (CSV)",
+      "title": "Baixar uma linha por membro do grupo, com nomes do roster, e-mail e seção",
+      "titleEmpty": "Ainda não há grupos",
+      "titleLoading": "Aguardando o carregamento do roster e da composição dos grupos",
+      "titleUnavailable": "Não foi possível ler o roster ou a composição dos grupos. Recarregue a página e tente novamente"
     }
   },
   "orgMembers": {
@@ -4205,19 +4213,22 @@
     "unassigned": {
       "addAriaLabel": "Adicionar {{name}} ao grupo selecionado",
       "addButton": "Adicionar",
-      "empty": "Todos na lista estão em um grupo.",
+      "empty": "Todos os estudantes do roster estão em um grupo.",
       "groupPlaceholder": "Escolha um grupo",
       "heading": "Estudantes sem grupo",
       "hint": "Estudantes na lista que ainda não estão em um grupo. Escolha um grupo com espaço e, em seguida, adicione-os.",
       "loading": "Carregando estudantes…",
-      "selectAriaLabel": "Grupo para {{name}}"
+      "selectAriaLabel": "Grupo para {{name}}",
+      "staffNote_one": "{{count}} membro da equipe de ensino não está em um grupo e não aparece aqui. Para que possa testar a atividade, adicione-o pela caixa de diálogo Gerenciar de um grupo.",
+      "staffNote_other": "{{count}} membros da equipe de ensino não estão em um grupo e não aparecem aqui. Para que possam testar a atividade, adicione-os pela caixa de diálogo Gerenciar de um grupo."
     },
     "visibility": {
       "help": "Grupos visíveis podem ser explorados pelos colegas e receber solicitações de participação no GitHub. Grupos ocultos são visíveis apenas para seus membros e para os proprietários da organização.",
       "hidden": "Oculto",
       "label": "Visibilidade",
       "visible": "Visível"
-    }
+    },
+    "staffPickerGroup": "Equipe de ensino"
   },
   "backgroundPass": {
     "failed": "A sincronização com o GitHub não foi concluída. Ela é executada novamente na próxima vez que você abrir a turma.",
