@@ -1000,7 +1000,7 @@
       "releaseAssetCount_other": "{{count}} kiadási fájl",
       "releaseAssets": "Beadási kiadási fájlok",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
-      "releaseAssetsTip": "Soronként egy pontos, munkaterülethez viszonyított fájlelérési út; az elérési utak pontosak, nem glob minták, és összesen legfeljebb 8 KiB UTF-8 szöveget tartalmazhatnak. A fájlok az értékelés után kerülnek összegyűjtésre, és sikeres és sikertelen értékeléseknél is csatolásra kerülnek; a hiányzó fájlok kihagyásra kerülnek. A kiadási fájlnevek csak ASCII betűket, számokat, pontokat, aláhúzásokat és kötőjeleket tartalmazhatnak, nem kezdődhetnek és nem végződhetnek ponttal, és nem tartalmazhatnak egymást követő pontokat.",
+      "releaseAssetsTip": "Soronként egy pontos, munkaterülethez viszonyított fájlútvonal; az útvonalak pontosak, nem glob-minták, és összesen legfeljebb 8 KiB UTF-8 szöveget tehetnek ki. A fájlokat az értékelés után gyűjti össze, és sikeres és sikertelen értékeléshez egyaránt csatolja; a hiányzó és üres fájlokat a munkafolyamat naplójában megjelenő figyelmeztetéssel kihagyja. A kiadásfájlok nevei csak ASCII betűket, számokat, pontokat, aláhúzásokat és kötőjeleket tartalmazhatnak, nem kezdődhetnek vagy végződhetnek ponttal, és nem tartalmazhatnak egymást követő pontokat.",
       "availableFrom": "Közzétételi dátum ({{tz}})",
       "availableFromTz": "Az időpontok a helyi időzónádban vannak megadva ({{tz}}).",
       "repoFeatures": {
@@ -1438,7 +1438,8 @@
       "privateHasForksStepEnable": "Engedélyezd a „Template repository” lehetőséget a beállításaiban.",
       "privateHasForks_one": "A(z) {{owner}}/{{repo}} tárnak {{count}} forkja van. <important>Fontos: a tanterem csapatának olvasási hozzáférését egy privát sablonhoz annak minden privát forkja örökli, így a diákok elolvashatják azt a forkot.</important> Ha egy diákhoz tartozik (például egy olyan tár, amelyet a GitHub Classroom hozott létre ebből a kiindulókódból), inkább egy friss sablont használj:",
       "privateHasForks_other": "A(z) {{owner}}/{{repo}} tárnak {{count}} forkja van. <important>Fontos: a tanterem csapatának olvasási hozzáférését egy privát sablonhoz annak minden privát forkja örökli, így a diákok mindegyik forkot elolvashatják.</important> Ha diákokhoz tartoznak (például olyan tárak, amelyeket a GitHub Classroom hozott létre ebből a kiindulókódból), inkább egy friss sablont használj:",
-      "viewForks": "A(z) {{owner}}/{{repo}} forkjainak megtekintése a GitHubon"
+      "viewForks": "A(z) {{owner}}/{{repo}} forkjainak megtekintése a GitHubon",
+      "readAccessNote": "A tanulók a teljes sablontárat olvashatják, beleértve minden ágat és annak teljes véglegesítési előzményeit. A megoldókulcsokat és megoldásokat tartsd a sablonon kívül."
     },
     "toolbar": {
       "clear": "Törlés",
@@ -3253,6 +3254,13 @@
         "markerAdded": "Ebben a tárban már megvolt az automatikus értékelési munkafolyamat. A hiányzó .classroom50.yaml jelölője hozzáadásra került, így az automatikus értékelő megtalálja a feladatot. A diáknak a következő betolás előtt le kell húznia a módosításokat (pull)."
       },
       "title": "Automatikus értékelési munkafolyamat hozzáadása"
+    },
+    "downloadGroups": {
+      "menuLabel": "Csoportok letöltése (CSV)",
+      "title": "Csoporttagonként egy sor letöltése, a névsorban szereplő nevekkel, e-mail-címmel és szekcióval",
+      "titleEmpty": "Még nincsenek csoportok",
+      "titleLoading": "Várakozás a névsor és a csoporttagság betöltésére",
+      "titleUnavailable": "A névsor vagy a csoporttagság nem olvasható. Töltsd újra az oldalt, majd próbáld újra"
     }
   },
   "orgMembers": {
@@ -4205,19 +4213,22 @@
     "unassigned": {
       "addAriaLabel": "A(z) {{name}} hozzáadása a kiválasztott csoporthoz",
       "addButton": "Hozzáadás",
-      "empty": "A névsorban mindenki csoportban van.",
+      "empty": "A névsor minden tanulója csoportban van.",
       "groupPlaceholder": "Válassz egy csoportot",
       "heading": "Csoport nélküli diákok",
       "hint": "A névsorban szereplő diákok, akik még nincsenek csoportban. Válassz egy szabad hellyel rendelkező csoportot, majd add hozzá őket.",
       "loading": "Diákok betöltése…",
-      "selectAriaLabel": "Csoport a(z) {{name}} számára"
+      "selectAriaLabel": "Csoport a(z) {{name}} számára",
+      "staffNote_one": "{{count}} oktatói személyzeti tag nincs csoportban, és itt nem szerepel. Ha ki szeretnéd próbáltatni velük a feladatot, add hozzá őket egy csoport Kezelés párbeszédpaneléből.",
+      "staffNote_other": "{{count}} oktatói személyzeti tag nincs csoportban, és itt nem szerepel. Ha ki szeretnéd próbáltatni velük a feladatot, add hozzá őket egy csoport Kezelés párbeszédpaneléből."
     },
     "visibility": {
       "help": "A látható csoportokat az osztálytársak böngészhetik, és csatlakozási kéréseket kaphatnak a GitHubon. A rejtett csoportok csak tagjaik és a szervezeti tulajdonosok számára láthatók.",
       "hidden": "Rejtett",
       "label": "Láthatóság",
       "visible": "Látható"
-    }
+    },
+    "staffPickerGroup": "Oktatói személyzet"
   },
   "backgroundPass": {
     "failed": "A GitHubbal való szinkronizálás nem fejeződött be. Legközelebb újra lefut, amikor megnyitod a tantermet.",

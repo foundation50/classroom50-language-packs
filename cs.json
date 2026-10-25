@@ -1002,7 +1002,7 @@
       "releaseAssetCount_other": "{{count}} souborů vydání",
       "releaseAssets": "Soubory vydání odevzdání",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
-      "releaseAssetsTip": "Jedna přesná cesta k souboru relativní k pracovnímu prostoru na řádek; cesty jsou přesné, nikoli vzory glob, a mohou dohromady tvořit nejvýše 8 KiB textu UTF-8. Soubory se shromažďují po hodnocení a připojují se jak k úspěšným, tak k neúspěšným hodnocením; chybějící soubory se přeskočí. Názvy souborů vydání mohou obsahovat pouze ASCII písmena, čísla, tečky, podtržítka a spojovníky a nesmějí začínat ani končit tečkou ani obsahovat po sobě jdoucí tečky.",
+      "releaseAssetsTip": "Jedna přesná cesta k souboru relativní k pracovnímu prostoru na řádek; cesty jsou přesné, nikoli vzory glob, a mohou dohromady tvořit nejvýše 8 KiB textu v UTF-8. Soubory se sbírají po hodnocení a připojují se jak u úspěšných, tak u neúspěšných hodnocení; chybějící a prázdné soubory se přeskočí s upozorněním v protokolu pracovního postupu. Názvy souborů vydání mohou obsahovat pouze ASCII písmena, číslice, tečky, podtržítka a pomlčky a nesmějí začínat ani končit tečkou ani obsahovat po sobě jdoucí tečky.",
       "availableFrom": "Datum zveřejnění ({{tz}})",
       "availableFromTz": "Časy jsou uvedeny ve vašem místním časovém pásmu ({{tz}}).",
       "repoFeatures": {
@@ -1440,7 +1440,8 @@
       "privateHasForksStepEnable": "V jeho nastavení zapněte „Repozitář šablony“.",
       "privateHasForks_one": "{{owner}}/{{repo}} má {{count}} fork. <important>Důležité: čtecí přístup týmu třídy k soukromé šabloně dědí každý soukromý fork této šablony, takže by jej studenti mohli číst.</important> Pokud patří studentovi (například repozitář, který z tohoto výchozího kódu vytvořil GitHub Classroom), použijte místo toho čerstvou šablonu:",
       "privateHasForks_other": "{{owner}}/{{repo}} má {{count}} forků. <important>Důležité: čtecí přístup týmu třídy k soukromé šabloně dědí každý soukromý fork této šablony, takže by studenti mohli číst všechny tyto forky.</important> Pokud patří studentům (například repozitáře, které z tohoto výchozího kódu vytvořil GitHub Classroom), použijte místo toho čerstvou šablonu:",
-      "viewForks": "Zobrazit forky {{owner}}/{{repo}} na GitHubu"
+      "viewForks": "Zobrazit forky {{owner}}/{{repo}} na GitHubu",
+      "readAccessNote": "Studenti mohou číst celý repozitář šablony, včetně každé větve a její úplné historie commitů. Odpovědní klíče a řešení držte mimo šablonu."
     },
     "toolbar": {
       "clear": "Vymazat",
@@ -3256,6 +3257,13 @@
         "markerAdded": "Tento repozitář už pracovní postup autogradingu měl. Byla přidána jeho chybějící značka .classroom50.yaml, takže autograding nyní úlohu najde. Student musí před svým dalším pushem provést pull."
       },
       "title": "Přidat pracovní postup autohodnocení"
+    },
+    "downloadGroups": {
+      "menuLabel": "Stáhnout skupiny (CSV)",
+      "title": "Stáhnout jeden řádek na každého člena skupiny, se jmény ze seznamu, e-mailem a sekcí",
+      "titleEmpty": "Zatím žádné skupiny",
+      "titleLoading": "Čeká se na načtení seznamu a členství ve skupinách",
+      "titleUnavailable": "Seznam nebo členství ve skupinách se nepodařilo načíst. Znovu načtěte stránku a zkuste to znovu"
     }
   },
   "orgMembers": {
@@ -4208,19 +4216,22 @@
     "unassigned": {
       "addAriaLabel": "Přidat {{name}} do vybrané skupiny",
       "addButton": "Přidat",
-      "empty": "Všichni na seznamu jsou ve skupině.",
+      "empty": "Každý student na seznamu je v nějaké skupině.",
       "groupPlaceholder": "Vyberte skupinu",
       "heading": "Nezařazení studenti",
       "hint": "Studenti na seznamu, kteří zatím nejsou ve skupině. Vyberte skupinu s volným místem a poté je přidejte.",
       "loading": "Načítání studentů…",
-      "selectAriaLabel": "Skupina pro {{name}}"
+      "selectAriaLabel": "Skupina pro {{name}}",
+      "staffNote_one": "{{count}} vyučující není ve skupině a není zde uveden. Chcete-li mu umožnit vyzkoušet úkol, přidejte ho přes dialog Spravovat u některé skupiny.",
+      "staffNote_other": "{{count}} vyučující nejsou ve skupině a nejsou zde uvedeni. Chcete-li jim umožnit vyzkoušet úkol, přidejte je přes dialog Spravovat u některé skupiny."
     },
     "visibility": {
       "help": "Viditelné skupiny mohou spolužáci procházet a odesílat jim na GitHubu žádosti o připojení. Skryté skupiny jsou viditelné pouze jejich členům a vlastníkům organizace.",
       "hidden": "Skrytá",
       "label": "Viditelnost",
       "visible": "Viditelná"
-    }
+    },
+    "staffPickerGroup": "Vyučující"
   },
   "backgroundPass": {
     "failed": "Synchronizace s GitHubem nedokončila. Spustí se znovu, až příště otevřete třídu.",

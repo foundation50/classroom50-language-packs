@@ -1429,7 +1429,7 @@
       "allowedFiles": "Allowed files",
       "allowedFilesTip": "Ordered {{gitignore}}-style patterns, one per line, defining which files belong to a submission (last match wins, {{bang}} re-includes). For example, {{star}} then {{example}} allows only {{result}}. Blank allows every file.",
       "releaseAssets": "Submission release files",
-      "releaseAssetsTip": "One exact workspace-relative file path per line; paths are exact, not glob patterns, and may total at most 8 KiB of UTF-8 text. Files are collected after grading and attached on both passing and failing grades; missing files are skipped. Release filenames may use only ASCII letters, numbers, dots, underscores, and hyphens, and may not begin or end with a dot or contain consecutive periods.",
+      "releaseAssetsTip": "One exact workspace-relative file path per line; paths are exact, not glob patterns, and may total at most 8 KiB of UTF-8 text. Files are collected after grading and attached on both passing and failing grades; missing and empty files are skipped with a warning in the workflow log. Release filenames may use only ASCII letters, numbers, dots, underscores, and hyphens, and may not begin or end with a dot or contain consecutive periods.",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
       "releaseAssetCount_one": "{{count}} release file",
       "releaseAssetCount_other": "{{count}} release files",
@@ -1717,6 +1717,7 @@
       "placeholder": "Search templates, or paste <owner>/<repo>",
       "help": "Optional. Students receive a copy of this repository. Search your organization's template repositories, or type <owner>/<repo> or paste a GitHub URL to use one from anywhere. Leave blank for a template-less assignment: students get an initialized repository with a README and the autograding files.",
       "checking": "Checking template access…",
+      "readAccessNote": "Students can read the entire template repository, including every branch and its full commit history. Keep answer keys and solutions out of the template.",
       "fallbackOrg": "your org",
       "invalid": {
         "empty": "Enter a template repository.",
@@ -2112,6 +2113,7 @@
     "addMemberAriaLabel": "Add a student to {{name}}",
     "addMemberPlaceholder": "Choose a student",
     "addMemberButton": "Add",
+    "staffPickerGroup": "Teaching staff",
     "groupFull": "Group is full ({{max}} members max).",
     "noMembers": "No members yet",
     "manage": {
@@ -2197,8 +2199,10 @@
     "unassigned": {
       "heading": "Unassigned students",
       "hint": "Students on the roster who aren't in a group yet. Choose a group with room, then add them.",
+      "staffNote_one": "{{count}} teaching staff member isn't in a group and isn't listed here. To let them test the assignment, add them from a group's Manage dialog.",
+      "staffNote_other": "{{count}} teaching staff members aren't in a group and aren't listed here. To let them test the assignment, add them from a group's Manage dialog.",
       "loading": "Loading students…",
-      "empty": "Everyone on the roster is in a group.",
+      "empty": "Every student on the roster is in a group.",
       "groupPlaceholder": "Choose a group",
       "selectAriaLabel": "Group for {{name}}",
       "addAriaLabel": "Add {{name}} to the selected group",
@@ -3301,6 +3305,13 @@
       "failedHint": "This is often a transient GitHub error. Run the action again to retry only the repositories still missing a PR.",
       "blockedTitle": "These repositories need an org admin:",
       "blockedHint": "Their feedback branch points at the wrong commit, so opening the PR would show an empty diff. An organization admin must delete each feedback branch before re-running this action. Retrying alone won't fix them."
+    },
+    "downloadGroups": {
+      "menuLabel": "Download groups (CSV)",
+      "title": "Download one row per group member, with roster names, email, and section",
+      "titleLoading": "Waiting for the roster and group membership to load",
+      "titleUnavailable": "The roster or group membership could not be read. Reload the page, then try again",
+      "titleEmpty": "No groups yet"
     },
     "downloadAll": {
       "menuLabel": "Download all submissions",
