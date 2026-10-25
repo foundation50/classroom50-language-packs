@@ -1392,7 +1392,7 @@
       "allowedFiles": "允许的文件",
       "allowedFilesTip": "按顺序排列的 {{gitignore}} 风格模式，每行一个，用于定义哪些文件属于一份提交（后匹配者优先，{{bang}} 表示重新包含）。例如 {{star}} 后接 {{example}} 仅允许 {{result}}。留空则允许所有文件。",
       "releaseAssets": "提交发布文件",
-      "releaseAssetsTip": "每行一个精确的相对于工作区的文件路径；路径是精确的，不是通配符模式，总大小最多为 8 KiB 的 UTF-8 文本。文件在评分后收集，无论通过或不通过均会附加；缺失的文件将被跳过。发布文件名只能使用 ASCII 字母、数字、点、下划线和连字符，且不能以点开头或结尾，也不能包含连续的点。",
+      "releaseAssetsTip": "每行一个精确的、相对于工作区的文件路径；路径是精确路径，不是 glob 模式，且总计最多 8 KiB 的 UTF-8 文本。文件在评分后收集，并在通过和未通过的成绩上都会附加；缺失和空文件会被跳过，并在工作流日志中给出警告。发布文件名只能使用 ASCII 字母、数字、点、下划线和连字符，且不能以点开头或结尾，也不能包含连续的点。",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
       "releaseAssetCount_one": "{{count}} 个发布文件",
       "releaseAssetCount_other": "{{count}} 个发布文件",
@@ -1792,7 +1792,8 @@
       "privateHasForksStepEnable": "在它的设置中启用 “Template repository”。",
       "privateHasForks_one": "{{owner}}/{{repo}} 有 {{count}} 个 fork。<important>重要提示：班级团队对私有模板的读取权限会被它的每一个私有 fork 继承，因此学生可能读取该 fork。</important>如果它属于某个学生（例如 GitHub Classroom 从这份初始代码创建的仓库），请改用一个全新的模板：",
       "privateHasForks_other": "{{owner}}/{{repo}} 有 {{count}} 个 fork。<important>重要提示：班级团队对私有模板的读取权限会被它的每一个私有 fork 继承，因此学生可能读取所有这些 fork。</important>如果它们属于学生（例如 GitHub Classroom 从这份初始代码创建的仓库），请改用一个全新的模板：",
-      "viewForks": "在 GitHub 上查看 {{owner}}/{{repo}} 的 fork"
+      "viewForks": "在 GitHub 上查看 {{owner}}/{{repo}} 的 fork",
+      "readAccessNote": "学生可以读取整个模板仓库，包括每个分支及其完整的提交历史。请不要在模板中放置答案或解决方案。"
     },
     "rename": {
       "sectionTitle": "需要更新别名",
@@ -3612,6 +3613,13 @@
         "markerAdded": "此仓库已有自动评分工作流。已添加其缺失的 .classroom50.yaml 标记，使自动评分能够找到该作业。学生在下次推送前必须先 pull。"
       },
       "title": "添加自动评分工作流"
+    },
+    "downloadGroups": {
+      "menuLabel": "下载小组信息（CSV）",
+      "title": "每位小组成员一行，包含花名册姓名、电子邮件和分组",
+      "titleEmpty": "尚无小组",
+      "titleLoading": "正在等待花名册和小组成员信息加载",
+      "titleUnavailable": "无法读取花名册或小组成员信息。请重新加载页面后再试"
     }
   },
   "orgActivity": {
@@ -4205,19 +4213,22 @@
     "unassigned": {
       "addAriaLabel": "将 {{name}} 添加到所选小组",
       "addButton": "添加",
-      "empty": "名册中的每个人都已加入某个小组。",
+      "empty": "花名册上的每位学生都已分到小组。",
       "groupPlaceholder": "选择一个小组",
       "heading": "未分配的学生",
       "hint": "名册中尚未加入小组的学生。请选择一个还有空位的小组，然后将他们添加进去。",
       "loading": "正在加载学生…",
-      "selectAriaLabel": "为 {{name}} 选择小组"
+      "selectAriaLabel": "为 {{name}} 选择小组",
+      "staffNote_one": "有 {{count}} 位教学人员不在任何小组中，也未在此列出。若要让他们测试该作业，请在某个小组的「管理」对话框中添加他们。",
+      "staffNote_other": "有 {{count}} 位教学人员不在任何小组中，也未在此列出。若要让他们测试该作业，请在某个小组的「管理」对话框中添加他们。"
     },
     "visibility": {
       "help": "可见的小组可以被同学浏览，并在 GitHub 上接收加入申请。隐藏的小组仅对其成员和组织所有者可见。",
       "hidden": "隐藏",
       "label": "可见性",
       "visible": "可见"
-    }
+    },
+    "staffPickerGroup": "教学人员"
   },
   "backgroundPass": {
     "failed": "与 GitHub 的同步未完成。下次你打开课堂时会再次运行。",

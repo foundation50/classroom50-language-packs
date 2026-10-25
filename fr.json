@@ -1018,7 +1018,7 @@
       "allowedFiles": "Fichiers autorisés",
       "allowedFilesTip": "Motifs ordonnés au style {{gitignore}}, un par ligne, définissant quels fichiers appartiennent à une soumission (la dernière correspondance l'emporte, {{bang}} réinclut). Par exemple, {{star}} puis {{example}} n'autorise que {{result}}. Vide autorise tous les fichiers.",
       "releaseAssets": "Fichiers de release de la remise",
-      "releaseAssetsTip": "Un chemin de fichier exact relatif à l'espace de travail par ligne ; les chemins sont exacts, pas des motifs glob, et peuvent totaliser au plus 8 Kio de texte UTF-8. Les fichiers sont collectés après l'évaluation et joints tant aux notes réussies qu'échouées ; les fichiers manquants sont ignorés. Les noms de fichiers de release ne peuvent utiliser que des lettres ASCII, des chiffres, des points, des tirets bas et des traits d'union, et ne peuvent ni commencer ni se terminer par un point, ni contenir de points consécutifs.",
+      "releaseAssetsTip": "Un chemin de fichier exact relatif à l'espace de travail par ligne ; les chemins sont exacts, et non des motifs glob, et peuvent totaliser au maximum 8 Kio de texte UTF-8. Les fichiers sont collectés après la correction et joints aussi bien aux notes réussies qu'échouées ; les fichiers manquants et vides sont ignorés avec un avertissement dans le journal du workflow. Les noms de fichiers de release ne peuvent contenir que des lettres ASCII, des chiffres, des points, des traits de soulignement et des traits d'union, et ne peuvent ni commencer ni se terminer par un point, ni contenir de points consécutifs.",
       "releaseAssetsPlaceholder": "report.pdf\nplots/chart.png",
       "releaseAssetCount_one": "{{count}} fichier de release",
       "releaseAssetCount_other": "{{count}} fichiers de release",
@@ -1553,7 +1553,8 @@
       "privateHasForksStepEnable": "Activez « Dépôt modèle » dans ses paramètres.",
       "privateHasForks_one": "{{owner}}/{{repo}} a {{count}} fork. <important>Important : l'accès en lecture de l'équipe de la classe à un modèle privé est hérité par chacun de ses forks privés, de sorte que des étudiants pourraient lire ce fork.</important> S'il appartient à un étudiant (par exemple, un dépôt que GitHub Classroom a créé à partir de ce code de départ), utilisez plutôt un nouveau modèle :",
       "privateHasForks_other": "{{owner}}/{{repo}} a {{count}} forks. <important>Important : l'accès en lecture de l'équipe de la classe à un modèle privé est hérité par chacun de ses forks privés, de sorte que des étudiants pourraient lire tous ces forks.</important> S'ils appartiennent à des étudiants (par exemple, des dépôts que GitHub Classroom a créés à partir de ce code de départ), utilisez plutôt un nouveau modèle :",
-      "viewForks": "Voir les forks de {{owner}}/{{repo}} sur GitHub"
+      "viewForks": "Voir les forks de {{owner}}/{{repo}} sur GitHub",
+      "readAccessNote": "Les étudiants peuvent lire l'intégralité du dépôt modèle, y compris chaque branche et tout son historique de commits. Gardez les corrigés et les solutions hors du modèle."
     },
     "collect": {
       "confirmAction": "Tout collecter",
@@ -3365,6 +3366,13 @@
         "markerAdded": "Ce dépôt avait déjà le workflow de correction automatique. Son marqueur .classroom50.yaml manquant a été ajouté, afin que la correction automatique puisse trouver le devoir. L'étudiant doit effectuer un pull avant son prochain push."
       },
       "title": "Ajouter le workflow de correction automatique"
+    },
+    "downloadGroups": {
+      "menuLabel": "Télécharger les groupes (CSV)",
+      "title": "Télécharger une ligne par membre de groupe, avec les noms de la liste de classe, l'e-mail et la section",
+      "titleEmpty": "Aucun groupe pour l'instant",
+      "titleLoading": "En attente du chargement de la liste de classe et de la composition des groupes",
+      "titleUnavailable": "Impossible de lire la liste de classe ou la composition des groupes. Rechargez la page, puis réessayez"
     }
   },
   "orgActivity": {
@@ -4205,19 +4213,22 @@
     "unassigned": {
       "addAriaLabel": "Ajouter {{name}} au groupe sélectionné",
       "addButton": "Ajouter",
-      "empty": "Toutes les personnes de la liste sont dans un groupe.",
+      "empty": "Chaque étudiant de la liste de classe fait partie d'un groupe.",
       "groupPlaceholder": "Choisir un groupe",
       "heading": "Élèves non affectés",
       "hint": "Élèves de la liste qui ne sont pas encore dans un groupe. Choisissez un groupe disposant de places, puis ajoutez-les.",
       "loading": "Chargement des élèves…",
-      "selectAriaLabel": "Groupe pour {{name}}"
+      "selectAriaLabel": "Groupe pour {{name}}",
+      "staffNote_one": "{{count}} membre de l'équipe pédagogique n'est dans aucun groupe et n'est pas affiché ici. Pour lui permettre de tester le devoir, ajoutez-le depuis la boîte de dialogue Gérer d'un groupe.",
+      "staffNote_other": "{{count}} membres de l'équipe pédagogique ne sont dans aucun groupe et ne sont pas affichés ici. Pour leur permettre de tester le devoir, ajoutez-les depuis la boîte de dialogue Gérer d'un groupe."
     },
     "visibility": {
       "help": "Les groupes visibles peuvent être parcourus par les camarades et recevoir des demandes d'adhésion sur GitHub. Les groupes masqués ne sont visibles que par leurs membres et les propriétaires de l'organisation.",
       "hidden": "Masqué",
       "label": "Visibilité",
       "visible": "Visible"
-    }
+    },
+    "staffPickerGroup": "Équipe pédagogique"
   },
   "backgroundPass": {
     "failed": "La synchronisation avec GitHub ne s'est pas terminée. Elle se relance à la prochaine ouverture de la classe.",
