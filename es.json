@@ -2993,7 +2993,7 @@
       "finishHint": "La entrega está cerrada para nuevos estudiantes, pero algunos repositorios aún no son de solo lectura. Termina el cierre para reintentar solo esos. Esto no reabre la entrega.",
       "flagError": "No se pudo actualizar la ventana de entrega, así que no se cambió ningún repositorio. Inténtalo de nuevo.",
       "menuLabel": "Cerrar entrega",
-      "menuTitle": "Cerrar la ventana de entrega: impide que nuevos estudiantes acepten y establece el repositorio de cada estudiante como de solo lectura",
+      "menuTitle": "Cerrar el plazo de entrega: impedir que nuevos estudiantes acepten y poner todos los repositorios de la tarea en solo lectura",
       "noRepos": "Ningún estudiante ha aceptado esta tarea todavía. Cerrarla igualmente impide que nuevos estudiantes acepten.",
       "progress": "Actualizados {{processed}} de {{total}}",
       "reopenApply": "Reabrir entrega",
@@ -3016,7 +3016,27 @@
       "title": "Cerrar entrega",
       "warning_one": "Esto impide que cualquier estudiante nuevo acepte y establece el rol de {{count}} estudiante en su propio repositorio como lectura (pull). El trabajo existente se conserva, pero pasa a ser de solo lectura hasta que reabras.",
       "warning_other": "Esto impide que cualquier estudiante nuevo acepte y establece los roles de {{count}} estudiantes en sus propios repositorios como lectura (pull). El trabajo existente se conserva, pero pasa a ser de solo lectura hasta que reabras.",
-      "working": "Actualizando repositorios"
+      "working": "Actualizando repositorios",
+      "keptRole": "GitHub mantuvo el rol existente ({{effective}}).",
+      "keptRoleMembers": "GitHub mantuvo el rol existente para {{members}}.",
+      "noReposGroup": "Ningún grupo tiene todavía un repositorio para esta tarea. Al cerrar, de todos modos se impide que nuevos estudiantes acepten.",
+      "notAppliedHint": {
+        "admin": "Un rol de administrador o creador del repositorio",
+        "lead": "Los estudiantes indicados arriba siguen teniendo acceso de escritura. GitHub mantuvo un rol superior que el cierre no puede rebajar. Proviene de uno de estos:",
+        "leadGroup": "Los miembros mencionados arriba siguen teniendo acceso de escritura. GitHub mantuvo un rol superior que el cierre no puede rebajar. Proviene de uno de estos:",
+        "next": "Quita ese rol o permiso, o transfiere el repositorio. Luego usa <b>Actualizar acceso al repositorio del estudiante</b> para poner el repositorio en solo lectura.",
+        "nextGroup": "Quita ese rol o permiso, o transfiere el repositorio. Luego establece el rol del miembro en solo lectura en los ajustes de <b>Colaboradores y equipos</b> del repositorio en GitHub.",
+        "owner": "Un rol de propietario de la organización",
+        "team": "Un permiso de equipo o base de la organización que otorga escritura"
+      },
+      "reopenSubtitleGroup_one": "Permite que nuevos estudiantes acepten y restablece el acceso de escritura al repositorio de {{count}} grupo.",
+      "reopenSubtitleGroup_other": "Permite que nuevos estudiantes acepten y restablece el acceso de escritura a los repositorios de {{count}} grupos.",
+      "reopenWarningGroup_one": "Esto vuelve a permitir nuevas aceptaciones y restablece el acceso de escritura al repositorio de {{count}} grupo.",
+      "reopenWarningGroup_other": "Esto vuelve a permitir nuevas aceptaciones y restablece el acceso de escritura a los repositorios de {{count}} grupos.",
+      "subtitleGroup_one": "Impide que nuevos estudiantes acepten y pone el repositorio de {{count}} grupo en solo lectura.",
+      "subtitleGroup_other": "Impide que nuevos estudiantes acepten y pone los repositorios de {{count}} grupos en solo lectura.",
+      "warningGroup_one": "Esto impide que cualquier nuevo estudiante acepte y establece el rol de cada miembro en el repositorio de {{count}} grupo como solo lectura (pull). El trabajo existente se conserva, pero queda en solo lectura hasta que vuelvas a abrir.",
+      "warningGroup_other": "Esto impide que cualquier nuevo estudiante acepte y establece el rol de cada miembro en los repositorios de {{count}} grupos como solo lectura (pull). El trabajo existente se conserva, pero queda en solo lectura hasta que vuelvas a abrir."
     },
     "closedNotice": "Las entregas están cerradas. Los estudiantes nuevos no pueden aceptar esta tarea. Cuando cierras desde aquí, los repositorios de los estudiantes que aceptaron se establecen como de solo lectura; el trabajo existente se conserva. Reábrela desde el menú Acciones para volver a permitir entregas.",
     "rowAutograde": {
@@ -3637,7 +3657,7 @@
         "loading": "Cargando colaboradores",
         "needsAdmin": "Necesitas acceso admin en este repositorio para cambiar sus colaboradores.",
         "newRole": "Rol del nuevo colaborador",
-        "notApplied": "GitHub mantuvo el rol existente ({{effective}}). Al creador de un repositorio no se le puede rebajar por debajo de administrador. Pide al estudiante que reduzca su propio acceso, o transfiere la propiedad del repositorio.",
+        "notApplied": "GitHub mantuvo el rol existente ({{effective}}). Sigue aplicándose una concesión superior: un rol de propietario de la organización o de creador del repositorio, o un permiso de equipo o base. Quita esa concesión o transfiere el repositorio y vuelve a asignar el rol.",
         "removeUser": "Eliminar a {{username}}",
         "roleFor": "Rol de {{username}}",
         "save": "Actualizar acceso",
@@ -3645,7 +3665,9 @@
         "saved": "Acceso actualizado.",
         "studentBadge": "Estudiante",
         "title": "Gestionar el acceso al repositorio",
-        "viewRepoNamed": "Ver el repositorio {{name}}"
+        "viewRepoNamed": "Ver el repositorio {{name}}",
+        "notAppliedMembers": "GitHub mantuvo el rol existente para {{members}}. Sigue aplicándose una concesión superior: un rol de propietario de la organización o de creador del repositorio, o un permiso de equipo o base. Quita esa concesión o transfiere el repositorio y vuelve a asignar el rol.",
+        "teamMissing": "No se encontró el equipo del grupo, así que este repositorio no se modificó. Vuelve a cargar la página e inténtalo de nuevo."
       }
     },
     "groupTeamMembers": {

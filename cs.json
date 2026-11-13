@@ -2996,7 +2996,7 @@
       "finishHint": "Odevzdávání je pro nové studenty uzavřeno, ale některé repozitáře ještě nejsou jen pro čtení. Dokončete uzavření pro opakování jen u těchto. Odevzdávání se tím znovu neotevře.",
       "flagError": "Okno pro odevzdávání nešlo aktualizovat, takže žádné repozitáře nebyly změněny. Zkuste to znovu.",
       "menuLabel": "Uzavřít odevzdávání",
-      "menuTitle": "Uzavřít okno pro odevzdávání: zablokovat přijetí novými studenty a nastavit každý studentský repozitář jen pro čtení",
+      "menuTitle": "Uzavřít okno pro odevzdávání: zabránit novým studentům v přijetí a nastavit každý repozitář úlohy jen pro čtení",
       "noRepos": "Tento assignment zatím žádný student nepřijal. Uzavření přesto zablokuje přijetí novými studenty.",
       "progress": "Aktualizováno {{processed}} z {{total}}",
       "reopenApply": "Znovu otevřít odevzdávání",
@@ -3019,7 +3019,27 @@
       "title": "Uzavřít odevzdávání",
       "warning_one": "Tímto se zablokuje přijetí jakémukoli novému studentovi a nastaví se role {{count}} studenta na jeho vlastním repozitáři na čtení (pull). Existující práce je zachována, ale stane se pouze pro čtení, dokud znovu neotevřete.",
       "warning_other": "Tímto se zablokuje přijetí jakémukoli novému studentovi a nastaví se role {{count}} studentů na jejich vlastních repozitářích na čtení (pull). Existující práce je zachována, ale stane se pouze pro čtení, dokud znovu neotevřete.",
-      "working": "Aktualizace repozitářů"
+      "working": "Aktualizace repozitářů",
+      "keptRole": "GitHub ponechal stávající roli ({{effective}}).",
+      "keptRoleMembers": "GitHub ponechal stávající roli pro {{members}}.",
+      "noReposGroup": "Zatím žádná skupina nemá pro tuto úlohu repozitář. Uzavření stále zabrání novým studentům v přijetí.",
+      "notAppliedHint": {
+        "admin": "Role správce nebo zakladatele repozitáře",
+        "lead": "Studenti uvedení výše stále mají přístup k zápisu. GitHub ponechal vyšší roli, kterou uzavření nemůže snížit. Pochází z jednoho z následujících zdrojů:",
+        "leadGroup": "Výše uvedení členové stále mají přístup k zápisu. GitHub ponechal vyšší roli, kterou uzavření nemůže snížit. Pochází z jednoho z následujících zdrojů:",
+        "next": "Odeberte tuto roli nebo oprávnění, případně repozitář převeďte. Poté pomocí <b>Aktualizovat přístup k repozitářům studentů</b> nastavte repozitář jen pro čtení.",
+        "nextGroup": "Odeberte tuto roli nebo oprávnění, případně repozitář převeďte. Poté nastavte roli člena na čtení v nastavení <b>Spolupracovníci a týmy</b> repozitáře na GitHubu.",
+        "owner": "Role vlastníka organizace",
+        "team": "Oprávnění týmu nebo základní oprávnění organizace, které uděluje zápis"
+      },
+      "reopenSubtitleGroup_one": "Umožní novým studentům přijmout úlohu a obnoví přístup k zápisu u repozitáře {{count}} skupiny.",
+      "reopenSubtitleGroup_other": "Umožní novým studentům přijmout úlohu a obnoví přístup k zápisu u repozitářů {{count}} skupin.",
+      "reopenWarningGroup_one": "Tím opět umožníte nová přijetí a obnovíte přístup k zápisu u repozitáře {{count}} skupiny.",
+      "reopenWarningGroup_other": "Tím opět umožníte nová přijetí a obnovíte přístup k zápisu u repozitářů {{count}} skupin.",
+      "subtitleGroup_one": "Zabrání novým studentům v přijetí a nastaví repozitář {{count}} skupiny jen pro čtení.",
+      "subtitleGroup_other": "Zabrání novým studentům v přijetí a nastaví repozitáře {{count}} skupin jen pro čtení.",
+      "warningGroup_one": "Tím zabráníte jakémukoli novému studentovi v přijetí a nastavíte roli každého člena u repozitáře {{count}} skupiny na čtení (pull). Stávající práce zůstane zachována, ale bude jen pro čtení, dokud úlohu znovu neotevřete.",
+      "warningGroup_other": "Tím zabráníte jakémukoli novému studentovi v přijetí a nastavíte roli každého člena u repozitářů {{count}} skupin na čtení (pull). Stávající práce zůstane zachována, ale bude jen pro čtení, dokud úlohu znovu neotevřete."
     },
     "closedNotice": "Odevzdávání je uzavřeno. Noví studenti nemohou tuto úlohu přijmout. Když uzavřete odsud, repozitáře studentů, kteří již přijali, se nastaví jako pouze pro čtení; existující práce je zachována. Znovu ji otevřete z nabídky Akce, chcete-li odevzdávání opět povolit.",
     "rowAutograde": {
@@ -3640,7 +3660,7 @@
         "loading": "Načítají se spolupracovníci",
         "needsAdmin": "Ke změně spolupracovníků tohoto repozitáře potřebujete přístup admin.",
         "newRole": "Role pro nového spolupracovníka",
-        "notApplied": "GitHub ponechal stávající roli ({{effective}}). Tvůrce repozitáře nelze snížit pod úroveň správce. Požádejte studenta, aby si sám snížil přístup, nebo převeďte vlastnictví repozitáře.",
+        "notApplied": "GitHub ponechal stávající roli ({{effective}}). Stále platí vyšší oprávnění: role vlastníka organizace nebo zakladatele repozitáře, případně oprávnění týmu či základní oprávnění. Odeberte toto oprávnění nebo repozitář převeďte a poté roli nastavte znovu.",
         "removeUser": "Odebrat {{username}}",
         "roleFor": "Role pro {{username}}",
         "save": "Aktualizovat přístup",
@@ -3648,7 +3668,9 @@
         "saved": "Přístup aktualizován.",
         "studentBadge": "Student",
         "title": "Spravovat přístup k repozitáři",
-        "viewRepoNamed": "Zobrazit repozitář {{name}}"
+        "viewRepoNamed": "Zobrazit repozitář {{name}}",
+        "notAppliedMembers": "GitHub ponechal stávající roli pro {{members}}. Stále platí vyšší oprávnění: role vlastníka organizace nebo zakladatele repozitáře, případně oprávnění týmu či základní oprávnění. Odeberte toto oprávnění nebo repozitář převeďte a poté roli nastavte znovu.",
+        "teamMissing": "Tým této skupiny nebyl nalezen, takže tento repozitář nebyl změněn. Načtěte stránku znovu a zkuste to znovu."
       }
     },
     "groupTeamMembers": {

@@ -2995,7 +2995,7 @@
       "finishHint": "Przesyłanie jest zamknięte dla nowych uczniów, ale niektóre repozytoria nie są jeszcze tylko do odczytu. Dokończ zamykanie, aby ponowić próbę tylko dla nich. Nie otwiera to przesyłania na nowo.",
       "flagError": "Nie udało się zaktualizować okna przesyłania, więc żadne repozytorium nie zostało zmienione. Spróbuj ponownie.",
       "menuLabel": "Zamknij zgłoszenia",
-      "menuTitle": "Zamknij okno przesyłania: zablokuj nowym uczniom akceptowanie i ustaw każde repozytorium ucznia jako tylko do odczytu",
+      "menuTitle": "Zamknij okno zgłoszeń: zablokuj akceptację nowym studentom i ustaw każde repozytorium zadania tylko do odczytu",
       "noRepos": "Żaden uczeń jeszcze nie zaakceptował tego zadania. Zamknięcie i tak zablokuje nowym uczniom akceptowanie.",
       "progress": "Zaktualizowano {{processed}} z {{total}}",
       "reopenApply": "Otwórz zgłoszenia ponownie",
@@ -3018,7 +3018,27 @@
       "title": "Zamknij zgłoszenia",
       "warning_one": "To blokuje możliwość zaakceptowania przez każdego nowego ucznia i ustawia rolę {{count}} ucznia we własnym repozytorium na odczyt (pull). Istniejąca praca jest zachowana, ale staje się tylko do odczytu, dopóki nie otworzysz ponownie.",
       "warning_other": "To blokuje możliwość zaakceptowania przez każdego nowego ucznia i ustawia role {{count}} uczniów we własnych repozytoriach na odczyt (pull). Istniejąca praca jest zachowana, ale staje się tylko do odczytu, dopóki nie otworzysz ponownie.",
-      "working": "Aktualizowanie repozytoriów"
+      "working": "Aktualizowanie repozytoriów",
+      "keptRole": "GitHub zachował dotychczasową rolę ({{effective}}).",
+      "keptRoleMembers": "GitHub zachował dotychczasową rolę dla: {{members}}.",
+      "noReposGroup": "Żadna grupa nie ma jeszcze repozytorium dla tego zadania. Zamknięcie i tak blokuje akceptację nowym studentom.",
+      "notAppliedHint": {
+        "admin": "Rola administratora lub twórcy repozytorium",
+        "lead": "Studenci wymienieni powyżej nadal mają dostęp do zapisu. GitHub zachował wyższą rolę, której zamknięcie nie może obniżyć. Wynika ona z jednego z poniższych:",
+        "leadGroup": "Wymienieni powyżej członkowie nadal mają dostęp do zapisu. GitHub zachował wyższą rolę, której zamknięcie nie może obniżyć. Wynika ona z jednego z poniższych:",
+        "next": "Usuń tę rolę lub uprawnienie albo przenieś repozytorium. Następnie użyj opcji <b>Zaktualizuj dostęp studentów do repozytorium</b>, aby ustawić repozytorium na odczyt.",
+        "nextGroup": "Usuń tę rolę lub uprawnienie albo przenieś repozytorium. Następnie ustaw rolę członka na odczyt w ustawieniach <b>Współpracownicy i zespoły</b> repozytorium na GitHubie.",
+        "owner": "Rola właściciela organizacji",
+        "team": "Uprawnienie zespołu lub podstawowe uprawnienie organizacji przyznające zapis"
+      },
+      "reopenSubtitleGroup_one": "Pozwala nowym studentom akceptować i przywraca dostęp do zapisu w repozytorium {{count}} grupy.",
+      "reopenSubtitleGroup_other": "Pozwala nowym studentom akceptować i przywraca dostęp do zapisu w repozytoriach {{count}} grupy.",
+      "reopenWarningGroup_one": "To ponownie zezwala na akceptację i przywraca dostęp do zapisu w repozytorium {{count}} grupy.",
+      "reopenWarningGroup_other": "To ponownie zezwala na akceptację i przywraca dostęp do zapisu w repozytoriach {{count}} grupy.",
+      "subtitleGroup_one": "Blokuje akceptację nowym studentom i ustawia repozytorium {{count}} grupy tylko do odczytu.",
+      "subtitleGroup_other": "Blokuje akceptację nowym studentom i ustawia repozytoria {{count}} grupy tylko do odczytu.",
+      "warningGroup_one": "To blokuje akceptację każdemu nowemu studentowi i ustawia rolę każdego członka w repozytorium {{count}} grupy na odczyt (pull). Istniejąca praca zostaje zachowana, ale staje się tylko do odczytu do momentu ponownego otwarcia.",
+      "warningGroup_other": "To blokuje akceptację każdemu nowemu studentowi i ustawia rolę każdego członka w repozytoriach {{count}} grupy na odczyt (pull). Istniejąca praca zostaje zachowana, ale staje się tylko do odczytu do momentu ponownego otwarcia."
     },
     "closedNotice": "Zgłoszenia są zamknięte. Nowi uczniowie nie mogą zaakceptować tego zadania. Gdy zamkniesz stąd, repozytoria zaakceptowanych uczniów są ustawiane jako tylko do odczytu; istniejąca praca jest zachowana. Otwórz ponownie z menu Akcje, aby ponownie zezwolić na zgłoszenia.",
     "rowAutograde": {
@@ -3639,7 +3659,7 @@
         "loading": "Ładowanie współpracowników",
         "needsAdmin": "Aby zmienić współpracowników tego repozytorium, potrzebujesz dostępu administratora.",
         "newRole": "Rola nowego współpracownika",
-        "notApplied": "GitHub zachował istniejącą rolę ({{effective}}). Twórcy repozytorium nie można zdegradować poniżej roli administratora. Poproś ucznia o obniżenie własnego dostępu lub przenieś własność repozytorium.",
+        "notApplied": "GitHub zachował dotychczasową rolę ({{effective}}). Nadal obowiązuje wyższe uprawnienie: rola właściciela organizacji lub twórcy repozytorium albo uprawnienie zespołu lub uprawnienie podstawowe. Usuń to uprawnienie lub przenieś repozytorium, a następnie ustaw rolę ponownie.",
         "removeUser": "Usuń {{username}}",
         "roleFor": "Rola dla {{username}}",
         "save": "Zaktualizuj dostęp",
@@ -3647,7 +3667,9 @@
         "saved": "Zaktualizowano dostęp.",
         "studentBadge": "Uczeń",
         "title": "Zarządzaj dostępem do repozytorium",
-        "viewRepoNamed": "Wyświetl repozytorium {{name}}"
+        "viewRepoNamed": "Wyświetl repozytorium {{name}}",
+        "notAppliedMembers": "GitHub zachował dotychczasową rolę dla: {{members}}. Nadal obowiązuje wyższe uprawnienie: rola właściciela organizacji lub twórcy repozytorium albo uprawnienie zespołu lub uprawnienie podstawowe. Usuń to uprawnienie lub przenieś repozytorium, a następnie ustaw rolę ponownie.",
+        "teamMissing": "Nie znaleziono zespołu grupy, więc to repozytorium nie zostało zmienione. Odśwież stronę i spróbuj ponownie."
       }
     },
     "groupTeamMembers": {

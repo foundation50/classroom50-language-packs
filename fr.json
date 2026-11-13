@@ -3105,7 +3105,7 @@
       "finishHint": "La soumission est fermée aux nouveaux étudiants, mais certains dépôts ne sont pas encore en lecture seule. Terminez la fermeture pour ne réessayer que ceux-là. Cela ne rouvre pas la soumission.",
       "flagError": "La fenêtre de soumission n'a pas pu être mise à jour, aucun dépôt n'a donc été modifié. Réessayez.",
       "menuLabel": "Fermer les rendus",
-      "menuTitle": "Fermer la fenêtre de soumission : empêcher les nouveaux étudiants d'accepter et passer le dépôt de chaque étudiant en lecture seule",
+      "menuTitle": "Fermer la période de remise : empêcher de nouveaux élèves d'accepter et passer chaque dépôt de devoir en lecture seule",
       "noRepos": "Aucun étudiant n'a encore accepté ce devoir. La fermeture empêche tout de même les nouveaux étudiants d'accepter.",
       "progress": "{{processed}} mis à jour sur {{total}}",
       "reopenApply": "Rouvrir les rendus",
@@ -3128,7 +3128,27 @@
       "title": "Fermer les rendus",
       "warning_one": "Cela empêche tout nouvel étudiant d'accepter et règle le rôle de {{count}} étudiant sur son propre dépôt sur lecture (pull). Le travail existant est préservé mais devient en lecture seule jusqu'à la réouverture.",
       "warning_other": "Cela empêche tout nouvel étudiant d'accepter et règle le rôle de {{count}} étudiants sur leurs propres dépôts sur lecture (pull). Le travail existant est préservé mais devient en lecture seule jusqu'à la réouverture.",
-      "working": "Mise à jour des dépôts"
+      "working": "Mise à jour des dépôts",
+      "keptRole": "GitHub a conservé le rôle existant ({{effective}}).",
+      "keptRoleMembers": "GitHub a conservé le rôle existant pour {{members}}.",
+      "noReposGroup": "Aucun groupe n'a encore de dépôt pour ce devoir. La fermeture empêche quand même de nouveaux élèves d'accepter.",
+      "notAppliedHint": {
+        "admin": "Un rôle d'administrateur ou de créateur du dépôt",
+        "lead": "Les élèves listés ci-dessus conservent un accès en écriture. GitHub a maintenu un rôle supérieur que la fermeture ne peut pas abaisser. Il provient de l'un des éléments suivants :",
+        "leadGroup": "Les membres nommés ci-dessus conservent un accès en écriture. GitHub a maintenu un rôle supérieur que la fermeture ne peut pas abaisser. Il provient de l'un des éléments suivants :",
+        "next": "Supprimez ce rôle ou cette autorisation, ou transférez le dépôt. Utilisez ensuite <b>Mettre à jour l'accès aux dépôts des élèves</b> pour passer le dépôt en lecture.",
+        "nextGroup": "Supprimez ce rôle ou cette autorisation, ou transférez le dépôt. Définissez ensuite le rôle du membre sur lecture dans les paramètres <b>Collaborateurs et équipes</b> du dépôt sur GitHub.",
+        "owner": "Un rôle de propriétaire de l'organisation",
+        "team": "Une autorisation d'équipe ou de base de l'organisation qui accorde l'écriture"
+      },
+      "reopenSubtitleGroup_one": "Permet à de nouveaux élèves d'accepter et rétablit l'accès en écriture au dépôt de {{count}} groupe.",
+      "reopenSubtitleGroup_other": "Permet à de nouveaux élèves d'accepter et rétablit l'accès en écriture aux dépôts de {{count}} groupes.",
+      "reopenWarningGroup_one": "Ceci autorise de nouveau les acceptations et rétablit l'accès en écriture au dépôt de {{count}} groupe.",
+      "reopenWarningGroup_other": "Ceci autorise de nouveau les acceptations et rétablit l'accès en écriture aux dépôts de {{count}} groupes.",
+      "subtitleGroup_one": "Empêche de nouveaux élèves d'accepter et passe le dépôt de {{count}} groupe en lecture seule.",
+      "subtitleGroup_other": "Empêche de nouveaux élèves d'accepter et passe les dépôts de {{count}} groupes en lecture seule.",
+      "warningGroup_one": "Ceci empêche tout nouvel élève d'accepter et définit le rôle de chaque membre sur le dépôt de {{count}} groupe en lecture (pull). Le travail existant est conservé, mais passe en lecture seule jusqu'à ce que vous rouvriez.",
+      "warningGroup_other": "Ceci empêche tout nouvel élève d'accepter et définit le rôle de chaque membre sur les dépôts de {{count}} groupes en lecture (pull). Le travail existant est conservé, mais passe en lecture seule jusqu'à ce que vous rouvriez."
     },
     "closedNotice": "Les rendus sont fermés. Les nouveaux étudiants ne peuvent pas accepter ce devoir. Lorsque vous fermez depuis ici, les dépôts des étudiants ayant accepté sont mis en lecture seule ; le travail existant est préservé. Rouvrez depuis le menu Actions pour autoriser de nouveau les rendus.",
     "rowAutograde": {
@@ -3804,7 +3824,7 @@
         "loading": "Chargement des collaborateurs",
         "needsAdmin": "Vous avez besoin d'un accès admin sur ce dépôt pour modifier ses collaborateurs.",
         "newRole": "Rôle pour le nouveau collaborateur",
-        "notApplied": "GitHub a conservé le rôle existant ({{effective}}). Le créateur d'un dépôt ne peut pas être rétrogradé en dessous d'administrateur. Demandez à l'élève de réduire son propre accès, ou transférez la propriété du dépôt.",
+        "notApplied": "GitHub a conservé le rôle existant ({{effective}}). Un niveau d'accès supérieur reste actif : un rôle de propriétaire de l'organisation ou de créateur du dépôt, ou une autorisation d'équipe ou de base. Supprimez cette attribution ou transférez le dépôt, puis définissez à nouveau le rôle.",
         "removeUser": "Retirer {{username}}",
         "roleFor": "Rôle pour {{username}}",
         "save": "Mettre à jour l'accès",
@@ -3812,7 +3832,9 @@
         "saved": "Accès mis à jour.",
         "studentBadge": "Étudiant",
         "title": "Gérer l'accès au dépôt",
-        "viewRepoNamed": "Voir le dépôt {{name}}"
+        "viewRepoNamed": "Voir le dépôt {{name}}",
+        "notAppliedMembers": "GitHub a conservé le rôle existant pour {{members}}. Un niveau d'accès supérieur reste actif : un rôle de propriétaire de l'organisation ou de créateur du dépôt, ou une autorisation d'équipe ou de base. Supprimez cette attribution ou transférez le dépôt, puis définissez à nouveau le rôle.",
+        "teamMissing": "L'équipe du groupe est introuvable ; ce dépôt n'a donc pas été modifié. Rechargez la page et réessayez."
       }
     },
     "groupTeamMembers": {

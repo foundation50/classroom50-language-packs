@@ -2993,7 +2993,7 @@
       "finishHint": "繳交已對新學生關閉，但部分儲存庫尚未設為唯讀。完成關閉以僅重試那些儲存庫。此操作不會重新開放繳交。",
       "flagError": "無法更新繳交視窗，因此沒有變更任何儲存庫。請再試一次。",
       "menuLabel": "關閉提交",
-      "menuTitle": "關閉繳交視窗：阻止新學生接受，並將每位學生的儲存庫設為唯讀",
+      "menuTitle": "關閉繳交期間：禁止新學生接受作業，並將每個作業儲存庫設為唯讀。",
       "noRepos": "尚無學生接受此作業。關閉仍會阻止新學生接受。",
       "progress": "已更新 {{total}} 個中的 {{processed}} 個",
       "reopenApply": "重新開放提交",
@@ -3016,7 +3016,27 @@
       "title": "關閉提交",
       "warning_one": "這會阻止任何新學生接受，並將 {{count}} 位學生在自己儲存庫上的角色設為讀取（pull）。既有作品會保留，但在你重新開放前變為唯讀。",
       "warning_other": "這會阻止任何新學生接受，並將 {{count}} 位學生在自己儲存庫上的角色設為讀取（pull）。既有作品會保留，但在你重新開放前變為唯讀。",
-      "working": "正在更新儲存庫"
+      "working": "正在更新儲存庫",
+      "keptRole": "GitHub 保留了現有的角色（{{effective}}）。",
+      "keptRoleMembers": "GitHub 為 {{members}} 保留了現有的角色。",
+      "noReposGroup": "目前還沒有小組擁有這份作業的儲存庫。關閉仍會禁止新學生接受作業。",
+      "notAppliedHint": {
+        "admin": "儲存庫管理員或建立者角色",
+        "lead": "上列學生仍擁有寫入權限。GitHub 保留了關閉無法降低的更高角色。它來自下列其中之一：",
+        "leadGroup": "上列成員仍擁有寫入權限。GitHub 保留了關閉無法降低的更高角色。它來自下列其中之一：",
+        "next": "請移除該角色或權限，或轉移儲存庫。接著使用 <b>更新學生儲存庫存取權</b> 將儲存庫設為唯讀。",
+        "nextGroup": "請移除該角色或權限，或轉移儲存庫。接著在 GitHub 上該儲存庫的 <b>協作者與團隊</b> 設定中，將該成員的角色設為唯讀。",
+        "owner": "組織擁有者角色",
+        "team": "授予寫入權限的團隊或組織基礎權限"
+      },
+      "reopenSubtitleGroup_one": "允許新學生接受作業，並為 {{count}} 個小組的儲存庫恢復寫入權限。",
+      "reopenSubtitleGroup_other": "允許新學生接受作業，並為 {{count}} 個小組的儲存庫恢復寫入權限。",
+      "reopenWarningGroup_one": "這會再次允許新學生接受作業，並為 {{count}} 個小組的儲存庫恢復寫入權限。",
+      "reopenWarningGroup_other": "這會再次允許新學生接受作業，並為 {{count}} 個小組的儲存庫恢復寫入權限。",
+      "subtitleGroup_one": "禁止新學生接受作業，並將 {{count}} 個小組的儲存庫設為唯讀。",
+      "subtitleGroup_other": "禁止新學生接受作業，並將 {{count}} 個小組的儲存庫設為唯讀。",
+      "warningGroup_one": "這會禁止任何新學生接受作業，並將每位成員在 {{count}} 個小組儲存庫上的角色設為唯讀（pull）。現有的作業會保留，但在你重新開放前會變成唯讀。",
+      "warningGroup_other": "這會禁止任何新學生接受作業，並將每位成員在 {{count}} 個小組儲存庫上的角色設為唯讀（pull）。現有的作業會保留，但在你重新開放前會變成唯讀。"
     },
     "closedNotice": "提交已關閉。新學生無法接受此作業。當你從此處關閉時，已接受學生的儲存庫會設為唯讀；既有作品會保留。從「動作」選單重新開放即可再次允許提交。",
     "rowAutograde": {
@@ -3637,7 +3657,7 @@
         "loading": "正在載入協作者",
         "needsAdmin": "你需要此儲存庫的 admin 存取權，才能變更其協作者。",
         "newRole": "新協作者的角色",
-        "notApplied": "GitHub 保留了原有角色（{{effective}}）。儲存庫的建立者無法被降級到低於管理員。請請學生自行降低存取權，或轉移儲存庫的擁有權。",
+        "notApplied": "GitHub 保留了現有的角色（{{effective}}）。仍有更高層級的授權在生效：組織擁有者或儲存庫建立者角色，或是團隊或基礎權限。請移除該授權或轉移儲存庫，然後再重新設定角色。",
         "removeUser": "移除 {{username}}",
         "roleFor": "{{username}} 的角色",
         "save": "更新存取權",
@@ -3645,7 +3665,9 @@
         "saved": "已更新存取權。",
         "studentBadge": "學生",
         "title": "管理儲存庫存取權",
-        "viewRepoNamed": "檢視 {{name}} 儲存庫"
+        "viewRepoNamed": "檢視 {{name}} 儲存庫",
+        "notAppliedMembers": "GitHub 為 {{members}} 保留了現有的角色。仍有更高層級的授權在生效：組織擁有者或儲存庫建立者角色，或是團隊或基礎權限。請移除該授權或轉移儲存庫，然後再重新設定角色。",
+        "teamMissing": "找不到這個小組的團隊，因此未變更這個儲存庫。請重新載入頁面後再試一次。"
       }
     },
     "groupTeamMembers": {

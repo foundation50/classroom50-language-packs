@@ -3242,7 +3242,7 @@
     "closeSubmission": {
       "menuLabel": "关闭提交",
       "reopenLabel": "重新开放提交",
-      "menuTitle": "关闭提交窗口：阻止新学生接受，并将每个学生仓库设为只读",
+      "menuTitle": "关闭提交窗口：阻止新学生接受作业，并将每个作业仓库设为只读",
       "reopenMenuTitle": "重新开放提交窗口：允许新的接受并恢复写入权限",
       "title": "关闭提交",
       "reopenTitle": "重新开放提交",
@@ -3273,7 +3273,27 @@
       "deferredDetail": "已跳过。重新运行以更新。",
       "statusBadge": {
         "closed": "已关闭"
-      }
+      },
+      "keptRole": "GitHub 保留了原有角色（{{effective}}）。",
+      "keptRoleMembers": "GitHub 为 {{members}} 保留了原有角色。",
+      "noReposGroup": "此作业还没有任何小组拥有仓库。关闭后仍会阻止新学生接受作业。",
+      "notAppliedHint": {
+        "admin": "仓库管理员或创建者角色",
+        "lead": "上面列出的学生仍拥有写入权限。GitHub 保留了一个关闭操作无法降低的更高角色。它来自以下其中之一：",
+        "leadGroup": "上面提到的成员仍拥有写入权限。GitHub 保留了一个关闭操作无法降低的更高角色。它来自以下其中之一：",
+        "next": "请移除该角色或权限，或转移仓库。然后使用<b>更新学生仓库访问权限</b>将仓库设为只读。",
+        "nextGroup": "请移除该角色或权限，或转移仓库。然后在 GitHub 上该仓库的<b>协作者和团队</b>设置中将该成员的角色设为只读。",
+        "owner": "组织所有者角色",
+        "team": "授予写入权限的团队或组织基础权限"
+      },
+      "reopenSubtitleGroup_one": "允许新学生接受作业，并为 {{count}} 个小组的仓库恢复写入权限。",
+      "reopenSubtitleGroup_other": "允许新学生接受作业，并为 {{count}} 个小组的仓库恢复写入权限。",
+      "reopenWarningGroup_one": "此操作将再次允许接受作业，并为 {{count}} 个小组的仓库恢复写入权限。",
+      "reopenWarningGroup_other": "此操作将再次允许接受作业，并为 {{count}} 个小组的仓库恢复写入权限。",
+      "subtitleGroup_one": "阻止新学生接受作业，并将 {{count}} 个小组的仓库设为只读。",
+      "subtitleGroup_other": "阻止新学生接受作业，并将 {{count}} 个小组的仓库设为只读。",
+      "warningGroup_one": "此操作将阻止任何新学生接受作业，并把 {{count}} 个小组仓库上每位成员的角色设为只读（拉取）。现有工作会被保留，但在你重新开放前变为只读。",
+      "warningGroup_other": "此操作将阻止任何新学生接受作业，并把 {{count}} 个小组仓库上每位成员的角色设为只读（拉取）。现有工作会被保留，但在你重新开放前变为只读。"
     },
     "deleteAssignment": {
       "menuLabel": "删除作业",
@@ -4015,12 +4035,14 @@
         "needsAdmin": "你需要拥有此仓库的 admin 权限才能更改其协作者。",
         "adminWarning": "为每位协作者设置角色，或添加和移除协作者。<b>Admin</b> 允许协作者更改仓库设置并管理协作者；组织安全默认设置仍会阻止成员更改仓库的可见性。",
         "studentBadge": "学生",
-        "notApplied": "GitHub 保留了现有角色（{{effective}}）。仓库创建者不能被降到 admin 以下。请让学生自行降低访问权限，或转移仓库所有权。",
+        "notApplied": "GitHub 保留了原有角色（{{effective}}）。仍有更高的授权在生效：组织所有者或仓库创建者角色，或某个团队或基础权限。请移除该授权或转移仓库，然后再次设置角色。",
         "roleFor": "{{username}} 的角色",
         "newRole": "新协作者的角色",
         "removeUser": "移除 {{username}}",
         "save": "更新访问权限",
-        "saveError": "部分更改无法保存。请检查高亮显示的协作者，然后再次保存以重试。{{suffix}}"
+        "saveError": "部分更改无法保存。请检查高亮显示的协作者，然后再次保存以重试。{{suffix}}",
+        "notAppliedMembers": "GitHub 为 {{members}} 保留了原有角色。仍有更高的授权在生效：组织所有者或仓库创建者角色，或某个团队或基础权限。请移除该授权或转移仓库，然后再次设置角色。",
+        "teamMissing": "未找到该小组的团队，因此此仓库未做更改。请重新加载页面后再试。"
       },
       "reuseShell": {
         "copying": "正在复制…",

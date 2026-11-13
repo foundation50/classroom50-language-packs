@@ -2993,7 +2993,7 @@
       "finishHint": "Die Abgabe ist für neue Lernende geschlossen, aber einige Repositorys sind noch nicht schreibgeschützt. Schließe den Vorgang ab, um nur diese erneut zu versuchen. Dadurch wird die Abgabe nicht wieder geöffnet.",
       "flagError": "Das Abgabefenster konnte nicht aktualisiert werden, daher wurden keine Repositorys geändert. Versuche es erneut.",
       "menuLabel": "Abgabe schließen",
-      "menuTitle": "Das Abgabefenster schließen: neue Lernende am Annehmen hindern und jedes Repository der Lernenden schreibgeschützt setzen",
+      "menuTitle": "Den Abgabezeitraum schließen: verhindert, dass neue Studierende annehmen, und setzt jedes Aufgaben-Repository auf schreibgeschützt",
       "noRepos": "Noch keine Lernenden haben diese Aufgabe angenommen. Das Schließen hindert neue Lernende dennoch am Annehmen.",
       "progress": "{{processed}} von {{total}} aktualisiert",
       "reopenApply": "Abgabe wieder öffnen",
@@ -3016,7 +3016,27 @@
       "title": "Abgabe schließen",
       "warning_one": "Dies verhindert, dass eine neue studierende Person annimmt, und setzt die Rolle von {{count}} studierenden Person in ihrem eigenen Repository auf Lesen (Pull). Bestehende Arbeit bleibt erhalten, wird aber schreibgeschützt, bis du wieder öffnest.",
       "warning_other": "Dies verhindert, dass neue Studierende annehmen, und setzt die Rollen von {{count}} Studierenden in ihren eigenen Repositories auf Lesen (Pull). Bestehende Arbeit bleibt erhalten, wird aber schreibgeschützt, bis du wieder öffnest.",
-      "working": "Repositories werden aktualisiert"
+      "working": "Repositories werden aktualisiert",
+      "keptRole": "GitHub hat die vorhandene Rolle beibehalten ({{effective}}).",
+      "keptRoleMembers": "GitHub hat die vorhandene Rolle für {{members}} beibehalten.",
+      "noReposGroup": "Noch keine Gruppe hat ein Repository für diese Aufgabe. Durch das Schließen werden neue Studierende trotzdem am Annehmen gehindert.",
+      "notAppliedHint": {
+        "admin": "Eine Repository-Admin- oder Ersteller-Rolle",
+        "lead": "Die oben aufgeführten Studierenden haben weiterhin Schreibzugriff. GitHub hat eine höhere Rolle beibehalten, die durch das Schließen nicht herabgesetzt werden kann. Sie stammt aus einer der folgenden Quellen:",
+        "leadGroup": "Die oben genannten Mitglieder haben weiterhin Schreibzugriff. GitHub hat eine höhere Rolle beibehalten, die durch das Schließen nicht herabgesetzt werden kann. Sie stammt aus einer der folgenden Quellen:",
+        "next": "Entfernen Sie diese Rolle oder Berechtigung oder übertragen Sie das Repository. Verwenden Sie anschließend <b>Repository-Zugriff der Studierenden aktualisieren</b>, um das Repository auf Lesezugriff zu setzen.",
+        "nextGroup": "Entfernen Sie diese Rolle oder Berechtigung oder übertragen Sie das Repository. Setzen Sie anschließend die Rolle des Mitglieds auf GitHub unter den Einstellungen <b>Mitarbeitende und Teams</b> des Repositorys auf Lesezugriff.",
+        "owner": "Eine Organisationsinhaber-Rolle",
+        "team": "Eine Team- oder Organisations-Basisberechtigung, die Schreibzugriff gewährt"
+      },
+      "reopenSubtitleGroup_one": "Erlaubt neuen Studierenden anzunehmen und stellt den Schreibzugriff für das Repository von {{count}} Gruppe wieder her.",
+      "reopenSubtitleGroup_other": "Erlaubt neuen Studierenden anzunehmen und stellt den Schreibzugriff für die Repositorys von {{count}} Gruppen wieder her.",
+      "reopenWarningGroup_one": "Dies erlaubt wieder neue Annahmen und stellt den Schreibzugriff für das Repository von {{count}} Gruppe wieder her.",
+      "reopenWarningGroup_other": "Dies erlaubt wieder neue Annahmen und stellt den Schreibzugriff für die Repositorys von {{count}} Gruppen wieder her.",
+      "subtitleGroup_one": "Verhindert, dass neue Studierende annehmen, und setzt das Repository von {{count}} Gruppe auf schreibgeschützt.",
+      "subtitleGroup_other": "Verhindert, dass neue Studierende annehmen, und setzt die Repositorys von {{count}} Gruppen auf schreibgeschützt.",
+      "warningGroup_one": "Dies verhindert, dass neue Studierende annehmen, und setzt die Rolle jedes Mitglieds im Repository von {{count}} Gruppe auf Lesezugriff (Pull). Vorhandene Arbeit bleibt erhalten, wird aber schreibgeschützt, bis Sie wieder öffnen.",
+      "warningGroup_other": "Dies verhindert, dass neue Studierende annehmen, und setzt die Rolle jedes Mitglieds in den Repositorys von {{count}} Gruppen auf Lesezugriff (Pull). Vorhandene Arbeit bleibt erhalten, wird aber schreibgeschützt, bis Sie wieder öffnen."
     },
     "closedNotice": "Abgaben sind geschlossen. Neue Studierende können diese Aufgabe nicht annehmen. Wenn du hier schließt, werden die Repositories der Studierenden, die angenommen haben, schreibgeschützt gesetzt; bestehende Arbeit bleibt erhalten. Öffne sie über das Aktionsmenü wieder, um Abgaben erneut zuzulassen.",
     "rowAutograde": {
@@ -3637,7 +3657,7 @@
         "loading": "Mitarbeitende werden geladen",
         "needsAdmin": "Du brauchst Admin-Zugriff auf dieses Repository, um seine Mitarbeitenden zu ändern.",
         "newRole": "Rolle für die neue mitarbeitende Person",
-        "notApplied": "GitHub hat die bestehende Rolle beibehalten ({{effective}}). Ersteller:innen eines Repositorys können nicht unter Administrator herabgestuft werden. Bitten Sie die studierende Person, ihren eigenen Zugriff zu verringern, oder übertragen Sie das Eigentum am Repository.",
+        "notApplied": "GitHub hat die vorhandene Rolle beibehalten ({{effective}}). Es gilt weiterhin eine höhere Berechtigung: eine Organisationsinhaber- oder Repository-Ersteller-Rolle oder eine Team- bzw. Basisberechtigung. Entfernen Sie diese Berechtigung oder übertragen Sie das Repository und legen Sie die Rolle dann erneut fest.",
         "removeUser": "{{username}} entfernen",
         "roleFor": "Rolle für {{username}}",
         "save": "Zugriff aktualisieren",
@@ -3645,7 +3665,9 @@
         "saved": "Zugriff aktualisiert.",
         "studentBadge": "Lernende:r",
         "title": "Repository-Zugriff verwalten",
-        "viewRepoNamed": "Repository {{name}} anzeigen"
+        "viewRepoNamed": "Repository {{name}} anzeigen",
+        "notAppliedMembers": "GitHub hat die vorhandene Rolle für {{members}} beibehalten. Es gilt weiterhin eine höhere Berechtigung: eine Organisationsinhaber- oder Repository-Ersteller-Rolle oder eine Team- bzw. Basisberechtigung. Entfernen Sie diese Berechtigung oder übertragen Sie das Repository und legen Sie die Rolle dann erneut fest.",
+        "teamMissing": "Das Team der Gruppe wurde nicht gefunden, daher wurde dieses Repository nicht geändert. Laden Sie die Seite neu und versuchen Sie es erneut."
       }
     },
     "groupTeamMembers": {

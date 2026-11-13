@@ -2993,7 +2993,7 @@
       "finishHint": "A entrega está fechada para novos estudantes, mas alguns repositórios ainda não estão somente leitura. Conclua o fechamento para tentar novamente apenas esses. Isso não reabre a entrega.",
       "flagError": "A janela de entrega não pôde ser atualizada, então nenhum repositório foi alterado. Tente novamente.",
       "menuLabel": "Encerrar submissão",
-      "menuTitle": "Fechar a janela de entrega: impedir que novos estudantes aceitem e definir o repositório de cada estudante como somente leitura",
+      "menuTitle": "Fechar o período de entrega: impede que novos estudantes aceitem e define todos os repositórios da tarefa como somente leitura",
       "noRepos": "Nenhum estudante aceitou esta tarefa ainda. Fechar ainda impede que novos estudantes aceitem.",
       "progress": "Atualizados {{processed}} de {{total}}",
       "reopenApply": "Reabrir submissão",
@@ -3016,7 +3016,27 @@
       "title": "Encerrar submissão",
       "warning_one": "Isto bloqueia qualquer novo aluno de aceitar e define o papel de {{count}} aluno no próprio repositório como leitura (pull). O trabalho existente é preservado, mas fica somente leitura até você reabrir.",
       "warning_other": "Isto bloqueia qualquer novo aluno de aceitar e define os papéis de {{count}} alunos nos próprios repositórios como leitura (pull). O trabalho existente é preservado, mas fica somente leitura até você reabrir.",
-      "working": "Atualizando repositórios"
+      "working": "Atualizando repositórios",
+      "keptRole": "O GitHub manteve a função existente ({{effective}}).",
+      "keptRoleMembers": "O GitHub manteve a função existente para {{members}}.",
+      "noReposGroup": "Nenhum grupo tem um repositório para esta tarefa ainda. Fechar continua impedindo que novos estudantes aceitem.",
+      "notAppliedHint": {
+        "admin": "Uma função de administrador ou criador do repositório",
+        "lead": "Os estudantes listados acima ainda têm acesso de escrita. O GitHub manteve uma função de nível mais alto que o fechamento não consegue reduzir. Ela vem de uma destas origens:",
+        "leadGroup": "Os membros citados acima ainda têm acesso de escrita. O GitHub manteve uma função de nível mais alto que o fechamento não consegue reduzir. Ela vem de uma destas origens:",
+        "next": "Remova essa função ou permissão, ou transfira o repositório. Em seguida, use <b>Atualizar acesso aos repositórios dos estudantes</b> para definir o repositório como leitura.",
+        "nextGroup": "Remova essa função ou permissão, ou transfira o repositório. Em seguida, defina a função do membro como leitura nas configurações de <b>Colaboradores e equipes</b> do repositório no GitHub.",
+        "owner": "Uma função de proprietário da organização",
+        "team": "Uma permissão base de equipe ou organização que concede escrita"
+      },
+      "reopenSubtitleGroup_one": "Permite que novos estudantes aceitem e restaura o acesso de escrita ao repositório de {{count}} grupo.",
+      "reopenSubtitleGroup_other": "Permite que novos estudantes aceitem e restaura o acesso de escrita aos repositórios de {{count}} grupos.",
+      "reopenWarningGroup_one": "Isso permite novas aceitações novamente e restaura o acesso de escrita ao repositório de {{count}} grupo.",
+      "reopenWarningGroup_other": "Isso permite novas aceitações novamente e restaura o acesso de escrita aos repositórios de {{count}} grupos.",
+      "subtitleGroup_one": "Impede que novos estudantes aceitem e define o repositório de {{count}} grupo como somente leitura.",
+      "subtitleGroup_other": "Impede que novos estudantes aceitem e define os repositórios de {{count}} grupos como somente leitura.",
+      "warningGroup_one": "Isso impede que qualquer novo estudante aceite e define a função de cada membro no repositório de {{count}} grupo como leitura (pull). O trabalho existente é preservado, mas fica somente leitura até você reabrir.",
+      "warningGroup_other": "Isso impede que qualquer novo estudante aceite e define a função de cada membro nos repositórios de {{count}} grupos como leitura (pull). O trabalho existente é preservado, mas fica somente leitura até você reabrir."
     },
     "closedNotice": "As submissões estão encerradas. Novos alunos não podem aceitar esta atividade. Quando você encerra por aqui, os repositórios dos alunos que aceitaram são definidos como somente leitura; o trabalho existente é preservado. Reabra pelo menu Ações para permitir submissões novamente.",
     "rowAutograde": {
@@ -3637,7 +3657,7 @@
         "loading": "Carregando colaboradores",
         "needsAdmin": "Você precisa de acesso de admin neste repositório para alterar seus colaboradores.",
         "newRole": "Papel para o novo colaborador",
-        "notApplied": "O GitHub manteve o papel existente ({{effective}}). Quem cria um repositório não pode ser rebaixado abaixo de administrador. Peça ao estudante para reduzir o próprio acesso ou transfira a propriedade do repositório.",
+        "notApplied": "O GitHub manteve a função existente ({{effective}}). Uma concessão de nível mais alto ainda se aplica: uma função de proprietário da organização ou criador do repositório, ou uma permissão de equipe ou permissão base. Remova essa concessão ou transfira o repositório e, em seguida, defina a função novamente.",
         "removeUser": "Remover {{username}}",
         "roleFor": "Papel para {{username}}",
         "save": "Atualizar acesso",
@@ -3645,7 +3665,9 @@
         "saved": "Acesso atualizado.",
         "studentBadge": "Aluno",
         "title": "Gerenciar acesso ao repositório",
-        "viewRepoNamed": "Ver repositório {{name}}"
+        "viewRepoNamed": "Ver repositório {{name}}",
+        "notAppliedMembers": "O GitHub manteve a função existente para {{members}}. Uma concessão de nível mais alto ainda se aplica: uma função de proprietário da organização ou criador do repositório, ou uma permissão de equipe ou permissão base. Remova essa concessão ou transfira o repositório e, em seguida, defina a função novamente.",
+        "teamMissing": "A equipe do grupo não foi encontrada, então este repositório não foi alterado. Recarregue a página e tente novamente."
       }
     },
     "groupTeamMembers": {
