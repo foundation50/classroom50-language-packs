@@ -3105,7 +3105,7 @@
       "finishHint": "Gönderim yeni öğrencilere kapatıldı, ancak bazı depolar henüz salt okunur değil. Yalnızca onları yeniden denemek için kapatmayı tamamlayın. Bu, gönderimi yeniden açmaz.",
       "flagError": "Gönderim penceresi güncellenemedi, bu yüzden hiçbir depo değiştirilmedi. Tekrar deneyin.",
       "menuLabel": "Gönderimi kapat",
-      "menuTitle": "Gönderim penceresini kapat: yeni öğrencilerin kabul etmesini engelle ve her öğrencinin deposunu salt okunur yap",
+      "menuTitle": "Gönderim penceresini kapat: yeni öğrencilerin kabul etmesini engeller ve her ödev deposunu salt okunur yapar",
       "noRepos": "Bu ödevi henüz kabul eden öğrenci yok. Kapatma yine de yeni öğrencilerin kabul etmesini engeller.",
       "progress": "{{total}} depodan {{processed}} tanesi güncellendi",
       "reopenApply": "Gönderimi yeniden aç",
@@ -3128,7 +3128,27 @@
       "title": "Gönderimi kapat",
       "warning_one": "Bu, herhangi bir yeni öğrencinin kabul etmesini engeller ve {{count}} öğrencinin kendi deposundaki rolünü okuma (pull) olarak ayarlar. Mevcut çalışma korunur ancak siz yeniden açana kadar salt okunur olur.",
       "warning_other": "Bu, herhangi bir yeni öğrencinin kabul etmesini engeller ve {{count}} öğrencinin kendi deposundaki rolünü okuma (pull) olarak ayarlar. Mevcut çalışma korunur ancak siz yeniden açana kadar salt okunur olur.",
-      "working": "Depolar güncelleniyor"
+      "working": "Depolar güncelleniyor",
+      "keptRole": "GitHub mevcut rolü ({{effective}}) korudu.",
+      "keptRoleMembers": "GitHub, {{members}} için mevcut rolü korudu.",
+      "noReposGroup": "Bu ödev için henüz hiçbir grubun deposu yok. Kapatmak yine de yeni öğrencilerin kabul etmesini engeller.",
+      "notAppliedHint": {
+        "admin": "Bir depo yöneticisi veya oluşturucu rolü",
+        "lead": "Yukarıda listelenen öğrencilerin hâlâ yazma erişimi var. GitHub, kapatmanın düşüremediği daha yüksek bir rolü korudu. Bu, şunlardan birinden kaynaklanıyor:",
+        "leadGroup": "Yukarıda adı geçen üyelerin hâlâ yazma erişimi var. GitHub, kapatmanın düşüremediği daha yüksek bir rolü korudu. Bu, şunlardan birinden kaynaklanıyor:",
+        "next": "O rolü veya izni kaldırın ya da depoyu devredin. Ardından depoyu okuma olarak ayarlamak için <b>Öğrenci depo erişimini güncelle</b>'yi kullanın.",
+        "nextGroup": "O rolü veya izni kaldırın ya da depoyu devredin. Ardından GitHub'daki deponun <b>İşbirlikçiler ve takımlar</b> ayarlarından üyenin rolünü okuma olarak ayarlayın.",
+        "owner": "Bir kuruluş sahibi rolü",
+        "team": "Yazma hakkı veren bir takım veya kuruluş temel izni"
+      },
+      "reopenSubtitleGroup_one": "Yeni öğrencilerin kabul etmesine izin verir ve {{count}} grubun deposu için yazma erişimini geri yükler.",
+      "reopenSubtitleGroup_other": "Yeni öğrencilerin kabul etmesine izin verir ve {{count}} grubun depoları için yazma erişimini geri yükler.",
+      "reopenWarningGroup_one": "Bu, yeni kabulleri yeniden mümkün kılar ve {{count}} grubun deposu için yazma erişimini geri yükler.",
+      "reopenWarningGroup_other": "Bu, yeni kabulleri yeniden mümkün kılar ve {{count}} grubun depoları için yazma erişimini geri yükler.",
+      "subtitleGroup_one": "Yeni öğrencilerin kabul etmesini engeller ve {{count}} grubun deposunu salt okunur yapar.",
+      "subtitleGroup_other": "Yeni öğrencilerin kabul etmesini engeller ve {{count}} grubun depolarını salt okunur yapar.",
+      "warningGroup_one": "Bu, herhangi bir yeni öğrencinin kabul etmesini engeller ve {{count}} grubun deposundaki her üyenin rolünü okuma (pull) olarak ayarlar. Mevcut çalışmalar korunur ancak siz yeniden açana kadar salt okunur hâle gelir.",
+      "warningGroup_other": "Bu, herhangi bir yeni öğrencinin kabul etmesini engeller ve {{count}} grubun depolarındaki her üyenin rolünü okuma (pull) olarak ayarlar. Mevcut çalışmalar korunur ancak siz yeniden açana kadar salt okunur hâle gelir."
     },
     "closedNotice": "Gönderimler kapalı. Yeni öğrenciler bu ödevi kabul edemez. Buradan kapattığınızda, kabul etmiş öğrencilerin depoları salt okunur olarak ayarlanır; mevcut çalışma korunur. Gönderimlere yeniden izin vermek için İşlemler menüsünden yeniden açın.",
     "rowAutograde": {
@@ -3804,7 +3824,7 @@
         "loading": "Katkıda bulunanlar yükleniyor",
         "needsAdmin": "Bu deponun katkıda bulunanlarını değiştirmek için üzerinde admin erişimine ihtiyacınız var.",
         "newRole": "Yeni katkıda bulunan için rol",
-        "notApplied": "GitHub mevcut rolü ({{effective}}) korudu. Bir depo oluşturucusu, yönetici düzeyinin altına düşürülemez. Öğrenciden kendi erişimini düşürmesini isteyin veya depo sahipliğini devredin.",
+        "notApplied": "GitHub mevcut rolü ({{effective}}) korudu. Daha yüksek bir yetki hâlâ geçerli: bir kuruluş sahibi veya depo oluşturucu rolü ya da bir takım veya temel izin. O yetkiyi kaldırın veya depoyu devredin, ardından rolü yeniden ayarlayın.",
         "removeUser": "{{username}} kullanıcısını kaldır",
         "roleFor": "{{username}} için rol",
         "save": "Erişimi güncelle",
@@ -3812,7 +3832,9 @@
         "saved": "Erişim güncellendi.",
         "studentBadge": "Öğrenci",
         "title": "Depo erişimini yönet",
-        "viewRepoNamed": "{{name}} deposunu görüntüle"
+        "viewRepoNamed": "{{name}} deposunu görüntüle",
+        "notAppliedMembers": "GitHub, {{members}} için mevcut rolü korudu. Daha yüksek bir yetki hâlâ geçerli: bir kuruluş sahibi veya depo oluşturucu rolü ya da bir takım veya temel izin. O yetkiyi kaldırın veya depoyu devredin, ardından rolü yeniden ayarlayın.",
+        "teamMissing": "Grubun takımı bulunamadı, bu nedenle bu depo değiştirilmedi. Sayfayı yeniden yükleyip tekrar deneyin."
       }
     },
     "groupTeamMembers": {
